@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ---- Sicherheitsrichtlinie (Content Security Policy) ----
+     Legt fest, von wo der Browser ueberhaupt etwas laden darf. Alles Eigene
+     kommt von dieser Domain, dazu PayPal fuer die Kasse und Supabase fuer
+     Konto und Daten. Skripte von sonstwo werden blockiert - das entschaerft
+     eingeschleusten Code (XSS) erheblich.
+
+     script-src kommt ohne 'unsafe-inline' aus, weil in diesem Projekt kein
+     einziges <script> direkt im HTML steht. Das bitte so lassen: Ein inline
+     geschriebenes Skript wuerde ab sofort stillschweigend nicht mehr laufen.
+
+     style-src braucht 'unsafe-inline', weil an einigen Stellen style="..."
+     direkt am Element haengt.
+
+     ACHTUNG: Die Supabase-Adresse steht hier fest im HTML und zusaetzlich in
+     konfig.js. Wechselst du das Supabase-Projekt, musst du sie an beiden
+     Stellen aendern - sonst blockiert der Browser die Verbindung.
+     -------------------------------------------------------------------- -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.paypal.com https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co https://*.paypal.com; frame-src https://*.paypal.com https://*.paypalobjects.com">
+<link rel="canonical" href="https://tylertweaks.github.io/">
 <title>Tyler Tweaks — Tweak App &amp; PC-Optimierung für Gaming</title>
-<meta name="description" content="Mehr FPS und weniger Input-Lag aus der Hardware, die du schon hast. Tweak App für 15 €, persönliche PC-Optimierung für 20 € oder beides im Bundle für 30 €. Backup inklusive, jederzeit rückgängig.">
-<meta name="theme-color" content="#07070c">
+<meta name="description" content="Mehr FPS und weniger Input-Lag aus der Hardware, die du schon hast. Tweak App ab 2,99 €, persönliche PC-Optimierung für 49,99 € oder beides im Bundle für 69,99 €. Backup inklusive, jederzeit rückgängig.">
+<meta name="theme-color" content="#070810">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
@@ -13,6 +33,7 @@
 <meta property="og:title" content="Tyler Tweaks — Tweak App &amp; PC-Optimierung">
 <meta property="og:description" content="Windows sauber optimieren: per App selbst oder persönlich per Remote-Sitzung. Backup inklusive, alles rückgängig zu machen.">
 <meta property="og:url" content="https://tylertweaks.github.io/">
+<meta name="twitter:card" content="summary">
 
 <!--
   ====================================================================
@@ -26,8 +47,21 @@
   Werte. Geheimes (PayPal-Secret, service_role) gehoert ausschliesslich
   in die Supabase-Secrets.
 
-  HINWEIS: Impressum und Datenschutzerklaerung fehlen weiterhin. Sobald
-  das Angebot gewerblich laeuft, sind beide in DE/AT Pflicht.
+  OFFEN: Es gibt noch kein Vorschaubild fuer geteilte Links (og:image).
+  Ein bewusst nicht gesetztes og:image ist besser als eines, das auf eine
+  nicht vorhandene Datei zeigt - dann zeigen Discord und WhatsApp gar
+  nichts an statt eines kaputten Rahmens. Sobald ein Bild da ist (1200x630,
+  PNG oder JPG, z. B. bilder/vorschau.png), hier ergaenzen:
+
+      <meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+
+  und twitter:card oben auf "summary_large_image" setzen.
+
+  OFFEN: Impressum, Datenschutz, AGB und Widerruf existieren, enthalten
+  aber noch Platzhalter (Name, Anschrift, E-Mail, USt-ID). Vor dem ersten
+  echten Verkauf ausfuellen - in DE/AT ist das Pflicht.
   ====================================================================
 -->
 
@@ -52,9 +86,9 @@
     </a>
 
     <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
-      <a href="#top">Home</a>
-      <a href="#app">App</a>
-      <a href="#leistungen">Optimierung</a>
+      <a href="#top">Startseite</a>
+      <a href="#app">Tweak App</a>
+      <a href="#leistungen">Leistungen</a>
       <a href="#preise">Preise</a>
       <a href="#faq">FAQ</a>
       <a href="admin.html" id="nav-admin" hidden>Admin</a>
@@ -82,18 +116,19 @@
 
     <span class="pill"><span class="dot" aria-hidden="true"></span> Für Windows 10 &amp; 11</span>
 
-    <h1>Mehr FPS aus dem PC,<br><span class="grad">den du schon hast.</span></h1>
+    <h1>Mehr FPS. Weniger Input-Lag.<br><span class="grad">Mehr Kontrolle.</span></h1>
 
     <p class="lead">
-      Windows läuft ab Werk nie optimal. Die Tweak App erledigt die Optimierung per Klick —
-      oder ich mache sie persönlich für dich. Vor jeder Änderung wird gesichert.
-      Alles lässt sich wieder zurücksetzen.
+      Optimiere deinen Gaming-PC mit nachvollziehbaren Windows-, Performance- und
+      Netzwerk-Einstellungen. Die Tweak App erledigt das per Klick — oder ich mache
+      es persönlich für dich. Vor jeder Änderung wird gesichert, alles lässt sich
+      wieder zurücksetzen.
     </p>
 
     <div class="hero-cta">
-      <a href="#preise" class="btn btn-primary btn-lg" data-scroll-to="tarif-app">
+      <a href="#app" class="btn btn-primary btn-lg">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        Tweak App kaufen
+        Tweak App entdecken
       </a>
       <a href="#preise" class="btn btn-outline btn-lg" data-scroll-to="tarif-opt">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
@@ -102,7 +137,7 @@
     </div>
 
     <p class="hero-meta">
-      Ab 2 € zum Ausprobieren · Lifetime für 15 € · Zahlung über PayPal ·
+      Ab 2,99 € zum Ausprobieren · Lifetime für 29,99 € · Zahlung über PayPal ·
       Lizenz und Download sofort nach der Bestätigung
     </p>
 
@@ -117,7 +152,7 @@
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
-        <div><strong>Updates gratis</strong><span>24 Stunden bis Lifetime</span></div>
+        <div><strong>Jede Änderung umkehrbar</strong><span>einzeln oder komplett</span></div>
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
@@ -199,7 +234,7 @@
 
                 <div class="win-tiles">
                   <div class="tile">
-                    <span class="lbl">Aktives Profil</span>
+                    <span class="lbl">Aktives Preset</span>
                     <span class="val accent">Gaming</span>
                     <div class="meter"><i style="width:100%"></i></div>
                   </div>
@@ -216,7 +251,7 @@
                 </div>
 
                 <div class="win-h" style="margin-bottom:10px">
-                  <div><h4>Profil wählen</h4></div>
+                  <div><h4>Preset wählen</h4></div>
                 </div>
 
                 <div class="profiles">
@@ -231,28 +266,28 @@
                   <div class="prof">
                     <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg></span>
                     <div>
-                      <div class="pn">Standard</div>
-                      <div class="pd">Alltag &amp; Arbeit</div>
+                      <div class="pn">Privatsphäre</div>
+                      <div class="pd">Telemetrie &amp; Tracking</div>
                     </div>
                   </div>
                   <div class="prof">
-                    <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg></span>
+                    <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 8h5l-3 12"/></svg></span>
                     <div>
-                      <div class="pn">Silent</div>
-                      <div class="pd">Leise &amp; kühl</div>
+                      <div class="pn">Tempo</div>
+                      <div class="pd">Schneller Start</div>
                     </div>
                   </div>
                 </div>
 
                 <div class="win-actions">
-                  <span class="wbtn main">Profil anwenden</span>
+                  <span class="wbtn main">Preset anwenden</span>
                   <span class="wbtn">System prüfen</span>
-                  <span class="spacer">Lizenz aktiv · Updates automatisch</span>
+                  <span class="spacer">Lizenz aktiv · 1 PC</span>
                 </div>
               </div>
             </div>
           </div>
-          <p class="shot-caption">Übersicht: Systemstatus, aktives Profil und die letzte Sicherung auf einen Blick.</p>
+          <p class="shot-caption">Übersicht: Systemstatus, aktives Preset und die letzte Sicherung auf einen Blick.</p>
         </div>
 
         <!-- ---- Ansicht 2: Tweaks ---- -->
@@ -436,7 +471,7 @@
                   <div class="bk now">
                     <span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
                     <div class="bt">
-                      <div class="bn">Vor Profil „Gaming“</div>
+                      <div class="bn">Vor Preset „Gaming“</div>
                       <div class="bd">18.09.2026, 14:02 · Registry + Dienste + Energieplan</div>
                     </div>
                     <span class="ba">Wiederherstellen</span>
@@ -481,45 +516,80 @@
         <h3 style="font-size:1.3rem;margin-bottom:.8em">Was die App kann</h3>
         <ul class="feature-list">
           <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3"/></svg></span>
             <div>
-              <h3>Über 40 Tweaks per Schalter</h3>
-              <p>Dienste, Telemetrie, Energieplan, Netzwerk, Maus und Autostart — alles einzeln an- und abschaltbar.</p>
+              <h3>Gaming Tweaks</h3>
+              <p>Ein Preset bündelt 21 Einstellungen: MMCSS-Priorität für Spiele, Core Parking, Power Throttling, GameDVR und Vollbild-Optimierungen.</p>
             </div>
           </li>
           <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3"/></svg></span>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 8h5l-3 12"/></svg></span>
             <div>
-              <h3>Drei fertige Profile</h3>
-              <p>Gaming, Standard und Silent. Ein Klick, und das System steht passend zum Anlass.</p>
+              <h3>Performance Tweaks</h3>
+              <p>CPU, GPU, Arbeitsspeicher, Energieplan, visuelle Effekte und Startverzögerung — jeweils einzeln schaltbar.</p>
+            </div>
+          </li>
+          <li>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+            <div>
+              <h3>Network Tweaks</h3>
+              <p>Nagle-Algorithmus, Netzwerk-Throttling und die Energiespar-Einstellungen der Netzwerkkarte, die Latenz kosten können.</p>
+            </div>
+          </li>
+          <li>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg></span>
+            <div>
+              <h3>Input Tweaks</h3>
+              <p>Mausbeschleunigung aus, Tastatur-Wiederholrate und Eingabe-Warteschlange. Bewusst schlank — die App ersetzt keine Maus-Software.</p>
+            </div>
+          </li>
+          <li>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></span>
+            <div>
+              <h3>Windows Cleanup</h3>
+              <p>Vorinstallierte Store-Apps entfernen und Autostart aufräumen — inklusive versteckter Einträge und geplanter Aufgaben. Eine Schutzliste verhindert, dass etwas Wichtiges fliegt.</p>
+            </div>
+          </li>
+          <li>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+            <div>
+              <h3>System-Analyse</h3>
+              <p>Live-Übersicht über CPU, GPU, Arbeitsspeicher und Windows-Version. Sind Werte nicht auslesbar, steht dort „n/v" statt einer erfundenen Zahl.</p>
             </div>
           </li>
           <li>
             <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
             <div>
-              <h3>Ein-Klick-Wiederherstellung</h3>
-              <p>Vor jeder Änderung wird gesichert. Gefällt dir etwas nicht, bist du sofort wieder da, wo du warst.</p>
+              <h3>Wiederherstellung</h3>
+              <p>Windows-Wiederherstellungspunkt, Registry-Sicherung und der alte Wert jedes einzelnen Tweaks. Im Verlauf machst du jede Änderung einzeln rückgängig.</p>
             </div>
           </li>
           <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="11" y1="15" x2="17" y2="15"/></svg></span>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg></span>
             <div>
-              <h3>Autostart-Manager</h3>
-              <p>Sieht auch versteckte Startprogramme und geplante Aufgaben, die der Task-Manager nicht zeigt.</p>
+              <h3>Game Booster</h3>
+              <p>Schließt Hintergrundprogramme vor dem Spielen und startet sie danach wieder. Systemprozesse sind durch eine Schutzliste ausgenommen.</p>
             </div>
           </li>
           <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
             <div>
-              <h3>Klartext statt Fachchinesisch</h3>
-              <p>Zu jedem Tweak steht dabei, was er tut und wo er Nebenwirkungen haben kann.</p>
+              <h3>Lizenzverwaltung</h3>
+              <p>Schlüssel beim ersten Start eingeben, danach meldet sich die App selbst an. Fällt das Internet aus, läuft sie bis zum Ablauf der Lizenz weiter.</p>
             </div>
           </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg></span>
+          <li class="geplant">
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
             <div>
-              <h3>Laufzeit nach Wahl, Updates gratis</h3>
-              <p>Ab 2 € zum Reinschnuppern oder einmalig für immer. Neue Versionen lädst du jederzeit im Kundenbereich.</p>
+              <h3>Gaming Profiles <span class="tag-geplant">in Entwicklung</span></h3>
+              <p>Eigene Profile pro Spiel speichern und umschalten. Noch nicht enthalten — heute gibt es die fünf festen Presets Gaming, Privatsphäre, Tempo, Aufräumen und Sicher.</p>
+            </div>
+          </li>
+          <li class="geplant">
+            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/></svg></span>
+            <div>
+              <h3>Automatische Updates <span class="tag-geplant">geplant</span></h3>
+              <p>Die App prüft derzeit nicht selbst auf neue Versionen. Neue Versionen lädst du im Kundenbereich herunter und installierst sie über die alte — deine Lizenz bleibt gültig.</p>
             </div>
           </li>
         </ul>
@@ -620,7 +690,7 @@
         <p class="plan-desc">Das Werkzeug, mit dem du selbst tweakst — so oft du willst.</p>
 
         <div class="price">
-          <span class="amount" id="app-preis">15</span><span class="cur">€</span><span class="once">einmalig</span>
+          <span class="amount" id="app-preis">29,99</span><span class="cur">€</span><span class="once">einmalig</span>
         </div>
 
         <fieldset class="laufzeit-wahl" id="laufzeit-wahl">
@@ -631,18 +701,18 @@
         </fieldset>
 
         <ul class="features">
-          <li>Über 40 Tweaks per Schalter</li>
-          <li>Profile: Gaming, Standard, Silent</li>
-          <li>Ein-Klick-Wiederherstellung</li>
-          <li>Autostart-Manager</li>
+          <li>Über 80 Tweaks per Schalter</li>
+          <li>5 Presets: Gaming, Privatsphäre, Tempo, Aufräumen, Sicher</li>
+          <li>Wiederherstellungspunkt &amp; Einzel-Undo</li>
+          <li>Autostart- &amp; App-Manager</li>
           <li id="app-lizenz-zeile">Lebenslange Lizenz für 1 PC</li>
-          <li>Updates kostenlos</li>
+          <li>Neue Versionen kostenlos</li>
           <li class="off">Keine persönliche Optimierung</li>
         </ul>
 
         <div class="plan-buy">
           <a class="btn btn-outline btn-block" id="app-kaufen" href="kaufen.html?produkt=app-lifetime">
-            Für 15 € kaufen
+            Für 29,99 € kaufen
           </a>
           <p class="plan-alt">Zahlung über PayPal · Lizenz sofort im Kundenbereich</p>
         </div>
@@ -656,10 +726,10 @@
         <p class="plan-desc">Die App <em>und</em> die persönliche Optimierung zusammen.</p>
 
         <div class="price">
-          <span class="old">35 €</span>
-          <span class="amount">30</span><span class="cur">€</span><span class="once">einmalig</span>
+          <span class="old">79,98 €</span>
+          <span class="amount">69,99</span><span class="cur">€</span><span class="once">einmalig</span>
         </div>
-        <p class="save">Du sparst 5 €</p>
+        <p class="save">Du sparst 9,99 €</p>
 
         <ul class="features">
           <li>Alles aus der Tweak App</li>
@@ -667,13 +737,13 @@
           <li>Persönliche Einweisung in die App</li>
           <li>Eigenes Profil für dein System</li>
           <li>Bevorzugter Support</li>
-          <li>Updates kostenlos</li>
+          <li>Neue Versionen kostenlos</li>
           <li>Nachbesserung innerhalb von 14 Tagen</li>
         </ul>
 
         <div class="plan-buy">
           <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
-            Für 30 € kaufen
+            Für 69,99 € kaufen
           </a>
           <p class="plan-alt">Zahlung über PayPal · Lizenz sofort, Termin direkt danach</p>
         </div>
@@ -685,7 +755,7 @@
         <h3>PC-Optimierung</h3>
         <p class="plan-desc">Ich optimiere deinen PC persönlich per Remote-Sitzung.</p>
 
-        <div class="price"><span class="amount">20</span><span class="cur">€</span><span class="once">einmalig</span></div>
+        <div class="price"><span class="amount">49,99</span><span class="cur">€</span><span class="once">einmalig</span></div>
 
         <ul class="features">
           <li>Komplette Optimierung von Hand</li>
@@ -699,7 +769,7 @@
 
         <div class="plan-buy">
           <a class="btn btn-outline btn-block" href="kaufen.html?produkt=optimierung" data-preis="optimierung">
-            Für 20 € kaufen
+            Für 49,99 € kaufen
           </a>
           <p class="plan-alt">Zahlung über PayPal · Termin nach Absprache</p>
         </div>
@@ -755,7 +825,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
               <b>SICHER BEZAHLEN</b>
             </span>
-            <span class="amt">30,00 €</span>
+            <span class="amt">69,99 €</span>
             <span class="go"></span>
           </span>
         </div>
@@ -814,7 +884,7 @@
 
     <div class="section-head">
       <span class="eyebrow">Sicherheit</span>
-      <h2>Was du wissen solltest, bevor du kaufst</h2>
+      <h2>Sicher. Kontrolliert. Reversibel.</h2>
       <p class="sub">Lieber vorher ehrlich als hinterher enttäuscht. Hier steht, was passiert, was unterstützt wird und was ich bewusst nicht anfasse.</p>
     </div>
 
@@ -824,14 +894,19 @@
         <div class="icon icon-ok">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
         </div>
-        <h3>Backup vor jeder Änderung</h3>
+        <h3>Gesichert vor wichtigen Änderungen</h3>
         <p>
-          Vor dem ersten Tweak wird ein Registry-Backup und ein Windows-Wiederherstellungspunkt angelegt.
-          Danach vor jedem weiteren Schritt erneut.
+          Zu jedem einzelnen Tweak merkt sich die App den vorherigen Wert — nicht den
+          Windows-Standard, sondern genau das, was bei dir vorher eingestellt war. Im Verlauf
+          machst du jede Änderung einzeln rückgängig.
         </p>
         <p>
-          Du kommst also immer zurück — über die App mit einem Klick, oder notfalls über Windows
-          selbst, wenn die App gar nicht mehr startet.
+          Zusätzlich sichert die App die betroffenen Registry-Zweige und legt vor größeren
+          Durchläufen einen Windows-Wiederherstellungspunkt an. Du kommst also auch dann zurück,
+          wenn die App selbst nicht mehr startet.
+        </p>
+        <p class="muted" style="font-size:.85rem">
+          Eine Ausnahme: Entfernte Store-Apps holt die App nicht zurück. Sie weist vorher darauf hin.
         </p>
       </article>
 
@@ -861,13 +936,15 @@
         <ul class="speclist">
           <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.4.0</span></li>
           <li><span class="k">Stand</span><span class="v" data-app-date>18.09.2026</span></li>
-          <li><span class="k">Updates</span><span class="v">kostenlos</span></li>
+          <li><span class="k">Neue Versionen</span><span class="v">kostenlos</span></li>
+          <li><span class="k">Update-Prüfung</span><span class="v"><span class="tag-no">manuell</span></span></li>
           <li><span class="k">Laufzeiten</span><span class="v">24 Std. bis Lifetime</span></li>
           <li><span class="k">Gültig für</span><span class="v">1 PC</span></li>
         </ul>
         <p class="muted" style="font-size:.85rem;margin-top:14px">
-          Neue Versionen erscheinen im Kundenbereich. Dein Schlüssel bleibt derselbe — du lädst
-          einfach die neue Datei.
+          Die App meldet sich noch nicht selbst, wenn eine neue Version da ist. Sie erscheint im
+          Kundenbereich, du lädst sie dort und installierst sie über die alte. Dein Schlüssel
+          bleibt derselbe.
         </p>
       </article>
 
@@ -916,96 +993,207 @@
 
     <div class="faq">
       <details open>
+        <summary>Was ist Tyler Tweaks?</summary>
+        <div class="faq-body">
+          <p>Zwei Dinge: eine Windows-Software für Gaming-PCs — die <strong>Tweak App</strong> — und eine persönliche Optimierung, bei der ich deinen PC per Remote-Sitzung selbst einstelle. Du kannst beides einzeln oder zusammen im Bundle bekommen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Was macht die Tweak App genau?</summary>
+        <div class="faq-body">
+          <p>Sie fasst über 80 dokumentierte Windows-Einstellungen in einer Oberfläche zusammen — Gaming, Leistung, Netzwerk, Eingabe, Datenschutz, Dienste, Explorer, Windows Update und Speicher. Jede lässt sich einzeln an- und abschalten, und zu jeder steht dabei, was sie bewirkt.</p>
+          <p>Dazu kommen fünf fertige Presets, ein Autostart- und App-Manager, der Game Booster und eine Live-Übersicht über CPU, GPU und Arbeitsspeicher.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Unterstützt ihr Windows 10 und Windows 11?</summary>
+        <div class="faq-body">
+          <p>Ja, beide — jeweils in der 64-Bit-Version. Ältere Windows-Versionen werden nicht unterstützt.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Funktioniert die App mit NVIDIA und AMD?</summary>
+        <div class="faq-body">
+          <p>Ja. Die App ändert Windows-Einstellungen, keine Treiber-internen Werte — sie ist deshalb unabhängig davon, welche Grafikkarte oder CPU verbaut ist. AMD, Intel, NVIDIA: alles gleichermaßen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Funktioniert sie auf Laptops?</summary>
+        <div class="faq-body">
+          <p>Grundsätzlich ja, aber mit Einschränkungen. Manche Hersteller sperren Energieeinstellungen oder überschreiben sie mit eigener Software. Tweaks, die auf deinem Gerät nicht anwendbar sind, meldet die App ehrlich als nicht unterstützt, statt sie stillschweigend zu überspringen.</p>
+          <p>Bei Notebooks im Akkubetrieb sind Leistungs-Tweaks außerdem oft kontraproduktiv, weil sie die Laufzeit kosten.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Muss ich Administrator sein?</summary>
+        <div class="faq-body">
+          <p>Ja. Die App ändert Einstellungen in der Registry und an Windows-Diensten — das geht nur mit erhöhten Rechten. Beim Start erscheint deshalb die Windows-Abfrage der Benutzerkontensteuerung.</p>
+          <p>Dabei steht aktuell <em>„Unbekannter Herausgeber“</em> und Windows SmartScreen warnt beim ersten Start, weil das Setup noch nicht mit einem Zertifikat signiert ist. Das ist bekannt und ändert sich, sobald ein Code-Signing-Zertifikat vorliegt.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Kann ich Änderungen zurücksetzen?</summary>
+        <div class="faq-body">
+          <p>Ja, auf drei Ebenen. Die App merkt sich zu jedem Tweak den vorherigen Wert und macht ihn im Verlauf einzeln rückgängig. Zusätzlich sichert sie die betroffenen Registry-Zweige und legt auf Wunsch einen Windows-Wiederherstellungspunkt an.</p>
+          <p><strong>Eine Ausnahme:</strong> Entfernte Store-Apps lassen sich über die App nicht zurückholen — die musst du bei Bedarf aus dem Microsoft Store neu installieren. Die App weist vorher darauf hin.</p>
+        </div>
+      </details>
+
+      <details>
         <summary>Ist das sicher für meinen PC?</summary>
         <div class="faq-body">
-          <p>Ja. Es werden ausschließlich dokumentierte Windows- und Treibereinstellungen geändert — kein Übertakten, keine Spannungsänderungen, keine dubiosen Fremdprogramme.</p>
-          <p>Vor jeder Änderung wird ein Registry-Backup und ein Windows-Wiederherstellungspunkt angelegt.</p>
+          <p>Es werden ausschließlich dokumentierte Windows-Einstellungen geändert — kein Übertakten, keine Spannungsänderungen, kein Eingriff in die Hardware. Deine Garantie bleibt davon unberührt.</p>
+          <p>Vor wichtigen Änderungen wird gesichert, und eine Schutzliste verhindert, dass beim Aufräumen etwas entfernt wird, das Windows braucht.</p>
         </div>
       </details>
 
       <details>
-        <summary>Kann ich alles wieder rückgängig machen?</summary>
+        <summary>Was passiert nach dem Kauf?</summary>
         <div class="faq-body">
-          <p>Ja, jede einzelne Änderung. Die App hat dafür eine Ein-Klick-Wiederherstellung mit Wiederherstellungspunkten nach Datum.</p>
-          <p>Bei der persönlichen Optimierung bekommst du das Backup und ein Protokoll aller Änderungen.</p>
+          <p>Sobald PayPal die Zahlung bestätigt hat, legt das System die Bestellung an, erzeugt deinen Lizenzschlüssel und ordnet ihn deinem Konto zu. Beides erscheint sofort im <a href="konto.html">Kundenbereich</a> — du musst nichts anfordern und auf nichts warten.</p>
+          <p>Hast du die <strong>PC-Optimierung</strong> oder das <strong>Bundle</strong> gekauft, schreibst du mir danach auf Discord <strong class="discord-name">tyler061312</strong>, und wir machen einen Termin aus.</p>
         </div>
       </details>
 
       <details>
-        <summary>Verliere ich meine Garantie?</summary>
+        <summary>Wo finde ich meine Lizenz?</summary>
         <div class="faq-body">
-          <p>Nein. Es wird nichts am Gerät geöffnet und keine Hardware-Einstellung manipuliert — es geht ausschließlich um Software-Konfiguration.</p>
+          <p>Dauerhaft in deinem <a href="konto.html">Kundenbereich</a> unter „Meine Lizenzen“, mit einem Knopf zum Kopieren. Du kannst den Schlüssel also nicht verlieren.</p>
+          <p>Passwort vergessen? Über <a href="passwort-vergessen.html">„Passwort vergessen“</a> setzt du es per E-Mail zurück.</p>
         </div>
       </details>
 
       <details>
-        <summary>Wie bekomme ich meinen Lizenzschlüssel?</summary>
+        <summary>Wie funktioniert der Download?</summary>
         <div class="faq-body">
-          <p>Automatisch. Sobald PayPal die Zahlung bestätigt hat, erzeugt das System einen Schlüssel und ordnet ihn deinem Konto zu. Du findest ihn sofort im <a href="konto.html">Kundenbereich</a> unter „Meine Lizenzen“ — mit einem Knopf zum Kopieren.</p>
-          <p>Du musst niemanden anschreiben und auf nichts warten.</p>
+          <p>Im Kundenbereich unter „Downloads“. Der Knopf wird freigeschaltet, sobald eine gültige Lizenz auf deinem Konto liegt. Du lädst das Setup herunter, führst es aus und gibst beim ersten Start der App deinen Schlüssel ein.</p>
+          <p>Zu jeder Version steht dort die SHA-256-Prüfsumme, mit der du die Datei überprüfen kannst.</p>
         </div>
       </details>
 
       <details>
-        <summary>Was mache ich, wenn ich den Schlüssel verloren habe?</summary>
+        <summary>Wie bekomme ich Updates?</summary>
         <div class="faq-body">
-          <p>Nichts — er steht dauerhaft in deinem <a href="konto.html">Kundenbereich</a>. Melde dich einfach an.</p>
-          <p>Passwort vergessen? Dann kannst du es dir über <a href="passwort-vergessen.html">„Passwort vergessen“</a> per E-Mail zurücksetzen.</p>
+          <p>Derzeit von Hand: Die App prüft noch <strong>nicht</strong> selbst, ob eine neue Version vorliegt. Erscheint eine, lädst du sie im Kundenbereich herunter und installierst sie über die vorhandene — deine Einstellungen und deine Lizenz bleiben erhalten.</p>
+          <p>Neue Versionen kosten nichts extra. Eine automatische Update-Prüfung ist geplant, aber noch nicht eingebaut.</p>
         </div>
       </details>
 
       <details>
         <summary>Welche Laufzeiten gibt es?</summary>
         <div class="faq-body">
-          <p>Die Tweak App gibt es für 24 Stunden, 2 Tage, 1 Woche, 1 Monat, 1 Jahr — oder als Lifetime-Lizenz, die nie abläuft.</p>
-          <p>Kurze Laufzeiten sind zum Ausprobieren gedacht. Nach Ablauf lässt sich die App nicht mehr starten; deine Windows-Einstellungen bleiben natürlich so, wie du sie gesetzt hast, und lassen sich jederzeit über Windows selbst zurücknehmen.</p>
+          <p>24 Stunden, 2 Tage, 1 Woche, 1 Monat, 1 Jahr — oder Lifetime, das läuft nie ab.</p>
+          <p>Kurze Laufzeiten sind zum Ausprobieren gedacht. Nach Ablauf startet die App nicht mehr. Deine Windows-Einstellungen bleiben dabei natürlich so, wie du sie gesetzt hast.</p>
         </div>
       </details>
 
       <details>
-        <summary>Auf wie vielen PCs darf ich die App nutzen?</summary>
+        <summary>Kann ich meine Lizenz auf mehreren PCs verwenden?</summary>
         <div class="faq-body">
-          <p>Eine Lizenz gilt für einen PC. Beim ersten Start wird der Schlüssel an diesen Rechner gebunden.</p>
-          <p>Wenn du das Gerät wechselst, schreib mir kurz auf Discord — ich löse die Bindung, der Umzug ist kostenlos.</p>
+          <p>Nein. Eine Lizenz gilt für einen PC. Beim ersten Start wird der Schlüssel fest an diesen Rechner gebunden, danach lässt er sich auf keinem anderen aktivieren.</p>
+          <p>Wenn du den PC wechselst oder neu aufsetzt und die Hardware sich ändert, schreib mir kurz auf Discord — ich löse die Bindung, der Umzug kostet nichts.</p>
         </div>
       </details>
 
       <details>
-        <summary>Brauche ich für den Kauf ein Konto?</summary>
+        <summary>Wie funktioniert die Premium-PC-Optimierung?</summary>
         <div class="faq-body">
-          <p>Ja, ein kostenloses Konto mit E-Mail-Adresse und Passwort. Dadurch liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle — und du kommst auch dann wieder heran, wenn du den Schlüssel verlierst oder den PC neu aufsetzt.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Welche Systeme werden unterstützt?</summary>
-        <div class="faq-body">
-          <p>Windows 10 und Windows 11, jeweils 64-Bit. Egal ob AMD oder Intel, NVIDIA oder Radeon.</p>
-          <p>Bei Notebooks gelten je nach Hersteller Einschränkungen, weil manche Energieeinstellungen gesperrt sind. Frag im Zweifel vorher nach.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Wie lange dauert die Optimierung?</summary>
-        <div class="faq-body">
-          <p>Je nach System meist 45 bis 90 Minuten. Die Tweak App bekommst du dagegen direkt nach der Bestätigung.</p>
+          <p>Nach dem Kauf meldest du dich auf Discord, wir machen einen Termin aus und verbinden uns per Remote-Sitzung. Ich gehe dein System durch und erkläre dabei jeden Schritt. Das dauert je nach Zustand meist 45 bis 90 Minuten.</p>
+          <p>Am Ende bekommst du ein Protokoll aller Änderungen und das Backup — damit kannst du später auch selbst etwas zurücknehmen.</p>
         </div>
       </details>
 
       <details>
         <summary>Wie viele FPS bekomme ich mehr?</summary>
         <div class="faq-body">
-          <p>Das hängt komplett von deiner Hardware und deinem Ausgangszustand ab. Ein verwahrlostes System gewinnt deutlich, ein bereits sauberes weniger.</p>
-          <p>Ich verspreche bewusst keine konkreten Zahlen — nur eine saubere, nachvollziehbare Optimierung.</p>
+          <p>Das hängt von deiner Hardware und deinem Ausgangszustand ab. Ein System mit vielen Hintergrundprogrammen gewinnt deutlich, ein bereits sauberes kaum.</p>
+          <p>Ich nenne bewusst keine Zahl. Wer dir „+100 FPS garantiert“ verspricht, kennt weder deinen PC noch deine Spiele.</p>
         </div>
       </details>
 
       <details>
-        <summary>Kosten Updates extra?</summary>
+        <summary>Brauche ich für den Kauf ein Konto?</summary>
         <div class="faq-body">
-          <p>Nein. Deine Lizenz gilt unbegrenzt und alle Updates sind enthalten. Neue Versionen findest du im Kundenbereich.</p>
+          <p>Ja, ein kostenloses Konto mit E-Mail-Adresse und Passwort. Dadurch liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle — und du kommst auch dann wieder heran, wenn du den PC neu aufsetzt.</p>
+          <p>Nach der Registrierung bekommst du eine Bestätigungsmail. Erst nach dem Klick auf den Link darin kannst du kaufen.</p>
         </div>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPPORT ============ -->
+<section id="support" class="section section-alt reveal">
+  <div class="wrap">
+
+    <div class="section-head">
+      <span class="eyebrow">Support</span>
+      <h2>Wenn du Hilfe brauchst</h2>
+      <p class="sub">
+        Hinter Tyler Tweaks steht kein Callcenter, sondern eine Person. Dafür antworte ich
+        selbst — und weiß, wovon ich rede.
+      </p>
+    </div>
+
+    <div class="trust-grid">
+
+      <article class="trust-card">
+        <div class="icon icon-ok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Discord — der schnellste Weg</h3>
+        <p>
+          Schreib mir direkt auf Discord. Dort erreichst du mich am zuverlässigsten, und wir
+          können bei Bedarf sofort auf Sprache oder Bildschirmfreigabe wechseln.
+        </p>
+        <p class="keyline" style="margin-top:14px">
+          <strong class="discord-name">tyler061312</strong>
+        </p>
+        <p class="muted" style="font-size:.85rem">
+          Antwort meist innerhalb weniger Stunden, spätestens am nächsten Tag.
+        </p>
+      </article>
+
+      <article class="trust-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Du hast die PC-Optimierung gekauft?</h3>
+        <p>So geht es weiter:</p>
+        <ol class="speclist" style="padding-left:0;list-style:none">
+          <li><span class="k">1. Melden</span><span class="v">auf Discord, mit Bestellnummer</span></li>
+          <li><span class="k">2. Termin</span><span class="v">wir finden einen Zeitpunkt</span></li>
+          <li><span class="k">3. Sitzung</span><span class="v">Remote, 45–90 Minuten</span></li>
+          <li><span class="k">4. Protokoll</span><span class="v">alle Änderungen &amp; Backup</span></li>
+        </ol>
+        <p class="muted" style="font-size:.85rem;margin-top:14px">
+          Deine Bestellnummer steht im <a href="konto.html">Kundenbereich</a> unter „Bestellungen“.
+        </p>
+      </article>
+
+      <article class="trust-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3>Häufige Fälle</h3>
+        <ul class="speclist">
+          <li><span class="k">Schlüssel weg</span><span class="v"><a href="konto.html">Kundenbereich</a></span></li>
+          <li><span class="k">Passwort weg</span><span class="v"><a href="passwort-vergessen.html">zurücksetzen</a></span></li>
+          <li><span class="k">Keine Mail bekommen</span><span class="v">Spam prüfen</span></li>
+          <li><span class="k">PC gewechselt</span><span class="v">Discord, kostenlos</span></li>
+          <li><span class="k">App startet nicht</span><span class="v">Discord</span></li>
+        </ul>
+        <p class="muted" style="font-size:.85rem;margin-top:14px">
+          Eine Kontaktadresse per Post und E-Mail findest du im <a href="impressum.html">Impressum</a>.
+        </p>
+      </article>
+
     </div>
   </div>
 </section>
@@ -1014,9 +1202,9 @@
 <section class="cta reveal">
   <div class="wrap">
     <h2>Bereit für einen schnelleren PC?</h2>
-    <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst 5 €.</p>
+    <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst 9,99 €.</p>
     <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle">Bundle für 30 € ansehen</a>
+      <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle">Bundle für 69,99 € ansehen</a>
       <a class="btn btn-ghost btn-lg" href="#faq">Erst noch Fragen klären</a>
     </div>
   </div>
@@ -1053,10 +1241,26 @@
         <li><a href="konto.html">Kundenbereich</a></li>
         <li><a href="anmelden.html">Anmelden</a></li>
         <li><a href="registrieren.html">Registrieren</a></li>
+        <li><a href="passwort-vergessen.html">Passwort vergessen</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#support">Hilfe &amp; Kontakt</a></li>
         <li><a href="#faq">Häufige Fragen</a></li>
         <li><a href="#vertrauen">Sicherheit &amp; Backup</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
         <li><a href="impressum.html">Impressum</a></li>
         <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="widerruf.html">Widerrufsbelehrung</a></li>
       </ul>
     </div>
   </div>

@@ -66,22 +66,40 @@ window.TT_KONFIG = {
      selbst aus der Datenbank.
      ----------------------------------------------------------------------- */
   laufzeiten: [
-    { slug: 'app-24h',      kurz: '24 Std.',  lang: '24 Stunden', preis: '2.00'  },
-    { slug: 'app-2d',       kurz: '2 Tage',   lang: '2 Tage',     preis: '3.00'  },
-    { slug: 'app-1w',       kurz: '1 Woche',  lang: '1 Woche',    preis: '5.00'  },
-    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',    preis: '8.00'  },
-    { slug: 'app-1y',       kurz: '1 Jahr',   lang: '1 Jahr',     preis: '12.00' },
-    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime',   preis: '15.00' }
+    { slug: 'app-24h',      kurz: '24 Std.',  lang: '24 Stunden', preis: '2.99'  },
+    { slug: 'app-2d',       kurz: '2 Tage',   lang: '2 Tage',     preis: '4.99'  },
+    { slug: 'app-1w',       kurz: '1 Woche',  lang: '1 Woche',    preis: '7.99'  },
+    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',    preis: '12.99' },
+    { slug: 'app-1y',       kurz: '1 Jahr',   lang: '1 Jahr',     preis: '19.99' },
+    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime',   preis: '29.99' }
+  ],
+
+  /* ---- Die beiden festen Pakete ------------------------------------------
+     Standen früher fest im HTML und zusätzlich als Zahl in script.js. Damit
+     gab es drei Stellen für denselben Preis. Jetzt stehen sie nur noch hier.
+
+     Genau wie oben gilt: verbindlich ist der Preis in der Datenbank. Diese
+     Werte sorgen nur dafür, dass sofort etwas dasteht.
+
+     Der Schlüssel muss zum slug in der Produkttabelle passen und zu dem, was
+     im HTML unter data-preis steht.
+     ----------------------------------------------------------------------- */
+  pakete: [
+    { slug: 'optimierung', preis: '49.99' },
+    { slug: 'bundle',      preis: '69.99' }
   ],
 
   /* ---- Aktuelle App-Version ---------------------------------------------
      Version und Datum erscheinen überall, wo data-app-version bzw.
      data-app-date im HTML steht.
 
-     Die Setup-Datei selbst steht NICHT mehr hier. Sie liegt in einem privaten
-     Supabase-Bucket und wird nur nach Lizenzprüfung über einen signierten
-     Link ausgegeben (Edge Function "download"). Größe und Prüfsumme holt der
-     Kundenbereich direkt von dort.
+     Zum Download gibt es zwei Stufen. Zuerst fragt der Kundenbereich die Edge
+     Function "download": die prüft die Lizenz und gibt einen signierten Link
+     mit zwei Minuten Gültigkeit zurück. Das setzt voraus, dass in der Tabelle
+     app_release ein storage_path eingetragen ist.
+
+     Ist das noch nicht eingerichtet, antwortet sie mit "no_release" und der
+     Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
     version: '2.4.0',

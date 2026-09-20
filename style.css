@@ -64,40 +64,56 @@
 
 /* ========== 1. Tokens ========== */
 :root {
-  /* Flächen */
-  --bg:          #07070c;
-  --bg-2:        #0b0b13;
-  --surface:     #10101a;
-  --surface-2:   #161624;
-  --surface-3:   #1c1c2c;
+  /* ---- Flächen ----
+     Sechs Stufen statt fünf: Die Seite braucht eine Ebene zwischen Karte und
+     Karten-Innenfläche, sonst verschwimmen verschachtelte Kästen. Der Grundton
+     ist leicht blaustichig — reines Neutralgrau wirkt auf Monitoren schnell
+     schmutzig. */
+  --bg:          #070810;
+  --bg-2:        #0a0b14;
+  --surface:     #11131e;
+  --surface-2:   #171a27;
+  --surface-3:   #1e2231;
 
   /* Linien */
-  --line:        #23233a;
-  --line-strong: #32324e;
+  --line:        #242838;
+  --line-strong: #343a50;
 
-  /* Text */
-  --text:        #eef0f6;
-  --text-2:      #c8cadb;
-  --muted:       #9a9db5;
+  /* ---- Text ----
+     --muted erreicht auf --surface rund 5,4:1 Kontrast und bleibt damit auch
+     in Kleinschrift gut lesbar. Nicht weiter abdunkeln. */
+  --text:        #eef1f8;
+  --text-2:      #c5cad9;
+  --muted:       #969cb0;
 
-  /* Akzente */
-  --accent:      #22d3ee;
-  --accent-2:    #8b5cf6;
-  --accent-soft: rgba(34, 211, 238, .10);
-  --ok:          #34d399;
-  --ok-soft:     rgba(52, 211, 153, .10);
-  --warn:        #fbbf24;
+  /* ---- Akzente ----
+     Die -rgb-Varianten sind kein Luxus: An gut einem Dutzend Stellen braucht
+     die Seite den Akzent mit Transparenz (Verläufe, Schimmer, weiche Flächen).
+     Früher stand der Farbwert dort als Zahl im Code, was jede Farbänderung zu
+     einer Suchen-und-Ersetzen-Aktion gemacht hat. Jetzt hängt alles hier. */
+  --accent:        #6d8bff;
+  --accent-rgb:    109, 139, 255;
+  --accent-2:      #b07cff;
+  --accent-2-rgb:  176, 124, 255;
+  --accent-soft:   rgba(var(--accent-rgb), .10);
+  --ok:            #3dd68c;
+  --ok-soft:       rgba(61, 214, 140, .10);
+  --warn:          #f5b544;
 
-  /* Form */
-  --radius:      18px;
-  --radius-sm:   12px;
-  --radius-xs:   8px;
+  /* ---- Form ----
+     Eine Stufe flacher als vorher. Sehr runde Ecken lassen Software-Oberflächen
+     schnell nach Spielzeug aussehen. */
+  --radius:      16px;
+  --radius-sm:   11px;
+  --radius-xs:   7px;
   --maxw:        1160px;
   --gutter:      20px;
 
-  /* Schatten */
-  --shadow:      0 20px 50px rgba(0, 0, 0, .45);
-  --shadow-sm:   0 8px 24px rgba(0, 0, 0, .35);
+  /* ---- Schatten ----
+     Zwei Lagen statt einer: ein enger Schatten für die Kante, ein weiter für
+     die Tiefe. Das wirkt ruhiger als ein einzelner großer Weichzeichner. */
+  --shadow:      0 1px 2px rgba(0, 0, 0, .40), 0 18px 44px rgba(0, 0, 0, .46);
+  --shadow-sm:   0 1px 2px rgba(0, 0, 0, .35), 0 6px 18px rgba(0, 0, 0, .32);
 
   /* Schrift */
   --font:        'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -332,11 +348,11 @@ strong { color: var(--text); font-weight: 600; }
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #05050a;
-  box-shadow: 0 6px 24px rgba(34, 211, 238, .22);
+  box-shadow: 0 6px 24px rgba(var(--accent-rgb), .22);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(34, 211, 238, .34);
+  box-shadow: 0 12px 32px rgba(var(--accent-rgb), .34);
 }
 
 .btn-outline {
@@ -381,8 +397,8 @@ strong { color: var(--text); font-weight: 600; }
   inset: -30% 0 auto 0;
   height: 760px;
   background:
-    radial-gradient(640px 340px at 50% 26%, rgba(34, 211, 238, .15), transparent 70%),
-    radial-gradient(560px 320px at 20% 58%, rgba(139, 92, 246, .16), transparent 70%);
+    radial-gradient(660px 340px at 50% 24%, rgba(var(--accent-rgb), .13), transparent 70%),
+    radial-gradient(560px 320px at 18% 58%, rgba(var(--accent-2-rgb), .12), transparent 70%);
   pointer-events: none;
 }
 .hero::after {
@@ -490,7 +506,7 @@ strong { color: var(--text); font-weight: 600; }
 }
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(34, 211, 238, .42);
+  border-color: rgba(var(--accent-rgb), .42);
   background: var(--surface-2);
 }
 .card h3 { font-size: 1.12rem; margin-bottom: .45em; }
@@ -571,6 +587,33 @@ strong { color: var(--text); font-weight: 600; }
 .feature-list h3 { font-size: 1rem; margin: 0 0 .2em; }
 .feature-list p { color: var(--muted); font-size: .9rem; margin: 0; }
 
+/* ---- Noch nicht fertige Funktionen ----
+   Bewusst sichtbar abgesetzt: Was hier steht, kann die App heute NICHT. Das
+   Kürzel daneben sagt, woran man ist. Lieber ein ehrlicher Hinweis als ein
+   Versprechen, das beim ersten Start enttäuscht. */
+.feature-list li.geplant .fi {
+  background: rgba(154, 157, 181, .10);
+  color: var(--muted);
+}
+.feature-list li.geplant h3 { color: var(--text-2); }
+
+.tag-geplant {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 /* ========== 9. Preise ========== */
 .pricing {
   display: grid;
@@ -589,12 +632,12 @@ strong { color: var(--text); font-weight: 600; }
   border-radius: var(--radius);
   transition: transform .2s ease, border-color .2s ease;
 }
-.plan:hover { transform: translateY(-4px); border-color: rgba(34, 211, 238, .38); }
+.plan:hover { transform: translateY(-4px); border-color: rgba(var(--accent-rgb), .38); }
 
 .plan-featured {
   border-color: var(--accent);
-  background: linear-gradient(180deg, rgba(34, 211, 238, .08), var(--surface) 58%);
-  box-shadow: 0 0 0 1px rgba(34, 211, 238, .2), 0 22px 54px rgba(34, 211, 238, .1);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .08), var(--surface) 58%);
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb), .2), 0 22px 54px rgba(var(--accent-rgb), .1);
 }
 .plan-featured:hover { transform: translateY(-6px); }
 
@@ -693,8 +736,8 @@ strong { color: var(--text); font-weight: 600; }
 
 /* Kurzes Hervorheben, wenn ein Hero-Button auf eine Karte springt */
 @keyframes plan-flash {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
-  35%      { box-shadow: 0 0 0 4px rgba(34, 211, 238, .38); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0); }
+  35%      { box-shadow: 0 0 0 4px rgba(var(--accent-rgb), .38); }
 }
 .plan.flash {
   border-color: var(--accent);
@@ -820,7 +863,7 @@ strong { color: var(--text); font-weight: 600; }
   overflow: hidden;
   transition: border-color .2s ease;
 }
-.faq details[open] { border-color: rgba(34, 211, 238, .4); }
+.faq details[open] { border-color: rgba(var(--accent-rgb), .4); }
 .faq summary {
   position: relative;
   padding: 18px 52px 18px 22px;
@@ -855,7 +898,7 @@ strong { color: var(--text); font-weight: 600; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(560px 280px at 50% 50%, rgba(139, 92, 246, .16), transparent 70%);
+  background: radial-gradient(560px 280px at 50% 50%, rgba(var(--accent-2-rgb), .13), transparent 70%);
   pointer-events: none;
 }
 .cta .wrap { position: relative; }
@@ -965,8 +1008,8 @@ strong { color: var(--text); font-weight: 600; }
 .panel h2 { font-size: 1.18rem; margin-bottom: .6em; }
 .panel h3 { font-size: 1rem; margin-bottom: .5em; }
 .panel-accent {
-  border-color: rgba(34, 211, 238, .4);
-  background: linear-gradient(180deg, rgba(34, 211, 238, .06), var(--surface) 60%);
+  border-color: rgba(var(--accent-rgb), .4);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .06), var(--surface) 60%);
 }
 
 .keyline {
@@ -1054,7 +1097,7 @@ strong { color: var(--text); font-weight: 600; }
   place-items: center;
   border-radius: 50%;
   background: var(--accent-soft);
-  border: 1px solid rgba(34, 211, 238, .35);
+  border: 1px solid rgba(var(--accent-rgb), .35);
   color: var(--accent);
   font-size: .8rem;
   font-weight: 700;
@@ -1075,9 +1118,12 @@ strong { color: var(--text); font-weight: 600; }
   background: var(--bg-2);
   border-top: 1px solid var(--line);
 }
+/* Fünf Blöcke: Marke, Angebot, Konto, Support, Rechtliches.
+   Die Spaltenzahl muss deshalb durch fünf teilbar aufgehen, sonst rutscht der
+   letzte Block allein in eine zweite Zeile und reißt ein Loch ins Layout. */
 .footer-inner {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.6fr repeat(4, 1fr);
   gap: 32px;
   padding-bottom: 34px;
 }
@@ -1111,6 +1157,11 @@ strong { color: var(--text); font-weight: 600; }
   .app-layout { grid-template-columns: 1fr; gap: 40px; }
   .flow { grid-template-columns: repeat(2, 1fr); }
   .flow-step:nth-child(2)::after { display: none; }
+
+  /* Fünf Spalten werden hier zu eng. Die vier Linklisten teilen sich die
+     Breite, der Markenblock legt sich als eigene Zeile darüber. */
+  .footer-inner { grid-template-columns: repeat(4, 1fr); }
+  .footer-inner > div:first-child { grid-column: 1 / -1; }
 }
 
 /* Die Navigation braucht früher Platz als der Rest des Layouts:
@@ -1166,6 +1217,7 @@ strong { color: var(--text); font-weight: 600; }
   .plan-featured { order: -1; }
   .dash-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-inner > div:first-child { grid-column: 1 / -1; }
   .trustbar { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1321,7 +1373,7 @@ strong { color: var(--text); font-weight: 600; }
   place-items: center;
   border-radius: 50%;
   background: var(--accent-soft);
-  border: 1px solid rgba(34, 211, 238, .35);
+  border: 1px solid rgba(var(--accent-rgb), .35);
   color: var(--accent);
 }
 .erfolg-symbol svg { width: 26px; height: 26px; }
@@ -1491,8 +1543,8 @@ strong { color: var(--text); font-weight: 600; }
 
 /* ---------- Lizenzkarte ---------- */
 .lizenz-karte.aktiv {
-  border-color: rgba(34, 211, 238, .32);
-  background: linear-gradient(180deg, rgba(34, 211, 238, .05), var(--surface) 55%);
+  border-color: rgba(var(--accent-rgb), .32);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .05), var(--surface) 55%);
 }
 .lizenz-label {
   display: block;
@@ -1508,7 +1560,7 @@ strong { color: var(--text); font-weight: 600; }
   margin-left: auto;
   padding: 7px 14px;
   background: var(--accent-soft);
-  border: 1px solid rgba(34, 211, 238, .35);
+  border: 1px solid rgba(var(--accent-rgb), .35);
   border-radius: var(--radius-xs);
   color: var(--accent);
   font: inherit;
@@ -1519,7 +1571,7 @@ strong { color: var(--text); font-weight: 600; }
   flex-shrink: 0;
   transition: background .16s ease, color .16s ease, border-color .16s ease;
 }
-.keyline .key-kopieren:hover { background: rgba(34, 211, 238, .18); }
+.keyline .key-kopieren:hover { background: rgba(var(--accent-rgb), .18); }
 .keyline .key-kopieren.ok {
   background: var(--ok-soft);
   border-color: rgba(52, 211, 153, .4);
@@ -1593,7 +1645,7 @@ strong { color: var(--text); font-weight: 600; }
 }
 .laufzeit-knoepfe button.an {
   background: var(--accent-soft);
-  border-color: rgba(34, 211, 238, .5);
+  border-color: rgba(var(--accent-rgb), .5);
   color: var(--accent);
 }
 .lz-name  { font-size: .8rem; font-weight: 600; }

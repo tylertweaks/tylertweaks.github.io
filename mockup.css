@@ -6,11 +6,11 @@
 
 /* ========== App-Fenster ========== */
 .win {
-  --win-bg:   #0c0c15;
-  --win-bar:  #14141f;
-  --win-side: #101019;
-  --win-card: #171725;
-  --win-line: #262639;
+  --win-bg:   #0c0d17;
+  --win-bar:  #141622;
+  --win-side: #10111b;
+  --win-card: #181b28;
+  --win-line: #262a3b;
 
   border: 1px solid var(--win-line);
   border-radius: 14px;
@@ -108,7 +108,7 @@
 }
 .win-side .it svg { width: 15px; height: 15px; flex-shrink: 0; }
 .win-side .it.on {
-  background: rgba(34, 211, 238, .1);
+  background: rgba(var(--accent-rgb), .1);
   color: var(--accent);
 }
 .win-side .it.on::before {
@@ -214,7 +214,7 @@
 }
 .prof.on {
   border-color: var(--accent);
-  background: linear-gradient(180deg, rgba(34, 211, 238, .12), var(--win-card) 70%);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .12), var(--win-card) 70%);
 }
 .prof .pi {
   width: 30px; height: 30px;
@@ -225,7 +225,7 @@
   background: rgba(255, 255, 255, .05);
   color: var(--muted);
 }
-.prof.on .pi { background: rgba(34, 211, 238, .16); color: var(--accent); }
+.prof.on .pi { background: rgba(var(--accent-rgb), .16); color: var(--accent); }
 .prof .pi svg { width: 15px; height: 15px; }
 .prof .pn { font-size: .82rem; font-weight: 600; }
 .prof .pd { color: var(--muted); font-size: .68rem; margin-top: 2px; }
@@ -234,7 +234,7 @@
   margin-top: 8px;
   padding: 2px 9px;
   border-radius: 999px;
-  background: rgba(34, 211, 238, .16);
+  background: rgba(var(--accent-rgb), .16);
   color: var(--accent);
   font-size: .64rem;
   font-weight: 700;
@@ -275,7 +275,7 @@
   margin-left: 7px;
   padding: 1px 7px;
   border-radius: 999px;
-  background: rgba(251, 191, 36, .12);
+  background: rgba(245, 181, 68, .12);
   color: var(--warn);
   font-size: .62rem;
   font-weight: 700;
@@ -340,7 +340,7 @@
   font-weight: 600;
   white-space: nowrap;
 }
-.bk.now .ba { border-color: rgba(34, 211, 238, .5); color: var(--accent); }
+.bk.now .ba { border-color: rgba(var(--accent-rgb), .5); color: var(--accent); }
 
 .win-note {
   display: flex;
@@ -417,8 +417,8 @@
 .art-pick i:nth-child(2) {
   height: 66px;
   border-color: var(--accent);
-  background: linear-gradient(180deg, rgba(34, 211, 238, .22), var(--surface-2));
-  box-shadow: 0 0 0 3px rgba(34, 211, 238, .12);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .22), var(--surface-2));
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .12);
 }
 .art-pick i:nth-child(3) { height: 48px; }
 

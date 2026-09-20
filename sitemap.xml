@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tyler Tweaks — Sitemap
+
+  Hier stehen nur die Seiten, die auch in den Suchergebnissen auftauchen
+  sollen. Anmeldung, Kundenbereich, Kasse und Verwaltung fehlen bewusst.
+
+  lastmod bei Gelegenheit mitpflegen, wenn sich eine Seite inhaltlich
+  wirklich aendert. Ein falsches Datum ist schlechter als keines.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://tylertweaks.github.io/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://tylertweaks.github.io/impressum.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://tylertweaks.github.io/datenschutz.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://tylertweaks.github.io/agb.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://tylertweaks.github.io/widerruf.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>

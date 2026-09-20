@@ -222,17 +222,25 @@ window.TT = (function () {
   /* ====================================================================
      Navigation: Login/Registrieren bzw. Mein Konto einsetzen
      ==================================================================== */
+  var abmeldenVerdrahtet = false;
+
   function navHtml(angemeldet, name) {
     if (!angemeldet) {
-      return '<a href="anmelden.html" class="btn btn-ghost btn-sm">Login</a>' +
+      return '<a href="anmelden.html" class="btn btn-ghost btn-sm">Anmelden</a>' +
              '<a href="registrieren.html" class="btn btn-primary btn-sm">Registrieren</a>';
     }
-    var anzeige = name ? escape(name.split(' ')[0]) : 'Mein Konto';
-    return '<a href="konto.html" class="btn btn-konto btn-sm">' +
+
+    /* Angemeldet: Dashboard als Hauptziel, daneben der eigene Name als Weg zum
+       Profil und ein Knopf zum Abmelden. Der Vorname reicht — mehr passt in der
+       Leiste ohnehin nicht. */
+    var anzeige = name ? escape(name.split(' ')[0]) : 'Profil';
+    return '<a href="konto.html" class="btn btn-ghost btn-sm">Dashboard</a>' +
+           '<a href="konto.html#kontodaten" class="btn btn-konto btn-sm">' +
            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
            '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' +
-           '<span>' + anzeige + '</span></a>';
+           '<span>' + anzeige + '</span></a>' +
+           '<button type="button" class="btn btn-ghost btn-sm" data-tt-abmelden>Abmelden</button>';
   }
 
   async function navAufbauen() {
@@ -256,8 +264,22 @@ window.TT = (function () {
     if (desktop) desktop.innerHTML = html;
     if (mobil) {
       mobil.innerHTML = s
-        ? '<a href="konto.html">Mein Konto</a>'
-        : '<a href="anmelden.html">Login</a><a href="registrieren.html">Registrieren</a>';
+        ? '<a href="konto.html">Dashboard</a>' +
+          '<a href="konto.html#kontodaten">Profil</a>' +
+          '<a href="#" data-tt-abmelden>Abmelden</a>'
+        : '<a href="anmelden.html">Anmelden</a><a href="registrieren.html">Registrieren</a>';
+    }
+
+    /* Ein Zuhörer am Dokument statt an jedem einzelnen Knopf: die Navigation
+       wird neu gezeichnet, der Zuhörer bleibt. Deshalb nur einmal setzen. */
+    if (s && !abmeldenVerdrahtet) {
+      document.addEventListener('click', function (e) {
+        var knopf = e.target.closest('[data-tt-abmelden]');
+        if (!knopf) return;
+        e.preventDefault();
+        abmelden();
+      });
+      abmeldenVerdrahtet = true;
     }
   }
 
@@ -440,10 +462,19 @@ window.TT = (function () {
   /* ====================================================================
      Kleinigkeiten, die auf jeder Seite laufen
      ==================================================================== */
-  /** Navigation: Hintergrund beim Scrollen und mobiles Menü. */
+  /** Navigation: Hintergrund beim Scrollen und mobiles Menü.
+   *
+   *  Achtung: grundgeruest() wird von manchen Seiten mehrfach aufgerufen — die
+   *  Startseite etwa ruft es ein zweites Mal, um den Discord-Namen im
+   *  Übergangshinweis einzusetzen. Ohne die Sperre unten hing danach ein
+   *  zweiter Klick-Zuhörer am Burger-Knopf: Jeder Klick hat das Menü geöffnet
+   *  und sofort wieder geschlossen, es ging also gar nicht mehr auf. */
+  var navVerdrahtet = false;
+
   function navVerhalten() {
     var nav = document.getElementById('nav');
-    if (!nav) return;
+    if (!nav || navVerdrahtet) return;
+    navVerdrahtet = true;
 
     var aktualisieren = function () {
       nav.classList.toggle('scrolled', window.scrollY > 20 || nav.dataset.immer === 'ja');

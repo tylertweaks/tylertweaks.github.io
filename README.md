@@ -12,19 +12,31 @@ Live: https://tylertweaks.github.io/
 
 | Paket | Preis |
 |---|---|
-| Tweak App — 24 Stunden | 2 € |
-| Tweak App — 2 Tage | 3 € |
-| Tweak App — 1 Woche | 5 € |
-| Tweak App — 1 Monat | 8 € |
-| Tweak App — 1 Jahr | 12 € |
-| Tweak App — Lifetime | 15 € |
-| PC-Optimierung | 20 € |
-| Bundle (App Lifetime + Optimierung) | 30 € |
+| Tweak App — 24 Stunden | 2,99 € |
+| Tweak App — 2 Tage | 4,99 € |
+| Tweak App — 1 Woche | 7,99 € |
+| Tweak App — 1 Monat | 12,99 € |
+| Tweak App — 1 Jahr | 19,99 € |
+| Tweak App — Lifetime | 29,99 € |
+| PC-Optimierung | 49,99 € |
+| Bundle (App Lifetime + Optimierung) | 69,99 € |
 
 Verbindlich sind immer die Preise in der Supabase-Tabelle `products` — die
 Edge Function rechnet ausschließlich damit. Die Zahlen in `konfig.js` sorgen nur
 dafür, dass die Preisliste sofort etwas anzeigt; weichen sie ab, korrigiert die
 Seite sich beim Laden selbst.
+
+> **Noch offen:** Die Datenbank führt weiterhin die alten Preise (2 € bis 30 €).
+> Führ `backend/05-preise-2026.sql` im Supabase-SQL-Editor aus, **bevor** du den
+> automatischen Shop scharf schaltest. Sonst zeigt die Seite ab diesem Moment
+> wieder die alten Beträge an — die Datenbank gewinnt immer.
+>
+> Bereits abgeschlossene Bestellungen ändern sich dadurch nicht: `orders.price`
+> hält den Preis vom Kaufzeitpunkt fest.
+
+Alle Preise stehen an genau zwei Stellen: in der Datenbank (verbindlich) und in
+`konfig.js` unter `laufzeiten` und `pakete` (nur Anzeige). **Im HTML steht kein
+Preis mehr fest** — die Kaufknöpfe und Beträge werden beim Laden gefüllt.
 
 ## Zwei Kaufwege — die Seite wählt selbst
 
@@ -36,8 +48,12 @@ müssen **beide** Bedingungen erfüllt sein:
 
 | Zustand | Was der Kunde sieht |
 |---|---|
-| beides erfüllt | „Für 15 € kaufen“ → `kaufen.html`, Schlüssel entsteht automatisch |
-| noch nicht | „Für 15 € über PayPal zahlen“ → `paypal.me`, Schlüssel per Discord |
+| beides erfüllt | „Für 29,99 € kaufen“ → `kaufen.html`, Schlüssel entsteht automatisch |
+| noch nicht | „Für 29,99 € über PayPal zahlen“ → `paypal.me`, Schlüssel per Discord |
+
+**Aktuell greift der zweite Fall**, weil `paypalClientId` in `konfig.js` leer
+ist. Der gesamte serverseitig abgesicherte Weg ist fertig gebaut, aber
+abgeschaltet.
 
 Im zweiten Fall blendet die Seite zusätzlich einen Hinweis über den Preisen ein
 und schreibt den Kaufablauf (Schritt 1, 3 und 4) auf den manuellen Weg um —
@@ -86,6 +102,8 @@ Der Kunde muss nichts anfordern und niemanden anschreiben.
 | `script.js` | Startseite: Navigation, FAQ, App-Ansichten, Laufzeit-Auswahl |
 | `style.css` | Design-System der gesamten Seite |
 | `mockup.css` | Gezeichnete App-Oberfläche und Ablauf-Illustrationen |
+| `robots.txt` | Hält Kundenbereich, Kasse und Verwaltung aus den Suchergebnissen |
+| `sitemap.xml` | Die öffentlichen Seiten für Suchmaschinen |
 
 Im Normalbetrieb fasst du hier **gar nichts** an. Preise änderst du in Supabase
 unter **Table Editor → products**, neue Versionen über die Tabelle
@@ -119,6 +137,32 @@ Was daraus folgt:
   zwei Minuten verfällt.
 - Der Admin-Bereich ist nicht nur ausgeblendet: ohne `is_admin` gibt die
   Datenbank keine fremden Zeilen heraus.
+
+### Sicherheitsrichtlinie im Browser (CSP)
+
+Jede Seite trägt im `<head>` eine Content Security Policy. Sie legt fest, von wo
+der Browser überhaupt etwas laden darf: eigene Dateien, PayPal für die Kasse,
+Supabase für Konto und Daten — sonst nichts. Eingeschleuster Fremdcode läuft
+damit nicht.
+
+Zwei Dinge musst du dabei wissen:
+
+1. **Schreib keine Skripte direkt ins HTML.** `script-src` kommt bewusst ohne
+   `'unsafe-inline'` aus, weil im ganzen Projekt kein `<script>` mit Code im
+   HTML steht. Ein inline geschriebenes Skript würde ab sofort stillschweigend
+   nicht mehr ausgeführt.
+2. **Die Supabase-Adresse steht doppelt**: in `konfig.js` und in der CSP jeder
+   HTML-Seite. Wechselst du das Supabase-Projekt, musst du sie an beiden Stellen
+   ändern — sonst blockiert der Browser die Verbindung.
+
+### Was die CSP nicht leistet
+
+Die Sitzungsdaten von supabase-js liegen wie üblich im `localStorage` des
+Browsers. Die CSP macht es deutlich schwerer, dort heranzukommen, aber sie ist
+kein Ersatz dafür, keine fremden Skripte einzubinden.
+
+Als Meta-Tag lässt sich außerdem `frame-ancestors` nicht setzen — das ginge nur
+über einen echten HTTP-Header, den GitHub Pages nicht anbietet.
 
 ## Lokal ansehen
 

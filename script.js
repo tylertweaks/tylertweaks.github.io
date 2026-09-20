@@ -124,7 +124,16 @@
      6. Laufzeit-Auswahl in der Preiskarte
      ==================================================================== */
   var laufzeiten = (KONFIG.laufzeiten || []).slice();
+  var pakete = (KONFIG.pakete || []).slice();
   var gewaehlt = 'app-lifetime';
+
+  /* Preis eines festen Pakets (bundle, optimierung) aus der Konfiguration.
+     Früher stand der Betrag als Zahl hier im Code und zusätzlich im HTML —
+     jetzt gibt es nur noch konfig.js als Quelle. */
+  function paketPreis(slug) {
+    var eintrag = pakete.filter(function (p) { return p.slug === slug; })[0];
+    return eintrag ? eintrag.preis : null;
+  }
 
   /* Läuft der automatische Shop schon? Wird unten aus der Datenbank
      beantwortet. Bis dahin gehen wir davon aus, dass er läuft — sonst
@@ -234,7 +243,24 @@
     laufzeitZeigen(gewaehlt);
   }
 
+  /* Die beiden festen Karten aus der Konfiguration beschriften, damit im HTML
+     kein Preis mehr stehen muss. Wird gleich noch aus der Datenbank
+     bestätigt. */
+  function paketeZeichnen() {
+    document.querySelectorAll('[data-preis]').forEach(function (el) {
+      var preis = paketPreis(el.dataset.preis);
+      if (preis == null) return;
+
+      el.textContent = 'Für ' + preisFormat(preis) + ' € kaufen';
+
+      var karte = el.closest('.plan');
+      var betrag = karte && karte.querySelector('.price .amount');
+      if (betrag) betrag.textContent = preisFormat(preis);
+    });
+  }
+
   laufzeitenZeichnen();
+  paketeZeichnen();
 
   /* ====================================================================
      7. Preise aus der Datenbank bestätigen
@@ -256,10 +282,18 @@
 
     // Bundle und PC-Optimierung
     document.querySelectorAll('[data-preis]').forEach(function (el) {
-      var eintrag = { bundle: 30, optimierung: 20 }[el.dataset.preis];
+      var eintrag = paketPreis(el.dataset.preis);
+
+      /* Steht auf der Karte bereits ein aus der Datenbank bestätigter Betrag,
+         hat der Vorrang vor der Konfiguration. */
       var karte = el.closest('.plan');
       var betrag = karte && karte.querySelector('.price .amount');
-      if (betrag) eintrag = Number(betrag.textContent) || eintrag;
+      if (betrag) {
+        var ausKarte = Number(String(betrag.textContent).replace(',', '.'));
+        if (isFinite(ausKarte) && ausKarte > 0) eintrag = ausKarte;
+      }
+
+      if (eintrag == null) return;
 
       aufPaypalMeUmstellen(el, eintrag,
         el.dataset.preis === 'optimierung'

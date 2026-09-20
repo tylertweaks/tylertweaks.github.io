@@ -1,0 +1,19 @@
+# Tyler Tweaks
+#
+# Seiten hinter der Anmeldung und die Verwaltung gehoeren nicht in die
+# Suchergebnisse. Sie tragen zusaetzlich ein noindex im HTML - das hier ist
+# nur die zweite Sicherung.
+#
+# Wichtig: Disallow verhindert das Crawlen, nicht das Indexieren einer schon
+# bekannten Adresse. Die eigentliche Absicherung ist und bleibt die
+# Zugriffspruefung in der Datenbank, nicht diese Datei.
+
+User-agent: *
+Disallow: /admin.html
+Disallow: /konto.html
+Disallow: /kaufen.html
+Disallow: /passwort-neu.html
+Disallow: /passwort-vergessen.html
+Disallow: /downloads/
+
+Sitemap: https://tylertweaks.github.io/sitemap.xml
