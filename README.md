@@ -199,21 +199,34 @@ aus dem Zwischenspeicher verwendet.
 
 ## Rechtliches
 
-Vier Seiten, aus dem Fußbereich jeder Seite erreichbar:
+Die vier Seiten sind auf **österreichisches Recht** ausgelegt. Wenn du das
+Angebot einmal von Deutschland aus betreibst, müssen sie neu geschrieben
+werden — die Paragrafen stimmen dann alle nicht mehr.
 
-| Seite | Inhalt |
-|---|---|
-| `impressum.html` | Anbieterkennzeichnung nach § 5 DDG |
-| `datenschutz.html` | Information nach Art. 13 DSGVO |
-| `agb.html` | Allgemeine Geschäftsbedingungen |
-| `widerruf.html` | Widerrufsbelehrung mit Muster-Formular |
+| Seite | Inhalt | Rechtsgrundlage |
+|---|---|---|
+| `impressum.html` | Anbieterkennzeichnung | § 5 ECG, § 63 GewO, § 25 MedienG |
+| `datenschutz.html` | Information nach Art 13 DSGVO | DSGVO, DSG, § 165 TKG 2021 |
+| `agb.html` | Allgemeine Geschäftsbedingungen | ABGB, KSchG, VGG |
+| `widerruf.html` | Rücktrittsbelehrung mit Muster-Formular | FAGG |
 
-Auf der Kaufseite muss der Kunde AGB und Widerrufsbelehrung **aktiv per
+Auf der Kaufseite muss der Kunde AGB und Rücktrittsbelehrung **aktiv per
 Haken bestätigen** — vorher bleiben die PayPal-Knöpfe abgeschaltet. Bei
-Softwarelizenzen enthält der Text zusätzlich die ausdrückliche Zustimmung zum
-sofortigen Beginn; ohne die erlischt das Widerrufsrecht nicht vorzeitig. Bei
-der PC-Optimierung wird dieser Zusatz automatisch ausgeblendet, weil er dort
-nicht zutrifft.
+Softwarelizenzen enthält der Text zusätzlich das ausdrückliche Verlangen nach
+sofortigem Beginn und die Kenntnisnahme des Rechtsverlusts. Beides zusammen
+verlangt § 18 Abs 1 Z 11 FAGG; fehlt eines davon, bleibt das Rücktrittsrecht
+bestehen. Bei der PC-Optimierung wird dieser Zusatz automatisch ausgeblendet,
+weil dort § 18 Abs 1 Z 1 FAGG greift.
+
+**Noch einzutragen** (alle Seiten tragen dazu eine gelbe Warnbox):
+
+- Name bzw. Firmenwortlaut und ladungsfähige Anschrift
+- E-Mail-Adresse — nach § 5 ECG zwingend, Discord genügt nicht
+- Gewerbeberechtigung, GISA-Zahl, Gewerbebehörde und WKO-Fachgruppe
+- UID-Nummer (ATU…) **oder** der Kleinunternehmer-Satz nach § 6 Abs 1 Z 27 UStG
+- Firmenbuchnummer, falls eingetragen — sonst den Abschnitt streichen
+
+Danach die Warnboxen entfernen (`<div class="platzhalter-warnung">`).
 
 ## Setup-Datei
 
@@ -245,17 +258,20 @@ Get-FileHash "downloads\TylerTweaks-Setup-2.4.0.exe" -Algorithm SHA256
 
 ## Offen
 
-Alle vier Rechtsseiten sind **fertig gebaut, aber noch mit Platzhaltern** —
-jede trägt eine gelbe Warnbox. Vor dem ersten echten Verkauf einsetzen:
+Die Rechtstexte sind Vorlagen nach üblichem Aufbau, **keine anwaltliche
+Prüfung**. Was noch einzutragen ist, steht oben unter „Rechtliches“.
 
-- Name und vollständige Postanschrift
-- eine E-Mail-Adresse (vorgeschrieben, Discord allein genügt nicht)
-- die Umsatzsteuer-Angabe — entweder USt-IdNr. oder der
-  Kleinunternehmer-Satz nach § 19 UStG
+Die Wirtschaftskammer prüft Impressum und AGB für Mitglieder kostenlos. Wer
+gewerblich verkauft, ist automatisch Mitglied — dieser Termin lohnt sich vor
+dem ersten echten Verkauf.
 
-Danach die Warnboxen entfernen (`<div class="platzhalter-warnung">`).
+Ebenfalls offen:
 
-Die Texte sind Vorlagen nach üblichem Aufbau, **keine anwaltliche Prüfung**.
+- `backend/05-preise-2026.sql` in Supabase ausführen (die Datenbank führt noch
+  die alten Preise)
+- PayPal live schalten — siehe `EINRICHTUNG.md`
+- kein Vorschaubild für geteilte Links (`og:image`), siehe Kommentar im
+  `<head>` von `index.html`
 
 ## Kontakt
 

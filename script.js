@@ -311,7 +311,7 @@
     if (note) {
       note.innerHTML = 'Alle Preise in Euro, inklusive der jeweils geltenden Steuern. ' +
         'Es gelten die <a href="agb.html">AGB</a> und die ' +
-        '<a href="widerruf.html">Widerrufsbelehrung</a>.';
+        '<a href="widerruf.html">Rücktrittsbelehrung</a>.';
     }
 
     /* Der Kaufablauf weiter unten beschreibt den automatischen Weg. Solange

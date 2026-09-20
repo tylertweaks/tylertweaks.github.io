@@ -134,8 +134,8 @@
       ? 'wird automatisch erzeugt'
       : 'nicht nötig';
 
-    /* Der Zusatz zum vorzeitigen Erlöschen des Widerrufsrechts gilt nur für
-       digitale Inhalte. Bei der reinen Dienstleistung bleibt das Widerrufsrecht
+    /* Der Zusatz zum vorzeitigen Entfall des Rücktrittsrechts gilt nur für
+       digitale Inhalte. Bei der reinen Dienstleistung bleibt das Rücktrittsrecht
        bestehen — dort wäre der Satz schlicht falsch. */
     var digital = document.getElementById('zustimmung-digital');
     if (digital && !produkt.license_type) digital.hidden = true;
@@ -210,7 +210,7 @@
         onClick: function (data, actions) {
           if (haken && !haken.checked) {
             TT.melden('meldung',
-              'Bitte bestätige zuerst AGB und Widerrufsbelehrung.', 'warn');
+              'Bitte bestätige zuerst AGB und Rücktrittsbelehrung.', 'warn');
             return actions.reject();
           }
           return actions.resolve();
