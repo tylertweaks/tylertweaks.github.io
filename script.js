@@ -259,8 +259,76 @@
     });
   }
 
+  /* Alles, was sich aus den Preisen ERRECHNET, statt irgendwo zu stehen.
+
+     Vorher standen die durchgestrichene Summe (79,98 €) und die Ersparnis
+     (9,99 €) als feste Zahlen im HTML. Ändert sich ein Einzelpreis — und
+     verbindlich ist der aus der Datenbank —, blieben sie stehen: Die Karte
+     hätte dann "69,99 statt 79,98, du sparst 9,99" behauptet, während die
+     Einzelpreise daneben etwas anderes ergaben.
+
+     Deshalb wird hier gerechnet statt beschriftet. Ergibt die Rechnung keine
+     Ersparnis, verschwinden die beiden Angaben, statt eine negative zu
+     zeigen. */
+  function abgeleitetePreiseZeichnen() {
+    function betragText(wert) { return preisFormat(wert) + ' €'; }
+
+    /* Die Bundle-Beträge außerhalb der Preiskarte (Kassen-Vorschau,
+       Abschluss-CTA). Innerhalb der Karte macht das paketeZeichnen. */
+    document.querySelectorAll('[data-preis-betrag]').forEach(function (el) {
+      var preis = paketPreis(el.dataset.preisBetrag);
+      if (preis != null) el.textContent = betragText(preis);
+    });
+
+    /* Günstigste Laufzeit für den Hero-Text — nicht fest "2,99 €", sondern
+       das tatsächliche Minimum aus der Liste. */
+    var abEl = document.querySelector('[data-preis-ab]');
+    if (abEl && laufzeiten.length) {
+      var kleinster = laufzeiten.reduce(function (min, l) {
+        var z = Number(l.preis);
+        return isFinite(z) && z < min ? z : min;
+      }, Infinity);
+      if (isFinite(kleinster)) abEl.textContent = betragText(kleinster);
+    }
+
+    document.querySelectorAll('[data-preis-laufzeit]').forEach(function (el) {
+      var eintrag = laufzeiten.filter(function (l) {
+        return l.slug === el.dataset.preisLaufzeit;
+      })[0];
+      if (eintrag) el.textContent = betragText(eintrag.preis);
+    });
+
+    /* Summe und Ersparnis des Bundles. Bezugsgröße ist die Lifetime-Lizenz,
+       denn genau die steckt im Bundle drin. */
+    var lifetime = laufzeiten.filter(function (l) { return l.slug === 'app-lifetime'; })[0];
+    var optimierung = paketPreis('optimierung');
+    var bundle = paketPreis('bundle');
+
+    var summe = Number(lifetime && lifetime.preis) + Number(optimierung);
+    var ersparnis = summe - Number(bundle);
+
+    var summeEl = document.querySelector('[data-preis-summe]');
+    var sparEl = document.querySelector('[data-preis-ersparnis]');
+    var sparBetragEls = document.querySelectorAll('[data-preis-ersparnis-betrag]');
+
+    var gueltig = isFinite(summe) && isFinite(ersparnis) && ersparnis > 0;
+
+    if (summeEl) {
+      summeEl.textContent = gueltig ? betragText(summe) : '';
+      summeEl.hidden = !gueltig;
+    }
+    if (sparEl) {
+      sparEl.textContent = gueltig ? 'Du sparst ' + betragText(ersparnis) : '';
+      sparEl.hidden = !gueltig;
+    }
+    sparBetragEls.forEach(function (el) {
+      if (gueltig) el.textContent = betragText(ersparnis);
+    });
+  }
+
   laufzeitenZeichnen();
   paketeZeichnen();
+  abgeleitetePreiseZeichnen();
 
   /* ====================================================================
      7. Preise aus der Datenbank bestätigen
@@ -401,6 +469,17 @@
       var betrag = karte && karte.querySelector('.price .amount');
       if (betrag) betrag.textContent = preisFormat(preis);
     });
+
+    /* Auch die Liste selbst nachziehen, nicht nur die Beschriftungen im
+       Dokument: paketPreis() liest aus dieser Liste, und die Rechnung
+       darunter muss mit denselben Zahlen arbeiten wie die Karten darüber.
+       Ohne diesen Schritt stünde in der Summe weiter der Wert aus
+       konfig.js, während auf der Karte der aus der Datenbank steht. */
+    pakete.forEach(function (p) {
+      if (ausDb[p.slug] != null) p.preis = ausDb[p.slug];
+    });
+
+    abgeleitetePreiseZeichnen();
   })();
 
 })();

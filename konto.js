@@ -628,7 +628,14 @@
          Den Knopf sieht ohnehin nur, wer eine gültige Lizenz hat — und der
          eigentliche Schutz ist der Schlüssel, nicht die Adresse der Datei. */
       adresse = KONFIG.app.datei;
-      dateiname = 'TylerTweaks-Setup-' + ((KONFIG.app || {}).version || '') + '.exe';
+
+      /* Den Speichernamen aus dem Pfad nehmen, nicht neu zusammensetzen.
+         Vorher stand hier 'TylerTweaks-Setup-' + version + '.exe' — eine
+         zweite Schreibweise des Dateinamens, die niemand mitpflegt. Beim
+         Wechsel auf TylerTweaksSetup-2.5.0.exe hätte der Kunde die richtige
+         Datei unter einem Namen gespeichert, den es auf dem Server nicht
+         gibt. Ein Schrägstrich-Split kann nicht auseinanderlaufen. */
+      dateiname = String(KONFIG.app.datei).split('/').pop();
 
     } else {
       if (status) {

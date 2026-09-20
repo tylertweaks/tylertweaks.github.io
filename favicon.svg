@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tyler Tweaks — Symbol für den Browser-Tab.
+
+  Derselbe Blitz wie im Seitenkopf und in der App (Assets/app.ico), damit
+  Tab, Lesezeichen und Programmfenster als dasselbe Produkt erkennbar sind.
+
+  Als SVG, nicht als .ico: bleibt in jeder Größe scharf, ist ein Bruchteil
+  so groß und lässt sich hier direkt lesen und ändern. Ältere Browser, die
+  damit nichts anfangen können, greifen auf favicon.ico zurück — deshalb
+  steht im HTML beides.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="tt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6d8bff"/>
+      <stop offset="1" stop-color="#b07cff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund in der Grundfarbe der Seite (--bg), damit das Symbol auf
+       hellen wie dunklen Tab-Leisten eigenständig wirkt. -->
+  <rect width="64" height="64" rx="14" fill="#070810"/>
+
+  <!-- Der Blitz, mittig und auf die Fläche skaliert. -->
+  <path d="M35.5 6 11 36h21.5L30 58l23-30H34.5z" fill="url(#tt)"/>
+</svg>

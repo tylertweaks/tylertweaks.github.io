@@ -230,9 +230,14 @@ Danach die Warnboxen entfernen (`<div class="platzhalter-warnung">`).
 
 ## Setup-Datei
 
-`downloads/TylerTweaks-Setup-2.4.0.exe` (68,8 MB) liegt im Repository und wird
+`downloads/TylerTweaksSetup-2.5.0.exe` (59,4 MB) liegt im Repository und wird
 von GitHub Pages ausgeliefert. Supabase Storage schied aus: 50 MB Grenze im
 kostenlosen Tarif.
+
+Es liegt immer **genau eine** Setup-Datei in `downloads/`. Das Release-Skript
+entfernt die vorherige beim Kopieren — sonst weiß bald niemand mehr, welche
+die aktuelle ist, und das Repository wächst mit jeder Veröffentlichung um
+weitere 60 MB.
 
 **Die Adresse der Datei ist damit öffentlich.** Das ist eine bewusste
 Abwägung — der eigentliche Schutz ist der Lizenzschlüssel, ohne den die App
@@ -248,12 +253,27 @@ Richtest du später Cloudflare R2 ein und trägst `app_release.storage_path`
 ein, greift automatisch wieder Stufe 1 — dann kann die Datei aus dem
 Repository verschwinden.
 
-**Neue Version veröffentlichen:** Datei nach `downloads/` legen, in `konfig.js`
-unter `app` Version, Datum, Dateiname, Größe und Prüfsumme anpassen. Die
-Prüfsumme bekommst du mit:
+**Neue Version veröffentlichen:** nicht mehr von Hand. Im App-Projekt:
 
 ```powershell
-Get-FileHash "downloads\TylerTweaks-Setup-2.4.0.exe" -Algorithm SHA256
+powershell -File "E:\Tweak app\installer\release-fertigstellen.ps1" -Version 2.5.1 -Changelog "Was sich geändert hat."
+```
+
+Das Skript prüft die gebaute Datei, kopiert sie hierher, berechnet Größe und
+Prüfsumme, trägt beides samt Version und Datum in `konfig.js` ein, ergänzt den
+Changelog und legt das passende SQL für `app_release` ab. Danach nur noch
+committen, pushen und das SQL in Supabase ausführen — in dieser Reihenfolge.
+
+Warum nicht von Hand: Genau dieser Handbetrieb hat dazu geführt, dass
+monatelang die portable `Tyler.exe` (Version 1.3.0) unter dem Namen
+`TylerTweaks-Setup-2.4.0.exe` ausgeliefert wurde. Die Datei ließ sich starten,
+installierte aber nichts. Das Skript prüft deshalb vor dem Kopieren, ob die
+Datei wirklich ein Inno-Setup-Installer mit der erwarteten Version ist.
+
+Die Prüfsumme einer Datei bekommst du weiterhin mit:
+
+```powershell
+Get-FileHash "downloads\TylerTweaksSetup-2.5.0.exe" -Algorithm SHA256
 ```
 
 ## Offen

@@ -102,8 +102,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.4.0',
-    datum: '18.09.2026',
+    version: '2.5.0',
+    datum: '20.09.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -120,13 +120,14 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaks-Setup-2.4.0.exe',
-    groesse: '68,8 MB',
-    sha256: '75f8a9ab1bf96da91b5436b5cde8b6a374300e0f65914a46d141973db19d78d2'
+    datei: 'downloads/TylerTweaksSetup-2.5.0.exe',
+    groesse: '59,4 MB',
+    sha256: 'a9dac269350405a3ab0a52fb3f5cc46313790d3a0a911c1b7a9e2b423892aa3f'
   },
 
   /* ---- Änderungen der letzten Versionen ---------------------------------- */
   changelog: [
+    { version: '2.5.0', datum: '20.09.2026', text: 'Jeder Tweak zeigt jetzt Einstufung, Neustart-Pflicht und Sicherung an. Risikobewertung aller 89 Optimierungen überarbeitet. Presets fragen vorher nach, was sie ändern. Update-Prüfung unter Einstellungen.' },
     { version: '2.4.0', datum: '18.09.2026', text: 'Autostart-Manager erkennt jetzt auch geplante Aufgaben. Silent-Profil überarbeitet.' },
     { version: '2.3.1', datum: '02.08.2026', text: 'Fehler beim Anlegen von Wiederherstellungspunkten auf Windows 11 behoben.' },
     { version: '2.3.0', datum: '19.07.2026', text: 'Neue Netzwerk-Tweaks, Erklärtexte zu jedem Schalter ergänzt.' }

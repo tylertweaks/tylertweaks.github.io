@@ -24,8 +24,16 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.paypal.com https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co https://*.paypal.com; frame-src https://*.paypal.com https://*.paypalobjects.com">
 <link rel="canonical" href="https://tylertweaks.github.io/">
 <title>Tyler Tweaks — Tweak App &amp; PC-Optimierung für Gaming</title>
-<meta name="description" content="Mehr FPS und weniger Input-Lag aus der Hardware, die du schon hast. Tweak App ab 2,99 €, persönliche PC-Optimierung für 49,99 € oder beides im Bundle für 69,99 €. Backup inklusive, jederzeit rückgängig.">
+<!-- Beschreibung bewusst unter 160 Zeichen, damit Google sie nicht abschneidet,
+     und bewusst ohne Preise: die stehen in der Datenbank und ändern sich,
+     eine Suchergebnis-Zeile lässt sich aber nicht mitändern. -->
+<meta name="description" content="Windows und Spiele optimieren: 89 einzeln schaltbare Änderungen, jede im Klartext erklärt und mit Sicherung. Alles jederzeit rückgängig.">
 <meta name="theme-color" content="#070810">
+
+<!-- Symbol für Tab und Lesezeichen. SVG zuerst, weil es in jeder Größe
+     scharf bleibt; ältere Browser holen sich automatisch /favicon.ico. -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
@@ -33,7 +41,11 @@
 <meta property="og:title" content="Tyler Tweaks — Tweak App &amp; PC-Optimierung">
 <meta property="og:description" content="Windows sauber optimieren: per App selbst oder persönlich per Remote-Sitzung. Backup inklusive, alles rückgängig zu machen.">
 <meta property="og:url" content="https://tylertweaks.github.io/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tyler Tweaks — Windows- und Gaming-Optimierung">
+<meta name="twitter:card" content="summary_large_image">
 
 <!--
   ====================================================================
@@ -47,23 +59,66 @@
   Werte. Geheimes (PayPal-Secret, service_role) gehoert ausschliesslich
   in die Supabase-Secrets.
 
-  OFFEN: Es gibt noch kein Vorschaubild fuer geteilte Links (og:image).
-  Ein bewusst nicht gesetztes og:image ist besser als eines, das auf eine
-  nicht vorhandene Datei zeigt - dann zeigen Discord und WhatsApp gar
-  nichts an statt eines kaputten Rahmens. Sobald ein Bild da ist (1200x630,
-  PNG oder JPG, z. B. bilder/vorschau.png), hier ergaenzen:
-
-      <meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
-      <meta property="og:image:width" content="1200">
-      <meta property="og:image:height" content="630">
-
-  und twitter:card oben auf "summary_large_image" setzen.
+  Vorschaubild fuer geteilte Links: bilder/vorschau.png (1200x630), oben
+  als og:image eingetragen, twitter:card steht auf summary_large_image.
+  Wer es ersetzt, sollte die Groesse beibehalten - Discord, WhatsApp und
+  X schneiden abweichende Seitenverhaeltnisse unterschiedlich zu.
 
   OFFEN: Impressum, Datenschutz, AGB und Ruecktritt existieren, enthalten
   aber noch Platzhalter (Name, Anschrift, E-Mail, USt-ID). Vor dem ersten
   echten Verkauf ausfuellen - in DE/AT ist das Pflicht.
   ====================================================================
 -->
+
+<!-- ---- Strukturierte Daten (schema.org) ----
+     Sagt Suchmaschinen in Maschinenform, was diese Seite anbietet.
+
+     Bewusst NICHT enthalten: Preis und Versionsnummer. Beide stehen in der
+     Datenbank bzw. in konfig.js und aendern sich; hier waeren sie eine
+     zweite, eingefrorene Kopie, die irgendwann etwas anderes behauptet als
+     die Seite selbst. Ein fehlendes Feld ist besser als ein falsches.
+
+     Ebenfalls nicht enthalten: aggregateRating. Es gibt keine erhobenen
+     Bewertungen, und erfundene waeren nicht nur unehrlich, sondern ein
+     Verstoss gegen Googles Richtlinien.
+
+     Das steht in einem <script type="application/ld+json">. Die
+     Sicherheitsrichtlinie oben blockiert das nicht: script-src gilt fuer
+     ausfuehrbaren Code, JSON-LD wird nur als Daten gelesen.
+     ---------------------------------------------------------------- -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Tyler Tweaks",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "System-Optimierung",
+      "operatingSystem": "Windows 10, Windows 11",
+      "inLanguage": ["de", "en"],
+      "url": "https://tylertweaks.github.io/",
+      "image": "https://tylertweaks.github.io/bilder/vorschau.png",
+      "description": "Windows-Optimierung mit 89 einzeln schaltbaren Aenderungen. Jede Aenderung ist im Klartext beschrieben, wird vorher gesichert und laesst sich einzeln zuruecknehmen.",
+      "featureList": [
+        "89 einzeln schaltbare Optimierungen in zehn Bereichen",
+        "Sicherung des bisherigen Werts vor jeder Aenderung",
+        "Einzelnes Zuruecknehmen ueber den Verlauf",
+        "Windows-Wiederherstellungspunkt vor groesseren Durchlaeufen",
+        "Fertige Presets fuer Gaming, Privatsphaere und Tempo",
+        "Game Booster",
+        "Live-Anzeige von Prozessor, Grafikkarte und Arbeitsspeicher"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Tyler Tweaks",
+      "url": "https://tylertweaks.github.io/",
+      "inLanguage": "de"
+    }
+  ]
+}
+</script>
 
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -88,6 +143,7 @@
     <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
       <a href="#top">Startseite</a>
       <a href="#app">Tweak App</a>
+      <a href="#optimierungen">Umfang</a>
       <a href="#leistungen">Leistungen</a>
       <a href="#preise">Preise</a>
       <a href="#faq">FAQ</a>
@@ -137,7 +193,9 @@
     </div>
 
     <p class="hero-meta">
-      Ab 2,99 € zum Ausprobieren · Lifetime für 29,99 € · Zahlung über PayPal ·
+      Ab <span data-preis-ab>2,99 €</span> zum Ausprobieren ·
+      Lifetime für <span data-preis-laufzeit="app-lifetime">29,99 €</span> ·
+      Zahlung über PayPal ·
       Lizenz und Download sofort nach der Bestätigung
     </p>
 
@@ -194,7 +252,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 Tyler Tweaks — Control Center
               </span>
-              <span class="wv" data-app-version>v2.4.0</span>
+              <span class="wv" data-app-version>v2.5.0</span>
               <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
             </div>
             <div class="win-body">
@@ -210,7 +268,7 @@
                 </div>
                 <div class="it">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/></svg>
-                  <span>Autostart</span>
+                  <span>Clean</span>
                 </div>
                 <div class="grp">Sicherheit</div>
                 <div class="it">
@@ -239,9 +297,9 @@
                     <div class="meter"><i style="width:100%"></i></div>
                   </div>
                   <div class="tile">
-                    <span class="lbl">Dienste im Leerlauf</span>
-                    <span class="val">41</span>
-                    <span class="sub2">von 96 · 55 abgeschaltet</span>
+                    <span class="lbl">Tweaks angewendet</span>
+                    <span class="val">34</span>
+                    <span class="sub2">von 89 verfügbaren</span>
                   </div>
                   <div class="tile">
                     <span class="lbl">Letzte Sicherung</span>
@@ -298,7 +356,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 Tyler Tweaks — Control Center
               </span>
-              <span class="wv" data-app-version>v2.4.0</span>
+              <span class="wv" data-app-version>v2.5.0</span>
               <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
             </div>
             <div class="win-body">
@@ -314,7 +372,7 @@
                 </div>
                 <div class="it">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/></svg>
-                  <span>Autostart</span>
+                  <span>Clean</span>
                 </div>
                 <div class="grp">Sicherheit</div>
                 <div class="it">
@@ -429,7 +487,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 Tyler Tweaks — Control Center
               </span>
-              <span class="wv" data-app-version>v2.4.0</span>
+              <span class="wv" data-app-version>v2.5.0</span>
               <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
             </div>
             <div class="win-body">
@@ -445,7 +503,7 @@
                 </div>
                 <div class="it">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/></svg>
-                  <span>Autostart</span>
+                  <span>Clean</span>
                 </div>
                 <div class="grp">Sicherheit</div>
                 <div class="it on">
@@ -725,11 +783,15 @@
         <h3>Bundle</h3>
         <p class="plan-desc">Die App <em>und</em> die persönliche Optimierung zusammen.</p>
 
+        <!-- Summe und Ersparnis rechnet script.js aus den beiden Einzelpreisen
+             aus. Vorher standen hier feste Zahlen, die bei einer Preisänderung
+             stehengeblieben wären — und dann hätte die Karte sich selbst
+             widersprochen. -->
         <div class="price">
-          <span class="old">79,98 €</span>
+          <span class="old" data-preis-summe>79,98 €</span>
           <span class="amount">69,99</span><span class="cur">€</span><span class="once">einmalig</span>
         </div>
-        <p class="save">Du sparst 9,99 €</p>
+        <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
 
         <ul class="features">
           <li>Alles aus der Tweak App</li>
@@ -825,7 +887,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
               <b>SICHER BEZAHLEN</b>
             </span>
-            <span class="amt">69,99 €</span>
+            <span class="amt" data-preis-betrag="bundle">69,99 €</span>
             <span class="go"></span>
           </span>
         </div>
@@ -875,6 +937,68 @@
         Kostenloses Konto erstellen
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ============ DIE 89 OPTIMIERUNGEN ============
+     Die Zahlen hier stammen nicht aus dem Marketing, sondern aus dem
+     Tweak-Katalog der App. Abgesichert durch TweakCatalogTests in
+     TweakApp.Tests: Wer einen Tweak hinzufügt oder die Einstufung ändert,
+     bekommt einen roten Test — und damit den Hinweis, diese Seite
+     nachzuziehen. ============================================== -->
+<section id="optimierungen" class="section reveal">
+  <div class="wrap">
+
+    <div class="section-head">
+      <span class="eyebrow">Umfang</span>
+      <h2>89 Optimierungen, nach Bereich sortiert</h2>
+      <p class="sub">
+        Jede einzeln an- und abschaltbar, jede mit Klartext dazu, was sie in Windows ändert.
+        Keine Sammelschalter, hinter denen man nicht sieht, was passiert.
+      </p>
+    </div>
+
+    <div class="opt-grid">
+      <div class="opt-cat"><span class="n">15</span><span class="c">Explorer &amp; Oberfläche</span></div>
+      <div class="opt-cat"><span class="n">15</span><span class="c">Dienste</span></div>
+      <div class="opt-cat"><span class="n">14</span><span class="c">System</span></div>
+      <div class="opt-cat"><span class="n">12</span><span class="c">Datenschutz</span></div>
+      <div class="opt-cat"><span class="n">9</span><span class="c">Prozessor</span></div>
+      <div class="opt-cat"><span class="n">7</span><span class="c">Netzwerk</span></div>
+      <div class="opt-cat"><span class="n">5</span><span class="c">Grafik</span></div>
+      <div class="opt-cat"><span class="n">5</span><span class="c">Speicher</span></div>
+      <div class="opt-cat"><span class="n">4</span><span class="c">Windows Update</span></div>
+      <div class="opt-cat"><span class="n">3</span><span class="c">Geplante Aufgaben</span></div>
+    </div>
+
+    <div class="risk-row">
+      <article class="risk-card risk-safe">
+        <div class="rk"><span class="rn">52</span><span class="rl">Sicher</span></div>
+        <p>Ändert nichts, was den Betrieb stören kann. Vollständig umkehrbar.</p>
+      </article>
+
+      <article class="risk-card risk-caution">
+        <div class="rk"><span class="rn">31</span><span class="rl">Vorsicht</span></div>
+        <p>
+          Ändert spürbar, wie sich Windows verhält — etwa wenn ein Dienst abgeschaltet wird,
+          den du doch brauchst. Die App schreibt vorher hin, was wegfällt.
+        </p>
+      </article>
+
+      <article class="risk-card risk-advanced">
+        <div class="rk"><span class="rn">6</span><span class="rl">Fortgeschritten</span></div>
+        <p>
+          Greift in eine Systemkomponente ein. Nur sinnvoll, wenn du weißt, was du willst —
+          und mit Rückfrage, bevor etwas passiert.
+        </p>
+      </article>
+    </div>
+
+    <p class="opt-note muted">
+      28 der 89 Änderungen wirken erst nach einem Neustart. Welche das sind, steht an jeder
+      einzelnen — nicht im Kleingedruckten.
+    </p>
+
   </div>
 </section>
 
@@ -934,17 +1058,18 @@
         </div>
         <h3>Updates &amp; Lizenz</h3>
         <ul class="speclist">
-          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.4.0</span></li>
-          <li><span class="k">Stand</span><span class="v" data-app-date>18.09.2026</span></li>
+          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.5.0</span></li>
+          <li><span class="k">Stand</span><span class="v" data-app-date>20.09.2026</span></li>
           <li><span class="k">Neue Versionen</span><span class="v">kostenlos</span></li>
-          <li><span class="k">Update-Prüfung</span><span class="v"><span class="tag-no">manuell</span></span></li>
+          <li><span class="k">Update-Prüfung</span><span class="v">auf Knopfdruck</span></li>
           <li><span class="k">Laufzeiten</span><span class="v">24 Std. bis Lifetime</span></li>
           <li><span class="k">Gültig für</span><span class="v">1 PC</span></li>
         </ul>
         <p class="muted" style="font-size:.85rem;margin-top:14px">
-          Die App meldet sich noch nicht selbst, wenn eine neue Version da ist. Sie erscheint im
-          Kundenbereich, du lädst sie dort und installierst sie über die alte. Dein Schlüssel
-          bleibt derselbe.
+          Unter Einstellungen → Über prüfst du per Knopfdruck, ob eine neue Version da ist.
+          Von selbst meldet sich die App bewusst nicht, und sie aktualisiert sich auch nicht
+          selbst: Du lädst die neue Fassung im Kundenbereich und installierst sie über die alte.
+          Dein Schlüssel bleibt derselbe.
         </p>
       </article>
 
@@ -1202,9 +1327,9 @@
 <section class="cta reveal">
   <div class="wrap">
     <h2>Bereit für einen schnelleren PC?</h2>
-    <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst 9,99 €.</p>
+    <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst <span data-preis-ersparnis-betrag>9,99 €</span>.</p>
     <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle">Bundle für 69,99 € ansehen</a>
+      <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle">Bundle für <span data-preis-betrag="bundle">69,99 €</span> ansehen</a>
       <a class="btn btn-ghost btn-lg" href="#faq">Erst noch Fragen klären</a>
     </div>
   </div>

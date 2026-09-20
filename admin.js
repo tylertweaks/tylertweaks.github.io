@@ -58,7 +58,7 @@
   async function ladeAlles() {
     var e = await Promise.all([
       db.from('orders')
-        .select('id, order_no, user_id, product_slug, product_name, price, currency, payment_status, paypal_order_id, paypal_capture_id, paid_at, created_at')
+        .select('id, order_no, user_id, product_slug, product_name, price, currency, payment_provider, payment_status, paypal_order_id, paypal_capture_id, paid_at, created_at')
         .order('created_at', { ascending: false }).limit(500),
 
       db.from('licenses')
@@ -346,7 +346,13 @@
         '<td class="aktionen">' +
           // Nur Handvergaben dürfen weg. Eine echte PayPal-Zahlung zu löschen
           // würde die Buchhaltung von deinem PayPal-Konto abkoppeln.
-          (b.payment_provider !== 'paypal'
+          //
+          // Die Bedingung ist absichtlich dieselbe wie serverseitig in
+          // admin_delete_manual_order ("<> 'manuell' -> not_manual"): positiv
+          // auf 'manuell' prüfen, nicht negativ auf 'paypal'. Käme je ein
+          // dritter Zahlweg dazu, böte die Oberfläche sonst einen Knopf an,
+          // den die Datenbank anschließend ablehnt.
+          (b.payment_provider === 'manuell'
             ? '<button type="button" class="mini loeschen" data-bestellung="' + TT.escape(b.id) +
               '" data-nr="' + TT.escape(b.order_no) + '">Löschen</button>'
             : '<span class="zeile-klein muted">—</span>') +

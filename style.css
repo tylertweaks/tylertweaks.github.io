@@ -289,7 +289,10 @@ strong { color: var(--text); font-weight: 600; }
 /* Burger — nur mobil sichtbar */
 .nav-toggle {
   display: none;
-  width: 42px; height: 42px;
+  /* 44x44 ist die uebliche Mindestgroesse fuer ein Bedienelement, das mit
+     dem Finger getroffen werden soll. Vorher 42 — kein grosser Unterschied,
+     aber es gibt keinen Grund, knapp darunter zu bleiben. */
+  width: 44px; height: 44px;
   padding: 0;
   align-items: center;
   justify-content: center;
@@ -797,6 +800,98 @@ strong { color: var(--text); font-weight: 600; }
 }
 .flow-step:last-child::after { display: none; }
 
+/* ========== 10b. Umfang: die 89 Optimierungen ==========
+   Die Zahlen im HTML stammen aus dem Tweak-Katalog der App und sind dort
+   durch Tests abgesichert (TweakCatalogTests). Wer sie hier ändert, ohne
+   den Katalog zu ändern, macht die Seite falsch.
+   ------------------------------------------------------------------ */
+.opt-grid {
+  display: grid;
+  /* auto-fit statt fester Spaltenzahl: die Kacheln ordnen sich vom Handy
+     bis zum Ultrawide selbst um, ohne eigenen Haltepunkt. */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 34px;
+}
+.opt-cat {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  transition: border-color .18s ease, background .18s ease;
+}
+.opt-cat:hover {
+  border-color: rgba(var(--accent-rgb), .42);
+  background: var(--surface-2);
+}
+.opt-cat .n {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  /* Feste Breite, damit die Beschriftungen trotz ein- und zweistelliger
+     Zahlen auf einer Linie beginnen. */
+  min-width: 2ch;
+  text-align: right;
+}
+.opt-cat .c {
+  color: var(--text-2);
+  font-size: .89rem;
+  line-height: 1.3;
+}
+
+.risk-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.risk-card {
+  padding: 24px 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left-width: 3px;
+  border-radius: var(--radius);
+}
+.risk-card p {
+  color: var(--muted);
+  font-size: .9rem;
+  margin: 0;
+}
+.rk {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.rn {
+  font-family: var(--font-head);
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.rl {
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.risk-safe     { border-left-color: var(--ok); }
+.risk-safe .rn, .risk-safe .rl { color: var(--ok); }
+.risk-caution  { border-left-color: var(--warn); }
+.risk-caution .rn, .risk-caution .rl { color: var(--warn); }
+.risk-advanced { border-left-color: var(--accent-2); }
+.risk-advanced .rn, .risk-advanced .rl { color: var(--accent-2); }
+
+.opt-note {
+  margin-top: 26px;
+  font-size: .9rem;
+  max-width: 62ch;
+}
+
 /* ========== 11. Vertrauen ========== */
 .trust-grid {
   display: grid;
@@ -1214,6 +1309,9 @@ strong { color: var(--text); font-weight: 600; }
 
 @media (max-width: 900px) {
   .grid-3, .pricing, .trust-grid { grid-template-columns: 1fr; }
+  /* Die Risikokarten untereinander. Die Kategorie-Kacheln darüber brauchen
+     hier nichts: ihr auto-fit ordnet sich selbst um. */
+  .risk-row { grid-template-columns: 1fr; }
   .plan-featured { order: -1; }
   .dash-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
@@ -1650,6 +1748,14 @@ strong { color: var(--text); font-weight: 600; }
 }
 .lz-name  { font-size: .8rem; font-weight: 600; }
 .lz-preis { font-size: .74rem; opacity: .8; }
+
+/* Auf dem Handy den Preis auf den Laufzeit-Knoepfen anheben: .74rem sind
+   dort knapp 12px, und das ist die Zahl, wegen der jemand den Knopf
+   ueberhaupt drueckt. Die Knopfgroesse selbst (63x145) reicht laengst —
+   es geht allein um die Lesbarkeit der Zahl. */
+@media (max-width: 680px) {
+  .lz-preis { font-size: .82rem; opacity: .9; }
+}
 
 /* ---------- Kasse ---------- */
 .kasse-kopf { margin-bottom: 24px; }
