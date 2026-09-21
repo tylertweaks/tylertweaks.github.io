@@ -27,7 +27,7 @@
 <!-- Beschreibung bewusst unter 160 Zeichen, damit Google sie nicht abschneidet,
      und bewusst ohne Preise: die stehen in der Datenbank und ändern sich,
      eine Suchergebnis-Zeile lässt sich aber nicht mitändern. -->
-<meta name="description" content="Windows und Spiele optimieren: 89 einzeln schaltbare Änderungen, jede im Klartext erklärt und mit Sicherung. Alles jederzeit rückgängig.">
+<meta name="description" content="Windows und Spiele optimieren: 129 einzeln schaltbare Änderungen, jede im Klartext erklärt und mit Sicherung. Alles jederzeit rückgängig.">
 <meta name="theme-color" content="#070810">
 
 <!-- Symbol für Tab und Lesezeichen. SVG zuerst, weil es in jeder Größe
@@ -99,9 +99,9 @@
       "inLanguage": ["de", "en"],
       "url": "https://tylertweaks.github.io/",
       "image": "https://tylertweaks.github.io/bilder/vorschau.png",
-      "description": "Windows-Optimierung mit 89 einzeln schaltbaren Aenderungen. Jede Aenderung ist im Klartext beschrieben, wird vorher gesichert und laesst sich einzeln zuruecknehmen.",
+      "description": "Windows-Optimierung mit 129 einzeln schaltbaren Aenderungen. Jede Aenderung ist im Klartext beschrieben, wird vorher gesichert und laesst sich einzeln zuruecknehmen.",
       "featureList": [
-        "89 einzeln schaltbare Optimierungen in zehn Bereichen",
+        "129 einzeln schaltbare Optimierungen in elf Bereichen",
         "Sicherung des bisherigen Werts vor jeder Aenderung",
         "Einzelnes Zuruecknehmen ueber den Verlauf",
         "Windows-Wiederherstellungspunkt vor groesseren Durchlaeufen",
@@ -123,8 +123,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.5.0">
-<link rel="stylesheet" href="mockup.css?v=2.5.0">
+<link rel="stylesheet" href="style.css?v=2.6.0">
+<link rel="stylesheet" href="mockup.css?v=2.6.0">
 </head>
 <body>
 
@@ -252,7 +252,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 Tyler Tweaks — Control Center
               </span>
-              <span class="wv" data-app-version>v2.5.0</span>
+              <span class="wv" data-app-version>v2.6.0</span>
               <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
             </div>
             <div class="win-body">
@@ -298,8 +298,8 @@
                   </div>
                   <div class="tile">
                     <span class="lbl">Tweaks angewendet</span>
-                    <span class="val">34</span>
-                    <span class="sub2">von 89 verfügbaren</span>
+                    <span class="val">48</span>
+                    <span class="sub2">von 129 verfügbaren</span>
                   </div>
                   <div class="tile">
                     <span class="lbl">Letzte Sicherung</span>
@@ -356,7 +356,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 Tyler Tweaks — Control Center
               </span>
-              <span class="wv" data-app-version>v2.5.0</span>
+              <span class="wv" data-app-version>v2.6.0</span>
               <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
             </div>
             <div class="win-body">
@@ -487,7 +487,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 Tyler Tweaks — Control Center
               </span>
-              <span class="wv" data-app-version>v2.5.0</span>
+              <span class="wv" data-app-version>v2.6.0</span>
               <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
             </div>
             <div class="win-body">
@@ -940,18 +940,23 @@
   </div>
 </section>
 
-<!-- ============ DIE 89 OPTIMIERUNGEN ============
+<!-- ============ DIE 129 OPTIMIERUNGEN ============
      Die Zahlen hier stammen nicht aus dem Marketing, sondern aus dem
      Tweak-Katalog der App. Abgesichert durch TweakCatalogTests in
      TweakApp.Tests: Wer einen Tweak hinzufügt oder die Einstufung ändert,
      bekommt einen roten Test — und damit den Hinweis, diese Seite
-     nachzuziehen. ============================================== -->
+     nachzuziehen.
+
+     Seit 2.6.0 trägt release-fertigstellen.ps1 die Gesamtzahl beim
+     Veröffentlichen selbst ein. Die Aufteilung nach Bereich und Einstufung
+     unten bleibt Handarbeit — sie steht im Testprotokoll unter
+     "Verteilung_ausgeben". ============================================== -->
 <section id="optimierungen" class="section reveal">
   <div class="wrap">
 
     <div class="section-head">
       <span class="eyebrow">Umfang</span>
-      <h2>89 Optimierungen, nach Bereich sortiert</h2>
+      <h2>129 Optimierungen, nach Bereich sortiert</h2>
       <p class="sub">
         Jede einzeln an- und abschaltbar, jede mit Klartext dazu, was sie in Windows ändert.
         Keine Sammelschalter, hinter denen man nicht sieht, was passiert.
@@ -959,26 +964,27 @@
     </div>
 
     <div class="opt-grid">
-      <div class="opt-cat"><span class="n">15</span><span class="c">Explorer &amp; Oberfläche</span></div>
+      <div class="opt-cat"><span class="n">26</span><span class="c">Explorer &amp; Oberfläche</span></div>
+      <div class="opt-cat"><span class="n">20</span><span class="c">Datenschutz</span></div>
+      <div class="opt-cat"><span class="n">19</span><span class="c">System</span></div>
       <div class="opt-cat"><span class="n">15</span><span class="c">Dienste</span></div>
-      <div class="opt-cat"><span class="n">14</span><span class="c">System</span></div>
-      <div class="opt-cat"><span class="n">12</span><span class="c">Datenschutz</span></div>
-      <div class="opt-cat"><span class="n">9</span><span class="c">Prozessor</span></div>
-      <div class="opt-cat"><span class="n">7</span><span class="c">Netzwerk</span></div>
-      <div class="opt-cat"><span class="n">5</span><span class="c">Grafik</span></div>
+      <div class="opt-cat"><span class="n">11</span><span class="c">Prozessor</span></div>
+      <div class="opt-cat"><span class="n">11</span><span class="c">Netzwerk</span></div>
+      <div class="opt-cat"><span class="n">8</span><span class="c">Grafik</span></div>
+      <div class="opt-cat"><span class="n">6</span><span class="c">Debloat</span></div>
       <div class="opt-cat"><span class="n">5</span><span class="c">Speicher</span></div>
-      <div class="opt-cat"><span class="n">4</span><span class="c">Windows Update</span></div>
+      <div class="opt-cat"><span class="n">5</span><span class="c">Windows Update</span></div>
       <div class="opt-cat"><span class="n">3</span><span class="c">Geplante Aufgaben</span></div>
     </div>
 
     <div class="risk-row">
       <article class="risk-card risk-safe">
-        <div class="rk"><span class="rn">52</span><span class="rl">Sicher</span></div>
+        <div class="rk"><span class="rn">78</span><span class="rl">Sicher</span></div>
         <p>Ändert nichts, was den Betrieb stören kann. Vollständig umkehrbar.</p>
       </article>
 
       <article class="risk-card risk-caution">
-        <div class="rk"><span class="rn">31</span><span class="rl">Vorsicht</span></div>
+        <div class="rk"><span class="rn">41</span><span class="rl">Vorsicht</span></div>
         <p>
           Ändert spürbar, wie sich Windows verhält — etwa wenn ein Dienst abgeschaltet wird,
           den du doch brauchst. Die App schreibt vorher hin, was wegfällt.
@@ -986,7 +992,7 @@
       </article>
 
       <article class="risk-card risk-advanced">
-        <div class="rk"><span class="rn">6</span><span class="rl">Fortgeschritten</span></div>
+        <div class="rk"><span class="rn">10</span><span class="rl">Fortgeschritten</span></div>
         <p>
           Greift in eine Systemkomponente ein. Nur sinnvoll, wenn du weißt, was du willst —
           und mit Rückfrage, bevor etwas passiert.
@@ -995,7 +1001,7 @@
     </div>
 
     <p class="opt-note muted">
-      28 der 89 Änderungen wirken erst nach einem Neustart. Welche das sind, steht an jeder
+      37 der 129 Änderungen wirken erst nach einem Neustart. Welche das sind, steht an jeder
       einzelnen — nicht im Kleingedruckten.
     </p>
 
@@ -1058,8 +1064,8 @@
         </div>
         <h3>Updates &amp; Lizenz</h3>
         <ul class="speclist">
-          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.5.0</span></li>
-          <li><span class="k">Stand</span><span class="v" data-app-date>20.09.2026</span></li>
+          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.6.0</span></li>
+          <li><span class="k">Stand</span><span class="v" data-app-date>21.09.2026</span></li>
           <li><span class="k">Neue Versionen</span><span class="v">kostenlos</span></li>
           <li><span class="k">Update-Prüfung</span><span class="v">auf Knopfdruck</span></li>
           <li><span class="k">Laufzeiten</span><span class="v">24 Std. bis Lifetime</span></li>
@@ -1412,8 +1418,8 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.5.0"></script>
-<script src="tt-backend.js?v=2.5.0"></script>
-<script src="script.js?v=2.5.0"></script>
+<script src="konfig.js?v=2.6.0"></script>
+<script src="tt-backend.js?v=2.6.0"></script>
+<script src="script.js?v=2.6.0"></script>
 </body>
 </html>

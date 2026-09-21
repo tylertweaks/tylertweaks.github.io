@@ -102,8 +102,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.5.0',
-    datum: '20.09.2026',
+    version: '2.6.0',
+    datum: '21.09.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -120,13 +120,14 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.5.0.exe',
-    groesse: '59,4 MB',
-    sha256: 'a9dac269350405a3ab0a52fb3f5cc46313790d3a0a911c1b7a9e2b423892aa3f'
+    datei: 'downloads/TylerTweaksSetup-2.6.0.exe',
+    groesse: '59,5 MB',
+    sha256: '5dc5293632676d96f7d2a1ab1165e440a6e9083b728bbc54e4231ac9121590e5'
   },
 
   /* ---- Änderungen der letzten Versionen ---------------------------------- */
   changelog: [
+    { version: '2.6.0', datum: '21.09.2026', text: '40 neue Optimierungen (89 auf 129), darunter Debloat als eigener Bereich, DNS auf Cloudflare, Windows Recall abschalten und das Sperren von Kamera und Mikrofon. Jeder Tweak ist jetzt ein Schalter statt zweier Knöpfe, und die Liste baut sich deutlich schneller auf. Wer Tyler länger ohne Internet nutzt, wird einmal zur Bestätigung der Lizenz aufgefordert.' },
     { version: '2.5.0', datum: '20.09.2026', text: 'Jeder Tweak zeigt jetzt Einstufung, Neustart-Pflicht und Sicherung an. Risikobewertung aller 89 Optimierungen überarbeitet. Presets fragen vorher nach, was sie ändern. Update-Prüfung unter Einstellungen.' },
     { version: '2.4.0', datum: '18.09.2026', text: 'Autostart-Manager erkennt jetzt auch geplante Aufgaben. Silent-Profil überarbeitet.' },
     { version: '2.3.1', datum: '02.08.2026', text: 'Fehler beim Anlegen von Wiederherstellungspunkten auf Windows 11 behoben.' },
