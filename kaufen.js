@@ -100,11 +100,17 @@
     var slug = new URLSearchParams(window.location.search).get('produkt') || '';
     if (!slug) return zeige(elUnbekannt);
 
+    if (!TT.korb) return zeige(elNichtImKorb);
+
+    // Erst den Start des Warenkorbs abwarten — er legt ein nach der Anmeldung
+    // gemerktes Paket unter Umständen gerade noch hinein.
+    await TT.korb.bereit;
+
     /* Der Warenkorb liegt im Browser und ist sofort da. Deshalb wird er
        geprüft, BEVOR zur Anmeldung umgeleitet wird — sonst schickt die Seite
        jemanden erst zum Anmelden und sagt ihm danach, dass er hier gar nichts
        zu bezahlen hat. */
-    if (!TT.korb || !TT.korb.hat(slug)) return zeige(elNichtImKorb);
+    if (!TT.korb.hat(slug)) return zeige(elNichtImKorb);
 
     var sitzung = await TT.schuetzen();
     if (!sitzung) return; // leitet selbst zur Anmeldung um

@@ -37,8 +37,11 @@
   /* Wohin es zum Anmelden geht, wenn jemand ohne Konto etwas hineinlegen will.
      Das Ziel danach ist der Warenkorb selbst — dort liegt dann schon, was er
      wollte (siehe Wunsch weiter unten). "grund" sorgt nur dafür, dass das
-     Anmeldeformular erklärt, warum es sich gerade meldet. */
-  var ANMELDEN = 'anmelden.html?grund=warenkorb&weiter=warenkorb.html';
+     Anmeldeformular erklärt, warum es sich gerade meldet.
+
+     Hinter "weiter=" hängt das Ziel, einmal kodiert: Es trägt selbst eine
+     Abfrage (?paket=…), und die muss den Weg durch diese Adresse überstehen. */
+  var ANMELDEN = 'anmelden.html?grund=warenkorb&weiter=';
 
   /* ====================================================================
      Rabattcodes
@@ -336,10 +339,21 @@
      stünde der Kunde nach dem Umweg über das Anmeldeformular vor einem leeren
      Warenkorb und müsste sein Paket ein zweites Mal suchen.
 
-     Mit Zeitstempel, damit ein Wunsch von gestern nicht Tage später
-     überraschend im Warenkorb auftaucht. */
+     Der Wunsch reist auf zwei Wegen, weil jeder für sich ausfallen kann:
+
+       1. hier im localStorage — überlebt auch den Umweg über die
+          Registrierung samt Bestätigungsmail, bei der die Adresse verloren
+          geht
+       2. als ?paket=<slug> in der Adresse, auf die das Anmeldeformular
+          weiterleitet — das greift selbst dann, wenn 1. abgelaufen oder
+          nicht verfügbar ist
+
+     Der Zeitstempel gilt großzügig: Zwischen "in den Warenkorb" und der
+     bestätigten E-Mail-Adresse liegen bei einer neuen Registrierung leicht
+     ein paar Stunden. Eine Stunde war hier zu knapp — danach stand der Kunde
+     wieder vor einem leeren Warenkorb. */
   var WUNSCH = 'tt-korb-wunsch-1';
-  var WUNSCH_GILT_MS = 60 * 60 * 1000; // eine Stunde
+  var WUNSCH_GILT_MS = 24 * 60 * 60 * 1000; // ein Tag
 
   function wunschMerken(artikel) {
     try {
@@ -384,24 +398,96 @@
   async function anmeldungVerlangen(artikel) {
     if (await angemeldet()) return true;
 
-    if (artikel) wunschMerken(artikel);
-    window.location.href = ANMELDEN;
+    var ziel = 'warenkorb.html';
+
+    if (artikel) {
+      wunschMerken(artikel);
+      // Zweiter Weg: Der Kurzname reist in der Adresse mit. Das
+      // Anmeldeformular prüft das Ziel und leitet danach genau dorthin.
+      ziel += '?paket=' + encodeURIComponent(artikel.slug);
+    }
+
+    window.location.href = ANMELDEN + encodeURIComponent(ziel);
     return false;
   }
 
-  /* Nach der Anmeldung nachholen, was vorher nicht ging. Läuft auf jeder
-     Seite, tut aber nur etwas, wenn wirklich ein Wunsch offen ist — im
-     Normalfall bleibt es bei einem Blick in den localStorage. */
-  (async function wunschEinloesen() {
-    var wunsch = wunschHolen();
+  /**
+   * Baut ein Paket allein aus seinem Kurznamen zusammen — aus den Werten in
+   * konfig.js. Gebraucht für den Weg über die Adresse, auf dem nur der slug
+   * ankommt. Name und Preis bestätigt ohnehin die Datenbank, sobald sie
+   * antwortet (siehe abgleichen).
+   */
+  function artikelAusKonfig(slug) {
+    var laufzeit = (KONFIG.laufzeiten || []).filter(function (l) {
+      return l.slug === slug;
+    })[0];
+
+    if (laufzeit) {
+      return {
+        slug: laufzeit.slug,
+        name: 'Tweak App',
+        untertitel: laufzeit.lang,
+        preis: laufzeit.preis
+      };
+    }
+
+    var paket = (KONFIG.pakete || []).filter(function (p) { return p.slug === slug; })[0];
+    if (paket) {
+      return {
+        slug: paket.slug,
+        name: paket.name || paket.slug,
+        untertitel: paket.untertitel || '',
+        preis: paket.preis
+      };
+    }
+
+    return null;
+  }
+
+  /** Der Wunsch aus der Adresse — ?paket=app-1y auf warenkorb.html. */
+  function wunschAusAdresse() {
+    var slug = new URLSearchParams(window.location.search).get('paket');
+    return slug ? artikelAusKonfig(slug) : null;
+  }
+
+  /**
+   * Holt nach der Anmeldung nach, was vorher nicht ging.
+   *
+   * Läuft beim Laden jeder Seite, tut aber nur etwas, wenn wirklich ein
+   * Wunsch offen ist: Im Normalfall bleibt es bei einem Blick in den
+   * localStorage und in die Adresszeile.
+   */
+  async function wunschEinloesen() {
+    var wunsch = wunschHolen() || wunschAusAdresse();
     if (!wunsch) return;
 
     // Noch immer nicht angemeldet: Der Wunsch bleibt liegen, bis es klappt.
     if (!(await angemeldet())) return;
 
     wunschVergessen();
-    hinzufuegen(wunsch);
-  })();
+    if (!hat(wunsch.slug)) hinzufuegen(wunsch);
+
+    /* Das ?paket= hat seine Arbeit getan. Bliebe es stehen, legte ein
+       Neuladen der Seite dasselbe Paket noch einmal hinein, nachdem es der
+       Kunde gerade herausgenommen hat. */
+    if (window.location.search.indexOf('paket=') >= 0) {
+      try {
+        history.replaceState(null, '', window.location.pathname);
+      } catch (e) { /* alte Browser — nicht schlimm */ }
+    }
+  }
+
+  /* Der Start ist nicht sofort fertig: Ob jemand angemeldet ist, beantwortet
+     supabase-js erst nach einem Umweg. Seiten, die den Warenkorb zeichnen,
+     warten deshalb auf dieses Versprechen.
+
+     Ohne das gab es einen Wettlauf: Wurde der Wunsch eingelöst, bevor
+     warenkorb-seite.js seinen Zuhörer angemeldet hatte, stand in der
+     Navigation die Zahl 1 — und auf der Seite daneben "Dein Warenkorb ist
+     leer". Genau der Fall nach einer frischen Anmeldung. */
+  var bereit = wunschEinloesen().catch(function (fehler) {
+    console.error('Warenkorb-Start:', fehler);
+  });
 
   /* ====================================================================
      Läuft der automatische Shop schon?
@@ -531,8 +617,12 @@
 
     angemeldet:         angemeldet,
     anmeldungVerlangen: anmeldungVerlangen,
-    anmeldeZiel:        ANMELDEN,
+    anmeldeZiel:        ANMELDEN + encodeURIComponent('warenkorb.html'),
     wunschVergessen:    wunschVergessen,
+
+    /* Erfüllt, sobald ein gemerkter Wunsch eingelöst ist. Wer den Inhalt des
+       Warenkorbs zeichnet, wartet darauf. */
+    bereit:             bereit,
 
     codes:         CODES,
     codeInfo:      codeInfo,

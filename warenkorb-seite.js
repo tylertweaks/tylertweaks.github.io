@@ -256,7 +256,14 @@
      Start
      ==================================================================== */
   (async function start() {
-    // Erst aus dem Browser zeichnen: Der Warenkorb liegt lokal, da muss
+    /* Zuerst warten, bis warenkorb.js seinen Start erledigt hat: Kommt der
+       Kunde gerade von der Anmeldung, legt der erst noch das Paket hinein,
+       das er vorher wollte. Ohne dieses Warten zeichnet die Seite den
+       Warenkorb eine Wimper zu früh — und zeigt "leer", während in der
+       Navigation schon die 1 steht. Im Normalfall kostet es nichts. */
+    await korb.bereit;
+
+    // Jetzt aus dem Browser zeichnen: Der Warenkorb liegt lokal, da muss
     // niemand auf den Server warten.
     zeichnen();
 

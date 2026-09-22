@@ -243,8 +243,15 @@
   });
 
   /* Wird der Warenkorb woanders geändert (zweiter Tab, Zurück-Knopf), stimmen
-     die Beschriftungen hier sonst nicht mehr. */
-  if (window.TT && TT.korb) TT.korb.beiAenderung(korbKnoepfeBeschriften);
+     die Beschriftungen hier sonst nicht mehr.
+
+     Dazu einmal nach dem Start von warenkorb.js: Kommt jemand gerade von der
+     Anmeldung, wandert dort noch sein gemerktes Paket in den Warenkorb — und
+     zwar möglicherweise, bevor der Zuhörer oben steht. */
+  if (window.TT && TT.korb) {
+    TT.korb.beiAenderung(korbKnoepfeBeschriften);
+    TT.korb.bereit.then(korbKnoepfeBeschriften);
+  }
 
   function laufzeitZeigen(slug) {
     var eintrag = laufzeiten.filter(function (l) { return l.slug === slug; })[0];

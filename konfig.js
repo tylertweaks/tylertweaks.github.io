@@ -103,10 +103,14 @@ window.TT_KONFIG = {
 
      Der Schlüssel muss zum slug in der Produkttabelle passen und zu dem, was
      im HTML unter data-preis steht.
+
+     name und untertitel braucht der Warenkorb, wenn er ein Paket allein aus
+     dem slug aufbauen muss — etwa nach der Anmeldung, wenn nur noch
+     ?paket=bundle in der Adresse steht.
      ----------------------------------------------------------------------- */
   pakete: [
-    { slug: 'optimierung', preis: '29.99' },
-    { slug: 'bundle',      preis: '69.99' }
+    { slug: 'optimierung', name: 'PC-Optimierung', untertitel: 'Einmalig',            preis: '29.99' },
+    { slug: 'bundle',      name: 'Bundle',         untertitel: 'Lifetime + Service',  preis: '69.99' }
   ],
 
   /* ---- Aktuelle App-Version ---------------------------------------------
