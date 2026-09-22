@@ -126,8 +126,17 @@ window.TT_KONFIG = {
   },
 
   /* ---- Änderungen der letzten Versionen ---------------------------------- */
+  /* Hier steht nur, was auch herunterladbar ist.
+
+     Der Eintrag für 2.7.0 (eigene Profile) ist bewusst noch nicht drin: Die
+     Fassung ist im App-Repo fertig, aber der Installer unter downloads/ ist
+     weiterhin 2.6.0. Einen Changelog zu einer Version zu zeigen, die niemand
+     laden kann, ist eine Ankündigung, die sich als Tatsache ausgibt.
+
+     release-fertigstellen.ps1 trägt den Eintrag von selbst ein, sobald der
+     2.7.0-Installer gebaut ist. Dann gehört auch in index.html der Eintrag
+     "Eigene Profile" in der Feature-Liste aus der Klasse "geplant" heraus. */
   changelog: [
-    { version: '2.7.0', datum: '22.09.2026', text: 'Eigene Profile: Du nimmst auf, welche Tweaks bei dir gerade gesetzt sind, gibst dem Ganzen einen Namen und stellst denselben Zustand später mit einem Klick wieder her – auf einem neuen PC oder nach einer Neuinstallation. Außerdem liefert die App ihren Tweak-Katalog jetzt als Datei aus, aus der die Website die vollständige Liste aufbaut: Unter „Alle Tweaks" steht jede der 129 Optimierungen mit dem Registry-Wert, den sie schreibt.' },
     { version: '2.6.0', datum: '21.09.2026', text: '40 neue Optimierungen (89 auf 129), darunter Debloat als eigener Bereich, DNS auf Cloudflare, Windows Recall abschalten und das Sperren von Kamera und Mikrofon. Jeder Tweak ist jetzt ein Schalter statt zweier Knöpfe, und die Liste baut sich deutlich schneller auf. Wer Tyler länger ohne Internet nutzt, wird einmal zur Bestätigung der Lizenz aufgefordert.' },
     { version: '2.5.0', datum: '20.09.2026', text: 'Jeder Tweak zeigt jetzt Einstufung, Neustart-Pflicht und Sicherung an. Risikobewertung aller 89 Optimierungen überarbeitet. Presets fragen vorher nach, was sie ändern. Update-Prüfung unter Einstellungen.' },
     { version: '2.4.0', datum: '18.09.2026', text: 'Autostart-Manager erkennt jetzt auch geplante Aufgaben. Silent-Profil überarbeitet.' },
