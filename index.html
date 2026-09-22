@@ -123,8 +123,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.6.0">
-<link rel="stylesheet" href="mockup.css?v=2.6.0">
+<link rel="stylesheet" href="style.css?v=2.6.1">
+<link rel="stylesheet" href="mockup.css?v=2.6.1">
 </head>
 <body>
 
@@ -222,7 +222,7 @@
 </section>
 
 <!-- ============ TWEAK APP ============ -->
-<section id="app" class="section section-alt reveal">
+<section id="app" class="section section-alt reveal ton-cyan">
   <div class="wrap">
 
     <div class="section-head">
@@ -236,337 +236,47 @@
 
     <div class="app-layout">
 
-      <!-- ===== Gezeichnete App-Oberfläche mit drei Ansichten ===== -->
-      <div>
+      <!-- ===== Echte Aufnahmen aus der App ===== -->
+      <div class="app-shots">
         <div class="shot-tabs" role="tablist" aria-label="Ansichten der Tweak App">
           <button class="shot-tab" role="tab" id="tab-uebersicht" aria-controls="panel-uebersicht" aria-selected="true" type="button">Übersicht</button>
           <button class="shot-tab" role="tab" id="tab-tweaks" aria-controls="panel-tweaks" aria-selected="false" tabindex="-1" type="button">Tweaks</button>
-          <button class="shot-tab" role="tab" id="tab-sicherung" aria-controls="panel-sicherung" aria-selected="false" tabindex="-1" type="button">Sicherung</button>
         </div>
 
         <!-- ---- Ansicht 1: Übersicht ---- -->
         <div class="shot-panel" role="tabpanel" id="panel-uebersicht" aria-labelledby="tab-uebersicht" tabindex="0">
-          <div class="win">
-            <div class="win-bar">
-              <span class="wm">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                Tyler Tweaks — Control Center
-              </span>
-              <span class="wv" data-app-version>v2.6.0</span>
-              <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
-            </div>
-            <div class="win-body">
-              <nav class="win-side" aria-hidden="true">
-                <div class="grp">System</div>
-                <div class="it on">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
-                  <span>Übersicht</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-                  <span>Tweaks</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/></svg>
-                  <span>Clean</span>
-                </div>
-                <div class="grp">Sicherheit</div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  <span>Sicherung</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                  <span>Einstellungen</span>
-                </div>
-              </nav>
-
-              <div class="win-main">
-                <div class="win-h">
-                  <div>
-                    <h4>Übersicht</h4>
-                    <p>Windows 11 Pro · Build 26100 · AMD Ryzen 5</p>
-                  </div>
-                  <span class="win-state"><span class="d"></span> System gesichert</span>
-                </div>
-
-                <div class="win-tiles">
-                  <div class="tile">
-                    <span class="lbl">Aktives Preset</span>
-                    <span class="val accent">Gaming</span>
-                    <div class="meter"><i style="width:100%"></i></div>
-                  </div>
-                  <div class="tile">
-                    <span class="lbl">Tweaks angewendet</span>
-                    <span class="val">48</span>
-                    <span class="sub2">von 129 verfügbaren</span>
-                  </div>
-                  <div class="tile">
-                    <span class="lbl">Letzte Sicherung</span>
-                    <span class="val ok">Heute</span>
-                    <span class="sub2">14:02 Uhr · automatisch</span>
-                  </div>
-                </div>
-
-                <div class="win-h" style="margin-bottom:10px">
-                  <div><h4>Preset wählen</h4></div>
-                </div>
-
-                <div class="profiles">
-                  <div class="prof on">
-                    <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg></span>
-                    <div>
-                      <div class="pn">Gaming</div>
-                      <div class="pd">Volle Leistung</div>
-                    </div>
-                    <span class="pcheck">Aktiv</span>
-                  </div>
-                  <div class="prof">
-                    <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg></span>
-                    <div>
-                      <div class="pn">Privatsphäre</div>
-                      <div class="pd">Telemetrie &amp; Tracking</div>
-                    </div>
-                  </div>
-                  <div class="prof">
-                    <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 8h5l-3 12"/></svg></span>
-                    <div>
-                      <div class="pn">Tempo</div>
-                      <div class="pd">Schneller Start</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="win-actions">
-                  <span class="wbtn main">Preset anwenden</span>
-                  <span class="wbtn">System prüfen</span>
-                  <span class="spacer">Lizenz aktiv · 1 PC</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="shot-caption">Übersicht: Systemstatus, aktives Preset und die letzte Sicherung auf einen Blick.</p>
+          <figure class="shot">
+            <img src="bilder/app-uebersicht.png" width="1160" height="800"
+                 loading="lazy" decoding="async"
+                 alt="Übersichtsseite der Tweak App: erkannte Hardware, 82 von 129 angewendeten Tweaks und die Live-Auslastung von CPU und GPU.">
+          </figure>
+          <p class="shot-caption">Übersicht: erkannte Hardware, wie viele Tweaks gerade aktiv sind und die Live-Auslastung. Auf dieser Seite wird nichts verändert.</p>
         </div>
 
-        <!-- ---- Ansicht 2: Tweaks ---- -->
+        <!-- ---- Ansicht 2: Tweaks. Die Aufnahme ist bewusst im dritten Eintrag
+                  abgeschnitten: der Umfang gehört auf die Seite, die Liste
+                  selbst in die App. ---- -->
         <div class="shot-panel" role="tabpanel" id="panel-tweaks" aria-labelledby="tab-tweaks" tabindex="0" hidden>
-          <div class="win">
-            <div class="win-bar">
-              <span class="wm">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                Tyler Tweaks — Control Center
-              </span>
-              <span class="wv" data-app-version>v2.6.0</span>
-              <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
-            </div>
-            <div class="win-body">
-              <nav class="win-side" aria-hidden="true">
-                <div class="grp">System</div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
-                  <span>Übersicht</span>
-                </div>
-                <div class="it on">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-                  <span>Tweaks</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/></svg>
-                  <span>Clean</span>
-                </div>
-                <div class="grp">Sicherheit</div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  <span>Sicherung</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                  <span>Einstellungen</span>
-                </div>
-              </nav>
-
-              <div class="win-main">
-                <div class="win-h">
-                  <div>
-                    <h4>Tweaks</h4>
-                    <p>Jede Einstellung einzeln schaltbar — mit Erklärung</p>
-                  </div>
-                  <span class="win-state"><span class="d"></span> 18 aktiv</span>
-                </div>
-
-                <div class="sw-group">
-                  <div class="gt">System &amp; Datenschutz</div>
-                  <div class="sw-list">
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">Telemetrie &amp; Diagnosedaten</div>
-                        <div class="sd">Schaltet die Übermittlung von Nutzungsdaten ab.</div>
-                      </div>
-                      <span class="toggle on" aria-hidden="true"></span>
-                    </div>
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">Xbox Game Bar &amp; Aufnahme</div>
-                        <div class="sd">Entfernt das Overlay, das im Hintergrund mitläuft.</div>
-                      </div>
-                      <span class="toggle on" aria-hidden="true"></span>
-                    </div>
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">Hintergrund-Apps</div>
-                        <div class="sd">Store-Apps dürfen nicht mehr ungefragt laufen.</div>
-                      </div>
-                      <span class="toggle on" aria-hidden="true"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="sw-group">
-                  <div class="gt">Leistung</div>
-                  <div class="sw-list">
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">Höchstleistungs-Energieplan</div>
-                        <div class="sd">Verhindert das Heruntertakten im Spiel.</div>
-                      </div>
-                      <span class="toggle on" aria-hidden="true"></span>
-                    </div>
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">Core Parking aus<span class="risk">Laptop prüfen</span></div>
-                        <div class="sd">Hält alle CPU-Kerne wach. Auf Notebooks mehr Verbrauch.</div>
-                      </div>
-                      <span class="toggle on" aria-hidden="true"></span>
-                    </div>
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">GPU-Hardware-Scheduling</div>
-                        <div class="sd">Wirkt nicht auf jeder Karte gleich — erst testen.</div>
-                      </div>
-                      <span class="toggle" aria-hidden="true"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="sw-group">
-                  <div class="gt">Netzwerk</div>
-                  <div class="sw-list">
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">Nagle-Algorithmus aus</div>
-                        <div class="sd">Kleine Pakete gehen sofort raus statt gebündelt.</div>
-                      </div>
-                      <span class="toggle on" aria-hidden="true"></span>
-                    </div>
-                    <div class="sw">
-                      <div class="st">
-                        <div class="sn">Netzwerk-Drosselung aus</div>
-                        <div class="sd">Hebt die Windows-Bremse für Spiele-Traffic auf.</div>
-                      </div>
-                      <span class="toggle on" aria-hidden="true"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="win-actions">
-                  <span class="wbtn main">Änderungen anwenden</span>
-                  <span class="wbtn">Alles zurücksetzen</span>
-                  <span class="spacer">Sicherung wird vorher automatisch erstellt</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="shot-caption">Tweaks: jede Änderung einzeln, mit Klartext-Erklärung und Warnhinweis, wo es drauf ankommt.</p>
+          <figure class="shot">
+            <img src="bilder/app-tweaks.png" width="1160" height="520"
+                 loading="lazy" decoding="async"
+                 alt="Tweak-Liste der App: Suchfeld, Filter nach Risiko und Kategorie, darunter die ersten Einträge mit Erklärung und Schalter.">
+          </figure>
+          <p class="shot-caption">Tweaks: filterbar nach Kategorie und Risiko, jeder Eintrag mit Erklärung und eigenem Schalter. Die vollständige Liste siehst du in der App.</p>
         </div>
 
-        <!-- ---- Ansicht 3: Sicherung ---- -->
-        <div class="shot-panel" role="tabpanel" id="panel-sicherung" aria-labelledby="tab-sicherung" tabindex="0" hidden>
-          <div class="win">
-            <div class="win-bar">
-              <span class="wm">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                Tyler Tweaks — Control Center
-              </span>
-              <span class="wv" data-app-version>v2.6.0</span>
-              <span class="win-ctrls" aria-hidden="true"><i class="c-min"></i><i class="c-max"></i><i class="c-close"></i></span>
-            </div>
-            <div class="win-body">
-              <nav class="win-side" aria-hidden="true">
-                <div class="grp">System</div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
-                  <span>Übersicht</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-                  <span>Tweaks</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/></svg>
-                  <span>Clean</span>
-                </div>
-                <div class="grp">Sicherheit</div>
-                <div class="it on">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  <span>Sicherung</span>
-                </div>
-                <div class="it">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                  <span>Einstellungen</span>
-                </div>
-              </nav>
-
-              <div class="win-main">
-                <div class="win-h">
-                  <div>
-                    <h4>Sicherung &amp; Wiederherstellung</h4>
-                    <p>Jeder Punkt setzt dein System exakt zurück</p>
-                  </div>
-                  <span class="win-state"><span class="d"></span> 3 Punkte vorhanden</span>
-                </div>
-
-                <div class="bk-list">
-                  <div class="bk now">
-                    <span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-                    <div class="bt">
-                      <div class="bn">Vor Preset „Gaming“</div>
-                      <div class="bd">18.09.2026, 14:02 · Registry + Dienste + Energieplan</div>
-                    </div>
-                    <span class="ba">Wiederherstellen</span>
-                  </div>
-                  <div class="bk">
-                    <span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-                    <div class="bt">
-                      <div class="bn">Vor Netzwerk-Tweaks</div>
-                      <div class="bd">17.09.2026, 20:41 · Adapter + TCP-Einstellungen</div>
-                    </div>
-                    <span class="ba">Wiederherstellen</span>
-                  </div>
-                  <div class="bk">
-                    <span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-                    <div class="bt">
-                      <div class="bn">Erstinstallation</div>
-                      <div class="bd">12.09.2026, 09:15 · Auslieferungszustand</div>
-                    </div>
-                    <span class="ba">Wiederherstellen</span>
-                  </div>
-                </div>
-
-                <div class="win-note">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
-                  <span>Zusätzlich wird ein Windows-Wiederherstellungspunkt angelegt. Du kommst also auch dann zurück, wenn die App gar nicht mehr startet.</span>
-                </div>
-
-                <div class="win-actions">
-                  <span class="wbtn main">Auf Ausgangszustand zurück</span>
-                  <span class="wbtn">Neue Sicherung</span>
-                  <span class="spacer">Automatisch vor jeder Änderung</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="shot-caption">Sicherung: Wiederherstellungspunkte mit Datum — zurück auf den Ausgangszustand dauert einen Klick.</p>
-        </div>
+        <!-- Achtung beim Umformulieren der ersten Zeile: Anzahl und Zahlwort
+             zieht release-fertigstellen.ps1 aus dem Tweak-Katalog nach. Seine
+             Muster erwarten die Wortfolge Zahl + „einzeln schaltbare
+             Optimierungen in“ + Zahlwort + „Bereichen“ am Stück in einer Zeile.
+             Wird sie zerlegt oder umgestellt, greift das Skript nicht mehr und
+             die Angabe veraltet still. Dieselbe Wortfolge steht in den
+             strukturierten Daten im Kopf der Seite. -->
+        <ul class="shot-fakten">
+          <li><strong>129 einzeln schaltbare Optimierungen in elf Bereichen</strong>, jede im Klartext erklärt</li>
+          <li>Fünf fertige Presets, oder jeder Tweak einzeln</li>
+          <li>Vor jeder Änderung eine Sicherung, jede einzeln zurücknehmbar</li>
+        </ul>
       </div>
 
       <!-- ===== Feature-Liste ===== -->
@@ -660,7 +370,7 @@
 </section>
 
 <!-- ============ PERSÖNLICHE OPTIMIERUNG ============ -->
-<section id="leistungen" class="section reveal">
+<section id="leistungen" class="section reveal ton-magenta">
   <div class="wrap">
 
     <div class="section-head">
@@ -860,7 +570,7 @@
 </section>
 
 <!-- ============ KAUFABLAUF ============ -->
-<section id="ablauf" class="section reveal">
+<section id="ablauf" class="section reveal ton-gold">
   <div class="wrap">
 
     <div class="section-head">
@@ -1009,7 +719,7 @@
 </section>
 
 <!-- ============ VERTRAUEN & SICHERHEIT ============ -->
-<section id="vertrauen" class="section section-alt reveal">
+<section id="vertrauen" class="section section-alt reveal ton-cyan">
   <div class="wrap">
 
     <div class="section-head">
@@ -1260,7 +970,7 @@
 </section>
 
 <!-- ============ SUPPORT ============ -->
-<section id="support" class="section section-alt reveal">
+<section id="support" class="section section-alt reveal ton-magenta">
   <div class="wrap">
 
     <div class="section-head">
@@ -1418,8 +1128,8 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.6.0"></script>
-<script src="tt-backend.js?v=2.6.0"></script>
-<script src="script.js?v=2.6.0"></script>
+<script src="konfig.js?v=2.6.1"></script>
+<script src="tt-backend.js?v=2.6.1"></script>
+<script src="script.js?v=2.6.1"></script>
 </body>
 </html>

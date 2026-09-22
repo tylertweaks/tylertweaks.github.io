@@ -101,7 +101,8 @@ Der Kunde muss nichts anfordern und niemanden anschreiben.
 | `admin.js` | Verwaltung |
 | `script.js` | Startseite: Navigation, FAQ, App-Ansichten, Laufzeit-Auswahl |
 | `style.css` | Design-System der gesamten Seite |
-| `mockup.css` | Gezeichnete App-Oberfläche und Ablauf-Illustrationen |
+| `mockup.css` | Gezeichnete Illustrationen im Kaufablauf |
+| `bilder/app-*.png` | Bildschirmfotos der App für die Produktvorstellung |
 | `robots.txt` | Hält Kundenbereich, Kasse und Verwaltung aus den Suchergebnissen |
 | `sitemap.xml` | Die öffentlichen Seiten für Suchmaschinen |
 
@@ -275,6 +276,27 @@ Die Prüfsumme einer Datei bekommst du weiterhin mit:
 ```powershell
 Get-FileHash "downloads\TylerTweaksSetup-2.5.0.exe" -Algorithm SHA256
 ```
+
+**Bildschirmfotos der App erneuern:** In `bilder/` liegen echte Aufnahmen aus
+der App, kein Nachbau. Sieht die App nach einem Release anders aus, gehören sie
+ausgetauscht — sonst zeigt die Startseite eine Fassung, die es nicht mehr gibt.
+
+Die App verlangt Administratorrechte, eine Aufnahme ist deshalb nicht einfach
+per Skript zu machen. Dafür liegt im App-Projekt `TweakApp/app.preview.manifest`:
+dieselbe App, aber als `asInvoker`, also ohne UAC-Abfrage.
+
+```powershell
+& "$env:USERPROFILE\.dotnet\dotnet.exe" build "E:\Tweak app\TweakApp\TweakApp.csproj" -c Debug -p:ApplicationManifest=app.preview.manifest -o "$env:TEMP\tyler-preview"
+```
+
+Danach `Tyler.exe` aus diesem Ordner starten, das Fenster aufnehmen und in
+`bilder/` ablegen. Zwei Regeln dabei:
+
+* **Nicht alles zeigen.** `app-uebersicht.png` nennt keinen einzigen Tweak,
+  `app-tweaks.png` ist nach dem dritten Eintrag abgeschnitten und unten
+  ausgeblendet. Der Umfang gehört auf die Seite, die Liste in die App.
+* **Nichts Persönliches.** Die Seiten *Clean* und *Verlauf* zeigen echte
+  Autostart-Pfade und fehlgeschlagene Änderungen. Beide bleiben draußen.
 
 ## Offen
 

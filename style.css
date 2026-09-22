@@ -97,8 +97,15 @@
   --accent-2-rgb:  176, 124, 255;
   --accent-soft:   rgba(var(--accent-rgb), .10);
   --ok:            #3dd68c;
-  --ok-soft:       rgba(61, 214, 140, .10);
+  --ok-rgb:        61, 214, 140;
+  --ok-soft:       rgba(var(--ok-rgb), .10);
   --warn:          #f5b544;
+
+  /* Die Risikostufe „Fortgeschritten" lief bisher über --accent-2 mit. Sobald
+     ein Abschnitt seinen eigenen Ton bekommt, wäre das keine Risikoskala mehr,
+     sondern die Abschnittsfarbe — bei einem Gold-Ton wären „Vorsicht" und
+     „Fortgeschritten" sogar dieselbe Farbe. Deshalb fest verankert. */
+  --risk-adv:      #b07cff;
 
   /* ---- Form ----
      Eine Stufe flacher als vorher. Sehr runde Ecken lassen Software-Oberflächen
@@ -198,11 +205,117 @@ strong { color: var(--text); font-weight: 600; }
 
 .muted { color: var(--muted); }
 
-.section { padding: 96px 0; }
+/* ---- Abschnittstöne ----
+   Jeder Abschnitt kann seine eigene Akzentfarbe bekommen. Das funktioniert
+   ohne eine einzige neue Komponentenregel, weil die Bausteine den Akzent
+   ohnehin über die Variable beziehen: Eyebrow, Icons, Häkchen, Ränder,
+   Verlaufs-Buttons, der Fokusring — alle ziehen automatisch mit.
+
+   Beide Variablen-Paare sind Pflicht: .btn-primary, .badge und .flow-num sind
+   Verläufe von --accent nach --accent-2. Wer nur --accent setzt, bekommt einen
+   Verlauf von Gold nach Violett.
+
+   --accent-soft muss ebenfalls in jedem Ton stehen. Es ist in :root als
+   rgba(var(--accent-rgb), .10) deklariert und wird genau dort ausgerechnet;
+   vererbt wird der fertige Wert. Ein --accent-rgb weiter unten im Baum ändert
+   daran nichts mehr.
+
+   Für die Palette gilt eine Regel: Ein Ton muss hell genug sein, denn auf den
+   Verlaufs-Buttons steht fast schwarze Schrift (#05050a). Ab einer relativen
+   Helligkeit von 0,18 sind die nötigen 4,5:1 erreicht. Cyan (0,53) und Gold
+   (0,53) liegen darüber, sogar deutlich über dem bisherigen Blau (0,29).
+   Nicht verwenden: Grüntöne nahe --ok, Rottöne nahe der Fehlerfarbe. */
+.ton-cyan {
+  --accent:       #22d3ee;
+  --accent-rgb:   34, 211, 238;
+  --accent-2:     #60a5fa;
+  --accent-2-rgb: 96, 165, 250;
+  --accent-soft:  rgba(var(--accent-rgb), .10);
+}
+.ton-gold {
+  --accent:       #f5b544;
+  --accent-rgb:   245, 181, 68;
+  --accent-2:     #ffd479;
+  --accent-2-rgb: 255, 212, 121;
+  --accent-soft:  rgba(var(--accent-rgb), .10);
+}
+.ton-magenta {
+  --accent:       #e879f9;
+  --accent-rgb:   232, 121, 249;
+  --accent-2:     #a78bfa;
+  --accent-2-rgb: 167, 139, 250;
+  --accent-soft:  rgba(var(--accent-rgb), .10);
+}
+
+.section { padding: 96px 0; position: relative; }
 .section-alt {
   background: var(--bg-2);
   border-block: 1px solid var(--line);
 }
+
+/* Hintergrundebene für jeden Abschnitt.
+   Bis Version 2.6.0 gab es Dekoration an genau zwei Stellen — hinter dem Hero
+   und hinter dem Schlussaufruf. Die acht Abschnitte dazwischen waren flache
+   Fläche, und genau daher kam der Eindruck, die Seite sei leer.
+
+   Zwei Lagen in einem Pseudo-Element: ein weicher Schimmer in der Akzentfarbe
+   des Abschnitts und darüber das feine Raster, das vorher nur der Hero hatte.
+   Gesteuert wird alles über Variablen, damit ein Abschnitt zwei Zeilen braucht
+   und keine eigene Regel.
+
+   inset:0 statt Überstand ist Absicht: so kann die Ebene den Abschnitt nie
+   verlassen und .section braucht kein overflow. Mit overflow:hidden würde die
+   mitwandernde Bildspalte in #app (weiter unten, .app-shots) aufhören zu
+   funktionieren, weil daraus ein eigener Scroll-Bereich wird. */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(var(--glow-w, 820px) var(--glow-h, 440px)
+                    at var(--glow-x, 78%) var(--glow-y, 8%),
+                    rgba(var(--accent-rgb), var(--glow-a, .09)), transparent 68%),
+    linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  /* Nach unten auslaufen lassen, sonst endet das Raster an der Abschnittskante
+     als sichtbare Abrisslinie. */
+  mask-image: linear-gradient(#000 60%, transparent);
+  -webkit-mask-image: linear-gradient(#000 60%, transparent);
+}
+
+/* Ohne das malt die Ebene über den Text: ein absolut positioniertes
+   Pseudo-Element kommt in der Stapelreihenfolge nach statischem Inhalt.
+   Derselbe Grund, aus dem .hero-inner und .cta .wrap das schon länger tun. */
+.section > .wrap { position: relative; z-index: 1; }
+
+/* Naht zwischen zwei Abschnitten. Ersetzt dort die durchgehende graue Linie
+   durch einen Strich, der zu den Rändern hin ausläuft. Nebenbei repariert das
+   die Stelle in der Seitenmitte, an der zwei gleiche Flächen ohne Trennung
+   aufeinandertreffen (Ablauf und Umfang sind beide kein section-alt). */
+.section + .section::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), .32), transparent);
+}
+
+/* Der Rhythmus der Startseite: abwechselnd rechts und links, damit beim
+   Scrollen eine Bewegung entsteht und nicht acht gleiche Flecken. Stark dort,
+   wo verkauft wird, schwach in den textlastigen Abschnitten — in FAQ und
+   Umfang liest man, da darf im Rücken nichts flimmern. */
+#app           { --glow-x: 78%; --glow-a: .12; }
+#leistungen    { --glow-x: 16%; --glow-a: .07; }
+#preise        { --glow-x: 80%; --glow-a: .12; }
+#ablauf        { --glow-x: 18%; --glow-a: .07; }
+#optimierungen { --glow-x: 78%; --glow-a: .04; }
+#vertrauen     { --glow-x: 16%; --glow-a: .07; }
+#faq           { --glow-x: 80%; --glow-a: .04; }
+#support       { --glow-x: 18%; --glow-a: .07; }
 
 .section-head { max-width: 680px; margin-bottom: 52px; }
 .section-head.center { margin-inline: auto; text-align: center; }
@@ -437,7 +550,7 @@ strong { color: var(--text); font-weight: 600; }
   width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--ok);
-  box-shadow: 0 0 0 3px rgba(52, 211, 153, .18);
+  box-shadow: 0 0 0 3px rgba(var(--ok-rgb), .18);
 }
 
 .hero h1 {
@@ -534,6 +647,10 @@ strong { color: var(--text); font-weight: 600; }
   gap: 48px;
   align-items: start;
 }
+/* Rasterzellen dürfen von Haus aus nicht schmaler werden als ihr Inhalt. Die
+   Bildschirmfotos sind breiter als eine Handyspalte — ohne das hier schiebt
+   die Aufnahme die ganze Seite zur Seite, statt im Rahmen zu scrollen. */
+.app-layout > * { min-width: 0; }
 
 .shot-tabs {
   display: flex;
@@ -561,12 +678,60 @@ strong { color: var(--text); font-weight: 600; }
 }
 
 .shot-panel[hidden] { display: none; }
+
+/* Rahmen um die Bildschirmfotos. Die App bringt ihre eigene Titelleiste mit,
+   der Rahmen hier setzt sie nur vom Seitenhintergrund ab. */
+.shot {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0b0f18;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .03);
+}
+.shot img { display: block; width: 100%; height: auto; }
+
 .shot-caption {
   margin: 14px 0 0;
   color: var(--muted);
   font-size: .89rem;
   text-align: center;
 }
+
+/* Die Aufnahme ist gut 900 px kürzer als die Feature-Liste daneben. Ohne das
+   hier stünde daneben eine leere Spalte. Statt die Lücke mit Füllmaterial zu
+   stopfen, wandert die Spalte beim Scrollen mit — so steht das Bild immer
+   neben dem Punkt, den man gerade liest.
+   Erst ab 1041 px, darunter ist das Raster ohnehin einspaltig. Und erst ab
+   860 px Höhe: passt die Spalte nicht auf den Schirm, klebt sie sonst oben
+   fest und wird unten abgeschnitten. */
+@media (min-width: 1041px) and (min-height: 860px) {
+  .app-shots {
+    position: sticky;
+    /* 70 px Navigationsleiste plus Luft. */
+    top: 92px;
+  }
+}
+
+.shot-fakten {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.shot-fakten li {
+  padding: 13px 18px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: .89rem;
+  line-height: 1.5;
+}
+.shot-fakten strong { color: var(--text); font-weight: 600; }
 
 /* Feature-Liste neben der App */
 .feature-list { list-style: none; padding: 0; margin: 0; }
@@ -883,8 +1048,8 @@ strong { color: var(--text); font-weight: 600; }
 .risk-safe .rn, .risk-safe .rl { color: var(--ok); }
 .risk-caution  { border-left-color: var(--warn); }
 .risk-caution .rn, .risk-caution .rl { color: var(--warn); }
-.risk-advanced { border-left-color: var(--accent-2); }
-.risk-advanced .rn, .risk-advanced .rl { color: var(--accent-2); }
+.risk-advanced { border-left-color: var(--risk-adv); }
+.risk-advanced .rn, .risk-advanced .rl { color: var(--risk-adv); }
 
 .opt-note {
   margin-top: 26px;
@@ -1005,9 +1170,52 @@ strong { color: var(--text); font-weight: 600; }
 .account {
   min-height: calc(100vh - 340px);
   padding: 64px 0 96px;
+  position: relative;
 }
 
+/* Dieselbe Hintergrundebene wie bei den Abschnitten der Startseite. Die
+   Anmeldeseiten waren vorher eine Karte auf schwarzer Fläche und damit die
+   leersten Seiten der ganzen Website. */
+.account::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(760px 420px at 50% 12%, rgba(var(--accent-rgb), var(--glow-a, .13)), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  mask-image: linear-gradient(#000 55%, transparent);
+  -webkit-mask-image: linear-gradient(#000 55%, transparent);
+}
+.account > .wrap { position: relative; z-index: 1; }
+
+/* Konto und Kasse tragen dieselbe Klasse, haben aber viel mehr Inhalt — dort
+   soll der Schimmer nur andeuten, nicht auftragen. */
+.account.konto,
+.account.kasse { --glow-a: .06; }
+
+/* Nur die reinen Anmeldeseiten: dort steht eine einzelne Karte, und die
+   min-height oben rechnet mit einem 340 px hohen Fuß, den diese Seiten gar
+   nicht haben. Ohne das Zentrieren hängt die Karte oben und darunter steht
+   schwarz. Bewusst eine Klasse im HTML statt :has() — die Datei kommt sonst
+   ohne moderne Selektoren aus, und vier Wörter sind billiger als eine neue
+   Anforderung an den Browser. */
+.account-zentriert {
+  display: flex;
+  align-items: center;
+  /* Die 340 px oben sind für Konto und Kasse gerechnet, die den vollen Fuß
+     tragen. Hier bestehen Navigation und Fußzeile zusammen aus 229 px —
+     mit dem alten Wert bliebe auf hohen Bildschirmen unterhalb der Fußzeile
+     eine leere Fläche stehen. */
+  min-height: calc(100vh - 230px);
+}
+.account-zentriert > .wrap { width: 100%; }
+
 .login-card {
+  position: relative;
   max-width: 480px;
   margin: 0 auto;
   padding: 36px 32px;
@@ -1015,6 +1223,17 @@ strong { color: var(--text); font-weight: 600; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  overflow: hidden;
+}
+/* Farbkappe über die volle Breite. Zusammen mit dem Ton der jeweiligen Seite
+   sind Anmelden, Registrieren und die beiden Passwortseiten auf einen Blick
+   auseinanderzuhalten, ohne dass man die Überschrift lesen muss. */
+.login-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 .login-card h1 { font-size: 1.6rem; margin-bottom: .3em; }
 .login-card .sub { font-size: .96rem; margin-bottom: 26px; }
@@ -1062,7 +1281,7 @@ strong { color: var(--text); font-weight: 600; }
 }
 .form-msg.ok {
   background: var(--ok-soft);
-  border: 1px solid rgba(52, 211, 153, .35);
+  border: 1px solid rgba(var(--ok-rgb), .35);
   color: var(--ok);
 }
 
@@ -1345,6 +1564,15 @@ strong { color: var(--text); font-weight: 600; }
   .dash-head { flex-direction: column; }
   .keyline { flex-wrap: wrap; font-size: .92rem; }
   .keyline button { margin-left: 0; width: 100%; }
+
+  /* Ein 1160 px breites Fenster auf Handybreite gequetscht ist nicht mehr zu
+     entziffern — von einer Aufnahme, auf der man nichts erkennt, hat niemand
+     etwas. Deshalb behält sie hier eine Mindestbreite, und der Rahmen wird
+     seitlich scrollbar. Lieber wischen als raten. */
+  .shot { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+  /* max-width muss ausdrücklich weg: die allgemeine Regel img { max-width:100% }
+     würde die Aufnahme sonst doch wieder auf die Rahmenbreite stauchen. */
+  .shot img { width: 620px; max-width: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1443,7 +1671,7 @@ strong { color: var(--text); font-weight: 600; }
 .hinweis-kasten p:last-child { margin-bottom: 0; }
 .hinweis-kasten.ok {
   background: var(--ok-soft);
-  border-color: rgba(52, 211, 153, .35);
+  border-color: rgba(var(--ok-rgb), .35);
 }
 .hinweis-kasten.warn {
   background: rgba(251, 191, 36, .08);
@@ -1478,7 +1706,7 @@ strong { color: var(--text); font-weight: 600; }
 .erfolg-symbol.gross {
   width: 72px; height: 72px;
   background: var(--ok-soft);
-  border-color: rgba(52, 211, 153, .4);
+  border-color: rgba(var(--ok-rgb), .4);
   color: var(--ok);
 }
 .erfolg-symbol.gross svg { width: 34px; height: 34px; }
@@ -1672,7 +1900,7 @@ strong { color: var(--text); font-weight: 600; }
 .keyline .key-kopieren:hover { background: rgba(var(--accent-rgb), .18); }
 .keyline .key-kopieren.ok {
   background: var(--ok-soft);
-  border-color: rgba(52, 211, 153, .4);
+  border-color: rgba(var(--ok-rgb), .4);
   color: var(--ok);
 }
 
@@ -2015,7 +2243,32 @@ strong { color: var(--text); font-weight: 600; }
 .rechtstext {
   padding: 56px 0 96px;
   line-height: 1.75;
+  position: relative;
 }
+
+/* Hier wird gelesen, nicht geschaut: dieselbe Ebene wie sonst, aber auf der
+   schwächsten Stufe. Sie nimmt der Seite das Brett-Gefühl, ohne sich
+   vorzudrängen. */
+.rechtstext::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 380px at 75% 4%, rgba(var(--accent-rgb), .05), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, .018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .018) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  mask-image: linear-gradient(#000 35%, transparent);
+  -webkit-mask-image: linear-gradient(#000 35%, transparent);
+}
+.rechtstext > .wrap { position: relative; z-index: 1; }
+
+/* 840 px sind bei 16 px rund 95 Zeichen je Zeile. Zusammen mit der
+   Zeilenhöhe 1.75 ist das der Hauptgrund, warum diese Seiten anstrengend zu
+   lesen sind. 68 Zeichen liegen im bequemen Bereich. */
+.rechtstext .wrap-narrow { max-width: 68ch; }
 
 .rechtstext h1 {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -2028,13 +2281,26 @@ strong { color: var(--text); font-weight: 600; }
   font-size: .92rem;
 }
 
+/* Statt einer grauen Linie über die volle Spalte ein kurzer Akzentstrich.
+   Aus einer Trennung wird damit eine Gliederung — man sieht, dass hier ein
+   neuer Punkt anfängt, statt nur, dass der vorige aufgehört hat. */
 .rechtstext h2 {
-  margin: 44px 0 .6em;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
+  position: relative;
+  margin: 52px 0 .6em;
+  padding-top: 26px;
   font-size: 1.22rem;
 }
-.rechtstext h2:first-of-type { border-top: 0; padding-top: 0; }
+.rechtstext h2::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 34px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.rechtstext h2:first-of-type { margin-top: 0; padding-top: 0; }
+.rechtstext h2:first-of-type::before { display: none; }
 
 .rechtstext p { color: var(--text-2); }
 
@@ -2204,4 +2470,130 @@ strong { color: var(--text); font-weight: 600; }
   .rechtstext { padding: 36px 0 64px; }
   .rechtstext h2 { margin-top: 34px; }
   .platzhalter-warnung, .rechts-fuss { padding: 18px 16px; }
+}
+
+/* ========== 20. Kartenebenen ==========
+   Dieselben vier Deklarationen — Polster, Fläche, 1px-Rand, Radius — standen
+   bis Version 2.6.0 an neunzehn Stellen. Das Ergebnis war, dass eine beiläufige
+   Aufzählungskachel genauso aussah wie die Karte, auf die es ankommt.
+
+   Deshalb hier drei Stufen nach Rolle. Bewusst als angehängter Block und nicht
+   verteilt in die bestehenden Regeln: was hier steht, legt sich über die
+   Grundform, und ein Rückbau ist das Löschen dieses Abschnitts. Ebenso bewusst
+   ohne eine einzige HTML-Änderung — ein Teil dieser Karten entsteht erst zur
+   Laufzeit aus konto.js und admin.js.
+   ====================================================================== */
+
+/* Stufe 1 — zurückgenommen. Zählwerte und Merkmalskacheln: sie stützen die
+   Aussage daneben, sie sind nicht selbst die Aussage.
+   Nicht dabei: .shot-fakten li. Die Liste unter der App-Aufnahme trägt ganze
+   Sätze, keine Zahlen — sie würde hier zu Unrecht nach hinten rücken. */
+.opt-cat,
+.kennzahl,
+.trustbar li {
+  background: var(--bg-2);
+}
+
+/* Stufe 2 — die normale Karte. Das Kantenlicht oben ist der ganze Trick:
+   auf dunklem Grund hebt eine einzelne helle Linie eine Fläche spürbarer an
+   als jede Änderung der Füllfarbe. */
+.card,
+.trust-card,
+.panel,
+.flow-step,
+.risk-card,
+.produkt-karte,
+.bestell-karte,
+.lizenz-karte,
+.faq details {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .045);
+}
+
+/* Der Hover-Lift hing bisher nur an .card — ausgerechnet an sechs Karten, die
+   gar nicht anklickbar sind, während .trust-card und .panel mit demselben
+   Inhalt keinen hatten. Statt ihn zu streichen (das nähme der Seite Leben,
+   also genau das Gegenteil des Ziels) bekommen alle Stufe-2-Karten denselben
+   dezenten Hover. */
+.trust-card,
+.panel,
+.flow-step,
+.risk-card,
+.produkt-karte,
+.bestell-karte,
+.lizenz-karte {
+  transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.trust-card:hover,
+.panel:hover,
+.flow-step:hover,
+.risk-card:hover,
+.produkt-karte:hover,
+.bestell-karte:hover,
+.lizenz-karte:hover {
+  border-color: rgba(var(--accent-rgb), .30);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07);
+}
+
+/* Stufe 3 — die Karte, auf die es ankommt. Die Klassen dafür gab es längst,
+   das HTML markiert diese Karten seit jeher; es fehlte nur die Auszeichnung. */
+.plan-featured,
+.panel-accent,
+.lizenz-karte.aktiv,
+.login-card,
+.erfolg-kasten.gross {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .07),
+    0 0 0 1px rgba(var(--accent-rgb), .22),
+    var(--shadow);
+}
+
+/* Den Rand nur dort anheben, wo er heute noch der neutrale ist. Die drei
+   anderen Stufe-3-Karten tragen längst einen Akzentrand — ein pauschales
+   border-color würde ihn abschwächen statt ihn zu stärken. */
+.login-card,
+.erfolg-kasten.gross {
+  border-color: var(--line-strong);
+}
+
+/* ========== 21. Druck ==========
+   Betrifft in der Praxis die Rechtstexte: AGB, Widerruf und Datenschutz sind
+   genau die Seiten, die Leute ausdrucken oder als PDF ablegen. Ohne das hier
+   käme nach der Überarbeitung dunkles Papier mit Rasterlinien aus dem Drucker.
+   ====================================================================== */
+@media print {
+  :root {
+    --bg: #fff; --bg-2: #fff;
+    --surface: #fff; --surface-2: #fff; --surface-3: #fff;
+    --text: #000; --text-2: #1a1a1a; --muted: #444;
+    --line: #bbb; --line-strong: #888;
+    --accent: #000; --accent-rgb: 0, 0, 0;
+  }
+
+  body { background: #fff; color: #000; }
+
+  /* Die Hintergrundebenen haben auf Papier nichts zu suchen. */
+  .section::before,
+  .section + .section::after,
+  .account::before,
+  .rechtstext::before,
+  .hero-glow,
+  .hero::after,
+  .cta::before { display: none !important; }
+
+  /* Navigation, Fußzeile und alles Anklickbare sind auf Papier tote Fracht. */
+  .nav, .nav-toggle, .skip-link, .rechtslinks, .zurueck,
+  .platzhalter-warnung { display: none !important; }
+
+  .rechtstext { padding: 0; }
+  .rechtstext .wrap-narrow { max-width: none; }
+  .rechtstext h2 { break-after: avoid; }
+  .rechtstext h2::before { background: #000; }
+  .rechtstext p, .rechtstext li { break-inside: avoid; }
+
+  /* Adressen im Impressum sind der Grund, aus dem gedruckt wird — die dürfen
+     nicht über einen Seitenumbruch fallen. */
+  .rechtstext address, .rechts-fuss { break-inside: avoid; }
+
+  /* Ziel eines Verweises mitdrucken, sonst steht auf dem Papier nur ein Wort. */
+  .rechtstext a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .85em; }
 }

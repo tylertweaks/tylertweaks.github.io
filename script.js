@@ -82,7 +82,7 @@
   })();
 
   /* ====================================================================
-     5. App-Ansichten umschalten (Übersicht / Tweaks / Sicherung)
+     5. App-Ansichten umschalten (Übersicht / Tweaks)
      ==================================================================== */
   (function ansichten() {
     var leiste = document.querySelector('.shot-tabs');
