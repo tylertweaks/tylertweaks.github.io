@@ -77,9 +77,9 @@
     <!-- ===== Kauf ===== -->
     <div id="kauf" hidden>
       <div class="kasse-kopf">
-        <a href="index.html#preise" class="zurueck-link">
+        <a href="warenkorb.html" class="zurueck-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-          Andere Laufzeit wählen
+          Zurück zum Warenkorb
         </a>
         <h1>Bestellung abschließen</h1>
       </div>
@@ -104,6 +104,8 @@
             <p class="muted" id="p-beschreibung"></p>
           </div>
           <div class="kasse-preis">
+            <!-- Der Preis ohne Rabatt. Erscheint nur, wenn ein Code gilt. -->
+            <span class="kasse-preis-alt" id="p-preis-alt" hidden>—</span>
             <span id="p-preis">—</span>
             <span class="kasse-einmal">einmalig</span>
           </div>
@@ -112,6 +114,7 @@
         <ul class="speclist kasse-details">
           <li><span class="k">Laufzeit</span><span class="v" id="p-laufzeit">—</span></li>
           <li><span class="k">Gültig für</span><span class="v">1 PC</span></li>
+          <li id="p-rabatt-zeile" hidden><span class="k">Rabattcode</span><span class="v" id="p-rabatt">—</span></li>
           <li><span class="k">Lizenzschlüssel</span><span class="v" id="p-key">—</span></li>
           <li><span class="k">Konto</span><span class="v" id="p-konto">—</span></li>
         </ul>
@@ -203,7 +206,25 @@
 
       <div class="fertig-aktionen">
         <a href="konto.html" class="btn btn-primary">Zum Kundenbereich</a>
+        <!-- Erscheint nur, wenn nach diesem Kauf noch etwas im Warenkorb liegt -->
+        <a href="warenkorb.html" class="btn btn-outline" id="f-korb-rest" hidden>Zum Warenkorb</a>
         <a href="index.html#preise" class="btn btn-ghost">Weiteres Paket ansehen</a>
+      </div>
+    </div>
+
+    <!-- ===== Paket liegt nicht im Warenkorb =====
+         Gekauft wird nur über den Warenkorb. Wer diese Adresse direkt aufruft
+         (Lesezeichen, alter Link), landet hier — und nicht in einer Kasse für
+         etwas, das er nie ausgewählt hat. -->
+    <div id="nicht-im-korb" hidden>
+      <div class="login-card">
+        <h1>Erst in den Warenkorb</h1>
+        <p class="sub">
+          Gekauft wird über den Warenkorb: Leg das Paket auf der Preisseite
+          hinein — dort bezahlst du es und kannst einen Rabattcode einlösen.
+        </p>
+        <a href="index.html#preise" class="btn btn-primary btn-block">Zu den Paketen</a>
+        <p class="korb-ausweg"><a href="warenkorb.html">Warenkorb ansehen</a></p>
       </div>
     </div>
 
@@ -264,6 +285,7 @@
 <script src="js/supabase-js-2.45.4.js"></script>
 <script src="konfig.js?v=2.7.0"></script>
 <script src="tt-backend.js?v=2.7.0"></script>
+<script src="warenkorb.js?v=2.7.0"></script>
 <script src="kaufen.js?v=2.7.0"></script>
 </body>
 </html>

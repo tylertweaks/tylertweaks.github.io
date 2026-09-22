@@ -12,13 +12,13 @@ Live: https://tylertweaks.github.io/
 
 | Paket | Preis |
 |---|---|
-| Tweak App — 24 Stunden | 2,99 € |
-| Tweak App — 2 Tage | 4,99 € |
-| Tweak App — 1 Woche | 7,99 € |
-| Tweak App — 1 Monat | 12,99 € |
-| Tweak App — 1 Jahr | 19,99 € |
-| Tweak App — Lifetime | 29,99 € |
-| PC-Optimierung | 49,99 € |
+| Tweak App — 24 Stunden | 4,99 € |
+| Tweak App — 2 Tage | 6,99 € |
+| Tweak App — 1 Woche | 9,99 € |
+| Tweak App — 1 Monat | 14,99 € |
+| Tweak App — 1 Jahr | 24,99 € |
+| Tweak App — Lifetime | 49,99 € |
+| PC-Optimierung | 29,99 € |
 | Bundle (App Lifetime + Optimierung) | 69,99 € |
 
 Verbindlich sind immer die Preise in der Supabase-Tabelle `products` — die
@@ -38,6 +38,54 @@ Alle Preise stehen an genau zwei Stellen: in der Datenbank (verbindlich) und in
 `konfig.js` unter `laufzeiten` und `pakete` (nur Anzeige). **Im HTML steht kein
 Preis mehr fest** — die Kaufknöpfe und Beträge werden beim Laden gefüllt.
 
+## Warenkorb und Rabattcode
+
+Gekauft wird nur über den Warenkorb. Der Knopf auf der Preiskarte legt das
+Paket hinein, bezahlt wird auf `warenkorb.html`. `kaufen.html` nimmt deshalb
+nur noch Pakete an, die wirklich im Warenkorb liegen — wer die Adresse direkt
+aufruft, bekommt dort einen Hinweis statt einer Kasse.
+
+**Ohne Anmeldung kommt nichts hinein.** Klickt jemand ohne Konto auf einen
+Kaufknopf, merkt sich die Seite das Paket, schickt ihn zu
+`anmelden.html?grund=warenkorb&weiter=warenkorb.html` — und legt es nach der
+Anmeldung selbst in den Warenkorb. Der gemerkte Wunsch verfällt nach einer
+Stunde, damit er nicht Tage später überraschend auftaucht.
+
+Das gilt auch im Übergangsbetrieb, in dem früher ohne Konto über paypal.me
+bezahlt werden konnte: Die Lizenz gehört auf ein Konto, sonst gibt es hinterher
+keinen Ort für sie.
+
+Der Warenkorb liegt im `localStorage` des Browsers, nicht in der Datenbank: Er
+ist noch keine Bestellung und gilt nur auf diesem Gerät. **Beim Abmelden wird
+er geleert** — er gehört zum Konto, und am nächsten Nutzer desselben Rechners
+geht die Auswahl des vorigen nichts an. Zwei Laufzeiten derselben App schließen
+sich aus: Eine neue ersetzt die vorige, sonst lägen zwei Lizenzen für denselben
+PC darin.
+
+**Rabattcodes stehen an zwei Stellen, und beide müssen zusammenpassen:**
+
+| Stelle | Rolle |
+|---|---|
+| `konfig.js` → `rabattCodes` | Anzeige im Warenkorb |
+| `backend/supabase/functions/paypal-create-order/index.ts` → `RABATTE` | verbindliche Rechnung |
+
+Eingerichtet ist **`Tyler10` mit 10 %** (Groß- und Kleinschreibung egal).
+
+Einen neuen Code trägst du an beiden Stellen ein und stellst die Function neu
+bereit:
+
+```bash
+supabase functions deploy paypal-create-order
+```
+
+Vergisst du das, passiert nichts Schlimmes: Die Kasse vergleicht den Betrag vom
+Server mit dem angezeigten und bricht bei einer Abweichung ab — der Kunde
+bezahlt nie mehr, als im Warenkorb stand.
+
+Im Übergangsbetrieb (siehe unten) steht der Rabatt bereits im
+paypal.me-Betrag. Dort bestimmt der Browser die Summe; die Gegenprobe ist der
+Blick auf den Zahlungseingang, bevor du den Schlüssel von Hand herausgibst.
+
 ## Zwei Kaufwege — die Seite wählt selbst
 
 Die Preisseite prüft beim Laden, ob der automatische Shop bereitsteht. Dafür
@@ -48,8 +96,12 @@ müssen **beide** Bedingungen erfüllt sein:
 
 | Zustand | Was der Kunde sieht |
 |---|---|
-| beides erfüllt | „Für 29,99 € kaufen“ → `kaufen.html`, Schlüssel entsteht automatisch |
-| noch nicht | „Für 29,99 € über PayPal zahlen“ → `paypal.me`, Schlüssel per Discord |
+| beides erfüllt | Warenkorb → `kaufen.html`, Schlüssel entsteht automatisch |
+| noch nicht | Warenkorb → `paypal.me` mit der Gesamtsumme, Schlüssel per Discord |
+
+Der Knopf auf der Preiskarte ist in beiden Fällen derselbe („In den
+Warenkorb“). Es unterscheidet sich nur, wohin der Kaufknopf **im Warenkorb**
+führt.
 
 **Aktuell greift der zweite Fall**, weil `paypalClientId` in `konfig.js` leer
 ist. Der gesamte serverseitig abgesicherte Weg ist fertig gebaut, aber
@@ -69,7 +121,8 @@ möglich“ statt eines Knopfs ins Leere.
 ```
 Kunde registriert sich          -> Supabase Auth, Bestätigungsmail
 Kunde bestätigt die E-Mail      -> echter Link mit einmaligem Token
-Kunde wählt ein Paket           -> kaufen.html
+Kunde legt ein Paket hinein     -> warenkorb.html, dort auch der Rabattcode
+Kunde geht zur Kasse            -> kaufen.html
 Kunde zahlt mit PayPal          -> Edge Function legt die Bestellung mit dem
                                    Preis aus der Datenbank an
 PayPal bestätigt die Zahlung    -> Edge Function bucht ab und prüft den Betrag
@@ -91,11 +144,14 @@ Der Kunde muss nichts anfordern und niemanden anschreiben.
 | `anmelden.html` | Login |
 | `passwort-vergessen.html` | Link zum Zurücksetzen anfordern |
 | `passwort-neu.html` | Neues Passwort setzen (Ziel des Links aus der Mail) |
+| `warenkorb.html` | Warenkorb: Auswahl, Rabattcode, Weg zur Bezahlung |
 | `kaufen.html` | Kaufabschluss mit PayPal |
 | `konto.html` | Kundenbereich: Übersicht, Bestellungen, Produkte, Lizenzen, Downloads, Kontodaten |
 | `admin.html` | Verwaltung — nur für Konten mit `is_admin` |
 | `konfig.js` | **Zentrale Einstellungen.** Nur öffentlich unbedenkliche Werte. |
 | `tt-backend.js` | Supabase-Verbindung, Anmeldestatus, Fehlertexte, Formatierung |
+| `warenkorb.js` | Der Warenkorb selbst: Inhalt, Rabattrechnung, Knopf in der Navigation. Liegt auf **jeder** Seite. |
+| `warenkorb-seite.js` | Nur `warenkorb.html`: Liste, Code-Eingabe, Kaufknopf |
 | `auth.js` | Registrierung, Login, Passwort |
 | `kaufen.js` | PayPal-Buttons, ruft die Edge Functions auf |
 | `konto.js` | Kundenbereich |

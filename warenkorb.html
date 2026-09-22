@@ -22,8 +22,8 @@
      Stellen aendern - sonst blockiert der Browser die Verbindung.
      -------------------------------------------------------------------- -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.paypal.com https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co https://*.paypal.com; frame-src https://*.paypal.com https://*.paypalobjects.com">
-<link rel="canonical" href="https://tylertweaks.github.io/passwort-neu.html">
-<title>Neues Passwort — Tyler Tweaks</title>
+<link rel="canonical" href="https://tylertweaks.github.io/warenkorb.html">
+<title>Warenkorb — Tyler Tweaks</title>
 <meta name="theme-color" content="#070810">
 <!-- Symbol fuer Tab und Lesezeichen -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -54,6 +54,7 @@
       <a href="index.html#leistungen">Leistungen</a>
       <a href="index.html#preise">Preise</a>
       <a href="index.html#faq">FAQ</a>
+      <a href="admin.html" id="nav-admin" hidden>Admin</a>
       <span id="nav-auth-mobil"></span>
     </nav>
 
@@ -67,43 +68,97 @@
   </div>
 </header>
 
-<main id="inhalt" class="account account-zentriert ton-gold">
-  <div class="wrap">
-    <div class="login-card">
+<main id="inhalt" class="account kasse">
+  <div class="wrap wrap-narrow">
 
-      <h1>Neues Passwort setzen</h1>
-
-      <div class="form-msg" id="meldung" role="alert"></div>
-
-      <p class="sub" id="pruefe-link">Link wird geprüft …</p>
-
-      <form id="form-passwort-neu" novalidate hidden>
-        <div class="field">
-          <label for="passwort">Neues Passwort</label>
-          <input type="password" id="passwort" name="passwort" class="eingabe-text"
-                 autocomplete="new-password" minlength="8" required>
-          <p class="hint">Mindestens 8 Zeichen.</p>
-        </div>
-
-        <div class="field">
-          <label for="passwort2">Passwort bestätigen</label>
-          <input type="password" id="passwort2" name="passwort2" class="eingabe-text"
-                 autocomplete="new-password" minlength="8" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Passwort speichern</button>
-      </form>
-
-      <div id="neu-anfordern" hidden>
-        <a href="passwort-vergessen.html" class="btn btn-outline btn-block">
-          Neuen Link anfordern
-        </a>
-      </div>
-
-      <p class="login-foot">
-        <a href="anmelden.html">Zurück zur Anmeldung</a>
-      </p>
+    <div class="kasse-kopf">
+      <a href="index.html#preise" class="zurueck-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        Weiter einkaufen
+      </a>
+      <h1>Warenkorb</h1>
     </div>
+
+    <div class="form-msg" id="meldung" role="alert"></div>
+
+    <!-- ===== Leer ===== -->
+    <div id="leer" hidden>
+      <div class="login-card">
+        <h2>Dein Warenkorb ist leer</h2>
+        <p class="sub">
+          Leg ein Paket hinein — bezahlt wird danach hier, mit Rabattcode,
+          falls du einen hast.
+        </p>
+        <a href="index.html#preise" class="btn btn-primary btn-block">Pakete ansehen</a>
+      </div>
+    </div>
+
+    <!-- ===== Inhalt ===== -->
+    <div id="korb" hidden>
+
+      <section class="panel kasse-panel">
+        <!-- Zeilen baut warenkorb-seite.js -->
+        <ul class="korb-liste" id="liste"></ul>
+      </section>
+
+      <!-- ===== Rabattcode ===== -->
+      <section class="panel">
+        <h2>Rabattcode</h2>
+
+        <form class="korb-code" id="code-form" novalidate>
+          <div class="field">
+            <label for="code">Hast du einen Code?</label>
+            <input type="text" id="code" name="code" class="eingabe-text"
+                   autocomplete="off" autocapitalize="characters" spellcheck="false"
+                   placeholder="Code eingeben">
+          </div>
+          <button type="submit" class="btn btn-outline" id="code-los">Einlösen</button>
+        </form>
+
+        <!-- Erscheint statt des Formulars, sobald ein Code gilt -->
+        <div class="korb-code-aktiv" id="code-aktiv" hidden>
+          <span class="korb-code-marke" id="code-marke">—</span>
+          <span class="korb-code-text" id="code-text"></span>
+          <button type="button" id="code-weg">Entfernen</button>
+        </div>
+      </section>
+
+      <!-- ===== Summe und Kasse ===== -->
+      <section class="panel panel-accent">
+        <h2>Summe</h2>
+
+        <ul class="speclist korb-summe">
+          <li>
+            <span class="k">Zwischensumme</span>
+            <span class="v" id="s-zwischen">—</span>
+          </li>
+          <li id="s-rabatt-zeile" hidden>
+            <span class="k" id="s-rabatt-name">Rabatt</span>
+            <span class="v korb-abzug" id="s-rabatt">—</span>
+          </li>
+          <li class="korb-gesamt">
+            <span class="k">Gesamt</span>
+            <span class="v" id="s-gesamt">—</span>
+          </li>
+        </ul>
+
+        <a class="btn btn-primary btn-block korb-kasse" id="zur-kasse"
+           href="index.html#preise">Zur Kasse</a>
+
+        <p class="muted korb-kasse-hinweis" id="kasse-hinweis"></p>
+
+        <p class="muted kasse-fuss">
+          Alle Preise in Euro, inklusive der jeweils geltenden Steuern.
+          Es gelten die <a href="agb.html">AGB</a> und die
+          <a href="widerruf.html">Rücktrittsbelehrung</a>.
+        </p>
+      </section>
+
+      <div class="korb-fuss">
+        <button type="button" class="btn btn-ghost btn-sm" id="leeren">Warenkorb leeren</button>
+      </div>
+    </div>
+
   </div>
 </main>
 
@@ -126,6 +181,6 @@
 <script src="konfig.js?v=2.7.0"></script>
 <script src="tt-backend.js?v=2.7.0"></script>
 <script src="warenkorb.js?v=2.7.0"></script>
-<script src="auth.js?v=2.7.0"></script>
+<script src="warenkorb-seite.js?v=2.7.0"></script>
 </body>
 </html>

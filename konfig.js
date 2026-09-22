@@ -52,6 +52,26 @@ window.TT_KONFIG = {
 
   waehrung: 'EUR',
 
+  /* ---- Rabattcodes -------------------------------------------------------
+     Der Kunde gibt den Code im Warenkorb ein, der Prozentsatz wird vom Preis
+     abgezogen. Groß- und Kleinschreibung ist egal: "tyler10" wirkt wie
+     "TYLER10".
+
+     Diese Liste hier ist nur die Anzeige. Verbindlich rechnet die Edge
+     Function paypal-create-order — sie führt dieselbe Liste in
+     backend/supabase/functions/paypal-create-order/index.ts (Konstante
+     RABATTE). Trägst du hier einen Code ein und dort nicht, bricht die Kasse
+     den Kauf mit einer Meldung ab, statt dem Kunden den vollen Preis
+     abzubuchen. Also immer beide Stellen ändern und die Function neu
+     bereitstellen.
+
+     Ein Rabattcode ist kein Geheimnis — er soll ja weitergegeben werden.
+     Deshalb darf er in dieser öffentlichen Datei stehen.
+     ----------------------------------------------------------------------- */
+  rabattCodes: [
+    { code: 'Tyler10', prozent: 10 }
+  ],
+
   /* ---- Adresse der Seite ------------------------------------------------
      Wird für die Links in den Bestätigungs-Mails gebraucht. Beim Wechsel auf
      eine eigene Domain hier und in den Supabase-Einstellungen ändern.
@@ -66,12 +86,12 @@ window.TT_KONFIG = {
      selbst aus der Datenbank.
      ----------------------------------------------------------------------- */
   laufzeiten: [
-    { slug: 'app-24h',      kurz: '24 Std.',  lang: '24 Stunden', preis: '2.99'  },
-    { slug: 'app-2d',       kurz: '2 Tage',   lang: '2 Tage',     preis: '4.99'  },
-    { slug: 'app-1w',       kurz: '1 Woche',  lang: '1 Woche',    preis: '7.99'  },
-    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',    preis: '12.99' },
-    { slug: 'app-1y',       kurz: '1 Jahr',   lang: '1 Jahr',     preis: '19.99' },
-    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime',   preis: '29.99' }
+    { slug: 'app-24h',      kurz: '24 Std.',  lang: '24 Stunden', preis: '4.99'  },
+    { slug: 'app-2d',       kurz: '2 Tage',   lang: '2 Tage',     preis: '6.99'  },
+    { slug: 'app-1w',       kurz: '1 Woche',  lang: '1 Woche',    preis: '9.99'  },
+    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',    preis: '14.99' },
+    { slug: 'app-1y',       kurz: '1 Jahr',   lang: '1 Jahr',     preis: '24.99' },
+    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime',   preis: '49.99' }
   ],
 
   /* ---- Die beiden festen Pakete ------------------------------------------
@@ -85,7 +105,7 @@ window.TT_KONFIG = {
      im HTML unter data-preis steht.
      ----------------------------------------------------------------------- */
   pakete: [
-    { slug: 'optimierung', preis: '49.99' },
+    { slug: 'optimierung', preis: '29.99' },
     { slug: 'bundle',      preis: '69.99' }
   ],
 

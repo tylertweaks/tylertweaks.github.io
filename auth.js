@@ -140,6 +140,14 @@
       TT.melden('meldung', 'Du bist abgemeldet.', 'ok');
     } else if (suche.get('passwort')) {
       TT.melden('meldung', 'Dein Passwort wurde geändert. Melde dich jetzt damit an.', 'ok');
+    } else if (suche.get('grund') === 'warenkorb') {
+      /* Hierher schickt der Warenkorb, wenn jemand ohne Konto ein Paket
+         hineinlegen wollte. Ohne diesen Satz stünde er vor einem
+         Anmeldeformular, das er nicht angefordert hat. */
+      TT.melden('meldung',
+        'Zum Einkaufen brauchst du ein kostenloses Konto — dort landen später ' +
+        'deine Lizenz und der Download. Melde dich an, dann liegt dein Paket ' +
+        'im Warenkorb.', 'ok');
     }
 
     loginForm.addEventListener('submit', async function (e) {

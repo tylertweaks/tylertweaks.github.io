@@ -8,6 +8,10 @@
    Zahlung im Browser bestätigt und dem Kunden gesagt, er solle sich auf
    Discord melden. Das war nicht fälschungssicher. Gekauft wird jetzt auf
    kaufen.html, wo Preis und Zahlungsprüfung auf dem Server liegen.
+
+   Seit dem Warenkorb führt auch kein Knopf mehr direkt dorthin: Ein Klick auf
+   der Preiskarte legt das Paket in den Warenkorb (warenkorb.js), bezahlt wird
+   auf warenkorb.html. Dort wird auch der Rabattcode eingegeben.
    ========================================================================== */
 
 (function () {
@@ -135,11 +139,6 @@
     return eintrag ? eintrag.preis : null;
   }
 
-  /* Läuft der automatische Shop schon? Wird unten aus der Datenbank
-     beantwortet. Bis dahin gehen wir davon aus, dass er läuft — sonst
-     flackert die Seite beim Laden. */
-  var shopLaeuft = true;
-
   function preisFormat(wert) {
     var zahl = Number(wert);
     if (!isFinite(zahl)) return '—';
@@ -147,40 +146,105 @@
     return zahl % 1 === 0 ? String(zahl) : zahl.toFixed(2).replace('.', ',');
   }
 
-  /* paypal.me erwartet den Betrag ohne Komma: 15EUR, 2EUR, 12.50EUR */
-  function paypalMeLink(preis) {
-    var basis = String(KONFIG.paypalMe || '').replace(/\/+$/, '');
-    if (!basis) return null;
+  /* ---- Kaufknöpfe: alles geht über den Warenkorb ----------------------
+     Bis 2.7.0 führte der Knopf direkt in die Kasse, im Übergangsbetrieb sogar
+     direkt zu paypal.me. Jetzt legt er das Paket in den Warenkorb; bezahlt
+     wird dort, und dort wird auch der Rabattcode eingegeben. Beide Kaufwege
+     treffen sich damit an einer Stelle statt an dreien — den Betrag für
+     paypal.me baut deshalb warenkorb-seite.js zusammen, nicht mehr diese
+     Datei.
 
-    var zahl = Number(preis);
-    if (!isFinite(zahl)) return null;
+     Das href zeigt fest auf warenkorb.html: Ohne Javascript landet man damit
+     wenigstens an der richtigen Stelle.
+     ------------------------------------------------------------------- */
+  var korbDaten = {}; // slug -> der Artikel, so wie er in den Warenkorb wandert
 
-    var betrag = zahl % 1 === 0 ? String(zahl) : zahl.toFixed(2);
-    return basis + '/' + betrag + 'EUR';
+  function korbKnopf(knopf, artikel) {
+    if (!knopf) return;
+
+    korbDaten[artikel.slug] = artikel;
+
+    knopf.href = 'warenkorb.html';
+    knopf.removeAttribute('target');
+    knopf.removeAttribute('rel');
+    knopf.dataset.korbSlug = artikel.slug;
+
+    korbKnopfBeschriften(knopf);
   }
 
-  /**
-   * Schaltet einen Kaufknopf auf den direkten PayPal-Weg um.
-   *
-   * Das ist der Zustand, den die Seite vor der Umstellung hatte: Er braucht
-   * weder Datenbank noch Konto und funktioniert sofort. Sobald der
-   * automatische Shop steht, wird diese Funktion nie mehr aufgerufen.
-   */
-  function aufPaypalMeUmstellen(knopf, preis, hinweisText) {
-    var link = paypalMeLink(preis);
-    if (!link) return false;
+  function korbKnopfBeschriften(knopf) {
+    var artikel = korbDaten[knopf.dataset.korbSlug];
+    if (!artikel) return;
 
-    knopf.href = link;
-    knopf.target = '_blank';
-    knopf.rel = 'noopener';
-    knopf.textContent = 'Für ' + preisFormat(preis) + ' € über PayPal zahlen';
+    var drin = !!(window.TT && TT.korb && TT.korb.hat(artikel.slug));
 
-    var karte = knopf.closest('.plan');
-    var alt = karte && karte.querySelector('.plan-alt');
-    if (alt) alt.textContent = hinweisText || 'Zahlung über PayPal · Schlüssel per Discord';
+    knopf.textContent = drin
+      ? 'Zum Warenkorb und bezahlen'
+      : 'Für ' + preisFormat(artikel.preis) + ' € in den Warenkorb';
 
-    return true;
+    knopf.classList.toggle('im-korb', drin);
+    korbHinweis(knopf, drin ? '✓ Liegt in deinem Warenkorb' : '');
   }
+
+  function korbKnoepfeBeschriften() {
+    document.querySelectorAll('[data-korb-slug]').forEach(function (knopf) {
+      korbKnopfBeschriften(knopf);
+    });
+  }
+
+  /* Die kleine Zeile unter dem Knopf. Entsteht hier und nicht im HTML, damit
+     in den Karten nichts steht, was ohne Javascript keinen Sinn ergibt. */
+  function korbHinweis(knopf, text) {
+    var kasten = knopf.closest('.plan-buy') || knopf.parentNode;
+    if (!kasten) return;
+
+    var el = kasten.querySelector('.korb-hinweis');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'korb-hinweis';
+      kasten.appendChild(el);
+    }
+
+    el.textContent = text || '';
+    el.hidden = !text;
+  }
+
+  /* Ein Zuhörer am Dokument statt an jedem einzelnen Knopf: Die Knöpfe werden
+     bei jedem Laufzeitwechsel neu beschriftet, der Zuhörer bleibt. */
+  document.addEventListener('click', function (e) {
+    var knopf = e.target.closest('[data-korb-slug]');
+    if (!knopf) return;
+
+    var artikel = korbDaten[knopf.dataset.korbSlug];
+    if (!artikel || !window.TT || !TT.korb) return; // dann führt das href zum Warenkorb
+
+    // Liegt das Paket schon drin, ist der Knopf einfach der Weg dorthin.
+    if (TT.korb.hat(artikel.slug)) return;
+
+    e.preventDefault();
+
+    /* Ohne Anmeldung geht nichts hinein: Der Warenkorb gehört zum Konto, und
+       die Lizenz entsteht später genau dort. Wer nicht angemeldet ist, wird
+       zum Anmeldeformular geschickt — das Paket ist danach schon im
+       Warenkorb, darum kümmert sich warenkorb.js. */
+    TT.korb.anmeldungVerlangen(artikel).then(function (darf) {
+      if (!darf) return;
+
+      var erg = TT.korb.hinzufuegen(artikel);
+      korbKnoepfeBeschriften();
+
+      /* Eine andere Laufzeit derselben App ersetzt die vorige. Das darf nicht
+         stillschweigend passieren — sonst wundert sich jemand über den Betrag
+         im Warenkorb. */
+      if (erg.ersetzt) {
+        korbHinweis(knopf, '✓ Im Warenkorb — die andere Laufzeit wurde ersetzt');
+      }
+    });
+  });
+
+  /* Wird der Warenkorb woanders geändert (zweiter Tab, Zurück-Knopf), stimmen
+     die Beschriftungen hier sonst nicht mehr. */
+  if (window.TT && TT.korb) TT.korb.beiAenderung(korbKnoepfeBeschriften);
 
   function laufzeitZeigen(slug) {
     var eintrag = laufzeiten.filter(function (l) { return l.slug === slug; })[0];
@@ -191,17 +255,12 @@
     var preisEl = document.getElementById('app-preis');
     if (preisEl) preisEl.textContent = preisFormat(eintrag.preis);
 
-    var knopf = document.getElementById('app-kaufen');
-    if (knopf) {
-      if (shopLaeuft) {
-        knopf.href = 'kaufen.html?produkt=' + encodeURIComponent(slug);
-        knopf.removeAttribute('target');
-        knopf.textContent = 'Für ' + preisFormat(eintrag.preis) + ' € kaufen';
-      } else {
-        aufPaypalMeUmstellen(knopf, eintrag.preis,
-          'Zahlung über PayPal · Schlüssel per Discord');
-      }
-    }
+    korbKnopf(document.getElementById('app-kaufen'), {
+      slug: slug,
+      name: 'Tweak App',
+      untertitel: eintrag.lang,
+      preis: eintrag.preis
+    });
 
     var zeile = document.getElementById('app-lizenz-zeile');
     if (zeile) {
@@ -251,11 +310,21 @@
       var preis = paketPreis(el.dataset.preis);
       if (preis == null) return;
 
-      el.textContent = 'Für ' + preisFormat(preis) + ' € kaufen';
-
       var karte = el.closest('.plan');
       var betrag = karte && karte.querySelector('.price .amount');
       if (betrag) betrag.textContent = preisFormat(preis);
+
+      /* Der Name kommt aus der Überschrift der Karte, damit er nicht ein
+         zweites Mal im Javascript steht. Im Warenkorb wird er ohnehin durch
+         den Namen aus der Datenbank ersetzt, sobald sie antwortet. */
+      var titel = karte && karte.querySelector('h3');
+
+      korbKnopf(el, {
+        slug: el.dataset.preis,
+        name: titel ? titel.textContent.trim() : el.dataset.preis,
+        untertitel: '',
+        preis: preis
+      });
     });
   }
 
@@ -280,7 +349,7 @@
       if (preis != null) el.textContent = betragText(preis);
     });
 
-    /* Günstigste Laufzeit für den Hero-Text — nicht fest "2,99 €", sondern
+    /* Günstigste Laufzeit für den Hero-Text — nicht fest "4,99 €", sondern
        das tatsächliche Minimum aus der Liste. */
     var abEl = document.querySelector('[data-preis-ab]');
     if (abEl && laufzeiten.length) {
@@ -339,34 +408,31 @@
      damit nirgends ein falscher Preis stehen bleibt.
      ==================================================================== */
   /**
-   * Schaltet die ganze Preisliste auf den direkten PayPal-Weg um.
-   * Wird aufgerufen, wenn der automatische Shop (noch) nicht bereitsteht.
+   * Schreibt die Preisseite auf den Übergangsweg um: Bezahlt wird direkt über
+   * paypal.me, den Schlüssel gibt es per Discord. Wird aufgerufen, wenn der
+   * automatische Shop (noch) nicht bereitsteht.
+   *
+   * Welcher der beiden Wege gilt, entscheidet der Warenkorb — dort steht der
+   * Kaufknopf. Hier werden nur die Texte ringsum nachgezogen.
    */
   function aufUebergangUmstellen() {
-    shopLaeuft = false;
+    /* Die Kaufknöpfe bleiben, wie sie sind: Gelegt wird in beiden Fällen in
+       den Warenkorb. Anders ist nur, was danach passiert — und das steht auf
+       der Warenkorbseite. Hier wird deshalb bloß die Zeile unter dem Knopf
+       ehrlich gehalten, die sonst eine Lizenz "sofort im Kundenbereich"
+       verspricht. */
+    var zeilen = {
+      optimierung: 'Zahlung über PayPal · Termin per Discord',
+      bundle:      'Zahlung über PayPal · Schlüssel und Termin per Discord'
+    };
 
-    // Tweak-App-Karte: der Knopf hängt an der gewählten Laufzeit
-    laufzeitZeigen(gewaehlt);
-
-    // Bundle und PC-Optimierung
-    document.querySelectorAll('[data-preis]').forEach(function (el) {
-      var eintrag = paketPreis(el.dataset.preis);
-
-      /* Steht auf der Karte bereits ein aus der Datenbank bestätigter Betrag,
-         hat der Vorrang vor der Konfiguration. */
-      var karte = el.closest('.plan');
-      var betrag = karte && karte.querySelector('.price .amount');
-      if (betrag) {
-        var ausKarte = Number(String(betrag.textContent).replace(',', '.'));
-        if (isFinite(ausKarte) && ausKarte > 0) eintrag = ausKarte;
+    document.querySelectorAll('[data-korb-slug]').forEach(function (knopf) {
+      var karte = knopf.closest('.plan');
+      var alt = karte && karte.querySelector('.plan-alt');
+      if (alt) {
+        alt.textContent = zeilen[knopf.dataset.korbSlug] ||
+          'Zahlung über PayPal · Schlüssel per Discord';
       }
-
-      if (eintrag == null) return;
-
-      aufPaypalMeUmstellen(el, eintrag,
-        el.dataset.preis === 'optimierung'
-          ? 'Zahlung über PayPal · Termin per Discord'
-          : 'Zahlung über PayPal · Schlüssel und Termin per Discord');
     });
 
     var hinweis = document.getElementById('uebergangs-hinweis');
@@ -375,9 +441,13 @@
       if (window.TT) TT.grundgeruest(); // Discord-Name einsetzen
     }
 
+    /* Der Satz zum Konto bleibt auch hier stehen: Der Warenkorb verlangt eine
+       Anmeldung, egal welcher der beiden Zahlwege gerade gilt. Nur der Teil
+       mit dem automatischen Lizenzschlüssel stimmt im Übergang nicht. */
     var note = document.getElementById('preise-note');
     if (note) {
       note.innerHTML = 'Alle Preise in Euro, inklusive der jeweils geltenden Steuern. ' +
+        'Zum Einkaufen brauchst du ein kostenloses <a href="registrieren.html">Konto</a>. ' +
         'Es gelten die <a href="agb.html">AGB</a> und die ' +
         '<a href="widerruf.html">Rücktrittsbelehrung</a>.';
     }
@@ -388,7 +458,8 @@
        sagen, was wirklich passiert. */
     var schritte = {
       '1-titel': 'Paket auswählen',
-      '1-text':  'Du entscheidest dich für eine Laufzeit, die Optimierung oder beides im Bundle.',
+      '1-text':  'Du legst eine Laufzeit, die Optimierung oder beides im Bundle in den ' +
+                 'Warenkorb. Einen Rabattcode gibst du dort ein.',
       '3-titel': 'Schlüssel anfordern',
       '3-text':  'Nach der Zahlung schreibst du mir kurz auf Discord und nennst den Namen, ' +
                  'unter dem du bezahlt hast. Ich gleiche die Zahlung ab und schicke dir den Schlüssel.',
@@ -404,40 +475,16 @@
   }
 
   (async function preiseAbgleichen() {
-    // Ohne PayPal-Client-ID kann die Kaufseite keine Zahlung entgegennehmen —
-    // dann hilft auch eine funktionierende Datenbank nichts.
-    if (!String(KONFIG.paypalClientId || '').trim()) {
-      return aufUebergangUmstellen();
-    }
+    /* Ob der automatische Shop bereitsteht, beantwortet TT.korb.shopPruefen()
+       — dieselbe Prüfung, die auch der Warenkorb für seinen Kaufknopf
+       benutzt. Zwei Kopien davon würden irgendwann auseinanderlaufen. */
+    if (!window.TT || !TT.korb) return aufUebergangUmstellen();
 
-    /* Sandbox: Hier kann nur mit PayPal-Testkonten bezahlt werden, ein echter
-       Kunde kommt in der Kasse nicht durch. Solange paypalUmgebung nicht auf
-       'live' steht, bleibt für Besucher deshalb der paypal.me-Weg stehen.
-
-       Zum Testen hängst du ?shoptest=1 an die Adresse — dann siehst du die
-       echte Kasse, während alle anderen weiter normal kaufen können. */
-    var istLive = String(KONFIG.paypalUmgebung || '').toLowerCase() === 'live';
-    var testWill = new URLSearchParams(window.location.search).has('shoptest');
-
-    if (!istLive && !testWill) {
-      return aufUebergangUmstellen();
-    }
-
-    if (!window.TT || !TT.db) return aufUebergangUmstellen();
-
-    var erg = await TT.db.from('products')
-      .select('slug, price, active')
-      .eq('active', true);
-
-    // Datenbank nicht erreichbar (z. B. Tabellen noch nicht angelegt):
-    // lieber der alte, funktionierende Weg als ein Knopf ins Leere.
-    if (erg.error || !erg.data) {
-      console.warn('Shop nicht bereit, Rückfall auf paypal.me:', erg.error);
-      return aufUebergangUmstellen();
-    }
+    var stand = await TT.korb.shopPruefen();
+    if (!stand.laeuft) return aufUebergangUmstellen();
 
     var ausDb = {};
-    erg.data.forEach(function (p) { ausDb[p.slug] = p.price; });
+    stand.produkte.forEach(function (p) { ausDb[p.slug] = p.price; });
 
     var geaendert = false;
     laufzeiten.forEach(function (l) {
@@ -463,11 +510,19 @@
     document.querySelectorAll('[data-preis]').forEach(function (el) {
       var preis = ausDb[el.dataset.preis];
       if (preis == null) return;
-      el.textContent = 'Für ' + preisFormat(preis) + ' € kaufen';
 
       var karte = el.closest('.plan');
       var betrag = karte && karte.querySelector('.price .amount');
       if (betrag) betrag.textContent = preisFormat(preis);
+
+      /* Auch der Warenkorb-Knopf muss den bestätigten Preis tragen: Sonst
+         legte er den Betrag aus konfig.js in den Warenkorb, während auf der
+         Karte darüber der aus der Datenbank steht. */
+      var artikel = korbDaten[el.dataset.preis];
+      if (artikel) {
+        artikel.preis = preis;
+        korbKnopfBeschriften(el);
+      }
     });
 
     /* Auch die Liste selbst nachziehen, nicht nur die Beschriftungen im

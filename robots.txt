@@ -12,6 +12,7 @@ User-agent: *
 Disallow: /admin.html
 Disallow: /konto.html
 Disallow: /kaufen.html
+Disallow: /warenkorb.html
 Disallow: /passwort-neu.html
 Disallow: /passwort-vergessen.html
 Disallow: /downloads/

@@ -13,6 +13,14 @@
 
    Selbst wenn jemand diese Datei komplett austauscht, kann er dadurch weder
    den Preis ändern noch eine Lizenz ohne Zahlung bekommen.
+
+   Dasselbe gilt für den Rabattcode: Er wird hier nur angezeigt und als Text
+   mitgeschickt. Ob er gilt und was er abzieht, entscheidet die Edge Function.
+   Der Betrag, den sie zurückmeldet, wird unten gegen die Anzeige geprüft —
+   weicht er ab, kommt es gar nicht zur Zahlung.
+
+   Gekauft wird ausschließlich über den Warenkorb. Diese Seite nimmt deshalb
+   nur Pakete an, die dort auch liegen.
    ========================================================================== */
 
 (function () {
@@ -30,11 +38,14 @@
   var elFertig     = document.getElementById('fertig');
   var elUnbekannt  = document.getElementById('unbekannt');
   var elNichtDa    = document.getElementById('nicht-erreichbar');
+  var elNichtImKorb = document.getElementById('nicht-im-korb');
 
-  var produkt = null;
+  var produkt  = null;
+  var rabatt   = null; // { code, anzeige, prozent } oder null
+  var endpreis = 0;    // Preis nach Rabatt — das, was abgebucht werden soll
 
   function zeige(welches) {
-    [elLaden, elKauf, elFertig, elUnbekannt, elNichtDa].forEach(function (el) {
+    [elLaden, elKauf, elFertig, elUnbekannt, elNichtDa, elNichtImKorb].forEach(function (el) {
       if (el) el.hidden = el !== welches;
     });
   }
@@ -86,6 +97,15 @@
       return TT.melden('meldung', TT.startFehler, 'error');
     }
 
+    var slug = new URLSearchParams(window.location.search).get('produkt') || '';
+    if (!slug) return zeige(elUnbekannt);
+
+    /* Der Warenkorb liegt im Browser und ist sofort da. Deshalb wird er
+       geprüft, BEVOR zur Anmeldung umgeleitet wird — sonst schickt die Seite
+       jemanden erst zum Anmelden und sagt ihm danach, dass er hier gar nichts
+       zu bezahlen hat. */
+    if (!TT.korb || !TT.korb.hat(slug)) return zeige(elNichtImKorb);
+
     var sitzung = await TT.schuetzen();
     if (!sitzung) return; // leitet selbst zur Anmeldung um
 
@@ -97,9 +117,6 @@
         'Deine E-Mail-Adresse wurde noch nicht bestätigt. Klick zuerst auf den ' +
         'Link in der Bestätigungsmail — danach kannst du kaufen.', 'error');
     }
-
-    var slug = new URLSearchParams(window.location.search).get('produkt') || '';
-    if (!slug) return zeige(elUnbekannt);
 
     var erg = await db.from('products')
       .select('slug, name, subtitle, description, price, currency, license_type, is_download, is_service')
@@ -121,10 +138,27 @@
      Zusammenfassung anzeigen
      ==================================================================== */
   function kaufAufbauen(sitzung) {
+    /* Der Rabattcode kommt aus dem Warenkorb — dort wird er eingegeben. Hier
+       wird nur gerechnet, was er bedeutet; verbindlich rechnet der Server. */
+    rabatt = TT.korb.codeInfo();
+    endpreis = rabatt
+      ? TT.korb.rabattPreis(produkt.price, rabatt.prozent)
+      : Number(produkt.price);
+
     document.getElementById('p-name').textContent = produkt.name;
     document.getElementById('p-beschreibung').textContent = produkt.description || '';
-    document.getElementById('p-preis').textContent = TT.geld(produkt.price, produkt.currency);
+    document.getElementById('p-preis').textContent = TT.geld(endpreis, produkt.currency);
     document.getElementById('p-konto').textContent = sitzung.user.email;
+
+    if (rabatt) {
+      var alt = document.getElementById('p-preis-alt');
+      alt.textContent = TT.geld(produkt.price, produkt.currency);
+      alt.hidden = false;
+
+      document.getElementById('p-rabatt').textContent =
+        rabatt.anzeige + ' · ' + rabatt.prozent + ' % weniger';
+      document.getElementById('p-rabatt-zeile').hidden = false;
+    }
 
     document.getElementById('p-laufzeit').textContent = produkt.license_type
       ? TT.laufzeit(produkt.license_type)
@@ -221,12 +255,35 @@
           TT.melden('meldung', '');
 
           var antwort = await TT.funktion('paypal-create-order', {
-            product_slug: produkt.slug
+            product_slug: produkt.slug,
+            coupon_code: rabatt ? rabatt.code : ''
           });
 
           if (!antwort.ok || !antwort.daten || !antwort.daten.paypal_order_id) {
             TT.melden('meldung', antwort.fehler || TT.fehlerText('server_error'), 'error');
             throw new Error(antwort.code || 'create_failed');
+          }
+
+          /* Gegenprobe. Die Edge Function schickt den Betrag zurück, den
+             PayPal gleich einziehen wird. Stimmt er nicht mit dem überein, was
+             hier auf der Seite steht, wird nicht bezahlt.
+
+             Der Fall, für den das gebaut ist: Ein Rabattcode steht in
+             konfig.js, die Edge Function kennt ihn aber nicht — weil sie noch
+             nicht neu bereitgestellt wurde. Ohne diese Prüfung stünde auf der
+             Seite der Rabattpreis, abgebucht würde der volle. */
+          var serverPreis = Number(antwort.daten.product && antwort.daten.product.price);
+
+          if (isFinite(serverPreis) && Math.abs(serverPreis - endpreis) > 0.005) {
+            console.error('Betrag weicht ab — angezeigt:', endpreis, 'vom Server:', serverPreis,
+              '· Steht der Rabattcode auch in der Edge Function paypal-create-order?');
+
+            TT.melden('meldung',
+              'Der Betrag stimmt nicht mit der Anzeige überein — es wurde nichts ' +
+              'abgebucht. Lade die Seite bitte neu. Bleibt es dabei, schreib mir ' +
+              'kurz auf Discord.', 'error');
+
+            throw new Error('betrag_abweichung');
           }
 
           return antwort.daten.paypal_order_id;
@@ -289,6 +346,20 @@
 
     if (produkt && produkt.is_service) {
       document.getElementById('f-service-panel').hidden = false;
+    }
+
+    /* Bezahlt heißt: raus aus dem Warenkorb. Sonst läge das Paket beim
+       nächsten Besuch noch darin und würde ein zweites Mal zum Kauf
+       angeboten. Liegt noch etwas anderes darin, führt ein Knopf zurück. */
+    if (TT.korb && produkt) {
+      TT.korb.entfernen(produkt.slug);
+
+      var rest = TT.korb.anzahl();
+      var weiter = document.getElementById('f-korb-rest');
+      if (weiter && rest > 0) {
+        weiter.textContent = 'Zum Warenkorb (noch ' + rest + ')';
+        weiter.hidden = false;
+      }
     }
 
     zeige(elFertig);

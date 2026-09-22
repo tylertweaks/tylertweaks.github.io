@@ -66,6 +66,10 @@ window.TT = (function () {
     'not_authenticated':   'Bitte melde dich an, um fortzufahren.',
     'unknown_product':     'Dieses Paket gibt es nicht mehr.',
     'missing_product':     'Es wurde kein Paket ausgewählt.',
+    /* Kommt vom Server, wenn der Rabattcode dort nicht eingetragen ist. Für
+       den Kunden ist das einfach ein Code, der nicht gilt — abgebucht wurde
+       nichts. */
+    'unknown_coupon':      'Dieser Rabattcode gilt nicht. Nimm ihn im Warenkorb heraus oder prüfe die Schreibweise.',
     'unknown_order':       'Zu dieser Zahlung finde ich keine Bestellung.',
     'payment_failed':      'Die Zahlung konnte nicht verarbeitet werden. Es wurde nichts abgebucht.',
     'payment_not_completed':'Die Zahlung wurde noch nicht bestätigt. Sobald PayPal sie freigibt, erscheint die Lizenz automatisch in deinem Konto.',
@@ -215,6 +219,15 @@ window.TT = (function () {
 
   async function abmelden() {
     profilZwischenspeicher = null;
+
+    /* Der Warenkorb gehört zum Konto — hineingelegt werden darf nur
+       angemeldet. Bliebe er beim Abmelden stehen, sähe der Nächste an diesem
+       Rechner die Auswahl des Vorigen. */
+    if (window.TT && window.TT.korb) {
+      window.TT.korb.leeren();
+      window.TT.korb.wunschVergessen();
+    }
+
     if (db) { try { await db.auth.signOut(); } catch (e) { /* egal */ } }
     window.location.href = 'index.html';
   }

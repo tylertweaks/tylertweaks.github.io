@@ -130,6 +130,19 @@
 /* ========== 2. Basis ========== */
 * { box-sizing: border-box; }
 
+/* Das Attribut hidden schlägt jede Anzeigeart.
+
+   Ohne diese Zeile ist "hidden" nur eine Empfehlung: Der Browser setzt dafür
+   [hidden] { display: none }, und jede Klassenregel mit display:flex oder
+   display:inline-flex gewinnt gegen diese Auswahl. Die Folge ist ein Element,
+   das das Javascript für versteckt hält, während es sichtbar dasteht — der
+   Knopf „Filter zurücksetzen" auf tweaks.html stand deshalb immer da, und die
+   Rabattzeile im Warenkorb hätte es genauso getroffen.
+
+   Für .konto-bereich gibt es weiter unten schon eine eigene Regel dafür. Die
+   hier gilt für alles. */
+[hidden] { display: none !important; }
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
@@ -2566,7 +2579,232 @@ strong { color: var(--text); font-weight: 600; }
   border-color: var(--line-strong);
 }
 
-/* ========== 21. Druck ==========
+/* ========== 21. Warenkorb ==========
+   Gekauft wird seit 2.7.0 nur noch über den Warenkorb: Die Preiskarte legt
+   hinein, warenkorb.html bezahlt. Dieser Abschnitt deckt beides ab — den
+   Knopf in der Navigation, die Rückmeldung auf der Preiskarte und die Seite
+   selbst. Alles aus den Tokens in Abschnitt 1, kein zweites Farbschema.
+   ====================================================================== */
+
+/* ---------- Knopf in der Navigation ----------
+   Bewusst kein .btn: Die Knöpfe in .nav-actions verschwinden unter 1060 px im
+   ausklappbaren Menü. Der Warenkorb soll aber gerade auf dem Handy mit einem
+   Griff erreichbar bleiben. */
+.nav-korb {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--muted);
+  transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+.nav-korb svg { width: 20px; height: 20px; }
+.nav-korb:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+  background: rgba(255, 255, 255, .05);
+}
+.nav-korb.voll,
+.nav-korb.is-active { color: var(--accent); border-color: rgba(var(--accent-rgb), .45); }
+
+/* Die Zahl sitzt auf der Ecke des Symbols. Sie ist die einzige Stelle, an der
+   die Seite von sich aus meldet, dass etwas wartet — deshalb im Akzent und
+   nicht in Grau. */
+.nav-korb-zahl {
+  position: absolute;
+  top: -5px; right: -5px;
+  min-width: 19px;
+  padding: 0 5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  color: #05050a;
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 19px;
+  text-align: center;
+}
+
+/* ---------- Rückmeldung auf der Preiskarte ---------- */
+.korb-hinweis {
+  margin: 10px 0 0;
+  color: var(--ok);
+  font-size: .84rem;
+  text-align: center;
+}
+
+/* Liegt das Paket schon im Warenkorb, führt derselbe Knopf nur noch dorthin.
+   Er bleibt sichtbar, tritt aber einen Schritt zurück — die Entscheidung ist
+   ja bereits gefallen. */
+.btn.im-korb {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: rgba(var(--accent-rgb), .45);
+}
+
+/* ---------- Die Liste im Warenkorb ---------- */
+.korb-liste { list-style: none; padding: 0; margin: 0; }
+
+.korb-zeile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.korb-zeile:first-child { padding-top: 0; }
+.korb-zeile:last-child { padding-bottom: 0; border-bottom: 0; }
+
+.korb-info { flex: 1 1 auto; min-width: 0; }
+.korb-name {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.korb-unter {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.korb-preis {
+  flex-shrink: 0;
+  text-align: right;
+  font-family: var(--font-head);
+  font-weight: 700;
+}
+.korb-jetzt { display: block; font-size: 1.15rem; }
+/* Der Preis vor dem Rabatt. Durchgestrichen und zurückgenommen, damit klar
+   ist, welche der beiden Zahlen gilt. */
+.korb-alt {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: .82rem;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+.korb-weg {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .16s ease, border-color .16s ease, background .16s ease;
+}
+.korb-weg svg { width: 16px; height: 16px; }
+.korb-weg:hover {
+  color: var(--warn);
+  border-color: rgba(245, 181, 68, .45);
+  background: rgba(245, 181, 68, .08);
+}
+
+/* ---------- Rabattcode ---------- */
+.korb-code {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.korb-code .field { flex: 1 1 200px; margin: 0; }
+.korb-code .btn { flex-shrink: 0; }
+
+/* Steht ein Code, verschwindet das Formular und stattdessen steht da, was er
+   bringt — in Euro, nicht nur in Prozent. */
+.korb-code-aktiv {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  background: var(--ok-soft);
+  border: 1px solid rgba(var(--ok-rgb), .35);
+  border-radius: var(--radius-sm);
+}
+.korb-code-marke {
+  padding: 5px 12px;
+  background: rgba(var(--ok-rgb), .16);
+  border-radius: 999px;
+  color: var(--ok);
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.korb-code-text { flex: 1 1 auto; color: var(--text-2); font-size: .92rem; }
+.korb-code-aktiv button {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-size: .86rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.korb-code-aktiv button:hover { color: var(--text); }
+
+/* ---------- Summe ---------- */
+.korb-summe li { font-size: .95rem; }
+.korb-abzug { color: var(--ok); }
+
+.korb-gesamt {
+  padding-top: 14px;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+}
+.korb-gesamt .k { color: var(--text); font-weight: 600; }
+.korb-gesamt .v { color: var(--accent); font-size: 1.35rem; }
+
+.korb-kasse { margin-top: 20px; }
+.korb-kasse-hinweis {
+  margin: 12px 0 0;
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+/* Ein Knopf ohne Ziel darf nicht aussehen wie einer mit. */
+.btn.ist-aus {
+  opacity: .55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.korb-fuss { margin-top: 20px; text-align: center; }
+.korb-ausweg { margin: 14px 0 0; text-align: center; font-size: .9rem; }
+.korb-ausweg a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Der Preis ohne Rabatt in der Kasse — dieselbe Rolle wie .korb-alt in der
+   Liste, nur über dem großen Betrag. */
+.kasse-preis-alt {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: .85rem;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+@media (max-width: 680px) {
+  /* Die Zeile bleibt eine Zeile: Die Paketnamen sind kurz genug, und ein
+     umgebrochener Löschknopf in einer eigenen Reihe sähe aus wie ein Fehler. */
+  .korb-zeile { gap: 10px; }
+  .korb-name { font-size: .98rem; }
+  .korb-jetzt { font-size: 1.05rem; }
+  .korb-code .btn { width: 100%; }
+}
+
+/* ========== 22. Druck ==========
    Betrifft in der Praxis die Rechtstexte: AGB, Widerruf und Datenschutz sind
    genau die Seiten, die Leute ausdrucken oder als PDF ablegen. Ohne das hier
    käme nach der Überarbeitung dunkles Papier mit Rasterlinien aus dem Drucker.
