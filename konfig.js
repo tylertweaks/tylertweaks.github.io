@@ -102,8 +102,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.6.0',
-    datum: '21.09.2026',
+    version: '2.7.0',
+    datum: '22.09.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -120,23 +120,21 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.6.0.exe',
-    groesse: '59,5 MB',
-    sha256: '5dc5293632676d96f7d2a1ab1165e440a6e9083b728bbc54e4231ac9121590e5'
+    datei: 'downloads/TylerTweaksSetup-2.7.0.exe',
+    groesse: '59,4 MB',
+    sha256: '20a49d5ac0f547fc4b89012b563fd55cdbd2d2af15d982cd6b7535afaf0f1355'
   },
 
-  /* ---- Änderungen der letzten Versionen ---------------------------------- */
-  /* Hier steht nur, was auch herunterladbar ist.
+  /* ---- Änderungen der letzten Versionen ----------------------------------
+     Hier steht nur, was auch herunterladbar ist. Einen Changelog zu einer
+     Version zu zeigen, die niemand laden kann, wäre eine Ankündigung, die
+     sich als Tatsache ausgibt.
 
-     Der Eintrag für 2.7.0 (eigene Profile) ist bewusst noch nicht drin: Die
-     Fassung ist im App-Repo fertig, aber der Installer unter downloads/ ist
-     weiterhin 2.6.0. Einen Changelog zu einer Version zu zeigen, die niemand
-     laden kann, ist eine Ankündigung, die sich als Tatsache ausgibt.
-
-     release-fertigstellen.ps1 trägt den Eintrag von selbst ein, sobald der
-     2.7.0-Installer gebaut ist. Dann gehört auch in index.html der Eintrag
-     "Eigene Profile" in der Feature-Liste aus der Klasse "geplant" heraus. */
+     Den obersten Eintrag schreibt release-fertigstellen.ps1 aus dem, was auf
+     der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
+     leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '2.7.0', datum: '22.09.2026', text: 'Eigene Profile: Du nimmst auf, welche Tweaks bei dir gerade gesetzt sind, gibst dem Ganzen einen Namen und stellst denselben Zustand später mit einem Klick wieder her – auf einem neuen PC oder nach einer Neuinstallation. Außerdem liefert die App ihren Tweak-Katalog jetzt als Datei aus, aus der die Website die vollständige Liste aufbaut: Unter „Alle Tweaks" steht jede der 129 Optimierungen mit dem Registry-Wert, den sie schreibt.' },
     { version: '2.6.0', datum: '21.09.2026', text: '40 neue Optimierungen (89 auf 129), darunter Debloat als eigener Bereich, DNS auf Cloudflare, Windows Recall abschalten und das Sperren von Kamera und Mikrofon. Jeder Tweak ist jetzt ein Schalter statt zweier Knöpfe, und die Liste baut sich deutlich schneller auf. Wer Tyler länger ohne Internet nutzt, wird einmal zur Bestätigung der Lizenz aufgefordert.' },
     { version: '2.5.0', datum: '20.09.2026', text: 'Jeder Tweak zeigt jetzt Einstufung, Neustart-Pflicht und Sicherung an. Risikobewertung aller 89 Optimierungen überarbeitet. Presets fragen vorher nach, was sie ändern. Update-Prüfung unter Einstellungen.' },
     { version: '2.4.0', datum: '18.09.2026', text: 'Autostart-Manager erkennt jetzt auch geplante Aufgaben. Silent-Profil überarbeitet.' },

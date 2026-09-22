@@ -123,9 +123,9 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.6.2">
-<link rel="stylesheet" href="tweak-zeile.css?v=2.6.2">
-<link rel="stylesheet" href="mockup.css?v=2.6.2">
+<link rel="stylesheet" href="style.css?v=2.7.0">
+<link rel="stylesheet" href="tweak-zeile.css?v=2.7.0">
+<link rel="stylesheet" href="mockup.css?v=2.7.0">
 </head>
 <body>
 
@@ -335,7 +335,7 @@
              passte, stand ein halbes Jahr lang "über 80". -->
         <ul class="shot-fakten">
           <li><strong><span data-tweak-anzahl></span> einzeln schaltbare Optimierungen in <span data-bereich-wort></span> Bereichen</strong>, jede im Klartext erklärt</li>
-          <li>Fünf fertige Presets, oder jeder Tweak einzeln</li>
+          <li>Fünf fertige Presets und eigene Profile, oder jeder Tweak einzeln</li>
           <li>Vor jeder Änderung eine Sicherung, jede einzeln zurücknehmbar</li>
           <li><a href="tweaks.html">Alle Optimierungen im Einzelnen ansehen</a></li>
         </ul>
@@ -408,18 +408,13 @@
               <p>Schlüssel beim ersten Start eingeben, danach meldet sich die App selbst an. Fällt das Internet aus, läuft sie bis zum Ablauf der Lizenz weiter.</p>
             </div>
           </li>
-          <!-- In der App fertig (2.7.0), aber unter downloads/ liegt noch der
-               2.6.0-Installer. Bleibt deshalb als "in Entwicklung" stehen, bis
-               der 2.7.0-Installer gebaut ist — dann hier die Klasse "geplant"
-               und das Etikett entfernen und den Text umschreiben auf:
-               "Nimm auf, welche Tweaks bei dir gerade gesetzt sind, gib dem
-               Ganzen einen Namen — und stell denselben Zustand auf einem neuen
-               PC oder nach einer Neuinstallation mit einem Klick wieder her." -->
-          <li class="geplant">
+          <!-- Stand bis 2.6.0 als "Gaming Profiles — in Entwicklung" hier.
+               Seit 2.7.0 enthalten. -->
+          <li>
             <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 15 9l6.8 1-4.9 4.8 1.2 6.8L12 18.4 5.9 21.6l1.2-6.8L2.2 10 9 9Z"/></svg></span>
             <div>
-              <h3>Eigene Profile <span class="tag-geplant">in Entwicklung</span></h3>
-              <p>Aufnehmen, welche Tweaks bei dir gerade gesetzt sind, und denselben Zustand auf einem neuen PC mit einem Klick wiederherstellen. Noch nicht in der Fassung zum Herunterladen — heute gibt es die fünf festen Presets Gaming, Privatsphäre, Tempo, Aufräumen und Sicher.</p>
+              <h3>Eigene Profile</h3>
+              <p>Nimm auf, welche Tweaks bei dir gerade gesetzt sind, gib dem Ganzen einen Namen — und stell denselben Zustand auf einem neuen PC oder nach einer Neuinstallation mit einem Klick wieder her. Dazu die fünf festen Presets Gaming, Privatsphäre, Tempo, Aufräumen und Sicher.</p>
             </div>
           </li>
           <li class="geplant">
@@ -844,8 +839,8 @@
         </div>
         <h3>Updates &amp; Lizenz</h3>
         <ul class="speclist">
-          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.6.0</span></li>
-          <li><span class="k">Stand</span><span class="v" data-app-date>21.09.2026</span></li>
+          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.7.0</span></li>
+          <li><span class="k">Stand</span><span class="v" data-app-date>22.09.2026</span></li>
           <li><span class="k">Neue Versionen</span><span class="v">kostenlos</span></li>
           <li><span class="k">Update-Prüfung</span><span class="v">auf Knopfdruck</span></li>
           <li><span class="k">Laufzeiten</span><span class="v">24 Std. bis Lifetime</span></li>
@@ -917,7 +912,7 @@
                2.7.0 "über 80" und eine Aufzählung von neun Bereichen — beides
                war seit 2.6.0 überholt, und niemand hat es gemerkt. -->
           <p>Sie fasst <span data-tweak-anzahl></span> dokumentierte Windows-Einstellungen in einer Oberfläche zusammen: <span data-bereich-liste></span>. Jede lässt sich einzeln an- und abschalten, und zu jeder steht dabei, was sie bewirkt.</p>
-          <p>Dazu kommen fünf fertige Presets, ein Autostart- und App-Manager, der Game Booster und eine Live-Übersicht über CPU, GPU und Arbeitsspeicher.</p>
+          <p>Dazu kommen fünf fertige Presets, eigene Profile, ein Autostart- und App-Manager, der Game Booster und eine Live-Übersicht über CPU, GPU und Arbeitsspeicher.</p>
           <p><a href="tweaks.html">Die vollständige Liste kannst du hier durchsehen</a> — ohne Anmeldung, mit den Registry-Werten, die jede Einstellung schreibt.</p>
         </div>
       </details>
@@ -1203,9 +1198,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.6.2"></script>
-<script src="tt-backend.js?v=2.6.2"></script>
-<script src="tweaks.js?v=2.6.2"></script>
-<script src="script.js?v=2.6.2"></script>
+<script src="konfig.js?v=2.7.0"></script>
+<script src="tt-backend.js?v=2.7.0"></script>
+<script src="tweaks.js?v=2.7.0"></script>
+<script src="script.js?v=2.7.0"></script>
 </body>
 </html>
