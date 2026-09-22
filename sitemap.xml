@@ -12,9 +12,20 @@
 
   <url>
     <loc>https://tylertweaks.github.io/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Die vollstaendige Liste der Optimierungen. Hohe Prioritaet, weil genau
+       danach gesucht wird: "Windows Recall deaktivieren", "Nagle Algorithmus
+       aus", "klassisches Kontextmenue Windows 11". Jeder Eintrag hat dort eine
+       eigene Adresse (tweaks.html#privacy-recall). -->
+  <url>
+    <loc>https://tylertweaks.github.io/tweaks.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>

@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Tyler Tweaks — die Katalogseite (tweaks.html)
+
+   Nur was diese eine Seite braucht. Farben, Schriften, Abstände, Knöpfe und
+   der Rahmen kommen aus style.css; hier stehen keine eigenen Hex-Werte, damit
+   ein Farbwechsel dort auch hier ankommt.
+
+   Die Seite zeigt über hundert Einträge untereinander. Alles, was bei drei
+   Karten hübsch aussieht — große Schatten, kräftige Ränder, viel Luft —, wird
+   bei hundertneunundzwanzig zu Lärm. Deshalb sind die Zeilen hier bewusst
+   ruhiger als die Karten auf der Startseite.
+   ========================================================================== */
+
+/* ====================================================================
+   1. Kopf
+   ==================================================================== */
+
+.katalog-kopf {
+  position: relative;
+  padding: 104px 0 44px;
+  overflow: hidden;
+}
+.katalog-kopf > .wrap { position: relative; z-index: 1; }
+
+.katalog-kopf h1 {
+  font-family: var(--font-head);
+  font-size: clamp(1.9rem, 4.4vw, 2.9rem);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  margin: 10px 0 14px;
+}
+.katalog-kopf .sub { max-width: 60ch; }
+
+.katalog-fakten {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: .92rem;
+}
+.katalog-fakten strong {
+  font-family: var(--font-head);
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+
+/* ====================================================================
+   2. Filter
+
+   Klebt oben fest, weil die Liste lang ist: Wer auf Eintrag neunzig merkt,
+   dass er eigentlich nur Netzwerk sehen wollte, soll nicht erst wieder nach
+   oben scrollen müssen.
+   ==================================================================== */
+
+.katalog-filter {
+  position: sticky;
+
+  /* Unter die Navigation, nicht dahinter. Die klebt selbst schon bei top:0,
+     und zwei klebende Leisten auf derselben Höhe verdecken einander — beim
+     ersten Versuch war das Suchfeld ab dem ersten Scrollen weg.
+
+     Die Höhe misst katalog.js und schreibt sie als --nav-h. Ein fester Wert
+     stimmte nur so lange, bis jemand die Schriftgröße im Logo ändert oder
+     das Menü auf dem Handy umbricht. Die 56px sind nur der Notnagel, falls
+     das Skript nicht läuft. */
+  top: var(--nav-h, 56px);
+  z-index: 40;
+  padding: 16px 0 14px;
+  background: rgba(7, 8, 16, .92);
+  backdrop-filter: blur(11px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* .btn setzt display:inline-flex, und eine Klasse schlägt die [hidden]-Regel
+   des Browsers. Ohne das hier stünde "Filter zurücksetzen" dauerhaft da,
+   obwohl das Attribut gesetzt ist — ein Knopf, der nichts zurückzusetzen hat.
+
+   Bewusst nur auf dieser Seite: Dieselbe Falle steckt überall dort, wo ein
+   .btn ein hidden trägt, aber die anderen Seiten sind hier nicht geprüft. */
+[hidden] { display: none !important; }
+
+.katalog-suchzeile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.katalog-suche {
+  flex: 1;
+  min-width: 0;
+  min-height: 46px;
+  padding: 11px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: .95rem;
+}
+.katalog-suche::placeholder { color: var(--muted); }
+.katalog-suche:focus {
+  outline: none;
+  border-color: rgba(var(--accent-rgb), .55);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .13);
+}
+
+/* Das eingebaute Kreuz in Chrome ist fast schwarz und auf dunklem Grund
+   praktisch unsichtbar. Escape leert das Feld ohnehin (siehe katalog.js). */
+.katalog-suche::-webkit-search-cancel-button { filter: invert(.75); }
+
+.katalog-chips {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.katalog-chipgruppe-titel {
+  flex-shrink: 0;
+  width: 78px;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.katalog-chipgruppe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.katalog-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 13px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-2);
+  font-family: var(--font);
+  font-size: .83rem;
+  cursor: pointer;
+  transition: border-color .16s ease, background .16s ease, color .16s ease;
+}
+.katalog-chip:hover {
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+.katalog-chip.aktiv {
+  background: var(--accent-soft);
+  border-color: rgba(var(--accent-rgb), .55);
+  color: var(--text);
+}
+.katalog-chip-n {
+  font-family: var(--font-head);
+  font-size: .76rem;
+  color: var(--muted);
+}
+.katalog-chip.aktiv .katalog-chip-n { color: var(--accent); }
+
+.katalog-zaehler {
+  margin: 10px 0 0;
+  font-size: .84rem;
+  color: var(--muted);
+}
+
+/* ====================================================================
+   3. Die Liste
+   ==================================================================== */
+
+.katalog-liste-wrap { padding: 30px 0 80px; }
+
+.katalog-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* Der Aufbau einer Zeile steht in tweak-zeile.css — geteilt mit der
+   Vorführung auf der Startseite. Hier nur, was allein diese Seite braucht. */
+
+.tw {
+  /* Ohne das würde ein Sprung über die Raute den Eintrag genau unter die
+     klebende Filterleiste schieben. */
+  scroll-margin-top: 190px;
+}
+
+/* Kurz aufleuchten, wenn man über einen Link direkt hierher gekommen ist. */
+.tw-hervor {
+  border-color: rgba(var(--accent-rgb), .6);
+  background: var(--accent-soft);
+}
+
+/* ---- Leer und kaputt ---- */
+
+.katalog-leer,
+.katalog-fehler {
+  margin: 40px 0;
+  padding: 26px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* ====================================================================
+   4. Schmale Bildschirme
+   ==================================================================== */
+
+@media (max-width: 680px) {
+  .katalog-kopf { padding-top: 88px; }
+
+  /* Die Überschriften der Chipgruppen über die Chips statt daneben: Bei
+     78 px Beschriftung plus Chips bleibt sonst nichts mehr übrig. */
+  .katalog-chips {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+  .katalog-chipgruppe-titel { width: auto; }
+
+  /* Nicht mehr kleben. Auf dem Handy nimmt die Leiste sonst die halbe
+     Höhe des Bildschirms ein, und von der Liste bleibt nichts übrig. */
+  .katalog-filter { position: static; }
+
+  .tw { scroll-margin-top: 80px; }
+  .tw-kopf { gap: 11px; }
+}
+
+/* ====================================================================
+   5. Weniger Bewegung
+   ==================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .katalog-chip { transition: none; }
+}

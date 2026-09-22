@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Dieselbe Sicherheitsrichtlinie wie auf allen anderen Seiten. tweaks.json
+     liegt auf dieser Domain, 'self' in connect-src deckt sie also ab — es war
+     keine Lockerung nötig, um diese Seite zu bauen.
+
+     Wie überall gilt: kein einziges <script> enthält Code. Die Liste wird von
+     katalog.js aufgebaut, die Knöpfe hängen über addEventListener. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co">
+<link rel="canonical" href="https://tylertweaks.github.io/tweaks.html">
+<title>Alle Optimierungen im Überblick — Tyler Tweaks</title>
+<meta name="description" content="Jede einzelne Optimierung der Tweak App: was sie ändert, wie sie eingestuft ist und welchen Registry-Wert sie schreibt. Durchsuchbar, ohne Anmeldung.">
+<meta name="theme-color" content="#070810">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Tyler Tweaks">
+<meta property="og:title" content="Alle Optimierungen im Überblick">
+<meta property="og:description" content="Jede Optimierung der Tweak App im Klartext — samt der Registry-Werte, die sie schreibt. Vor dem Kauf nachlesbar.">
+<meta property="og:url" content="https://tylertweaks.github.io/tweaks.html">
+<meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=2.7.0">
+<link rel="stylesheet" href="tweak-zeile.css?v=2.7.0">
+<link rel="stylesheet" href="katalog.css?v=2.7.0">
+</head>
+<body>
+
+<a href="#inhalt" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      </svg>
+      <span>Tyler <strong>Tweaks</strong></span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#app">Tweak App</a>
+      <a href="tweaks.html" aria-current="page">Alle Tweaks</a>
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="admin.html" id="nav-admin" hidden>Admin</a>
+      <span id="nav-auth-mobil"></span>
+      <a href="index.html#preise" class="nav-cta">Jetzt kaufen</a>
+    </nav>
+
+    <div class="nav-actions">
+      <span id="nav-auth" class="nav-auth"></span>
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt">
+
+<!-- ============ KOPF ============ -->
+<section class="katalog-kopf">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow">Umfang</span>
+    <h1>Jede Optimierung, die drin ist</h1>
+    <p class="sub">
+      Kein Marketingtext, sondern die Liste selbst: alle
+      <strong><span data-tweak-anzahl></span> Optimierungen</strong> aus der Tweak App, in
+      <span data-bereich-wort></span> Bereichen, jede mit dem Registry-Wert, den sie wirklich
+      schreibt. Nachlesbar, bevor du etwas kaufst – und ohne Anmeldung.
+    </p>
+
+    <ul class="katalog-fakten">
+      <li><strong><span data-risiko-anzahl="Safe"></span></strong> als sicher eingestuft</li>
+      <li><strong><span data-neustart-anzahl></span></strong> wirken erst nach einem Neustart</li>
+      <li><strong>alle</strong> einzeln zurücknehmbar</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ FILTER ============ -->
+<section class="katalog-filter">
+  <div class="wrap">
+
+    <div class="katalog-suchzeile">
+      <label class="sr-only" for="katalog-suche">Optimierungen durchsuchen</label>
+      <input type="search" id="katalog-suche" class="katalog-suche" autocomplete="off"
+             placeholder="Suchen – etwa Telemetrie, Nagle, Recall oder Kontextmenü">
+      <button type="button" id="katalog-zuruecksetzen" class="btn btn-ghost btn-sm" hidden>Filter zurücksetzen</button>
+    </div>
+
+    <div class="katalog-chips">
+      <span class="katalog-chipgruppe-titel" id="titel-bereiche">Bereich</span>
+      <div class="katalog-chipgruppe" id="katalog-bereiche" role="group" aria-labelledby="titel-bereiche"></div>
+    </div>
+
+    <div class="katalog-chips">
+      <span class="katalog-chipgruppe-titel" id="titel-risiko">Einstufung</span>
+      <div class="katalog-chipgruppe" id="katalog-risiko" role="group" aria-labelledby="titel-risiko"></div>
+    </div>
+
+    <p class="katalog-zaehler" id="katalog-zaehler" role="status"></p>
+  </div>
+</section>
+
+<!-- ============ LISTE ============ -->
+<section class="katalog-liste-wrap">
+  <div class="wrap">
+    <!-- Wird von katalog.js gefüllt. Steht die Liste hier leer im Quelltext,
+         ist das kein Versehen: Sie kommt aus tweaks.json, damit Seite und App
+         nicht zwei getrennte Wahrheiten pflegen. -->
+    <div class="katalog-liste" id="katalog-liste"></div>
+
+    <p class="katalog-leer" id="katalog-leer" hidden>
+      Dazu gibt es nichts. Versuch ein anderes Wort – oder setz die Filter zurück.
+    </p>
+  </div>
+</section>
+
+<!-- ============ ABSCHLUSS ============ -->
+<section class="section section-alt ton-cyan">
+  <div class="wrap wrap-narrow" style="text-align:center">
+    <h2>Das alles in einem Fenster</h2>
+    <p class="sub">
+      In der App steht neben jedem dieser Einträge ein Schalter – und im Verlauf steht,
+      was du geändert hast, mit einem Knopf zurück. Vor jeder Änderung wird der bisherige
+      Wert gesichert.
+    </p>
+    <p style="margin-top:26px">
+      <a href="index.html#preise" class="btn btn-primary">Laufzeit wählen und kaufen</a>
+      <a href="index.html#app" class="btn btn-ghost" style="margin-left:10px">Die App ansehen</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+        <span>Tyler <strong>Tweaks</strong></span>
+      </a>
+      <p class="muted">PC-Optimierung für Gaming und Alltag.<br>Windows 10 und 11, Backup inklusive.</p>
+    </div>
+
+    <div>
+      <h4>Angebot</h4>
+      <ul>
+        <li><a href="index.html#app">Tweak App</a></li>
+        <li><a href="tweaks.html">Alle Optimierungen</a></li>
+        <li><a href="index.html#leistungen">PC-Optimierung</a></li>
+        <li><a href="index.html#preise">Preise</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Konto</h4>
+      <ul>
+        <li><a href="konto.html">Kundenbereich</a></li>
+        <li><a href="anmelden.html">Anmelden</a></li>
+        <li><a href="registrieren.html">Registrieren</a></li>
+        <li><a href="passwort-vergessen.html">Passwort vergessen</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="index.html#support">Hilfe &amp; Kontakt</a></li>
+        <li><a href="index.html#faq">Häufige Fragen</a></li>
+        <li><a href="index.html#vertrauen">Sicherheit &amp; Backup</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="widerruf.html">Rücktrittsbelehrung</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="disclaimer">
+      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben —
+      die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
+      Verantwortung. Vor Änderungen wird automatisch ein Backup erstellt.
+      Windows ist eine Marke der Microsoft Corporation — Tyler Tweaks steht mit Microsoft in keiner Verbindung.
+    </p>
+    <p class="rechtslinks">
+      <a href="impressum.html">Impressum</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="agb.html">AGB</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="widerruf.html">Rücktritt</a>
+    </p>
+    <p class="copy">© <span id="year">2026</span> Tyler Tweaks</p>
+  </div>
+</footer>
+
+<script src="js/supabase-js-2.45.4.js"></script>
+<script src="konfig.js?v=2.7.0"></script>
+<script src="tt-backend.js?v=2.7.0"></script>
+<script src="tweaks.js?v=2.7.0"></script>
+<script src="katalog.js?v=2.7.0"></script>
+</body>
+</html>

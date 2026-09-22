@@ -6,6 +6,14 @@
    Produktvorstellung. Das zeigt jetzt echte Aufnahmen aus der App
    (bilder/app-*.png), deshalb ist der Teil entfallen — ein Nachbau lief
    ohnehin Gefahr, irgendwann etwas anderes zu zeigen als die App selbst.
+
+   Seit 2.7.0 steht am Ende dieser Datei wieder ein app-förmiger Kasten, und
+   der Einwand von damals gilt für ihn nicht: Er erfindet nichts. Was darin
+   steht, kommt aus tweaks.json, und die wird beim Veröffentlichen aus
+   demselben Katalog erzeugt, den die App ausliefert. Auseinanderlaufen kann
+   das nicht mehr — dafür sorgt der Weg der Daten, nicht die Aufmerksamkeit.
+   Die echten Aufnahmen sind geblieben; der Kasten ist ein dritter Reiter
+   daneben, kein Ersatz.
    ========================================================================== */
 
 .flow-art {
@@ -127,3 +135,311 @@
   font-weight: 700;
 }
 .art-key .dl svg { width: 12px; height: 12px; }
+
+
+/* ==========================================================================
+   Die Vorführung der App (index.html, #app, dritter Reiter)
+
+   Eigene Farben, und das ist der Punkt: Sie stammen aus
+   TweakApp\Themes\Colors.xaml, also aus der App selbst, nicht aus dem
+   Farbsatz der Website. Der Kasten soll sich absetzen — er zeigt ein anderes
+   Programm, und wenn er aussähe wie die Seite drumherum, wäre unklar, was
+   man eigentlich ansieht.
+
+   Die Werte stehen hier als Hex, weil sie einem anderen System gehören.
+   Ändert sich die Palette der App, gehören sie hier nachgezogen.
+   ========================================================================== */
+
+.demo-hinweis {
+  margin: 0 0 14px;
+  padding: 11px 15px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-xs);
+  color: var(--text-2);
+  font-size: .88rem;
+  line-height: 1.55;
+}
+.demo-hinweis strong { color: var(--text); }
+
+.app-demo {
+  --ad-bg: #070A11;
+  --ad-panel: #101724;
+  --ad-erhoben: #182132;
+  --ad-linie: #1B2436;
+  --ad-linie-stark: #26324A;
+  --ad-akzent: #3B82F6;
+  --ad-akzent-weich: #0F1D33;
+  --ad-text: #E9EFFA;
+  --ad-text-2: #93A2BC;
+  --ad-text-3: #5C6A85;
+  --ad-ok: #22C55E;
+  --ad-warn: #F59E0B;
+  --ad-gefahr: #EF4444;
+
+  background: var(--ad-bg);
+  border: 1px solid var(--ad-linie-stark);
+  border-radius: 12px;
+  overflow: hidden;
+  color: var(--ad-text);
+  box-shadow: var(--shadow);
+}
+
+/* ---- Titelleiste ---- */
+
+.ad-leiste {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  padding: 0 13px;
+  background: var(--ad-panel);
+  border-bottom: 1px solid var(--ad-linie);
+}
+.ad-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ad-akzent);
+  font-family: var(--font-head);
+  font-size: .84rem;
+  font-weight: 500;
+}
+.ad-knoepfe { display: inline-flex; gap: 7px; }
+.ad-knoepfe i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ad-linie-stark);
+}
+.ad-knoepfe i:last-child { background: #3a2530; }
+
+/* ---- Rumpf ---- */
+
+.ad-koerper {
+  display: grid;
+  grid-template-columns: 172px 1fr;
+  min-height: 430px;
+}
+
+.ad-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 13px 10px;
+  background: var(--ad-panel);
+  border-right: 1px solid var(--ad-linie);
+}
+.ad-navtitel {
+  margin: 11px 0 5px;
+  padding: 0 9px;
+  color: var(--ad-text-3);
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.ad-navtitel:first-child { margin-top: 0; }
+
+.ad-navpunkt {
+  padding: 7px 9px;
+  border-radius: 7px;
+  color: var(--ad-text-2);
+  font-size: .82rem;
+}
+/* Nur "Tweaks" ist in dieser Vorschau wirklich da. Die anderen Einträge
+   stehen für den Aufbau der App und geben sich deshalb blass. */
+.ad-navpunkt.aktiv {
+  background: var(--ad-akzent-weich);
+  color: var(--ad-text);
+  font-weight: 600;
+}
+
+.ad-inhalt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ad-kopf {
+  padding: 13px 15px;
+  border-bottom: 1px solid var(--ad-linie);
+}
+
+.ad-suche {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--ad-bg);
+  border: 1px solid var(--ad-linie-stark);
+  border-radius: 7px;
+  color: var(--ad-text);
+  font-family: var(--font);
+  font-size: .84rem;
+}
+.ad-suche::placeholder { color: var(--ad-text-3); }
+.ad-suche:focus {
+  outline: none;
+  border-color: var(--ad-akzent);
+}
+
+.ad-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+.ad-chip {
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--ad-linie-stark);
+  border-radius: 999px;
+  color: var(--ad-text-2);
+  font-family: var(--font);
+  font-size: .73rem;
+  cursor: pointer;
+}
+.ad-chip:hover { color: var(--ad-text); }
+.ad-chip.aktiv {
+  background: var(--ad-akzent-weich);
+  border-color: var(--ad-akzent);
+  color: var(--ad-text);
+}
+
+/* ---- Die Liste ----
+   Eigenes Scrollen statt der ganzen Seite: Der Kasten soll sich anfühlen wie
+   ein Fenster, und ein Fenster schiebt beim Scrollen nicht die Wand mit. */
+.ad-liste {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 430px;
+  padding: 11px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  scrollbar-width: thin;
+  scrollbar-color: #25314A transparent;
+}
+.ad-liste::-webkit-scrollbar { width: 9px; }
+.ad-liste::-webkit-scrollbar-thumb {
+  background: #25314A;
+  border-radius: 999px;
+  border: 2px solid var(--ad-bg);
+}
+
+.ad-laedt,
+.ad-leer {
+  margin: 26px 15px;
+  color: var(--ad-text-3);
+  font-size: .85rem;
+  text-align: center;
+}
+
+/* ---- Eine Zeile ----
+   Dieselben Bausteine wie auf tweaks.html (.tw, .tw-name, ...), nur in den
+   Farben der App. Der Aufbau kommt aus TTKatalog.zeile(), damit es genau
+   eine Stelle gibt, an der eine Zeile entsteht. */
+.app-demo .tw {
+  padding: 11px 13px;
+  background: var(--ad-panel);
+  border: 1px solid var(--ad-linie);
+  border-radius: 9px;
+}
+.app-demo .tw:hover { background: #121A29; }
+.app-demo .tw-name { font-size: .87rem; font-weight: 600; }
+.app-demo .tw-beschreibung {
+  margin-top: 3px;
+  color: var(--ad-text-2);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+.app-demo .tw-tags { margin-top: 8px; gap: 5px; }
+.app-demo .tw-tag {
+  padding: 1px 7px;
+  border-color: var(--ad-linie-stark);
+  color: var(--ad-text-3);
+  font-size: .67rem;
+}
+.app-demo .risiko-sicher          { color: var(--ad-ok);     border-color: rgba(34, 197, 94, .35); }
+.app-demo .risiko-vorsicht        { color: var(--ad-warn);   border-color: rgba(245, 158, 11, .35); }
+.app-demo .risiko-fortgeschritten { color: var(--ad-gefahr); border-color: rgba(239, 68, 68, .35); }
+
+.app-demo .tw-details { margin-top: 9px; }
+.app-demo .tw-details > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ad-text-3);
+  font-size: .74rem;
+  cursor: pointer;
+  list-style: none;
+}
+.app-demo .tw-details > summary::-webkit-details-marker { display: none; }
+.app-demo .tw-details > summary::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+}
+.app-demo .tw-details[open] > summary::before { transform: rotate(45deg); }
+
+.app-demo .tw-fakten {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 9px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: .73rem;
+}
+.app-demo .tw-fakten li { display: flex; gap: 6px; }
+.app-demo .tw-faktname { color: var(--ad-text-3); }
+.app-demo .tw-faktwert { color: var(--ad-text-2); }
+
+.app-demo .tw-reg {
+  margin: 9px 0 0;
+  padding: 9px 11px;
+  background: var(--ad-bg);
+  border: 1px solid var(--ad-linie);
+  border-radius: 6px;
+  color: var(--ad-text-2);
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: .69rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---- Der Schalter ----
+   Sieht aus wie der in der App und tut nichts. Deshalb auch kein
+   cursor:pointer: Der Zeiger soll nicht behaupten, hier ließe sich klicken. */
+.tw-schalter {
+  position: relative;
+  flex-shrink: 0;
+  width: 34px;
+  height: 19px;
+  margin-top: 2px;
+  border-radius: 999px;
+  background: var(--ad-akzent);
+}
+.tw-schalter::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* ---- Schmale Bildschirme ---- */
+
+@media (max-width: 760px) {
+  /* Die Seitenleiste fliegt raus. Sie erklärt den Aufbau der App, und das
+     tun die beiden Aufnahmen in den anderen Reitern besser — hier würde sie
+     nur die Hälfte der Breite fressen, die die Liste braucht. */
+  .ad-koerper { grid-template-columns: 1fr; min-height: 0; }
+  .ad-nav { display: none; }
+  .ad-liste { max-height: 400px; }
+}

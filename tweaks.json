@@ -1,0 +1,3567 @@
+{
+  "version": "2.7.0",
+  "erzeugt": "2026-09-22",
+  "anzahl": 129,
+  "bereiche": [
+    {
+      "key": "cat.privacy",
+      "de": "Datenschutz",
+      "en": "Privacy",
+      "icon": "IconShield",
+      "anzahl": 20
+    },
+    {
+      "key": "cat.debloat",
+      "de": "Debloat",
+      "en": "Debloat",
+      "icon": "IconApp",
+      "anzahl": 6
+    },
+    {
+      "key": "cat.system",
+      "de": "System",
+      "en": "System",
+      "icon": "IconSliders",
+      "anzahl": 19
+    },
+    {
+      "key": "cat.cpu",
+      "de": "CPU",
+      "en": "CPU",
+      "icon": "IconCpu",
+      "anzahl": 11
+    },
+    {
+      "key": "cat.gpu",
+      "de": "GPU",
+      "en": "GPU",
+      "icon": "IconMonitor",
+      "anzahl": 8
+    },
+    {
+      "key": "cat.network",
+      "de": "Netzwerk",
+      "en": "Network",
+      "icon": "IconGlobe",
+      "anzahl": 11
+    },
+    {
+      "key": "cat.explorer",
+      "de": "Explorer",
+      "en": "Explorer",
+      "icon": "IconWindow",
+      "anzahl": 26
+    },
+    {
+      "key": "cat.update",
+      "de": "Windows Update",
+      "en": "Windows Update",
+      "icon": "IconRefresh",
+      "anzahl": 5
+    },
+    {
+      "key": "cat.storage",
+      "de": "Speicher",
+      "en": "Storage",
+      "icon": "IconSave",
+      "anzahl": 5
+    },
+    {
+      "key": "cat.tasks",
+      "de": "Aufgaben",
+      "en": "Scheduled tasks",
+      "icon": "IconServices",
+      "anzahl": 3
+    },
+    {
+      "key": "cat.services",
+      "de": "Dienste",
+      "en": "Services",
+      "icon": "IconTrash",
+      "anzahl": 15
+    }
+  ],
+  "presets": [
+    {
+      "key": "gaming",
+      "icon": "IconGamepad",
+      "de": {
+        "name": "Gaming",
+        "beschreibung": "Priorität und Taktverhalten auf Spiele ausgerichtet, Aufnahme- und Stromsparfunktionen aus dem Weg."
+      },
+      "en": {
+        "name": "Gaming",
+        "beschreibung": "Priorities and clock behaviour aimed at games, recording and power saving out of the way."
+      },
+      "alleSicheren": false,
+      "tweakIds": [
+        "cpu-mmcss-games",
+        "cpu-mmcss-reserve",
+        "cpu-foreground-priority",
+        "cpu-power-throttling",
+        "cpu-min-state",
+        "cpu-core-parking",
+        "cpu-kernel-in-ram",
+        "cpu-fortnite-priority",
+        "gpu-gamedvr-off",
+        "gpu-display-idle",
+        "gpu-fullscreen-optimizations",
+        "sys-mouse-accel",
+        "sys-keyboard-rate",
+        "sys-input-queue",
+        "net-pnp-power",
+        "net-wake-on-link",
+        "net-selective-suspend",
+        "net-green-ethernet",
+        "net-tcp-power",
+        "net-nagle",
+        "net-throttling",
+        "net-dns-cloudflare",
+        "net-dns-cache",
+        "gpu-game-bar",
+        "gpu-windowed-optimizations"
+      ]
+    },
+    {
+      "key": "privacy",
+      "icon": "IconShield",
+      "de": {
+        "name": "Privatsphäre",
+        "beschreibung": "Telemetrie, Werbe-Kennung, Standort und Werbevorschläge abschalten."
+      },
+      "en": {
+        "name": "Privacy",
+        "beschreibung": "Switches off telemetry, the advertising ID, location tracking and ad suggestions."
+      },
+      "alleSicheren": false,
+      "tweakIds": [
+        "privacy-telemetry",
+        "privacy-advertising-id",
+        "privacy-activity-feed",
+        "privacy-cortana",
+        "privacy-location",
+        "privacy-tailored",
+        "privacy-start-suggestions",
+        "privacy-feedback",
+        "privacy-inking",
+        "privacy-speech",
+        "privacy-app-tracking",
+        "privacy-error-reporting",
+        "task-ceip",
+        "task-appraiser",
+        "task-feedback",
+        "privacy-recall",
+        "privacy-clipboard",
+        "privacy-lockscreen-ads",
+        "privacy-suggested-content",
+        "net-llmnr"
+      ]
+    },
+    {
+      "key": "fast",
+      "icon": "IconZap",
+      "de": {
+        "name": "Schneller Start",
+        "beschreibung": "Wartezeiten und Animationen raus, unnötige Hintergrunddienste aus."
+      },
+      "en": {
+        "name": "Fast start",
+        "beschreibung": "Delays and animations gone, background services you don\u0027t need switched off."
+      },
+      "alleSicheren": false,
+      "tweakIds": [
+        "sys-window-animations",
+        "sys-menu-delay",
+        "sys-keyboard-rate",
+        "sys-accessibility-prompts",
+        "sys-stickykeys",
+        "sys-startup-delay",
+        "sys-visual-effects",
+        "exp-transparency",
+        "svc-dps",
+        "svc-wpdbusenum",
+        "svc-tapi",
+        "svc-xbox",
+        "svc-hyperv-core",
+        "svc-hyperv-extra",
+        "exp-taskbar-hover",
+        "exp-startup-sound"
+      ]
+    },
+    {
+      "key": "clean",
+      "icon": "IconWindow",
+      "de": {
+        "name": "Aufgeräumtes Windows",
+        "beschreibung": "Explorer zurück auf klassisch, Werbeflächen und Vorschläge aus der Oberfläche entfernt."
+      },
+      "en": {
+        "name": "Tidy Windows",
+        "beschreibung": "Explorer back to classic, ad space and suggestions removed from the interface."
+      },
+      "alleSicheren": false,
+      "tweakIds": [
+        "exp-file-extensions",
+        "exp-classic-context",
+        "exp-taskbar-left",
+        "exp-taskbar-widgets",
+        "exp-taskbar-chat",
+        "exp-copilot",
+        "exp-search-box",
+        "exp-this-pc",
+        "exp-web-search",
+        "exp-news",
+        "privacy-start-suggestions",
+        "exp-sync-notifications",
+        "exp-search-highlights",
+        "bloat-consumer-features",
+        "bloat-cloud-content",
+        "bloat-preinstalled",
+        "bloat-onedrive-explorer",
+        "bloat-edge-background",
+        "bloat-chat-autoinstall"
+      ]
+    },
+    {
+      "key": "safe",
+      "icon": "IconCheck",
+      "de": {
+        "name": "Nur das Sichere",
+        "beschreibung": "Alle Tweaks ohne Vorsicht-Hinweis. Der unaufgeregte Einstieg, wenn du unsicher bist."
+      },
+      "en": {
+        "name": "Safe picks only",
+        "beschreibung": "Every tweak without a caution label. The calm way in when you are unsure."
+      },
+      "alleSicheren": true,
+      "tweakIds": [
+        "privacy-telemetry",
+        "privacy-advertising-id",
+        "privacy-activity-feed",
+        "privacy-cortana",
+        "privacy-location",
+        "privacy-recall",
+        "privacy-clipboard",
+        "privacy-lockscreen-ads",
+        "privacy-suggested-content",
+        "privacy-tailored",
+        "privacy-start-suggestions",
+        "privacy-feedback",
+        "privacy-inking",
+        "privacy-speech",
+        "privacy-app-tracking",
+        "privacy-error-reporting",
+        "bloat-consumer-features",
+        "bloat-cloud-content",
+        "bloat-preinstalled",
+        "bloat-onedrive-explorer",
+        "bloat-edge-background",
+        "bloat-chat-autoinstall",
+        "sys-accessibility-prompts",
+        "sys-window-animations",
+        "sys-keyboard-rate",
+        "sys-menu-delay",
+        "sys-mouse-accel",
+        "sys-stickykeys",
+        "sys-input-queue",
+        "sys-long-paths",
+        "sys-crash-dump",
+        "sys-startup-delay",
+        "sys-verbose-status",
+        "sys-visual-effects",
+        "cpu-mmcss-reserve",
+        "cpu-power-throttling",
+        "cpu-foreground-priority",
+        "gpu-display-idle",
+        "gpu-game-bar",
+        "gpu-windowed-optimizations",
+        "net-dns-cache",
+        "net-llmnr",
+        "exp-file-extensions",
+        "exp-hidden-files",
+        "exp-taskbar-left",
+        "exp-taskbar-widgets",
+        "exp-taskbar-chat",
+        "exp-copilot",
+        "exp-taskview",
+        "exp-search-box",
+        "exp-recent-files",
+        "exp-transparency",
+        "exp-this-pc",
+        "exp-snap-assist",
+        "exp-web-search",
+        "exp-news",
+        "exp-sync-notifications",
+        "exp-compact-view",
+        "exp-full-path",
+        "exp-drive-letters",
+        "exp-end-task",
+        "exp-delete-confirm",
+        "exp-search-highlights",
+        "exp-taskbar-hover",
+        "exp-startup-sound",
+        "exp-lockscreen-blur",
+        "upd-no-restart",
+        "upd-delivery-optimization",
+        "sto-last-access",
+        "sto-storage-sense",
+        "task-ceip",
+        "task-appraiser",
+        "task-feedback",
+        "svc-tapi",
+        "svc-fax",
+        "svc-remote-registry",
+        "svc-retail-demo",
+        "svc-mapsbroker"
+      ]
+    }
+  ],
+  "tweaks": [
+    {
+      "id": "privacy-telemetry",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Telemetrie minimieren",
+        "beschreibung": "Reduziert die an Microsoft gesendeten Diagnosedaten auf das Nötigste und schaltet den DiagTrack-Hintergrunddienst ab."
+      },
+      "en": {
+        "name": "Cut telemetry to a minimum",
+        "beschreibung": "Reduces the diagnostic data sent to Microsoft to the bare minimum and switches off the DiagTrack background service."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\\AllowTelemetry = 0   (zurück: gelöscht)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack\\Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\\AllowTelemetry = 0   (back: deleted)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack\\Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-advertising-id",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Werbe-ID abschalten",
+        "beschreibung": "Apps können dich nicht mehr über eine eindeutige Werbe-ID wiedererkennen."
+      },
+      "en": {
+        "name": "Switch off the advertising ID",
+        "beschreibung": "Apps can no longer recognise you across sessions through a unique advertising ID."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\\Enabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\\Enabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-activity-feed",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Aktivitätsverlauf abschalten",
+        "beschreibung": "Windows sammelt nicht mehr, welche Apps und Dateien du benutzt, und lädt nichts davon hoch."
+      },
+      "en": {
+        "name": "Switch off activity history",
+        "beschreibung": "Windows stops collecting which apps and files you use, and stops uploading any of it."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\EnableActivityFeed = 0   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\PublishUserActivities = 0   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\UploadUserActivities = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\EnableActivityFeed = 0   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\PublishUserActivities = 0   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\UploadUserActivities = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-cortana",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Cortana abschalten",
+        "beschreibung": "Deaktiviert die Sprachassistentin in der Windows-Suche."
+      },
+      "en": {
+        "name": "Switch off Cortana",
+        "beschreibung": "Disables the voice assistant inside Windows Search."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search\\AllowCortana = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search\\AllowCortana = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-location",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Standortverfolgung abschalten",
+        "beschreibung": "Verweigert allen Apps systemweit den Zugriff auf deinen Standort."
+      },
+      "en": {
+        "name": "Switch off location tracking",
+        "beschreibung": "Denies every app system-wide access to your location."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location\\Value = Deny   (zurück: Allow)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location\\Value = Deny   (back: Allow)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-camera",
+      "bereich": "cat.privacy",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Kamera für Apps sperren",
+        "beschreibung": "Store-Apps bekommen keinen Zugriff mehr auf die Kamera. Videotelefonie in diesen Apps funktioniert danach nicht mehr."
+      },
+      "en": {
+        "name": "Block camera access for apps",
+        "beschreibung": "Store apps lose access to the camera. Video calls inside those apps stop working."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam\\Value = Deny   (zurück: Allow)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam\\Value = Deny   (back: Allow)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-microphone",
+      "bereich": "cat.privacy",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Mikrofon für Apps sperren",
+        "beschreibung": "Store-Apps bekommen keinen Zugriff mehr auf das Mikrofon. Sprachaufnahmen und Anrufe in diesen Apps funktionieren danach nicht mehr."
+      },
+      "en": {
+        "name": "Block microphone access for apps",
+        "beschreibung": "Store apps lose access to the microphone. Voice recording and calls inside those apps stop working."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone\\Value = Deny   (zurück: Allow)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone\\Value = Deny   (back: Allow)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-contacts-calendar",
+      "bereich": "cat.privacy",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Kontakte und Kalender sperren",
+        "beschreibung": "Store-Apps können deine Kontakte und Termine nicht mehr lesen. Die Mail- und Kalender-App verliert damit ihre Grundlage."
+      },
+      "en": {
+        "name": "Block contacts and calendar",
+        "beschreibung": "Store apps can no longer read your contacts and appointments. The Mail and Calendar app loses what it runs on."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\contacts\\Value = Deny   (zurück: Allow)",
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appointments\\Value = Deny   (zurück: Allow)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\contacts\\Value = Deny   (back: Allow)",
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appointments\\Value = Deny   (back: Allow)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-recall",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Windows Recall abschalten",
+        "beschreibung": "Windows legt keine durchsuchbare Aufzeichnung deiner Bildschirminhalte an. Betrifft nur Copilot\u002B-PCs — auf anderen Geräten ist der Schalter vorsorglich gesetzt und ohne Wirkung."
+      },
+      "en": {
+        "name": "Switch off Windows Recall",
+        "beschreibung": "Windows stops keeping a searchable record of what was on your screen. Only applies to Copilot\u002B PCs — elsewhere the switch is set as a precaution and does nothing."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-clipboard",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Zwischenablage-Verlauf abschalten",
+        "beschreibung": "Windows merkt sich nichts mehr von dem, was du kopierst, und überträgt es nicht auf deine anderen Geräte. Windows\u002BV zeigt danach keinen Verlauf mehr."
+      },
+      "en": {
+        "name": "Switch off clipboard history",
+        "beschreibung": "Windows no longer remembers what you copy and stops syncing it to your other devices. Windows\u002BV shows no history afterwards."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\AllowClipboardHistory = 0   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\AllowCrossDeviceClipboard = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\AllowClipboardHistory = 0   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\AllowCrossDeviceClipboard = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-lockscreen-ads",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Werbung auf dem Sperrbildschirm abschalten",
+        "beschreibung": "Der Sperrbildschirm zeigt keine angepriesenen Inhalte und Tipps mehr."
+      },
+      "en": {
+        "name": "Remove adverts from the lock screen",
+        "beschreibung": "The lock screen stops showing promoted content and tips."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\RotatingLockScreenOverlayEnabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-338387Enabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-310093Enabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\RotatingLockScreenOverlayEnabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-338387Enabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-310093Enabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-suggested-content",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Vorschläge in den Einstellungen abschalten",
+        "beschreibung": "Die Einstellungen-App wirbt nicht mehr für Funktionen und Abonnements."
+      },
+      "en": {
+        "name": "Switch off suggestions in Settings",
+        "beschreibung": "The Settings app stops advertising features and subscriptions."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-338393Enabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-353694Enabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-353696Enabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-338393Enabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-353694Enabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-353696Enabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-defender-samples",
+      "bereich": "cat.privacy",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Keine Dateien automatisch an Microsoft senden",
+        "beschreibung": "Der Virenschutz schickt verdächtige Dateien nicht mehr von selbst zur Analyse ein. Der Schutz selbst bleibt vollständig eingeschaltet, erkennt neue Bedrohungen aber etwas später."
+      },
+      "en": {
+        "name": "Stop sending files to Microsoft automatically",
+        "beschreibung": "Your antivirus no longer submits suspicious files for analysis on its own. The protection itself stays fully on, but picks up brand-new threats slightly later."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet\\SubmitSamplesConsent = 2   (zurück: 1)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet\\SubmitSamplesConsent = 2   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-tailored",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Personalisierte Werbung abschalten",
+        "beschreibung": "Deine Diagnosedaten werden nicht mehr für zugeschnittene Tipps und Werbung ausgewertet."
+      },
+      "en": {
+        "name": "Switch off personalised advertising",
+        "beschreibung": "Your diagnostic data is no longer used for tailored tips and adverts."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Policies\\Microsoft\\Windows\\CloudContent\\DisableTailoredExperiencesWithDiagnosticData = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKCU\\Software\\Policies\\Microsoft\\Windows\\CloudContent\\DisableTailoredExperiencesWithDiagnosticData = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-start-suggestions",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Werbung im Startmenü abschalten",
+        "beschreibung": "Entfernt vorgeschlagene und gesponserte Apps aus dem Startmenü."
+      },
+      "en": {
+        "name": "Remove adverts from the Start menu",
+        "beschreibung": "Takes suggested and sponsored apps out of the Start menu."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SystemPaneSuggestionsEnabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-338388Enabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SilentInstalledAppsEnabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SystemPaneSuggestionsEnabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SubscribedContent-338388Enabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\SilentInstalledAppsEnabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-feedback",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Feedback-Abfragen abschalten",
+        "beschreibung": "Windows fragt dich nicht mehr nach deiner Meinung zum Betriebssystem."
+      },
+      "en": {
+        "name": "Switch off feedback prompts",
+        "beschreibung": "Windows stops asking you what you think of the operating system."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Siuf\\Rules\\NumberOfSIUFInPeriod = 0   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\\DoNotShowFeedbackNotifications = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Siuf\\Rules\\NumberOfSIUFInPeriod = 0   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\\DoNotShowFeedbackNotifications = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-inking",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Eingabe- und Freihandpersonalisierung abschalten",
+        "beschreibung": "Windows wertet nicht mehr aus, was du tippst und schreibst, um Vorschläge zu verbessern."
+      },
+      "en": {
+        "name": "Switch off typing and inking personalisation",
+        "beschreibung": "Windows no longer analyses what you type and write in order to improve suggestions."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\InputPersonalization\\RestrictImplicitInkCollection = 1   (zurück: 0)",
+          "HKCU\\Software\\Microsoft\\InputPersonalization\\RestrictImplicitTextCollection = 1   (zurück: 0)",
+          "HKCU\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore\\HarvestContacts = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\InputPersonalization\\RestrictImplicitInkCollection = 1   (back: 0)",
+          "HKCU\\Software\\Microsoft\\InputPersonalization\\RestrictImplicitTextCollection = 1   (back: 0)",
+          "HKCU\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore\\HarvestContacts = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-speech",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Online-Spracherkennung abschalten",
+        "beschreibung": "Sprachaufnahmen werden nicht mehr zur Erkennung an Microsoft übertragen."
+      },
+      "en": {
+        "name": "Switch off online speech recognition",
+        "beschreibung": "Voice recordings are no longer sent to Microsoft for recognition."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Speech_OneCore\\Settings\\OnlineSpeechPrivacy\\HasAccepted = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Speech_OneCore\\Settings\\OnlineSpeechPrivacy\\HasAccepted = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-app-tracking",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "App-Start-Verfolgung abschalten",
+        "beschreibung": "Windows merkt sich nicht mehr, welche Programme du wie oft startest, um die Suche zu sortieren."
+      },
+      "en": {
+        "name": "Switch off app launch tracking",
+        "beschreibung": "Windows stops counting how often you start which program in order to sort search results."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Start_TrackProgs = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Start_TrackProgs = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "privacy-error-reporting",
+      "bereich": "cat.privacy",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Fehlerberichterstattung abschalten",
+        "beschreibung": "Absturzberichte werden nicht mehr automatisch an Microsoft geschickt."
+      },
+      "en": {
+        "name": "Switch off error reporting",
+        "beschreibung": "Crash reports are no longer sent to Microsoft automatically."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\Disabled = 1   (zurück: 0)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Error Reporting\\Disabled = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\Disabled = 1   (back: 0)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Error Reporting\\Disabled = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "bloat-consumer-features",
+      "bereich": "cat.debloat",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Keine App-Vorschläge nachinstallieren",
+        "beschreibung": "Windows installiert keine Spiele und Werbe-Apps mehr von selbst nach. Betrifft nur neue Installationen — was schon da ist, bleibt."
+      },
+      "en": {
+        "name": "Stop installing suggested apps",
+        "beschreibung": "Windows no longer installs games and promoted apps by itself. Affects new installations only — whatever is already there stays."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableWindowsConsumerFeatures = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableWindowsConsumerFeatures = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "bloat-cloud-content",
+      "bereich": "cat.debloat",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Vorschläge und Drittanbieter-Inhalte abschalten",
+        "beschreibung": "Windows blendet keine vorgeschlagenen Apps, Tipps und Inhalte anderer Anbieter mehr ein."
+      },
+      "en": {
+        "name": "Switch off suggestions and third-party content",
+        "beschreibung": "Windows stops showing suggested apps, tips and content from other companies."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableThirdPartySuggestions = 1   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableSoftLanding = 1   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableCloudOptimizedContent = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableThirdPartySuggestions = 1   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableSoftLanding = 1   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableCloudOptimizedContent = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "bloat-preinstalled",
+      "bereich": "cat.debloat",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Vorinstallierte Apps nicht wiederherstellen",
+        "beschreibung": "Vom Hersteller mitgelieferte und von Windows vorinstallierte Apps kommen nach einem Update nicht zurück."
+      },
+      "en": {
+        "name": "Do not restore pre-installed apps",
+        "beschreibung": "Apps your manufacturer bundled and ones Windows pre-installs no longer come back after an update."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\PreInstalledAppsEnabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\OemPreInstalledAppsEnabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\PreInstalledAppsEverEnabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\PreInstalledAppsEnabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\OemPreInstalledAppsEnabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\\PreInstalledAppsEverEnabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "bloat-onedrive-explorer",
+      "bereich": "cat.debloat",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "OneDrive aus der Explorer-Seitenleiste",
+        "beschreibung": "Der OneDrive-Eintrag verschwindet aus der linken Spalte des Explorers. OneDrive selbst bleibt installiert und synchronisiert weiter."
+      },
+      "en": {
+        "name": "Remove OneDrive from the Explorer sidebar",
+        "beschreibung": "The OneDrive entry disappears from the left column of File Explorer. OneDrive itself stays installed and keeps syncing."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Classes\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\\System.IsPinnedToNameSpaceTree = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Classes\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\\System.IsPinnedToNameSpaceTree = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "bloat-edge-background",
+      "bereich": "cat.debloat",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Edge nicht im Hintergrund laufen lassen",
+        "beschreibung": "Microsoft Edge beendet sich beim Schließen wirklich, statt im Hintergrund weiterzulaufen. Der Start dauert dafür etwas länger."
+      },
+      "en": {
+        "name": "Stop Edge running in the background",
+        "beschreibung": "Microsoft Edge really quits when you close it instead of staying resident. Starting it takes a little longer in exchange."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge\\BackgroundModeEnabled = 0   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge\\StartupBoostEnabled = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge\\BackgroundModeEnabled = 0   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge\\StartupBoostEnabled = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "bloat-chat-autoinstall",
+      "bereich": "cat.debloat",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Teams-Chat nicht automatisch installieren",
+        "beschreibung": "Windows installiert die Chat-App nicht mehr von selbst für neue Benutzerkonten."
+      },
+      "en": {
+        "name": "Do not auto-install Teams Chat",
+        "beschreibung": "Windows stops installing the Chat app by itself for new user accounts."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Communications\\ConfigureChatAutoInstall = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Communications\\ConfigureChatAutoInstall = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-accessibility-prompts",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Restliche Eingabehilfen-Abfragen abschalten",
+        "beschreibung": "Entfernt die Tastenkombinationen und Rückfragen für Umschalt-, Anschlag- und Kontrastfilter."
+      },
+      "en": {
+        "name": "Switch off the remaining accessibility prompts",
+        "beschreibung": "Removes the shortcuts and confirmation dialogs for toggle keys, filter keys and high contrast."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Control Panel\\Accessibility\\ToggleKeys\\Flags = 58   (zurück: 62)",
+          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\Flags = 122   (zurück: 126)",
+          "HKCU\\Control Panel\\Accessibility\\HighContrast\\Flags = 122   (zurück: 126)"
+        ],
+        "en": [
+          "HKCU\\Control Panel\\Accessibility\\ToggleKeys\\Flags = 58   (back: 62)",
+          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\Flags = 122   (back: 126)",
+          "HKCU\\Control Panel\\Accessibility\\HighContrast\\Flags = 122   (back: 126)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-window-animations",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Fensteranimationen abschalten",
+        "beschreibung": "Fenster werden ohne Minimier-/Maximier-Animation sofort dargestellt."
+      },
+      "en": {
+        "name": "Switch off window animations",
+        "beschreibung": "Windows appear instantly instead of animating when minimising and maximising."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Control Panel\\Desktop\\WindowMetrics\\MinAnimate = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Control Panel\\Desktop\\WindowMetrics\\MinAnimate = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-keyboard-rate",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Tastatur-Wiederholrate erhöhen",
+        "beschreibung": "Setzt die Verzögerung bis zur Zeichenwiederholung auf das Minimum."
+      },
+      "en": {
+        "name": "Raise the keyboard repeat rate",
+        "beschreibung": "Sets the delay before a held key starts repeating to the minimum."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Control Panel\\Keyboard\\KeyboardDelay = 0   (zurück: 1)",
+          "HKCU\\Control Panel\\Keyboard\\KeyboardSpeed = 31   (zurück: 31)"
+        ],
+        "en": [
+          "HKCU\\Control Panel\\Keyboard\\KeyboardDelay = 0   (back: 1)",
+          "HKCU\\Control Panel\\Keyboard\\KeyboardSpeed = 31   (back: 31)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-menu-delay",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Menü-Verzögerung entfernen",
+        "beschreibung": "Untermenüs klappen ohne die standardmäßige Wartezeit von 400 ms auf."
+      },
+      "en": {
+        "name": "Remove the menu delay",
+        "beschreibung": "Submenus open without the default 400 ms wait."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Control Panel\\Desktop\\MenuShowDelay = 0   (zurück: 400)"
+        ],
+        "en": [
+          "HKCU\\Control Panel\\Desktop\\MenuShowDelay = 0   (back: 400)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-mouse-accel",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Mausbeschleunigung aus",
+        "beschreibung": "Deaktiviert die Zeigerbeschleunigung, damit die Mausbewegung 1:1 übertragen wird."
+      },
+      "en": {
+        "name": "Switch off mouse acceleration",
+        "beschreibung": "Disables pointer acceleration so mouse movement is passed through 1:1."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Control Panel\\Mouse\\MouseSpeed = 0   (zurück: 1)",
+          "HKCU\\Control Panel\\Mouse\\MouseThreshold1 = 0   (zurück: 6)",
+          "HKCU\\Control Panel\\Mouse\\MouseThreshold2 = 0   (zurück: 10)"
+        ],
+        "en": [
+          "HKCU\\Control Panel\\Mouse\\MouseSpeed = 0   (back: 1)",
+          "HKCU\\Control Panel\\Mouse\\MouseThreshold1 = 0   (back: 6)",
+          "HKCU\\Control Panel\\Mouse\\MouseThreshold2 = 0   (back: 10)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-stickykeys",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Sticky-Keys-Abfrage abschalten",
+        "beschreibung": "Verhindert das Nachfragefenster nach fünfmaligem Drücken der Umschalttaste."
+      },
+      "en": {
+        "name": "Switch off the Sticky Keys prompt",
+        "beschreibung": "Stops the dialog that appears after pressing Shift five times."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Control Panel\\Accessibility\\StickyKeys\\Flags = 506   (zurück: 510)"
+        ],
+        "en": [
+          "HKCU\\Control Panel\\Accessibility\\StickyKeys\\Flags = 506   (back: 510)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-modern-standby",
+      "bereich": "cat.system",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Modernen Standby abschalten",
+        "beschreibung": "Deaktiviert den S0-Modern-Standby, damit der PC den klassischen Energiesparzustand nutzt."
+      },
+      "en": {
+        "name": "Switch off Modern Standby",
+        "beschreibung": "Disables S0 Modern Standby so the PC uses the classic sleep state instead (needs a restart)."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PlatformAoAcOverride = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PlatformAoAcOverride = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-standby-off",
+      "bereich": "cat.system",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Energiesparautomatik abschalten",
+        "beschreibung": "Der PC wechselt nicht mehr automatisch in den Energiesparmodus. Auf einem Notebook geht der Akku dadurch deutlich schneller leer."
+      },
+      "en": {
+        "name": "Switch off automatic sleep",
+        "beschreibung": "The PC no longer drops into sleep mode on its own."
+      },
+      "details": {
+        "de": [
+          "powercfg SCHEME_CURRENT SUB_SLEEP STANDBYIDLE = 0   (zurück: 1800)"
+        ],
+        "en": [
+          "powercfg SCHEME_CURRENT SUB_SLEEP STANDBYIDLE = 0   (back: 1800)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-input-queue",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Eingabepuffer für Maus und Tastatur verkleinern",
+        "beschreibung": "Kürzere Warteschlange für Maus- und Tastatureingaben."
+      },
+      "en": {
+        "name": "Shrink the mouse and keyboard input buffer",
+        "beschreibung": "A shorter queue for mouse and keyboard input. Takes effect after a restart."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\mouclass\\Parameters\\MouseDataQueueSize = 50   (zurück: 100)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\KeyboardDataQueueSize = 50   (zurück: 100)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\mouclass\\Parameters\\MouseDataQueueSize = 50   (back: 100)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\KeyboardDataQueueSize = 50   (back: 100)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-background-apps",
+      "bereich": "cat.system",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Hintergrund-Apps abschalten",
+        "beschreibung": "Store-Apps dürfen nicht mehr unsichtbar im Hintergrund weiterlaufen. Damit kommen von Mail, Kalender und ähnlichen Apps auch keine Benachrichtigungen mehr."
+      },
+      "en": {
+        "name": "Switch off background apps",
+        "beschreibung": "Store apps are no longer allowed to keep running invisibly in the background."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy\\LetAppsRunInBackground = 2   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy\\LetAppsRunInBackground = 2   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-long-paths",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Lange Dateipfade erlauben",
+        "beschreibung": "Programme dürfen Pfade über 260 Zeichen verwenden. Hilft bei tief verschachtelten Ordnern, etwa in Projektverzeichnissen."
+      },
+      "en": {
+        "name": "Allow long file paths",
+        "beschreibung": "Programs may use paths longer than 260 characters. Helps with deeply nested folders, such as project directories."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\LongPathsEnabled = 1   (zurück: 0)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\LongPathsEnabled = 1   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-crash-dump",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Kleines statt vollständiges Absturzabbild",
+        "beschreibung": "Bei einem Bluescreen schreibt Windows nur noch ein kleines Abbild statt eines mehrere Gigabyte großen."
+      },
+      "en": {
+        "name": "Small instead of full crash dump",
+        "beschreibung": "On a blue screen Windows writes only a small dump instead of one several gigabytes in size."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\CrashControl\\CrashDumpEnabled = 3   (zurück: 7)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\CrashControl\\CrashDumpEnabled = 3   (back: 7)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-app-timeout",
+      "bereich": "cat.system",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": false,
+      "de": {
+        "name": "Kürzer auf hängende Programme warten",
+        "beschreibung": "Windows wartet weniger lang, bevor es ein nicht mehr reagierendes Programm als hängend meldet und beim Herunterfahren beendet."
+      },
+      "en": {
+        "name": "Wait less for stuck programs",
+        "beschreibung": "Windows waits less before treating an unresponsive program as hung and closing it at shutdown."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Control Panel\\Desktop\\HungAppTimeout = 4000   (zurück: 5000)",
+          "HKCU\\Control Panel\\Desktop\\WaitToKillAppTimeout = 5000   (zurück: 20000)"
+        ],
+        "en": [
+          "HKCU\\Control Panel\\Desktop\\HungAppTimeout = 4000   (back: 5000)",
+          "HKCU\\Control Panel\\Desktop\\WaitToKillAppTimeout = 5000   (back: 20000)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-toast-notifications",
+      "bereich": "cat.system",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Benachrichtigungen abschalten",
+        "beschreibung": "Keine eingeblendeten Meldungen mehr in der rechten unteren Ecke. Betrifft auch Erinnerungen und Nachrichten von Apps, die du vielleicht erwartest."
+      },
+      "en": {
+        "name": "Switch off notifications",
+        "beschreibung": "No more pop-up messages in the bottom right corner. This also covers reminders and app messages you might be waiting for."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\PushNotifications\\ToastEnabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\PushNotifications\\ToastEnabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-uac-level",
+      "bereich": "cat.system",
+      "risiko": "Advanced",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Nachfrage der Benutzerkontensteuerung abschalten",
+        "beschreibung": "Programme mit Administratorrechten starten ohne Rückfrage. Das ist bequem, entfernt aber die letzte Nachfrage, bevor ein Programm tief ins System eingreifen darf — auch ein unerwünschtes."
+      },
+      "en": {
+        "name": "Switch off the User Account Control prompt",
+        "beschreibung": "Programs start with administrator rights without asking. Convenient, but it removes the last prompt before a program may reach deep into the system — including one you did not want."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\ConsentPromptBehaviorAdmin = 0   (zurück: 5)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\ConsentPromptBehaviorAdmin = 0   (back: 5)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-startup-delay",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Startverzögerung für Autostart-Programme aufheben",
+        "beschreibung": "Windows wartet nach dem Anmelden nicht mehr rund 10 Sekunden, bevor Autostart-Programme starten."
+      },
+      "en": {
+        "name": "Remove the startup delay for autostart programs",
+        "beschreibung": "Windows no longer waits about 10 seconds after signing in before starting autostart programs."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize\\StartupDelayInMSec = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize\\StartupDelayInMSec = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-fast-startup",
+      "bereich": "cat.system",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Schnellstart abschalten",
+        "beschreibung": "Windows fährt beim Herunterfahren wirklich herunter, statt einen Teilzustand zu speichern. Behebt Treiber- und Netzwerkprobleme nach dem Start, verlängert aber den Startvorgang spürbar."
+      },
+      "en": {
+        "name": "Switch off Fast Startup",
+        "beschreibung": "Windows really shuts down instead of saving a partial state. Fixes driver and network problems after booting."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power\\HiberbootEnabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power\\HiberbootEnabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-verbose-status",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Ausführliche Statusmeldungen beim Starten",
+        "beschreibung": "Windows zeigt beim Hoch- und Herunterfahren an, worauf es gerade wartet, statt nur einen Punktekreis."
+      },
+      "en": {
+        "name": "Show detailed status messages while booting",
+        "beschreibung": "Windows tells you what it is waiting for while starting and shutting down, instead of just spinning dots."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\VerboseStatus = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\VerboseStatus = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sys-visual-effects",
+      "bereich": "cat.system",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": false,
+      "de": {
+        "name": "Visuelle Effekte auf beste Leistung",
+        "beschreibung": "Stellt die Darstellungsoptionen von Windows auf «Für optimale Leistung anpassen»."
+      },
+      "en": {
+        "name": "Visual effects set to best performance",
+        "beschreibung": "Switches the Windows appearance options to “Adjust for best performance”. Takes effect at the next sign-in."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects\\VisualFXSetting = 2   (zurück: 0)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects\\VisualFXSetting = 2   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-kernel-in-ram",
+      "bereich": "cat.cpu",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Kernel im Arbeitsspeicher halten",
+        "beschreibung": "Verhindert das Auslagern des Kernels auf die Festplatte. Sinnvoll ab etwa 8 GB RAM, darunter eher schädlich."
+      },
+      "en": {
+        "name": "Keep the kernel in memory",
+        "beschreibung": "Stops the kernel from being paged out to disk. Sensible from about 8 GB of RAM upwards."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\DisablePagingExecutive = 1   (zurück: 0)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\DisablePagingExecutive = 1   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-mmcss-games",
+      "bereich": "cat.cpu",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "MMCSS-Profil für Spiele anheben",
+        "beschreibung": "Hebt die Scheduler-Priorität an, die Windows Spielen über den Multimedia Class Scheduler zuweist."
+      },
+      "en": {
+        "name": "Raise the MMCSS profile for games",
+        "beschreibung": "Raises the scheduler priority Windows gives games through the Multimedia Class Scheduler."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Priority = 6   (zurück: 2)",
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Scheduling Category = High   (zurück: Medium)",
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\SFIO Priority = High   (zurück: Normal)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Priority = 6   (back: 2)",
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Scheduling Category = High   (back: Medium)",
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\SFIO Priority = High   (back: Normal)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-mmcss-reserve",
+      "bereich": "cat.cpu",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "MMCSS-Reserve für Hintergrund aufheben",
+        "beschreibung": "Windows reserviert standardmäßig 20 % der CPU-Zeit für Hintergrundaufgaben. Das gibt sie den Vordergrundprozessen zurück."
+      },
+      "en": {
+        "name": "Release the MMCSS background reserve",
+        "beschreibung": "Windows reserves 20 % of CPU time for background work by default. This gives it back to foreground processes."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\SystemResponsiveness = 0   (zurück: 20)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\SystemResponsiveness = 0   (back: 20)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-power-throttling",
+      "bereich": "cat.cpu",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Prozessdrosselung abschalten",
+        "beschreibung": "Deaktiviert das Power Throttling, mit dem Windows Hintergrundprozesse ausbremst."
+      },
+      "en": {
+        "name": "Switch off process throttling",
+        "beschreibung": "Disables Power Throttling, which Windows uses to slow down background processes."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling\\PowerThrottlingOff = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling\\PowerThrottlingOff = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-min-state",
+      "bereich": "cat.cpu",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Prozessor-Mindestleistung auf 100 Prozent",
+        "beschreibung": "Die CPU taktet nicht mehr herunter. Deutlich höherer Stromverbrauch und mehr Abwärme."
+      },
+      "en": {
+        "name": "Processor minimum state at 100 percent",
+        "beschreibung": "The CPU no longer clocks down. Noticeably higher power draw and more heat."
+      },
+      "details": {
+        "de": [
+          "powercfg SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN = 100   (zurück: 5)"
+        ],
+        "en": [
+          "powercfg SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN = 100   (back: 5)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-core-parking",
+      "bereich": "cat.cpu",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Kernparken abschalten",
+        "beschreibung": "Windows legt keine CPU-Kerne mehr schlafen, sondern hält alle bereit. Etwas höherer Verbrauch im Leerlauf."
+      },
+      "en": {
+        "name": "Switch off core parking",
+        "beschreibung": "Windows stops putting CPU cores to sleep and keeps them all ready. Slightly higher idle power draw."
+      },
+      "details": {
+        "de": [
+          "powercfg SCHEME_CURRENT SUB_PROCESSOR CPMINCORES = 100   (zurück: 5)"
+        ],
+        "en": [
+          "powercfg SCHEME_CURRENT SUB_PROCESSOR CPMINCORES = 100   (back: 5)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-timer-resolution",
+      "bereich": "cat.cpu",
+      "risiko": "Advanced",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Feine Zeitgeber für Programme erlauben",
+        "beschreibung": "Programme dürfen die Zeitgeberauflösung wieder systemweit anheben. Windows 10 hat das ab Version 2004 auf das jeweilige Programm beschränkt, was in manchen Spielen ruckelt."
+      },
+      "en": {
+        "name": "Allow programs to raise timer resolution",
+        "beschreibung": "Programs may raise the timer resolution system-wide again. Windows 10 limited this to the requesting program from version 2004 on, which stutters in some games."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\kernel\\GlobalTimerResolutionRequests = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\kernel\\GlobalTimerResolutionRequests = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-distribute-timers",
+      "bereich": "cat.cpu",
+      "risiko": "Advanced",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Zeitgeber auf alle Kerne verteilen",
+        "beschreibung": "Windows verteilt die Zeitgeber-Unterbrechungen über alle Prozessorkerne statt sie auf einem zu bündeln."
+      },
+      "en": {
+        "name": "Spread timers across all cores",
+        "beschreibung": "Windows spreads timer interrupts over all processor cores instead of bunching them on one."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\kernel\\DistributeTimers = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\kernel\\DistributeTimers = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-boost-aggressive",
+      "bereich": "cat.cpu",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Turbo-Verhalten aggressiv",
+        "beschreibung": "Die CPU geht früher und länger in den Turbotakt. Mehr Abwärme und Lüftergeräusch."
+      },
+      "en": {
+        "name": "Aggressive turbo behaviour",
+        "beschreibung": "The CPU boosts earlier and holds turbo clocks longer. More heat and more fan noise."
+      },
+      "details": {
+        "de": [
+          "powercfg SCHEME_CURRENT SUB_PROCESSOR PERFBOOSTMODE = 2   (zurück: 3)"
+        ],
+        "en": [
+          "powercfg SCHEME_CURRENT SUB_PROCESSOR PERFBOOSTMODE = 2   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-foreground-priority",
+      "bereich": "cat.cpu",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Vordergrund-Priorität erhöhen",
+        "beschreibung": "Gibt dem aktiven Fenster längere und stärker bevorzugte CPU-Zeitscheiben."
+      },
+      "en": {
+        "name": "Raise foreground priority",
+        "beschreibung": "Gives the active window longer and more strongly favoured CPU time slices."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\\Win32PrioritySeparation = 38   (zurück: 2)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\\Win32PrioritySeparation = 38   (back: 2)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "cpu-fortnite-priority",
+      "bereich": "cat.cpu",
+      "risiko": "Advanced",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Fortnite auf hohe Prozesspriorität",
+        "beschreibung": "Startet FortniteClient-Win64-Shipping.exe künftig mit hoher Priorität. Ohne installiertes Fortnite wirkungslos."
+      },
+      "en": {
+        "name": "Fortnite at high process priority",
+        "beschreibung": "Starts FortniteClient-Win64-Shipping.exe at high priority from now on. Does nothing without Fortnite installed."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\FortniteClient-Win64-Shipping.exe\\PerfOptions\\CpuPriorityClass = 3   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\FortniteClient-Win64-Shipping.exe\\PerfOptions\\CpuPriorityClass = 3   (back: deleted)"
+        ]
+      },
+      "schlagworte": [
+        "Fortnite",
+        "IFEO",
+        "Priorität"
+      ]
+    },
+    {
+      "id": "gpu-gamedvr-off",
+      "bereich": "cat.gpu",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Game DVR deaktivieren",
+        "beschreibung": "Schaltet die Hintergrundaufnahme der Xbox Game Bar ab, die im Spiel Leistung kostet. Danach lassen sich keine Spielclips mehr aufnehmen."
+      },
+      "en": {
+        "name": "Disable Game DVR",
+        "beschreibung": "Switches off the Xbox Game Bar background recording, which costs performance in games."
+      },
+      "details": {
+        "de": [
+          "HKCU\\System\\GameConfigStore\\GameDVR_Enabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR\\AppCaptureEnabled = 0   (zurück: 1)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR\\AllowGameDVR = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKCU\\System\\GameConfigStore\\GameDVR_Enabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR\\AppCaptureEnabled = 0   (back: 1)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\GameDVR\\AllowGameDVR = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "gpu-display-idle",
+      "bereich": "cat.gpu",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Energiesparmodus der Grafikausgabe aus",
+        "beschreibung": "Der Bildschirm wird nicht mehr automatisch abgeschaltet, die Grafikausgabe bleibt aktiv."
+      },
+      "en": {
+        "name": "Switch off display power saving",
+        "beschreibung": "The screen is no longer switched off automatically and the graphics output stays active."
+      },
+      "details": {
+        "de": [
+          "powercfg SCHEME_CURRENT SUB_VIDEO VIDEOIDLE = 0   (zurück: 600)"
+        ],
+        "en": [
+          "powercfg SCHEME_CURRENT SUB_VIDEO VIDEOIDLE = 0   (back: 600)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "gpu-game-bar",
+      "bereich": "cat.gpu",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Xbox Game Bar vollständig abschalten",
+        "beschreibung": "Die Spielleiste öffnet sich nicht mehr mit Windows\u002BG und meldet sich beim Spielstart nicht mehr zu Wort."
+      },
+      "en": {
+        "name": "Switch off the Xbox Game Bar completely",
+        "beschreibung": "The Game Bar no longer opens with Windows\u002BG and stops announcing itself when a game starts."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\GameBar\\UseNexusForGameBarEnabled = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\GameBar\\ShowStartupPanel = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\GameBar\\UseNexusForGameBarEnabled = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\GameBar\\ShowStartupPanel = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "gpu-windowed-optimizations",
+      "bereich": "cat.gpu",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Optimierungen für Spiele im Fenster",
+        "beschreibung": "Windows 11 reicht Spiele im Fenstermodus direkt an die Grafikkarte durch. Das senkt die Verzögerung und erlaubt variable Bildraten auch ohne Vollbild."
+      },
+      "en": {
+        "name": "Optimisations for windowed games",
+        "beschreibung": "Windows 11 hands windowed games straight to the graphics card. That lowers latency and allows variable refresh rates outside full screen."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\DirectX\\UserGpuPreferences\\DirectXUserGlobalSettings = SwapEffectUpgradeEnable=1;   (zurück: )"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\DirectX\\UserGpuPreferences\\DirectXUserGlobalSettings = SwapEffectUpgradeEnable=1;   (back: )"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "gpu-mpo-off",
+      "bereich": "cat.gpu",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Multiplane Overlay abschalten",
+        "beschreibung": "Hilft gegen Flackern und Ruckeln in Spielen im Fenstermodus, das manche Grafiktreiber verursachen. Ohne dieses Problem bringt der Tweak nichts und kostet etwas Leistung."
+      },
+      "en": {
+        "name": "Switch off Multiplane Overlay",
+        "beschreibung": "Helps against flickering and stutter in windowed games caused by some graphics drivers. Without that problem it gains nothing and costs a little performance."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\Dwm\\OverlayTestMode = 5   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\Dwm\\OverlayTestMode = 5   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "gpu-hags",
+      "bereich": "cat.gpu",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Hardwarebeschleunigte GPU-Planung einschalten",
+        "beschreibung": "Die Grafikkarte verwaltet ihren eigenen Speicher, statt dass Windows das übernimmt. Braucht einen aktuellen Treiber."
+      },
+      "en": {
+        "name": "Turn on hardware-accelerated GPU scheduling",
+        "beschreibung": "The graphics card manages its own memory instead of Windows doing it. Needs a restart and a current driver."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\HwSchMode = 2   (zurück: 1)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\HwSchMode = 2   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "gpu-fullscreen-optimizations",
+      "bereich": "cat.gpu",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Vollbildoptimierungen abschalten",
+        "beschreibung": "Spiele laufen im echten Vollbild statt im randlosen Fenster, das Windows sonst unterschiebt."
+      },
+      "en": {
+        "name": "Switch off fullscreen optimisations",
+        "beschreibung": "Games run in true fullscreen instead of the borderless window Windows otherwise substitutes."
+      },
+      "details": {
+        "de": [
+          "HKCU\\System\\GameConfigStore\\GameDVR_FSEBehaviorMode = 2   (zurück: 0)",
+          "HKCU\\System\\GameConfigStore\\GameDVR_HonorUserFSEBehaviorMode = 1   (zurück: 0)",
+          "HKCU\\System\\GameConfigStore\\GameDVR_DXGIHonorFSEWindowsCompatible = 1   (zurück: 0)",
+          "HKCU\\System\\GameConfigStore\\GameDVR_EFSEFeatureFlags = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\System\\GameConfigStore\\GameDVR_FSEBehaviorMode = 2   (back: 0)",
+          "HKCU\\System\\GameConfigStore\\GameDVR_HonorUserFSEBehaviorMode = 1   (back: 0)",
+          "HKCU\\System\\GameConfigStore\\GameDVR_DXGIHonorFSEWindowsCompatible = 1   (back: 0)",
+          "HKCU\\System\\GameConfigStore\\GameDVR_EFSEFeatureFlags = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "gpu-tdr-delay",
+      "bereich": "cat.gpu",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Wartezeit bis zum Grafik-Reset erhöhen",
+        "beschreibung": "Windows setzt den Grafiktreiber erst nach 10 statt 2 Sekunden zurück. Kann kurze Aussetzer überbrücken, verlängert aber echte Hänger."
+      },
+      "en": {
+        "name": "Raise the graphics reset timeout",
+        "beschreibung": "Windows resets the graphics driver after 10 instead of 2 seconds. Can ride out short stutters but prolongs real freezes."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\TdrDelay = 10   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\TdrDelay = 10   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-pnp-power",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Automatisches Stromsparen der Netzwerkkarte aus",
+        "beschreibung": "Windows darf die Netzwerkkarte nicht mehr zum Energiesparen abschalten."
+      },
+      "en": {
+        "name": "Switch off adapter power management",
+        "beschreibung": "Windows may no longer switch off the network adapter to save power."
+      },
+      "details": {
+        "de": [
+          "Alle Netzwerkkarten\\PnPCapabilities = 24   (zurück: gelöscht)"
+        ],
+        "en": [
+          "All network adapters\\PnPCapabilities = 24   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-green-ethernet",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Feines Stromsparen des Adapters abschalten",
+        "beschreibung": "Deaktiviert Green Ethernet und Energy Efficient Ethernet, die im Betrieb kurze Aussetzer verursachen können."
+      },
+      "en": {
+        "name": "Switch off fine-grained adapter power saving",
+        "beschreibung": "Disables Green Ethernet and Energy Efficient Ethernet, which can cause short dropouts during use."
+      },
+      "details": {
+        "de": [
+          "Alle Netzwerkkarten\\*EEE = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\EnableGreenEthernet = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\AdvancedEEE = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "All network adapters\\*EEE = 0   (back: deleted)",
+          "All network adapters\\EnableGreenEthernet = 0   (back: deleted)",
+          "All network adapters\\AdvancedEEE = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-selective-suspend",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Energieverwaltung der Netzwerkkarte abschalten",
+        "beschreibung": "Verhindert, dass der Adapter im Leerlauf in einen Schlafzustand versetzt wird."
+      },
+      "en": {
+        "name": "Switch off adapter sleep states",
+        "beschreibung": "Stops the adapter from being put to sleep while idle."
+      },
+      "details": {
+        "de": [
+          "Alle Netzwerkkarten\\*SelectiveSuspend = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\SelectiveSuspend = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\EnablePME = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "All network adapters\\*SelectiveSuspend = 0   (back: deleted)",
+          "All network adapters\\SelectiveSuspend = 0   (back: deleted)",
+          "All network adapters\\EnablePME = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-tcp-power",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Energieverwaltung des TCP-Stapels aus",
+        "beschreibung": "Schaltet die Energiesparfunktionen der TCP-Offload-Einheit des Adapters ab."
+      },
+      "en": {
+        "name": "Switch off TCP stack power saving",
+        "beschreibung": "Disables the power saving features of the adapter\u0027s TCP offload engine."
+      },
+      "details": {
+        "de": [
+          "Alle Netzwerkkarten\\*IdleRestriction = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\EnableDynamicPowerGating = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\EnableModernStandby = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "All network adapters\\*IdleRestriction = 0   (back: deleted)",
+          "All network adapters\\EnableDynamicPowerGating = 0   (back: deleted)",
+          "All network adapters\\EnableModernStandby = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-wake-on-link",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Aufwecken beim Verbindungsabbruch abschalten",
+        "beschreibung": "Der PC wacht nicht mehr auf, wenn das Netzwerkkabel ein- oder ausgesteckt wird."
+      },
+      "en": {
+        "name": "Switch off wake on link change",
+        "beschreibung": "The PC no longer wakes up when the network cable is plugged in or pulled out."
+      },
+      "details": {
+        "de": [
+          "Alle Netzwerkkarten\\WakeOnLink = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\*WakeOnMagicPacket = 0   (zurück: gelöscht)",
+          "Alle Netzwerkkarten\\*WakeOnPattern = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "All network adapters\\WakeOnLink = 0   (back: deleted)",
+          "All network adapters\\*WakeOnMagicPacket = 0   (back: deleted)",
+          "All network adapters\\*WakeOnPattern = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-nagle",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Nagle-Algorithmus abschalten",
+        "beschreibung": "Kleine Datenpakete werden sofort geschickt, statt gesammelt zu werden. Senkt die Latenz in Spielen, erhöht die Paketzahl leicht."
+      },
+      "en": {
+        "name": "Switch off the Nagle algorithm",
+        "beschreibung": "Small packets are sent immediately instead of being collected. Lowers latency in games, slightly raises packet count."
+      },
+      "details": {
+        "de": [
+          "Alle TCP/IP-Verbindungen\\TcpAckFrequency = 1   (zurück: gelöscht)",
+          "Alle TCP/IP-Verbindungen\\TCPNoDelay = 1   (zurück: gelöscht)",
+          "Alle TCP/IP-Verbindungen\\TcpDelAckTicks = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "All TCP/IP connections\\TcpAckFrequency = 1   (back: deleted)",
+          "All TCP/IP connections\\TCPNoDelay = 1   (back: deleted)",
+          "All TCP/IP connections\\TcpDelAckTicks = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-throttling",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Netzwerkdrosselung aufheben",
+        "beschreibung": "Windows begrenzt Netzwerkverkehr nicht mehr zugunsten von Multimedia-Wiedergabe. Bei hoher Netzlast kann Ton oder Video dadurch stocken."
+      },
+      "en": {
+        "name": "Release network throttling",
+        "beschreibung": "Windows no longer limits network traffic in favour of multimedia playback."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\NetworkThrottlingIndex = -1   (zurück: 10)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\NetworkThrottlingIndex = -1   (back: 10)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-dns-cloudflare",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "DNS auf Cloudflare umstellen",
+        "beschreibung": "Namen werden über 1.1.1.1 aufgelöst statt über den Server deines Anbieters. Achtung: Ein Pi-hole, ein Firmennetz oder eine eigene Namensauflösung im Heimnetz funktionieren danach nicht mehr."
+      },
+      "en": {
+        "name": "Switch DNS to Cloudflare",
+        "beschreibung": "Names resolve through 1.1.1.1 instead of your provider\u0027s server. Careful: a Pi-hole, a company network or your own name resolution at home stop working."
+      },
+      "details": {
+        "de": [
+          "Alle TCP/IP-Verbindungen\\NameServer = 1.1.1.1,1.0.0.1   (zurück: automatisch vom Router)"
+        ],
+        "en": [
+          "All TCP/IP connections\\NameServer = 1.1.1.1,1.0.0.1   (back: automatic from the router)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-dns-cache",
+      "bereich": "cat.network",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "DNS-Zwischenspeicher vergrößern",
+        "beschreibung": "Windows merkt sich mehr aufgelöste Namen und behält sie länger. Spart wiederholte Anfragen beim Surfen."
+      },
+      "en": {
+        "name": "Enlarge the DNS cache",
+        "beschreibung": "Windows remembers more resolved names and keeps them longer. Saves repeated lookups while browsing."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableBucketSize = 1   (zurück: gelöscht)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableSize = 384   (zurück: gelöscht)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxCacheEntryTtlLimit = 64000   (zurück: gelöscht)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxSOACacheEntryTtlLimit = 301   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableBucketSize = 1   (back: deleted)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableSize = 384   (back: deleted)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxCacheEntryTtlLimit = 64000   (back: deleted)",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxSOACacheEntryTtlLimit = 301   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-llmnr",
+      "bereich": "cat.network",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "LLMNR abschalten",
+        "beschreibung": "Windows fragt nicht mehr per Rundruf im lokalen Netz nach Namen, die der DNS-Server nicht kennt. Spart Wartezeit und schließt einen bekannten Weg zum Abgreifen von Anmeldedaten."
+      },
+      "en": {
+        "name": "Switch off LLMNR",
+        "beschreibung": "Windows stops broadcasting on the local network for names its DNS server does not know. Saves waiting time and closes a known route for harvesting credentials."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\DNSClient\\EnableMulticast = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\DNSClient\\EnableMulticast = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "net-ipv6-off",
+      "bereich": "cat.network",
+      "risiko": "Advanced",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "IPv6 abschalten",
+        "beschreibung": "Deaktiviert IPv6 vollständig. In reinen IPv4-Netzen spart das Wartezeit beim Verbindungsaufbau — Microsoft rät aber davon ab, und Dienste wie Teams oder die Spielersuche mancher Titel brauchen IPv6."
+      },
+      "en": {
+        "name": "Switch off IPv6",
+        "beschreibung": "Disables IPv6 entirely. On IPv4-only networks that saves time when connecting — but Microsoft advises against it, and services like Teams or some games\u0027 matchmaking need IPv6."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip6\\Parameters\\DisabledComponents = 255   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip6\\Parameters\\DisabledComponents = 255   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-file-extensions",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Dateiendungen anzeigen",
+        "beschreibung": "Der Explorer zeigt .exe, .pdf und alle anderen Endungen wieder an – hilft, getarnte Dateien zu erkennen."
+      },
+      "en": {
+        "name": "Show file extensions",
+        "beschreibung": "Explorer shows .exe, .pdf and every other extension again – which helps spot disguised files."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\HideFileExt = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-hidden-files",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Versteckte Dateien anzeigen",
+        "beschreibung": "Auch versteckte Ordner und Dateien werden im Explorer angezeigt."
+      },
+      "en": {
+        "name": "Show hidden files",
+        "beschreibung": "Hidden folders and files are shown in Explorer as well."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden = 1   (zurück: 2)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden = 1   (back: 2)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-classic-context",
+      "bereich": "cat.explorer",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Klassisches Rechtsklickmenü (Windows 11)",
+        "beschreibung": "Bringt das vollständige Kontextmenü zurück, ohne den Umweg über «Weitere Optionen anzeigen». Der Explorer startet dabei neu."
+      },
+      "en": {
+        "name": "Classic right-click menu (Windows 11)",
+        "beschreibung": "Brings back the full context menu without the detour through “Show more options”. Explorer restarts while applying."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32\\(Standard) = \u0022\u0022   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32\\(Standard) = \u0022\u0022   (back: deleted)"
+        ]
+      },
+      "schlagworte": [
+        "Kontextmenü",
+        "Rechtsklick",
+        "Weitere Optionen"
+      ]
+    },
+    {
+      "id": "exp-taskbar-left",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Taskleiste links ausrichten",
+        "beschreibung": "Startknopf und Symbole sitzen wieder links statt in der Mitte."
+      },
+      "en": {
+        "name": "Align the taskbar left",
+        "beschreibung": "The Start button and icons sit on the left again instead of in the middle."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarAl = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarAl = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-taskbar-widgets",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Widgets-Knopf ausblenden",
+        "beschreibung": "Entfernt das Wetter- und Nachrichten-Feld aus der Taskleiste."
+      },
+      "en": {
+        "name": "Hide the Widgets button",
+        "beschreibung": "Removes the weather and news panel from the taskbar."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDa = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDa = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-taskbar-chat",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Chat-Knopf ausblenden",
+        "beschreibung": "Entfernt den Teams-Chat-Knopf aus der Taskleiste."
+      },
+      "en": {
+        "name": "Hide the Chat button",
+        "beschreibung": "Removes the Teams chat button from the taskbar."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarMn = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarMn = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-copilot",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Copilot-Knopf ausblenden",
+        "beschreibung": "Entfernt den Copilot-Knopf aus der Taskleiste."
+      },
+      "en": {
+        "name": "Hide the Copilot button",
+        "beschreibung": "Removes the Copilot button from the taskbar."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowCopilotButton = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowCopilotButton = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-taskview",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Taskansicht-Knopf ausblenden",
+        "beschreibung": "Entfernt den Knopf für virtuelle Desktops aus der Taskleiste. Die Tastenkombination funktioniert weiter."
+      },
+      "en": {
+        "name": "Hide the Task View button",
+        "beschreibung": "Removes the virtual desktops button from the taskbar. The keyboard shortcut keeps working."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowTaskViewButton = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowTaskViewButton = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-search-box",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Suchfeld in der Taskleiste verkleinern",
+        "beschreibung": "Aus dem breiten Suchfeld wird wieder ein einzelnes Symbol."
+      },
+      "en": {
+        "name": "Shrink the taskbar search box",
+        "beschreibung": "The wide search field becomes a single icon again."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\\SearchboxTaskbarMode = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\\SearchboxTaskbarMode = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-recent-files",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Zuletzt verwendete Dateien ausblenden",
+        "beschreibung": "Der Schnellzugriff zeigt keine kürzlich geöffneten Dateien und Ordner mehr an."
+      },
+      "en": {
+        "name": "Hide recently used files",
+        "beschreibung": "Quick access no longer shows recently opened files and folders."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShowRecent = 0   (zurück: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShowFrequent = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShowRecent = 0   (back: 1)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShowFrequent = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-transparency",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Transparenzeffekte abschalten",
+        "beschreibung": "Startmenü und Taskleiste werden deckend gezeichnet – spart etwas Grafikleistung."
+      },
+      "en": {
+        "name": "Switch off transparency effects",
+        "beschreibung": "Start menu and taskbar are drawn opaque – saves a little graphics work."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-this-pc",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Explorer mit «Dieser PC» öffnen",
+        "beschreibung": "Ein neues Explorer-Fenster startet bei den Laufwerken statt beim Schnellzugriff."
+      },
+      "en": {
+        "name": "Open Explorer at “This PC”",
+        "beschreibung": "A new Explorer window starts at your drives instead of Quick access."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\LaunchTo = 1   (zurück: 2)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\LaunchTo = 1   (back: 2)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-snap-assist",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Andockvorschläge abschalten",
+        "beschreibung": "Nach dem Andocken eines Fensters schlägt Windows nicht mehr vor, was daneben soll."
+      },
+      "en": {
+        "name": "Switch off snap suggestions",
+        "beschreibung": "After snapping a window, Windows no longer suggests what should go next to it."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SnapAssist = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\SnapAssist = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-web-search",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Websuche im Startmenü abschalten",
+        "beschreibung": "Die Suche im Startmenü durchsucht nur noch deinen PC, nicht mehr das Internet."
+      },
+      "en": {
+        "name": "Switch off web search in the Start menu",
+        "beschreibung": "Start menu search only looks through your PC, no longer the internet."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Policies\\Microsoft\\Windows\\Explorer\\DisableSearchBoxSuggestions = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKCU\\Software\\Policies\\Microsoft\\Windows\\Explorer\\DisableSearchBoxSuggestions = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-news",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Nachrichten und Interessen abschalten",
+        "beschreibung": "Schaltet den Nachrichten-Feed systemweit ab."
+      },
+      "en": {
+        "name": "Switch off news and interests",
+        "beschreibung": "Disables the news feed system-wide."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Dsh\\AllowNewsAndInterests = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Dsh\\AllowNewsAndInterests = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-sync-notifications",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Werbung im Explorer abschalten",
+        "beschreibung": "Der Explorer blendet keine Hinweise auf OneDrive und andere Microsoft-Dienste mehr über der Dateiliste ein."
+      },
+      "en": {
+        "name": "Remove adverts from File Explorer",
+        "beschreibung": "File Explorer stops showing notices about OneDrive and other Microsoft services above the file list."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSyncProviderNotifications = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowSyncProviderNotifications = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-compact-view",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Kompakte Ansicht einschalten",
+        "beschreibung": "Der Explorer rückt Dateien und Ordner enger zusammen, wie in Windows 10. Auf einen Bildschirm passt dadurch deutlich mehr."
+      },
+      "en": {
+        "name": "Turn on compact view",
+        "beschreibung": "File Explorer packs files and folders closer together, as in Windows 10. Considerably more fits on screen."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\UseCompactMode = 1   (zurück: 0)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\UseCompactMode = 1   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-full-path",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Vollständigen Pfad in der Titelleiste zeigen",
+        "beschreibung": "Die Titelleiste des Explorers zeigt den ganzen Pfad statt nur den Ordnernamen."
+      },
+      "en": {
+        "name": "Show the full path in the title bar",
+        "beschreibung": "File Explorer\u0027s title bar shows the whole path instead of just the folder name."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\CabinetState\\FullPath = 1   (zurück: 0)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\CabinetState\\FullPath = 1   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-drive-letters",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Laufwerksbuchstaben voranstellen",
+        "beschreibung": "Aus «Windows (C:)» wird «(C:) Windows». Laufwerke lassen sich damit schneller am Buchstaben erkennen."
+      },
+      "en": {
+        "name": "Put drive letters first",
+        "beschreibung": "“Windows (C:)” becomes “(C:) Windows”, so drives are quicker to pick out by letter."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShowDriveLettersFirst = 4   (zurück: 0)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShowDriveLettersFirst = 4   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-end-task",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "«Task beenden» im Taskleistenmenü",
+        "beschreibung": "Ein Rechtsklick auf ein Programm in der Taskleiste bietet «Task beenden» an. Damit lässt sich ein hängendes Programm ohne Umweg über den Task-Manager schließen."
+      },
+      "en": {
+        "name": "Add “End task” to the taskbar menu",
+        "beschreibung": "Right-clicking a program on the taskbar offers “End task”, so a stuck program can be closed without opening Task Manager."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarEndTask = 1   (zurück: 0)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarEndTask = 1   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-delete-confirm",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Nachfrage vor dem Löschen einschalten",
+        "beschreibung": "Windows fragt wieder nach, bevor eine Datei in den Papierkorb wandert."
+      },
+      "en": {
+        "name": "Ask before deleting",
+        "beschreibung": "Windows asks again before a file goes to the recycle bin."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\ConfirmFileDelete = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\ConfirmFileDelete = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-search-highlights",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Suchhighlights abschalten",
+        "beschreibung": "Das Suchfeld zeigt keine wechselnden Themenbilder und Anlässe mehr an."
+      },
+      "en": {
+        "name": "Switch off search highlights",
+        "beschreibung": "The search box stops showing rotating themed images and occasions."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\\IsDynamicSearchBoxEnabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\\IsDynamicSearchBoxEnabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-taskbar-hover",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Vorschau ohne Verzögerung",
+        "beschreibung": "Die Vorschaubilder in der Taskleiste erscheinen sofort statt nach einer kurzen Wartezeit."
+      },
+      "en": {
+        "name": "Show previews without delay",
+        "beschreibung": "Taskbar preview thumbnails appear straight away instead of after a short wait."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ExtendedUIHoverTime = 100   (zurück: 400)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ExtendedUIHoverTime = 100   (back: 400)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-startup-sound",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Windows-Startklang abschalten",
+        "beschreibung": "Beim Hochfahren spielt Windows keine Melodie mehr ab."
+      },
+      "en": {
+        "name": "Switch off the Windows start sound",
+        "beschreibung": "Windows no longer plays a tune while booting."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LogonUI\\BootAnimation\\DisableStartupSound = 1   (zurück: 0)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LogonUI\\BootAnimation\\DisableStartupSound = 1   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-lockscreen-blur",
+      "bereich": "cat.explorer",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Weichzeichner am Anmeldebildschirm aus",
+        "beschreibung": "Das Hintergrundbild der Anmeldung wird scharf statt verschwommen angezeigt."
+      },
+      "en": {
+        "name": "Remove the blur on the sign-in screen",
+        "beschreibung": "The sign-in background is shown sharp instead of blurred."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\DisableAcrylicBackgroundOnLogon = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\DisableAcrylicBackgroundOnLogon = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "exp-shortcut-suffix",
+      "bereich": "cat.explorer",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Kein «- Verknüpfung» an neuen Verknüpfungen",
+        "beschreibung": "Neu angelegte Verknüpfungen heißen wie das Original, ohne den Zusatz. Bestehende Verknüpfungen behalten ihren Namen."
+      },
+      "en": {
+        "name": "No “- Shortcut” on new shortcuts",
+        "beschreibung": "Newly created shortcuts are named like the original, without the suffix. Existing shortcuts keep their names."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\link = 00000000   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\link = 00000000   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "upd-no-restart",
+      "bereich": "cat.update",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Neustart nach Update nur nach Rückfrage",
+        "beschreibung": "Windows startet nicht mehr von selbst neu, solange du angemeldet bist. Updates werden weiter installiert."
+      },
+      "en": {
+        "name": "Restart after updates only when asked",
+        "beschreibung": "Windows no longer restarts on its own while you are signed in. Updates still install."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\NoAutoRebootWithLoggedOnUsers = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\\NoAutoRebootWithLoggedOnUsers = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "upd-delivery-optimization",
+      "bereich": "cat.update",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Update-Weitergabe an fremde PCs abschalten",
+        "beschreibung": "Dein PC verteilt heruntergeladene Updates nicht mehr an andere Rechner im Internet."
+      },
+      "en": {
+        "name": "Stop sharing updates with other PCs",
+        "beschreibung": "Your PC no longer distributes downloaded updates to other machines on the internet."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeliveryOptimization\\DODownloadMode = 0   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeliveryOptimization\\DODownloadMode = 0   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "upd-no-drivers",
+      "bereich": "cat.update",
+      "risiko": "Advanced",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Treiber nicht über Windows Update beziehen",
+        "beschreibung": "Windows Update liefert keine Gerätetreiber mehr mit. Du installierst Treiber dann selbst – sinnvoll bei Grafikkarten, riskant bei Neuinstallationen."
+      },
+      "en": {
+        "name": "Do not get drivers from Windows Update",
+        "beschreibung": "Windows Update stops shipping device drivers. You install drivers yourself – useful for graphics cards, risky on fresh installs."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\ExcludeWUDriversInQualityUpdate = 1   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\ExcludeWUDriversInQualityUpdate = 1   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "upd-store-auto",
+      "bereich": "cat.update",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Automatische App-Updates aus dem Store abschalten",
+        "beschreibung": "Store-Apps aktualisieren sich nicht mehr von selbst. Du musst Updates dann im Store anstoßen."
+      },
+      "en": {
+        "name": "Switch off automatic Store app updates",
+        "beschreibung": "Store apps no longer update themselves. You have to start updates from the Store."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\WindowsStore\\AutoDownload = 2   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\WindowsStore\\AutoDownload = 2   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "upd-defer-feature",
+      "bereich": "cat.update",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Funktionsupdates aufschieben",
+        "beschreibung": "Große Windows-Versionssprünge werden bis zu ein Jahr zurückgestellt. Sicherheitsupdates kommen weiterhin ganz normal."
+      },
+      "en": {
+        "name": "Defer feature updates",
+        "beschreibung": "Large Windows version jumps are held back for up to a year. Security updates keep arriving as normal."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\DeferFeatureUpdates = 1   (zurück: gelöscht)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\DeferFeatureUpdatesPeriodInDays = 365   (zurück: gelöscht)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\DeferFeatureUpdates = 1   (back: deleted)",
+          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\DeferFeatureUpdatesPeriodInDays = 365   (back: deleted)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sto-last-access",
+      "bereich": "cat.storage",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "NTFS-Zugriffszeit nicht mehr mitschreiben",
+        "beschreibung": "Windows aktualisiert bei jedem Lesezugriff nicht mehr den Zeitstempel der Datei. Spart Schreibvorgänge auf SSDs."
+      },
+      "en": {
+        "name": "Stop recording NTFS access times",
+        "beschreibung": "Windows no longer updates a file\u0027s timestamp on every read. Saves writes on SSDs."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\NtfsDisableLastAccessUpdate = -2147483647   (zurück: -2147483648)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\NtfsDisableLastAccessUpdate = -2147483647   (back: -2147483648)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sto-hibernate-off",
+      "bereich": "cat.storage",
+      "risiko": "Advanced",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Ruhezustand abschalten",
+        "beschreibung": "Löscht hiberfil.sys und gibt mehrere Gigabyte frei. Der Schnellstart von Windows entfällt damit ebenfalls."
+      },
+      "en": {
+        "name": "Switch off hibernation",
+        "beschreibung": "Deletes hiberfil.sys and frees several gigabytes. Windows Fast Startup goes away with it."
+      },
+      "details": {
+        "de": [
+          "powercfg /hibernate off",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\HibernateEnabled = 0   (zurück: 1)"
+        ],
+        "en": [
+          "powercfg /hibernate off",
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\HibernateEnabled = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": [
+        "hiberfil",
+        "Ruhezustand",
+        "Schnellstart"
+      ]
+    },
+    {
+      "id": "sto-storage-sense",
+      "bereich": "cat.storage",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": false,
+      "de": {
+        "name": "Speicheroptimierung einschalten",
+        "beschreibung": "Windows räumt den temporären Speicher und den Papierkorb regelmäßig selbst auf."
+      },
+      "en": {
+        "name": "Turn on Storage Sense",
+        "beschreibung": "Windows clears temporary files and the recycle bin regularly on its own."
+      },
+      "details": {
+        "de": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy\\01 = 1   (zurück: 0)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy\\04 = 1   (zurück: 0)"
+        ],
+        "en": [
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy\\01 = 1   (back: 0)",
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy\\04 = 1   (back: 0)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sto-prefetch",
+      "bereich": "cat.storage",
+      "risiko": "Caution",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Prefetch abschalten",
+        "beschreibung": "Windows legt keine Vorladedaten mehr an. Auf SSDs praktisch wirkungslos, auf Festplatten macht es den Start langsamer."
+      },
+      "en": {
+        "name": "Switch off Prefetch",
+        "beschreibung": "Windows stops writing pre-load data. Practically pointless on SSDs, and it slows down booting from a hard disk."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\\EnablePrefetcher = 0   (zurück: 3)"
+        ],
+        "en": [
+          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\\EnablePrefetcher = 0   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "sto-reserved-storage",
+      "bereich": "cat.storage",
+      "risiko": "Advanced",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Reservierten Speicher freigeben",
+        "beschreibung": "Gibt die rund 7 GB frei, die Windows für Updates zurückhält. Große Updates brauchen danach freien Platz auf der Platte."
+      },
+      "en": {
+        "name": "Release reserved storage",
+        "beschreibung": "Frees the roughly 7 GB Windows holds back for updates. Large updates then need free disk space."
+      },
+      "details": {
+        "de": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ReserveManager\\ShippedWithReserves = 0   (zurück: 1)"
+        ],
+        "en": [
+          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ReserveManager\\ShippedWithReserves = 0   (back: 1)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "task-ceip",
+      "bereich": "cat.tasks",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Programm zur Verbesserung der Benutzerfreundlichkeit abschalten",
+        "beschreibung": "Deaktiviert die geplanten Aufgaben, die Nutzungsdaten für das CEIP-Programm sammeln und senden."
+      },
+      "en": {
+        "name": "Switch off the Customer Experience Improvement Program",
+        "beschreibung": "Disables the scheduled tasks that collect and send usage data for the CEIP programme."
+      },
+      "details": {
+        "de": [
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator",
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip",
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Customer Experience Improvement Program\\KernelCeipTask",
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Autochk\\Proxy"
+        ],
+        "en": [
+          "Scheduled task: \\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator",
+          "Scheduled task: \\Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip",
+          "Scheduled task: \\Microsoft\\Windows\\Customer Experience Improvement Program\\KernelCeipTask",
+          "Scheduled task: \\Microsoft\\Windows\\Autochk\\Proxy"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "task-appraiser",
+      "bereich": "cat.tasks",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Kompatibilitätsprüfung abschalten",
+        "beschreibung": "Deaktiviert den Compatibility Appraiser, der im Hintergrund deine installierte Software inventarisiert."
+      },
+      "en": {
+        "name": "Switch off the compatibility appraiser",
+        "beschreibung": "Disables the Compatibility Appraiser, which inventories your installed software in the background."
+      },
+      "details": {
+        "de": [
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser",
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater",
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Application Experience\\StartupAppTask"
+        ],
+        "en": [
+          "Scheduled task: \\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser",
+          "Scheduled task: \\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater",
+          "Scheduled task: \\Microsoft\\Windows\\Application Experience\\StartupAppTask"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "task-feedback",
+      "bereich": "cat.tasks",
+      "risiko": "Safe",
+      "neustart": false,
+      "admin": true,
+      "de": {
+        "name": "Feedback- und Fehlerbericht-Aufgaben abschalten",
+        "beschreibung": "Deaktiviert die geplanten Aufgaben für Feedback-Abfragen und das Versenden von Fehlerberichten."
+      },
+      "en": {
+        "name": "Switch off feedback and error report tasks",
+        "beschreibung": "Disables the scheduled tasks for feedback prompts and sending error reports."
+      },
+      "details": {
+        "de": [
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Feedback\\Siuf\\DmClient",
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Feedback\\Siuf\\DmClientOnScenarioDownload",
+          "Geplante Aufgabe: \\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting"
+        ],
+        "en": [
+          "Scheduled task: \\Microsoft\\Windows\\Feedback\\Siuf\\DmClient",
+          "Scheduled task: \\Microsoft\\Windows\\Feedback\\Siuf\\DmClientOnScenarioDownload",
+          "Scheduled task: \\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-wsearch",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Windows-Suche abschalten",
+        "beschreibung": "Beendet die Hintergrund-Indizierung. Die Dateisuche funktioniert weiter, wird aber langsamer."
+      },
+      "en": {
+        "name": "Switch off Windows Search",
+        "beschreibung": "Stops background indexing. File search keeps working but becomes slower."
+      },
+      "details": {
+        "de": [
+          "Dienst WSearch: Start = 4   (zurück: 2)"
+        ],
+        "en": [
+          "Service WSearch: Start = 4   (back: 2)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-dps",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Diagnoserichtliniendienst abschalten",
+        "beschreibung": "Deaktiviert die automatische Problembehandlung von Windows. Danach stehen auch die Assistenten für Netzwerk-, Audio- und Druckerprobleme nicht mehr zur Verfügung."
+      },
+      "en": {
+        "name": "Switch off the Diagnostic Policy Service",
+        "beschreibung": "Disables the automatic troubleshooting built into Windows."
+      },
+      "details": {
+        "de": [
+          "Dienst DPS: Start = 4   (zurück: 2)"
+        ],
+        "en": [
+          "Service DPS: Start = 4   (back: 2)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-hyperv-core",
+      "bereich": "cat.services",
+      "risiko": "Advanced",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Hyper-V-Hilfsdienste abschalten",
+        "beschreibung": "Deaktiviert die Gastdienste von Hyper-V (Heartbeat, Sicherung, Herunterfahren, Datenaustausch). Nur sinnvoll ohne WSL, Docker und Windows-Sandbox."
+      },
+      "en": {
+        "name": "Switch off the Hyper-V helper services",
+        "beschreibung": "Disables the Hyper-V guest services (heartbeat, backup, shutdown, data exchange)."
+      },
+      "details": {
+        "de": [
+          "Dienst vmicheartbeat: Start = 4   (zurück: 3)",
+          "Dienst vmicvss: Start = 4   (zurück: 3)",
+          "Dienst vmicshutdown: Start = 4   (zurück: 3)",
+          "Dienst vmicexchange: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service vmicheartbeat: Start = 4   (back: 3)",
+          "Service vmicvss: Start = 4   (back: 3)",
+          "Service vmicshutdown: Start = 4   (back: 3)",
+          "Service vmicexchange: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-hyperv-extra",
+      "bereich": "cat.services",
+      "risiko": "Advanced",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Weitere Hyper-V-Dienste abschalten",
+        "beschreibung": "Deaktiviert die restlichen Hyper-V-Dienste (Gastschnittstelle, KVP, Remotedesktop, Zeitsynchronisation). Nur sinnvoll ohne WSL, Docker und Windows-Sandbox."
+      },
+      "en": {
+        "name": "Switch off the remaining Hyper-V services",
+        "beschreibung": "Disables the rest of the Hyper-V services (guest interface, KVP, remote desktop, time sync)."
+      },
+      "details": {
+        "de": [
+          "Dienst vmicguestinterface: Start = 4   (zurück: 3)",
+          "Dienst vmickvpexchange: Start = 4   (zurück: 3)",
+          "Dienst vmicrdv: Start = 4   (zurück: 3)",
+          "Dienst vmictimesync: Start = 4   (zurück: 3)",
+          "Dienst HvHost: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service vmicguestinterface: Start = 4   (back: 3)",
+          "Service vmickvpexchange: Start = 4   (back: 3)",
+          "Service vmicrdv: Start = 4   (back: 3)",
+          "Service vmictimesync: Start = 4   (back: 3)",
+          "Service HvHost: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-wpdbusenum",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Enumeratordienst für tragbare Geräte abschalten",
+        "beschreibung": "Deaktiviert die automatische Erkennung von MP3-Playern, Kameras und ähnlichen Geräten. Danach wird ein angestecktes Handy nicht mehr im Explorer angezeigt."
+      },
+      "en": {
+        "name": "Switch off the portable device enumerator",
+        "beschreibung": "Disables automatic detection of MP3 players, cameras and similar devices."
+      },
+      "details": {
+        "de": [
+          "Dienst WPDBusEnum: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service WPDBusEnum: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-xbox",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Xbox-Dienste abschalten",
+        "beschreibung": "Deaktiviert die Xbox-Hintergrunddienste (Anmeldung, Spielstände, Netzwerk). Danach funktionieren Game Pass, Cloud-Spielstände und die Xbox-App nicht mehr."
+      },
+      "en": {
+        "name": "Switch off the Xbox services",
+        "beschreibung": "Disables the Xbox background services (sign-in, saved games, networking)."
+      },
+      "details": {
+        "de": [
+          "Dienst XblAuthManager: Start = 4   (zurück: 3)",
+          "Dienst XblGameSave: Start = 4   (zurück: 3)",
+          "Dienst XboxGipSvc: Start = 4   (zurück: 3)",
+          "Dienst XboxNetApiSvc: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service XblAuthManager: Start = 4   (back: 3)",
+          "Service XblGameSave: Start = 4   (back: 3)",
+          "Service XboxGipSvc: Start = 4   (back: 3)",
+          "Service XboxNetApiSvc: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-tapi",
+      "bereich": "cat.services",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Telefoniedienst abschalten",
+        "beschreibung": "Deaktiviert die Telefonie-API, die nur für Modem- und VoIP-Altsoftware gebraucht wird."
+      },
+      "en": {
+        "name": "Switch off the telephony service",
+        "beschreibung": "Disables the telephony API, which only legacy modem and VoIP software needs."
+      },
+      "details": {
+        "de": [
+          "Dienst TapiSrv: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service TapiSrv: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-sysmain",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "SysMain (Superfetch) abschalten",
+        "beschreibung": "Windows lädt Programme nicht mehr vorsorglich in den Arbeitsspeicher. Auf SSDs bringt das kaum noch etwas und spart Hintergrundlast."
+      },
+      "en": {
+        "name": "Switch off SysMain (Superfetch)",
+        "beschreibung": "Windows stops pre-loading programs into memory. On SSDs this barely helps and it saves background load."
+      },
+      "details": {
+        "de": [
+          "Dienst SysMain: Start = 4   (zurück: 2)"
+        ],
+        "en": [
+          "Service SysMain: Start = 4   (back: 2)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-fax",
+      "bereich": "cat.services",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Faxdienst abschalten",
+        "beschreibung": "Deaktiviert den Windows-Faxdienst, den heute praktisch niemand mehr braucht."
+      },
+      "en": {
+        "name": "Switch off the fax service",
+        "beschreibung": "Disables the Windows fax service, which practically nobody needs any more."
+      },
+      "details": {
+        "de": [
+          "Dienst Fax: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service Fax: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-remote-registry",
+      "bereich": "cat.services",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Remote-Registrierung abschalten",
+        "beschreibung": "Verhindert, dass die Registry über das Netzwerk verändert werden kann."
+      },
+      "en": {
+        "name": "Switch off Remote Registry",
+        "beschreibung": "Stops the registry from being changed over the network."
+      },
+      "details": {
+        "de": [
+          "Dienst RemoteRegistry: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service RemoteRegistry: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-retail-demo",
+      "bereich": "cat.services",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Vorführmodus abschalten",
+        "beschreibung": "Deaktiviert den Demo-Modus für Ausstellungsgeräte im Handel."
+      },
+      "en": {
+        "name": "Switch off retail demo mode",
+        "beschreibung": "Disables the demo mode meant for display devices in shops."
+      },
+      "details": {
+        "de": [
+          "Dienst RetailDemo: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service RetailDemo: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-mapsbroker",
+      "bereich": "cat.services",
+      "risiko": "Safe",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Karten-Download abschalten",
+        "beschreibung": "Offline-Karten werden nicht mehr im Hintergrund heruntergeladen und aktualisiert."
+      },
+      "en": {
+        "name": "Switch off map downloads",
+        "beschreibung": "Offline maps are no longer downloaded and updated in the background."
+      },
+      "details": {
+        "de": [
+          "Dienst MapsBroker: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service MapsBroker: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-print",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Druckwarteschlange abschalten",
+        "beschreibung": "Nur sinnvoll, wenn kein Drucker angeschlossen ist – danach lässt sich nichts mehr drucken."
+      },
+      "en": {
+        "name": "Switch off the print spooler",
+        "beschreibung": "Only sensible without a printer attached – afterwards nothing can be printed."
+      },
+      "details": {
+        "de": [
+          "Dienst Spooler: Start = 4   (zurück: 2)"
+        ],
+        "en": [
+          "Service Spooler: Start = 4   (back: 2)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-biometric",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Biometriedienst abschalten",
+        "beschreibung": "Nur sinnvoll ohne Fingerabdruck- oder Gesichtserkennung – danach funktioniert Windows Hello nicht mehr."
+      },
+      "en": {
+        "name": "Switch off the biometric service",
+        "beschreibung": "Only sensible without a fingerprint reader or face recognition – Windows Hello stops working."
+      },
+      "details": {
+        "de": [
+          "Dienst WbioSrvc: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service WbioSrvc: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    },
+    {
+      "id": "svc-tablet-input",
+      "bereich": "cat.services",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Bildschirmtastatur-Dienst abschalten",
+        "beschreibung": "Nur sinnvoll an Geräten ohne Touchscreen und Stift."
+      },
+      "en": {
+        "name": "Switch off the touch keyboard service",
+        "beschreibung": "Only sensible on devices without a touchscreen or pen."
+      },
+      "details": {
+        "de": [
+          "Dienst TabletInputService: Start = 4   (zurück: 3)"
+        ],
+        "en": [
+          "Service TabletInputService: Start = 4   (back: 3)"
+        ]
+      },
+      "schlagworte": []
+    }
+  ]
+}

@@ -86,6 +86,7 @@ Der Kunde muss nichts anfordern und niemanden anschreiben.
 | Datei | Zweck |
 |---|---|
 | `index.html` | Startseite: Hero, App, Optimierung, Preise, Ablauf, Sicherheit, FAQ |
+| `tweaks.html` | Alle Optimierungen im Einzelnen — durchsuchbar, filterbar, ohne Anmeldung |
 | `registrieren.html` | Konto anlegen |
 | `anmelden.html` | Login |
 | `passwort-vergessen.html` | Link zum Zurücksetzen anfordern |
@@ -100,8 +101,13 @@ Der Kunde muss nichts anfordern und niemanden anschreiben.
 | `konto.js` | Kundenbereich |
 | `admin.js` | Verwaltung |
 | `script.js` | Startseite: Navigation, FAQ, App-Ansichten, Laufzeit-Auswahl |
+| `tweaks.json` | **Erzeugt, nicht von Hand gepflegt.** Der Tweak-Katalog aus der App. |
+| `tweaks.js` | Lädt den Katalog, baut eine Zeile, setzt alle Zahlen ins HTML, treibt die Vorführung auf der Startseite |
+| `katalog.js` | Nur `tweaks.html`: Suche, Filter, Sprungmarken |
 | `style.css` | Design-System der gesamten Seite |
-| `mockup.css` | Gezeichnete Illustrationen im Kaufablauf |
+| `tweak-zeile.css` | Aufbau einer Katalogzeile — geteilt von `tweaks.html` und der Vorführung |
+| `katalog.css` | Nur `tweaks.html`: Kopf, Filterleiste, Liste |
+| `mockup.css` | Gezeichnete Illustrationen im Kaufablauf, dazu der App-förmige Kasten auf der Startseite |
 | `bilder/app-*.png` | Bildschirmfotos der App für die Produktvorstellung |
 | `robots.txt` | Hält Kundenbereich, Kasse und Verwaltung aus den Suchergebnissen |
 | `sitemap.xml` | Die öffentlichen Seiten für Suchmaschinen |
@@ -109,6 +115,34 @@ Der Kunde muss nichts anfordern und niemanden anschreiben.
 Im Normalbetrieb fasst du hier **gar nichts** an. Preise änderst du in Supabase
 unter **Table Editor → products**, neue Versionen über die Tabelle
 `app_release`.
+
+### tweaks.json nicht von Hand ändern
+
+Die Datei wird beim Veröffentlichen aus dem Tweak-Katalog der App erzeugt
+(`installer/release-fertigstellen.ps1` ruft dafür `KatalogExport` auf). Eine
+Änderung hier hält bis zur nächsten Veröffentlichung und ist danach weg.
+
+Dasselbe gilt für jede Zahl, die aus ihr kommt. Im HTML steht dafür ein leeres
+Element mit `data`-Attribut:
+
+| Attribut | Was hineinkommt |
+|---|---|
+| `data-tweak-anzahl` | Anzahl der Optimierungen (129) |
+| `data-bereich-anzahl` / `data-bereich-wort` | Anzahl der Bereiche als Ziffer bzw. Wort (11 / elf) |
+| `data-neustart-anzahl` | Wie viele einen Neustart brauchen |
+| `data-risiko-anzahl="Safe\|Caution\|Advanced"` | Anzahl je Einstufung |
+| `data-bereich-liste` | Die Bereiche als Aufzählung im Fließtext |
+| `data-bereich-raster` | Container für die Kacheln im Abschnitt „Umfang" |
+
+Hintergrund: Diese Zahlen standen bis 2.7.0 als Ziffern im Quelltext. Nach
+Version 2.6.0 sagte die Seite an zwei Stellen weiterhin „über 80 Tweaks",
+während der Katalog 129 hatte — das Skript, das die Zahl beim Veröffentlichen
+nachzog, suchte nach einer bestimmten Wortfolge und traf diese beiden Sätze
+nicht. Jetzt kann es dort keine Ziffer mehr geben, die veraltet.
+
+Zwei Stellen gehen weiterhin über das Skript: die `<meta name="description">`
+und die strukturierten Daten (schema.org). Beide werden nicht angezeigt,
+sondern gelesen — teils ohne Javascript.
 
 ## Sicherheit
 

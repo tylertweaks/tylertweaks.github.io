@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Tyler Tweaks — eine Zeile im Katalog
+
+   Der Aufbau eines einzelnen Eintrags, gebaut von TTKatalog.zeile() in
+   tweaks.js. Zwei Seiten zeigen ihn:
+
+     tweaks.html  in den Farben der Website
+     index.html   in den Farben der App (mockup.css, .app-demo .tw*)
+
+   Warum eine eigene Datei: Diese Regeln standen zuerst in katalog.css, die
+   nur tweaks.html lädt. Auf der Startseite fehlte dadurch das display:flex
+   auf .tw-kopf — der Schalter rutschte aus der Zeile heraus an den linken
+   Rand. Ein gemeinsamer Baustein braucht eine gemeinsame Datei, sonst
+   stimmt er nur auf der Seite, auf der man zuletzt hingesehen hat.
+
+   Hier stehen Aufbau UND die Farben der Website. Die App-Fassung in
+   mockup.css überschreibt Letztere über die höhere Spezifität von
+   ".app-demo .tw".
+   ========================================================================== */
+
+.tw {
+  padding: 16px 19px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.tw:hover { border-color: var(--line-strong); }
+
+.tw-kopf {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* min-width:0, damit ein langer Registry-Pfad die Zeile nicht breiter
+   macht als ihren Platz — ohne das schiebt ein Flex-Kind den Schalter hinaus. */
+.tw-text { flex: 1; min-width: 0; }
+
+.tw-name {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0;
+}
+.tw-beschreibung {
+  margin: 5px 0 0;
+  color: var(--text-2);
+  font-size: .895rem;
+  line-height: 1.55;
+  max-width: 78ch;
+}
+
+.tw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.tw-tag {
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--muted);
+  font-size: .73rem;
+  letter-spacing: .02em;
+}
+
+/* Dieselben drei Farben wie im Abschnitt "Umfang" auf der Startseite und
+   dieselben wie in der App — eine Einstufung soll überall gleich aussehen. */
+.tw-risiko { font-weight: 600; }
+.risiko-sicher          { color: var(--ok);       border-color: rgba(61, 214, 140, .32); }
+.risiko-vorsicht        { color: var(--warn);     border-color: rgba(245, 181, 68, .32); }
+.risiko-fortgeschritten { color: var(--risk-adv); border-color: rgba(176, 124, 255, .32); }
+
+/* ---- Details ---- */
+
+.tw-details { margin-top: 12px; }
+
+.tw-details > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: .82rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.tw-details > summary::-webkit-details-marker { display: none; }
+.tw-details > summary::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-right: 1.6px solid currentColor;
+  border-bottom: 1.6px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform .18s ease;
+}
+.tw-details[open] > summary::before { transform: rotate(45deg); }
+.tw-details > summary:hover { color: var(--text-2); }
+
+.tw-fakten {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: .81rem;
+}
+.tw-fakten li { display: flex; gap: 7px; }
+.tw-faktname { color: var(--muted); }
+.tw-faktwert { color: var(--text-2); }
+
+/* Die Registry-Zeilen. Umbruch erlaubt: Manche Pfade sind länger als jeder
+   Bildschirm, und waagrecht scrollen will auf dem Handy niemand. */
+.tw-reg {
+  margin: 11px 0 0;
+  padding: 11px 13px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--text-2);
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: .78rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tw,
+  .tw-details > summary::before { transition: none; }
+}
