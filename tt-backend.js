@@ -544,6 +544,15 @@ window.TT = (function () {
     document.querySelectorAll('.discord-name').forEach(function (el) {
       if (KONFIG.discord) el.textContent = KONFIG.discord;
     });
+
+    /* Knöpfe auf den Discord-Server. Stehen im HTML mit hidden und ohne Ziel:
+       Ohne eingetragene Einladung gibt es nichts, wohin sie führen könnten. */
+    var einladung = /^https:\/\/(discord\.gg|discord\.com\/invite)\//.test(KONFIG.discordEinladung || '')
+      ? KONFIG.discordEinladung : '';
+    document.querySelectorAll('[data-discord-einladung]').forEach(function (el) {
+      if (einladung) el.href = einladung;
+      el.hidden = !einladung;
+    });
   }
 
   return {

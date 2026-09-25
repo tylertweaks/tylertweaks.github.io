@@ -19,6 +19,14 @@ window.TT_KONFIG = {
   /* ---- Kontakt ---------------------------------------------------------- */
   discord: 'tyler061312',
 
+  /* Einladung auf den Discord-Server "Tyler Tweaks", z. B.
+     'https://discord.gg/abcd1234'. Leer lassen, solange es keine dauerhafte
+     Einladung gibt: Dann bleiben die Knöpfe "Discord-Server beitreten" auf
+     der Seite unsichtbar (data-discord-einladung, siehe tt-backend.js).
+     Eine Einladung, die nach sieben Tagen abläuft, hier nicht eintragen —
+     in Discord beim Erstellen "Läuft nie ab" wählen. */
+  discordEinladung: '',
+
   /* ---- Supabase ---------------------------------------------------------
      Zu finden im Supabase-Dashboard unter
      Project Settings -> API -> Project URL / Publishable (anon) key.

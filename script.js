@@ -71,6 +71,136 @@
   })();
 
   /* ====================================================================
+     3b. Aktiver Abschnitt in der Navigation
+
+     Markiert den Menüpunkt des Abschnitts, in dem man gerade liest. Nur
+     Abschnitte mit eigenem Menüpunkt zählen: Steht man im Kaufablauf, der
+     keinen hat, ist keiner markiert — ein falsch markierter Punkt wäre
+     schlechter als gar keiner. Ganz oben gilt "Startseite".
+     ==================================================================== */
+  (function abschnittMarkieren() {
+    var links = Array.prototype.slice.call(
+      document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)'));
+    if (!links.length) return;
+
+    var ziele = links.map(function (a) { return a.getAttribute('href'); });
+    var abschnitte = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+
+    /* Was vor dem ersten verlinkten Abschnitt steht (der Wegweiser direkt
+       unter dem Hero), gehört noch zur "Startseite". */
+    var erster = 0;
+    while (erster < abschnitte.length && ziele.indexOf('#' + abschnitte[erster].id) === -1) erster++;
+    abschnitte = abschnitte.slice(erster);
+
+    var geplant = false;
+
+    function setzen() {
+      geplant = false;
+
+      /* Der Abschnitt, dessen Oberkante zuletzt über die Linie knapp unter
+         der Navigation gewandert ist. */
+      var linie = 140;
+      var aktuell = null;
+      abschnitte.forEach(function (s) {
+        if (s.getBoundingClientRect().top <= linie) aktuell = s;
+      });
+
+      var ziel = aktuell ? '#' + aktuell.id : '#top';
+      links.forEach(function (a) {
+        var an = a.getAttribute('href') === ziel;
+        a.classList.toggle('is-active', an);
+        if (an) a.setAttribute('aria-current', 'location');
+        else a.removeAttribute('aria-current');
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      if (geplant) return;
+      geplant = true;
+      window.requestAnimationFrame(setzen);
+    }, { passive: true });
+    setzen();
+  })();
+
+  /* ====================================================================
+     3c. Licht unter dem Mauszeiger
+
+     Schreibt die Mausposition in die Karte, über der sie steht; das CSS
+     (style.css, Abschnitt 23) malt dort einen weichen Schein. Nur mit echter
+     Maus — auf dem Handy gibt es kein "darüber".
+     ==================================================================== */
+  (function lichtUnterDerMaus() {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    var KARTEN = '.card, .trust-card, .flow-step, .risk-card, .weg-karte, .opt-cat, .plan, .faq details';
+    var letzte = null;
+    var x = 0, y = 0, geplant = false;
+
+    function malen() {
+      geplant = false;
+      if (!letzte) return;
+      var r = letzte.getBoundingClientRect();
+      letzte.style.setProperty('--mx', (x - r.left) + 'px');
+      letzte.style.setProperty('--my', (y - r.top) + 'px');
+    }
+
+    document.addEventListener('pointermove', function (e) {
+      var karte = e.target.closest ? e.target.closest(KARTEN) : null;
+
+      if (letzte && letzte !== karte) {
+        letzte.style.removeProperty('--mx');
+        letzte.style.removeProperty('--my');
+      }
+      letzte = karte;
+      if (!karte) return;
+
+      x = e.clientX;
+      y = e.clientY;
+      if (!geplant) {
+        geplant = true;
+        window.requestAnimationFrame(malen);
+      }
+    }, { passive: true });
+  })();
+
+  /* ====================================================================
+     3d. Kennzahlen im Hero hochzählen
+
+     Die Zahlen setzt tweaks.js aus tweaks.json. Deren Versprechen wurde dort
+     zuerst abonniert, also steht die Zahl schon im Element, wenn es hier
+     weitergeht — gelesen wird sie deshalb aus dem Element und nicht noch
+     einmal aus der Datei. Ohne Katalog bleibt es leer, wie überall sonst.
+     ==================================================================== */
+  (function kennzahlenZaehlen() {
+    var felder = document.querySelectorAll('[data-zaehlen]');
+    if (!felder.length || !window.TTKatalog) return;
+
+    var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (ruhig) return;
+
+    TTKatalog.laden().then(function () {
+      felder.forEach(function (el) {
+        var ziel = parseInt(el.textContent, 10);
+        if (!isFinite(ziel) || ziel < 2) return;
+
+        var dauer = 1200;
+        var start = null;
+
+        function schritt(jetzt) {
+          if (start === null) start = jetzt;
+          var t = Math.min(1, (jetzt - start) / dauer);
+          var weich = 1 - Math.pow(1 - t, 3);
+          el.textContent = String(Math.round(ziel * weich));
+          if (t < 1) window.requestAnimationFrame(schritt);
+        }
+
+        el.textContent = '0';
+        window.requestAnimationFrame(schritt);
+      });
+    }).catch(function () { /* meldet tweaks.js schon */ });
+  })();
+
+  /* ====================================================================
      4. FAQ: immer nur eine Antwort offen
      ==================================================================== */
   (function faq() {
@@ -356,15 +486,18 @@
       if (preis != null) el.textContent = betragText(preis);
     });
 
-    /* Günstigste Laufzeit für den Hero-Text — nicht fest "4,99 €", sondern
-       das tatsächliche Minimum aus der Liste. */
-    var abEl = document.querySelector('[data-preis-ab]');
-    if (abEl && laufzeiten.length) {
+    /* Günstigste Laufzeit — nicht fest "4,99 €", sondern das tatsächliche
+       Minimum aus der Liste. Steht seit 2.8.1 an drei Stellen (Hero,
+       Wegweiser, Paketvergleich), deshalb querySelectorAll. */
+    var abEls = document.querySelectorAll('[data-preis-ab]');
+    if (abEls.length && laufzeiten.length) {
       var kleinster = laufzeiten.reduce(function (min, l) {
         var z = Number(l.preis);
         return isFinite(z) && z < min ? z : min;
       }, Infinity);
-      if (isFinite(kleinster)) abEl.textContent = betragText(kleinster);
+      if (isFinite(kleinster)) {
+        abEls.forEach(function (el) { el.textContent = betragText(kleinster); });
+      }
     }
 
     document.querySelectorAll('[data-preis-laufzeit]').forEach(function (el) {

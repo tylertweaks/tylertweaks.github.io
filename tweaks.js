@@ -49,6 +49,47 @@ window.TTKatalog = (function () {
     'cat.tasks': 'Geplante Aufgaben'
   };
 
+  /* ------------------------------------------------------------------
+     Ein Satz je Bereich für die Kacheln auf der Startseite.
+
+     Zusammengefasst aus den Einträgen, die heute in dem Bereich stehen —
+     deshalb die Beispiele. Kommt ein Bereich neu dazu, fehlt ihm nur der
+     Satz; die Kachel steht trotzdem da, mit Name und Anzahl.
+     ------------------------------------------------------------------ */
+  var BESCHREIBUNG = {
+    'cat.services': 'Dienste, die du nicht brauchst — etwa Fax, Xbox, Hyper-V und Sensoren — abschalten oder auf manuell stellen.',
+    'cat.system': 'Energieplan, Eingabeverzögerung, Animationen und wie lange Windows auf hängende Programme wartet.',
+    'cat.explorer': 'Taskleiste, Startmenü, Rechtsklickmenü und Explorer so, wie du sie willst — ohne Werbung und Websuche.',
+    'cat.privacy': 'Telemetrie, Werbe-ID, Recall, Copilot und Standort: was Windows über dich sammelt und weitergibt.',
+    'cat.advanced': 'Undokumentierte Werte für NVIDIA- und AMD-Treiber, Scheduler und Zeitgeber. Mit Risiko, jeder einzeln zurücknehmbar.',
+    'cat.network': 'Stromsparen der Netzwerkkarte, Nagle, Netzwerkdrosselung, DNS und die Puffer des TCP-Stapels.',
+    'cat.drivers': 'USB- und Eingabegeräte wach halten, MSI-Modus für Grafik- und Netzwerkkarte, ungenutzte virtuelle Geräte aus.',
+    'cat.gpu': 'Game DVR und Game Bar, Vollbildoptimierungen, GPU-Planung, Shader-Cache und Energiesparen des Treibers.',
+    'cat.cpu': 'Kernparken, Prozessdrosselung, Spiele-Priorität im MMCSS und die Zeitgeber des Prozessors.',
+    'cat.debloat': 'Keine nachinstallierten App-Vorschläge, Edge und Teams nicht im Hintergrund, OneDrive aus der Seitenleiste.',
+    'cat.storage': 'Ruhezustand, Prefetch, reservierter Speicher und die Einstellungen des NTFS-Dateisystems.',
+    'cat.update': 'Neustart nur nach Rückfrage, keine Treiber über Windows Update, Funktionsupdates aufschieben.',
+    'cat.tasks': 'Geplante Aufgaben für Telemetrie, Kompatibilitätsprüfung und Fehlerberichte.'
+  };
+
+  /* Symbole je Bereich, als Pfade für ein 24er-Raster. Gebaut wird daraus per
+     createElementNS — auch hier geht nichts durch innerHTML. */
+  var SYMBOL = {
+    'cat.services': ['M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z', 'M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z'],
+    'cat.system': ['M4 21v-7', 'M4 10V3', 'M12 21v-9', 'M12 8V3', 'M20 21v-5', 'M20 12V3', 'M1 14h6', 'M9 8h6', 'M17 16h6'],
+    'cat.explorer': ['M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'],
+    'cat.privacy': ['M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', 'M9.5 12h5v4h-5z', 'M10.5 12v-1.5a1.5 1.5 0 0 1 3 0V12'],
+    'cat.advanced': ['M9 3h6', 'M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3', 'M7 15h10'],
+    'cat.network': ['M5 12.55a11 11 0 0 1 14.08 0', 'M1.42 9a16 16 0 0 1 21.16 0', 'M8.53 16.11a6 6 0 0 1 6.95 0', 'M12 20h.01'],
+    'cat.drivers': ['M12 22v-5', 'M9 8V2', 'M15 8V2', 'M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z'],
+    'cat.gpu': ['M4 6h16a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z', 'M9 8.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z', 'M15 9.5h3', 'M15 13h3', 'M6 17v3', 'M10 17v3'],
+    'cat.cpu': ['M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z', 'M9 9h6v6H9z', 'M9 1v3', 'M15 1v3', 'M9 20v3', 'M15 20v3', 'M1 9h3', 'M1 15h3', 'M20 9h3', 'M20 15h3'],
+    'cat.debloat': ['M3 6h18', 'M8 6V4h8v2', 'M19 6l-1 14H6L5 6', 'M10 11v5', 'M14 11v5'],
+    'cat.storage': ['M22 12H2', 'M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z', 'M6 16h.01', 'M10 16h.01'],
+    'cat.update': ['M3 12a9 9 0 0 1 15-6.7L21 8', 'M21 3v5h-5', 'M21 12a9 9 0 0 1-15 6.7L3 16', 'M3 21v-5h5'],
+    'cat.tasks': ['M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z', 'M8 2v4', 'M16 2v4', 'M3 10h18', 'M12 14v3l2 1']
+  };
+
   var RISIKO = {
     Safe: { klasse: 'risiko-sicher', name: 'Sicher' },
     Caution: { klasse: 'risiko-vorsicht', name: 'Vorsicht' },
@@ -251,6 +292,7 @@ window.TTKatalog = (function () {
 
     setzen('[data-tweak-anzahl]', katalog.anzahl);
     setzen('[data-bereich-anzahl]', bereiche);
+    if (Array.isArray(katalog.presets)) setzen('[data-preset-anzahl]', katalog.presets.length);
     setzen('[data-bereich-wort]', ZAHLWORT[bereiche] || bereiche);
     setzen('[data-neustart-anzahl]', neustart);
 
@@ -268,6 +310,25 @@ window.TTKatalog = (function () {
     rasterFuellen(katalog);
   }
 
+  function symbol(key) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('aria-hidden', 'true');
+
+    (SYMBOL[key] || SYMBOL['cat.system']).forEach(function (d) {
+      var pfad = document.createElementNS(ns, 'path');
+      pfad.setAttribute('d', d);
+      svg.appendChild(pfad);
+    });
+    return svg;
+  }
+
   /** Das Raster im Abschnitt "Umfang": eine Kachel je Bereich, größte zuerst. */
   function rasterFuellen(katalog) {
     var raster = document.querySelector('[data-bereich-raster]');
@@ -280,8 +341,18 @@ window.TTKatalog = (function () {
     }).forEach(function (bereich) {
       var kachel = el('a', 'opt-cat');
       kachel.href = 'tweaks.html#bereich=' + encodeURIComponent(bereich.key);
-      kachel.appendChild(el('span', 'n', bereich.anzahl));
-      kachel.appendChild(el('span', 'c', bereichsName(katalog, bereich.key)));
+
+      var kopf = el('span', 'opt-kopf');
+      var ico = el('span', 'opt-ico');
+      ico.appendChild(symbol(bereich.key));
+      kopf.appendChild(ico);
+      kopf.appendChild(el('span', 'c', bereichsName(katalog, bereich.key)));
+      kopf.appendChild(el('span', 'n', bereich.anzahl + (bereich.anzahl === 1 ? ' Tweak' : ' Tweaks')));
+      kachel.appendChild(kopf);
+
+      if (BESCHREIBUNG[bereich.key]) {
+        kachel.appendChild(el('span', 'd', BESCHREIBUNG[bereich.key]));
+      }
       raster.appendChild(kachel);
     });
   }

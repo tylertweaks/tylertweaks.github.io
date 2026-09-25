@@ -123,9 +123,9 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.8.0">
-<link rel="stylesheet" href="tweak-zeile.css?v=2.8.0">
-<link rel="stylesheet" href="mockup.css?v=2.8.0">
+<link rel="stylesheet" href="style.css?v=2.8.1">
+<link rel="stylesheet" href="tweak-zeile.css?v=2.8.1">
+<link rel="stylesheet" href="mockup.css?v=2.8.1">
 </head>
 <body>
 
@@ -171,7 +171,15 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap hero-inner">
 
-    <span class="pill"><span class="dot" aria-hidden="true"></span> Für Windows 10 &amp; 11</span>
+    <!-- Die Marke als App-Kachel. Dasselbe Blitz-Symbol wie im Logo, nur groß —
+         kein Bild, damit es in jeder Auflösung scharf bleibt. -->
+    <div class="hero-marke" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      </svg>
+    </div>
+
+    <span class="pill"><span class="dot" aria-hidden="true"></span> Tweak App · PC-Optimierung · Windows 10 &amp; 11</span>
 
     <h1>Mehr FPS. Weniger Input-Lag.<br><span class="grad">Mehr Kontrolle.</span></h1>
 
@@ -200,6 +208,28 @@
       Lizenz und Download sofort nach der Bestätigung
     </p>
 
+    <!-- Kennzahlen. Keine davon steht hier fest: Die Anzahlen setzt tweaks.js
+         aus tweaks.json, die Version kommt aus konfig.js. data-zaehlen lässt
+         script.js von null hochzählen, sobald die Zahl da ist. -->
+    <ul class="hero-zahlen">
+      <li>
+        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3"/></svg></span>
+        <span><span class="hz-zahl" data-tweak-anzahl data-zaehlen></span><span class="hz-text">Optimierungen</span></span>
+      </li>
+      <li>
+        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+        <span><span class="hz-zahl" data-bereich-anzahl data-zaehlen></span><span class="hz-text">Bereiche</span></span>
+      </li>
+      <li>
+        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 15 9l6.8 1-4.9 4.8 1.2 6.8L12 18.4 5.9 21.6l1.2-6.8L2.2 10 9 9Z"/></svg></span>
+        <span><span class="hz-zahl" data-preset-anzahl></span><span class="hz-text">Presets</span></span>
+      </li>
+      <li>
+        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg></span>
+        <span><span class="hz-zahl">v<span data-app-version>2.8.0</span></span><span class="hz-text">Stand <span data-app-date>25.09.2026</span></span></span>
+      </li>
+    </ul>
+
     <ul class="trustbar">
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 20h20"/></svg>
@@ -218,6 +248,59 @@
         <div><strong>Zahlung per PayPal</strong><span>mit PayPal-Käuferschutz</span></div>
       </li>
     </ul>
+
+  </div>
+</section>
+
+<!-- ============ WEGWEISER ============
+     Wer zum ersten Mal hier ist, kennt die drei Pakete noch nicht beim Namen.
+     Deshalb hier die Frage andersherum: Was willst du selbst machen? Jede
+     Karte springt zur passenden Preiskarte (data-scroll-to, script.js) und
+     lässt sie kurz aufleuchten.
+
+     Die Farben der drei Karten sind die ihrer Abschnitte: Cyan wie die Tweak
+     App, Magenta wie die persönliche Optimierung, Gold für die Empfehlung. -->
+<section id="wegweiser" class="section reveal">
+  <div class="wrap">
+
+    <div class="section-head center">
+      <span class="eyebrow">Wegweiser</span>
+      <h2>Welcher Weg passt zu dir?</h2>
+      <p class="sub">Drei Möglichkeiten — je nachdem, wie viel du selbst machen willst.</p>
+    </div>
+
+    <div class="weg-grid">
+      <a class="weg-karte ton-cyan" href="#preise" data-scroll-to="tarif-app">
+        <span class="weg-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </span>
+        <p class="weg-frage">Du stellst lieber selbst ein, willst jeden Schalter verstehen und jederzeit nachjustieren können.</p>
+        <span class="weg-fuss">Tweak App · ab <span data-preis-ab>4,99 €</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
+        </span>
+      </a>
+
+      <a class="weg-karte weg-top ton-gold" href="#preise" data-scroll-to="tarif-bundle">
+        <span class="marke-gold">Empfehlung</span>
+        <span class="weg-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
+        </span>
+        <p class="weg-frage">Ich stelle deinen PC einmal persönlich ein — und danach hast du die App, um selbst dranzubleiben.</p>
+        <span class="weg-fuss">Bundle · <span data-preis-betrag="bundle">69,99 €</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
+        </span>
+      </a>
+
+      <a class="weg-karte ton-magenta" href="#preise" data-scroll-to="tarif-opt">
+        <span class="weg-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </span>
+        <p class="weg-frage">Du willst, dass ich es einmal richtig für dich mache — per Remote-Sitzung, du musst selbst nichts tun.</p>
+        <span class="weg-fuss">PC-Optimierung · <span data-preis-betrag="optimierung">29,99 €</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
+        </span>
+      </a>
+    </div>
 
   </div>
 </section>
@@ -496,6 +579,37 @@
       </article>
     </div>
 
+    <!-- Derselbe Ablauf wie unter "Support" weiter unten, dort als Liste für
+         alle, die schon gekauft haben. Hier für die, die noch überlegen. -->
+    <p class="zeitstrahl-kopf" id="ablauf-optimierung">So läuft die Optimierung ab</p>
+    <ol class="zeitstrahl" aria-labelledby="ablauf-optimierung">
+      <li>
+        <span class="zs-num" aria-hidden="true">1</span>
+        <strong>Kaufen</strong>
+        <span class="zs-text">Im Warenkorb, bezahlt über PayPal</span>
+      </li>
+      <li>
+        <span class="zs-num" aria-hidden="true">2</span>
+        <strong>Melden</strong>
+        <span class="zs-text">Auf Discord, mit deiner Bestellnummer</span>
+      </li>
+      <li>
+        <span class="zs-num" aria-hidden="true">3</span>
+        <strong>Termin</strong>
+        <span class="zs-text">Wir finden einen Zeitpunkt, der dir passt</span>
+      </li>
+      <li>
+        <span class="zs-num" aria-hidden="true">4</span>
+        <strong>Remote-Sitzung</strong>
+        <span class="zs-text">Meist 45 bis 90 Minuten, jeder Schritt erklärt</span>
+      </li>
+      <li>
+        <span class="zs-num" aria-hidden="true">5</span>
+        <strong>Protokoll</strong>
+        <span class="zs-text">Liste aller Änderungen und das Backup</span>
+      </li>
+    </ol>
+
     <p class="note">
       Dauer je nach System meist 45 bis 90 Minuten. Am Ende bekommst du eine Liste aller Änderungen
       und das Backup — auch wenn du später selbst etwas rückgängig machen willst.
@@ -633,6 +747,98 @@
       liegt sofort in deinem <a href="konto.html">Kundenbereich</a>. Du musst nichts
       anfordern.
     </p>
+
+    <!-- ---- Vergleich der drei Pakete ----
+         Nichts Neues, nur nebeneinander: Jede Zeile steht so schon in einer der
+         drei Karten darüber. Wer eine Karte ändert, ändert bitte auch hier.
+         Die Preise im Kopf setzt script.js aus konfig.js und der Datenbank,
+         genau wie auf den Karten. -->
+    <div class="vergleich-kopf">
+      <h3>Was steckt in welchem Paket?</h3>
+      <p>Alle drei auf einen Blick.</p>
+    </div>
+
+    <div class="vergleich-rahmen" role="region" aria-label="Paketvergleich" tabindex="0">
+      <table class="vergleich">
+        <thead>
+          <tr>
+            <th scope="col">Leistung</th>
+            <th scope="col">Tweak App<span class="vg-preis">ab <span data-preis-ab>4,99 €</span></span></th>
+            <th scope="col" class="vg-top"><span class="marke-gold">Beste Wahl</span><br>Bundle<span class="vg-preis" data-preis-betrag="bundle">69,99 €</span></th>
+            <th scope="col">PC-Optimierung<span class="vg-preis" data-preis-betrag="optimierung">29,99 €</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Lizenz für die Tweak App, 1 PC</th>
+            <td><span class="vg-text">Laufzeit nach Wahl</span></td>
+            <td class="vg-top"><span class="vg-text">Lifetime</span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span data-tweak-anzahl></span> Tweaks, jeder einzeln schaltbar</th>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Fünf Presets und eigene Profile</th>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Neue App-Versionen kostenlos</th>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Backup vor jeder Änderung</th>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Persönliche Optimierung per Remote-Sitzung</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Protokoll aller Änderungen</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Kostenlose Nachbesserung innerhalb von 14 Tagen</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Persönliche Einweisung in die App</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Eigenes Profil für dein System</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Bevorzugter Support</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="vergleich-hinweis">Auf dem Handy lässt sich die Tabelle seitlich wischen.</p>
   </div>
 </section>
 
@@ -1067,6 +1273,10 @@
         <p class="keyline" style="margin-top:14px">
           <strong class="discord-name">tyler061312</strong>
         </p>
+        <!-- Erscheint erst, wenn in konfig.js eine Einladung steht (tt-backend.js). -->
+        <a class="btn btn-primary btn-block" data-discord-einladung hidden target="_blank" rel="noopener" style="margin-bottom:14px">
+          Discord-Server beitreten
+        </a>
         <p class="muted" style="font-size:.85rem">
           Antwort meist innerhalb weniger Stunden, spätestens am nächsten Tag.
         </p>
@@ -1113,11 +1323,15 @@
 <!-- ============ ABSCHLUSS-CTA ============ -->
 <section class="cta reveal">
   <div class="wrap">
-    <h2>Bereit für einen schnelleren PC?</h2>
-    <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst <span data-preis-ersparnis-betrag>9,99 €</span>.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle">Bundle für <span data-preis-betrag="bundle">69,99 €</span> ansehen</a>
-      <a class="btn btn-ghost btn-lg" href="#faq">Erst noch Fragen klären</a>
+    <div class="cta-karte">
+      <span class="eyebrow">Loslegen</span>
+      <h2>Bereit für einen schnelleren PC?</h2>
+      <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst <span data-preis-ersparnis-betrag>9,99 €</span>.</p>
+      <div class="cta-row">
+        <!-- Text in EINEM span, sonst setzt .btn (Flex mit gap) Lücken um den Preis. -->
+        <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle"><span>Bundle für <span data-preis-betrag="bundle">69,99 €</span> ansehen</span></a>
+        <a class="btn btn-outline btn-lg" href="#faq">Erst noch Fragen klären</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1162,6 +1376,7 @@
       <h4>Support</h4>
       <ul>
         <li><a href="#support">Hilfe &amp; Kontakt</a></li>
+        <li><a data-discord-einladung hidden target="_blank" rel="noopener">Discord-Server</a></li>
         <li><a href="#faq">Häufige Fragen</a></li>
         <li><a href="#vertrauen">Sicherheit &amp; Backup</a></li>
       </ul>
@@ -1200,10 +1415,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.8.0"></script>
-<script src="tt-backend.js?v=2.8.0"></script>
-<script src="warenkorb.js?v=2.7.1"></script>
-<script src="tweaks.js?v=2.8.0"></script>
-<script src="script.js?v=2.8.0"></script>
+<script src="konfig.js?v=2.8.1"></script>
+<script src="tt-backend.js?v=2.8.1"></script>
+<script src="warenkorb.js?v=2.8.1"></script>
+<script src="tweaks.js?v=2.8.1"></script>
+<script src="script.js?v=2.8.1"></script>
 </body>
 </html>

@@ -9,3 +9,12 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# Geheimnisse und Node-Reste. Der Discord-Bot lag im September 2026 kurz in
+# diesem Ordner, samt .env mit dem Bot-Token — dieses Repository ist
+# öffentlich. Der Bot wohnt jetzt in E:\Tyler Bot; die Zeilen hier sind die
+# Sicherung, falls so etwas wieder passiert.
+.env
+.env.*
+node_modules/
+*.log
