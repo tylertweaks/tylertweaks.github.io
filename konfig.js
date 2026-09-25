@@ -126,8 +126,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.7.0',
-    datum: '22.09.2026',
+    version: '2.8.0',
+    datum: '25.09.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -144,9 +144,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.7.0.exe',
-    groesse: '59,4 MB',
-    sha256: '20a49d5ac0f547fc4b89012b563fd55cdbd2d2af15d982cd6b7535afaf0f1355'
+    datei: 'downloads/TylerTweaksSetup-2.8.0.exe',
+    groesse: '59,5 MB',
+    sha256: '4f6c23119eb63dd7a3438de57543784b08e0b4e83c44fcb3e8fa5f22ffad2cbf'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -158,6 +158,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '2.8.0', datum: '25.09.2026', text: 'Neues Design in Blau-Schwarz mit einer Seitenleiste nach Kategorien. 146 neue Optimierungen (129 auf 275), darunter die neuen Bereiche Treiber und Experimentell, Warnhinweise bei heiklen Tweaks und Energie-Tweaks, die jetzt über die Energie-API von Windows zuverlässig greifen. Dazu zwei neue Seiten: Werkzeuge & Treiber mit Links passend zur verbauten Grafikkarte und BIOS-Tipps mit den Menüpfaden für dein Mainboard.' },
     { version: '2.7.0', datum: '22.09.2026', text: 'Eigene Profile: Du nimmst auf, welche Tweaks bei dir gerade gesetzt sind, gibst dem Ganzen einen Namen und stellst denselben Zustand später mit einem Klick wieder her – auf einem neuen PC oder nach einer Neuinstallation. Außerdem liefert die App ihren Tweak-Katalog jetzt als Datei aus, aus der die Website die vollständige Liste aufbaut: Unter „Alle Tweaks" steht jede der 129 Optimierungen mit dem Registry-Wert, den sie schreibt.' },
     { version: '2.6.0', datum: '21.09.2026', text: '40 neue Optimierungen (89 auf 129), darunter Debloat als eigener Bereich, DNS auf Cloudflare, Windows Recall abschalten und das Sperren von Kamera und Mikrofon. Jeder Tweak ist jetzt ein Schalter statt zweier Knöpfe, und die Liste baut sich deutlich schneller auf. Wer Tyler länger ohne Internet nutzt, wird einmal zur Bestätigung der Lizenz aufgefordert.' },
     { version: '2.5.0', datum: '20.09.2026', text: 'Jeder Tweak zeigt jetzt Einstufung, Neustart-Pflicht und Sicherung an. Risikobewertung aller 89 Optimierungen überarbeitet. Presets fragen vorher nach, was sie ändern. Update-Prüfung unter Einstellungen.' },
