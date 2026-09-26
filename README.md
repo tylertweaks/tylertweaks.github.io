@@ -26,13 +26,10 @@ Edge Function rechnet ausschließlich damit. Die Zahlen in `konfig.js` sorgen nu
 dafür, dass die Preisliste sofort etwas anzeigt; weichen sie ab, korrigiert die
 Seite sich beim Laden selbst.
 
-> **Noch offen:** Die Datenbank führt weiterhin die alten Preise (2 € bis 30 €).
-> Führ `backend/05-preise-2026.sql` im Supabase-SQL-Editor aus, **bevor** du den
-> automatischen Shop scharf schaltest. Sonst zeigt die Seite ab diesem Moment
-> wieder die alten Beträge an — die Datenbank gewinnt immer.
->
-> Bereits abgeschlossene Bestellungen ändern sich dadurch nicht: `orders.price`
-> hält den Preis vom Kaufzeitpunkt fest.
+Seit 26.09.2026 führt auch die Datenbank die Preise oben
+(`backend/05-preise-2026.sql` ist gelaufen). Bereits abgeschlossene
+Bestellungen haben sich dadurch nicht geändert: `orders.price` hält den Preis
+vom Kaufzeitpunkt fest.
 
 Alle Preise stehen an genau zwei Stellen: in der Datenbank (verbindlich) und in
 `konfig.js` unter `laufzeiten` und `pakete` (nur Anzeige). **Im HTML steht kein
@@ -154,8 +151,12 @@ Der Kunde muss nichts anfordern und niemanden anschreiben.
 Sobald eine Bestellung bezahlt ist — automatisch oder über „Lizenz von Hand"
 im Admin-Bereich —, vergibt die Datenbank eine fortlaufende Rechnungsnummer
 (`TT-2026-0001`, …) und ruft ein Google-Apps-Script auf. Das baut die Rechnung
-als PDF und verschickt sie aus tylertweaks@gmail.com an den Kunden, mit einer
-Kopie an dich. Bei Betrag 0 (Test, Geschenk, Kulanz) gibt es keine Rechnung.
+als PDF und schickt sie per Gmail an den Kunden, mit einer Kopie an
+tylertweaks@gmail.com. Antworten der Kunden gehen ebenfalls an diese Adresse.
+Bei Betrag 0 (Test, Geschenk, Kulanz) gibt es keine Rechnung.
+
+Eingerichtet und getestet seit 26.09.2026. In welchem Google-Konto das Script
+liegt und warum, steht in `rechnungen/ANLEITUNG.md`.
 
 Die Website selbst ist daran nicht beteiligt. SQL, Script und Anleitung liegen
 bewusst **nicht** in diesem Repository, sondern unter
@@ -429,8 +430,6 @@ dem ersten echten Verkauf.
 
 Ebenfalls offen:
 
-- `backend/05-preise-2026.sql` in Supabase ausführen (die Datenbank führt noch
-  die alten Preise)
 - PayPal live schalten — siehe `EINRICHTUNG.md`
 - Gewerbe anmelden, danach `verkaufPausiert` in `konfig.js` auf `false`
 
