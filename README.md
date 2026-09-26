@@ -339,12 +339,11 @@ weil dort § 18 Abs 1 Z 1 FAGG greift.
 
 **Noch einzutragen** (alle Seiten tragen dazu eine gelbe Warnbox):
 
-- ladungsfähige Anschrift (Straße, Hausnummer, PLZ, Ort)
-- Gewerbeberechtigung, GISA-Zahl, Gewerbebehörde und WKO-Fachgruppe
-  (Gewerbe ist noch nicht angemeldet)
+- die GISA-Zahl (Gewerbe ist noch nicht angemeldet; Behörde BH
+  Graz-Umgebung und Fachgruppe UBIT Steiermark stehen schon drin)
 
-Bereits erledigt: Name (Tyler Wiedner) und E-Mail (tylertweaks@gmail.com) auf
-allen vier Seiten; Kleinunternehmerregelung in Impressum, AGB und bei den
+Bereits erledigt: Name (Tyler Wiedner), Anschrift (Parksiedlung 12/2, 8101
+Gratkorn) und E-Mail (tylertweaks@gmail.com) auf allen vier Seiten; Kleinunternehmerregelung in Impressum, AGB und bei den
 Preisen; Firmenbuch und Telefonnummer gestrichen (Einzelunternehmen, nur
 E-Mail und Discord).
 
