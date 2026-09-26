@@ -306,6 +306,15 @@
     var artikel = korbDaten[knopf.dataset.korbSlug];
     if (!artikel) return;
 
+    if (KONFIG.verkaufPausiert) {
+      knopf.removeAttribute('href');
+      knopf.setAttribute('aria-disabled', 'true');
+      knopf.classList.add('ist-aus');
+      knopf.textContent = 'Bald erhältlich';
+      korbHinweis(knopf, '');
+      return;
+    }
+
     var drin = !!(window.TT && TT.korb && TT.korb.hat(artikel.slug));
 
     knopf.textContent = drin
@@ -344,6 +353,7 @@
   document.addEventListener('click', function (e) {
     var knopf = e.target.closest('[data-korb-slug]');
     if (!knopf) return;
+    if (KONFIG.verkaufPausiert) return e.preventDefault();
 
     var artikel = korbDaten[knopf.dataset.korbSlug];
     if (!artikel || !window.TT || !TT.korb) return; // dann führt das href zum Warenkorb
@@ -586,7 +596,8 @@
        mit dem automatischen Lizenzschlüssel stimmt im Übergang nicht. */
     var note = document.getElementById('preise-note');
     if (note) {
-      note.innerHTML = 'Alle Preise in Euro, inklusive der jeweils geltenden Steuern. ' +
+      note.innerHTML = 'Alle Preise sind Endpreise in Euro. Keine Umsatzsteuer, da ' +
+        'Kleinunternehmer (§ 6 Abs 1 Z 27 UStG). ' +
         'Zum Einkaufen brauchst du ein kostenloses <a href="registrieren.html">Konto</a>. ' +
         'Es gelten die <a href="agb.html">AGB</a> und die ' +
         '<a href="widerruf.html">Rücktrittsbelehrung</a>.';
@@ -614,7 +625,34 @@
     });
   }
 
+  /**
+   * Verkauf pausiert (verkaufPausiert in konfig.js): Die Preise bleiben
+   * stehen, aber keine Zeile darf einen Kaufweg versprechen, den es gerade
+   * nicht gibt.
+   */
+  function aufPauseUmstellen() {
+    document.querySelectorAll('.plan-alt').forEach(function (el) {
+      el.textContent = 'Der Verkauf startet in Kürze';
+    });
+
+    var hinweis = document.getElementById('pause-hinweis');
+    if (hinweis) {
+      hinweis.hidden = false;
+      if (window.TT) TT.grundgeruest(); // Discord-Name einsetzen
+    }
+
+    var note = document.getElementById('preise-note');
+    if (note) {
+      note.innerHTML = 'Alle Preise sind Endpreise in Euro. Keine Umsatzsteuer, da ' +
+        'Kleinunternehmer (§ 6 Abs 1 Z 27 UStG). ' +
+        'Es gelten die <a href="agb.html">AGB</a> und die ' +
+        '<a href="widerruf.html">Rücktrittsbelehrung</a>.';
+    }
+  }
+
   (async function preiseAbgleichen() {
+    if (KONFIG.verkaufPausiert) return aufPauseUmstellen();
+
     /* Ob der automatische Shop bereitsteht, beantwortet TT.korb.shopPruefen()
        — dieselbe Prüfung, die auch der Warenkorb für seinen Kaufknopf
        benutzt. Zwei Kopien davon würden irgendwann auseinanderlaufen. */

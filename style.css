@@ -384,7 +384,7 @@ strong { color: var(--text); font-weight: 600; }
   color: var(--text);
   flex-shrink: 0;
 }
-.logo svg { color: var(--accent); flex-shrink: 0; }
+.logo img { flex-shrink: 0; }
 .logo strong { color: var(--accent); font-weight: 700; }
 
 .nav-links {
@@ -2946,19 +2946,13 @@ h3 { letter-spacing: -.015em; }
 }
 
 .logo { gap: 11px; font-weight: 700; letter-spacing: -.01em; }
-/* Das Blitz-Symbol sitzt jetzt auf einer Kachel wie ein App-Symbol. Dasselbe
-   SVG wie vorher — nur gefüllt und mit Hintergrund, keine neue Datei. */
-.logo svg {
+/* Das T aus der App, samt Kachel (favicon.svg). Der Radius folgt der Kachel in
+   der Datei (12 von 64), damit der Schein nicht eckig absteht. */
+.logo img {
   width: 36px; height: 36px;
-  padding: 8px;
-  border-radius: 11px;
-  color: #fff;
-  background:
-    radial-gradient(120% 90% at 28% 10%, rgba(255, 255, 255, .38), transparent 50%),
-    linear-gradient(145deg, var(--accent), var(--accent-2));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 6px 20px rgba(var(--accent-rgb), .35);
+  border-radius: 7px;
+  box-shadow: 0 6px 20px rgba(47, 123, 255, .35);
 }
-.logo svg polygon { fill: currentColor; }
 .logo strong {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
@@ -3072,23 +3066,18 @@ h3 { letter-spacing: -.015em; }
   to { transform: translate3d(0, 26px, 0) scale(1.07); }
 }
 
-/* Die große Marke über der Überschrift: das Blitz-Symbol als App-Kachel. */
+/* Die große Marke über der Überschrift: das Logo als App-Kachel. Die Kachel
+   selbst steckt in favicon.svg, hier kommt nur der Schein dazu. Der Radius folgt
+   der Kachel in der Datei (12 von 64). */
 .hero-marke {
   position: relative;
   width: 118px; height: 118px;
   margin: 0 auto 34px;
-  display: grid;
-  place-items: center;
-  border-radius: 32px;
-  background:
-    radial-gradient(120% 90% at 26% 10%, rgba(255, 255, 255, .40), transparent 46%),
-    linear-gradient(150deg, #86a0ff 0%, var(--accent) 36%, #6c52ff 70%, var(--accent-2) 100%);
+  border-radius: 22px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, .5),
-    inset 0 -12px 26px rgba(24, 12, 70, .45),
-    0 0 0 1px rgba(255, 255, 255, .08),
-    0 26px 60px rgba(var(--accent-rgb), .42),
-    0 0 130px rgba(var(--accent-2-rgb), .35);
+    0 0 0 1px rgba(155, 228, 255, .12),
+    0 26px 60px rgba(47, 123, 255, .42),
+    0 0 130px rgba(46, 197, 255, .28);
   animation: marke-schweben 6s ease-in-out infinite;
 }
 /* Zweiter, zarter Rahmen um die Kachel — gibt ihr Luft, ohne sie größer zu machen. */
@@ -3096,17 +3085,15 @@ h3 { letter-spacing: -.015em; }
   content: '';
   position: absolute;
   inset: -14px;
-  border-radius: 44px;
-  border: 1px solid rgba(var(--accent-rgb), .22);
-  background: rgba(var(--accent-rgb), .035);
+  border-radius: 34px;
+  border: 1px solid rgba(47, 123, 255, .24);
+  background: rgba(47, 123, 255, .04);
   z-index: -1;
 }
-.hero-marke svg {
-  width: 56px; height: 56px;
-  color: #fff;
-  filter: drop-shadow(0 4px 12px rgba(12, 6, 48, .5));
+.hero-marke img {
+  display: block;
+  width: 100%; height: 100%;
 }
-.hero-marke svg polygon { fill: #fff; }
 @keyframes marke-schweben { 50% { transform: translateY(-8px); } }
 
 .pill {
@@ -3815,9 +3802,8 @@ h3 { letter-spacing: -.015em; }
   .section { padding: 76px 0; }
   .section-head { margin-bottom: 40px; }
   .hero { padding: 40px 0 72px; }
-  .hero-marke { width: 92px; height: 92px; border-radius: 26px; margin-bottom: 28px; }
-  .hero-marke::before { inset: -10px; border-radius: 34px; }
-  .hero-marke svg { width: 44px; height: 44px; }
+  .hero-marke { width: 92px; height: 92px; border-radius: 17px; margin-bottom: 28px; }
+  .hero-marke::before { inset: -10px; border-radius: 26px; }
   .pill { font-size: .62rem; letter-spacing: .12em; }
 
   .hero-zahlen { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }

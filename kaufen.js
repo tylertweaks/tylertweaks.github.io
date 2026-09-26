@@ -206,6 +206,10 @@
   function paypalLaden() {
     var clientId = String(KONFIG.paypalClientId || '').trim();
 
+    if (KONFIG.verkaufPausiert) {
+      return paypalNichtVerfuegbar('Der Verkauf ist gerade pausiert und startet in Kürze.');
+    }
+
     if (!clientId) {
       return paypalNichtVerfuegbar(
         'Die Bezahlung über PayPal ist auf dieser Seite noch nicht freigeschaltet.');

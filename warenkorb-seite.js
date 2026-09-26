@@ -122,6 +122,17 @@
     knopf.classList.remove('ist-aus');
     knopf.removeAttribute('aria-disabled');
 
+    // verkaufPausiert in konfig.js: kein Kaufweg, auch nicht über die Anmeldung.
+    if (KONFIG.verkaufPausiert) {
+      knopf.removeAttribute('href');
+      knopf.classList.add('ist-aus');
+      knopf.setAttribute('aria-disabled', 'true');
+      knopf.textContent = 'Verkauf startet in Kürze';
+      hinweis.textContent = 'Gerade kann noch nicht gekauft werden. Was hier liegt, ' +
+        'bleibt im Warenkorb, bis es losgeht.';
+      return;
+    }
+
     /* Abgemeldet, aber der Warenkorb ist noch voll: Das passiert nach dem
        Abmelden in einem zweiten Tab oder wenn die Sitzung abgelaufen ist.
        Dann führt der Knopf zur Anmeldung statt zur Zahlung — auch auf dem

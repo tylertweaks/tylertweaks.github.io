@@ -86,6 +86,20 @@ Im Übergangsbetrieb (siehe unten) steht der Rabatt bereits im
 paypal.me-Betrag. Dort bestimmt der Browser die Summe; die Gegenprobe ist der
 Blick auf den Zahlungseingang, bevor du den Schlüssel von Hand herausgibst.
 
+## Verkauf pausiert
+
+**Seit 26.09.2026 ist der Verkauf abgeschaltet** (`verkaufPausiert: true` in
+`konfig.js`), weil noch kein Gewerbe angemeldet ist. Solange der Schalter steht:
+
+- Preise bleiben sichtbar, die Kaufknöpfe zeigen „Bald erhältlich“ und legen
+  nichts in den Warenkorb.
+- Über den Preisen steht „Der Verkauf startet in Kürze“ (`#pause-hinweis`).
+- Warenkorb und `kaufen.html` nehmen keine Zahlung an — auch nicht über
+  paypal.me, und auch dann nicht, wenn der automatische Shop eingerichtet ist.
+
+Wieder einschalten: Gewerbe anmelden, Impressum fertig ausfüllen, dann den
+Schalter auf `false` setzen. Danach gilt wieder, was unten steht.
+
 ## Zwei Kaufwege — die Seite wählt selbst
 
 Die Preisseite prüft beim Laden, ob der automatische Shop bereitsteht. Dafür
@@ -314,8 +328,11 @@ weil dort § 18 Abs 1 Z 1 FAGG greift.
 - Name bzw. Firmenwortlaut und ladungsfähige Anschrift
 - E-Mail-Adresse — nach § 5 ECG zwingend, Discord genügt nicht
 - Gewerbeberechtigung, GISA-Zahl, Gewerbebehörde und WKO-Fachgruppe
-- UID-Nummer (ATU…) **oder** der Kleinunternehmer-Satz nach § 6 Abs 1 Z 27 UStG
-- Firmenbuchnummer, falls eingetragen — sonst den Abschnitt streichen
+  (Gewerbe ist noch nicht angemeldet)
+
+Bereits erledigt: Kleinunternehmerregelung in Impressum, AGB und bei den
+Preisen; Firmenbuch und Telefonnummer gestrichen (Einzelunternehmen, nur
+E-Mail und Discord).
 
 Danach die Warnboxen entfernen (`<div class="platzhalter-warnung">`).
 
@@ -402,8 +419,7 @@ Ebenfalls offen:
 - `backend/05-preise-2026.sql` in Supabase ausführen (die Datenbank führt noch
   die alten Preise)
 - PayPal live schalten — siehe `EINRICHTUNG.md`
-- kein Vorschaubild für geteilte Links (`og:image`), siehe Kommentar im
-  `<head>` von `index.html`
+- Gewerbe anmelden, danach `verkaufPausiert` in `konfig.js` auf `false`
 
 ## Kontakt
 
