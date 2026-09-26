@@ -42,7 +42,9 @@ window.TT_KONFIG = {
      Nur die Client-ID! Das dazugehörige Secret gehört ausschließlich in die
      Supabase-Secrets (siehe EINRICHTUNG.md, Schritt 4).
      ----------------------------------------------------------------------- */
-  paypalClientId: '',
+  // Sandbox-App "Tyler Tweaks Shop" (27.09.2026). Beim Wechsel auf Live
+  // durch die Client-ID der Live-App ersetzen und paypalUmgebung umstellen.
+  paypalClientId: 'BAAaM2haIFjl75wzv0j4YN2uV6D_CY-7uUFfmMf1LO36a8lQgC586sfgLFT0atPOWWQXMchJZVbAcLxmko',
 
   /* ---- Rückfallebene: paypal.me ----------------------------------------
      Der einfache Weg, der immer funktioniert — ohne Datenbank, ohne Konto,
