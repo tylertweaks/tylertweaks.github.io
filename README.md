@@ -144,9 +144,23 @@ Backend erzeugt den Schlüssel   -> TWKX-XXXX-XXXX-XXXX, garantiert einmalig
 Lizenz landet im Kundenkonto    -> sofort sichtbar unter "Meine Lizenzen"
 Kunde lädt die App herunter     -> signierter Link, 2 Minuten gültig
 Kunde gibt den Schlüssel ein    -> Tyler.exe prüft ihn gegen Supabase
+Rechnung per E-Mail             -> PDF an den Kunden, Kopie an tylertweaks@gmail.com
 ```
 
 Der Kunde muss nichts anfordern und niemanden anschreiben.
+
+## Rechnungen
+
+Sobald eine Bestellung bezahlt ist — automatisch oder über „Lizenz von Hand"
+im Admin-Bereich —, vergibt die Datenbank eine fortlaufende Rechnungsnummer
+(`TT-2026-0001`, …) und ruft ein Google-Apps-Script auf. Das baut die Rechnung
+als PDF und verschickt sie aus tylertweaks@gmail.com an den Kunden, mit einer
+Kopie an dich. Bei Betrag 0 (Test, Geschenk, Kulanz) gibt es keine Rechnung.
+
+Die Website selbst ist daran nicht beteiligt. SQL, Script und Anleitung liegen
+bewusst **nicht** in diesem Repository, sondern unter
+`E:\Tweak app\backend\` (`07-rechnungen.sql`, `rechnungen/`): Beide enthalten
+das Geheimnis, mit dem die Datenbank das Script aufruft.
 
 ## Dateien
 
