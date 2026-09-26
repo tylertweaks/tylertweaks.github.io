@@ -456,7 +456,7 @@
 
     if (!daten.lizenzen.length) {
       ziel.innerHTML = leerKasten('Noch keine Lizenz',
-        'Nach einem Kauf wird dein Lizenzschlüssel automatisch erzeugt und hier angezeigt.',
+        'Nach einem Kauf erscheint dein Lizenzschlüssel hier, sobald die Zahlung bestätigt ist.',
         'Pakete ansehen', 'index.html#preise');
       return;
     }

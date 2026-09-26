@@ -19,6 +19,10 @@ window.TT_KONFIG = {
   /* ---- Kontakt ---------------------------------------------------------- */
   discord: 'tyler061312',
 
+  /* Kontakt per E-Mail. Erscheint überall, wo class="kontakt-email" steht
+     (siehe tt-backend.js). Dieselbe Adresse verschickt auch die Rechnungen. */
+  email: 'tylertweaks@gmail.com',
+
   /* Einladung auf den Discord-Server "Tyler Tweaks", z. B.
      'https://discord.gg/abcd1234'. Leer lassen, solange es keine dauerhafte
      Einladung gibt: Dann bleiben die Knöpfe "Discord-Server beitreten" auf

@@ -564,6 +564,11 @@ window.TT = (function () {
     document.querySelectorAll('.discord-name').forEach(function (el) {
       if (KONFIG.discord) el.textContent = KONFIG.discord;
     });
+    document.querySelectorAll('.kontakt-email').forEach(function (el) {
+      if (!KONFIG.email) return;
+      el.textContent = KONFIG.email;
+      if (el.tagName === 'A') el.href = 'mailto:' + KONFIG.email;
+    });
 
     /* Knöpfe auf den Discord-Server. Stehen im HTML mit hidden und ohne Ziel:
        Ohne eingetragene Einladung gibt es nichts, wohin sie führen könnten. */

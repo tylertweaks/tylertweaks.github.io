@@ -123,9 +123,9 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.9.1">
-<link rel="stylesheet" href="tweak-zeile.css?v=2.9.1">
-<link rel="stylesheet" href="mockup.css?v=2.9.1">
+<link rel="stylesheet" href="style.css?v=2.9.2">
+<link rel="stylesheet" href="tweak-zeile.css?v=2.9.2">
+<link rel="stylesheet" href="mockup.css?v=2.9.2">
 </head>
 <body>
 
@@ -240,7 +240,7 @@
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-        <div><strong>Zahlung per PayPal</strong><span>mit PayPal-Käuferschutz</span></div>
+        <div><strong>Zahlung per PayPal</strong><span id="trust-paypal">mit PayPal-Käuferschutz</span></div>
       </li>
     </ul>
 
@@ -726,11 +726,15 @@
          Wird von script.js eingeblendet. -->
     <div class="hinweis-kasten warn wrap-narrow" id="uebergangs-hinweis" hidden
          style="margin:28px auto 0">
-      <p><strong>Kurzer Hinweis zum Kauf:</strong> Der Lizenzschlüssel wird
-         gerade noch von Hand vergeben. Du bezahlst wie gewohnt über PayPal und
+      <p><strong>Kurzer Hinweis zum Kauf:</strong> Die Freischaltung passiert
+         gerade noch von Hand. Du bezahlst über PayPal — bitte als
+         „Waren und Dienstleistungen“, nur dann gilt der Käuferschutz — und
          schreibst mir danach kurz auf Discord
-         <strong class="discord-name">tyler061312</strong> — dann bekommst du
-         deinen Schlüssel, meist innerhalb weniger Stunden.</p>
+         <strong class="discord-name">tyler061312</strong> oder an
+         <a class="kontakt-email" href="mailto:tylertweaks@gmail.com">tylertweaks@gmail.com</a>,
+         unter welchem Namen du bezahlt hast. Sobald die Zahlung da ist, schalte
+         ich dich frei: Lizenzschlüssel und Rechnung kommen per E-Mail, meist
+         innerhalb weniger Stunden.</p>
     </div>
 
     <!-- Testmodus: verkaufPausiert, aber als Admin angemeldet (script.js). -->
@@ -887,7 +891,7 @@
         </div>
         <span class="flow-num">2</span>
         <h3>Paket wählen &amp; bezahlen</h3>
-        <p>Laufzeit aussuchen, in den Warenkorb legen und dort über PayPal zahlen — mit Rabattcode, falls du einen hast. Deine Zahlungsdaten sehe ich nie, es gilt der PayPal-Käuferschutz.</p>
+        <p data-schritt="2-text">Laufzeit aussuchen, in den Warenkorb legen und dort über PayPal zahlen — mit Rabattcode, falls du einen hast. Deine Zahlungsdaten sehe ich nie, es gilt der PayPal-Käuferschutz.</p>
       </div>
 
       <div class="flow-step">
@@ -1184,7 +1188,7 @@
       <details>
         <summary>Was passiert nach dem Kauf?</summary>
         <div class="faq-body">
-          <p>Sobald PayPal die Zahlung bestätigt hat, legt das System die Bestellung an, erzeugt deinen Lizenzschlüssel und ordnet ihn deinem Konto zu. Beides erscheint sofort im <a href="konto.html">Kundenbereich</a> — du musst nichts anfordern und auf nichts warten.</p>
+          <p id="faq-nach-kauf">Sobald PayPal die Zahlung bestätigt hat, legt das System die Bestellung an, erzeugt deinen Lizenzschlüssel und ordnet ihn deinem Konto zu. Beides erscheint sofort im <a href="konto.html">Kundenbereich</a> — du musst nichts anfordern und auf nichts warten.</p>
           <p>Hast du die <strong>PC-Optimierung</strong> oder das <strong>Bundle</strong> gekauft, schreibst du mir danach auf Discord <strong class="discord-name">tyler061312</strong>, und wir machen einen Termin aus.</p>
         </div>
       </details>
@@ -1323,7 +1327,8 @@
           <li><span class="k">App startet nicht</span><span class="v">Discord</span></li>
         </ul>
         <p class="muted" style="font-size:.85rem;margin-top:14px">
-          Eine Kontaktadresse per Post und E-Mail findest du im <a href="impressum.html">Impressum</a>.
+          Per E-Mail: <a class="kontakt-email" href="mailto:tylertweaks@gmail.com">tylertweaks@gmail.com</a>.
+          Die Postanschrift steht im <a href="impressum.html">Impressum</a>.
         </p>
       </article>
 
@@ -1424,10 +1429,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.9.1"></script>
-<script src="tt-backend.js?v=2.9.1"></script>
-<script src="warenkorb.js?v=2.9.1"></script>
-<script src="tweaks.js?v=2.9.1"></script>
-<script src="script.js?v=2.9.1"></script>
+<script src="konfig.js?v=2.9.2"></script>
+<script src="tt-backend.js?v=2.9.2"></script>
+<script src="warenkorb.js?v=2.9.2"></script>
+<script src="tweaks.js?v=2.9.2"></script>
+<script src="script.js?v=2.9.2"></script>
 </body>
 </html>

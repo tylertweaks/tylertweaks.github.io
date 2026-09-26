@@ -194,14 +194,16 @@
     knopf.textContent = 'Für ' + TT.geld(rechnung.gesamt, rechnung.waehrung) + ' über PayPal zahlen';
 
     hinweis.innerHTML =
-      'Der Lizenzschlüssel wird gerade noch von Hand vergeben: Nach der Zahlung ' +
-      'schreibst du mir kurz auf Discord <strong class="discord-name"></strong> und ' +
-      'nennst den Namen, unter dem du bezahlt hast — dann bekommst du ihn, meist ' +
-      'innerhalb weniger Stunden.' +
+      'Wähle bei PayPal <strong>„Waren und Dienstleistungen“</strong> — nur dann gilt ' +
+      'der Käuferschutz. Nach der Zahlung schreib mir kurz auf Discord ' +
+      '<strong class="discord-name"></strong> oder an <a class="kontakt-email"></a>, ' +
+      'unter welchem Namen du bezahlt hast. Sobald die Zahlung da ist, schalte ich ' +
+      'dich frei; Lizenzschlüssel und Rechnung kommen per E-Mail, meist innerhalb ' +
+      'weniger Stunden.' +
       (rechnung.prozent
         ? ' Der Rabatt ist im Betrag oben schon abgezogen.'
         : '');
-    TT.grundgeruest(); // Discord-Namen in den neuen Text einsetzen
+    TT.grundgeruest(); // Discord-Namen und E-Mail in den neuen Text einsetzen
   }
 
   function zeichnen() {

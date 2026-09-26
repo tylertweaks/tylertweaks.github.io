@@ -581,7 +581,7 @@
        verspricht. */
     var zeilen = {
       optimierung: 'Zahlung über PayPal · Termin per Discord',
-      bundle:      'Zahlung über PayPal · Schlüssel und Termin per Discord'
+      bundle:      'Zahlung über PayPal · Schlüssel per E-Mail, Termin per Discord'
     };
 
     document.querySelectorAll('[data-korb-slug]').forEach(function (knopf) {
@@ -589,9 +589,25 @@
       var alt = karte && karte.querySelector('.plan-alt');
       if (alt) {
         alt.textContent = zeilen[knopf.dataset.korbSlug] ||
-          'Zahlung über PayPal · Schlüssel per Discord';
+          'Zahlung über PayPal · Schlüssel per E-Mail';
       }
     });
+
+    /* Über paypal.me wählt der Käufer selbst, ob er als "Waren und
+       Dienstleistungen" oder als "Freunde und Familie" zahlt — Käuferschutz
+       gibt es nur beim ersten. Die Seite darf ihn also nicht pauschal
+       versprechen. */
+    var schutz = document.getElementById('trust-paypal');
+    if (schutz) schutz.textContent = 'Käuferschutz bei „Waren und Dienstleistungen“';
+
+    var faq = document.getElementById('faq-nach-kauf');
+    if (faq) {
+      faq.innerHTML = 'Du bezahlst über PayPal und sagst mir kurz Bescheid — auf Discord ' +
+        'oder per E-Mail, mit dem Namen, unter dem du bezahlt hast. Sobald die Zahlung da ' +
+        'ist, schalte ich deine Lizenz frei, meist innerhalb weniger Stunden. ' +
+        'Lizenzschlüssel und Rechnung bekommst du per E-Mail, und beides liegt ab dann ' +
+        'dauerhaft in deinem <a href="konto.html">Kundenbereich</a>.';
+    }
 
     var hinweis = document.getElementById('uebergangs-hinweis');
     if (hinweis) {
@@ -619,12 +635,14 @@
       '1-titel': 'Paket auswählen',
       '1-text':  'Du legst eine Laufzeit, die Optimierung oder beides im Bundle in den ' +
                  'Warenkorb. Einen Rabattcode gibst du dort ein.',
-      '3-titel': 'Schlüssel anfordern',
-      '3-text':  'Nach der Zahlung schreibst du mir kurz auf Discord und nennst den Namen, ' +
-                 'unter dem du bezahlt hast. Ich gleiche die Zahlung ab und schicke dir den Schlüssel.',
-      '4-titel': 'Herunterladen & freischalten',
-      '4-text':  'Du bekommst den Download-Link zusammen mit deinem Schlüssel. ' +
-                 'Beim ersten Start der App gibst du ihn ein — fertig.'
+      '2-text':  'Im Warenkorb zahlst du über PayPal — bitte als „Waren und ' +
+                 'Dienstleistungen“, nur dann gilt der Käuferschutz. Deine Zahlungsdaten sehe ich nie.',
+      '3-titel': 'Kurz Bescheid sagen',
+      '3-text':  'Schreib mir auf Discord oder per E-Mail, unter welchem Namen du bezahlt ' +
+                 'hast. Ich gleiche die Zahlung ab und schalte deine Lizenz frei.',
+      '4-titel': 'Schlüssel & Rechnung per E-Mail',
+      '4-text':  'Lizenzschlüssel und Rechnung kommen per E-Mail und liegen mit dem Download ' +
+                 'in deinem Kundenbereich. Beim ersten Start der App gibst du den Schlüssel ein — fertig.'
     };
 
     Object.keys(schritte).forEach(function (k) {
