@@ -325,12 +325,12 @@ weil dort § 18 Abs 1 Z 1 FAGG greift.
 
 **Noch einzutragen** (alle Seiten tragen dazu eine gelbe Warnbox):
 
-- Name bzw. Firmenwortlaut und ladungsfähige Anschrift
-- E-Mail-Adresse — nach § 5 ECG zwingend, Discord genügt nicht
+- ladungsfähige Anschrift (Straße, Hausnummer, PLZ, Ort)
 - Gewerbeberechtigung, GISA-Zahl, Gewerbebehörde und WKO-Fachgruppe
   (Gewerbe ist noch nicht angemeldet)
 
-Bereits erledigt: Kleinunternehmerregelung in Impressum, AGB und bei den
+Bereits erledigt: Name (Tyler Wiedner) und E-Mail (tylertweaks@gmail.com) auf
+allen vier Seiten; Kleinunternehmerregelung in Impressum, AGB und bei den
 Preisen; Firmenbuch und Telefonnummer gestrichen (Einzelunternehmen, nur
 E-Mail und Discord).
 

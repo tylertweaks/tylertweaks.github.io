@@ -3843,6 +3843,310 @@ h3 { letter-spacing: -.015em; }
   .hero-glow, .hero-marke, .plan-featured::before { animation: none; }
 }
 
+/* ==========================================================================
+   24. Werkstatt (2.9.0)
+
+   Legt sich wie Abschnitt 23 über alles darüber; Rückbau ist das Löschen
+   dieses Blocks. Zwei Dinge ändern sich:
+
+   1. Die Farben der App. Blau-Schwarz wie Tyler seit 2.8.0 (Themes/Colors.xaml
+      im App-Projekt): Akzent #2F7BFF, Cyan #2EC5FF, Grund #05070C. Das Violett
+      ist weg. Gold bleibt die Farbe für "Empfehlung", Rot wie in der App die
+      für die Risikostufe "Fortgeschritten".
+   2. Werkstatt statt Weltraum: Messraster statt weichem Nebel, Knöpfe wie
+      Schalter statt Pillen, nummerierte Abschnitte wie auf einem
+      Prüfprotokoll, ein Messband unter dem Hero und die Kennzahlen als
+      Datenblatt.
+
+   Keine erfundenen Messwerte: Was nach Anzeige aussieht, zeigt echte Zahlen
+   aus tweaks.json und konfig.js. Vorher/Nachher-FPS kommen erst dazu, wenn es
+   echte Messungen gibt.
+   ========================================================================== */
+
+:root {
+  --bg:          #05070c;
+  --bg-2:        #080b12;
+  --surface:     #0d121c;
+  --surface-2:   #131a27;
+  --surface-3:   #1b2436;
+  --line:        #1a2233;
+  --line-strong: #27324a;
+
+  --text:        #edf2fc;
+  --text-2:      #c3ccdd;
+  /* Wie TextSecondary in der App. Auf --surface rund 7:1. */
+  --muted:       #94a3bf;
+
+  /* #3D8BFF statt #2F7BFF aus der App: Der Akzent steht hier auch als Schrift
+     auf dunklem Grund, und dafür braucht er etwas mehr Helligkeit (5,5:1).
+     Auf den Verlaufs-Knöpfen trägt er weiter die fast schwarze Schrift. */
+  --accent:        #3d8bff;
+  --accent-rgb:    61, 139, 255;
+  --accent-2:      #2ec5ff;
+  --accent-2-rgb:  46, 197, 255;
+  --accent-soft:   rgba(var(--accent-rgb), .10);
+  --risk-adv:      #ff6b6b;
+
+  /* Kantiger: Werkzeug, kein Spielzeug. */
+  --radius:      12px;
+  --radius-sm:   9px;
+  --radius-xs:   6px;
+
+  /* Messraster: grobe Linien alle 80 px, feine alle 16 px. Das Messband unter
+     dem Hero hat dieselbe Teilung, damit Striche und Raster übereinander
+     liegen. */
+  --raster:      rgba(61, 139, 255, .05);
+  --raster-fein: rgba(61, 139, 255, .022);
+}
+
+/* ---------- Abschnittstöne ----------
+   Cyan und Gold bleiben. Aus Magenta wird Stahlblau: hell genug für die
+   dunkle Schrift auf den Verlaufs-Knöpfen, aber klar vom Akzent getrennt. */
+.ton-cyan {
+  --accent:       #2ec5ff;
+  --accent-rgb:   46, 197, 255;
+  --accent-2:     #7fd8ff;
+  --accent-2-rgb: 127, 216, 255;
+  --accent-soft:  rgba(var(--accent-rgb), .10);
+}
+.ton-stahl {
+  --accent:       #8fb4ff;
+  --accent-rgb:   143, 180, 255;
+  --accent-2:     #5b9bff;
+  --accent-2-rgb: 91, 155, 255;
+  --accent-soft:  rgba(var(--accent-rgb), .10);
+}
+
+::selection { background: rgba(var(--accent-rgb), .40); }
+
+/* ---------- Messraster ---------- */
+.section::before {
+  background:
+    radial-gradient(var(--glow-w, 820px) var(--glow-h, 440px)
+                    at var(--glow-x, 78%) var(--glow-y, 8%),
+                    rgba(var(--accent-rgb), var(--glow-a, .09)), transparent 68%),
+    linear-gradient(var(--raster) 1px, transparent 1px),
+    linear-gradient(90deg, var(--raster) 1px, transparent 1px),
+    linear-gradient(var(--raster-fein) 1px, transparent 1px),
+    linear-gradient(90deg, var(--raster-fein) 1px, transparent 1px);
+  background-size: auto, 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+}
+.hero::after {
+  background-image:
+    linear-gradient(var(--raster) 1px, transparent 1px),
+    linear-gradient(90deg, var(--raster) 1px, transparent 1px),
+    linear-gradient(var(--raster-fein) 1px, transparent 1px),
+    linear-gradient(90deg, var(--raster-fein) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+}
+
+/* Messband an der Unterkante des Hero: lange Striche alle 80 px, kurze alle
+   16 px — dieselbe Teilung wie das Raster darüber. */
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 18px;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(var(--accent-rgb), .55) 0 1px, transparent 1px 80px)
+      left bottom / 100% 16px no-repeat,
+    repeating-linear-gradient(90deg, rgba(var(--accent-rgb), .28) 0 1px, transparent 1px 16px)
+      left bottom / 100% 7px no-repeat,
+    linear-gradient(rgba(var(--accent-rgb), .35), rgba(var(--accent-rgb), .35))
+      left bottom / 100% 1px no-repeat;
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+}
+
+/* ---------- Nummerierte Abschnitte ----------
+   Die Kennzeile über jeder Abschnittsüberschrift bekommt ihre laufende Nummer
+   wie ein Prüfschritt: 01, 02, … Gezählt wird per CSS, damit ein neuer
+   Abschnitt nichts umnummerieren muss. Der Zusatz / "" hält die Nummer vom
+   Vorlesen fern; Browser ohne diese Schreibweise nehmen die Zeile davor. */
+body { counter-reset: abschnitt; }
+.section-head .eyebrow { counter-increment: abschnitt; }
+.eyebrow::before { border-radius: 2px; }
+.section-head .eyebrow::before {
+  content: counter(abschnitt, decimal-leading-zero);
+  content: counter(abschnitt, decimal-leading-zero) / "";
+  width: auto; height: auto;
+  padding: 4px 7px;
+  border-radius: 5px;
+  background: rgba(var(--accent-rgb), .10);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .45);
+  color: var(--accent);
+  font-size: .68rem;
+  letter-spacing: .08em;
+  line-height: 1;
+}
+
+/* ---------- Schalter statt Pillen ---------- */
+.btn { border-radius: 10px; }
+.btn-sm { border-radius: 9px; }
+
+.pill {
+  border-radius: 8px;
+  border-color: rgba(var(--accent-rgb), .35);
+  background: rgba(13, 18, 28, .8);
+}
+
+.nav.scrolled { background: rgba(5, 7, 12, .8); }
+.nav-korb { border-radius: 10px; }
+@media (min-width: 1061px) {
+  .nav-links { border-radius: 12px; background: rgba(13, 18, 28, .6); }
+  .nav-links a { border-radius: 8px; }
+}
+
+.shot-tabs { border-radius: 12px; background: rgba(13, 18, 28, .7); }
+.shot-tab { border-radius: 8px; }
+
+.marke-gold, .badge { border-radius: 6px; }
+
+/* ---------- Karten ----------
+   Kleinere Radien und eine kurze Markierung oben links in der Farbe des
+   Abschnitts, wie ein Etikett an einem Gehäuse. Die Liste der Ebenen wird
+   hier vollständig neu gesetzt; die hervorgehobenen Karten (.plan-featured,
+   .weg-top) setzen ihre eigenen Farben darunter noch einmal. */
+.card, .trust-card, .flow-step, .risk-card, .plan, .panel,
+.weg-karte, .opt-cat, .vergleich-rahmen, .shot { border-radius: 14px; }
+.trustbar { border-radius: 14px; background: rgba(8, 11, 18, .6); }
+.faq details { border-radius: 12px; }
+.login-card { border-radius: 16px; }
+.cta-karte { border-radius: 18px; }
+.flow-art { background: rgba(5, 7, 12, .6); }
+
+.card, .trust-card, .flow-step, .risk-card, .weg-karte, .opt-cat, .plan {
+  background-image:
+    linear-gradient(var(--accent), var(--accent)),
+    radial-gradient(460px circle at var(--mx, -1000px) var(--my, -1000px),
+                    rgba(var(--accent-rgb), .09), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, .022), transparent 42%);
+  background-size: 26px 2px, auto, auto;
+  background-position: 22px 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+.plan-featured {
+  background-image:
+    linear-gradient(var(--accent-2), var(--accent-2)),
+    radial-gradient(460px circle at var(--mx, -1000px) var(--my, -1000px),
+                    rgba(var(--accent-rgb), .10), transparent 45%),
+    linear-gradient(180deg, rgba(var(--accent-rgb), .12), transparent 58%);
+}
+.weg-top {
+  background-image:
+    linear-gradient(var(--gold), var(--gold)),
+    radial-gradient(460px circle at var(--mx, -1000px) var(--my, -1000px),
+                    rgba(var(--gold-rgb), .10), transparent 45%),
+    linear-gradient(180deg, rgba(var(--gold-rgb), .09), transparent 62%);
+}
+
+.icon, .weg-ico, .opt-ico, .feature-list .fi { border-radius: 9px; }
+
+/* ---------- Verläufe in Schrift ---------- */
+.grad {
+  background: linear-gradient(100deg, #7fb0ff, var(--accent) 30%, var(--accent-2) 72%, #9be4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.plan-featured .amount {
+  background: linear-gradient(100deg, #fff 20%, #bfe3ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Die Äste im Wegweiser in den Farben der drei Karten */
+.weg-grid::before { background: linear-gradient(90deg, #2ec5ff, var(--gold), #8fb4ff); }
+
+/* ---------- Kennzahlen als Datenblatt ----------
+   Vorher vier einzelne Kästen. Jetzt ein Gerät mit vier Kanälen: eine Leiste,
+   Trennstriche, Kanalnummer oben rechts, eine Skala unten und die Ziffern mit
+   leichtem Nachleuchten wie auf einer Anzeige. Die Werte selbst setzen weiter
+   tweaks.js und konfig.js ein. */
+.hero-zahlen {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  max-width: 940px;
+  margin: 58px auto 0;
+  background: linear-gradient(180deg, rgba(19, 26, 39, .92), rgba(8, 11, 18, .92));
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 24px 60px rgba(0, 0, 0, .45);
+  counter-reset: kanal;
+}
+/* Beschriftung auf der Kante, wie bei einem Formularrahmen. Absolut
+   positioniert zählt sie im Raster nicht als Zelle. */
+.hero-zahlen::before {
+  content: 'Datenblatt';
+  position: absolute;
+  top: -9px; left: 20px;
+  padding: 0 8px;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+.hero-zahlen li {
+  counter-increment: kanal;
+  position: relative;
+  min-width: 0;
+  gap: 14px;
+  padding: 24px 20px 28px;
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+}
+.hero-zahlen li:first-child { border-left: 0; }
+.hero-zahlen li:hover { transform: none; border-color: var(--line); }
+.hero-zahlen li::before {
+  content: counter(kanal, decimal-leading-zero);
+  content: counter(kanal, decimal-leading-zero) / "";
+  position: absolute;
+  top: 9px; right: 12px;
+  color: #5a6886;
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .14em;
+}
+.hero-zahlen li::after {
+  content: '';
+  position: absolute;
+  left: 20px; right: 20px; bottom: 11px;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, rgba(var(--accent-rgb), .5) 0 1px, transparent 1px 8px);
+  mask-image: linear-gradient(90deg, #000 25%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, #000 25%, transparent);
+}
+.hz-ico {
+  border-radius: 8px;
+  background: rgba(var(--accent-rgb), .12);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .3);
+}
+.hz-zahl {
+  color: #fff;
+  font-size: 1.5rem;
+  letter-spacing: .02em;
+  text-shadow: 0 0 18px rgba(var(--accent-rgb), .55);
+}
+
+@media (max-width: 680px) {
+  .hero-zahlen { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 46px; }
+  .hero-zahlen li { gap: 10px; padding: 20px 14px 26px; }
+  .hero-zahlen li:nth-child(odd) { border-left: 0; }
+  .hero-zahlen li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .hero-zahlen li::after { left: 14px; right: 14px; }
+  .hz-zahl { font-size: 1.25rem; }
+  .cta-karte { border-radius: 16px; }
+}
+
 @media print {
   .hero-marke, .hero-zahlen, .weg-grid::before, .weg-grid::after,
   .plan-featured::before, .cta-karte::after, .footer::before { display: none !important; }

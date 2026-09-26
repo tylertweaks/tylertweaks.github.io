@@ -70,7 +70,7 @@
 .tw-risiko { font-weight: 600; }
 .risiko-sicher          { color: var(--ok);       border-color: rgba(61, 214, 140, .32); }
 .risiko-vorsicht        { color: var(--warn);     border-color: rgba(245, 181, 68, .32); }
-.risiko-fortgeschritten { color: var(--risk-adv); border-color: rgba(176, 124, 255, .32); }
+.risiko-fortgeschritten { color: var(--risk-adv); border-color: rgba(255, 107, 107, .32); }
 
 /* ---- Details ---- */
 
