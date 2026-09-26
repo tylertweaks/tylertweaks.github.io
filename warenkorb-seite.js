@@ -31,6 +31,11 @@
   var shopLaeuft = true;
   var istAngemeldet = true;
 
+  /* verkaufPausiert in konfig.js. Für Admins hebt start() das auf
+     (Testmodus, siehe TT.verkaufOffen). */
+  var verkaufZu = !!KONFIG.verkaufPausiert;
+  var testmodus = false;
+
   /* ====================================================================
      Darstellung
      ==================================================================== */
@@ -123,7 +128,7 @@
     knopf.removeAttribute('aria-disabled');
 
     // verkaufPausiert in konfig.js: kein Kaufweg, auch nicht über die Anmeldung.
-    if (KONFIG.verkaufPausiert) {
+    if (verkaufZu) {
       knopf.removeAttribute('href');
       knopf.classList.add('ist-aus');
       knopf.setAttribute('aria-disabled', 'true');
@@ -212,6 +217,15 @@
     codeZeichnen(rechnung);
     summeZeichnen(rechnung);
     kasseZeichnen(artikel, rechnung);
+
+    /* kasseZeichnen setzt den Hinweis jedes Mal neu, der Zusatz sammelt sich
+       also nicht an. */
+    if (testmodus) {
+      document.getElementById('kasse-hinweis').insertAdjacentHTML('afterbegin',
+        '<strong>Testmodus:</strong> Nur du als Admin siehst diesen Knopf. An dein ' +
+        'eigenes PayPal-Konto kannst du nicht zahlen — zum Ausprobieren reicht es, ' +
+        'bis zur PayPal-Seite zu gehen. ');
+    }
   }
 
   /* Jede Änderung am Warenkorb zeichnet die Seite neu — egal ob sie von hier
@@ -285,6 +299,11 @@
     /* Zuerst die Anmeldung: Die Antwort kommt aus dem Browser und ist sofort
        da, während die Produktabfrage über das Netz geht. */
     istAngemeldet = await korb.angemeldet();
+
+    if (verkaufZu && TT.verkaufOffen && await TT.verkaufOffen()) {
+      verkaufZu = false;
+      testmodus = true;
+    }
     zeichnen();
 
     var stand = await korb.shopPruefen();

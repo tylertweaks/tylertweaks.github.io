@@ -188,6 +188,26 @@ window.TT = (function () {
     return profilZwischenspeicher;
   }
 
+  /* ---- Verkauf pausiert, und der Testmodus für dich ------------------
+     verkaufPausiert in konfig.js hält alle Kaufknöpfe zu. Wer als Admin
+     angemeldet ist, sieht sie trotzdem — damit sich der Ablauf vor dem Start
+     durchklicken lässt, ohne dass die Besucher schon kaufen können.
+
+     Das ist Darstellung, keine Sicherheitsschranke: Wer im Browser daran
+     dreht, landet trotzdem nur bei paypal.me bzw. bei der Kasse, die ohnehin
+     alles serverseitig prüft. Einmal pro Seitenaufruf gefragt. */
+  var verkaufAntwort = null;
+
+  function verkaufOffen() {
+    if (!KONFIG.verkaufPausiert) return Promise.resolve(true);
+    if (!verkaufAntwort) {
+      verkaufAntwort = profil()
+        .then(function (p) { return !!(p && p.is_admin); })
+        .catch(function () { return false; });
+    }
+    return verkaufAntwort;
+  }
+
   /**
    * Leitet auf die Anmeldung um, wenn niemand angemeldet ist.
    *
@@ -563,6 +583,7 @@ window.TT = (function () {
     sitzung: sitzung,
     nutzer: nutzer,
     profil: profil,
+    verkaufOffen: verkaufOffen,
     schuetzen: schuetzen,
     abmelden: abmelden,
     navAufbauen: navAufbauen,

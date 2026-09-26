@@ -203,10 +203,11 @@
     if (kasten) kasten.hidden = false;
   }
 
-  function paypalLaden() {
+  async function paypalLaden() {
     var clientId = String(KONFIG.paypalClientId || '').trim();
 
-    if (KONFIG.verkaufPausiert) {
+    // Pausiert — außer für Admins (Testmodus, siehe TT.verkaufOffen).
+    if (KONFIG.verkaufPausiert && !(TT.verkaufOffen && await TT.verkaufOffen())) {
       return paypalNichtVerfuegbar('Der Verkauf ist gerade pausiert und startet in Kürze.');
     }
 

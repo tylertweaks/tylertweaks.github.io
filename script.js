@@ -289,6 +289,10 @@
      ------------------------------------------------------------------- */
   var korbDaten = {}; // slug -> der Artikel, so wie er in den Warenkorb wandert
 
+  /* Zu, solange verkaufPausiert gilt. Für Admins öffnet preiseAbgleichen()
+     die Knöpfe weiter unten wieder (Testmodus, siehe TT.verkaufOffen). */
+  var verkaufZu = !!KONFIG.verkaufPausiert;
+
   function korbKnopf(knopf, artikel) {
     if (!knopf) return;
 
@@ -306,7 +310,7 @@
     var artikel = korbDaten[knopf.dataset.korbSlug];
     if (!artikel) return;
 
-    if (KONFIG.verkaufPausiert) {
+    if (verkaufZu) {
       knopf.removeAttribute('href');
       knopf.setAttribute('aria-disabled', 'true');
       knopf.classList.add('ist-aus');
@@ -314,6 +318,10 @@
       korbHinweis(knopf, '');
       return;
     }
+
+    knopf.href = 'warenkorb.html';
+    knopf.removeAttribute('aria-disabled');
+    knopf.classList.remove('ist-aus');
 
     var drin = !!(window.TT && TT.korb && TT.korb.hat(artikel.slug));
 
@@ -353,7 +361,7 @@
   document.addEventListener('click', function (e) {
     var knopf = e.target.closest('[data-korb-slug]');
     if (!knopf) return;
-    if (KONFIG.verkaufPausiert) return e.preventDefault();
+    if (verkaufZu) return e.preventDefault();
 
     var artikel = korbDaten[knopf.dataset.korbSlug];
     if (!artikel || !window.TT || !TT.korb) return; // dann führt das href zum Warenkorb
@@ -651,7 +659,18 @@
   }
 
   (async function preiseAbgleichen() {
-    if (KONFIG.verkaufPausiert) return aufPauseUmstellen();
+    if (KONFIG.verkaufPausiert) {
+      var offen = !!(window.TT && TT.verkaufOffen && await TT.verkaufOffen());
+      if (!offen) return aufPauseUmstellen();
+
+      /* Testmodus: Du bist als Admin angemeldet. Die Knöpfe gehen auf, und
+         ein Hinweis sagt, dass nur du sie siehst. Weiter geht es wie ohne
+         Pause. */
+      verkaufZu = false;
+      korbKnoepfeBeschriften();
+      var test = document.getElementById('test-hinweis');
+      if (test) test.hidden = false;
+    }
 
     /* Ob der automatische Shop bereitsteht, beantwortet TT.korb.shopPruefen()
        — dieselbe Prüfung, die auch der Warenkorb für seinen Kaufknopf
