@@ -29,7 +29,7 @@ window.TT_KONFIG = {
      der Seite unsichtbar (data-discord-einladung, siehe tt-backend.js).
      Eine Einladung, die nach sieben Tagen abläuft, hier nicht eintragen —
      in Discord beim Erstellen "Läuft nie ab" wählen. */
-  discordEinladung: '',
+  discordEinladung: 'https://discord.gg/guxGg2wHAW',
 
   /* ---- Supabase ---------------------------------------------------------
      Zu finden im Supabase-Dashboard unter
