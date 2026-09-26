@@ -1902,6 +1902,17 @@ strong { color: var(--text); font-weight: 600; }
   border-color: rgba(var(--accent-rgb), .32);
   background: linear-gradient(180deg, rgba(var(--accent-rgb), .05), var(--surface) 55%);
 }
+
+/* PC-Bindung selbst lösen: Knopf und Erklärung nebeneinander, auf dem Handy
+   untereinander. */
+.pc-freigabe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 16px;
+}
+.pc-freigabe p { margin: 0; flex: 1 1 240px; }
 .lizenz-label {
   display: block;
   margin-bottom: 7px;
@@ -2087,6 +2098,10 @@ strong { color: var(--text); font-weight: 600; }
 }
 
 /* ---------- Verwaltung ---------- */
+.admin-probleme { margin: 0 0 18px; }
+.admin-probleme ul { margin: 6px 0 0; padding-left: 18px; }
+.admin-probleme li + li { margin-top: 4px; }
+
 .kennzahlen {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

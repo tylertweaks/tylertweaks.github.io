@@ -58,11 +58,11 @@
   async function ladeAlles() {
     var e = await Promise.all([
       db.from('orders')
-        .select('id, order_no, user_id, product_slug, product_name, price, currency, payment_provider, payment_status, paypal_order_id, paypal_capture_id, paid_at, created_at')
+        .select('id, order_no, user_id, product_slug, product_name, price, currency, coupon_code, payment_provider, payment_status, paypal_order_id, paypal_capture_id, paid_at, created_at')
         .order('created_at', { ascending: false }).limit(500),
 
       db.from('licenses')
-        .select('id, key, type, expires_at, created_at, activated_at, last_seen_at, revoked, hwid, note, user_id, order_id, product_slug')
+        .select('id, key, type, expires_at, created_at, activated_at, last_seen_at, revoked, hwid, hwid_reset_at, note, user_id, order_id, product_slug')
         .order('created_at', { ascending: false }).limit(500),
 
       db.from('profiles')
@@ -127,6 +127,7 @@
      Zeichnen
      ==================================================================== */
   function allesZeichnen() {
+    problemeZeichnen();
     kennzahlen();
     vergabeVorbereiten();
     bestellungenZeichnen();
@@ -134,6 +135,49 @@
     kundenZeichnen();
     zahlungenZeichnen();
     produkteZeichnen();
+  }
+
+  /* Fälle, die sonst niemand bemerkt, bis der Kunde schreibt. Der Discord-
+     Alarm der Edge Functions meldet sie im Moment, in dem sie entstehen —
+     hier stehen sie, solange sie offen sind.
+
+     Nur die letzten 30 Tage: Geladen werden höchstens 500 Lizenzen, und bei
+     älteren Bestellungen könnte der Schlüssel schlicht außerhalb davon
+     liegen. Das wäre ein Fehlalarm. */
+  function problemeZeichnen() {
+    var ziel = document.getElementById('probleme');
+    if (!ziel) return;
+
+    var produktNach = {};
+    daten.produkte.forEach(function (p) { produktNach[p.slug] = p; });
+
+    var mitLizenz = {};
+    daten.lizenzen.forEach(function (l) { if (l.order_id) mitLizenz[l.order_id] = true; });
+
+    var jetzt = Date.now();
+    var probleme = [];
+
+    daten.bestellungen.forEach(function (b) {
+      var alter = jetzt - new Date(b.created_at).getTime();
+      if (alter > 30 * 24 * 60 * 60 * 1000) return;
+
+      var p = produktNach[b.product_slug];
+      if (b.payment_status === 'paid' && p && p.license_type && !mitLizenz[b.id]) {
+        probleme.push('Bestellung #' + b.order_no + ' (' + b.product_name + ') ist bezahlt, ' +
+          'hat aber keinen Lizenzschlüssel. Vergib ihn unter „Lizenz vergeben“ mit Betrag 0.');
+      }
+      if (b.payment_status === 'pending' && alter > 60 * 60 * 1000) {
+        probleme.push('Bestellung #' + b.order_no + ' wartet seit ' + TT.datumZeit(b.created_at) +
+          ' auf die Bestätigung durch PayPal. Sieh in deinem PayPal-Konto nach.');
+      }
+    });
+
+    ziel.hidden = !probleme.length;
+    ziel.innerHTML = probleme.length
+      ? '<strong>Braucht deine Aufmerksamkeit</strong><ul>' +
+        probleme.map(function (t) { return '<li>' + TT.escape(t) + '</li>'; }).join('') +
+        '</ul>'
+      : '';
   }
 
   function kennzahlen() {
@@ -336,7 +380,10 @@
           '<span class="zeile-klein">' + TT.escape(TT.datumZeit(b.created_at)) + '</span></td>' +
         '<td>' + kundeText(b.user_id) + '</td>' +
         '<td>' + TT.escape(b.product_name) + '</td>' +
-        '<td>' + TT.escape(TT.geld(b.price, b.currency)) + '</td>' +
+        '<td>' + TT.escape(TT.geld(b.price, b.currency)) +
+          (b.coupon_code
+            ? '<br><span class="zeile-klein">Code ' + TT.escape(b.coupon_code) + '</span>'
+            : '') + '</td>' +
         '<td>' + statusPunkt(TT.zahlungStatus(b.payment_status)) + '</td>' +
         '<td class="mono klein">' +
           (b.payment_provider === 'paypal'
@@ -429,7 +476,11 @@
             : '<span class="muted">frei</span>') +
           '<br><span class="zeile-klein">' +
           (l.last_seen_at ? 'zuletzt ' + TT.escape(TT.datum(l.last_seen_at)) : 'nie benutzt') +
-          '</span></td>' +
+          '</span>' +
+          (l.hwid_reset_at
+            ? '<br><span class="zeile-klein">vom Kunden gelöst ' + TT.escape(TT.datum(l.hwid_reset_at)) + '</span>'
+            : '') +
+          '</td>' +
         '<td class="aktionen">' +
           '<button type="button" class="mini" data-tun="' + (l.revoked ? 'entsperren' : 'sperren') +
             '" data-key="' + TT.escape(l.key) + '">' +

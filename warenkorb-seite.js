@@ -248,7 +248,7 @@
     TT.melden('meldung', 'Paket aus dem Warenkorb entfernt.', 'ok');
   });
 
-  document.getElementById('code-form').addEventListener('submit', function (e) {
+  document.getElementById('code-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
     var feld = document.getElementById('code');
@@ -258,10 +258,19 @@
       return TT.melden('meldung', 'Bitte gib einen Rabattcode ein.', 'warn');
     }
 
-    var erg = korb.codeSetzen(eingabe);
+    // Die Datenbank prüft den Code — kurz den Knopf sperren, sonst schickt
+    // ein Doppelklick zwei Anfragen.
+    var knopf = e.target.querySelector('button[type="submit"]');
+    if (knopf) knopf.disabled = true;
+    var erg = await korb.codeSetzen(eingabe);
+    if (knopf) knopf.disabled = false;
+
     if (!erg.ok) {
       return TT.melden('meldung',
-        'Diesen Rabattcode kenne ich nicht. Prüfe bitte die Schreibweise.', 'error');
+        erg.grund === 'netz'
+          ? 'Der Rabattcode lässt sich gerade nicht prüfen. Versuch es in einem Moment noch einmal.'
+          : 'Diesen Rabattcode gibt es nicht oder er ist abgelaufen. Prüfe bitte die Schreibweise.',
+        'error');
     }
 
     feld.value = '';
@@ -321,6 +330,14 @@
           'Im Warenkorb hat sich etwas geändert — bitte sieh die Beträge noch ' +
           'einmal durch. Es gilt immer der Preis, der hier steht.', 'warn');
       }
+    }
+
+    // Ein eingelöster Code kann seitdem abgelaufen oder ausgeschöpft sein.
+    if (await korb.codeAbgleichen()) {
+      TT.melden('meldung',
+        korb.codeInfo()
+          ? 'Dein Rabattcode hat sich geändert — bitte sieh die Beträge noch einmal durch.'
+          : 'Dein Rabattcode gilt nicht mehr und wurde herausgenommen.', 'warn');
     }
 
     zeichnen();

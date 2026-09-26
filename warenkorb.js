@@ -46,32 +46,53 @@
   /* ====================================================================
      Rabattcodes
 
-     Stehen in konfig.js, damit sie an einer Stelle gepflegt werden. Sie sind
-     kein Geheimnis — ein Code, den Kunden eingeben sollen, ist das Gegenteil
-     davon. Entscheidend ist nur, dass die Edge Function paypal-create-order
-     dieselben Codes kennt: Dort fällt die Entscheidung über den Betrag, hier
-     wird er bloß angezeigt.
+     Kommen aus der Datenbank (Tabelle coupons) über rabatt_pruefen — dieselbe
+     Funktion, mit der die Edge Function paypal-create-order rechnet. Früher
+     standen die Codes zweimal im Code (konfig.js und Edge Function) und
+     mussten von Hand gleich gehalten werden.
+
+     Im Warenkorb liegt nur, was die Datenbank beim Einlösen gesagt hat:
+     { code, anzeige, prozent }. Das ist Anzeige. Ob der Code an der Kasse
+     noch gilt, entscheidet der Server dort erneut.
      ==================================================================== */
-  var CODES = (KONFIG.rabattCodes || [])
-    .map(function (r) {
-      var roh = String((r && r.code) || '').trim();
-      return {
-        code: roh.toUpperCase(),     // zum Vergleichen
-        anzeige: roh,                // zum Anzeigen, in der Schreibweise aus konfig.js
-        prozent: Number(r && r.prozent)
-      };
-    })
-    .filter(function (r) { return r.code && r.prozent > 0 && r.prozent < 100; });
 
-  /** Sucht die Beschreibung zu einem eingegebenen Code. Groß/klein ist egal. */
-  function codeFinden(text) {
-    var gesucht = String(text || '').trim().toUpperCase();
-    if (!gesucht) return null;
+  /** Bringt einen gespeicherten Code in eine verlässliche Form — oder null. */
+  function codeNormalisieren(c) {
+    // Ältere Warenkörbe speicherten nur den Text. Der fällt hier heraus; der
+    // Kunde gibt den Code dann einfach noch einmal ein.
+    if (!c || typeof c !== 'object') return null;
 
-    for (var i = 0; i < CODES.length; i++) {
-      if (CODES[i].code === gesucht) return CODES[i];
+    var code = String(c.code || '').trim().toUpperCase();
+    var prozent = Number(c.prozent);
+    if (!code || !(prozent > 0 && prozent < 100)) return null;
+
+    return { code: code, anzeige: String(c.anzeige || code), prozent: prozent };
+  }
+
+  /**
+   * Fragt die Datenbank, ob ein Code gerade gilt. Groß/klein ist egal.
+   *
+   * Drei Antworten: { info } für einen gültigen Code, { info: null } für
+   * "gibt es nicht / abgelaufen", { fehler: true }, wenn die Datenbank nicht
+   * antwortet. Das Letzte darf nicht wie ein falscher Code aussehen.
+   */
+  async function codePruefen(text) {
+    var gesucht = String(text || '').trim();
+    if (!gesucht) return { info: null };
+    if (!TT.db) return { fehler: true };
+
+    try {
+      var erg = await TT.db.rpc('rabatt_pruefen', { p_code: gesucht });
+      if (erg.error) {
+        console.error('Rabattcode prüfen:', erg.error);
+        return { fehler: true };
+      }
+      var zeile = Array.isArray(erg.data) ? erg.data[0] : erg.data;
+      return { info: codeNormalisieren(zeile) };
+    } catch (e) {
+      console.error('Rabattcode prüfen:', e);
+      return { fehler: true };
     }
-    return null;
   }
 
   /* ====================================================================
@@ -133,9 +154,7 @@
         return true;
       });
 
-    var code = codeFinden(d.code);
-
-    return { artikel: artikel, code: code ? code.code : '' };
+    return { artikel: artikel, code: codeNormalisieren(d.code) };
   }
 
   function lesen()  { return normalisieren(rohLesen()); }
@@ -176,7 +195,7 @@
   function rechnung(liste, code) {
     var daten = lesen();
     var posten = liste || daten.artikel;
-    var info = codeFinden(code === undefined ? daten.code : code);
+    var info = code === undefined ? daten.code : codeNormalisieren(code);
     var prozent = info ? info.prozent : 0;
 
     var zwischensumme = 0;
@@ -249,39 +268,66 @@
     daten.artikel = daten.artikel.filter(function (a) { return a.slug !== slug; });
 
     // Ein Rabattcode auf einem leeren Warenkorb verwirrt mehr, als er hilft.
-    if (!daten.artikel.length) daten.code = '';
+    if (!daten.artikel.length) daten.code = null;
 
     schreiben(daten);
   }
 
   function leeren() {
-    schreiben({ artikel: [], code: '' });
+    schreiben({ artikel: [], code: null });
   }
 
   /** Der aktive Code samt Prozentsatz — oder null. */
   function codeInfo() {
-    return codeFinden(lesen().code);
+    return lesen().code;
   }
 
   /**
-   * Code einlösen. Gibt zurück, ob er erkannt wurde; der Aufrufer sagt es dem
-   * Kunden. Ein unbekannter Code wird nicht gespeichert.
+   * Code einlösen. Fragt die Datenbank; der Aufrufer sagt dem Kunden, was
+   * herauskam. Ein unbekannter Code wird nicht gespeichert.
+   *
+   * grund: 'unbekannt' (gibt es nicht, abgelaufen, ausgeschöpft) oder
+   * 'netz' (Datenbank nicht erreichbar — nicht die Schuld des Kunden).
    */
-  function codeSetzen(text) {
-    var info = codeFinden(text);
-    if (!info) return { ok: false };
+  async function codeSetzen(text) {
+    var erg = await codePruefen(text);
+    if (erg.fehler) return { ok: false, grund: 'netz' };
+    if (!erg.info) return { ok: false, grund: 'unbekannt' };
 
     var daten = lesen();
-    daten.code = info.code;
+    daten.code = erg.info;
     schreiben(daten);
 
-    return { ok: true, code: info.code, anzeige: info.anzeige, prozent: info.prozent };
+    return { ok: true, code: erg.info.code, anzeige: erg.info.anzeige, prozent: erg.info.prozent };
   }
 
   function codeEntfernen() {
     var daten = lesen();
-    daten.code = '';
+    daten.code = null;
     schreiben(daten);
+  }
+
+  /**
+   * Prüft den gespeicherten Code noch einmal.
+   *
+   * Ein Code von letzter Woche kann inzwischen abgelaufen oder ausgeschöpft
+   * sein. Das soll der Warenkorb sagen und nicht erst die Kasse. Gibt true
+   * zurück, wenn der Code herausgenommen oder geändert wurde. Antwortet die
+   * Datenbank nicht, bleibt alles, wie es ist.
+   */
+  async function codeAbgleichen() {
+    var daten = lesen();
+    if (!daten.code) return false;
+
+    var erg = await codePruefen(daten.code.code);
+    if (erg.fehler) return false;
+
+    var vorher = JSON.stringify(daten.code);
+    daten.code = erg.info;
+    if (JSON.stringify(daten.code) === vorher) return false;
+
+    schreiben(daten);
+    return true;
   }
 
   /**
@@ -624,11 +670,10 @@
        Warenkorbs zeichnet, wartet darauf. */
     bereit:             bereit,
 
-    codes:         CODES,
-    codeInfo:      codeInfo,
-    codeFinden:    codeFinden,
-    codeSetzen:    codeSetzen,
-    codeEntfernen: codeEntfernen,
+    codeInfo:       codeInfo,
+    codeSetzen:     codeSetzen,
+    codeEntfernen:  codeEntfernen,
+    codeAbgleichen: codeAbgleichen,
 
     rechnung:      rechnung,
     rabattPreis:   rabattPreis,

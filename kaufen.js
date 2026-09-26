@@ -279,15 +279,16 @@
              PayPal gleich einziehen wird. Stimmt er nicht mit dem überein, was
              hier auf der Seite steht, wird nicht bezahlt.
 
-             Der Fall, für den das gebaut ist: Ein Rabattcode steht in
-             konfig.js, die Edge Function kennt ihn aber nicht — weil sie noch
-             nicht neu bereitgestellt wurde. Ohne diese Prüfung stünde auf der
-             Seite der Rabattpreis, abgebucht würde der volle. */
+             Gebaut für den Fall, dass Anzeige und Server auseinanderlaufen —
+             früher etwa, wenn ein Rabattcode nur in konfig.js stand. Seit die
+             Codes aus der Datenbank kommen, fragen beide dieselbe Funktion;
+             die Prüfung bleibt trotzdem, sie kostet nichts. Ohne sie stünde
+             auf der Seite der Rabattpreis, abgebucht würde der volle. */
           var serverPreis = Number(antwort.daten.product && antwort.daten.product.price);
 
           if (isFinite(serverPreis) && Math.abs(serverPreis - endpreis) > 0.005) {
             console.error('Betrag weicht ab — angezeigt:', endpreis, 'vom Server:', serverPreis,
-              '· Steht der Rabattcode auch in der Edge Function paypal-create-order?');
+              '· Ist paypal-create-order auf dem Stand von 08-pc-freigabe-und-rabatte.sql?');
 
             TT.melden('meldung',
               'Der Betrag stimmt nicht mit der Anzeige überein — es wurde nichts ' +

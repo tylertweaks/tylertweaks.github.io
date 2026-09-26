@@ -75,24 +75,12 @@ window.TT_KONFIG = {
   waehrung: 'EUR',
 
   /* ---- Rabattcodes -------------------------------------------------------
-     Der Kunde gibt den Code im Warenkorb ein, der Prozentsatz wird vom Preis
-     abgezogen. Groß- und Kleinschreibung ist egal: "tyler10" wirkt wie
-     "TYLER10".
-
-     Diese Liste hier ist nur die Anzeige. Verbindlich rechnet die Edge
-     Function paypal-create-order — sie führt dieselbe Liste in
-     backend/supabase/functions/paypal-create-order/index.ts (Konstante
-     RABATTE). Trägst du hier einen Code ein und dort nicht, bricht die Kasse
-     den Kauf mit einer Meldung ab, statt dem Kunden den vollen Preis
-     abzubuchen. Also immer beide Stellen ändern und die Function neu
-     bereitstellen.
-
-     Ein Rabattcode ist kein Geheimnis — er soll ja weitergegeben werden.
-     Deshalb darf er in dieser öffentlichen Datei stehen.
+     Stehen nicht mehr hier, sondern in der Datenbank (Tabelle coupons, siehe
+     backend/08-pc-freigabe-und-rabatte.sql im App-Repository). Warenkorb und
+     Kasse fragen dieselbe Funktion rabatt_pruefen — ein Code wirkt damit
+     sofort überall, ohne dass diese Datei oder eine Edge Function geändert
+     werden muss, und abgelaufene Codes verschwinden von selbst.
      ----------------------------------------------------------------------- */
-  rabattCodes: [
-    { code: 'Tyler10', prozent: 10 }
-  ],
 
   /* ---- Adresse der Seite ------------------------------------------------
      Wird für die Links in den Bestätigungs-Mails gebraucht. Beim Wechsel auf

@@ -78,7 +78,7 @@
         .order('created_at', { ascending: false }),
 
       db.from('licenses')
-        .select('id, key, type, expires_at, created_at, activated_at, revoked, hwid, product_slug, order_id')
+        .select('id, key, type, expires_at, created_at, activated_at, revoked, hwid, hwid_reset_at, product_slug, order_id')
         .order('created_at', { ascending: false }),
 
       db.from('products').select('slug, name, subtitle, is_download, is_service'),
@@ -491,6 +491,8 @@
       } else if (status.klasse === 'aus') {
         hinweis = '<p class="bestell-hinweis warn">Diese Lizenz ist abgelaufen. ' +
           'Die App lässt sich damit nicht mehr freischalten.</p>';
+      } else if (l.hwid) {
+        hinweis = pcFreigabe(l);
       }
 
       return '<article class="lizenz-karte' + (status.klasse === 'an' ? ' aktiv' : '') + '">' +
@@ -508,6 +510,80 @@
       '</article>';
     }).join('');
   }
+
+  /* ---- PC-Bindung selbst lösen -----------------------------------------
+     Neue SSD, geklonte Platte oder neuer PC: Die App meldet dann "an einen
+     anderen PC gebunden". Früher ging es nur über eine Nachricht an mich.
+     Jetzt löst der Kunde die Bindung selbst, einmal in 30 Tagen — das Limit
+     prüft die Datenbank (kunde_pc_freigeben), nicht diese Seite. */
+  var FREIGABE_ABSTAND_MS = 30 * 24 * 60 * 60 * 1000;
+
+  function naechsteFreigabe(l) {
+    if (!l.hwid_reset_at) return null;
+    var ab = new Date(new Date(l.hwid_reset_at).getTime() + FREIGABE_ABSTAND_MS);
+    return ab > new Date() ? ab : null;
+  }
+
+  function pcFreigabe(l) {
+    var ab = naechsteFreigabe(l);
+    if (ab) {
+      return '<p class="bestell-hinweis">Neuer PC? Die nächste Freigabe ist ab ' +
+        TT.escape(TT.datum(ab.toISOString())) + ' möglich. Eilt es, schreib mir auf Discord.</p>';
+    }
+
+    return '<div class="pc-freigabe">' +
+      '<button type="button" class="btn btn-outline btn-sm pc-freigeben" data-lizenz="' +
+        TT.escape(l.id) + '">PC-Bindung lösen</button>' +
+      '<p class="zeile-klein">Neuer PC oder neue Festplatte? Danach bindet sich der ' +
+        'Schlüssel beim nächsten Start an den Rechner, auf dem du ihn eingibst. ' +
+        'Geht einmal in 30 Tagen.</p>' +
+    '</div>';
+  }
+
+  var FREIGABE_FEHLER = {
+    zu_frueh: 'Die PC-Bindung wurde in den letzten 30 Tagen schon einmal gelöst. Eilt es, schreib mir auf Discord.',
+    revoked: 'Diese Lizenz ist gesperrt. Melde dich auf Discord, dann klären wir das.',
+    expired: 'Diese Lizenz ist abgelaufen.',
+    unknown_license: 'Diese Lizenz gehört nicht zu deinem Konto.',
+    not_authenticated: 'Bitte melde dich erneut an.'
+  };
+
+  document.addEventListener('click', async function (e) {
+    var knopf = e.target.closest('.pc-freigeben');
+    if (!knopf) return;
+
+    if (!confirm('PC-Bindung dieser Lizenz lösen?\n\n' +
+                 'Auf dem bisherigen PC meldet die App beim nächsten Start, dass der ' +
+                 'Schlüssel an einen anderen PC gebunden ist. Das geht nur einmal in 30 Tagen.')) return;
+
+    knopf.disabled = true;
+    var erg = await db.rpc('kunde_pc_freigeben', { p_license_id: knopf.dataset.lizenz });
+    knopf.disabled = false;
+
+    if (erg.error) {
+      console.error('PC freigeben:', erg.error);
+      return TT.melden('meldung',
+        'Das hat gerade nicht geklappt. Versuch es gleich noch einmal oder schreib mir auf Discord.', 'error');
+    }
+
+    var d = erg.data || {};
+    if (!d.ok) {
+      return TT.melden('meldung', FREIGABE_FEHLER[d.fehler] || FREIGABE_FEHLER.not_authenticated, 'error');
+    }
+
+    var lizenz = daten.lizenzen.find(function (x) { return x.id === knopf.dataset.lizenz; });
+    if (lizenz && !d.schon_frei) {
+      lizenz.hwid = null;
+      lizenz.hwid_reset_at = new Date().toISOString();
+    }
+    uebersichtFuellen();
+    produkteFuellen();
+    lizenzenFuellen();
+
+    TT.melden('meldung',
+      'Erledigt. Starte Tyler auf deinem neuen PC und gib den Schlüssel ein — ' +
+      'er bindet sich dann an diesen Rechner.', 'ok');
+  });
 
   /* Kopieren — ein Zuhörer für alle Schaltflächen */
   document.addEventListener('click', async function (e) {

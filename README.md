@@ -59,25 +59,26 @@ geht die Auswahl des vorigen nichts an. Zwei Laufzeiten derselben App schließen
 sich aus: Eine neue ersetzt die vorige, sonst lägen zwei Lizenzen für denselben
 PC darin.
 
-**Rabattcodes stehen an zwei Stellen, und beide müssen zusammenpassen:**
-
-| Stelle | Rolle |
-|---|---|
-| `konfig.js` → `rabattCodes` | Anzeige im Warenkorb |
-| `backend/supabase/functions/paypal-create-order/index.ts` → `RABATTE` | verbindliche Rechnung |
+**Rabattcodes stehen in der Datenbank**, Tabelle `coupons` (angelegt von
+`backend/08-pc-freigabe-und-rabatte.sql` im App-Repository). Warenkorb und
+Edge Function `paypal-create-order` fragen beide die Funktion `rabatt_pruefen` —
+es gibt also nur noch eine Stelle, und ein neuer Code braucht weder eine
+Änderung an dieser Website noch ein neues Bereitstellen.
 
 Eingerichtet ist **`Tyler10` mit 10 %** (Groß- und Kleinschreibung egal).
+Einen Code anlegen oder abschalten, im Supabase-SQL-Editor:
 
-Einen neuen Code trägst du an beiden Stellen ein und stellst die Function neu
-bereit:
+```sql
+insert into coupons (code, anzeige, prozent, gueltig_bis, max_nutzungen, notiz)
+values ('SOMMER20', 'Sommer20', 20, '2026-12-31', 50, 'TikTok-Aktion');
 
-```bash
-supabase functions deploy paypal-create-order
+update coupons set aktiv = false where code = 'SOMMER20';
 ```
 
-Vergisst du das, passiert nichts Schlimmes: Die Kasse vergleicht den Betrag vom
-Server mit dem angezeigten und bricht bei einer Abweichung ab — der Kunde
-bezahlt nie mehr, als im Warenkorb stand.
+Abgelaufene oder ausgeschöpfte Codes nimmt der Warenkorb beim nächsten Öffnen
+von selbst heraus. Die Kasse vergleicht außerdem den Betrag vom Server mit dem
+angezeigten und bricht bei einer Abweichung ab — der Kunde bezahlt nie mehr,
+als im Warenkorb stand.
 
 Im Übergangsbetrieb (siehe unten) steht der Rabatt bereits im
 paypal.me-Betrag. Dort bestimmt der Browser die Summe; die Gegenprobe ist der
