@@ -61,7 +61,7 @@ window.TT_KONFIG = {
   paypalMe: 'https://paypal.me/Tyler971377',
 
   /* ---- Verkauf pausieren -------------------------------------------------
-     false: Es wird nichts verkauft, egal welcher Kaufweg eingerichtet ist.
+     true: Es wird nichts verkauft, egal welcher Kaufweg eingerichtet ist.
      Preise bleiben sichtbar, die Kaufknöpfe stehen auf "Bald erhältlich",
      Warenkorb und Kasse nehmen keine Zahlung an.
 
