@@ -410,6 +410,8 @@
       '<p style="margin:0 0 10px">Zahl <strong>' + TT.escape(TT.geld(b.price, b.currency)) +
         '</strong> über PayPal als <strong>„Waren und Dienstleistungen“</strong> und schreib ' +
         'als Mitteilung <strong>„Bestellung #' + TT.escape(b.order_no) + '“</strong> dazu. ' +
+        'Als Empfänger zeigt PayPal den Namen, auf den das Konto läuft, nicht „Tyler Tweaks“ — ' +
+        'das ist richtig so, die Bestellnummer ordnet deine Zahlung zu. ' +
         'Sobald das Geld da ist, kommen Lizenzschlüssel und Rechnung per E-Mail.</p>' +
       (link
         ? '<a class="btn btn-primary btn-sm" href="' + TT.escape(link) + '" target="_blank" rel="noopener">' +
