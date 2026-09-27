@@ -419,9 +419,7 @@
   }
 
   function bestellKarte(b) {
-    var status = privatOffen(b)
-      ? { text: 'Wartet auf Zahlung', klasse: 'warten' }
-      : TT.zahlungStatus(b.payment_status);
+    var status = TT.zahlungStatus(b.payment_status, b.payment_provider);
 
     return '<article class="bestell-karte">' +
       '<div class="bestell-kopf">' +

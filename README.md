@@ -80,9 +80,9 @@ von selbst heraus. Die Kasse vergleicht außerdem den Betrag vom Server mit dem
 angezeigten und bricht bei einer Abweichung ab — der Kunde bezahlt nie mehr,
 als im Warenkorb stand.
 
-Im Übergangsbetrieb (siehe unten) steht der Rabatt bereits im
-paypal.me-Betrag. Dort bestimmt der Browser die Summe; die Gegenprobe ist der
-Blick auf den Zahlungseingang, bevor du den Schlüssel von Hand herausgibst.
+Beim Kauf über paypal.me (siehe unten) rechnet ebenfalls der Server: Die Edge
+Function `paypal-privat-bestellung` legt die Bestellung mit Preis und Rabatt
+aus der Datenbank an, und genau dieser Betrag steht im paypal.me-Link.
 
 ## Verkauf pausiert
 
@@ -100,33 +100,41 @@ Schalter auf `false` setzen. Danach gilt wieder, was unten steht.
 
 ## Zwei Kaufwege — die Seite wählt selbst
 
-Die Preisseite prüft beim Laden, ob der automatische Shop bereitsteht. Dafür
-müssen **beide** Bedingungen erfüllt sein:
-
-1. `paypalClientId` in `konfig.js` ist gesetzt
-2. die Tabelle `products` in Supabase ist erreichbar
+Der Warenkorb prüft beim Laden, ob der automatische Shop läuft
+(`TT.korb.shopPruefen` in `warenkorb.js`). Dafür muss `paypalClientId` gesetzt
+sein, `paypalUmgebung` auf `'live'` stehen (oder `?shoptest=1` in der Adresse)
+und die Tabelle `products` antworten.
 
 | Zustand | Was der Kunde sieht |
 |---|---|
-| beides erfüllt | Warenkorb → `kaufen.html`, Schlüssel entsteht automatisch |
-| noch nicht | Warenkorb → `paypal.me` mit der Gesamtsumme, Schlüssel per Discord |
+| automatischer Shop läuft | Warenkorb → `kaufen.html`, Schlüssel entsteht sofort |
+| sonst | Warenkorb → Bestellnummer → Zahlung über `paypal.me` → du bestätigst → Schlüssel und Rechnung per E-Mail |
 
-Der Knopf auf der Preiskarte ist in beiden Fällen derselbe („In den
-Warenkorb“). Es unterscheidet sich nur, wohin der Kaufknopf **im Warenkorb**
-führt.
+**Aktuell greift der zweite Fall** (Stand 27.09.2026): Für Live-Zugangsdaten
+verlangt PayPal ein Business-Konto. Der automatische Shop ist in der Sandbox
+fertig eingerichtet und getestet — mit `?shoptest=1` kannst du ihn als Admin
+ausprobieren.
 
-**Aktuell greift der zweite Fall**, weil `paypalClientId` in `konfig.js` leer
-ist. Der gesamte serverseitig abgesicherte Weg ist fertig gebaut, aber
-abgeschaltet.
+### Kauf über paypal.me — so läuft es
 
-Im zweiten Fall blendet die Seite zusätzlich einen Hinweis über den Preisen ein
-und schreibt den Kaufablauf (Schritt 1, 3 und 4) auf den manuellen Weg um —
-sonst würde sie sich selbst widersprechen.
+1. Der Kunde bestätigt im Warenkorb AGB und Rücktrittsverzicht und klickt
+   „Jetzt bestellen“. Die Edge Function `paypal-privat-bestellung` legt die
+   Bestellung an (`paypal_privat`, offen) und meldet sie dir auf Discord.
+2. Der Kunde sieht Bestellnummer, Betrag und den paypal.me-Link. Er zahlt als
+   „Waren und Dienstleistungen“ mit „Bestellung #…“ als Mitteilung. Die
+   Anleitung steht auch in seinem Kundenkonto, falls er später zahlt.
+3. Du siehst das Geld in PayPal. In der Verwaltung steht die Bestellung oben
+   im Hinweiskasten; unter **Bestellungen** klickst du **Zahlung erhalten** —
+   vorher Betrag und Mitteilung vergleichen.
+4. Der Schlüssel entsteht, der Kunde bekommt Rechnung und Schlüssel per E-Mail
+   und sieht beides im Kundenkonto.
 
-Du musst dafür nichts umstellen. Sobald du die Einrichtung abschließt,
-verschwindet der Rückfall von allein. Willst du ihn gar nicht, setze `paypalMe`
-in `konfig.js` auf einen leeren Text — dann steht dort ehrlich „gerade nicht
-möglich“ statt eines Knopfs ins Leere.
+Kommt keine Zahlung: **Stornieren**. Erstattest du in PayPal: **Erstattet** —
+das sperrt die Lizenz. Die Datenbankseite steht in
+`backend/09-paypal-privat.sql` im App-Repository.
+
+Willst du den paypal.me-Weg gar nicht, setze `paypalMe` in `konfig.js` auf
+einen leeren Text — dann steht dort ehrlich „gerade nicht möglich“.
 
 ## Wie der Kauf abläuft (nach der Einrichtung)
 

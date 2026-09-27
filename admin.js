@@ -395,7 +395,7 @@
           (b.coupon_code
             ? '<br><span class="zeile-klein">Code ' + TT.escape(b.coupon_code) + '</span>'
             : '') + '</td>' +
-        '<td>' + statusPunkt(TT.zahlungStatus(b.payment_status)) + '</td>' +
+        '<td>' + statusPunkt(TT.zahlungStatus(b.payment_status, b.payment_provider)) + '</td>' +
         '<td class="mono klein">' +
           (b.payment_provider === 'paypal'
             ? TT.escape(b.paypal_order_id || '—')

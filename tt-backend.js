@@ -442,7 +442,11 @@ window.TT = (function () {
     refunded:  { text: 'Erstattet',           klasse: 'aus' }
   };
 
-  function zahlungStatus(status) {
+  function zahlungStatus(status, provider) {
+    // Über paypal.me prüft nicht PayPal, sondern es fehlt noch das Geld.
+    if (status === 'pending' && provider === 'paypal_privat') {
+      return { text: 'Wartet auf Zahlung', klasse: 'warten' };
+    }
     return ZAHLUNG[status] || { text: status || '—', klasse: 'aus' };
   }
 

@@ -331,9 +331,13 @@
        also nicht an. */
     if (testmodus) {
       document.getElementById('kasse-hinweis').insertAdjacentHTML('afterbegin',
-        '<strong>Testmodus:</strong> Nur du als Admin siehst diesen Knopf. An dein ' +
-        'eigenes PayPal-Konto kannst du nicht zahlen — zum Ausprobieren reicht es, ' +
-        'bis zur PayPal-Seite zu gehen. ');
+        privatModus
+          ? '<strong>Testmodus:</strong> Nur du als Admin siehst diesen Knopf. „Jetzt ' +
+            'bestellen“ legt eine echte offene Bestellung an und meldet sie auf Discord — ' +
+            'storniere sie danach in der Verwaltung. '
+          : '<strong>Testmodus:</strong> Nur du als Admin siehst diesen Knopf. An dein ' +
+            'eigenes PayPal-Konto kannst du nicht zahlen — zum Ausprobieren reicht es, ' +
+            'bis zur PayPal-Seite zu gehen. ');
     }
   }
 
