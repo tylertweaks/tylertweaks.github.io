@@ -4173,7 +4173,48 @@ body { counter-reset: abschnitt; }
   .cta-karte { border-radius: 16px; }
 }
 
+/* ---------- Die App im Hero ----------
+   Die echte Aufnahme groß unter den Knöpfen — wer zum ersten Mal kommt, soll
+   sehen, was er kauft. Unten läuft das Bild selbst aus (Transparenz im PNG),
+   deshalb kein Rahmen und kein box-shadow: beide zeichneten eine harte Kante
+   um den durchsichtigen Teil. drop-shadow folgt dagegen der Transparenz.
+   Die leichte Neigung wirkt wie ein Bildschirm, auf den man schaut; am Handy
+   fällt sie weg, dort zählt jeder Pixel Breite. */
+.hero-bild {
+  position: relative;
+  max-width: 1080px;
+  margin: 50px auto 0;
+  perspective: 2000px;
+}
+.hero-bild::before {
+  content: '';
+  position: absolute;
+  inset: 4% 10% 24%;
+  background: radial-gradient(closest-side, rgba(var(--accent-rgb), .45), transparent);
+  filter: blur(48px);
+  pointer-events: none;
+}
+.hero-bild img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px 14px 0 0;
+  transform: rotateX(7deg);
+  transform-origin: 50% 0;
+  filter:
+    drop-shadow(0 0 1px rgba(var(--accent-rgb), .55))
+    drop-shadow(0 26px 60px rgba(0, 0, 0, .55));
+}
+.hero-bild + .hero-zahlen { margin-top: 18px; }
+
+@media (max-width: 680px) {
+  .hero-bild { margin-top: 34px; perspective: none; }
+  .hero-bild img { transform: none; border-radius: 10px 10px 0 0; }
+  .hero-bild::before { filter: blur(30px); }
+}
+
 @media print {
-  .hero-marke, .hero-zahlen, .weg-grid::before, .weg-grid::after,
+  .hero-marke, .hero-bild, .hero-zahlen, .weg-grid::before, .weg-grid::after,
   .plan-featured::before, .cta-karte::after, .footer::before { display: none !important; }
 }

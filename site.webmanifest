@@ -1,0 +1,16 @@
+{
+  "name": "Tyler Tweaks",
+  "short_name": "Tyler Tweaks",
+  "description": "Tweak App und PC-Optimierung für Gaming — jede Änderung erklärt, gesichert und rückgängig zu machen.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "lang": "de",
+  "background_color": "#05070c",
+  "theme_color": "#05070c",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

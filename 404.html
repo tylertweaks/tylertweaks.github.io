@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Dieselbe Sicherheitsrichtlinie wie auf allen Seiten (siehe index.html). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'">
+<title>Seite nicht gefunden — Tyler Tweaks</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#05070c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- GitHub Pages liefert diese Datei für JEDE unbekannte Adresse aus, auch
+     für /irgendwas/tief/drin. Deshalb stehen hier alle Pfade absolut (mit
+     führendem /) — relativ würden Schrift und Stil unter solchen Adressen
+     nicht gefunden. -->
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=2.8.1-5">
+<style>
+  .nf { min-height: calc(100vh - 160px); display: flex; align-items: center; }
+  .nf .wrap { text-align: center; padding-top: 40px; padding-bottom: 60px; }
+  .nf-code {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-family: var(--font-mono);
+    font-size: clamp(4rem, 14vw, 7.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .04em;
+    color: #fff;
+    text-shadow: 0 0 36px rgba(var(--accent-rgb), .55);
+  }
+  .nf h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0 0 12px; }
+  .nf p { color: var(--text-2); max-width: 520px; margin: 0 auto 28px; }
+  .nf-wege { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav" data-immer="ja">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <img src="/favicon.svg" alt="" width="36" height="36">
+      <span>Tyler <strong>Tweaks</strong></span>
+    </a>
+  </div>
+</header>
+
+<main id="inhalt" class="nf">
+  <div class="wrap wrap-narrow">
+    <span class="nf-code" aria-hidden="true">404</span>
+    <h1>Diese Seite gibt es nicht</h1>
+    <p>
+      Vielleicht ein Tippfehler in der Adresse, oder die Seite ist umgezogen.
+      Hier geht es weiter:
+    </p>
+    <div class="nf-wege">
+      <a href="/" class="btn btn-primary btn-lg">Zur Startseite</a>
+      <a href="/tweaks.html" class="btn btn-outline btn-lg">Alle Tweaks</a>
+      <a href="/#preise" class="btn btn-outline btn-lg">Preise</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="rechtslinks">
+      <a href="/impressum.html">Impressum</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="/agb.html">AGB</a>
+    </p>
+    <p class="copy">© 2026 Tyler Tweaks</p>
+  </div>
+</footer>
+
+</body>
+</html>

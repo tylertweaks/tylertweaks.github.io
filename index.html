@@ -33,7 +33,9 @@
 <!-- Symbol für Tab und Lesezeichen. SVG zuerst, weil es in jeder Größe
      scharf bleibt; ältere Browser holen sich automatisch /favicon.ico. -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
@@ -82,6 +84,11 @@
      Bewertungen, und erfundene waeren nicht nur unehrlich, sondern ein
      Verstoss gegen Googles Richtlinien.
 
+     Organization und WebSite sagen Google, wie die Marke heißt und was zu
+     ihr gehört (sameAs). Das hilft, bei der Suche nach "Tyler Tweaks" als
+     die offizielle Seite erkannt zu werden — und nicht hinter Namens-
+     vettern zu landen. Neue Profile (TikTok, YouTube …) gehören in sameAs.
+
      Das steht in einem <script type="application/ld+json">. Die
      Sicherheitsrichtlinie oben blockiert das nicht: script-src gilt fuer
      ausfuehrbaren Code, JSON-LD wird nur als Daten gelesen.
@@ -91,8 +98,26 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://tylertweaks.github.io/#marke",
+      "name": "Tyler Tweaks",
+      "alternateName": ["TylerTweaks", "Tyler Tweaks App"],
+      "url": "https://tylertweaks.github.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tylertweaks.github.io/icon-192.png",
+        "width": 192,
+        "height": 192
+      },
+      "email": "tylertweaks@gmail.com",
+      "sameAs": [
+        "https://discord.gg/guxGg2wHAW"
+      ]
+    },
+    {
       "@type": "SoftwareApplication",
       "name": "Tyler Tweaks",
+      "publisher": { "@id": "https://tylertweaks.github.io/#marke" },
       "applicationCategory": "UtilitiesApplication",
       "applicationSubCategory": "System-Optimierung",
       "operatingSystem": "Windows 10, Windows 11",
@@ -112,9 +137,12 @@
     },
     {
       "@type": "WebSite",
+      "@id": "https://tylertweaks.github.io/#seite",
       "name": "Tyler Tweaks",
+      "alternateName": ["TylerTweaks", "Tyler Tweaks — Tweak App"],
       "url": "https://tylertweaks.github.io/",
-      "inLanguage": "de"
+      "inLanguage": "de",
+      "publisher": { "@id": "https://tylertweaks.github.io/#marke" }
     }
   ]
 }
@@ -123,9 +151,9 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.8.1-4">
-<link rel="stylesheet" href="tweak-zeile.css?v=2.8.1-4">
-<link rel="stylesheet" href="mockup.css?v=2.8.1-4">
+<link rel="stylesheet" href="style.css?v=2.8.1-5">
+<link rel="stylesheet" href="tweak-zeile.css?v=2.8.1-5">
+<link rel="stylesheet" href="mockup.css?v=2.8.1-5">
 </head>
 <body>
 
@@ -169,12 +197,6 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap hero-inner">
 
-    <!-- Die Marke als App-Kachel: dasselbe Logo wie in der Navigation, nur groß.
-         favicon.svg ist ein Vektor und bleibt in jeder Auflösung scharf. -->
-    <div class="hero-marke" aria-hidden="true">
-      <img src="favicon.svg" alt="" width="118" height="118">
-    </div>
-
     <span class="pill"><span class="dot" aria-hidden="true"></span> Tweak App · PC-Optimierung · Windows 10 &amp; 11</span>
 
     <h1>Mehr FPS. Weniger Input-Lag.<br><span class="grad">Mehr Kontrolle.</span></h1>
@@ -202,6 +224,18 @@
       Lifetime für <span data-preis-laufzeit="app-lifetime">49,99 €</span> ·
       Einmalzahlung, kein Abo
     </p>
+
+    <!-- Die App selbst, groß und gleich beim Öffnen im Bild. Früher stand hier
+         das Logo als Kachel — das steht aber schon in der Navigation, und wer
+         zum ersten Mal kommt, will sehen, was er kauft. Echte Aufnahme aus
+         Tyler 2.8.1 (Vorschau-Build, per PrintWindow), unten ausgeblendet:
+         Die Liste gehört in die App, auf die Seite gehört der Eindruck.
+         Kein loading="lazy" — das Bild steht oben und soll sofort laden. -->
+    <figure class="hero-bild">
+      <img src="bilder/app-tweaks.png" width="1400" height="790"
+           fetchpriority="high" decoding="async"
+           alt="Die Tweak App: links die Kategorien mit Zählern, rechts Suche, Filter nach Risiko und Kategorie und die Tweaks mit Erklärung und Schalter.">
+    </figure>
 
     <!-- Kennzahlen. Keine davon steht hier fest: Die Anzahlen setzt tweaks.js
          aus tweaks.json, die Version kommt aus konfig.js. data-zaehlen lässt
@@ -326,9 +360,9 @@
         <!-- ---- Ansicht 1: Übersicht ---- -->
         <div class="shot-panel" role="tabpanel" id="panel-uebersicht" aria-labelledby="tab-uebersicht" tabindex="0">
           <figure class="shot">
-            <img src="bilder/app-uebersicht.png" width="1160" height="800"
+            <img src="bilder/app-uebersicht.png" width="1400" height="900"
                  loading="lazy" decoding="async"
-                 alt="Übersichtsseite der Tweak App im blau-schwarzen Design: erkannte Hardware, 191 von 275 Tweaks aktiv und die Aufteilung nach Risiko.">
+                 alt="Übersichtsseite der Tweak App 2.8.1 im blau-schwarzen Design: erkannte Hardware, 218 von 275 Tweaks aktiv und die Aufteilung nach Risiko.">
           </figure>
           <p class="shot-caption">Übersicht: erkannte Hardware, wie viele Tweaks gerade aktiv sind und die Live-Auslastung. Auf dieser Seite wird nichts verändert.</p>
         </div>
@@ -338,7 +372,7 @@
                   Seite, die Liste selbst in die App. ---- -->
         <div class="shot-panel" role="tabpanel" id="panel-tweaks" aria-labelledby="tab-tweaks" tabindex="0" hidden>
           <figure class="shot">
-            <img src="bilder/app-tweaks.png" width="1160" height="640"
+            <img src="bilder/app-tweaks.png" width="1400" height="790"
                  loading="lazy" decoding="async"
                  alt="Tweak-Liste der App: links die Kategorien mit Zählern, rechts Suchfeld, Filter nach Risiko und Kategorie und die ersten Einträge mit Erklärung und Schalter.">
           </figure>
@@ -1428,10 +1462,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.8.1-4"></script>
-<script src="tt-backend.js?v=2.8.1-4"></script>
-<script src="warenkorb.js?v=2.8.1-4"></script>
-<script src="tweaks.js?v=2.8.1-4"></script>
-<script src="script.js?v=2.8.1-4"></script>
+<script src="konfig.js?v=2.8.1-5"></script>
+<script src="tt-backend.js?v=2.8.1-5"></script>
+<script src="warenkorb.js?v=2.8.1-5"></script>
+<script src="tweaks.js?v=2.8.1-5"></script>
+<script src="script.js?v=2.8.1-5"></script>
 </body>
 </html>
