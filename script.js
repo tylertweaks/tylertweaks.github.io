@@ -566,9 +566,11 @@
      damit nirgends ein falscher Preis stehen bleibt.
      ==================================================================== */
   /**
-   * Schreibt die Preisseite auf den Übergangsweg um: Bezahlt wird direkt über
-   * paypal.me, den Schlüssel gibt es per Discord. Wird aufgerufen, wenn der
-   * automatische Shop (noch) nicht bereitsteht.
+   * Schreibt die Preisseite auf den Übergangsweg um: Bestellt wird im
+   * Warenkorb, bezahlt über paypal.me mit der Bestellnummer als Mitteilung,
+   * und den Schlüssel gibt es, sobald du die Zahlung in der Verwaltung
+   * bestätigst. Wird aufgerufen, wenn der automatische Shop (noch) nicht
+   * bereitsteht.
    *
    * Welcher der beiden Wege gilt, entscheidet der Warenkorb — dort steht der
    * Kaufknopf. Hier werden nur die Texte ringsum nachgezogen.
@@ -602,11 +604,11 @@
 
     var faq = document.getElementById('faq-nach-kauf');
     if (faq) {
-      faq.innerHTML = 'Du bezahlst über PayPal und sagst mir kurz Bescheid — auf Discord ' +
-        'oder per E-Mail, mit dem Namen, unter dem du bezahlt hast. Sobald die Zahlung da ' +
-        'ist, schalte ich deine Lizenz frei, meist innerhalb weniger Stunden. ' +
-        'Lizenzschlüssel und Rechnung bekommst du per E-Mail, und beides liegt ab dann ' +
-        'dauerhaft in deinem <a href="konto.html">Kundenbereich</a>.';
+      faq.innerHTML = 'Du bestellst im Warenkorb und bekommst eine Bestellnummer. Dann ' +
+        'zahlst du über PayPal und gibst die Nummer als Mitteilung an — mehr musst du ' +
+        'nicht tun. Sobald die Zahlung da ist, meist innerhalb weniger Stunden, kommen ' +
+        'Lizenzschlüssel und Rechnung per E-Mail, und beides liegt ab dann dauerhaft in ' +
+        'deinem <a href="konto.html">Kundenbereich</a>.';
     }
 
     var hinweis = document.getElementById('uebergangs-hinweis');
@@ -635,11 +637,11 @@
       '1-titel': 'Paket auswählen',
       '1-text':  'Du legst eine Laufzeit, die Optimierung oder beides im Bundle in den ' +
                  'Warenkorb. Einen Rabattcode gibst du dort ein.',
-      '2-text':  'Im Warenkorb zahlst du über PayPal — bitte als „Waren und ' +
-                 'Dienstleistungen“, nur dann gilt der Käuferschutz. Deine Zahlungsdaten sehe ich nie.',
-      '3-titel': 'Kurz Bescheid sagen',
-      '3-text':  'Schreib mir auf Discord oder per E-Mail, unter welchem Namen du bezahlt ' +
-                 'hast. Ich gleiche die Zahlung ab und schalte deine Lizenz frei.',
+      '2-text':  'Im Warenkorb bestellst du und bekommst eine Bestellnummer. Deine ' +
+                 'Zahlungsdaten sehe ich nie.',
+      '3-titel': 'Über PayPal bezahlen',
+      '3-text':  'Als „Waren und Dienstleistungen“ — nur dann gilt der Käuferschutz — und mit ' +
+                 'der Bestellnummer als Mitteilung. Daran erkenne ich deine Zahlung.',
       '4-titel': 'Schlüssel & Rechnung per E-Mail',
       '4-text':  'Lizenzschlüssel und Rechnung kommen per E-Mail und liegen mit dem Download ' +
                  'in deinem Kundenbereich. Beim ersten Start der App gibst du den Schlüssel ein — fertig.'

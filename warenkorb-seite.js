@@ -36,18 +36,17 @@
   var verkaufZu = !!KONFIG.verkaufPausiert;
   var testmodus = false;
 
+  /* Kauf über das private PayPal-Konto (paypal.me): Der Knopf legt erst die
+     Bestellung an (Edge Function paypal-privat-bestellung), danach zeigt die
+     Seite die Zahlungsanleitung mit Bestellnummer. privatModus sagt, ob der
+     Knopf gerade diesen Weg meint; privatFertig, ob die Anleitung steht. */
+  var privatModus = false;
+  var privatFertig = false;
+  var bestellungLaeuft = false;
+
   /* ====================================================================
      Darstellung
      ==================================================================== */
-
-  /** paypal.me erwartet den Betrag ohne Komma: 15EUR, 8.99EUR */
-  function paypalMeLink(betrag) {
-    var basis = String(KONFIG.paypalMe || '').replace(/\/+$/, '');
-    var zahl = Number(betrag);
-    if (!basis || !isFinite(zahl) || zahl <= 0) return null;
-
-    return basis + '/' + (zahl % 1 === 0 ? String(zahl) : zahl.toFixed(2)) + 'EUR';
-  }
 
   function zeilePreis(artikel, rechnung) {
     return korb.rabattPreis(artikel.preis, rechnung.prozent);
@@ -127,6 +126,11 @@
     knopf.classList.remove('ist-aus');
     knopf.removeAttribute('aria-disabled');
 
+    // Die Zustimmung gehört nur zum paypal.me-Weg; jeder andere Zweig lässt
+    // sie verschwinden.
+    privatModus = false;
+    document.getElementById('privat-zustimmung').hidden = true;
+
     // verkaufPausiert in konfig.js: kein Kaufweg, auch nicht über die Anmeldung.
     if (verkaufZu) {
       knopf.removeAttribute('href');
@@ -171,8 +175,8 @@
       return;
     }
 
-    /* ---- Übergangsweg: direkt an paypal.me --------------------------- */
-    var link = paypalMeLink(rechnung.gesamt);
+    /* ---- Übergangsweg: privates PayPal-Konto über paypal.me ---------- */
+    var link = TT.paypalMeLink(rechnung.gesamt);
 
     if (!link) {
       // Kein paypal.me eingetragen und der automatische Shop läuft nicht:
@@ -188,25 +192,128 @@
       return;
     }
 
-    knopf.href = link;
-    knopf.target = '_blank';
-    knopf.rel = 'noopener';
-    knopf.textContent = 'Für ' + TT.geld(rechnung.gesamt, rechnung.waehrung) + ' über PayPal zahlen';
+    /* Der Knopf führt nicht mehr direkt zu PayPal, sondern legt zuerst die
+       Bestellung an (siehe bestellenPrivat). Erst danach gibt es den
+       paypal.me-Link — zusammen mit der Bestellnummer, die der Kunde als
+       Mitteilung angibt. So findest du seine Zahlung, ohne dass er dir
+       schreiben muss. */
+    privatModus = true;
+
+    var zustimmung = document.getElementById('privat-zustimmung');
+    zustimmung.hidden = false;
+
+    /* Der Verzicht auf das Rücktrittsrecht betrifft nur digitale Inhalte.
+       Liegt allein die PC-Optimierung im Korb — eine Dienstleistung —, wäre
+       der Satz falsch. Der Warenkorb kennt nur die Kurznamen; "optimierung"
+       ist das einzige Paket ohne Lizenzschlüssel. */
+    document.getElementById('privat-digital').hidden =
+      artikel.every(function (a) { return a.slug === 'optimierung'; });
+
+    var zugestimmt = document.getElementById('privat-haken').checked;
+
+    knopf.href = '#';
+    knopf.removeAttribute('target');
+    knopf.removeAttribute('rel');
+    knopf.textContent = 'Jetzt bestellen · ' + TT.geld(rechnung.gesamt, rechnung.waehrung);
+    knopf.classList.toggle('ist-aus', !zugestimmt);
+    knopf.setAttribute('aria-disabled', zugestimmt ? 'false' : 'true');
 
     hinweis.innerHTML =
-      'Wähle bei PayPal <strong>„Waren und Dienstleistungen“</strong> — nur dann gilt ' +
-      'der Käuferschutz. Nach der Zahlung schreib mir kurz auf Discord ' +
-      '<strong class="discord-name"></strong> oder an <a class="kontakt-email"></a>, ' +
-      'unter welchem Namen du bezahlt hast. Sobald die Zahlung da ist, schalte ich ' +
-      'dich frei; Lizenzschlüssel und Rechnung kommen per E-Mail, meist innerhalb ' +
-      'weniger Stunden.' +
+      'Du bekommst eine Bestellnummer und zahlst danach über PayPal ' +
+      '(als <strong>„Waren und Dienstleistungen“</strong> — nur dann gilt der ' +
+      'Käuferschutz). Sobald das Geld da ist, kommen Lizenzschlüssel und Rechnung ' +
+      'automatisch per E-Mail, meist innerhalb weniger Stunden.' +
       (rechnung.prozent
-        ? ' Der Rabatt ist im Betrag oben schon abgezogen.'
+        ? ' Der Rabatt ist im Betrag schon abgezogen.'
         : '');
-    TT.grundgeruest(); // Discord-Namen und E-Mail in den neuen Text einsetzen
+  }
+
+  /**
+   * Legt die Bestellung für den Kauf über paypal.me an und zeigt danach die
+   * Zahlungsanleitung. Preis und Rabatt rechnet der Server; der Warenkorb
+   * wird erst geleert, wenn die Bestellung wirklich steht.
+   */
+  async function bestellenPrivat() {
+    if (bestellungLaeuft) return;
+
+    var haken = document.getElementById('privat-haken');
+    if (!haken.checked) {
+      TT.melden('meldung', 'Bitte bestätige zuerst AGB und Rücktrittsbelehrung.', 'warn');
+      haken.focus();
+      return;
+    }
+
+    var artikel = korb.artikel();
+    if (!artikel.length) return;
+
+    var knopf = document.getElementById('zur-kasse');
+    var alt = knopf.textContent;
+    bestellungLaeuft = true;
+    knopf.textContent = 'Bestellung wird angelegt …';
+    knopf.classList.add('ist-aus');
+    TT.melden('meldung', '');
+
+    var code = korb.codeInfo();
+    var antwort = await TT.funktion('paypal-privat-bestellung', {
+      product_slugs: artikel.map(function (a) { return a.slug; }),
+      coupon_code: code ? code.code : ''
+    });
+
+    bestellungLaeuft = false;
+
+    if (!antwort.ok || !antwort.daten || !antwort.daten.bestellungen) {
+      knopf.textContent = alt;
+      knopf.classList.remove('ist-aus');
+      return TT.melden('meldung', antwort.fehler || TT.fehlerText('server_error'), 'error');
+    }
+
+    var d = antwort.daten;
+
+    /* Gegenprobe wie auf kaufen.html. Hier wird noch nicht bezahlt, deshalb
+       kein Abbruch: Verbindlich ist der Betrag vom Server, und genau der steht
+       gleich im PayPal-Link. Der Kunde soll aber sehen, dass er sich geändert
+       hat, statt es erst bei PayPal zu bemerken. */
+    var angezeigt = korb.rechnung(artikel).gesamt;
+    var abweichung = Math.abs(Number(d.summe) - angezeigt) > 0.005;
+
+    privatFertig = true;
+    korb.leeren();
+    fertigZeigen(d);
+
+    if (abweichung) {
+      TT.melden('meldung',
+        'Der Betrag wurde neu berechnet: ' + TT.geld(d.summe, d.waehrung) + ' statt ' +
+        TT.geld(angezeigt, d.waehrung) + '. Bitte zahl den Betrag, der jetzt hier steht.', 'warn');
+    }
+  }
+
+  function fertigZeigen(d) {
+    var nummern = d.bestellungen.map(function (b) { return '#' + b.order_no; }).join(', ');
+
+    document.getElementById('pf-nummer').textContent = nummern;
+    document.getElementById('pf-betrag').textContent = TT.geld(d.summe, d.waehrung);
+    document.getElementById('pf-mitteilung').textContent = '„Bestellung ' + nummern + '“';
+
+    var zahlen = document.getElementById('pf-zahlen');
+    var link = TT.paypalMeLink(d.summe);
+    if (link) {
+      zahlen.href = link;
+      zahlen.textContent = 'Jetzt ' + TT.geld(d.summe, d.waehrung) + ' mit PayPal bezahlen';
+    } else {
+      zahlen.hidden = true;
+    }
+
+    elLeer.hidden = true;
+    elKorb.hidden = true;
+    document.getElementById('privat-fertig').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function zeichnen() {
+    // Steht die Zahlungsanleitung, bleibt sie stehen — auch wenn das Leeren
+    // des Warenkorbs gleich danach hier noch einmal vorbeikommt.
+    if (privatFertig) return;
+
     var artikel = korb.artikel();
     var rechnung = korb.rechnung(artikel);
 
@@ -281,6 +388,20 @@
   document.getElementById('code-weg').addEventListener('click', function () {
     korb.codeEntfernen();
     TT.melden('meldung', 'Rabattcode entfernt.', 'warn');
+  });
+
+  document.getElementById('zur-kasse').addEventListener('click', function (e) {
+    // Nur der paypal.me-Weg wird hier abgefangen; alle anderen Zweige sind
+    // gewöhnliche Links.
+    if (!privatModus) return;
+    e.preventDefault();
+    bestellenPrivat();
+  });
+
+  // Mit dem Haken wird der Knopf freigegeben.
+  document.getElementById('privat-haken').addEventListener('change', function () {
+    if (this.checked) TT.melden('meldung', '');
+    zeichnen();
   });
 
   document.getElementById('leeren').addEventListener('click', function () {

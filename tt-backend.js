@@ -70,6 +70,7 @@ window.TT = (function () {
        den Kunden ist das einfach ein Code, der nicht gilt — abgebucht wurde
        nichts. */
     'unknown_coupon':      'Dieser Rabattcode gilt nicht. Nimm ihn im Warenkorb heraus oder prüfe die Schreibweise.',
+    'zu_viele_offen':      'Du hast schon mehrere unbezahlte Bestellungen. Bezahl oder warte sie zuerst ab — sie stehen in deinem Kundenkonto unter „Bestellungen“.',
     'unknown_order':       'Zu dieser Zahlung finde ich keine Bestellung.',
     'payment_failed':      'Die Zahlung konnte nicht verarbeitet werden. Es wurde nichts abgebucht.',
     'payment_not_completed':'Die Zahlung wurde noch nicht bestätigt. Sobald PayPal sie freigibt, erscheint die Lizenz automatisch in deinem Konto.',
@@ -338,6 +339,29 @@ window.TT = (function () {
     }
   }
 
+  /**
+   * paypal.me-Link über einen Betrag. paypal.me erwartet ihn ohne Komma:
+   * 15EUR, 8.99EUR. null, wenn kein paypal.me eingetragen ist.
+   *
+   * Steht hier und nicht in warenkorb-seite.js, weil auch das Kundenkonto
+   * ihn braucht: Wer eine offene Bestellung hat, soll von dort bezahlen können.
+   */
+  function paypalMeLink(betrag) {
+    var basis = String(KONFIG.paypalMe || '').replace(/\/+$/, '');
+    var zahl = Number(betrag);
+    if (!basis || !isFinite(zahl) || zahl <= 0) return null;
+
+    return basis + '/' + (zahl % 1 === 0 ? String(zahl) : zahl.toFixed(2)) + 'EUR';
+  }
+
+  /** Zahlweg einer Bestellung, wie Kunde und Verwaltung ihn lesen. */
+  function zahlweg(provider) {
+    if (provider === 'paypal') return 'PayPal';
+    if (provider === 'paypal_privat') return 'PayPal (paypal.me)';
+    if (provider === 'manuell') return 'von Hand';
+    return String(provider || '—');
+  }
+
   function datum(iso) {
     if (!iso) return '—';
     var d = new Date(iso);
@@ -602,6 +626,8 @@ window.TT = (function () {
 
     escape: escape,
     geld: geld,
+    paypalMeLink: paypalMeLink,
+    zahlweg: zahlweg,
     datum: datum,
     datumZeit: datumZeit,
     groesse: groesse,

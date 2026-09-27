@@ -397,8 +397,31 @@
   }
 
   /* ---- Bestellkarte ---------------------------------------------------- */
+  /* Offene Bestellung über paypal.me: Das Geld ist noch nicht da. Der Kunde
+     soll hier jederzeit nachlesen können, was er tun muss — und direkt
+     bezahlen, falls er den Tab mit der Anleitung geschlossen hat. */
+  function privatOffen(b) {
+    return b.payment_provider === 'paypal_privat' && b.payment_status === 'pending';
+  }
+
+  function privatHinweis(b) {
+    var link = TT.paypalMeLink(b.price);
+    return '<div class="bestell-hinweis">' +
+      '<p style="margin:0 0 10px">Zahl <strong>' + TT.escape(TT.geld(b.price, b.currency)) +
+        '</strong> über PayPal als <strong>„Waren und Dienstleistungen“</strong> und schreib ' +
+        'als Mitteilung <strong>„Bestellung #' + TT.escape(b.order_no) + '“</strong> dazu. ' +
+        'Sobald das Geld da ist, kommen Lizenzschlüssel und Rechnung per E-Mail.</p>' +
+      (link
+        ? '<a class="btn btn-primary btn-sm" href="' + TT.escape(link) + '" target="_blank" rel="noopener">' +
+          'Jetzt mit PayPal bezahlen</a>'
+        : '') +
+    '</div>';
+  }
+
   function bestellKarte(b) {
-    var status = TT.zahlungStatus(b.payment_status);
+    var status = privatOffen(b)
+      ? { text: 'Wartet auf Zahlung', klasse: 'warten' }
+      : TT.zahlungStatus(b.payment_status);
 
     return '<article class="bestell-karte">' +
       '<div class="bestell-kopf">' +
@@ -411,7 +434,7 @@
       '<ul class="speclist">' +
         '<li><span class="k">Preis</span><span class="v">' + TT.escape(TT.geld(b.price, b.currency)) + '</span></li>' +
         '<li><span class="k">Zahlungsart</span><span class="v">' +
-          (b.payment_provider === 'paypal' ? 'PayPal' : TT.escape(b.payment_provider)) + '</span></li>' +
+          TT.escape(TT.zahlweg(b.payment_provider)) + '</span></li>' +
         '<li><span class="k">Bestellt am</span><span class="v">' + TT.escape(TT.datumZeit(b.created_at)) + '</span></li>' +
         (b.paid_at
           ? '<li><span class="k">Bezahlt am</span><span class="v">' + TT.escape(TT.datumZeit(b.paid_at)) + '</span></li>'
@@ -423,9 +446,10 @@
       (b.payment_status === 'created'
         ? '<p class="bestell-hinweis">Diese Bestellung wurde nicht abgeschlossen. Es wurde nichts abgebucht.</p>'
         : '') +
-      (b.payment_status === 'pending'
+      (b.payment_status === 'pending' && !privatOffen(b)
         ? '<p class="bestell-hinweis">PayPal prüft die Zahlung noch. Sobald sie bestätigt ist, erscheint deine Lizenz automatisch.</p>'
         : '') +
+      (privatOffen(b) ? privatHinweis(b) : '') +
     '</article>';
   }
 

@@ -166,9 +166,15 @@
         probleme.push('Bestellung #' + b.order_no + ' (' + b.product_name + ') ist bezahlt, ' +
           'hat aber keinen Lizenzschlüssel. Vergib ihn unter „Lizenz vergeben“ mit Betrag 0.');
       }
-      if (b.payment_status === 'pending' && alter > 60 * 60 * 1000) {
+      if (b.payment_provider === 'paypal' && b.payment_status === 'pending' && alter > 60 * 60 * 1000) {
         probleme.push('Bestellung #' + b.order_no + ' wartet seit ' + TT.datumZeit(b.created_at) +
           ' auf die Bestätigung durch PayPal. Sieh in deinem PayPal-Konto nach.');
+      }
+      // Über paypal.me: Hier wartest DU — auf das Geld und darauf, es zu bestätigen.
+      if (b.payment_provider === 'paypal_privat' && b.payment_status === 'pending') {
+        probleme.push('Bestellung #' + b.order_no + ' (' + b.product_name + ', ' +
+          TT.geld(b.price, b.currency) + ') wartet auf Zahlung über paypal.me — Mitteilung ' +
+          '„Bestellung #' + b.order_no + '“. Ist das Geld da: unter Bestellungen „Zahlung erhalten“.');
       }
     });
 
@@ -190,8 +196,13 @@
     var summe = function (liste) {
       return liste.reduce(function (s, b) { return s + Number(b.price || 0); }, 0);
     };
-    var ueberPaypal = bezahlt.filter(function (b) { return b.payment_provider === 'paypal'; });
-    var vonHand     = bezahlt.filter(function (b) { return b.payment_provider !== 'paypal'; });
+    // paypal.me zählt zu PayPal: Das Geld ist dort angekommen, und du hast den
+    // Eingang bestätigt, bevor die Bestellung auf "bezahlt" ging.
+    var istPaypal = function (b) {
+      return b.payment_provider === 'paypal' || b.payment_provider === 'paypal_privat';
+    };
+    var ueberPaypal = bezahlt.filter(istPaypal);
+    var vonHand     = bezahlt.filter(function (b) { return !istPaypal(b); });
 
     var aktiv = daten.lizenzen.filter(function (l) { return TT.lizenzStatus(l).klasse === 'an'; });
 
@@ -388,7 +399,9 @@
         '<td class="mono klein">' +
           (b.payment_provider === 'paypal'
             ? TT.escape(b.paypal_order_id || '—')
-            : '<span class="merker">von Hand</span>') + '</td>' +
+            : b.payment_provider === 'paypal_privat'
+              ? '<span class="merker">paypal.me</span>'
+              : '<span class="merker">von Hand</span>') + '</td>' +
         '<td class="mono klein">' + (lizenz ? TT.escape(lizenz.key) : '<span class="muted">—</span>') + '</td>' +
         '<td class="aktionen">' +
           // Nur Handvergaben dürfen weg. Eine echte PayPal-Zahlung zu löschen
@@ -402,7 +415,7 @@
           (b.payment_provider === 'manuell'
             ? '<button type="button" class="mini loeschen" data-bestellung="' + TT.escape(b.id) +
               '" data-nr="' + TT.escape(b.order_no) + '">Löschen</button>'
-            : '<span class="zeile-klein muted">—</span>') +
+            : privatAktionen(b) || '<span class="zeile-klein muted">—</span>') +
         '</td>' +
       '</tr>';
     });
@@ -413,6 +426,86 @@
   }
 
   document.getElementById('suche-bestellungen').addEventListener('input', bestellungenZeichnen);
+
+  /* ---- Bestellungen über paypal.me ------------------------------------
+     Offen: "Zahlung erhalten" (erst klicken, wenn das Geld in PayPal zu sehen
+     ist — Betrag und Mitteilung vergleichen) oder "Stornieren".
+     Bezahlt: "Erstattet", nachdem du in PayPal zurücküberwiesen hast. Die
+     Arbeit machen die Funktionen aus 09-paypal-privat.sql; diese Seite ist
+     nur das Formular davor. */
+  function privatAktionen(b) {
+    if (b.payment_provider !== 'paypal_privat') return '';
+    var daten = ' data-bestellung="' + TT.escape(b.id) + '" data-nr="' + TT.escape(b.order_no) +
+      '" data-betrag="' + TT.escape(TT.geld(b.price, b.currency)) + '"';
+
+    if (b.payment_status === 'pending') {
+      return '<button type="button" class="mini" data-privat="bestaetigen"' + daten + '>Zahlung erhalten</button>' +
+        '<button type="button" class="mini" data-privat="stornieren"' + daten + '>Stornieren</button>';
+    }
+    if (b.payment_status === 'paid') {
+      return '<button type="button" class="mini" data-privat="erstattet"' + daten + '>Erstattet</button>';
+    }
+    return '';
+  }
+
+  var PRIVAT = {
+    bestaetigen: {
+      rpc: 'admin_zahlung_bestaetigen',
+      frage: function (k) {
+        return 'Ist für Bestellung #' + k.dataset.nr + ' wirklich ' + k.dataset.betrag +
+          ' in deinem PayPal eingegangen?\n\nDanach bekommt der Kunde sofort Lizenzschlüssel und Rechnung per E-Mail.';
+      },
+      fertig: function (d) {
+        return 'Bestellung #' + d.order_no + ' ist bezahlt' +
+          (d.license_key ? ' — Schlüssel ' + d.license_key + ' und Rechnung gehen per E-Mail raus.' : '.');
+      }
+    },
+    stornieren: {
+      rpc: 'admin_zahlung_stornieren',
+      frage: function (k) {
+        return 'Bestellung #' + k.dataset.nr + ' stornieren?\n\nNur tun, wenn keine Zahlung kommt. ' +
+          'Der Kunde sieht sie danach als abgebrochen.';
+      },
+      fertig: function (d) { return 'Bestellung #' + d.order_no + ' ist storniert.'; }
+    },
+    erstattet: {
+      rpc: 'admin_zahlung_erstattet',
+      frage: function (k) {
+        return 'Hast du ' + k.dataset.betrag + ' für Bestellung #' + k.dataset.nr +
+          ' in PayPal zurücküberwiesen?\n\nDie Lizenz wird damit gesperrt.';
+      },
+      fertig: function (d) {
+        return 'Bestellung #' + d.order_no + ' ist als erstattet markiert' +
+          (d.gesperrt ? ', die Lizenz ist gesperrt.' : '.');
+      }
+    }
+  };
+
+  document.addEventListener('click', async function (e) {
+    var knopf = e.target.closest('button[data-privat]');
+    if (!knopf) return;
+
+    var aktion = PRIVAT[knopf.dataset.privat];
+    if (!aktion || !confirm(aktion.frage(knopf))) return;
+
+    knopf.disabled = true;
+    var erg = await db.rpc(aktion.rpc, { p_order_id: knopf.dataset.bestellung });
+    knopf.disabled = false;
+
+    if (erg.error) {
+      console.error('paypal.me-Bestellung:', erg.error);
+      var fehlt = erg.error.code === 'PGRST202' ||
+        /could not find the function/i.test(String(erg.error.message || ''));
+      return TT.melden('meldung',
+        fehlt
+          ? 'Diese Funktion ist noch nicht eingerichtet — führ 09-paypal-privat.sql im Supabase-SQL-Editor aus.'
+          : 'Das hat nicht geklappt: ' + String(erg.error.message || 'unbekannter Fehler'), 'error');
+    }
+
+    await ladeAlles();
+    allesZeichnen();
+    TT.melden('meldung', aktion.fertig(erg.data || {}), 'ok');
+  });
 
   /* ---- Handvergabe wieder entfernen ------------------------------------
      Für Testeinträge und Fehlgriffe. Löscht Bestellung und zugehörige

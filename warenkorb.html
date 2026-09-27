@@ -33,7 +33,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.8.1">
+<link rel="stylesheet" href="style.css?v=2.8.1-2">
 </head>
 <body>
 
@@ -140,6 +140,25 @@
           </li>
         </ul>
 
+        <!-- Nur beim Kauf über paypal.me: Dort gibt es keine Kassenseite mit
+             eigener Zustimmung, also steht sie hier. Ausdrückliches Verlangen
+             und Kenntnisnahme des Rechtsverlusts nach § 18 Abs 1 Z 11 FAGG —
+             wie auf kaufen.html. warenkorb-seite.js zeigt sie und gibt den
+             Knopf erst mit Haken frei. -->
+        <label class="zustimmung" for="privat-haken" id="privat-zustimmung" hidden>
+          <input type="checkbox" id="privat-haken">
+          <span>
+            Ich habe die <a href="agb.html" target="_blank" rel="noopener">AGB</a>
+            und die <a href="widerruf.html" target="_blank" rel="noopener">Rücktrittsbelehrung</a>
+            gelesen und stimme ihnen zu.
+            <span class="zustimmung-digital" id="privat-digital">
+              Ich verlange ausdrücklich, dass sofort mit der Ausführung begonnen
+              wird, und nehme zur Kenntnis, dass ich damit mein Rücktrittsrecht
+              verliere, sobald mir der Lizenzschlüssel bereitgestellt wurde.
+            </span>
+          </span>
+        </label>
+
         <a class="btn btn-primary btn-block korb-kasse" id="zur-kasse"
            href="index.html#preise">Zur Kasse</a>
 
@@ -156,6 +175,45 @@
       <div class="korb-fuss">
         <button type="button" class="btn btn-ghost btn-sm" id="leeren">Warenkorb leeren</button>
       </div>
+    </div>
+
+    <!-- ===== Bestellt, jetzt über paypal.me bezahlen =====
+         Füllt warenkorb-seite.js, nachdem die Edge Function
+         paypal-privat-bestellung die Bestellung angelegt hat. -->
+    <div id="privat-fertig" hidden>
+      <div class="erfolg-kasten gross">
+        <div class="erfolg-symbol gross" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+        </div>
+        <h1>Bestellung angelegt</h1>
+        <p>Jetzt nur noch bezahlen — danach bekommst du alles automatisch.</p>
+        <div class="bestell-nr">Bestellung <strong id="pf-nummer">—</strong></div>
+      </div>
+
+      <section class="panel panel-accent">
+        <h2>So bezahlst du</h2>
+        <ol class="privat-schritte">
+          <li>Klick unten auf den Knopf — PayPal öffnet sich mit dem Betrag
+              <strong id="pf-betrag">—</strong>.</li>
+          <li>Wähle <strong>„Waren und Dienstleistungen“</strong>. Nur dann gilt
+              der PayPal-Käuferschutz.</li>
+          <li>Schreib als Mitteilung <strong id="pf-mitteilung">—</strong> dazu.
+              Daran erkenne ich deine Zahlung.</li>
+        </ol>
+
+        <a class="btn btn-primary btn-block" id="pf-zahlen" href="#" target="_blank" rel="noopener">
+          Jetzt mit PayPal bezahlen
+        </a>
+
+        <p class="muted korb-kasse-hinweis">
+          Sobald das Geld da ist — meist innerhalb weniger Stunden — bekommst du
+          Lizenzschlüssel und Rechnung per E-Mail. Den Stand siehst du jederzeit
+          in deinem <a href="konto.html#bestellungen">Kundenkonto</a>; dort kannst
+          du die Zahlung auch später noch anstoßen.
+        </p>
+      </section>
     </div>
 
   </div>
@@ -177,9 +235,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.8.1"></script>
-<script src="tt-backend.js?v=2.8.1"></script>
-<script src="warenkorb.js?v=2.8.1"></script>
-<script src="warenkorb-seite.js?v=2.8.1"></script>
+<script src="konfig.js?v=2.8.1-2"></script>
+<script src="tt-backend.js?v=2.8.1-2"></script>
+<script src="warenkorb.js?v=2.8.1-2"></script>
+<script src="warenkorb-seite.js?v=2.8.1-2"></script>
 </body>
 </html>

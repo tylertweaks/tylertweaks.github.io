@@ -2457,6 +2457,17 @@ strong { color: var(--text); font-weight: 600; }
 .zustimmung #zustimmung-digital { display: block; margin-top: 6px; }
 .zustimmung #zustimmung-digital[hidden] { display: none; }
 
+/* Dieselbe Zustimmung im Warenkorb, beim Kauf über paypal.me. */
+.zustimmung[hidden] { display: none; }
+#privat-zustimmung { margin: 18px 0 14px; }
+.zustimmung .zustimmung-digital { display: block; margin-top: 6px; }
+.zustimmung .zustimmung-digital[hidden] { display: none; }
+
+/* Zahlungsanleitung nach der Bestellung über paypal.me */
+.privat-schritte { margin: 4px 0 18px; padding-left: 20px; }
+.privat-schritte li { margin: 0 0 8px; color: var(--muted); }
+.privat-schritte li strong { color: var(--text); }
+
 /* Muster-Widerrufsformular: liest sich wie ein Formular zum Ausdrucken,
    ohne eines zu sein. */
 .muster-formular {
