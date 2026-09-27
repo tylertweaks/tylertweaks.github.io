@@ -1,0 +1,48 @@
+# ===========================================================================
+# Supabase wach halten
+#
+# Der Gratis-Tarif von Supabase pausiert ein Projekt nach 7 Tagen ohne
+# Aktivität. Pausiert heißt: Die App kann keine Lizenz mehr prüfen, Konto und
+# Kasse der Website gehen nicht, und bleibt es zu lange pausiert, löscht
+# Supabase das Projekt. Das alte Projekt "Tyler tweak key" ist genau so
+# eingeschlafen.
+#
+# Diese Aktion fragt einmal am Tag die öffentliche Funktion get_latest_release
+# ab (dieselbe, die "Nach Updates suchen" in der App benutzt). Der Schlüssel
+# unten ist der öffentliche Publishable Key aus konfig.js, kein Geheimnis.
+#
+# Achtung: GitHub schaltet geplante Aktionen in Repositories ab, in denen 60
+# Tage lang nichts passiert. Ein Commit (z. B. ein Release) setzt das zurück.
+# Als zweites Netz fragt die wöchentliche Datenbanksicherung auf dem PC
+# (backend/datenbank-sichern.ps1 im App-Repository) die Datenbank ebenfalls.
+# ===========================================================================
+name: Supabase wach halten
+
+on:
+  schedule:
+    - cron: '17 5 * * *'   # täglich 05:17 UTC
+  workflow_dispatch:        # zum Ausprobieren: Actions -> Run workflow
+
+permissions: {}
+
+jobs:
+  anstupsen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Datenbank einmal fragen
+        env:
+          SUPABASE_URL: https://dfypxfkqastndvblfvvl.supabase.co
+          SUPABASE_KEY: sb_publishable_xXO2n-NPKwMaCulDWN6R7A_BOLcNvUV
+        run: |
+          code=$(curl -sS -o antwort.json -w '%{http_code}' -X POST \
+            "$SUPABASE_URL/rest/v1/rpc/get_latest_release" \
+            -H "apikey: $SUPABASE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+          echo "HTTP $code"
+          cat antwort.json; echo
+          # Schlägt fehl, wenn Supabase nicht antwortet - dann schickt GitHub
+          # eine Mail, und du weißt, dass etwas nicht stimmt.
+          test "$code" = "200"
