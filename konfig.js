@@ -68,7 +68,7 @@ window.TT_KONFIG = {
      Seit 26.09.2026 an, weil noch kein Gewerbe angemeldet ist. Erst auf
      false setzen, wenn Gewerbe und Impressum fertig sind.
      ----------------------------------------------------------------------- */
-  verkaufPausiert: true,
+  verkaufPausiert: false,
 
   // 'sandbox' zum Testen mit PayPal-Testkonten, 'live' für echtes Geld.
   // Muss zu PAYPAL_ENV in den Supabase-Secrets passen.
