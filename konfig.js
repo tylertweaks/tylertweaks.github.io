@@ -58,7 +58,7 @@ window.TT_KONFIG = {
      Auf leer setzen, wenn du diesen Weg gar nicht willst — dann steht bei
      einem noch nicht eingerichteten Shop ehrlich "gerade nicht möglich".
      ----------------------------------------------------------------------- */
-  paypalMe: 'https://paypal.me/Tyler971377',
+  paypalMe: 'https://paypal.me/TylerTweaks',
 
   /* ---- Verkauf pausieren -------------------------------------------------
      true: Es wird nichts verkauft, egal welcher Kaufweg eingerichtet ist.
