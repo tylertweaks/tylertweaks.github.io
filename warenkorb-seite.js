@@ -364,6 +364,13 @@
     TT.melden('meldung', 'Paket aus dem Warenkorb entfernt.', 'ok');
   });
 
+  /* Läuft eine Aktion und ist noch kein Code eingelöst, steht ihr Code schon
+     im Feld — ein Klick auf "Einlösen" genügt. */
+  var laufendeAktion = korb.aktion && korb.aktion();
+  if (laufendeAktion && !korb.codeInfo()) {
+    document.getElementById('code').value = laufendeAktion.code;
+  }
+
   document.getElementById('code-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 

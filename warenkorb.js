@@ -650,6 +650,95 @@
   }
 
   /* ====================================================================
+     Aktions-Banner
+
+     Ein Streifen über der Navigation, solange KONFIG.aktion läuft: Rabatt,
+     Code zum Kopieren, Countdown. Steht hier, weil diese Datei auf jeder Seite
+     geladen wird. Läuft die Frist ab, verschwindet er auch auf einer Seite,
+     die schon offen ist. Ob der Code gilt, entscheidet trotzdem allein die
+     Datenbank — eine falsch gestellte Uhr beim Besucher ändert daran nichts.
+     ==================================================================== */
+  var AKTION = KONFIG.aktion || null;
+  var AKTION_WEG = 'tt-aktion-weg';
+
+  function aktionEnde() {
+    if (!AKTION || !AKTION.code) return null;
+    var ende = new Date(AKTION.bis);
+    return isNaN(ende) ? null : ende;
+  }
+
+  /** Die laufende Aktion oder null. */
+  function aktion() {
+    var ende = aktionEnde();
+    return ende && ende > new Date() ? AKTION : null;
+  }
+
+  function restzeit(ms) {
+    var s = Math.max(0, Math.floor(ms / 1000));
+    var zwei = function (n) { return (n < 10 ? '0' : '') + n; };
+    return Math.floor(s / 3600) + ':' + zwei(Math.floor(s % 3600 / 60)) + ':' + zwei(s % 60);
+  }
+
+  function aktionsBanner() {
+    var a = aktion();
+    if (!a || document.getElementById('aktion-banner')) return;
+
+    // Weggeklickt gilt für diesen Code und diese Sitzung.
+    try {
+      if (window.sessionStorage.getItem(AKTION_WEG) === a.code) return;
+    } catch (e) { /* ohne Ablage bleibt der Banner einfach stehen */ }
+
+    var ende = aktionEnde();
+    var ziel = document.getElementById('preise') ? '#preise' : 'index.html#preise';
+
+    var bar = document.createElement('div');
+    bar.className = 'aktion-banner';
+    bar.id = 'aktion-banner';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Aktion');
+    bar.innerHTML =
+      '<div class="aktion-inner">' +
+        '<span class="aktion-text"><strong>🔥 ' + TT.escape(a.prozent) + ' % auf alles</strong> mit Code ' +
+          '<button type="button" class="aktion-code" title="Code kopieren">' + TT.escape(a.code) + '</button></span>' +
+        '<span class="aktion-zeit">nur noch <span class="aktion-rest">' + restzeit(ende - new Date()) + '</span></span>' +
+        '<a class="aktion-los" href="' + ziel + '">Jetzt sichern</a>' +
+        '<button type="button" class="aktion-zu" aria-label="Hinweis schließen">×</button>' +
+      '</div>';
+
+    // Nach dem Sprunglink, damit der für Tastatur-Nutzer das Erste bleibt.
+    var sprung = document.querySelector('.skip-link');
+    document.body.insertBefore(bar, sprung ? sprung.nextSibling : document.body.firstChild);
+
+    var rest = bar.querySelector('.aktion-rest');
+    var uhr = setInterval(function () {
+      var ms = ende - new Date();
+      if (ms <= 0) {
+        clearInterval(uhr);
+        bar.remove();
+        return;
+      }
+      rest.textContent = restzeit(ms);
+    }, 1000);
+
+    var codeKnopf = bar.querySelector('.aktion-code');
+    codeKnopf.addEventListener('click', function () {
+      var zurueck = function () { codeKnopf.textContent = a.code; };
+      try {
+        navigator.clipboard.writeText(a.code).then(function () {
+          codeKnopf.textContent = 'Kopiert ✓';
+          setTimeout(zurueck, 1500);
+        }, zurueck);
+      } catch (e) { /* ohne Zwischenablage steht der Code ja lesbar da */ }
+    });
+
+    bar.querySelector('.aktion-zu').addEventListener('click', function () {
+      clearInterval(uhr);
+      bar.remove();
+      try { window.sessionStorage.setItem(AKTION_WEG, a.code); } catch (e) { /* egal */ }
+    });
+  }
+
+  /* ====================================================================
      Nach außen
      ==================================================================== */
   TT.korb = {
@@ -680,8 +769,11 @@
     shopPruefen:   shopPruefen,
 
     beiAenderung:  beiAenderung,
-    knopfZeichnen: knopfZeichnen
+    knopfZeichnen: knopfZeichnen,
+
+    aktion:        aktion
   };
 
   knopfZeichnen();
+  aktionsBanner();
 })();

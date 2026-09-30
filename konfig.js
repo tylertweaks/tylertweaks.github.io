@@ -84,6 +84,20 @@ window.TT_KONFIG = {
      werden muss, und abgelaufene Codes verschwinden von selbst.
      ----------------------------------------------------------------------- */
 
+  /* ---- Aktion: Banner oben auf jeder Seite --------------------------------
+     Solange "bis" in der Zukunft liegt, zeigt jede Seite über der Navigation
+     einen Streifen mit Code, Rabatt und Countdown; danach verschwindet er von
+     selbst (warenkorb.js). Der Code muss in der Tabelle coupons mit derselben
+     Frist stehen — verbindlich ist nur die Datenbank, der Banner ist Anzeige.
+
+     Keine Aktion: aktion: null
+     ----------------------------------------------------------------------- */
+  aktion: {
+    code: 'Update50',
+    prozent: 50,
+    bis: '2026-10-01T16:52:05Z'
+  },
+
   /* ---- Adresse der Seite ------------------------------------------------
      Wird für die Links in den Bestätigungs-Mails gebraucht. Beim Wechsel auf
      eine eigene Domain hier und in den Supabase-Einstellungen ändern.
