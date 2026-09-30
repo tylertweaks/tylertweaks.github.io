@@ -35,7 +35,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.8.1-5">
+<link rel="stylesheet" href="style.css?v=2.9.0">
 </head>
 <body>
 
@@ -158,6 +158,16 @@
               wird, und nehme zur Kenntnis, dass ich damit mein Rücktrittsrecht
               verliere, sobald mir der Lizenzschlüssel bereitgestellt wurde.
             </span>
+            <!-- Dasselbe für die Dienstleistung (§ 10 und § 18 Abs 1 Z 1 FAGG),
+                 wie auf kaufen.html. Eingeblendet, sobald Optimierung oder
+                 Bundle im Korb liegen. -->
+            <span class="zustimmung-dienst" id="privat-dienst" hidden>
+              Ich verlange ausdrücklich, dass mit der PC-Optimierung schon vor
+              Ablauf der 14-tägigen Rücktrittsfrist begonnen wird, und nehme zur
+              Kenntnis, dass ich mein Rücktrittsrecht verliere, sobald die
+              Optimierung vollständig erbracht ist. Trete ich vorher zurück, zahle
+              ich den Anteil, der bis dahin erbracht wurde.
+            </span>
           </span>
         </label>
 
@@ -239,9 +249,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.8.1-5"></script>
-<script src="tt-backend.js?v=2.8.1-5"></script>
-<script src="warenkorb.js?v=2.8.1-5"></script>
-<script src="warenkorb-seite.js?v=2.8.1-5"></script>
+<script src="konfig.js?v=2.9.0"></script>
+<script src="tt-backend.js?v=2.9.0"></script>
+<script src="warenkorb.js?v=2.9.0"></script>
+<script src="warenkorb-seite.js?v=2.9.0"></script>
 </body>
 </html>

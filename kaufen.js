@@ -174,11 +174,16 @@
       ? 'wird automatisch erzeugt'
       : 'nicht nötig';
 
-    /* Der Zusatz zum vorzeitigen Entfall des Rücktrittsrechts gilt nur für
-       digitale Inhalte. Bei der reinen Dienstleistung bleibt das Rücktrittsrecht
-       bestehen — dort wäre der Satz schlicht falsch. */
+    /* Zwei Zusätze zum Rücktrittsrecht, je nachdem was gekauft wird: Der zum
+       Lizenzschlüssel gilt nur für digitale Inhalte, der zur Optimierung nur
+       für die Dienstleistung. Das Bundle enthält beides und zeigt beide. Ohne
+       das ausdrückliche Verlangen könnte ein Kunde nach der Sitzung
+       zurücktreten und schuldete nichts (§ 16 FAGG). */
     var digital = document.getElementById('zustimmung-digital');
     if (digital && !produkt.license_type) digital.hidden = true;
+
+    var dienst = document.getElementById('zustimmung-dienst');
+    if (dienst) dienst.hidden = !produkt.is_service;
 
     /* Läuft PayPal noch im Testbetrieb, muss das hier stehen. Sonst wartet
        jemand auf eine Lizenz für eine Zahlung, die nie stattgefunden hat. */

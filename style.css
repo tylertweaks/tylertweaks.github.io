@@ -2463,6 +2463,10 @@ strong { color: var(--text); font-weight: 600; }
 .zustimmung .zustimmung-digital { display: block; margin-top: 6px; }
 .zustimmung .zustimmung-digital[hidden] { display: none; }
 
+/* Der Satz zur Dienstleistung (PC-Optimierung, Bundle) — auf beiden Seiten. */
+.zustimmung #zustimmung-dienst,
+.zustimmung .zustimmung-dienst { display: block; margin-top: 6px; }
+
 /* Zahlungsanleitung nach der Bestellung über paypal.me */
 .privat-schritte { margin: 4px 0 18px; padding-left: 20px; }
 .privat-schritte li { margin: 0 0 8px; color: var(--muted); }

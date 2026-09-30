@@ -209,6 +209,11 @@
     document.getElementById('privat-digital').hidden =
       artikel.every(function (a) { return a.slug === 'optimierung'; });
 
+    /* Umgekehrt der Satz zur Dienstleistung: Er gehört dazu, sobald die
+       Optimierung im Korb liegt — allein oder im Bundle. */
+    document.getElementById('privat-dienst').hidden =
+      !artikel.some(function (a) { return a.slug === 'optimierung' || a.slug === 'bundle'; });
+
     var zugestimmt = document.getElementById('privat-haken').checked;
 
     knopf.href = '#';

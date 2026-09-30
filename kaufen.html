@@ -35,7 +35,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.8.1-5">
+<link rel="stylesheet" href="style.css?v=2.9.0">
 </head>
 <body>
 
@@ -144,6 +144,16 @@
               wird, und nehme zur Kenntnis, dass ich damit mein Rücktrittsrecht
               verliere, sobald mir der Lizenzschlüssel bereitgestellt wurde.
             </span>
+            <!-- Ausdrückliches Verlangen nach § 10 FAGG und Kenntnisnahme nach
+                 § 18 Abs 1 Z 1 FAGG für die PC-Optimierung. kaufen.js blendet
+                 den Satz bei Produkten mit is_service ein (Optimierung, Bundle). -->
+            <span id="zustimmung-dienst" hidden>
+              Ich verlange ausdrücklich, dass mit der PC-Optimierung schon vor
+              Ablauf der 14-tägigen Rücktrittsfrist begonnen wird, und nehme zur
+              Kenntnis, dass ich mein Rücktrittsrecht verliere, sobald die
+              Optimierung vollständig erbracht ist. Trete ich vorher zurück, zahle
+              ich den Anteil, der bis dahin erbracht wurde.
+            </span>
           </span>
         </label>
 
@@ -250,11 +260,12 @@
         </p>
 
         <div class="hinweis-kasten">
-          <p><strong>Kaufen kannst du trotzdem:</strong> Auf der Preisseite
-             führt der Knopf direkt zu PayPal. Danach schreibst du mir kurz auf
-             Discord <strong class="discord-name">tyler061312</strong> und
-             bekommst deinen Lizenzschlüssel von Hand — meist innerhalb weniger
-             Stunden.</p>
+          <p><strong>Kaufen kannst du trotzdem:</strong> Leg das Paket in den
+             Warenkorb und bestell dort. Du bekommst eine Bestellnummer und zahlst
+             über PayPal mit der Nummer als Mitteilung — Lizenzschlüssel und
+             Rechnung kommen dann per E-Mail, meist innerhalb weniger Stunden.
+             Oder schreib mir auf Discord
+             <strong class="discord-name">tyler061312</strong>.</p>
         </div>
 
         <a href="index.html#preise" class="btn btn-primary btn-block">Zu den Paketen und bezahlen</a>
@@ -283,9 +294,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.8.1-5"></script>
-<script src="tt-backend.js?v=2.8.1-5"></script>
-<script src="warenkorb.js?v=2.8.1-5"></script>
-<script src="kaufen.js?v=2.8.1-5"></script>
+<script src="konfig.js?v=2.9.0"></script>
+<script src="tt-backend.js?v=2.9.0"></script>
+<script src="warenkorb.js?v=2.9.0"></script>
+<script src="kaufen.js?v=2.9.0"></script>
 </body>
 </html>

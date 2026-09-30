@@ -138,8 +138,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.8.1',
-    datum: '27.09.2026',
+    version: '2.9.0',
+    datum: '30.09.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -156,9 +156,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.8.1.exe',
+    datei: 'downloads/TylerTweaksSetup-2.9.0.exe',
     groesse: '59,5 MB',
-    sha256: 'dd8bf6c8afbbf2b27d0cdc62bc49b88c4e9b910d98769064519cd7622ee31f6d'
+    sha256: 'f294e13a0f824e6daf2c12a61f28e43831ed72323fa72dc48f058c6ffa66b51c'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -170,6 +170,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '2.9.0', datum: '30.09.2026', text: 'Der Game Booster schließt jetzt wirklich alles, was nicht auf deiner Whitelist steht – auch Apps im Infobereich und alle Hilfsprozesse. Windows, Anti-Cheat und Grafiktreiber bleiben geschützt, und was eine Whitelist-App gestartet hat, bleibt offen. Tyler prüft beim Start selbst, ob es eine neue Version gibt, und bringt dich mit „Jetzt herunterladen“ direkt zum Download. Die Seite „Alle Tweaks“ ist entfallen, der Bereich Tweaks öffnet jetzt mit den Presets.' },
     { version: '2.8.1', datum: '27.09.2026', text: 'Neuer PC oder neue Festplatte? Die Bindung deiner Lizenz löst du jetzt selbst im Kundenkonto, und Tyler sagt dir beim Start, wo das geht. Dazu eine zuverlässigere Lizenzprüfung.' },
     { version: '2.8.0', datum: '25.09.2026', text: 'Neues Design in Blau-Schwarz mit einer Seitenleiste nach Kategorien. 146 neue Optimierungen (129 auf 275), darunter die neuen Bereiche Treiber und Experimentell, Warnhinweise bei heiklen Tweaks und Energie-Tweaks, die jetzt über die Energie-API von Windows zuverlässig greifen. Dazu zwei neue Seiten: Werkzeuge & Treiber mit Links passend zur verbauten Grafikkarte und BIOS-Tipps mit den Menüpfaden für dein Mainboard.' },
     { version: '2.7.0', datum: '22.09.2026', text: 'Eigene Profile: Du nimmst auf, welche Tweaks bei dir gerade gesetzt sind, gibst dem Ganzen einen Namen und stellst denselben Zustand später mit einem Klick wieder her – auf einem neuen PC oder nach einer Neuinstallation. Außerdem liefert die App ihren Tweak-Katalog jetzt als Datei aus, aus der die Website die vollständige Liste aufbaut: Unter „Alle Tweaks" steht jede der 129 Optimierungen mit dem Registry-Wert, den sie schreibt.' },

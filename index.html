@@ -159,9 +159,9 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.8.1-5">
-<link rel="stylesheet" href="tweak-zeile.css?v=2.8.1-5">
-<link rel="stylesheet" href="mockup.css?v=2.8.1-5">
+<link rel="stylesheet" href="style.css?v=2.9.0">
+<link rel="stylesheet" href="tweak-zeile.css?v=2.9.0">
+<link rel="stylesheet" href="mockup.css?v=2.9.0">
 </head>
 <body>
 
@@ -267,7 +267,7 @@
       </li>
       <li>
         <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg></span>
-        <span><span class="hz-zahl">v<span data-app-version>2.8.1</span></span><span class="hz-text">Stand <span data-app-date>27.09.2026</span></span></span>
+        <span><span class="hz-zahl">v<span data-app-version>2.9.0</span></span><span class="hz-text">Stand <span data-app-date>30.09.2026</span></span></span>
       </li>
     </ul>
 
@@ -520,7 +520,7 @@
             <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg></span>
             <div>
               <h3>Game Booster</h3>
-              <p>Schließt Hintergrundprogramme vor dem Spielen und startet sie danach wieder. Systemprozesse sind durch eine Schutzliste ausgenommen.</p>
+              <p>Schließt vor dem Spielen alle Programme, die nicht auf deiner Whitelist stehen – auch Apps im Infobereich. Windows, Anti-Cheat und Grafiktreiber bleiben geschützt. Danach startet er sie auf Wunsch wieder.</p>
             </div>
           </li>
           <li>
@@ -539,11 +539,13 @@
               <p>Nimm auf, welche Tweaks bei dir gerade gesetzt sind, gib dem Ganzen einen Namen — und stell denselben Zustand auf einem neuen PC oder nach einer Neuinstallation mit einem Klick wieder her. Dazu die fünf festen Presets Gaming, Privatsphäre, Tempo, Aufräumen und Sicher.</p>
             </div>
           </li>
-          <li class="geplant">
+          <!-- Stand bis 2.8.1 als "Automatische Updates — geplant" hier.
+               Seitdem prüft die App beim Start selbst. -->
+          <li>
             <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/></svg></span>
             <div>
-              <h3>Automatische Updates <span class="tag-geplant">geplant</span></h3>
-              <p>Die App prüft derzeit nicht selbst auf neue Versionen. Neue Versionen lädst du im Kundenbereich herunter und installierst sie über die alte — deine Lizenz bleibt gültig.</p>
+              <h3>Update-Hinweis</h3>
+              <p>Die App prüft beim Start, ob es eine neue Version gibt, und zeigt dir dann einen Hinweis mit Download-Knopf. Die neue Fassung installierst du über die alte — deine Lizenz bleibt gültig.</p>
             </div>
           </li>
         </ul>
@@ -663,7 +665,7 @@
     <div class="section-head center">
       <span class="eyebrow">Preise</span>
       <h2>Drei Wege, ein Ziel</h2>
-      <p class="sub">Einmalzahlung. Keine Abos, keine Folgekosten, keine versteckten Posten.</p>
+      <p class="sub">Einmalzahlung, kein Abo – nichts verlängert sich automatisch. Keine Folgekosten, keine versteckten Posten.</p>
     </div>
 
     <div class="pricing">
@@ -755,6 +757,7 @@
           <li>Energieplan &amp; Autostart</li>
           <li>Backup vor jeder Änderung</li>
           <li>Protokoll aller Änderungen</li>
+          <li>Nachbesserung innerhalb von 14 Tagen</li>
           <li class="off">Ohne App-Lizenz</li>
         </ul>
 
@@ -1106,18 +1109,18 @@
         </div>
         <h3>Updates &amp; Lizenz</h3>
         <ul class="speclist">
-          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.8.1</span></li>
-          <li><span class="k">Stand</span><span class="v" data-app-date>27.09.2026</span></li>
+          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.9.0</span></li>
+          <li><span class="k">Stand</span><span class="v" data-app-date>30.09.2026</span></li>
           <li><span class="k">Neue Versionen</span><span class="v">kostenlos</span></li>
-          <li><span class="k">Update-Prüfung</span><span class="v">auf Knopfdruck</span></li>
+          <li><span class="k">Update-Prüfung</span><span class="v">automatisch beim Start</span></li>
           <li><span class="k">Laufzeiten</span><span class="v">24 Std. bis Lifetime</span></li>
           <li><span class="k">Gültig für</span><span class="v">1 PC</span></li>
         </ul>
         <p class="muted" style="font-size:.85rem;margin-top:14px">
-          Unter Einstellungen → Über prüfst du per Knopfdruck, ob eine neue Version da ist.
-          Von selbst meldet sich die App bewusst nicht, und sie aktualisiert sich auch nicht
-          selbst: Du lädst die neue Fassung im Kundenbereich und installierst sie über die alte.
-          Dein Schlüssel bleibt derselbe.
+          Die App prüft beim Start und danach alle paar Stunden, ob eine neue Version da ist,
+          und zeigt dann oben einen Hinweis mit dem Knopf „Jetzt herunterladen“. Sie
+          aktualisiert sich bewusst nicht selbst: Du lädst die neue Fassung im Kundenbereich
+          und installierst sie über die alte. Dein Schlüssel bleibt derselbe.
         </p>
       </article>
 
@@ -1257,8 +1260,8 @@
       <details>
         <summary>Wie bekomme ich Updates?</summary>
         <div class="faq-body">
-          <p>Derzeit von Hand: Die App prüft noch <strong>nicht</strong> selbst, ob eine neue Version vorliegt. Erscheint eine, lädst du sie im Kundenbereich herunter und installierst sie über die vorhandene — deine Einstellungen und deine Lizenz bleiben erhalten.</p>
-          <p>Neue Versionen kosten nichts extra. Eine automatische Update-Prüfung ist geplant, aber noch nicht eingebaut.</p>
+          <p>Die App prüft beim Start selbst, ob eine neue Version vorliegt, und zeigt dir dann oben einen Hinweis. „Jetzt herunterladen“ öffnet deinen <a href="konto.html">Kundenbereich</a>; dort lädst du die neue Fassung und installierst sie über die vorhandene — deine Einstellungen und deine Lizenz bleiben erhalten. Nachsehen kannst du auch jederzeit unter Einstellungen → Über.</p>
+          <p>Neue Versionen kosten nichts extra.</p>
         </div>
       </details>
 
@@ -1274,7 +1277,7 @@
         <summary>Kann ich meine Lizenz auf mehreren PCs verwenden?</summary>
         <div class="faq-body">
           <p>Nein. Eine Lizenz gilt für einen PC. Beim ersten Start wird der Schlüssel fest an diesen Rechner gebunden, danach lässt er sich auf keinem anderen aktivieren.</p>
-          <p>Wenn du den PC wechselst oder neu aufsetzt und die Hardware sich ändert, schreib mir kurz auf Discord — ich löse die Bindung, der Umzug kostet nichts.</p>
+          <p>Wechselst du den PC oder tauschst Hardware, löst du die Bindung selbst: im <a href="konto.html">Kundenbereich</a> unter „Meine Lizenzen“ mit „PC-Bindung lösen“, einmal in 30 Tagen. Eilt es früher, schreib mir kurz auf Discord. Der Umzug kostet nichts.</p>
         </div>
       </details>
 
@@ -1478,10 +1481,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.8.1-5"></script>
-<script src="tt-backend.js?v=2.8.1-5"></script>
-<script src="warenkorb.js?v=2.8.1-5"></script>
-<script src="tweaks.js?v=2.8.1-5"></script>
-<script src="script.js?v=2.8.1-5"></script>
+<script src="konfig.js?v=2.9.0"></script>
+<script src="tt-backend.js?v=2.9.0"></script>
+<script src="warenkorb.js?v=2.9.0"></script>
+<script src="tweaks.js?v=2.9.0"></script>
+<script src="script.js?v=2.9.0"></script>
 </body>
 </html>
