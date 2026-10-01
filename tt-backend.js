@@ -209,6 +209,18 @@ window.TT = (function () {
     return verkaufAntwort;
   }
 
+  /* ---- Die App ist noch nicht erschienen (appErscheint in konfig.js) ----
+     Gesperrt sind alle Laufzeiten der App und das Bundle, in dem sie steckt;
+     die PC-Optimierung bleibt kaufbar. Wie verkaufPausiert ist das
+     Darstellung, keine Sicherheitsschranke. */
+  function appErscheint() {
+    return String(KONFIG.appErscheint || '').trim();
+  }
+
+  function appFehlt(slug) {
+    return !!appErscheint() && (/^app-/.test(slug || '') || slug === 'bundle');
+  }
+
   /**
    * Leitet auf die Anmeldung um, wenn niemand angemeldet ist.
    *
@@ -592,6 +604,9 @@ window.TT = (function () {
     document.querySelectorAll('.discord-name').forEach(function (el) {
       if (KONFIG.discord) el.textContent = KONFIG.discord;
     });
+    document.querySelectorAll('[data-app-erscheint]').forEach(function (el) {
+      if (appErscheint()) el.textContent = appErscheint();
+    });
     document.querySelectorAll('.kontakt-email').forEach(function (el) {
       if (!KONFIG.email) return;
       el.textContent = KONFIG.email;
@@ -617,6 +632,8 @@ window.TT = (function () {
     nutzer: nutzer,
     profil: profil,
     verkaufOffen: verkaufOffen,
+    appErscheint: appErscheint,
+    appFehlt: appFehlt,
     schuetzen: schuetzen,
     abmelden: abmelden,
     navAufbauen: navAufbauen,

@@ -70,6 +70,18 @@ window.TT_KONFIG = {
      ----------------------------------------------------------------------- */
   verkaufPausiert: false,
 
+  /* ---- Die App ist noch nicht erschienen ---------------------------------
+     Solange hier etwas steht, lässt sich die Tweak App nicht kaufen — keine
+     Laufzeit und auch nicht das Bundle, weil die App darin steckt. Die
+     PC-Optimierung bleibt kaufbar. Oben auf jeder Seite steht solange ein
+     Streifen "Die Tweak App erscheint <Text>", die Kaufknöpfe von App und
+     Bundle zeigen "Erscheint <Text>".
+
+     Der Text muss in diese Sätze passen: 'nächste Woche', 'am 8. Oktober' …
+     Seit 01.10.2026 gesetzt. Ist die App da: appErscheint: ''
+     ----------------------------------------------------------------------- */
+  appErscheint: 'nächste Woche',
+
   // 'sandbox' zum Testen mit PayPal-Testkonten, 'live' für echtes Geld.
   // Muss zu PAYPAL_ENV in den Supabase-Secrets passen.
   paypalUmgebung: 'sandbox',

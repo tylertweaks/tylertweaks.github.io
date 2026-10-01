@@ -216,6 +216,12 @@
       return paypalNichtVerfuegbar('Der Verkauf ist gerade pausiert und startet in Kürze.');
     }
 
+    // Die App ist noch nicht erschienen (appErscheint in konfig.js).
+    if (TT.appFehlt(produkt.slug)) {
+      return paypalNichtVerfuegbar('Die Tweak App erscheint ' + TT.appErscheint() +
+        ' — bis dahin kann sie noch nicht gekauft werden, auch nicht im Bundle.');
+    }
+
     if (!clientId) {
       return paypalNichtVerfuegbar(
         'Die Bezahlung über PayPal ist auf dieser Seite noch nicht freigeschaltet.');

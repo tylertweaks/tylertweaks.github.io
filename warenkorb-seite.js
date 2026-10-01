@@ -142,6 +142,24 @@
       return;
     }
 
+    /* appErscheint in konfig.js: Die App ist noch nicht da. Hineinlegen lässt
+       sie sich nicht mehr, aber sie kann von vorher noch hier liegen — dann
+       muss sie heraus, bevor der Rest bezahlt werden kann. */
+    var wartet = artikel.filter(function (a) { return TT.appFehlt(a.slug); });
+    if (wartet.length) {
+      knopf.removeAttribute('href');
+      knopf.classList.add('ist-aus');
+      knopf.setAttribute('aria-disabled', 'true');
+      knopf.textContent = 'Die App erscheint ' + TT.appErscheint();
+      hinweis.textContent = wartet.length === artikel.length
+        ? 'Bis dahin kann sie noch nicht gekauft werden — auch nicht im Bundle. ' +
+          'Die PC-Optimierung kannst du schon jetzt buchen.'
+        : 'Bis dahin kann sie noch nicht gekauft werden — auch nicht im Bundle. ' +
+          'Nimm ' + wartet.map(function (a) { return a.name; }).join(' und ') +
+          ' heraus, dann kannst du den Rest schon bezahlen.';
+      return;
+    }
+
     /* Abgemeldet, aber der Warenkorb ist noch voll: Das passiert nach dem
        Abmelden in einem zweiten Tab oder wenn die Sitzung abgelaufen ist.
        Dann führt der Knopf zur Anmeldung statt zur Zahlung — auch auf dem

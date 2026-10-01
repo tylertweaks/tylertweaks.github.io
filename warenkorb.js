@@ -248,6 +248,10 @@
     var neu = normalisieren({ artikel: [neuerArtikel] }).artikel[0];
     if (!neu) return { ok: false, ersetzt: '' };
 
+    // Die App ist noch nicht erschienen (appErscheint in konfig.js) — auch
+    // nicht über ein nach der Anmeldung gemerktes Paket.
+    if (TT.appFehlt(neu.slug)) return { ok: false, ersetzt: '' };
+
     var daten = lesen();
     var ersetzt = '';
 
@@ -739,6 +743,48 @@
   }
 
   /* ====================================================================
+     Streifen "Die Tweak App erscheint …"
+
+     Solange appErscheint in konfig.js gesetzt ist. Dieselbe Form wie der
+     Aktions-Banner, aber dunkel, und unter ihm, falls beide laufen.
+     Weggeklickt gilt für diese Sitzung.
+     ==================================================================== */
+  var APP_WEG = 'tt-app-banner-weg';
+
+  function appBanner() {
+    var wann = TT.appErscheint();
+    if (!wann || document.getElementById('app-banner')) return;
+
+    try {
+      if (window.sessionStorage.getItem(APP_WEG) === wann) return;
+    } catch (e) { /* ohne Ablage bleibt der Banner einfach stehen */ }
+
+    var aufStartseite = !!document.getElementById('preise');
+
+    var bar = document.createElement('div');
+    bar.className = 'aktion-banner app-banner';
+    bar.id = 'app-banner';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Hinweis zur Tweak App');
+    bar.innerHTML =
+      '<div class="aktion-inner">' +
+        '<span class="aktion-text"><strong>Die Tweak App erscheint ' + TT.escape(wann) + '.</strong> ' +
+          'Die PC-Optimierung kannst du schon jetzt buchen.</span>' +
+        '<a class="aktion-los" href="' + (aufStartseite ? '#preise' : 'index.html#tarif-opt') + '"' +
+          (aufStartseite ? ' data-scroll-to="tarif-opt"' : '') + '>Zur PC-Optimierung</a>' +
+        '<button type="button" class="aktion-zu" aria-label="Hinweis schließen">×</button>' +
+      '</div>';
+
+    var vor = document.getElementById('aktion-banner') || document.querySelector('.skip-link');
+    document.body.insertBefore(bar, vor ? vor.nextSibling : document.body.firstChild);
+
+    bar.querySelector('.aktion-zu').addEventListener('click', function () {
+      bar.remove();
+      try { window.sessionStorage.setItem(APP_WEG, wann); } catch (e) { /* egal */ }
+    });
+  }
+
+  /* ====================================================================
      Nach außen
      ==================================================================== */
   TT.korb = {
@@ -776,4 +822,5 @@
 
   knopfZeichnen();
   aktionsBanner();
+  appBanner();
 })();

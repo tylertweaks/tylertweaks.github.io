@@ -98,6 +98,21 @@ aus der Datenbank an, und genau dieser Betrag steht im paypal.me-Link.
 Wieder einschalten: Gewerbe anmelden, Impressum fertig ausfüllen, dann den
 Schalter auf `false` setzen. Danach gilt wieder, was unten steht.
 
+## App noch nicht erschienen
+
+**Seit 01.10.2026 steht `appErscheint: 'nächste Woche'` in `konfig.js`.**
+Solange dort ein Text steht:
+
+- Oben auf jeder Seite steht „Die Tweak App erscheint nächste Woche“
+  (`#app-banner`, warenkorb.js), über den Preisen `#app-hinweis`.
+- App (alle Laufzeiten) und Bundle zeigen „Erscheint nächste Woche“ und
+  lassen sich nicht in den Warenkorb legen; was noch von vorher drinliegt,
+  sperrt die Kasse, bis es heraus ist. `kaufen.html` lädt dafür kein PayPal.
+- Die PC-Optimierung bleibt ganz normal kaufbar.
+
+Ist die App da: `appErscheint: ''`. Wie `verkaufPausiert` ist das nur
+Darstellung — die Edge Functions wissen davon nichts.
+
 ## Zwei Kaufwege — die Seite wählt selbst
 
 Der Warenkorb prüft beim Laden, ob der automatische Shop läuft

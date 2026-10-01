@@ -310,11 +310,14 @@
     var artikel = korbDaten[knopf.dataset.korbSlug];
     if (!artikel) return;
 
-    if (verkaufZu) {
+    // appErscheint in konfig.js: App und Bundle noch zu, die Optimierung nicht.
+    var appFehlt = !!(window.TT && TT.appFehlt(artikel.slug));
+
+    if (verkaufZu || appFehlt) {
       knopf.removeAttribute('href');
       knopf.setAttribute('aria-disabled', 'true');
       knopf.classList.add('ist-aus');
-      knopf.textContent = 'Bald erhältlich';
+      knopf.textContent = appFehlt ? 'Erscheint ' + TT.appErscheint() : 'Bald erhältlich';
       korbHinweis(knopf, '');
       return;
     }
@@ -361,7 +364,7 @@
   document.addEventListener('click', function (e) {
     var knopf = e.target.closest('[data-korb-slug]');
     if (!knopf) return;
-    if (verkaufZu) return e.preventDefault();
+    if (verkaufZu || (window.TT && TT.appFehlt(knopf.dataset.korbSlug))) return e.preventDefault();
 
     var artikel = korbDaten[knopf.dataset.korbSlug];
     if (!artikel || !window.TT || !TT.korb) return; // dann führt das href zum Warenkorb
@@ -553,9 +556,30 @@
     });
   }
 
+  /* appErscheint in konfig.js: Die App ist noch nicht da. Ihre Karte und das
+     Bundle behalten den Preis, aber die Zeile unter dem Knopf verspricht
+     keinen Kaufweg, und über den Preisen steht, wann es losgeht. */
+  function appSperreZeigen() {
+    if (!window.TT || !TT.appErscheint()) return;
+
+    document.querySelectorAll('[data-korb-slug]').forEach(function (knopf) {
+      if (!TT.appFehlt(knopf.dataset.korbSlug)) return;
+      var karte = knopf.closest('.plan');
+      var alt = karte && karte.querySelector('.plan-alt');
+      if (alt) alt.textContent = 'Noch nicht kaufbar · der Preis steht schon fest';
+    });
+
+    var hinweis = document.getElementById('app-hinweis');
+    if (hinweis) {
+      hinweis.hidden = false;
+      TT.grundgeruest(); // "nächste Woche" einsetzen
+    }
+  }
+
   laufzeitenZeichnen();
   paketeZeichnen();
   abgeleitetePreiseZeichnen();
+  appSperreZeigen();
 
   /* ====================================================================
      7. Preise aus der Datenbank bestätigen
@@ -589,7 +613,8 @@
     document.querySelectorAll('[data-korb-slug]').forEach(function (knopf) {
       var karte = knopf.closest('.plan');
       var alt = karte && karte.querySelector('.plan-alt');
-      if (alt) {
+      // Karten, deren App noch nicht erschienen ist, hat appSperreZeigen beschriftet.
+      if (alt && !(window.TT && TT.appFehlt(knopf.dataset.korbSlug))) {
         alt.textContent = zeilen[knopf.dataset.korbSlug] ||
           'Zahlung über PayPal · Schlüssel per E-Mail';
       }

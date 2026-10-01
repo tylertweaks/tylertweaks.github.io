@@ -413,6 +413,15 @@ strong { color: var(--text); font-weight: 600; }
   cursor: pointer;
 }
 .aktion-zu:hover { opacity: 1; }
+/* Streifen "Die Tweak App erscheint …" (warenkorb.js, KONFIG.appErscheint).
+   Dieselbe Form, aber ruhiger: eine Ankündigung, kein Angebot — und so
+   unterscheidbar, wenn beide übereinander stehen. */
+.app-banner {
+  background: #0c1426;
+  border-bottom: 1px solid rgba(47, 123, 255, .45);
+}
+.app-banner .aktion-los { background: var(--accent); color: #fff; }
+.app-banner .aktion-los:hover { background: #4a8dff; }
 @media (max-width: 560px) {
   .aktion-banner { font-size: .86rem; }
   .aktion-inner { gap: 4px 10px; padding-left: 12px; }
