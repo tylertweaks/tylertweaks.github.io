@@ -191,7 +191,7 @@ das Geheimnis, mit dem die Datenbank das Script aufruft.
 
 | Datei | Zweck |
 |---|---|
-| `index.html` | Startseite: Hero, App, Optimierung, Preise, Ablauf, Sicherheit, FAQ |
+| `index.html` | Startseite: Name groß oben, Wegweiser, die drei Pakete untereinander, Kaufablauf, Sicherheit, FAQ, Support |
 | `tweaks.html` | Alle Optimierungen im Einzelnen — durchsuchbar, filterbar, ohne Anmeldung |
 | `registrieren.html` | Konto anlegen |
 | `anmelden.html` | Login |
@@ -209,15 +209,15 @@ das Geheimnis, mit dem die Datenbank das Script aufruft.
 | `kaufen.js` | PayPal-Buttons, ruft die Edge Functions auf |
 | `konto.js` | Kundenbereich |
 | `admin.js` | Verwaltung |
-| `script.js` | Startseite: Navigation, FAQ, App-Ansichten, Laufzeit-Auswahl |
+| `script.js` | Startseite: Navigation, FAQ, Laufzeit-Auswahl, Kaufknöpfe der Pakete |
 | `tweaks.json` | **Erzeugt, nicht von Hand gepflegt.** Der Tweak-Katalog aus der App. |
 | `tweaks.js` | Lädt den Katalog, baut eine Zeile, setzt alle Zahlen ins HTML, treibt die Vorführung auf der Startseite |
 | `katalog.js` | Nur `tweaks.html`: Suche, Filter, Sprungmarken |
 | `style.css` | Design-System der gesamten Seite |
-| `tweak-zeile.css` | Aufbau einer Katalogzeile — geteilt von `tweaks.html` und der Vorführung |
+| `tweak-zeile.css` | Aufbau einer Katalogzeile auf `tweaks.html` |
 | `katalog.css` | Nur `tweaks.html`: Kopf, Filterleiste, Liste |
-| `mockup.css` | Gezeichnete Illustrationen im Kaufablauf, dazu der App-förmige Kasten auf der Startseite |
-| `bilder/app-*.png` | Bildschirmfotos der App für die Produktvorstellung |
+| `mockup.css` | Gezeichnete Illustrationen im Kaufablauf |
+| `bilder/app-*.png` | Bildschirmfotos der App. Seit 2.9.0 nicht eingebunden — die Startseite stellt die App nicht mehr vor, sie verkauft sie nur noch |
 | `robots.txt` | Hält Kundenbereich, Kasse und Verwaltung aus den Suchergebnissen |
 | `sitemap.xml` | Die öffentlichen Seiten für Suchmaschinen |
 
@@ -423,8 +423,9 @@ Get-FileHash "downloads\TylerTweaksSetup-2.5.0.exe" -Algorithm SHA256
 ```
 
 **Bildschirmfotos der App erneuern:** In `bilder/` liegen echte Aufnahmen aus
-der App, kein Nachbau. Sieht die App nach einem Release anders aus, gehören sie
-ausgetauscht — sonst zeigt die Startseite eine Fassung, die es nicht mehr gibt.
+der App, kein Nachbau. Seit 2.9.0 zeigt die Startseite sie nicht mehr. Bindest
+du sie wieder ein und sieht die App inzwischen anders aus, gehören sie vorher
+ausgetauscht.
 
 Die App verlangt Administratorrechte, eine Aufnahme ist deshalb nicht einfach
 per Skript zu machen. Dafür liegt im App-Projekt `TweakApp/app.preview.manifest`:

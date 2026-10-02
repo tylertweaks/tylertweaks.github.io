@@ -1,7 +1,7 @@
 /* ==========================================================================
    Tyler Tweaks — Interaktionen der Startseite
 
-   Aufbau: Navigation · Sanftes Scrollen · Reveal · FAQ · App-Ansichten ·
+   Aufbau: Navigation · Sanftes Scrollen · Reveal · FAQ ·
            Laufzeit-Auswahl · Preise aus der Datenbank
 
    Was hier NICHT mehr passiert: Zahlungen. Der frühere PayPal-Block hat die
@@ -28,7 +28,12 @@
   }
 
   /* ====================================================================
-     2. Sanftes Scrollen zu einer bestimmten Preiskarte
+     2. Sanftes Scrollen zu einem bestimmten Paket
+
+     Die Pakete sind seit 2.9.0 breite Blöcke untereinander und auf dem
+     Handy höher als der Schirm. Mit block:'center' landete man dort mitten
+     im Block, deshalb jetzt an der Oberkante (scroll-padding-top in
+     style.css hält sie unter der Navigation frei).
      ==================================================================== */
   (function scrollZuKarte() {
     document.querySelectorAll('[data-scroll-to]').forEach(function (link) {
@@ -37,7 +42,7 @@
         if (!ziel) return; // Der normale #preise-Sprung greift dann weiterhin
 
         e.preventDefault();
-        ziel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        ziel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
         ziel.classList.remove('flash');
         void ziel.offsetWidth; // Neustart der Animation erzwingen
@@ -164,43 +169,6 @@
   })();
 
   /* ====================================================================
-     3d. Kennzahlen im Hero hochzählen
-
-     Die Zahlen setzt tweaks.js aus tweaks.json. Deren Versprechen wurde dort
-     zuerst abonniert, also steht die Zahl schon im Element, wenn es hier
-     weitergeht — gelesen wird sie deshalb aus dem Element und nicht noch
-     einmal aus der Datei. Ohne Katalog bleibt es leer, wie überall sonst.
-     ==================================================================== */
-  (function kennzahlenZaehlen() {
-    var felder = document.querySelectorAll('[data-zaehlen]');
-    if (!felder.length || !window.TTKatalog) return;
-
-    var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (ruhig) return;
-
-    TTKatalog.laden().then(function () {
-      felder.forEach(function (el) {
-        var ziel = parseInt(el.textContent, 10);
-        if (!isFinite(ziel) || ziel < 2) return;
-
-        var dauer = 1200;
-        var start = null;
-
-        function schritt(jetzt) {
-          if (start === null) start = jetzt;
-          var t = Math.min(1, (jetzt - start) / dauer);
-          var weich = 1 - Math.pow(1 - t, 3);
-          el.textContent = String(Math.round(ziel * weich));
-          if (t < 1) window.requestAnimationFrame(schritt);
-        }
-
-        el.textContent = '0';
-        window.requestAnimationFrame(schritt);
-      });
-    }).catch(function () { /* meldet tweaks.js schon */ });
-  })();
-
-  /* ====================================================================
      4. FAQ: immer nur eine Antwort offen
      ==================================================================== */
   (function faq() {
@@ -216,46 +184,7 @@
   })();
 
   /* ====================================================================
-     5. App-Ansichten umschalten (Übersicht / Tweaks)
-     ==================================================================== */
-  (function ansichten() {
-    var leiste = document.querySelector('.shot-tabs');
-    if (!leiste) return;
-
-    var tabs = Array.prototype.slice.call(leiste.querySelectorAll('.shot-tab'));
-    if (!tabs.length) return;
-
-    var zeigen = function (index, fokus) {
-      tabs.forEach(function (tab, i) {
-        var aktiv = i === index;
-        tab.setAttribute('aria-selected', aktiv ? 'true' : 'false');
-        tab.tabIndex = aktiv ? 0 : -1;
-
-        var panel = document.getElementById(tab.getAttribute('aria-controls'));
-        if (panel) panel.hidden = !aktiv;
-      });
-      if (fokus) tabs[index].focus();
-    };
-
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () { zeigen(i, false); });
-
-      tab.addEventListener('keydown', function (e) {
-        var ziel = null;
-        if (e.key === 'ArrowRight') ziel = (i + 1) % tabs.length;
-        else if (e.key === 'ArrowLeft') ziel = (i - 1 + tabs.length) % tabs.length;
-        else if (e.key === 'Home') ziel = 0;
-        else if (e.key === 'End') ziel = tabs.length - 1;
-
-        if (ziel === null) return;
-        e.preventDefault();
-        zeigen(ziel, true);
-      });
-    });
-  })();
-
-  /* ====================================================================
-     6. Laufzeit-Auswahl in der Preiskarte
+     5. Laufzeit-Auswahl in der Preiskarte
      ==================================================================== */
   var laufzeiten = (KONFIG.laufzeiten || []).slice();
   var pakete = (KONFIG.pakete || []).slice();
@@ -508,8 +437,8 @@
     });
 
     /* Günstigste Laufzeit — nicht fest "4,99 €", sondern das tatsächliche
-       Minimum aus der Liste. Steht seit 2.8.1 an drei Stellen (Hero,
-       Wegweiser, Paketvergleich), deshalb querySelectorAll. */
+       Minimum aus der Liste. Steht an mehreren Stellen (Wegweiser,
+       Paketvergleich), deshalb querySelectorAll. */
     var abEls = document.querySelectorAll('[data-preis-ab]');
     if (abEls.length && laufzeiten.length) {
       var kleinster = laufzeiten.reduce(function (min, l) {
@@ -582,7 +511,7 @@
   appSperreZeigen();
 
   /* ====================================================================
-     7. Preise aus der Datenbank bestätigen
+     6. Preise aus der Datenbank bestätigen
 
      Die Preise im HTML sind nur die schnelle Anzeige. Verbindlich ist, was
      in der Datenbank steht — und genau das berechnet auch die Edge Function

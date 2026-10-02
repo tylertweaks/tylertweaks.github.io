@@ -4254,48 +4254,270 @@ body { counter-reset: abschnitt; }
   .cta-karte { border-radius: 16px; }
 }
 
-/* ---------- Die App im Hero ----------
-   Die echte Aufnahme groß unter den Knöpfen — wer zum ersten Mal kommt, soll
-   sehen, was er kauft. Unten läuft das Bild selbst aus (Transparenz im PNG),
-   deshalb kein Rahmen und kein box-shadow: beide zeichneten eine harte Kante
-   um den durchsichtigen Teil. drop-shadow folgt dagegen der Transparenz.
-   Die leichte Neigung wirkt wie ein Bildschirm, auf den man schaut; am Handy
-   fällt sie weg, dort zählt jeder Pixel Breite. */
-.hero-bild {
-  position: relative;
-  max-width: 1080px;
-  margin: 50px auto 0;
-  perspective: 2000px;
+@media print {
+  .hero-marke, .hero-zahlen, .weg-grid::before, .weg-grid::after,
+  .plan-featured::before, .cta-karte::after, .footer::before { display: none !important; }
 }
-.hero-bild::before {
+
+/* ==========================================================================
+   25. Startseite ohne App-Vorstellung (2.9.0)
+
+   Vorbild realdarkzy.de: oben nur der Name, riesig; darunter die Pakete
+   nicht mehr als drei Karten nebeneinander, sondern als breite Blöcke
+   untereinander — links, was drin ist, rechts Preis und Kaufknopf.
+
+   Die Blöcke tragen weiter die Klasse .plan, weil script.js daran Preis,
+   Name und Kaufknopf findet. Alles, was .plan als schmale Karte gebaut hat
+   (Flex-Spalte, Anheben beim Überfahren), wird hier für .produkt
+   zurückgenommen.
+   ========================================================================== */
+
+/* ---------- Der Name ----------
+   Mit .hero davor, sonst gewinnt .hero h1 aus Abschnitt 23. */
+.hero .hero-name {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto .3em;
+  /* Etwas Luft unter der Grundlinie, sonst schneidet background-clip das
+     y unten ab. */
+  padding-bottom: .06em;
+  font-size: clamp(3rem, 14vw, 8.75rem);
+  line-height: 1.02;
+  letter-spacing: -.05em;
+  background: linear-gradient(100deg, var(--accent) 0%, #e9f1ff 46%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 10px 46px rgba(var(--accent-rgb), .38));
+}
+.hero .hero-cta { margin-top: 6px; }
+
+/* ---------- Wegweiser in der neuen Reihenfolge ----------
+   Stahlblau (Optimierung), Gold (Bundle), Cyan (App) — wie die Blöcke. */
+.weg-grid::before { background: linear-gradient(90deg, #8fb4ff, var(--gold), #2ec5ff); }
+
+/* ---------- Die Paket-Blöcke ---------- */
+.produkte { display: grid; gap: 32px; }
+
+.produkt {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 40px 48px;
+  align-items: start;
+  padding: 44px;
+}
+.produkt:hover,
+.plan-featured.produkt:hover { transform: none; }
+/* Unter 900 px schiebt Abschnitt 17 die hervorgehobene Karte nach vorn.
+   Hier bleibt die Reihenfolge wie im Wegweiser. */
+.produkte .plan-featured { order: 0; }
+
+.produkt-info { min-width: 0; }
+
+.produkt-marken {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.produkt-marken .plan-kind {
+  margin: 0;
+  background: rgba(var(--accent-rgb), .10);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .30);
+  color: var(--accent);
+}
+
+.produkt h3 {
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  letter-spacing: -.035em;
+  margin-bottom: .35em;
+}
+.produkt .plan-desc {
+  max-width: 58ch;
+  margin-bottom: 26px;
+  color: var(--text-2);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+/* Merkmale in zwei Spalten, wo die Blockbreite es hergibt */
+.features-2 { columns: 2; column-gap: 32px; }
+.features-2 li { break-inside: avoid; }
+.produkt-info .features { margin: 0 0 4px; }
+
+/* ---------- "Was ich einstelle" ---------- */
+.produkt-zwischen {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.produkt-punkte {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.produkt-punkte li {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(5, 7, 12, .45);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.pp-ico {
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(var(--accent-rgb), .12);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .3);
+  color: var(--accent);
+}
+.pp-ico svg { width: 18px; height: 18px; }
+.produkt-punkte h4 { font-size: .98rem; margin: 2px 0 .25em; }
+.produkt-punkte p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
+
+/* ---------- Kasse rechts: Preis und Kaufknopf ---------- */
+.produkt-kasse {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 28px 26px;
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .10), rgba(5, 7, 12, .55) 60%);
+  border: 1px solid rgba(var(--accent-rgb), .35);
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 24px 60px rgba(var(--accent-rgb), .12);
+}
+.kasse-meta { margin: 10px 0 0; color: var(--muted); font-size: .88rem; }
+.produkt-kasse .features { margin: 22px 0 26px; }
+.produkt-kasse .laufzeit-wahl + .price { margin-bottom: 22px; }
+
+/* ---------- Ablauf über die ganze Breite ---------- */
+.produkt-ablauf {
+  grid-column: 1 / -1;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+}
+.produkt-ablauf .zeitstrahl-kopf { margin: 0 0 30px; }
+/* Der Ring um die Nummer verdeckt die Linie dahinter und muss deshalb die
+   Farbe der Fläche haben, auf der er steht — hier die des Blocks. */
+.produkt .zs-num {
+  background: var(--surface);
+  box-shadow: 0 0 0 6px var(--surface), 0 0 26px rgba(var(--accent-rgb), .28);
+}
+
+/* ---------- Bundle ---------- */
+.produkt-bundle {
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr);
+  align-items: stretch;
+}
+.produkt-bundle .amount {
+  background: linear-gradient(100deg, #fff 10%, #ffd98a);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.produkt-kaufzeile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 32px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.produkt-kaufzeile .plan-buy { flex: 1 1 260px; margin: 0; }
+
+/* Zeichnung links: zwei Teile, die zu einem werden. Die Teile haben eine
+   feste Höhe, damit die senkrechte Linie genau an ihren Mitten anfängt und
+   aufhört (66 / 2 = 33). */
+.bundle-bild {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  padding: 28px 16px;
+  background: rgba(5, 7, 12, .5);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.bb-teile { position: relative; display: grid; gap: 40px; }
+.bb-teil {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 66px;
+  padding: 0 18px;
+  background: var(--bg);
+  border: 1px solid rgba(143, 180, 255, .5);
+  border-radius: 9px;
+  white-space: nowrap;
+  box-shadow: 0 0 22px rgba(143, 180, 255, .12);
+}
+.bb-teil.bb-app { border-color: rgba(46, 197, 255, .5); box-shadow: 0 0 22px rgba(46, 197, 255, .12); }
+.bb-teil strong { font-family: var(--font-head); font-size: .98rem; }
+.bb-teil small {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.bb-teil::after,
+.bb-teile::after,
+.bb-ziel::before {
   content: '';
   position: absolute;
-  inset: 4% 10% 24%;
-  background: radial-gradient(closest-side, rgba(var(--accent-rgb), .45), transparent);
-  filter: blur(48px);
-  pointer-events: none;
+  background: rgba(var(--gold-rgb), .6);
 }
-.hero-bild img {
+.bb-teil::after { left: 100%; top: 50%; width: 28px; height: 1px; }
+.bb-teile::after { right: -28px; top: 33px; bottom: 33px; width: 1px; }
+.bb-ziel::before { right: 100%; top: 50%; width: 28px; height: 1px; }
+.bb-ziel {
   position: relative;
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 14px 14px 0 0;
-  transform: rotateX(7deg);
-  transform-origin: 50% 0;
-  filter:
-    drop-shadow(0 0 1px rgba(var(--accent-rgb), .55))
-    drop-shadow(0 26px 60px rgba(0, 0, 0, .55));
+  padding: 14px 22px;
+  background: linear-gradient(180deg, rgba(var(--gold-rgb), .18), rgba(var(--gold-rgb), .04));
+  border: 1px solid rgba(var(--gold-rgb), .75);
+  border-radius: 10px;
+  color: #ffd98a;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 0 34px rgba(var(--gold-rgb), .25);
 }
-.hero-bild + .hero-zahlen { margin-top: 18px; }
-
-@media (max-width: 680px) {
-  .hero-bild { margin-top: 34px; perspective: none; }
-  .hero-bild img { transform: none; border-radius: 10px 10px 0 0; }
-  .hero-bild::before { filter: blur(30px); }
+/* Knoten, wo die beiden Linien zusammenlaufen */
+.bb-ziel::after {
+  content: '';
+  position: absolute;
+  right: calc(100% + 24px);
+  top: calc(50% - 4px);
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px rgba(var(--gold-rgb), .9);
 }
 
-@media print {
-  .hero-marke, .hero-bild, .hero-zahlen, .weg-grid::before, .weg-grid::after,
-  .plan-featured::before, .cta-karte::after, .footer::before { display: none !important; }
+/* ---------- Schmale Schirme ---------- */
+@media (max-width: 960px) {
+  .produkt,
+  .produkt-bundle { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 34px 28px; }
+}
+
+@media (max-width: 600px) {
+  .produkt,
+  .produkt-bundle { padding: 26px 18px; }
+  .produkt-punkte { grid-template-columns: minmax(0, 1fr); }
+  .features-2 { columns: 1; }
+  .produkt-kasse { padding: 24px 18px 20px; }
+  /* Die Zeichnung ist reine Dekoration und passt hier nicht mehr in die Breite. */
+  .bundle-bild { display: none; }
 }

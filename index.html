@@ -159,9 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.9.0-2">
-<link rel="stylesheet" href="tweak-zeile.css?v=2.9.0-2">
-<link rel="stylesheet" href="mockup.css?v=2.9.0-2">
+<link rel="stylesheet" href="style.css?v=2.9.0-3">
+<link rel="stylesheet" href="mockup.css?v=2.9.0-3">
 </head>
 <body>
 
@@ -177,11 +176,10 @@
 
     <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
       <a href="#top">Startseite</a>
-      <a href="#app">Tweak App</a>
-      <a href="tweaks.html">Alle Tweaks</a>
-      <a href="#leistungen">Leistungen</a>
       <a href="#preise">Preise</a>
+      <a href="#ablauf">Ablauf</a>
       <a href="#faq">FAQ</a>
+      <a href="#support">Support</a>
       <a href="admin.html" id="nav-admin" hidden>Admin</a>
       <span id="nav-auth-mobil"></span>
       <a href="#preise" class="nav-cta">Jetzt kaufen</a>
@@ -200,76 +198,34 @@
 <main id="inhalt">
 <span id="top"></span>
 
-<!-- ============ HERO ============ -->
+<!-- ============ HERO ============
+     Nur der Name, groß — wie ein Schild über der Werkstatt. Bis 2.9.0 standen
+     hier eine Werbe-Überschrift, ein Absatz dazu und die App als Bild; das ist
+     alles raus. Der Name als h1 ist nebenbei genau das, wonach bei Google
+     gesucht wird ("Tyler Tweaks"). -->
 <section class="hero">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap hero-inner">
 
-    <!-- Der Markenname steht hier und im ersten Satz darunter mit Absicht:
-         Die Überschrift nennt ihn nicht, und Google nimmt für die Suche nach
-         "Tyler Tweaks" gern Text von ganz oben als Vorschau. Nicht länger
-         machen: So passt die Zeile bei 375 px Handybreite gerade noch. -->
-    <span class="pill"><span class="dot" aria-hidden="true"></span> Tyler Tweaks · Tweak App · Windows 10 &amp; 11</span>
+    <div class="hero-marke" aria-hidden="true">
+      <img src="favicon.svg" alt="" width="118" height="118">
+    </div>
 
-    <h1>Mehr FPS. Weniger Input-Lag.<br><span class="grad">Mehr Kontrolle.</span></h1>
+    <!-- Nicht länger machen: So passt die Zeile bei 375 px Handybreite. -->
+    <span class="pill"><span class="dot" aria-hidden="true"></span> PC-Optimierung · Windows 10 &amp; 11</span>
 
-    <p class="lead">
-      Mit Tyler Tweaks optimierst du deinen Gaming-PC mit nachvollziehbaren Windows-,
-      Performance- und Netzwerk-Einstellungen. Die Tweak App erledigt das per Klick — oder ich mache
-      es persönlich für dich. Vor jeder Änderung wird gesichert, alles lässt sich
-      wieder zurücksetzen.
-    </p>
+    <h1 class="hero-name">Tyler Tweaks</h1>
 
     <div class="hero-cta">
-      <a href="#app" class="btn btn-primary btn-lg">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        Tweak App entdecken
-      </a>
-      <a href="#preise" class="btn btn-outline btn-lg" data-scroll-to="tarif-opt">
+      <a href="#preise" class="btn btn-primary btn-lg" data-scroll-to="tarif-opt">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         PC optimieren lassen
       </a>
+      <a href="#preise" class="btn btn-outline btn-lg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
+        Alle Pakete
+      </a>
     </div>
-
-    <p class="hero-meta">
-      Ab <span data-preis-ab>4,99 €</span> zum Ausprobieren ·
-      Lifetime für <span data-preis-laufzeit="app-lifetime">49,99 €</span> ·
-      Einmalzahlung, kein Abo
-    </p>
-
-    <!-- Die App selbst, groß und gleich beim Öffnen im Bild. Früher stand hier
-         das Logo als Kachel — das steht aber schon in der Navigation, und wer
-         zum ersten Mal kommt, will sehen, was er kauft. Echte Aufnahme aus
-         Tyler 2.8.1 (Vorschau-Build, per PrintWindow), unten ausgeblendet:
-         Die Liste gehört in die App, auf die Seite gehört der Eindruck.
-         Kein loading="lazy" — das Bild steht oben und soll sofort laden. -->
-    <figure class="hero-bild">
-      <img src="bilder/app-tweaks.png" width="1400" height="790"
-           fetchpriority="high" decoding="async"
-           alt="Die Tweak App: links die Kategorien mit Zählern, rechts Suche, Filter nach Risiko und Kategorie und die Tweaks mit Erklärung und Schalter.">
-    </figure>
-
-    <!-- Kennzahlen. Keine davon steht hier fest: Die Anzahlen setzt tweaks.js
-         aus tweaks.json, die Version kommt aus konfig.js. data-zaehlen lässt
-         script.js von null hochzählen, sobald die Zahl da ist. -->
-    <ul class="hero-zahlen">
-      <li>
-        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3"/></svg></span>
-        <span><span class="hz-zahl" data-tweak-anzahl data-zaehlen></span><span class="hz-text">Optimierungen</span></span>
-      </li>
-      <li>
-        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
-        <span><span class="hz-zahl" data-bereich-anzahl data-zaehlen></span><span class="hz-text">Bereiche</span></span>
-      </li>
-      <li>
-        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 15 9l6.8 1-4.9 4.8 1.2 6.8L12 18.4 5.9 21.6l1.2-6.8L2.2 10 9 9Z"/></svg></span>
-        <span><span class="hz-zahl" data-preset-anzahl></span><span class="hz-text">Presets</span></span>
-      </li>
-      <li>
-        <span class="hz-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg></span>
-        <span><span class="hz-zahl">v<span data-app-version>2.9.0</span></span><span class="hz-text">Stand <span data-app-date>30.09.2026</span></span></span>
-      </li>
-    </ul>
 
     <ul class="trustbar">
       <li>
@@ -296,11 +252,12 @@
 <!-- ============ WEGWEISER ============
      Wer zum ersten Mal hier ist, kennt die drei Pakete noch nicht beim Namen.
      Deshalb hier die Frage andersherum: Was willst du selbst machen? Jede
-     Karte springt zur passenden Preiskarte (data-scroll-to, script.js) und
-     lässt sie kurz aufleuchten.
+     Karte springt zum passenden Paket (data-scroll-to, script.js) und lässt
+     es kurz aufleuchten.
 
-     Die Farben der drei Karten sind die ihrer Abschnitte: Cyan wie die Tweak
-     App, Stahlblau wie die persönliche Optimierung, Gold für die Empfehlung. -->
+     Reihenfolge wie die Pakete darunter: Optimierung, Bundle, App. Die Farben
+     sind die der Pakete: Stahlblau für die Optimierung, Gold für die
+     Empfehlung, Cyan für die App. -->
 <section id="wegweiser" class="section reveal">
   <div class="wrap">
 
@@ -311,12 +268,12 @@
     </div>
 
     <div class="weg-grid">
-      <a class="weg-karte ton-cyan" href="#preise" data-scroll-to="tarif-app">
+      <a class="weg-karte ton-stahl" href="#preise" data-scroll-to="tarif-opt">
         <span class="weg-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
         </span>
-        <p class="weg-frage">Du stellst lieber selbst ein, willst jeden Schalter verstehen und jederzeit nachjustieren können.</p>
-        <span class="weg-fuss">Tweak App · ab <span data-preis-ab>4,99 €</span>
+        <p class="weg-frage">Du willst, dass ich es einmal richtig für dich mache — per Remote-Sitzung, du musst selbst nichts tun.</p>
+        <span class="weg-fuss">PC-Optimierung · <span data-preis-betrag="optimierung">29,99 €</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
         </span>
       </a>
@@ -332,12 +289,12 @@
         </span>
       </a>
 
-      <a class="weg-karte ton-stahl" href="#preise" data-scroll-to="tarif-opt">
+      <a class="weg-karte ton-cyan" href="#preise" data-scroll-to="tarif-app">
         <span class="weg-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </span>
-        <p class="weg-frage">Du willst, dass ich es einmal richtig für dich mache — per Remote-Sitzung, du musst selbst nichts tun.</p>
-        <span class="weg-fuss">PC-Optimierung · <span data-preis-betrag="optimierung">29,99 €</span>
+        <p class="weg-frage">Du stellst lieber selbst ein, willst jeden Schalter verstehen und jederzeit nachjustieren können.</p>
+        <span class="weg-fuss">Tweak App · ab <span data-preis-ab>4,99 €</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
         </span>
       </a>
@@ -346,426 +303,245 @@
   </div>
 </section>
 
-<!-- ============ TWEAK APP ============ -->
-<section id="app" class="section section-alt reveal ton-cyan">
-  <div class="wrap">
+<!-- ============ PAKETE ============
+     Die drei Pakete stehen untereinander statt nebeneinander, jedes als
+     breiter Block: links, was drin ist, rechts Preis und Kaufknopf. Vorbild
+     war realdarkzy.de.
 
-    <div class="section-head">
-      <span class="eyebrow">Die Tweak App</span>
-      <h2>Ein Fenster. Alle Tweaks. Ein Klick zurück.</h2>
-      <p class="sub">
-        Kein Skript-Chaos, keine Registry-Bastelei von Hand. Du siehst jede Einstellung,
-        schaltest sie an oder aus und kannst jederzeit auf den Ausgangszustand zurück.
-      </p>
-    </div>
-
-    <div class="app-layout">
-
-      <!-- ===== Echte Aufnahmen aus der App ===== -->
-      <div class="app-shots">
-        <div class="shot-tabs" role="tablist" aria-label="Ansichten der Tweak App">
-          <button class="shot-tab" role="tab" id="tab-uebersicht" aria-controls="panel-uebersicht" aria-selected="true" type="button">Übersicht</button>
-          <button class="shot-tab" role="tab" id="tab-tweaks" aria-controls="panel-tweaks" aria-selected="false" tabindex="-1" type="button">Tweaks</button>
-          <button class="shot-tab" role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="false" tabindex="-1" type="button">Ausprobieren</button>
-        </div>
-
-        <!-- ---- Ansicht 1: Übersicht ---- -->
-        <div class="shot-panel" role="tabpanel" id="panel-uebersicht" aria-labelledby="tab-uebersicht" tabindex="0">
-          <figure class="shot">
-            <img src="bilder/app-uebersicht.png" width="1400" height="900"
-                 loading="lazy" decoding="async"
-                 alt="Übersichtsseite der Tweak App 2.8.1 im blau-schwarzen Design: erkannte Hardware, 218 von 275 Tweaks aktiv und die Aufteilung nach Risiko.">
-          </figure>
-          <p class="shot-caption">Übersicht: erkannte Hardware, wie viele Tweaks gerade aktiv sind und die Live-Auslastung. Auf dieser Seite wird nichts verändert.</p>
-        </div>
-
-        <!-- ---- Ansicht 2: Tweaks. Die Aufnahme ist bewusst im dritten Eintrag
-                  abgeschnitten und läuft unten aus: der Umfang gehört auf die
-                  Seite, die Liste selbst in die App. ---- -->
-        <div class="shot-panel" role="tabpanel" id="panel-tweaks" aria-labelledby="tab-tweaks" tabindex="0" hidden>
-          <figure class="shot">
-            <img src="bilder/app-tweaks.png" width="1400" height="790"
-                 loading="lazy" decoding="async"
-                 alt="Tweak-Liste der App: links die Kategorien mit Zählern, rechts Suchfeld, Filter nach Risiko und Kategorie und die ersten Einträge mit Erklärung und Schalter.">
-          </figure>
-          <p class="shot-caption">Tweaks: filterbar nach Kategorie und Risiko, jeder Eintrag mit Erklärung und eigenem Schalter. Die vollständige Liste siehst du in der App.</p>
-        </div>
-
-        <!-- ---- Ansicht 3: zum Anfassen ----
-
-             Die beiden Aufnahmen oben bleiben, wo sie sind. In 2.6.0 ist hier
-             bewusst ein nachgebautes App-Fenster geflogen, weil es erfundene
-             Inhalte zeigte — ein Bild, das sich als Aufnahme ausgab.
-
-             Das hier ist etwas anderes: kein Bild, sondern die echten
-             Katalogdaten aus tweaks.json, dieselben, die die App ausliefert,
-             in einem app-förmigen Rahmen. Über der Liste steht, dass die
-             Schalter nichts tun. -->
-        <div class="shot-panel" role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" tabindex="0" hidden>
-
-          <p class="demo-hinweis">
-            <strong>Nur zum Ansehen.</strong> Hier wird nichts an deinem Rechner geändert —
-            die Schalter sind ohne Wirkung. Die Einträge sind aber echt: Es ist derselbe
-            Katalog, den die App mitbringt.
-          </p>
-
-          <div class="app-demo" id="app-demo">
-            <div class="ad-leiste">
-              <span class="ad-logo" aria-hidden="true">
-                <img src="favicon.svg" alt="" width="15" height="15">
-                Tyler
-              </span>
-              <span class="ad-knoepfe" aria-hidden="true"><i></i><i></i><i></i></span>
-            </div>
-
-            <div class="ad-koerper">
-              <nav class="ad-nav" aria-label="Seiten der App (Vorschau)">
-                <span class="ad-navtitel">ÜBERSICHT</span>
-                <span class="ad-navpunkt">Allgemein</span>
-                <span class="ad-navtitel">TWEAKS</span>
-                <span class="ad-navpunkt">Presets</span>
-                <span class="ad-navpunkt aktiv">Tweaks</span>
-                <span class="ad-navpunkt">Clean</span>
-                <span class="ad-navpunkt">Verlauf</span>
-                <span class="ad-navpunkt">Game Booster</span>
-                <span class="ad-navpunkt">Einstellungen</span>
-              </nav>
-
-              <div class="ad-inhalt">
-                <div class="ad-kopf">
-                  <label class="sr-only" for="ad-suche">Tweaks in der Vorschau durchsuchen</label>
-                  <input type="search" id="ad-suche" class="ad-suche" autocomplete="off" placeholder="Suchen...">
-                  <div class="ad-chips" id="ad-chips" role="group" aria-label="Nach Bereich filtern"></div>
-                </div>
-
-                <div class="ad-liste" id="ad-liste"></div>
-                <p class="ad-leer" id="ad-leer" hidden>Dazu gibt es hier nichts.</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="shot-caption">
-            So sieht die Tweak-Liste in der App aus. <a href="tweaks.html">Auf einer eigenen Seite</a>
-            kannst du alle <span data-tweak-anzahl></span> in Ruhe durchgehen.
-          </p>
-        </div>
-
-        <!-- Zahl und Zahlwort kommen aus tweaks.json (tweaks.js). Vorher hing
-             das an einer Wortfolge, die release-fertigstellen.ps1 per Muster
-             gesucht hat — mit einem Warnhinweis genau hier, man möge den Satz
-             bloß nicht umstellen. An den zwei Stellen, wo das Muster nicht
-             passte, stand ein halbes Jahr lang "über 80". -->
-        <ul class="shot-fakten">
-          <li><strong><span data-tweak-anzahl></span> einzeln schaltbare Optimierungen in <span data-bereich-wort></span> Bereichen</strong>, jede im Klartext erklärt</li>
-          <li>Fünf fertige Presets und eigene Profile, oder jeder Tweak einzeln</li>
-          <li>Vor jeder Änderung eine Sicherung, jede einzeln zurücknehmbar</li>
-          <li><a href="tweaks.html">Alle Optimierungen im Einzelnen ansehen</a></li>
-        </ul>
-      </div>
-
-      <!-- ===== Feature-Liste ===== -->
-      <div>
-        <h3 style="font-size:1.3rem;margin-bottom:.8em">Was die App kann</h3>
-        <ul class="feature-list">
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="16" cy="12" r="3"/></svg></span>
-            <div>
-              <h3>Gaming Tweaks</h3>
-              <p>Ein Preset bündelt 31 Einstellungen: MMCSS-Priorität für Spiele, Core Parking, Power Throttling, GameDVR und Vollbild-Optimierungen.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 8h5l-3 12"/></svg></span>
-            <div>
-              <h3>Performance Tweaks</h3>
-              <p>CPU, GPU, Arbeitsspeicher, Energieplan, visuelle Effekte und Startverzögerung — jeweils einzeln schaltbar.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
-            <div>
-              <h3>Network Tweaks</h3>
-              <p>Nagle-Algorithmus, Netzwerk-Throttling und die Energiespar-Einstellungen der Netzwerkkarte, die Latenz kosten können.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg></span>
-            <div>
-              <h3>Input Tweaks</h3>
-              <p>Mausbeschleunigung aus, Tastatur-Wiederholrate und Eingabe-Warteschlange. Bewusst schlank — die App ersetzt keine Maus-Software.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></span>
-            <div>
-              <h3>Windows Cleanup</h3>
-              <p>Vorinstallierte Store-Apps entfernen und Autostart aufräumen — inklusive versteckter Einträge und geplanter Aufgaben. Eine Schutzliste verhindert, dass etwas Wichtiges fliegt.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
-            <div>
-              <h3>System-Analyse</h3>
-              <p>Live-Übersicht über CPU, GPU, Arbeitsspeicher und Windows-Version. Sind Werte nicht auslesbar, steht dort „n/v" statt einer erfundenen Zahl.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
-            <div>
-              <h3>Wiederherstellung</h3>
-              <p>Windows-Wiederherstellungspunkt, Registry-Sicherung und der alte Wert jedes einzelnen Tweaks. Im Verlauf machst du jede Änderung einzeln rückgängig.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg></span>
-            <div>
-              <h3>Game Booster</h3>
-              <p>Schließt vor dem Spielen alle Programme, die nicht auf deiner Whitelist stehen – auch Apps im Infobereich. Windows, Anti-Cheat und Grafiktreiber bleiben geschützt. Danach startet er sie auf Wunsch wieder.</p>
-            </div>
-          </li>
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-            <div>
-              <h3>Lizenzverwaltung</h3>
-              <p>Schlüssel beim ersten Start eingeben, danach meldet sich die App selbst an. Fällt das Internet aus, läuft sie bis zum Ablauf der Lizenz weiter.</p>
-            </div>
-          </li>
-          <!-- Stand bis 2.6.0 als "Gaming Profiles — in Entwicklung" hier.
-               Seit 2.7.0 enthalten. -->
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 15 9l6.8 1-4.9 4.8 1.2 6.8L12 18.4 5.9 21.6l1.2-6.8L2.2 10 9 9Z"/></svg></span>
-            <div>
-              <h3>Eigene Profile</h3>
-              <p>Nimm auf, welche Tweaks bei dir gerade gesetzt sind, gib dem Ganzen einen Namen — und stell denselben Zustand auf einem neuen PC oder nach einer Neuinstallation mit einem Klick wieder her. Dazu die fünf festen Presets Gaming, Privatsphäre, Tempo, Aufräumen und Sicher.</p>
-            </div>
-          </li>
-          <!-- Stand bis 2.8.1 als "Automatische Updates — geplant" hier.
-               Seitdem prüft die App beim Start selbst. -->
-          <li>
-            <span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/></svg></span>
-            <div>
-              <h3>Update-Hinweis</h3>
-              <p>Die App prüft beim Start, ob es eine neue Version gibt, und zeigt dir dann einen Hinweis mit Download-Knopf. Die neue Fassung installierst du über die alte — deine Lizenz bleibt gültig.</p>
-            </div>
-          </li>
-        </ul>
-
-        <a href="#preise" class="btn btn-primary btn-block" style="margin-top:26px" data-scroll-to="tarif-app">Laufzeit wählen und kaufen</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ PERSÖNLICHE OPTIMIERUNG ============ -->
-<section id="leistungen" class="section reveal ton-stahl">
-  <div class="wrap">
-
-    <div class="section-head">
-      <span class="eyebrow">Persönliche Optimierung</span>
-      <h2>Oder ich mache es für dich</h2>
-      <p class="sub">
-        Per Remote-Sitzung gehe ich dein System durch und stelle alles passend zu deiner Hardware ein.
-        Jeder Schritt wird erklärt und dokumentiert — du weißt am Ende genau, was geändert wurde.
-      </p>
-    </div>
-
-    <div class="grid-3">
-      <article class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1 3-1 3 1 3-1 3 1 3-1v12l-3 1-3-1-3 1-3-1-3 1-3-1z"/></svg>
-        </div>
-        <h3>Windows aufräumen</h3>
-        <p>Überflüssige Dienste, Telemetrie und vorinstallierte Apps raus. Weniger Hintergrundlast, mehr Ressourcen fürs Spiel.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M8 1v3M16 1v3M8 20v3M16 20v3M1 8h3M1 16h3M20 8h3M20 16h3"/></svg>
-        </div>
-        <h3>GPU &amp; Treiber</h3>
-        <p>Saubere Treiberinstallation, korrekte Profile in der Systemsteuerung, Shader-Cache und die Einstellungen, die wirklich etwas bringen.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-        </div>
-        <h3>Netzwerk &amp; Latenz</h3>
-        <p>Nagle, Drosselung, DNS und Adapter-Einstellungen richtig gesetzt — für stabilere Ping-Werte und weniger Ausreißer.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="5"/><line x1="12" y1="6" x2="12" y2="10"/></svg>
-        </div>
-        <h3>Maus &amp; Eingabe</h3>
-        <p>Beschleunigung raus, Polling-Rate, Empfindlichkeit und USB-Energieverwaltung — damit dein Aim genau das macht, was du willst.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
-        </div>
-        <h3>Energieplan &amp; CPU</h3>
-        <p>Energieprofil, Core Parking, C-States und Timer so gesetzt, dass deine CPU nicht mitten im Fight heruntertaktet.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="11" y1="15" x2="17" y2="15"/></svg>
-        </div>
-        <h3>Autostart &amp; Speicher</h3>
-        <p>Startprogramme ausmisten, geplante Aufgaben prüfen, RAM- und Datenträger-Einstellungen aufräumen. Schnellerer Start, weniger Ruckler.</p>
-      </article>
-    </div>
-
-    <!-- Derselbe Ablauf wie unter "Support" weiter unten, dort als Liste für
-         alle, die schon gekauft haben. Hier für die, die noch überlegen. -->
-    <p class="zeitstrahl-kopf" id="ablauf-optimierung">So läuft die Optimierung ab</p>
-    <ol class="zeitstrahl" aria-labelledby="ablauf-optimierung">
-      <li>
-        <span class="zs-num" aria-hidden="true">1</span>
-        <strong>Kaufen</strong>
-        <span class="zs-text">Im Warenkorb, bezahlt über PayPal</span>
-      </li>
-      <li>
-        <span class="zs-num" aria-hidden="true">2</span>
-        <strong>Melden</strong>
-        <span class="zs-text">Auf Discord, mit deiner Bestellnummer</span>
-      </li>
-      <li>
-        <span class="zs-num" aria-hidden="true">3</span>
-        <strong>Termin</strong>
-        <span class="zs-text">Wir finden einen Zeitpunkt, der dir passt</span>
-      </li>
-      <li>
-        <span class="zs-num" aria-hidden="true">4</span>
-        <strong>Remote-Sitzung</strong>
-        <span class="zs-text">Meist 45 bis 90 Minuten, jeder Schritt erklärt</span>
-      </li>
-      <li>
-        <span class="zs-num" aria-hidden="true">5</span>
-        <strong>Protokoll</strong>
-        <span class="zs-text">Liste aller Änderungen und das Backup</span>
-      </li>
-    </ol>
-
-    <p class="note">
-      Dauer je nach System meist 45 bis 90 Minuten. Am Ende bekommst du eine Liste aller Änderungen
-      und das Backup — auch wenn du später selbst etwas rückgängig machen willst.
-    </p>
-  </div>
-</section>
-
-<!-- ============ PREISE ============ -->
+     script.js hängt an diesen Blöcken: .plan, die ERSTE h3 darin (daraus
+     wird der Name im Warenkorb), .price .amount, .plan-buy, .plan-alt,
+     data-preis am Kaufknopf und die ids der App (app-preis, app-kaufen,
+     app-lizenz-zeile, laufzeit-knoepfe). Wer umbaut, lässt die stehen. -->
 <section id="preise" class="section section-alt reveal">
   <div class="wrap">
 
     <div class="section-head center">
-      <span class="eyebrow">Preise</span>
+      <span class="eyebrow">Pakete</span>
       <h2>Drei Wege, ein Ziel</h2>
       <p class="sub">Einmalzahlung, kein Abo – nichts verlängert sich automatisch. Keine Folgekosten, keine versteckten Posten.</p>
     </div>
 
-    <div class="pricing">
+    <div class="produkte">
 
-      <!-- Tweak App -->
-      <article class="plan" id="tarif-app">
-        <span class="plan-kind">Software</span>
-        <h3>Tweak App</h3>
-        <p class="plan-desc">Das Werkzeug, mit dem du selbst tweakst — so oft du willst.</p>
-
-        <div class="price">
-          <span class="amount" id="app-preis">49,99</span><span class="cur">€</span><span class="once">einmalig</span>
-        </div>
-
-        <fieldset class="laufzeit-wahl" id="laufzeit-wahl">
-          <legend>Laufzeit wählen</legend>
-          <div class="laufzeit-knoepfe" id="laufzeit-knoepfe">
-            <!-- wird aus konfig.js aufgebaut und aus der Datenbank bestätigt -->
+      <!-- ===== PC-Optimierung ===== -->
+      <article class="plan produkt ton-stahl" id="tarif-opt">
+        <div class="produkt-info">
+          <div class="produkt-marken">
+            <span class="plan-kind">Dienstleistung · Remote-Sitzung</span>
           </div>
-        </fieldset>
+          <h3>PC-Optimierung</h3>
+          <p class="plan-desc">
+            Per Remote-Sitzung gehe ich dein System durch und stelle alles passend zu deiner
+            Hardware ein. Jeder Schritt wird erklärt und dokumentiert — du weißt am Ende genau,
+            was geändert wurde.
+          </p>
 
-        <ul class="features">
-          <!-- Zahl aus tweaks.json, siehe tweaks.js. Stand hier bis 2.7.0 als
-               "Über 80" im Quelltext und war seit Version 2.6.0 falsch. -->
-          <li><span data-tweak-anzahl></span> Tweaks per Schalter</li>
-          <li>5 Presets: Gaming, Privatsphäre, Tempo, Aufräumen, Sicher</li>
-          <li>Wiederherstellungspunkt &amp; Einzel-Undo</li>
-          <li>Autostart- &amp; App-Manager</li>
-          <li id="app-lizenz-zeile">Lebenslange Lizenz für 1 PC</li>
-          <li>Neue Versionen kostenlos</li>
-          <li class="off">Keine persönliche Optimierung</li>
-        </ul>
+          <p class="produkt-zwischen">Was ich einstelle</p>
+          <ul class="produkt-punkte">
+            <li>
+              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1 3-1 3 1 3-1 3 1 3-1v12l-3 1-3-1-3 1-3-1-3 1-3-1z"/></svg></span>
+              <div>
+                <h4>Windows aufräumen</h4>
+                <p>Überflüssige Dienste, Telemetrie und vorinstallierte Apps raus — weniger Last im Hintergrund.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M8 1v3M16 1v3M8 20v3M16 20v3M1 8h3M1 16h3M20 8h3M20 16h3"/></svg></span>
+              <div>
+                <h4>GPU &amp; Treiber</h4>
+                <p>Saubere Treiberinstallation, richtige Profile, Shader-Cache und die Einstellungen, die wirklich etwas bringen.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+              <div>
+                <h4>Netzwerk &amp; Latenz</h4>
+                <p>Nagle, Drosselung, DNS und Adapter richtig gesetzt — für stabilere Ping-Werte.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="5"/><line x1="12" y1="6" x2="12" y2="10"/></svg></span>
+              <div>
+                <h4>Maus &amp; Eingabe</h4>
+                <p>Beschleunigung raus, Polling-Rate und USB-Energieverwaltung — dein Aim macht, was du willst.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></span>
+              <div>
+                <h4>Energieplan &amp; CPU</h4>
+                <p>Energieprofil, Core Parking, C-States und Timer — damit die CPU nicht mitten im Fight heruntertaktet.</p>
+              </div>
+            </li>
+            <li>
+              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="11" y1="15" x2="17" y2="15"/></svg></span>
+              <div>
+                <h4>Autostart &amp; Speicher</h4>
+                <p>Startprogramme und geplante Aufgaben ausmisten — schnellerer Start, weniger Ruckler.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-        <div class="plan-buy">
-          <a class="btn btn-outline btn-block" id="app-kaufen" href="kaufen.html?produkt=app-lifetime">
-            Für 49,99 € kaufen
-          </a>
-          <p class="plan-alt">Zahlung über PayPal · Lizenz sofort im Kundenbereich</p>
+        <div class="produkt-kasse">
+          <div class="price"><span class="amount">29,99</span><span class="cur">€</span><span class="once">einmalig</span></div>
+          <p class="kasse-meta">Sitzung meist 45 bis 90 Minuten, Termin nach dem Kauf</p>
+
+          <ul class="features">
+            <li>Komplette Optimierung von Hand</li>
+            <li>Backup vor jeder Änderung</li>
+            <li>Protokoll aller Änderungen</li>
+            <li>Nachbesserung innerhalb von 14 Tagen</li>
+            <li class="off">Ohne App-Lizenz</li>
+          </ul>
+
+          <div class="plan-buy">
+            <a class="btn btn-primary btn-block" href="kaufen.html?produkt=optimierung" data-preis="optimierung">
+              Für 29,99 € kaufen
+            </a>
+            <p class="plan-alt">Zahlung über PayPal · Termin nach Absprache</p>
+          </div>
+        </div>
+
+        <!-- Derselbe Ablauf wie unter "Support" weiter unten, dort als Liste
+             für alle, die schon gekauft haben. Hier für die, die noch überlegen. -->
+        <div class="produkt-ablauf">
+          <p class="zeitstrahl-kopf" id="ablauf-optimierung">So läuft die Optimierung ab</p>
+          <ol class="zeitstrahl" aria-labelledby="ablauf-optimierung">
+            <li>
+              <span class="zs-num" aria-hidden="true">1</span>
+              <strong>Kaufen</strong>
+              <span class="zs-text">Im Warenkorb, bezahlt über PayPal</span>
+            </li>
+            <li>
+              <span class="zs-num" aria-hidden="true">2</span>
+              <strong>Melden</strong>
+              <span class="zs-text">Auf Discord, mit deiner Bestellnummer</span>
+            </li>
+            <li>
+              <span class="zs-num" aria-hidden="true">3</span>
+              <strong>Termin</strong>
+              <span class="zs-text">Wir finden einen Zeitpunkt, der dir passt</span>
+            </li>
+            <li>
+              <span class="zs-num" aria-hidden="true">4</span>
+              <strong>Remote-Sitzung</strong>
+              <span class="zs-text">Meist 45 bis 90 Minuten, jeder Schritt erklärt</span>
+            </li>
+            <li>
+              <span class="zs-num" aria-hidden="true">5</span>
+              <strong>Protokoll</strong>
+              <span class="zs-text">Liste aller Änderungen und das Backup</span>
+            </li>
+          </ol>
         </div>
       </article>
 
-      <!-- Bundle (hervorgehoben, Mitte) -->
-      <article class="plan plan-featured" id="tarif-bundle">
-        <span class="badge">Beste Wahl</span>
-        <span class="plan-kind">Software + Service</span>
-        <h3>Bundle</h3>
-        <p class="plan-desc">Die App <em>und</em> die persönliche Optimierung zusammen.</p>
-
-        <!-- Summe und Ersparnis rechnet script.js aus den beiden Einzelpreisen
-             aus. Vorher standen hier feste Zahlen, die bei einer Preisänderung
-             stehengeblieben wären — und dann hätte die Karte sich selbst
-             widersprochen. -->
-        <div class="price">
-          <span class="old" data-preis-summe>79,98 €</span>
-          <span class="amount">69,99</span><span class="cur">€</span><span class="once">einmalig</span>
+      <!-- ===== Bundle =====
+           Die Empfehlung, deshalb in Gold — Gold steht auf der ganzen Seite
+           nur dafür. Summe und Ersparnis rechnet script.js aus den beiden
+           Einzelpreisen aus; die Zahlen hier sind nur die erste Anzeige.
+           Links eine Zeichnung, woraus das Bundle besteht. Sie ist reine
+           Dekoration und bekommt deshalb kein h3: script.js nimmt die erste
+           h3 im Block als Namen für den Warenkorb. -->
+      <article class="plan plan-featured produkt produkt-bundle ton-gold" id="tarif-bundle">
+        <div class="bundle-bild" aria-hidden="true">
+          <div class="bb-teile">
+            <span class="bb-teil"><strong>PC-Optimierung</strong><small>Remote-Sitzung</small></span>
+            <span class="bb-teil bb-app"><strong>Tweak App</strong><small>Lifetime-Lizenz</small></span>
+          </div>
+          <span class="bb-ziel">Bundle</span>
         </div>
-        <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
 
-        <ul class="features">
-          <li>Alles aus der Tweak App</li>
-          <li>Alles aus der PC-Optimierung</li>
-          <li>Persönliche Einweisung in die App</li>
-          <li>Eigenes Profil für dein System</li>
-          <li>Bevorzugter Support</li>
-          <li>Neue Versionen kostenlos</li>
-          <li>Nachbesserung innerhalb von 14 Tagen</li>
-        </ul>
+        <div class="produkt-info">
+          <div class="produkt-marken">
+            <span class="plan-kind">Software + Service</span>
+            <span class="marke-gold">Empfehlung</span>
+          </div>
+          <h3>Bundle</h3>
+          <p class="plan-desc">
+            Ich stelle deinen PC einmal persönlich ein — und danach hast du die App, um selbst
+            dranzubleiben, auch wenn ein Windows-Update etwas zurücksetzt.
+          </p>
 
-        <div class="plan-buy">
-          <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
-            Für 69,99 € kaufen
-          </a>
-          <p class="plan-alt">Zahlung über PayPal · Lizenz sofort, Termin direkt danach</p>
+          <ul class="features features-2">
+            <li>Alles aus der PC-Optimierung</li>
+            <li>Tweak App mit Lifetime-Lizenz für 1 PC</li>
+            <li>Persönliche Einweisung in die App</li>
+            <li>Eigenes Profil für dein System</li>
+            <li>Bevorzugter Support</li>
+            <li>Neue Versionen kostenlos</li>
+            <li>Nachbesserung innerhalb von 14 Tagen</li>
+          </ul>
+
+          <div class="produkt-kaufzeile">
+            <div class="produkt-preis">
+              <div class="price">
+                <span class="old" data-preis-summe>79,98 €</span>
+                <span class="amount">69,99</span><span class="cur">€</span><span class="once">einmalig</span>
+              </div>
+              <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
+            </div>
+
+            <div class="plan-buy">
+              <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
+                Für 69,99 € kaufen
+              </a>
+              <p class="plan-alt">Zahlung über PayPal · Lizenz sofort, Termin direkt danach</p>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- PC-Optimierung -->
-      <article class="plan" id="tarif-opt">
-        <span class="plan-kind">Dienstleistung</span>
-        <h3>PC-Optimierung</h3>
-        <p class="plan-desc">Ich optimiere deinen PC persönlich per Remote-Sitzung.</p>
+      <!-- ===== Tweak App =====
+           Nur noch das, was zum Kaufen nötig ist. Bilder, Funktionsliste und
+           Vorführung der App sind seit 2.9.0 nicht mehr auf der Startseite.
+           Solange appErscheint in konfig.js steht, ist die App gesperrt
+           (script.js) und #app-hinweis sagt, wann sie kommt. -->
+      <article class="plan produkt ton-cyan" id="tarif-app">
+        <div class="produkt-info">
+          <div class="produkt-marken">
+            <span class="plan-kind">Software</span>
+          </div>
+          <h3>Tweak App</h3>
+          <p class="plan-desc">Das Werkzeug, mit dem du selbst tweakst — so oft du willst.</p>
 
-        <div class="price"><span class="amount">29,99</span><span class="cur">€</span><span class="once">einmalig</span></div>
+          <div class="hinweis-kasten warn" id="app-hinweis" hidden>
+            <p><strong>Die Tweak App erscheint <span data-app-erscheint>nächste Woche</span>.</strong>
+               Bis dahin kannst du sie und das Bundle noch nicht kaufen — die Preise
+               stehen aber schon fest. Die PC-Optimierung kannst du schon jetzt buchen.</p>
+          </div>
 
-        <ul class="features">
-          <li>Komplette Optimierung von Hand</li>
-          <li>Windows aufräumen &amp; Dienste</li>
-          <li>GPU-, Netzwerk- &amp; Eingabe-Tweaks</li>
-          <li>Energieplan &amp; Autostart</li>
-          <li>Backup vor jeder Änderung</li>
-          <li>Protokoll aller Änderungen</li>
-          <li>Nachbesserung innerhalb von 14 Tagen</li>
-          <li class="off">Ohne App-Lizenz</li>
-        </ul>
+          <ul class="features features-2">
+            <!-- Zahl aus tweaks.json, siehe tweaks.js. -->
+            <li><span data-tweak-anzahl></span> Tweaks per Schalter</li>
+            <li>5 Presets: Gaming, Privatsphäre, Tempo, Aufräumen, Sicher</li>
+            <li>Wiederherstellungspunkt &amp; Einzel-Undo</li>
+            <li>Autostart- &amp; App-Manager</li>
+            <li id="app-lizenz-zeile">Lebenslange Lizenz für 1 PC</li>
+            <li>Neue Versionen kostenlos</li>
+            <li class="off">Keine persönliche Optimierung</li>
+          </ul>
+        </div>
 
-        <div class="plan-buy">
-          <a class="btn btn-outline btn-block" href="kaufen.html?produkt=optimierung" data-preis="optimierung">
-            Für 29,99 € kaufen
-          </a>
-          <p class="plan-alt">Zahlung über PayPal · Termin nach Absprache</p>
+        <div class="produkt-kasse">
+          <fieldset class="laufzeit-wahl" id="laufzeit-wahl">
+            <legend>Laufzeit wählen</legend>
+            <div class="laufzeit-knoepfe" id="laufzeit-knoepfe">
+              <!-- wird aus konfig.js aufgebaut und aus der Datenbank bestätigt -->
+            </div>
+          </fieldset>
+
+          <div class="price">
+            <span class="amount" id="app-preis">49,99</span><span class="cur">€</span><span class="once">einmalig</span>
+          </div>
+
+          <div class="plan-buy">
+            <a class="btn btn-primary btn-block" id="app-kaufen" href="kaufen.html?produkt=app-lifetime">
+              Für 49,99 € kaufen
+            </a>
+            <p class="plan-alt">Zahlung über PayPal · Lizenz sofort im Kundenbereich</p>
+          </div>
         </div>
       </article>
 
@@ -794,14 +570,6 @@
          <code>konfig.js</code> abschaltest.</p>
     </div>
 
-    <!-- Erscheint nur, solange appErscheint in konfig.js gesetzt ist (script.js). -->
-    <div class="hinweis-kasten warn wrap-narrow" id="app-hinweis" hidden
-         style="margin:28px auto 0">
-      <p><strong>Die Tweak App erscheint <span data-app-erscheint>nächste Woche</span>.</strong>
-         Bis dahin kannst du sie und das Bundle noch nicht kaufen — die Preise
-         stehen aber schon fest. Die PC-Optimierung kannst du schon jetzt buchen.</p>
-    </div>
-
     <!-- Erscheint nur bei verkaufPausiert in konfig.js. -->
     <div class="hinweis-kasten warn wrap-narrow" id="pause-hinweis" hidden
          style="margin:28px auto 0">
@@ -820,10 +588,10 @@
     </p>
 
     <!-- ---- Vergleich der drei Pakete ----
-         Nichts Neues, nur nebeneinander: Jede Zeile steht so schon in einer der
-         drei Karten darüber. Wer eine Karte ändert, ändert bitte auch hier.
-         Die Preise im Kopf setzt script.js aus konfig.js und der Datenbank,
-         genau wie auf den Karten. -->
+         Nichts Neues, nur nebeneinander: Jede Zeile steht so schon in einem der
+         drei Blöcke darüber. Wer einen Block ändert, ändert bitte auch hier.
+         Spalten in derselben Reihenfolge wie die Blöcke. Die Preise im Kopf
+         setzt script.js aus konfig.js und der Datenbank. -->
     <div class="vergleich-kopf">
       <h3>Was steckt in welchem Paket?</h3>
       <p>Alle drei auf einen Blick.</p>
@@ -834,32 +602,14 @@
         <thead>
           <tr>
             <th scope="col">Leistung</th>
-            <th scope="col">Tweak App<span class="vg-preis">ab <span data-preis-ab>4,99 €</span></span></th>
-            <th scope="col" class="vg-top"><span class="marke-gold">Beste Wahl</span><br>Bundle<span class="vg-preis" data-preis-betrag="bundle">69,99 €</span></th>
             <th scope="col">PC-Optimierung<span class="vg-preis" data-preis-betrag="optimierung">29,99 €</span></th>
+            <th scope="col" class="vg-top"><span class="marke-gold">Beste Wahl</span><br>Bundle<span class="vg-preis" data-preis-betrag="bundle">69,99 €</span></th>
+            <th scope="col">Tweak App<span class="vg-preis">ab <span data-preis-ab>4,99 €</span></span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Lizenz für die Tweak App, 1 PC</th>
-            <td><span class="vg-text">Laufzeit nach Wahl</span></td>
-            <td class="vg-top"><span class="vg-text">Lifetime</span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row"><span data-tweak-anzahl></span> Tweaks, jeder einzeln schaltbar</th>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Fünf Presets und eigene Profile</th>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Neue App-Versionen kostenlos</th>
+            <th scope="row">Persönliche Optimierung per Remote-Sitzung</th>
             <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
             <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
             <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
@@ -871,19 +621,37 @@
             <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
           </tr>
           <tr>
-            <th scope="row">Persönliche Optimierung per Remote-Sitzung</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-          </tr>
-          <tr>
             <th scope="row">Protokoll aller Änderungen</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
             <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
           </tr>
           <tr>
             <th scope="row">Kostenlose Nachbesserung innerhalb von 14 Tagen</th>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Lizenz für die Tweak App, 1 PC</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-text">Lifetime</span></td>
+            <td><span class="vg-text">Laufzeit nach Wahl</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span data-tweak-anzahl></span> Tweaks, jeder einzeln schaltbar</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Fünf Presets und eigene Profile</th>
+            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
+            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Neue App-Versionen kostenlos</th>
             <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
             <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
             <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
@@ -994,104 +762,19 @@
   </div>
 </section>
 
-<!-- ============ DIE 129 OPTIMIERUNGEN ============
-     Die Zahlen hier stammen nicht aus dem Marketing, sondern aus dem
-     Tweak-Katalog der App. Abgesichert durch TweakCatalogTests in
-     TweakApp.Tests: Wer einen Tweak hinzufügt oder die Einstufung ändert,
-     bekommt einen roten Test — und damit den Hinweis, diese Seite
-     nachzuziehen.
-
-     Seit 2.6.0 trägt release-fertigstellen.ps1 die Gesamtzahl beim
-     Veröffentlichen selbst ein. Die Aufteilung nach Bereich und Einstufung
-     unten bleibt Handarbeit — sie steht im Testprotokoll unter
-     "Verteilung_ausgeben". ============================================== -->
-<section id="optimierungen" class="section reveal">
-  <div class="wrap">
-
-    <div class="section-head">
-      <span class="eyebrow">Umfang</span>
-      <h2><span data-tweak-anzahl></span> Optimierungen, nach Bereich sortiert</h2>
-      <p class="sub">
-        Jede einzeln an- und abschaltbar, jede mit Klartext dazu, was sie in Windows ändert.
-        Keine Sammelschalter, hinter denen man nicht sieht, was passiert.
-      </p>
-    </div>
-
-    <!-- Die Kacheln baut tweaks.js aus tweaks.json, größter Bereich zuerst,
-         und jede verlinkt in die gefilterte Liste. Bis 2.7.0 stand hier eine
-         Abschrift von Hand: elf Zahlen, die bei jedem neuen Tweak hätten
-         mitgepflegt werden müssen. -->
-    <div class="opt-grid" data-bereich-raster></div>
-
-    <div class="risk-row">
-      <article class="risk-card risk-safe">
-        <div class="rk"><span class="rn" data-risiko-anzahl="Safe"></span><span class="rl">Sicher</span></div>
-        <p>Ändert nichts, was den Betrieb stören kann. Vollständig umkehrbar.</p>
-      </article>
-
-      <article class="risk-card risk-caution">
-        <div class="rk"><span class="rn" data-risiko-anzahl="Caution"></span><span class="rl">Vorsicht</span></div>
-        <p>
-          Ändert spürbar, wie sich Windows verhält — etwa wenn ein Dienst abgeschaltet wird,
-          den du doch brauchst. Die App schreibt vorher hin, was wegfällt.
-        </p>
-      </article>
-
-      <article class="risk-card risk-advanced">
-        <div class="rk"><span class="rn" data-risiko-anzahl="Advanced"></span><span class="rl">Fortgeschritten</span></div>
-        <p>
-          Greift in eine Systemkomponente ein. Nur sinnvoll, wenn du weißt, was du willst —
-          und mit Rückfrage, bevor etwas passiert.
-        </p>
-      </article>
-    </div>
-
-    <p class="opt-note muted">
-      <span data-neustart-anzahl></span> der <span data-tweak-anzahl></span> Änderungen wirken erst nach einem Neustart.
-      Welche das sind, steht an jeder einzelnen — nicht im Kleingedruckten.
-    </p>
-
-    <p class="opt-alle">
-      <!-- Der Text in EINEM span: .btn ist ein Flex-Kasten mit gap:9px, und
-           ohne die Klammer wären "Alle", die Zahl und der Rest drei Kinder —
-           mit neun Pixeln Luft dazwischen. -->
-      <a href="tweaks.html" class="btn btn-outline"><span>Alle <span data-tweak-anzahl></span> Optimierungen im Einzelnen ansehen</span></a>
-    </p>
-
-  </div>
-</section>
-
-<!-- ============ VERTRAUEN & SICHERHEIT ============ -->
+<!-- ============ VERTRAUEN & SICHERHEIT ============
+     Seit 2.9.0 ohne die beiden Karten, die nur die App beschrieben haben
+     (Sicherung pro Tweak, Updates & Lizenz). Was bleibt, gilt für alle Pakete. -->
 <section id="vertrauen" class="section section-alt reveal ton-cyan">
   <div class="wrap">
 
     <div class="section-head">
       <span class="eyebrow">Sicherheit</span>
       <h2>Sicher. Kontrolliert. Reversibel.</h2>
-      <p class="sub">Lieber vorher ehrlich als hinterher enttäuscht. Hier steht, was passiert, was unterstützt wird und was ich bewusst nicht anfasse.</p>
+      <p class="sub">Lieber vorher ehrlich als hinterher enttäuscht. Hier steht, was unterstützt wird und was ich bewusst nicht anfasse.</p>
     </div>
 
     <div class="trust-grid">
-
-      <article class="trust-card">
-        <div class="icon icon-ok">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
-        </div>
-        <h3>Gesichert vor wichtigen Änderungen</h3>
-        <p>
-          Zu jedem einzelnen Tweak merkt sich die App den vorherigen Wert — nicht den
-          Windows-Standard, sondern genau das, was bei dir vorher eingestellt war. Im Verlauf
-          machst du jede Änderung einzeln rückgängig.
-        </p>
-        <p>
-          Zusätzlich sichert die App die betroffenen Registry-Zweige und legt vor größeren
-          Durchläufen einen Windows-Wiederherstellungspunkt an. Du kommst also auch dann zurück,
-          wenn die App selbst nicht mehr startet.
-        </p>
-        <p class="muted" style="font-size:.85rem">
-          Eine Ausnahme: Entfernte Store-Apps holt die App nicht zurück. Sie weist vorher darauf hin.
-        </p>
-      </article>
 
       <article class="trust-card">
         <div class="icon">
@@ -1112,30 +795,9 @@
       </article>
 
       <article class="trust-card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+        <div class="icon icon-ok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
         </div>
-        <h3>Updates &amp; Lizenz</h3>
-        <ul class="speclist">
-          <li><span class="k">Aktuelle Version</span><span class="v" data-app-version>2.9.0</span></li>
-          <li><span class="k">Stand</span><span class="v" data-app-date>30.09.2026</span></li>
-          <li><span class="k">Neue Versionen</span><span class="v">kostenlos</span></li>
-          <li><span class="k">Update-Prüfung</span><span class="v">automatisch beim Start</span></li>
-          <li><span class="k">Laufzeiten</span><span class="v">24 Std. bis Lifetime</span></li>
-          <li><span class="k">Gültig für</span><span class="v">1 PC</span></li>
-        </ul>
-        <p class="muted" style="font-size:.85rem;margin-top:14px">
-          Die App prüft beim Start und danach alle paar Stunden, ob eine neue Version da ist,
-          und zeigt dann oben einen Hinweis mit dem Knopf „Jetzt herunterladen“. Sie
-          aktualisiert sich bewusst nicht selbst: Du lädst die neue Fassung im Kundenbereich
-          und installierst sie über die alte. Dein Schlüssel bleibt derselbe.
-        </p>
-      </article>
-
-    </div>
-
-    <div class="grid-2" style="margin-top:20px">
-      <article class="trust-card">
         <h3>Das passiert <em>nicht</em></h3>
         <ul class="nolist">
           <li>Kein Übertakten, keine Spannungs- oder BIOS-Änderungen</li>
@@ -1147,19 +809,23 @@
       </article>
 
       <article class="trust-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
         <h3>Wenn etwas nicht passt</h3>
         <p>
           Melde dich auf Discord (<strong>tyler061312</strong>). Bei der Optimierung bessere ich
           innerhalb von 14 Tagen kostenlos nach, wenn etwas nicht läuft wie besprochen.
         </p>
         <p>
-          Bei der App hilft im Zweifel die Ein-Klick-Wiederherstellung — und wenn die App auf deinem
-          System nicht startet, finden wir gemeinsam eine Lösung.
+          Vor jeder Änderung wird gesichert — im Zweifel kommst du jederzeit auf den
+          vorherigen Stand zurück.
         </p>
         <p class="muted" style="font-size:.86rem">
           Die Zahlung läuft über PayPal, damit du auch von dieser Seite abgesichert bist.
         </p>
       </article>
+
     </div>
 
   </div>
@@ -1424,10 +1090,10 @@
     <div>
       <h4>Angebot</h4>
       <ul>
-        <li><a href="#app">Tweak App</a></li>
+        <li><a href="#tarif-opt">PC-Optimierung</a></li>
+        <li><a href="#tarif-bundle">Bundle</a></li>
+        <li><a href="#tarif-app">Tweak App</a></li>
         <li><a href="tweaks.html">Alle Optimierungen</a></li>
-        <li><a href="#leistungen">PC-Optimierung</a></li>
-        <li><a href="#preise">Preise</a></li>
         <li><a href="#ablauf">Kaufablauf</a></li>
       </ul>
     </div>
@@ -1489,10 +1155,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.9.0-2"></script>
-<script src="tt-backend.js?v=2.9.0-2"></script>
-<script src="warenkorb.js?v=2.9.0-2"></script>
-<script src="tweaks.js?v=2.9.0-2"></script>
-<script src="script.js?v=2.9.0-2"></script>
+<script src="konfig.js?v=2.9.0-3"></script>
+<script src="tt-backend.js?v=2.9.0-3"></script>
+<script src="warenkorb.js?v=2.9.0-3"></script>
+<script src="tweaks.js?v=2.9.0-3"></script>
+<script src="script.js?v=2.9.0-3"></script>
 </body>
 </html>
