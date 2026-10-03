@@ -227,11 +227,17 @@
         'Die Bezahlung über PayPal ist auf dieser Seite noch nicht freigeschaltet.');
     }
 
+    /* Neben PayPal selbst: Kredit- und Debitkarte ohne PayPal-Konto, SEPA-
+       Lastschrift und die üblichen Bankzahlungen in Europa. PayPal blendet
+       davon nur ein, was im Land des Käufers und für dieses Händlerkonto
+       geht, also etwa EPS nur in Österreich. Ratenkauf bleibt aus. */
     var skript = document.createElement('script');
     skript.src = 'https://www.paypal.com/sdk/js' +
       '?client-id=' + encodeURIComponent(clientId) +
       '&currency=' + encodeURIComponent(produkt.currency || KONFIG.waehrung || 'EUR') +
-      '&intent=capture&locale=de_DE&components=buttons&disable-funding=paylater';
+      '&intent=capture&locale=de_DE&components=buttons' +
+      '&enable-funding=card,sepa,eps,ideal,bancontact,blik,p24,mybank' +
+      '&disable-funding=paylater';
     skript.async = true;
 
     skript.onerror = function () {
