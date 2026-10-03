@@ -12,22 +12,22 @@ Live: https://tylertweaks.github.io/
 
 | Paket | Preis |
 |---|---|
-| Tweak App — 24 Stunden | 4,99 € |
-| Tweak App — 2 Tage | 6,99 € |
-| Tweak App — 1 Woche | 9,99 € |
-| Tweak App — 1 Monat | 14,99 € |
-| Tweak App — 1 Jahr | 24,99 € |
-| Tweak App — Lifetime | 49,99 € |
+| Tweak App — 24 Stunden | 7,99 € |
+| Tweak App — 2 Tage | 9,99 € |
+| Tweak App — 1 Woche | 12,99 € |
+| Tweak App — 1 Monat | 16,99 € |
+| Tweak App — 1 Jahr | 29,99 € |
+| Tweak App — Lifetime | 59,99 € |
 | PC-Optimierung | 29,99 € |
-| Bundle (App Lifetime + Optimierung) | 69,99 € |
+| Bundle (App Lifetime + Optimierung) | 74,99 € |
 
 Verbindlich sind immer die Preise in der Supabase-Tabelle `products` — die
 Edge Function rechnet ausschließlich damit. Die Zahlen in `konfig.js` sorgen nur
 dafür, dass die Preisliste sofort etwas anzeigt; weichen sie ab, korrigiert die
 Seite sich beim Laden selbst.
 
-Seit 26.09.2026 führt auch die Datenbank die Preise oben
-(`backend/05-preise-2026.sql` ist gelaufen). Bereits abgeschlossene
+Seit 03.10.2026 führt auch die Datenbank die Preise oben
+(`backend/12-preise-3-0.sql`, Preise zur App 3.0). Bereits abgeschlossene
 Bestellungen haben sich dadurch nicht geändert: `orders.price` hält den Preis
 vom Kaufzeitpunkt fest.
 

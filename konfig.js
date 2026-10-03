@@ -124,12 +124,12 @@ window.TT_KONFIG = {
      selbst aus der Datenbank.
      ----------------------------------------------------------------------- */
   laufzeiten: [
-    { slug: 'app-24h',      kurz: '24 Std.',  lang: '24 Stunden', preis: '4.99'  },
-    { slug: 'app-2d',       kurz: '2 Tage',   lang: '2 Tage',     preis: '6.99'  },
-    { slug: 'app-1w',       kurz: '1 Woche',  lang: '1 Woche',    preis: '9.99'  },
-    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',    preis: '14.99' },
-    { slug: 'app-1y',       kurz: '1 Jahr',   lang: '1 Jahr',     preis: '24.99' },
-    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime',   preis: '49.99' }
+    { slug: 'app-24h',      kurz: '24 Std.',  lang: '24 Stunden', preis: '7.99'  },
+    { slug: 'app-2d',       kurz: '2 Tage',   lang: '2 Tage',     preis: '9.99'  },
+    { slug: 'app-1w',       kurz: '1 Woche',  lang: '1 Woche',    preis: '12.99' },
+    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',    preis: '16.99' },
+    { slug: 'app-1y',       kurz: '1 Jahr',   lang: '1 Jahr',     preis: '29.99' },
+    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime',   preis: '59.99' }
   ],
 
   /* ---- Die beiden festen Pakete ------------------------------------------
@@ -148,7 +148,7 @@ window.TT_KONFIG = {
      ----------------------------------------------------------------------- */
   pakete: [
     { slug: 'optimierung', name: 'PC-Optimierung', untertitel: 'Einmalig',            preis: '29.99' },
-    { slug: 'bundle',      name: 'Bundle',         untertitel: 'Lifetime + Service',  preis: '69.99' }
+    { slug: 'bundle',      name: 'Bundle',         untertitel: 'Lifetime + Service',  preis: '74.99' }
   ],
 
   /* ---- Aktuelle App-Version ---------------------------------------------

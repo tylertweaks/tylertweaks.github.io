@@ -27,7 +27,7 @@
 <!-- Beschreibung bewusst unter 160 Zeichen, damit Google sie nicht abschneidet,
      und bewusst ohne Preise: die stehen in der Datenbank und ändern sich,
      eine Suchergebnis-Zeile lässt sich aber nicht mitändern. -->
-<meta name="description" content="Tyler Tweaks optimiert Windows und Spiele: 275 einzeln schaltbare Änderungen, jede im Klartext erklärt und gesichert. Alles jederzeit rückgängig.">
+<meta name="description" content="Tyler Tweaks optimiert Windows und Spiele: 228 einzeln schaltbare Änderungen, jede im Klartext erklärt und gesichert. Alles jederzeit rückgängig.">
 <meta name="theme-color" content="#05070c">
 
 <!-- Bestätigung für Bing Webmaster Tools (seit 27.09.2026). Nicht löschen,
@@ -132,9 +132,9 @@
       "inLanguage": ["de", "en"],
       "url": "https://tylertweaks.github.io/",
       "image": "https://tylertweaks.github.io/bilder/vorschau.png",
-      "description": "Windows-Optimierung mit 275 einzeln schaltbaren Aenderungen. Jede Aenderung ist im Klartext beschrieben, wird vorher gesichert und laesst sich einzeln zuruecknehmen.",
+      "description": "Windows-Optimierung mit 228 einzeln schaltbaren Aenderungen. Jede Aenderung ist im Klartext beschrieben, wird vorher gesichert und laesst sich einzeln zuruecknehmen.",
       "featureList": [
-        "275 einzeln schaltbare Optimierungen in dreizehn Bereichen",
+        "228 einzeln schaltbare Optimierungen in dreizehn Bereichen",
         "Sicherung des bisherigen Werts vor jeder Aenderung",
         "Einzelnes Zuruecknehmen ueber den Verlauf",
         "Windows-Wiederherstellungspunkt vor groesseren Durchlaeufen",
@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.9.0-3">
-<link rel="stylesheet" href="mockup.css?v=2.9.0-3">
+<link rel="stylesheet" href="style.css?v=2.9.0-4">
+<link rel="stylesheet" href="mockup.css?v=2.9.0-4">
 </head>
 <body>
 
@@ -284,7 +284,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
         </span>
         <p class="weg-frage">Ich stelle deinen PC einmal persönlich ein — und danach hast du die App, um selbst dranzubleiben.</p>
-        <span class="weg-fuss">Bundle · <span data-preis-betrag="bundle">69,99 €</span>
+        <span class="weg-fuss">Bundle · <span data-preis-betrag="bundle">74,99 €</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
         </span>
       </a>
@@ -294,7 +294,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </span>
         <p class="weg-frage">Du stellst lieber selbst ein, willst jeden Schalter verstehen und jederzeit nachjustieren können.</p>
-        <span class="weg-fuss">Tweak App · ab <span data-preis-ab>4,99 €</span>
+        <span class="weg-fuss">Tweak App · ab <span data-preis-ab>7,99 €</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
         </span>
       </a>
@@ -477,15 +477,15 @@
           <div class="produkt-kaufzeile">
             <div class="produkt-preis">
               <div class="price">
-                <span class="old" data-preis-summe>79,98 €</span>
-                <span class="amount">69,99</span><span class="cur">€</span><span class="once">einmalig</span>
+                <span class="old" data-preis-summe>89,98 €</span>
+                <span class="amount">74,99</span><span class="cur">€</span><span class="once">einmalig</span>
               </div>
-              <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
+              <p class="save" data-preis-ersparnis>Du sparst 14,99 €</p>
             </div>
 
             <div class="plan-buy">
               <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
-                Für 69,99 € kaufen
+                Für 74,99 € kaufen
               </a>
               <p class="plan-alt">Zahlung über PayPal · Lizenz sofort, Termin direkt danach</p>
             </div>
@@ -514,11 +514,13 @@
 
           <ul class="features features-2">
             <!-- Zahl aus tweaks.json, siehe tweaks.js. -->
-            <li><span data-tweak-anzahl></span> Tweaks per Schalter</li>
-            <li>5 Presets: Gaming, Privatsphäre, Tempo, Aufräumen, Sicher</li>
+            <li><span data-tweak-anzahl></span> Tweaks mit Wirkungs-Balken</li>
+            <li>PC-Score 0–100 mit „Was fehlt bis 100?“</li>
+            <li>Lässt Tweaks aus, die Anti-Cheat stören könnten (Vanguard, EAC, BattlEye, FACEIT)</li>
             <li>Wiederherstellungspunkt &amp; Einzel-Undo</li>
-            <li>Autostart- &amp; App-Manager</li>
+            <li>Erkennt zurückgesetzte Tweaks · Auto-Update</li>
             <li id="app-lizenz-zeile">Lebenslange Lizenz für 1 PC</li>
+            <li>Deine Einstellungen bleiben auch nach Ablauf aktiv</li>
             <li>Neue Versionen kostenlos</li>
             <li class="off">Keine persönliche Optimierung</li>
           </ul>
@@ -533,12 +535,12 @@
           </fieldset>
 
           <div class="price">
-            <span class="amount" id="app-preis">49,99</span><span class="cur">€</span><span class="once">einmalig</span>
+            <span class="amount" id="app-preis">59,99</span><span class="cur">€</span><span class="once">einmalig</span>
           </div>
 
           <div class="plan-buy">
             <a class="btn btn-primary btn-block" id="app-kaufen" href="kaufen.html?produkt=app-lifetime">
-              Für 49,99 € kaufen
+              Für 59,99 € kaufen
             </a>
             <p class="plan-alt">Zahlung über PayPal · Lizenz sofort im Kundenbereich</p>
           </div>
@@ -603,8 +605,8 @@
           <tr>
             <th scope="col">Leistung</th>
             <th scope="col">PC-Optimierung<span class="vg-preis" data-preis-betrag="optimierung">29,99 €</span></th>
-            <th scope="col" class="vg-top"><span class="marke-gold">Beste Wahl</span><br>Bundle<span class="vg-preis" data-preis-betrag="bundle">69,99 €</span></th>
-            <th scope="col">Tweak App<span class="vg-preis">ab <span data-preis-ab>4,99 €</span></span></th>
+            <th scope="col" class="vg-top"><span class="marke-gold">Beste Wahl</span><br>Bundle<span class="vg-preis" data-preis-betrag="bundle">74,99 €</span></th>
+            <th scope="col">Tweak App<span class="vg-preis">ab <span data-preis-ab>7,99 €</span></span></th>
           </tr>
         </thead>
         <tbody>
@@ -645,7 +647,7 @@
             <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
           </tr>
           <tr>
-            <th scope="row">Fünf Presets und eigene Profile</th>
+            <th scope="row">Score, Wirkungs-Balken &amp; Anti-Cheat-Schutz</th>
             <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
             <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
             <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
@@ -709,7 +711,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
               <b>SICHER BEZAHLEN</b>
             </span>
-            <span class="amt" data-preis-betrag="bundle">69,99 €</span>
+            <span class="amt" data-preis-betrag="bundle">74,99 €</span>
             <span class="go"></span>
           </span>
         </div>
@@ -1064,10 +1066,10 @@
     <div class="cta-karte">
       <span class="eyebrow">Loslegen</span>
       <h2>Bereit für einen schnelleren PC?</h2>
-      <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst <span data-preis-ersparnis-betrag>9,99 €</span>.</p>
+      <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst <span data-preis-ersparnis-betrag>14,99 €</span>.</p>
       <div class="cta-row">
         <!-- Text in EINEM span, sonst setzt .btn (Flex mit gap) Lücken um den Preis. -->
-        <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle"><span>Bundle für <span data-preis-betrag="bundle">69,99 €</span> ansehen</span></a>
+        <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle"><span>Bundle für <span data-preis-betrag="bundle">74,99 €</span> ansehen</span></a>
         <a class="btn btn-outline btn-lg" href="#faq">Erst noch Fragen klären</a>
       </div>
     </div>
@@ -1155,10 +1157,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.9.0-3"></script>
-<script src="tt-backend.js?v=2.9.0-3"></script>
-<script src="warenkorb.js?v=2.9.0-3"></script>
-<script src="tweaks.js?v=2.9.0-3"></script>
-<script src="script.js?v=2.9.0-3"></script>
+<script src="konfig.js?v=2.9.0-4"></script>
+<script src="tt-backend.js?v=2.9.0-4"></script>
+<script src="warenkorb.js?v=2.9.0-4"></script>
+<script src="tweaks.js?v=2.9.0-4"></script>
+<script src="script.js?v=2.9.0-4"></script>
 </body>
 </html>

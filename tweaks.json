@@ -1,7 +1,7 @@
 {
-  "version": "2.9.0",
-  "erzeugt": "2026-09-30",
-  "anzahl": 275,
+  "version": "3.0.0",
+  "erzeugt": "2026-10-03",
+  "anzahl": 228,
   "bereiche": [
     {
       "key": "cat.privacy",
@@ -15,42 +15,42 @@
       "de": "Debloat",
       "en": "Debloat",
       "icon": "IconApp",
-      "anzahl": 10
+      "anzahl": 8
     },
     {
       "key": "cat.system",
       "de": "System",
       "en": "System",
       "icon": "IconSliders",
-      "anzahl": 34
+      "anzahl": 29
     },
     {
       "key": "cat.cpu",
       "de": "CPU",
       "en": "CPU",
       "icon": "IconCpu",
-      "anzahl": 17
+      "anzahl": 9
     },
     {
       "key": "cat.gpu",
       "de": "GPU",
       "en": "GPU",
       "icon": "IconMonitor",
-      "anzahl": 18
+      "anzahl": 12
     },
     {
       "key": "cat.network",
       "de": "Netzwerk",
       "en": "Network",
       "icon": "IconGlobe",
-      "anzahl": 23
+      "anzahl": 17
     },
     {
       "key": "cat.explorer",
       "de": "Explorer",
       "en": "Explorer",
       "icon": "IconWindow",
-      "anzahl": 34
+      "anzahl": 33
     },
     {
       "key": "cat.update",
@@ -64,7 +64,7 @@
       "de": "Speicher",
       "en": "Storage",
       "icon": "IconSave",
-      "anzahl": 8
+      "anzahl": 6
     },
     {
       "key": "cat.tasks",
@@ -78,14 +78,14 @@
       "de": "Treiber",
       "en": "Drivers",
       "icon": "IconPlug",
-      "anzahl": 20
+      "anzahl": 15
     },
     {
       "key": "cat.advanced",
       "de": "Experimentell",
       "en": "Experimental",
       "icon": "IconFlask",
-      "anzahl": 23
+      "anzahl": 11
     },
     {
       "key": "cat.services",
@@ -109,37 +109,25 @@
       },
       "alleSicheren": false,
       "tweakIds": [
-        "cpu-mmcss-games",
-        "cpu-mmcss-reserve",
-        "cpu-foreground-priority",
         "cpu-power-throttling",
         "cpu-min-state",
         "cpu-core-parking",
-        "cpu-kernel-in-ram",
         "cpu-fortnite-priority",
         "gpu-gamedvr-off",
         "gpu-display-idle",
         "gpu-fullscreen-optimizations",
         "sys-mouse-accel",
         "sys-keyboard-rate",
-        "sys-input-queue",
         "net-pnp-power",
         "net-wake-on-link",
         "net-selective-suspend",
         "net-green-ethernet",
         "net-tcp-power",
-        "net-nagle",
-        "net-throttling",
         "net-dns-cloudflare",
-        "net-dns-cache",
         "gpu-game-bar",
         "gpu-windowed-optimizations",
         "gpu-gamebar-history",
-        "gpu-shader-cache",
-        "sys-game-mode-on",
-        "cpu-quota-off",
-        "drv-hid-idle-off",
-        "net-nic-sleepstudy-off"
+        "sys-game-mode-on"
       ]
     },
     {
@@ -203,7 +191,6 @@
         "sys-accessibility-prompts",
         "sys-stickykeys",
         "sys-startup-delay",
-        "sys-visual-effects",
         "exp-transparency",
         "svc-dps",
         "svc-wpdbusenum",
@@ -215,8 +202,7 @@
         "exp-startup-sound",
         "exp-smooth-scroll-off",
         "exp-taskbar-animations-off",
-        "sys-mousekeys-off",
-        "sys-filterkeys-delays"
+        "sys-mousekeys-off"
       ]
     },
     {
@@ -236,7 +222,6 @@
         "exp-classic-context",
         "exp-taskbar-left",
         "exp-taskbar-widgets",
-        "exp-taskbar-chat",
         "exp-copilot",
         "exp-search-box",
         "exp-this-pc",
@@ -245,12 +230,10 @@
         "privacy-start-suggestions",
         "exp-sync-notifications",
         "exp-search-highlights",
-        "bloat-consumer-features",
         "bloat-cloud-content",
         "bloat-preinstalled",
         "bloat-onedrive-explorer",
         "bloat-edge-background",
-        "bloat-chat-autoinstall",
         "exp-no-store-openwith",
         "bloat-edge-extras",
         "bloat-dwm-hints-off"
@@ -258,7 +241,7 @@
     },
     {
       "key": "safe",
-      "icon": "IconCheck",
+      "icon": "IconShieldCheck",
       "de": {
         "name": "Nur das Sichere",
         "beschreibung": "Alle Tweaks ohne Vorsicht-Hinweis. Der unaufgeregte Einstieg, wenn du unsicher bist."
@@ -292,12 +275,10 @@
         "privacy-input-policy",
         "privacy-appcompat-off",
         "privacy-spotlight-off",
-        "bloat-consumer-features",
         "bloat-cloud-content",
         "bloat-preinstalled",
         "bloat-onedrive-explorer",
         "bloat-edge-background",
-        "bloat-chat-autoinstall",
         "bloat-edge-extras",
         "bloat-tcpip-logger-off",
         "bloat-low-disk-toast-off",
@@ -308,42 +289,30 @@
         "sys-menu-delay",
         "sys-mouse-accel",
         "sys-stickykeys",
-        "sys-input-queue",
         "sys-long-paths",
         "sys-crash-dump",
         "sys-startup-delay",
         "sys-verbose-status",
-        "sys-visual-effects",
         "sys-game-mode-on",
         "sys-energy-estimation-off",
         "sys-numlock-on",
-        "sys-filterkeys-delays",
         "sys-mousekeys-off",
         "sys-rdp-deny",
         "sys-wake-timers-off",
-        "cpu-mmcss-reserve",
         "cpu-power-throttling",
-        "cpu-foreground-priority",
-        "cpu-quota-off",
         "cpu-core-parking-visible",
         "gpu-display-idle",
         "gpu-game-bar",
         "gpu-windowed-optimizations",
         "gpu-gamebar-history",
-        "gpu-shader-cache",
-        "gpu-power-saving-off",
-        "gpu-psr-off",
-        "net-dns-cache",
         "net-llmnr",
         "net-smb1-off",
         "net-icmp-redirect-off",
-        "net-nic-sleepstudy-off",
         "net-new-network-prompt-off",
         "exp-file-extensions",
         "exp-hidden-files",
         "exp-taskbar-left",
         "exp-taskbar-widgets",
-        "exp-taskbar-chat",
         "exp-copilot",
         "exp-taskview",
         "exp-search-box",
@@ -373,13 +342,11 @@
         "exp-no-store-openwith",
         "upd-no-restart",
         "upd-delivery-optimization",
-        "sto-last-access",
         "sto-storage-sense",
         "sto-ntfs-memory",
         "task-ceip",
         "task-appraiser",
         "task-feedback",
-        "drv-hid-idle-off",
         "svc-tapi",
         "svc-fax",
         "svc-remote-registry",
@@ -1184,30 +1151,6 @@
       "schlagworte": []
     },
     {
-      "id": "bloat-consumer-features",
-      "bereich": "cat.debloat",
-      "risiko": "Safe",
-      "neustart": false,
-      "admin": true,
-      "de": {
-        "name": "Keine App-Vorschläge nachinstallieren",
-        "beschreibung": "Windows installiert keine Spiele und Werbe-Apps mehr von selbst nach. Betrifft nur neue Installationen — was schon da ist, bleibt."
-      },
-      "en": {
-        "name": "Stop installing suggested apps",
-        "beschreibung": "Windows no longer installs games and promoted apps by itself. Affects new installations only — whatever is already there stays."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableWindowsConsumerFeatures = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent\\DisableWindowsConsumerFeatures = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "bloat-cloud-content",
       "bereich": "cat.debloat",
       "risiko": "Safe",
@@ -1309,30 +1252,6 @@
         "en": [
           "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge\\BackgroundModeEnabled = 0   (back: deleted)",
           "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge\\StartupBoostEnabled = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "bloat-chat-autoinstall",
-      "bereich": "cat.debloat",
-      "risiko": "Safe",
-      "neustart": false,
-      "admin": true,
-      "de": {
-        "name": "Teams-Chat nicht automatisch installieren",
-        "beschreibung": "Windows installiert die Chat-App nicht mehr von selbst für neue Benutzerkonten."
-      },
-      "en": {
-        "name": "Do not auto-install Teams Chat",
-        "beschreibung": "Windows stops installing the Chat app by itself for new user accounts."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Communications\\ConfigureChatAutoInstall = 0   (zurück: 1)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Communications\\ConfigureChatAutoInstall = 0   (back: 1)"
         ]
       },
       "schlagworte": []
@@ -1652,32 +1571,6 @@
       "schlagworte": []
     },
     {
-      "id": "sys-input-queue",
-      "bereich": "cat.system",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Eingabepuffer für Maus und Tastatur verkleinern",
-        "beschreibung": "Kürzere Warteschlange für Maus- und Tastatureingaben."
-      },
-      "en": {
-        "name": "Shrink the mouse and keyboard input buffer",
-        "beschreibung": "A shorter queue for mouse and keyboard input. Takes effect after a restart."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\mouclass\\Parameters\\MouseDataQueueSize = 50   (zurück: 100)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\KeyboardDataQueueSize = 50   (zurück: 100)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\mouclass\\Parameters\\MouseDataQueueSize = 50   (back: 100)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\KeyboardDataQueueSize = 50   (back: 100)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "sys-background-apps",
       "bereich": "cat.system",
       "risiko": "Caution",
@@ -1896,30 +1789,6 @@
       "schlagworte": []
     },
     {
-      "id": "sys-visual-effects",
-      "bereich": "cat.system",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": false,
-      "de": {
-        "name": "Visuelle Effekte auf beste Leistung",
-        "beschreibung": "Stellt die Darstellungsoptionen von Windows auf «Für optimale Leistung anpassen»."
-      },
-      "en": {
-        "name": "Visual effects set to best performance",
-        "beschreibung": "Switches the Windows appearance options to “Adjust for best performance”. Takes effect at the next sign-in."
-      },
-      "details": {
-        "de": [
-          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects\\VisualFXSetting = 2   (zurück: 0)"
-        ],
-        "en": [
-          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects\\VisualFXSetting = 2   (back: 0)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "sys-maintenance-off",
       "bereich": "cat.system",
       "risiko": "Caution",
@@ -1972,38 +1841,6 @@
       "schlagworte": []
     },
     {
-      "id": "sys-energy-saver-off",
-      "bereich": "cat.system",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Windows-Energiesparmodus abschalten",
-        "beschreibung": "Vier Schalter des Energiesparmodus, mit denen Windows von sich aus die Leistung drosselt und Hintergrundarbeit einschränkt, um Strom zu sparen.",
-        "hinweis": "Auf Laptops steigt der Verbrauch im Akkubetrieb spürbar."
-      },
-      "en": {
-        "name": "Turn off Windows Energy Saver",
-        "beschreibung": "Four switches of Energy Saver, which Windows uses to throttle performance and limit background work on its own to save power.",
-        "hinweis": "On laptops, battery drain rises noticeably."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EnergySaverPolicy = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EnergySaverStatus = 0   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EcoMode = 0   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\DynamicThrottlePolicy = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EnergySaverPolicy = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EnergySaverStatus = 0   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EcoMode = 0   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\DynamicThrottlePolicy = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "sys-energy-estimation-off",
       "bereich": "cat.system",
       "risiko": "Safe",
@@ -2031,48 +1868,6 @@
           "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EnergyEstimation\\TaggedEnergy\\DisableTaggedEnergyLogging = 1   (back: deleted)",
           "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EnergyEstimation\\TaggedEnergy\\TelemetryMaxApplication = 0   (back: deleted)",
           "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\EnergyEstimation\\TaggedEnergy\\TelemetryMaxTagPerApplication = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "sys-power-latency",
-      "bereich": "cat.system",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Latenztoleranzen der Energieverwaltung auf Minimum",
-        "beschreibung": "Neun Werte, die festlegen, wie viel Verzögerung beim Aufwachen aus Energiesparzuständen hinnehmbar ist.",
-        "hinweis": "Höherer Verbrauch im Leerlauf ist die sichere Folge, eine Wirkung auf Bildzeiten ist nicht belegt."
-      },
-      "en": {
-        "name": "Minimise power management latency tolerances",
-        "beschreibung": "Nine values that define how much delay is acceptable when waking from power saving states.",
-        "hinweis": "Higher idle power draw is certain; an effect on frame times has not been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\Latency = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\ExitLatency = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\ExitLatencyCheckEnabled = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceDefault = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceFSVP = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyTolerancePerfOverride = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceScreenOffIR = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceVSyncEnabled = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\RtlCapabilityCheckLatency = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\Latency = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\ExitLatency = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\ExitLatencyCheckEnabled = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceDefault = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceFSVP = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyTolerancePerfOverride = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceScreenOffIR = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\LatencyToleranceVSyncEnabled = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\RtlCapabilityCheckLatency = 1   (back: deleted)"
         ]
       },
       "schlagworte": []
@@ -2123,38 +1918,6 @@
         ],
         "en": [
           "HKCU\\Control Panel\\Keyboard\\InitialKeyboardIndicators = 2   (back: 2147483648)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "sys-filterkeys-delays",
-      "bereich": "cat.system",
-      "risiko": "Safe",
-      "neustart": false,
-      "admin": false,
-      "de": {
-        "name": "Wartezeiten der Anschlagverzögerung auf null",
-        "beschreibung": "Die Eingabehilfe „Anschlagverzögerung“ hält Tastendrücke zurück, bevor sie weitergegeben werden. Die Wartezeiten werden auf null gesetzt.",
-        "hinweis": "Wenn du die Anschlagverzögerung bewusst gegen doppelte Anschläge benutzt, hebt dieser Tweak genau diese Hilfe auf."
-      },
-      "en": {
-        "name": "Set Filter Keys delays to zero",
-        "beschreibung": "The Filter Keys accessibility feature holds keystrokes back before passing them on. The delays are set to zero.",
-        "hinweis": "If you use Filter Keys on purpose against double keystrokes, this tweak removes exactly that help."
-      },
-      "details": {
-        "de": [
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\AutoRepeatDelay = 150   (zurück: 1000)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\AutoRepeatRate = 20   (zurück: 500)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\BounceTime = 0   (zurück: 0)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\DelayBeforeAcceptance = 0   (zurück: 1000)"
-        ],
-        "en": [
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\AutoRepeatDelay = 150   (back: 1000)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\AutoRepeatRate = 20   (back: 500)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\BounceTime = 0   (back: 0)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\DelayBeforeAcceptance = 0   (back: 1000)"
         ]
       },
       "schlagworte": []
@@ -2340,82 +2103,6 @@
       "schlagworte": []
     },
     {
-      "id": "cpu-kernel-in-ram",
-      "bereich": "cat.cpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Kernel im Arbeitsspeicher halten",
-        "beschreibung": "Verhindert das Auslagern des Kernels auf die Festplatte. Sinnvoll ab etwa 8 GB RAM, darunter eher schädlich."
-      },
-      "en": {
-        "name": "Keep the kernel in memory",
-        "beschreibung": "Stops the kernel from being paged out to disk. Sensible from about 8 GB of RAM upwards."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\DisablePagingExecutive = 1   (zurück: 0)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\DisablePagingExecutive = 1   (back: 0)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "cpu-mmcss-games",
-      "bereich": "cat.cpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "MMCSS-Profil für Spiele anheben",
-        "beschreibung": "Hebt die Scheduler-Priorität an, die Windows Spielen über den Multimedia Class Scheduler zuweist."
-      },
-      "en": {
-        "name": "Raise the MMCSS profile for games",
-        "beschreibung": "Raises the scheduler priority Windows gives games through the Multimedia Class Scheduler."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Priority = 6   (zurück: 2)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Scheduling Category = High   (zurück: Medium)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\SFIO Priority = High   (zurück: Normal)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Priority = 6   (back: 2)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Scheduling Category = High   (back: Medium)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\SFIO Priority = High   (back: Normal)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "cpu-mmcss-reserve",
-      "bereich": "cat.cpu",
-      "risiko": "Safe",
-      "neustart": false,
-      "admin": true,
-      "de": {
-        "name": "MMCSS-Reserve für Hintergrund aufheben",
-        "beschreibung": "Windows reserviert standardmäßig 20 % der CPU-Zeit für Hintergrundaufgaben. Das gibt sie den Vordergrundprozessen zurück."
-      },
-      "en": {
-        "name": "Release the MMCSS background reserve",
-        "beschreibung": "Windows reserves 20 % of CPU time for background work by default. This gives it back to foreground processes."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\SystemResponsiveness = 0   (zurück: 20)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\SystemResponsiveness = 0   (back: 20)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "cpu-power-throttling",
       "bereich": "cat.cpu",
       "risiko": "Safe",
@@ -2560,30 +2247,6 @@
       "schlagworte": []
     },
     {
-      "id": "cpu-foreground-priority",
-      "bereich": "cat.cpu",
-      "risiko": "Safe",
-      "neustart": false,
-      "admin": true,
-      "de": {
-        "name": "Vordergrund-Priorität erhöhen",
-        "beschreibung": "Gibt dem aktiven Fenster längere und stärker bevorzugte CPU-Zeitscheiben."
-      },
-      "en": {
-        "name": "Raise foreground priority",
-        "beschreibung": "Gives the active window longer and more strongly favoured CPU time slices."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\\Win32PrioritySeparation = 38   (zurück: 2)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\\Win32PrioritySeparation = 38   (back: 2)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "cpu-fortnite-priority",
       "bereich": "cat.cpu",
       "risiko": "Advanced",
@@ -2610,106 +2273,6 @@
         "IFEO",
         "Priorität"
       ]
-    },
-    {
-      "id": "cpu-mmcss-nolazy",
-      "bereich": "cat.cpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "MMCSS-Sparmodus abschalten",
-        "beschreibung": "Der Multimedia-Scheduler nimmt die Bevorzugung von Spielen und Audio sonst nach einer Weile wieder zurück. Diese zwei Werte halten sie dauerhaft aktiv."
-      },
-      "en": {
-        "name": "Turn off MMCSS lazy mode",
-        "beschreibung": "The multimedia scheduler otherwise scales back its preference for games and audio after a while. These two values keep it active."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\NoLazyMode = 1   (zurück: gelöscht)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\AlwaysOn = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\NoLazyMode = 1   (back: deleted)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\AlwaysOn = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "cpu-quota-off",
-      "bereich": "cat.cpu",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "CPU-Kontingente abschalten",
-        "beschreibung": "Windows kann Prozessen feste Anteile an Rechenzeit zuteilen. Ein Einzelplatzrechner braucht das nicht, und die Buchführung darüber entfällt."
-      },
-      "en": {
-        "name": "Turn off CPU quotas",
-        "beschreibung": "Windows can assign processes a fixed share of processor time. A single-user PC does not need it, and the bookkeeping goes away."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Quota System\\EnableCpuQuota = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Quota System\\EnableCpuQuota = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "cpu-mmcss-latency",
-      "bereich": "cat.cpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "MMCSS: Spiele als latenzempfindlich markieren",
-        "beschreibung": "Kennzeichnet die Spielaufgabe des Multimedia-Schedulers als latenzempfindlich, damit Windows sie bei der Verteilung von Rechenzeit entsprechend behandelt."
-      },
-      "en": {
-        "name": "MMCSS: mark games as latency-sensitive",
-        "beschreibung": "Marks the multimedia scheduler\u0027s game task as latency-sensitive so Windows treats it accordingly when sharing out processor time."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Latency Sensitive = True   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games\\Latency Sensitive = True   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "cpu-coalescing-off",
-      "bereich": "cat.cpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Timer-Zusammenfassung abschalten",
-        "beschreibung": "Windows sammelt Timer zu Gruppen, um den Prozessor seltener aufzuwecken. Abgeschaltet läuft jeder Timer zu seiner eigenen Zeit ab.",
-        "hinweis": "Im Leerlauf etwas mehr Stromverbrauch, weil der Prozessor öfter aufwacht."
-      },
-      "en": {
-        "name": "Turn off timer coalescing",
-        "beschreibung": "Windows groups timers to wake the processor less often. Turned off, every timer fires at its own time.",
-        "hinweis": "Slightly higher idle power draw because the processor wakes more often."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power\\CoalescingTimerInterval = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power\\CoalescingTimerInterval = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
     },
     {
       "id": "cpu-core-parking-visible",
@@ -2990,206 +2553,6 @@
       "schlagworte": []
     },
     {
-      "id": "gpu-shader-cache",
-      "bereich": "cat.gpu",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Shader-Cache auf 10 GB vergrößern",
-        "beschreibung": "Mehr Platz für bereits übersetzte Shader. Spiele müssen sie seltener neu erstellen, das verringert Ruckler beim ersten Laden einer Szene."
-      },
-      "en": {
-        "name": "Enlarge the shader cache to 10 GB",
-        "beschreibung": "More room for shaders that have already been compiled. Games have to rebuild them less often, which reduces stutter the first time a scene loads."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\ShaderCacheSizeInMB = 10240   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\ShaderCacheSizeInMB = 10240   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "gpu-power-saving-off",
-      "bereich": "cat.gpu",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Energiesparen des Grafiktreibers aus",
-        "beschreibung": "Der Anzeigetreiber darf sonst Teile der Grafikkarte im Betrieb herunterfahren. Abgeschaltet bleibt sie durchgehend bereit."
-      },
-      "en": {
-        "name": "Turn off graphics driver power saving",
-        "beschreibung": "The display driver may otherwise power down parts of the graphics card while it runs. Turned off, the card stays fully ready."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\PowerSavingModeEnabled = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\PowerSavingModeEnabled = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "gpu-psr-off",
-      "bereich": "cat.gpu",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Panel Self Refresh abschalten",
-        "beschreibung": "Bei stehendem Bild überlässt der Treiber die Bildwiederholung sonst dem Bildschirm selbst. Beim nächsten Bildwechsel entsteht dadurch eine kleine Verzögerung. Betrifft vor allem Laptop-Bildschirme.",
-        "hinweis": "Laptops verbrauchen im Akkubetrieb etwas mehr Strom."
-      },
-      "en": {
-        "name": "Turn off Panel Self Refresh",
-        "beschreibung": "When the picture does not change, the driver otherwise lets the screen repeat the last frame on its own. Waking it for the next frame adds a small delay. Mostly affects laptop screens.",
-        "hinweis": "Laptops use slightly more power on battery."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\PanelSelfRefresh = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\PanelSelfRefresh = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "gpu-iommu-contiguous",
-      "bereich": "cat.gpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "IOMMU-Zuordnung am Stück",
-        "beschreibung": "Der Grafiktreiber ordnet Speicherbereiche für Geräte zusammenhängend zu. Wirkt nur, wenn die Virtualisierung im BIOS eingeschaltet ist.",
-        "hinweis": "Eine messbare Wirkung ist nicht belegt."
-      },
-      "en": {
-        "name": "Contiguous IOMMU mapping",
-        "beschreibung": "The graphics driver maps memory for devices in one piece. Only has an effect when virtualisation is enabled in the BIOS.",
-        "hinweis": "No measurable effect has been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\DpiMapIommuContiguous = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\DpiMapIommuContiguous = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "gpu-dxgkrnl-latency",
-      "bereich": "cat.gpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Latenztoleranz der Grafikschnittstelle senken",
-        "beschreibung": "Zwei Werte im Kernteil von DirectX, die bestimmen, wie viel Verzögerung beim Bildwechsel hingenommen wird.",
-        "hinweis": "Der Zusammenhang ist plausibel, eine Wirkung auf Bildzeiten aber nicht belegt."
-      },
-      "en": {
-        "name": "Lower the graphics kernel latency tolerance",
-        "beschreibung": "Two values in the DirectX kernel that define how much delay is acceptable when the picture refreshes.",
-        "hinweis": "Plausible, but no effect on frame times has been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\DXGKrnl\\MonitorLatencyTolerance = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\DXGKrnl\\MonitorRefreshLatencyTolerance = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\DXGKrnl\\MonitorLatencyTolerance = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\DXGKrnl\\MonitorRefreshLatencyTolerance = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "gpu-latency-tolerance",
-      "bereich": "cat.gpu",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Latenztoleranzen des Grafiktreibers auf Minimum",
-        "beschreibung": "24 Werte, die dem Grafiktreiber sagen, wie lange das Aufwachen aus Energiesparzuständen dauern darf. Auf 1 gesetzt bleibt die Karte reaktionsbereiter.",
-        "hinweis": "Die Karte nutzt ihre Sparzustände seltener, der Verbrauch im Leerlauf steigt. Eine Wirkung auf Bildzeiten ist nicht belegt."
-      },
-      "en": {
-        "name": "Minimise graphics driver latency tolerances",
-        "beschreibung": "24 values that tell the graphics driver how long waking from power saving states may take. Set to 1, the card stays more responsive.",
-        "hinweis": "The card uses its power saving states less often, so idle power draw goes up. No effect on frame times has been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyActivelyUsed = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleLongTime = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleMonitorOff = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleNoContext = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleShortTime = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleVeryLongTime = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle0 = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle0MonitorOff = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle1 = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle1MonitorOff = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceMemory = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceNoContext = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceNoContextMonitorOff = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceOther = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceTimerPeriod = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultMemoryRefreshLatencyToleranceActivelyUsed = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultMemoryRefreshLatencyToleranceMonitorOff = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultMemoryRefreshLatencyToleranceNoContext = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\Latency = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MaxIAverageGraphicsLatencyInOneBucket = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MiracastPerfTrackGraphicsLatency = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MonitorLatencyTolerance = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MonitorRefreshLatencyTolerance = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\TransitionLatency = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyActivelyUsed = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleLongTime = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleMonitorOff = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleNoContext = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleShortTime = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultD3TransitionLatencyIdleVeryLongTime = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle0 = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle0MonitorOff = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle1 = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceIdle1MonitorOff = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceMemory = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceNoContext = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceNoContextMonitorOff = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceOther = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultLatencyToleranceTimerPeriod = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultMemoryRefreshLatencyToleranceActivelyUsed = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultMemoryRefreshLatencyToleranceMonitorOff = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\DefaultMemoryRefreshLatencyToleranceNoContext = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\Latency = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MaxIAverageGraphicsLatencyInOneBucket = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MiracastPerfTrackGraphicsLatency = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MonitorLatencyTolerance = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\MonitorRefreshLatencyTolerance = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Power\\TransitionLatency = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "gpu-amd-ulps-off",
       "bereich": "cat.gpu",
       "risiko": "Caution",
@@ -3406,58 +2769,6 @@
       "schlagworte": []
     },
     {
-      "id": "net-nagle",
-      "bereich": "cat.network",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Nagle-Algorithmus abschalten",
-        "beschreibung": "Kleine Datenpakete werden sofort geschickt, statt gesammelt zu werden. Senkt die Latenz in Spielen, erhöht die Paketzahl leicht."
-      },
-      "en": {
-        "name": "Switch off the Nagle algorithm",
-        "beschreibung": "Small packets are sent immediately instead of being collected. Lowers latency in games, slightly raises packet count."
-      },
-      "details": {
-        "de": [
-          "Alle TCP/IP-Verbindungen\\TcpAckFrequency = 1   (zurück: gelöscht)",
-          "Alle TCP/IP-Verbindungen\\TCPNoDelay = 1   (zurück: gelöscht)",
-          "Alle TCP/IP-Verbindungen\\TcpDelAckTicks = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "All TCP/IP connections\\TcpAckFrequency = 1   (back: deleted)",
-          "All TCP/IP connections\\TCPNoDelay = 1   (back: deleted)",
-          "All TCP/IP connections\\TcpDelAckTicks = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "net-throttling",
-      "bereich": "cat.network",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Netzwerkdrosselung aufheben",
-        "beschreibung": "Windows begrenzt Netzwerkverkehr nicht mehr zugunsten von Multimedia-Wiedergabe. Bei hoher Netzlast kann Ton oder Video dadurch stocken."
-      },
-      "en": {
-        "name": "Release network throttling",
-        "beschreibung": "Windows no longer limits network traffic in favour of multimedia playback."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\NetworkThrottlingIndex = -1   (zurück: 10)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\NetworkThrottlingIndex = -1   (back: 10)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "net-dns-cloudflare",
       "bereich": "cat.network",
       "risiko": "Caution",
@@ -3477,36 +2788,6 @@
         ],
         "en": [
           "All TCP/IP connections\\NameServer = 1.1.1.1,1.0.0.1   (back: automatic from the router)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "net-dns-cache",
-      "bereich": "cat.network",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "DNS-Zwischenspeicher vergrößern",
-        "beschreibung": "Windows merkt sich mehr aufgelöste Namen und behält sie länger. Spart wiederholte Anfragen beim Surfen."
-      },
-      "en": {
-        "name": "Enlarge the DNS cache",
-        "beschreibung": "Windows remembers more resolved names and keeps them longer. Saves repeated lookups while browsing."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableBucketSize = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableSize = 384   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxCacheEntryTtlLimit = 64000   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxSOACacheEntryTtlLimit = 301   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableBucketSize = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\CacheHashTableSize = 384   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxCacheEntryTtlLimit = 64000   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\MaxSOACacheEntryTtlLimit = 301   (back: deleted)"
         ]
       },
       "schlagworte": []
@@ -3690,30 +2971,6 @@
       "schlagworte": []
     },
     {
-      "id": "net-nic-sleepstudy-off",
-      "bereich": "cat.network",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "NDIS-Stromsparautomatik abschalten",
-        "beschreibung": "Die Netzwerkschicht von Windows darf Adapter in Ruhephasen von sich aus herunterregeln. Das Aufwachen kostet Zeit."
-      },
-      "en": {
-        "name": "Turn off NDIS automatic power saving",
-        "beschreibung": "The Windows network layer may power down adapters on its own when idle. Waking them takes time."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\NDIS\\Parameters\\EnableNicAutoPowerSaverInSleepStudy = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\NDIS\\Parameters\\EnableNicAutoPowerSaverInSleepStudy = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "net-dns-policies",
       "bereich": "cat.network",
       "risiko": "Caution",
@@ -3739,100 +2996,6 @@
           "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\DNSClient\\DisableSmartNameResolution = 1   (back: deleted)",
           "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\DNSClient\\DisableParallelNameResolution = 1   (back: deleted)",
           "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\DNSClient\\DisableMultihomeDNSRegistration = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "net-tcp-parameters",
-      "bereich": "cat.network",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "TCP-Parameter setzen",
-        "beschreibung": "Zehn Werte aus den bekannten Optimierungsskripten: Paketlebensdauer, Fensterskalierung, Portbereich, Wartezeiten und Bestätigungsverhalten.",
-        "hinweis": "Spiele nutzen fast immer UDP. Diese Werte betreffen Downloads und Webseiten, nicht das Spiel selbst."
-      },
-      "en": {
-        "name": "Set TCP parameters",
-        "beschreibung": "Ten values from well-known tuning scripts: packet lifetime, window scaling, port range, wait times and acknowledgement behaviour.",
-        "hinweis": "Games almost always use UDP. These values affect downloads and websites, not the game itself."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DefaultTTL = 64   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Tcp1323Opts = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\TcpTimedWaitDelay = 30   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\MaxUserPort = 65534   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\TcpMaxConnectRetransmissions = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DisableDCA = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DelayedAckFrequency = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DelayedAckTicks = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\MaxNumRssCpus = 4   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\MultihopSets = 15   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DefaultTTL = 64   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Tcp1323Opts = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\TcpTimedWaitDelay = 30   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\MaxUserPort = 65534   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\TcpMaxConnectRetransmissions = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DisableDCA = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DelayedAckFrequency = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\DelayedAckTicks = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\MaxNumRssCpus = 4   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\MultihopSets = 15   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "net-afd-buffers",
-      "bereich": "cat.network",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Winsock-Puffer vergrößern",
-        "beschreibung": "Dreizehn Werte im Winsock-Treiber: Sende- und Empfangsfenster, Schwellen für kleine Übertragungen und Pufferverwaltung.",
-        "hinweis": "Die Werte stammen aus der Zeit vor Windows Vista. Seitdem passt der Netzwerkstapel seine Puffer selbst an. Eine Wirkung auf Spiele ist nicht belegt."
-      },
-      "en": {
-        "name": "Enlarge Winsock buffers",
-        "beschreibung": "Thirteen values in the Winsock driver: send and receive windows, thresholds for small transfers and buffer handling.",
-        "hinweis": "The values date from before Windows Vista; since then the network stack sizes its buffers itself. No effect on games has been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DefaultSendWindow = 524288   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DefaultReceiveWindow = 524288   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\FastSendDatagramThreshold = 1024   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\FastCopyReceiveThreshold = 1024   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\BufferAlignment = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\IgnorePushBitOnReceives = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\IgnoreOrderlyRelease = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DisableDirectAcceptEx = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DoNotHoldNICBuffers = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DynamicSendBufferDisable = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DisableAddressSharing = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DisableChainedReceive = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\NonBlockingSendSpecialBuffering = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DefaultSendWindow = 524288   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DefaultReceiveWindow = 524288   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\FastSendDatagramThreshold = 1024   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\FastCopyReceiveThreshold = 1024   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\BufferAlignment = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\IgnorePushBitOnReceives = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\IgnoreOrderlyRelease = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DisableDirectAcceptEx = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DoNotHoldNICBuffers = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DynamicSendBufferDisable = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DisableAddressSharing = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\DisableChainedReceive = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\AFD\\Parameters\\NonBlockingSendSpecialBuffering = 1   (back: deleted)"
         ]
       },
       "schlagworte": []
@@ -4037,30 +3200,6 @@
         ],
         "en": [
           "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDa = 0   (back: 1)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "exp-taskbar-chat",
-      "bereich": "cat.explorer",
-      "risiko": "Safe",
-      "neustart": false,
-      "admin": false,
-      "de": {
-        "name": "Chat-Knopf ausblenden",
-        "beschreibung": "Entfernt den Teams-Chat-Knopf aus der Taskleiste."
-      },
-      "en": {
-        "name": "Hide the Chat button",
-        "beschreibung": "Removes the Teams chat button from the taskbar."
-      },
-      "details": {
-        "de": [
-          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarMn = 0   (zurück: 1)"
-        ],
-        "en": [
-          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarMn = 0   (back: 1)"
         ]
       },
       "schlagworte": []
@@ -4900,30 +4039,6 @@
       "schlagworte": []
     },
     {
-      "id": "sto-last-access",
-      "bereich": "cat.storage",
-      "risiko": "Safe",
-      "neustart": false,
-      "admin": true,
-      "de": {
-        "name": "NTFS-Zugriffszeit nicht mehr mitschreiben",
-        "beschreibung": "Windows aktualisiert bei jedem Lesezugriff nicht mehr den Zeitstempel der Datei. Spart Schreibvorgänge auf SSDs."
-      },
-      "en": {
-        "name": "Stop recording NTFS access times",
-        "beschreibung": "Windows no longer updates a file\u0027s timestamp on every read. Saves writes on SSDs."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\NtfsDisableLastAccessUpdate = -2147483647   (zurück: -2147483648)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\NtfsDisableLastAccessUpdate = -2147483647   (back: -2147483648)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "sto-hibernate-off",
       "bereich": "cat.storage",
       "risiko": "Advanced",
@@ -4975,30 +4090,6 @@
         "en": [
           "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy\\01 = 1   (back: 0)",
           "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy\\04 = 1   (back: 0)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "sto-prefetch",
-      "bereich": "cat.storage",
-      "risiko": "Caution",
-      "neustart": false,
-      "admin": true,
-      "de": {
-        "name": "Prefetch abschalten",
-        "beschreibung": "Windows legt keine Vorladedaten mehr an. Auf SSDs praktisch wirkungslos, auf Festplatten macht es den Start langsamer."
-      },
-      "en": {
-        "name": "Switch off Prefetch",
-        "beschreibung": "Windows stops writing pre-load data. Practically pointless on SSDs, and it slows down booting from a hard disk."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\\EnablePrefetcher = 0   (zurück: 3)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters\\EnablePrefetcher = 0   (back: 3)"
         ]
       },
       "schlagworte": []
@@ -5248,82 +4339,6 @@
       "schlagworte": []
     },
     {
-      "id": "drv-usb-enhanced-power-off",
-      "bereich": "cat.drivers",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Erweitertes USB-3-Energiemanagement aus",
-        "beschreibung": "Der USB-3-Controller darf einzelne Anschlüsse fein herunterregeln. Abgeschaltet bleiben sie durchgehend versorgt."
-      },
-      "en": {
-        "name": "Turn off enhanced USB 3 power management",
-        "beschreibung": "The USB 3 controller may power down individual ports in small steps. Turned off, they stay fully powered."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBXHCI\\Parameters\\EnhancedPowerManagementEnabled = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBXHCI\\Parameters\\EnhancedPowerManagementEnabled = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "drv-usb-legacy-off",
-      "bereich": "cat.drivers",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "USB-Kompatibilitätsschicht für alte Software aus",
-        "beschreibung": "Eine Schicht, über die alte Programme USB-Geräte wie PS/2-Geräte ansprechen.",
-        "hinweis": "Eine Wirkung ist nicht belegt. Sehr alte Programme, die Tastatur oder Maus direkt ansprechen, können danach Probleme haben."
-      },
-      "en": {
-        "name": "Turn off the USB compatibility layer for old software",
-        "beschreibung": "A layer through which old programs talk to USB devices as if they were PS/2 devices.",
-        "hinweis": "No effect has been shown. Very old programs that address keyboard or mouse directly may have problems."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBXHCI\\Parameters\\DisableLegacyUSBSupport = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBXHCI\\Parameters\\DisableLegacyUSBSupport = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "drv-usb-latency-timer",
-      "bereich": "cat.drivers",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "USB-Latenzzeitgeber auf Minimum",
-        "beschreibung": "Legt fest, wie lange der USB-3-Controller Daten sammelt, bevor er sie weitergibt.",
-        "hinweis": "Eine Wirkung auf die Eingabeverzögerung ist nicht belegt."
-      },
-      "en": {
-        "name": "Minimise the USB latency timer",
-        "beschreibung": "Sets how long the USB 3 controller collects data before passing it on.",
-        "hinweis": "No effect on input latency has been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBXHCI\\Parameters\\LatencyTimer = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBXHCI\\Parameters\\LatencyTimer = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "drv-usb-reset-resume",
       "bereich": "cat.drivers",
       "risiko": "Caution",
@@ -5345,64 +4360,6 @@
         ],
         "en": [
           "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USB\\Parameters\\ForceHCResetOnResume = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "drv-hid-idle-off",
-      "bereich": "cat.drivers",
-      "risiko": "Safe",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Leerlaufabschaltung von Eingabegeräten aus",
-        "beschreibung": "Maus und Tastatur dürfen nach kurzer Ruhe in einen Sparzustand gehen, und die erste Eingabe danach weckt sie erst auf. Das entfällt."
-      },
-      "en": {
-        "name": "Turn off idle power-down for input devices",
-        "beschreibung": "Mouse and keyboard may enter a power saving state after a short rest, and the first input only wakes them up. That no longer happens."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\Parameters\\DeviceIdleEnabled = 0   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\Parameters\\IdleEnabled = 0   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\Parameters\\DisableWakeFromSuspend = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\Parameters\\DeviceIdleEnabled = 0   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\Parameters\\IdleEnabled = 0   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\HidUsb\\Parameters\\DisableWakeFromSuspend = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "drv-kbd-single-port",
-      "bereich": "cat.drivers",
-      "risiko": "Caution",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Tastaturtreiber auf einen Anschluss festlegen",
-        "beschreibung": "Der Klassentreiber der Tastatur bedient sonst mehrere Anschlüsse gleichzeitig. Auf einen begrenzt entfällt die Verteilung.",
-        "hinweis": "Eine Wirkung auf die Eingabeverzögerung ist nicht belegt. Mit mehreren Tastaturen gleichzeitig kann eine davon ausfallen."
-      },
-      "en": {
-        "name": "Pin the keyboard driver to one port",
-        "beschreibung": "The keyboard class driver otherwise serves several ports at once. Limited to one, that distribution goes away.",
-        "hinweis": "No effect on input latency has been shown. With several keyboards at once, one of them may stop working."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\ConnectMultiplePorts = 0   (zurück: 0)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\MaximumPortsServiced = 1   (zurück: 3)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\SendOutputToAllPorts = 0   (zurück: 1)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\ConnectMultiplePorts = 0   (back: 0)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\MaximumPortsServiced = 1   (back: 3)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\SendOutputToAllPorts = 0   (back: 1)"
         ]
       },
       "schlagworte": []
@@ -5862,58 +4819,6 @@
       "schlagworte": []
     },
     {
-      "id": "adv-nvidia-gsp-vrr",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "NVIDIA: GSP-, VRR- und Leerlaufwerte",
-        "beschreibung": "Vierzehn Treiberwerte zum GPU-Systemprozessor, zur variablen Bildwiederholrate und zu den Leerlaufschwellen der Karte.",
-        "hinweis": "Vollständig undokumentiert und stark von der Treiberversion abhängig. Ein Wiederherstellungspunkt ist hier Pflicht, keine Empfehlung."
-      },
-      "en": {
-        "name": "NVIDIA: GSP, VRR and idle values",
-        "beschreibung": "Fourteen driver values for the GPU system processor, variable refresh rate and the card\u0027s idle thresholds.",
-        "hinweis": "Completely undocumented and heavily dependent on the driver version. A restore point is a must here, not a suggestion."
-      },
-      "details": {
-        "de": [
-          "Treiber der NVIDIA-Grafikkarte\\RmGspcMaxFtuS = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\RmGspcMinFtuS = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\RmGspcPerioduS = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\VRDirectFlipDPCDelayUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\VRDirectFlipTimingMarginUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\VRDirectJITFlipMsHybridFlipDelayUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\vrrCursorMarginUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\vrrDeflickerMarginUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\vrrDeflickerMaxUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\RMLpwrEiIdleThresholdUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\RMLpwrGrIdleThresholdUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\RMLpwrGrRgIdleThresholdUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\RMLpwrMsIdleThresholdUs = 1   (zurück: gelöscht)",
-          "Treiber der NVIDIA-Grafikkarte\\ThreadDpcEnable = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "NVIDIA graphics driver\\RmGspcMaxFtuS = 1   (back: deleted)",
-          "NVIDIA graphics driver\\RmGspcMinFtuS = 1   (back: deleted)",
-          "NVIDIA graphics driver\\RmGspcPerioduS = 1   (back: deleted)",
-          "NVIDIA graphics driver\\VRDirectFlipDPCDelayUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\VRDirectFlipTimingMarginUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\VRDirectJITFlipMsHybridFlipDelayUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\vrrCursorMarginUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\vrrDeflickerMarginUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\vrrDeflickerMaxUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\RMLpwrEiIdleThresholdUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\RMLpwrGrIdleThresholdUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\RMLpwrGrRgIdleThresholdUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\RMLpwrMsIdleThresholdUs = 1   (back: deleted)",
-          "NVIDIA graphics driver\\ThreadDpcEnable = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "adv-nvidia-power-gating",
       "bereich": "cat.advanced",
       "risiko": "Advanced",
@@ -6086,146 +4991,6 @@
       "schlagworte": []
     },
     {
-      "id": "adv-gpu-scheduler-mode",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Alternativer Scheduler-Modus der Grafik",
-        "beschreibung": "Ein undokumentierter Wert im Grafiktreiberzweig, der die Arbeitsverteilung auf der Karte betreffen soll.",
-        "hinweis": "Was Modus 3 genau bewirkt, ist nicht belegt."
-      },
-      "en": {
-        "name": "Alternative graphics scheduler mode",
-        "beschreibung": "An undocumented value in the graphics driver branch that is said to affect how work is distributed on the card.",
-        "hinweis": "What mode 3 actually does has not been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\SchedulerMode = 3   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\SchedulerMode = 3   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-fbc-off",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Framebuffer-Kompression abschalten",
-        "beschreibung": "Der Treiber komprimiert den Bildspeicher, um Speicherbandbreite zu sparen. Abgeschaltet entfällt dieser Schritt.",
-        "hinweis": "Undokumentiert. Ohne Kompression braucht die Karte mehr Speicherbandbreite, was Karten mit schmalem Speicherbus schadet."
-      },
-      "en": {
-        "name": "Turn off frame buffer compression",
-        "beschreibung": "The driver compresses the frame buffer to save memory bandwidth. Turned off, that step is skipped.",
-        "hinweis": "Undocumented. Without compression the card needs more memory bandwidth, which hurts cards with a narrow memory bus."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Scheduler\\EnableFrameBufferCompression = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Scheduler\\EnableFrameBufferCompression = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-gpu-boost",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "GPU-Boost im Scheduler",
-        "beschreibung": "Ein undokumentierter Schalter im Scheduler-Zweig des Grafiktreibers.",
-        "hinweis": "Auf vielen Systemen bewirkt der Wert nachweislich gar nichts."
-      },
-      "en": {
-        "name": "GPU boost in the scheduler",
-        "beschreibung": "An undocumented switch in the scheduler branch of the graphics driver.",
-        "hinweis": "On many systems the value demonstrably does nothing at all."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Scheduler\\EnableGpuBoost = 1   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers\\Scheduler\\EnableGpuBoost = 1   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-kernel-quantum",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Zeitscheibe des Schedulers verkürzen",
-        "beschreibung": "Legt fest, wie lange ein Thread rechnen darf, bevor Windows zum nächsten wechselt.",
-        "hinweis": "Wirkt systemweit, nicht nur in Spielen. Häufigere Wechsel kosten selbst Rechenzeit und können bei vielen Hintergrundprozessen das Gegenteil bewirken."
-      },
-      "en": {
-        "name": "Shorten the scheduler time slice",
-        "beschreibung": "Sets how long a thread may run before Windows switches to the next one.",
-        "hinweis": "Affects the whole system, not just games. More frequent switches cost time themselves and can backfire with many background processes."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\Quantum = 6   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\Quantum = 6   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-clock-timer",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Undokumentierte Clock-Timer-Schalter",
-        "beschreibung": "Sechs Werte im Kernel-Schlüssel, die das Verhalten des Systemtimers beeinflussen sollen.",
-        "hinweis": "Weder Microsoft noch eine unabhängige Quelle beschreibt, was diese Werte tun. Leg vorher einen Wiederherstellungspunkt an."
-      },
-      "en": {
-        "name": "Undocumented clock timer switches",
-        "beschreibung": "Six values in the kernel key that are said to influence the system timer.",
-        "hinweis": "Neither Microsoft nor any independent source describes what these values do. Create a restore point first."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\ClockTimerAlwaysOnPresent = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\ClockTimerPerCpu = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\ClockTimerHighLatency = 0   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\KiClockTimerAlwaysOnPresent = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\KiClockTimerPerCpu = 1   (zurück: gelöscht)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\KiClockTimerHighLatency = 0   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\ClockTimerAlwaysOnPresent = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\ClockTimerPerCpu = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\ClockTimerHighLatency = 0   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\KiClockTimerAlwaysOnPresent = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\KiClockTimerPerCpu = 1   (back: deleted)",
-          "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\KiClockTimerHighLatency = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "adv-threaded-dpc-off",
       "bereich": "cat.advanced",
       "risiko": "Advanced",
@@ -6247,84 +5012,6 @@
         ],
         "en": [
           "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Kernel\\ThreadDpcEnable = 0   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-usbhub3-priority",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "USB-3-Treiber auf höchste Thread-Priorität",
-        "beschreibung": "Gibt dem Arbeitsthread des USB-3-Hubtreibers die Stufe 31, die höchste, die Windows kennt.",
-        "hinweis": "Stufe 31 ist Echtzeit. Der Treiber kann damit Maus, Tastatur und Ton verdrängen, was sich als kurzes Einfrieren des ganzen Systems zeigt."
-      },
-      "en": {
-        "name": "USB 3 driver at the highest thread priority",
-        "beschreibung": "Gives the worker thread of the USB 3 hub driver level 31, the highest Windows knows.",
-        "hinweis": "Level 31 is real-time. The driver can crowd out mouse, keyboard and sound, which shows up as brief freezes of the whole system."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBHUB3\\Parameters\\ThreadPriority = 31   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\USBHUB3\\Parameters\\ThreadPriority = 31   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-ndis-priority",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Netzwerktreiber auf höchste Thread-Priorität",
-        "beschreibung": "Gibt dem Arbeitsthread der Netzwerkschnittstelle die Stufe 31.",
-        "hinweis": "Stufe 31 ist Echtzeit. Der Netzwerktreiber kann damit andere Treiber verdrängen und unter Netzlast Ruckler erzeugen statt sie zu beseitigen."
-      },
-      "en": {
-        "name": "Network driver at the highest thread priority",
-        "beschreibung": "Gives the worker thread of the network interface level 31.",
-        "hinweis": "Level 31 is real-time. The network driver can crowd out other drivers and cause stutter under network load instead of removing it."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\NDIS\\Parameters\\ThreadPriority = 31   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\NDIS\\Parameters\\ThreadPriority = 31   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-kbdclass-priority",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Tastaturtreiber auf höchste Thread-Priorität",
-        "beschreibung": "Gibt dem Tastatur-Klassentreiber die Stufe 31.",
-        "hinweis": "Ein Treiber auf dieser Stufe kann anderen Treibern Rechenzeit wegnehmen; berichtet wurden Aussetzer bei Ton und Netzwerk. Von Microsoft nicht dokumentiert, ein Gewinn ist nicht belegt."
-      },
-      "en": {
-        "name": "Keyboard driver at the highest thread priority",
-        "beschreibung": "Gives the keyboard class driver level 31.",
-        "hinweis": "A driver at this level can take time away from other drivers; dropouts in sound and network have been reported. Not documented by Microsoft, no gain has been shown."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\ThreadPriority = 31   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SYSTEM\\CurrentControlSet\\Services\\kbdclass\\Parameters\\ThreadPriority = 31   (back: deleted)"
         ]
       },
       "schlagworte": []
@@ -6366,34 +5053,6 @@
       "schlagworte": []
     },
     {
-      "id": "adv-csrss-priority",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Windows-Sitzungsprozess auf hohe Priorität",
-        "beschreibung": "csrss.exe verarbeitet Fenster-, Eingabe- und Konsolenereignisse. Mit hoher Priorität kommt er bei Volllast früher zum Zug. Bewusst die Stufe hoch, nicht Echtzeit.",
-        "hinweis": "csrss.exe ist ein kritischer Systemprozess. Zu viel Vorrang verdrängt andere Systemarbeit. Leg vorher einen Wiederherstellungspunkt an."
-      },
-      "en": {
-        "name": "Windows session process at high priority",
-        "beschreibung": "csrss.exe handles window, input and console events. At high priority it gets its turn sooner under full load. Deliberately high, not real-time.",
-        "hinweis": "csrss.exe is a critical system process. Too much priority crowds out other system work. Create a restore point first."
-      },
-      "details": {
-        "de": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\csrss.exe\\PerfOptions\\CpuPriorityClass = 3   (zurück: gelöscht)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\csrss.exe\\PerfOptions\\IoPriority = 3   (zurück: gelöscht)"
-        ],
-        "en": [
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\csrss.exe\\PerfOptions\\CpuPriorityClass = 3   (back: deleted)",
-          "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\csrss.exe\\PerfOptions\\IoPriority = 3   (back: deleted)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
       "id": "adv-cpu-idle-off",
       "bereich": "cat.advanced",
       "risiko": "Advanced",
@@ -6415,58 +5074,6 @@
         ],
         "en": [
           "powercfg SCHEME_CURRENT SUB_PROCESSOR IDLEDISABLE = 1 (DC 0)   (back: 0)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-hpet-off",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "Hochpräzisions-Ereigniszeitgeber abschalten",
-        "beschreibung": "Schaltet das HPET-Gerät im Gerätemanager ab. Es ist eine von mehreren Zeitquellen, und welche Windows benutzt, entscheidet es selbst.",
-        "hinweis": "Wirkt systemweit. Auf manchen Rechnern ändert sich nichts, auf anderen das Zeitverhalten von Anwendungen bis hin zu Rucklern. Über diesen Tweak wird viel behauptet und wenig belegt."
-      },
-      "en": {
-        "name": "Turn off the high precision event timer",
-        "beschreibung": "Disables the HPET device in Device Manager. It is one of several time sources, and Windows decides for itself which one to use.",
-        "hinweis": "Affects the whole system. On some PCs nothing changes, on others application timing shifts, up to stutter. Much is claimed about this tweak and little is proven."
-      },
-      "details": {
-        "de": [
-          "Gerät High Precision Event Timer: deaktivieren   (zurück: aktiviert)"
-        ],
-        "en": [
-          "Device High Precision Event Timer: disable   (back: enabled)"
-        ]
-      },
-      "schlagworte": []
-    },
-    {
-      "id": "adv-umbus-off",
-      "bereich": "cat.advanced",
-      "risiko": "Advanced",
-      "neustart": true,
-      "admin": true,
-      "de": {
-        "name": "UMBus-Enumerator abschalten",
-        "beschreibung": "Ein Bus für Geräte, deren Treiber im Benutzermodus laufen. Was daran hängt, ist von Rechner zu Rechner verschieden.",
-        "hinweis": "Einzelne Audio- und Eingabegeräte können ausfallen, welche, lässt sich vorher nicht sagen. Nimm den Tweak zurück, wenn ein Gerät verschwindet."
-      },
-      "en": {
-        "name": "Turn off the UMBus enumerator",
-        "beschreibung": "A bus for devices whose drivers run in user mode. What is attached differs from PC to PC.",
-        "hinweis": "Individual audio and input devices may stop working, and which ones cannot be told in advance. Undo the tweak if a device disappears."
-      },
-      "details": {
-        "de": [
-          "Gerät UMBus Root Bus Enumerator: deaktivieren   (zurück: aktiviert)"
-        ],
-        "en": [
-          "Device UMBus Root Bus Enumerator: disable   (back: enabled)"
         ]
       },
       "schlagworte": []
