@@ -546,26 +546,52 @@
      automatisch. Wenn nein, gilt der Übergangsweg über paypal.me und den
      Schlüssel gibt es per Discord.
 
-     Drei Bedingungen, alle drei nötig:
-       1. eine PayPal-Client-ID in konfig.js
-       2. paypalUmgebung auf 'live' — oder ?shoptest=1 in der Adresse, damit
-          der Betreiber die echte Kasse ausprobieren kann, während alle
-          anderen weiter normal kaufen
-       3. die Produkttabelle antwortet
+     Zwei Bedingungen, beide nötig:
+       1. mindestens ein Zahlweg ist offen (zahlwege() unten): PayPal mit
+          Client-ID und paypalUmgebung 'live', oder Stripe mit
+          stripeUmgebung 'live' — jeweils auch im Testbetrieb, wenn
+          ?shoptest=1 in der Adresse steht, damit der Betreiber die echte
+          Kasse ausprobieren kann, während alle anderen weiter normal kaufen
+       2. die Produkttabelle antwortet
 
      Diese Prüfung steht hier und nicht in script.js, weil Preisseite und
      Warenkorb dieselbe Antwort brauchen. Zwei Kopien würden irgendwann
      auseinanderlaufen — und dann bietet die eine Seite einen Kaufweg an, den
      die andere nicht einlöst.
      ==================================================================== */
+  /**
+   * Welche Zahlwege die Kasse gerade anbietet. Ein Weg im Testbetrieb zählt
+   * nur mit ?shoptest=1 — sonst bekäme ein Kunde Knöpfe, hinter denen kein
+   * echtes Geld fließt. test sagt, ob einer der offenen Wege ein Test ist.
+   */
+  function zahlwege() {
+    /* ?shoptest=1 gilt für die ganze Sitzung im Tab: Der Link vom Warenkorb
+       zur Kasse und die Rückkehr von Stripe tragen ihn nicht mit. */
+    var testWill = new URLSearchParams(window.location.search).has('shoptest');
+    try {
+      if (testWill) sessionStorage.setItem('tt-shoptest', '1');
+      else testWill = sessionStorage.getItem('tt-shoptest') === '1';
+    } catch (e) { /* Speicher gesperrt — dann gilt nur die Adresse */ }
+
+    var ppUmgebung = String(KONFIG.paypalUmgebung || '').toLowerCase();
+    var ppDa = !!String(KONFIG.paypalClientId || '').trim();
+    var paypal = ppDa && (ppUmgebung === 'live' || testWill);
+
+    var stUmgebung = String(KONFIG.stripeUmgebung || '').toLowerCase();
+    var stripe = stUmgebung === 'live' || (stUmgebung === 'test' && testWill);
+
+    return {
+      paypal: paypal,
+      stripe: stripe,
+      test: (paypal && ppUmgebung !== 'live') || (stripe && stUmgebung !== 'live')
+    };
+  }
+
   async function shopPruefen() {
     var ergebnis = { laeuft: false, produkte: null };
 
-    if (!String(KONFIG.paypalClientId || '').trim()) return ergebnis;
-
-    var istLive = String(KONFIG.paypalUmgebung || '').toLowerCase() === 'live';
-    var testWill = new URLSearchParams(window.location.search).has('shoptest');
-    if (!istLive && !testWill) return ergebnis;
+    var wege = zahlwege();
+    if (!wege.paypal && !wege.stripe) return ergebnis;
 
     if (!TT.db) return ergebnis;
 
@@ -813,6 +839,7 @@
     rechnung:      rechnung,
     rabattPreis:   rabattPreis,
     shopPruefen:   shopPruefen,
+    zahlwege:      zahlwege,
 
     beiAenderung:  beiAenderung,
     knopfZeichnen: knopfZeichnen,

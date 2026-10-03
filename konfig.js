@@ -86,6 +86,18 @@ window.TT_KONFIG = {
   // Muss zu PAYPAL_ENV in den Supabase-Secrets passen.
   paypalUmgebung: 'sandbox',
 
+  /* ---- Stripe ----------------------------------------------------------
+     Zweiter Zahlweg: Karte, Apple Pay, Google Pay, EPS, Klarna — was im
+     Stripe-Dashboard unter Zahlungsmethoden eingeschaltet ist. Hier steht
+     kein Schlüssel; der geheime liegt nur in den Supabase-Secrets
+     (EINRICHTUNG.md im App-Repository, Schritt 16).
+
+       ''      aus
+       'test'  nur mit ?shoptest=1 in der Adresse, Stripe-Sandbox
+       'live'  für alle, echtes Geld — erst mit sk_live_ in den Secrets!
+     ----------------------------------------------------------------------- */
+  stripeUmgebung: '',
+
   waehrung: 'EUR',
 
   /* ---- Rabattcodes -------------------------------------------------------
