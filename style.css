@@ -4521,3 +4521,52 @@ body { counter-reset: abschnitt; }
   /* Die Zeichnung ist reine Dekoration und passt hier nicht mehr in die Breite. */
   .bundle-bild { display: none; }
 }
+
+/* ==========================================================================
+   26. App-Vorschau im App-Paket (3.0)
+
+   Echte Aufnahmen aus der App, übereinander gestapelt; script.js blendet
+   eine nach der anderen ein. Oben auf der Seite bleibt es beim Namen
+   (Abschnitt 25) — die Vorschau steht im Paket, wo es um die App geht.
+   Das Seitenverhältnis steht fest, damit nichts springt, solange die
+   Bilder noch laden.
+   ========================================================================== */
+.app-demo { margin: 26px 0 0; }
+.app-demo-bilder {
+  position: relative;
+  aspect-ratio: 1400 / 900;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(var(--accent-rgb), .26);
+  background: #05070d;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .45);
+}
+.app-demo-bilder img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+.app-demo-bilder img.ist-aktiv { opacity: 1; }
+.app-demo-text {
+  margin-top: 12px;
+  min-height: 1.5em;
+  color: var(--text-2);
+  font-size: .9rem;
+}
+.app-demo-punkte { display: flex; gap: 6px; margin-top: 10px; }
+.app-demo-punkte button {
+  width: 22px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .16);
+  cursor: pointer;
+  transition: background .2s ease, width .2s ease;
+}
+.app-demo-punkte button[aria-current="true"] { width: 34px; background: var(--accent); }
+.app-demo-punkte button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

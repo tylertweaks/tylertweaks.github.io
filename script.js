@@ -2,7 +2,7 @@
    Tyler Tweaks — Interaktionen der Startseite
 
    Aufbau: Navigation · Sanftes Scrollen · Reveal · FAQ ·
-           Laufzeit-Auswahl · Preise aus der Datenbank
+           Laufzeit-Auswahl · Preise aus der Datenbank · App-Vorschau
 
    Was hier NICHT mehr passiert: Zahlungen. Der frühere PayPal-Block hat die
    Zahlung im Browser bestätigt und dem Kunden gesagt, er solle sich auf
@@ -706,6 +706,72 @@
     });
 
     abgeleitetePreiseZeichnen();
+  })();
+
+  /* ====================================================================
+     App-Vorschau im App-Paket
+     Die Aufnahmen blättern alle vier Sekunden weich weiter — aber nur,
+     solange die Vorschau zu sehen ist, niemand mit der Maus darauf steht
+     und „weniger Bewegung“ nicht eingestellt ist. Sonst wechselt nur, wer
+     auf einen der Punkte darunter klickt.
+     ==================================================================== */
+  (function () {
+    var demo = document.getElementById('app-demo');
+    if (!demo) return;
+
+    var bilder = Array.prototype.slice.call(demo.querySelectorAll('.app-demo-bilder img'));
+    var text = demo.querySelector('.app-demo-text');
+    var punkteBox = demo.querySelector('.app-demo-punkte');
+    if (bilder.length < 2 || !text || !punkteBox) return;
+
+    var aktiv = 0;
+    var sichtbar = false;
+    var pause = false;
+    var timer = null;
+    var wenigBewegung = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var punkte = bilder.map(function (img, i) {
+      var knopf = document.createElement('button');
+      knopf.type = 'button';
+      knopf.setAttribute('aria-label', 'Bild ' + (i + 1) + ': ' + (img.dataset.text || img.alt));
+      knopf.addEventListener('click', function () { zeige(i); neuStarten(); });
+      punkteBox.appendChild(knopf);
+      return knopf;
+    });
+
+    function zeige(i) {
+      aktiv = (i + bilder.length) % bilder.length;
+      bilder.forEach(function (img, k) { img.classList.toggle('ist-aktiv', k === aktiv); });
+      punkte.forEach(function (p, k) { p.setAttribute('aria-current', k === aktiv ? 'true' : 'false'); });
+      text.textContent = bilder[aktiv].dataset.text || bilder[aktiv].alt;
+
+      // Das nächste Bild schon laden, sonst blendet es auf eine leere Fläche über.
+      var naechstes = bilder[(aktiv + 1) % bilder.length];
+      if (naechstes.loading === 'lazy') naechstes.loading = 'eager';
+    }
+
+    function neuStarten() {
+      clearInterval(timer);
+      timer = null;
+      if (sichtbar && !pause && !wenigBewegung) {
+        timer = setInterval(function () { zeige(aktiv + 1); }, 4000);
+      }
+    }
+
+    demo.addEventListener('mouseenter', function () { pause = true; neuStarten(); });
+    demo.addEventListener('mouseleave', function () { pause = false; neuStarten(); });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (eintraege) {
+        sichtbar = eintraege[0].isIntersecting;
+        neuStarten();
+      }, { threshold: 0.4 }).observe(demo);
+    } else {
+      sichtbar = true;
+    }
+
+    zeige(0);
+    neuStarten();
   })();
 
 })();

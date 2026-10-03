@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.9.0-4">
-<link rel="stylesheet" href="mockup.css?v=2.9.0-4">
+<link rel="stylesheet" href="style.css?v=2.9.0-5">
+<link rel="stylesheet" href="mockup.css?v=2.9.0-5">
 </head>
 <body>
 
@@ -494,8 +494,8 @@
       </article>
 
       <!-- ===== Tweak App =====
-           Nur noch das, was zum Kaufen nötig ist. Bilder, Funktionsliste und
-           Vorführung der App sind seit 2.9.0 nicht mehr auf der Startseite.
+           Oben auf der Seite steht seit 2.9.0 nur der Name; was die App kann,
+           zeigt dieses Paket: Funktionsliste und darunter die App-Vorschau.
            Solange appErscheint in konfig.js steht, ist die App gesperrt
            (script.js) und #app-hinweis sagt, wann sie kommt. -->
       <article class="plan produkt ton-cyan" id="tarif-app">
@@ -524,6 +524,32 @@
             <li>Neue Versionen kostenlos</li>
             <li class="off">Keine persönliche Optimierung</li>
           </ul>
+
+          <!-- App-Vorschau: echte Aufnahmen aus Tyler 3.0 (Vorschau-Fassung,
+               1400 × 900), die von selbst weiterblättern — script.js,
+               „App-Vorschau“. Ohne JavaScript bleibt das erste Bild stehen.
+               Neue Bilder ohne persönliche Pfade (Autostart-Liste!) aufnehmen. -->
+          <figure class="app-demo" id="app-demo">
+            <div class="app-demo-bilder">
+              <img class="ist-aktiv" src="bilder/demo-1-uebersicht.png" width="1400" height="900" loading="lazy"
+                   alt="Übersicht der Tweak App: Score 95 von 100, Systemdaten und was Tyler erkannt hat"
+                   data-text="Übersicht: Score, dein System und was Tyler erkannt hat">
+              <img src="bilder/demo-2-pc-check.png" width="1400" height="900" loading="lazy"
+                   alt="PC-Check: Der Bildschirm läuft mit 144 statt 240 Hz"
+                   data-text="PC-Check: findet, was außerhalb von Windows Leistung kostet">
+              <img src="bilder/demo-3-tweaks.png" width="1400" height="900" loading="lazy"
+                   alt="Grafik-Tweaks mit Wirkungs-Balken und kurzer Erklärung"
+                   data-text="Jeder Tweak in einfachen Worten, mit Wirkungs-Balken">
+              <img src="bilder/demo-4-booster.png" width="1400" height="900" loading="lazy"
+                   alt="Game Booster mit Whitelist und „Nicht stören“"
+                   data-text="Game Booster: schließt vor dem Spielen alles Unnötige">
+              <img src="bilder/demo-5-bios.png" width="1400" height="900" loading="lazy"
+                   alt="BIOS-Tipps für das erkannte Mainboard"
+                   data-text="BIOS-Tipps: wo die Einstellungen in deinem Mainboard stehen">
+            </div>
+            <figcaption class="app-demo-text">Übersicht: Score, dein System und was Tyler erkannt hat</figcaption>
+            <div class="app-demo-punkte" aria-label="Bild wählen"></div>
+          </figure>
         </div>
 
         <div class="produkt-kasse">
@@ -1157,10 +1183,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.9.0-4"></script>
-<script src="tt-backend.js?v=2.9.0-4"></script>
-<script src="warenkorb.js?v=2.9.0-4"></script>
-<script src="tweaks.js?v=2.9.0-4"></script>
-<script src="script.js?v=2.9.0-4"></script>
+<script src="konfig.js?v=2.9.0-5"></script>
+<script src="tt-backend.js?v=2.9.0-5"></script>
+<script src="warenkorb.js?v=2.9.0-5"></script>
+<script src="tweaks.js?v=2.9.0-5"></script>
+<script src="script.js?v=2.9.0-5"></script>
 </body>
 </html>
