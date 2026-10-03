@@ -73,11 +73,16 @@ window.TT = (function () {
     'zu_viele_offen':      'Du hast schon mehrere unbezahlte Bestellungen. Bezahl oder warte sie zuerst ab — sie stehen in deinem Kundenkonto unter „Bestellungen“.',
     'unknown_order':       'Zu dieser Zahlung finde ich keine Bestellung.',
     'payment_failed':      'Die Zahlung konnte nicht verarbeitet werden. Es wurde nichts abgebucht.',
-    'payment_not_completed':'Die Zahlung wurde noch nicht bestätigt. Sobald PayPal sie freigibt, erscheint die Lizenz automatisch in deinem Konto.',
+    'payment_not_completed':'Die Zahlung wurde noch nicht bestätigt. Sobald sie freigegeben ist, erscheint die Lizenz automatisch in deinem Konto.',
+    'payment_pending':     'Deine Zahlung ist unterwegs. Sobald sie bestätigt ist, erscheint die Lizenz automatisch in deinem Konto.',
+    'order_refunded':      'Diese Bestellung wurde erstattet. Die Lizenz dazu ist gesperrt.',
     'fulfillment_failed':  'Die Zahlung ist angekommen, die Freischaltung hat aber gehakt. Sie läuft automatisch nach — sollte in wenigen Minuten nichts im Konto stehen, melde dich auf Discord.',
     'paypal_error':        'PayPal antwortet gerade nicht. Versuche es in ein paar Minuten noch einmal.',
     'paypal_not_configured':'Die Bezahlung ist noch nicht freigeschaltet. Melde dich bitte auf Discord.',
     'paypal_auth_failed':  'Die Bezahlung ist gerade nicht möglich. Melde dich bitte auf Discord.',
+    'stripe_error':        'Stripe antwortet gerade nicht. Versuche es in ein paar Minuten noch einmal oder bezahle mit PayPal.',
+    'stripe_not_configured':'Die Bezahlung mit Karte ist noch nicht freigeschaltet. Melde dich bitte auf Discord.',
+    'stripe_auth_failed':  'Die Bezahlung mit Karte ist gerade nicht möglich. Melde dich bitte auf Discord.',
 
     /* Download */
     'no_access':  'Der Download ist für dieses Konto nicht freigeschaltet. Du brauchst dafür eine gültige Lizenz der Tweak App.',

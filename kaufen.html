@@ -85,13 +85,13 @@
 
       <div class="form-msg" id="meldung" role="alert"></div>
 
-      <!-- Erscheint nur, solange PayPal im Testbetrieb läuft. Ein Besucher
-           muss wissen, dass hier kein echtes Geld fließt — sonst wartet er
-           auf eine Lizenz, die nie kommt. -->
+      <!-- Erscheint nur, solange ein Zahlweg im Testbetrieb läuft. Ein
+           Besucher muss wissen, dass hier kein echtes Geld fließt — sonst
+           wartet er auf eine Lizenz, die nie kommt. -->
       <div class="hinweis-kasten warn" id="testmodus" hidden>
         <p><strong>Testbetrieb.</strong> Die Bezahlung ist hier noch mit
-           PayPal-Testkonten verbunden. Eine Zahlung mit einem echten
-           PayPal-Konto ist nicht möglich und es wird kein Geld abgebucht.</p>
+           Testkonten von PayPal bzw. Stripe verbunden. Echtes Geld wird nicht
+           abgebucht.</p>
         <p class="muted">Zum tatsächlichen Kauf geht es über die
            <a href="index.html#preise">Preisseite</a>.</p>
       </div>
@@ -122,9 +122,9 @@
       <section class="panel panel-accent">
         <h2>Bezahlen</h2>
         <p class="muted" style="font-size:.93rem">
-          Die Zahlung läuft über PayPal. Deine Zahlungsdaten bekomme ich nie zu sehen.
-          Sobald PayPal die Zahlung bestätigt, wird dein Lizenzschlüssel automatisch
-          erzeugt und diesem Konto zugeordnet.
+          Die Zahlung läuft über PayPal oder Stripe, deine Zahlungsdaten bekomme
+          ich nie zu sehen. Sobald die Zahlung bestätigt ist, wird dein
+          Lizenzschlüssel automatisch erzeugt und diesem Konto zugeordnet.
         </p>
 
         <!-- Ausdrückliche Zustimmung nach § 18 Abs 1 Z 11 FAGG. Ohne sie
@@ -157,6 +157,18 @@
         </label>
 
         <div id="paypal-knoepfe" style="margin-top:18px"></div>
+
+        <!-- Zweiter Zahlweg über die Bezahlseite von Stripe (kaufen.js).
+             Erst nach dem Haken oben anklickbar, wie die PayPal-Knöpfe. -->
+        <div id="stripe-bereich" hidden style="margin-top:12px">
+          <button type="button" class="btn btn-primary btn-block" id="stripe-knopf">
+            Mit Karte, Apple Pay, Google Pay &amp; mehr bezahlen
+          </button>
+          <p class="muted" style="font-size:.85rem;margin-top:8px;text-align:center">
+            Weiter zur sicheren Bezahlseite von Stripe. Dort siehst du alle
+            Zahlarten, die in deinem Land gehen, etwa EPS oder Klarna.
+          </p>
+        </div>
 
         <p class="lade-hinweis" id="paypal-laden">PayPal wird geladen …</p>
 
