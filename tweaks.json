@@ -378,11 +378,11 @@
       "admin": true,
       "de": {
         "name": "Telemetrie minimieren",
-        "beschreibung": "Reduziert die an Microsoft gesendeten Diagnosedaten auf das Nötigste und schaltet den DiagTrack-Hintergrunddienst ab."
+        "beschreibung": "Windows schickt nur noch das Nötigste an Diagnosedaten an Microsoft. Der Dienst, der sie im Hintergrund sammelt, wird abgeschaltet."
       },
       "en": {
         "name": "Cut telemetry to a minimum",
-        "beschreibung": "Reduces the diagnostic data sent to Microsoft to the bare minimum and switches off the DiagTrack background service."
+        "beschreibung": "Windows sends only the bare minimum of diagnostic data to Microsoft. The service that collects it in the background is switched off."
       },
       "details": {
         "de": [
@@ -404,11 +404,11 @@
       "admin": false,
       "de": {
         "name": "Werbe-ID abschalten",
-        "beschreibung": "Apps können dich nicht mehr über eine eindeutige Werbe-ID wiedererkennen."
+        "beschreibung": "Apps können dich nicht mehr über eine Werbe-Nummer wiedererkennen. Werbung in Apps ist dann weniger auf dich zugeschnitten."
       },
       "en": {
         "name": "Switch off the advertising ID",
-        "beschreibung": "Apps can no longer recognise you across sessions through a unique advertising ID."
+        "beschreibung": "Apps can no longer recognise you by an advertising number. Ads in apps are then less tailored to you."
       },
       "details": {
         "de": [
@@ -456,11 +456,11 @@
       "admin": true,
       "de": {
         "name": "Cortana abschalten",
-        "beschreibung": "Deaktiviert die Sprachassistentin in der Windows-Suche."
+        "beschreibung": "Die Sprachassistentin Cortana in der Windows-Suche wird abgeschaltet."
       },
       "en": {
         "name": "Switch off Cortana",
-        "beschreibung": "Disables the voice assistant inside Windows Search."
+        "beschreibung": "The voice assistant Cortana in Windows Search is switched off."
       },
       "details": {
         "de": [
@@ -480,11 +480,11 @@
       "admin": true,
       "de": {
         "name": "Standortverfolgung abschalten",
-        "beschreibung": "Verweigert allen Apps systemweit den Zugriff auf deinen Standort."
+        "beschreibung": "Keine App darf mehr wissen, wo du gerade bist."
       },
       "en": {
         "name": "Switch off location tracking",
-        "beschreibung": "Denies every app system-wide access to your location."
+        "beschreibung": "No app is allowed to know where you are any more."
       },
       "details": {
         "de": [
@@ -504,11 +504,11 @@
       "admin": true,
       "de": {
         "name": "Kamera für Apps sperren",
-        "beschreibung": "Store-Apps bekommen keinen Zugriff mehr auf die Kamera. Videotelefonie in diesen Apps funktioniert danach nicht mehr."
+        "beschreibung": "Apps aus dem Microsoft Store dürfen deine Kamera nicht mehr benutzen. Videoanrufe in diesen Apps gehen dann nicht mehr."
       },
       "en": {
         "name": "Block camera access for apps",
-        "beschreibung": "Store apps lose access to the camera. Video calls inside those apps stop working."
+        "beschreibung": "Apps from the Microsoft Store can no longer use your camera. Video calls in those apps stop working."
       },
       "details": {
         "de": [
@@ -528,11 +528,11 @@
       "admin": true,
       "de": {
         "name": "Mikrofon für Apps sperren",
-        "beschreibung": "Store-Apps bekommen keinen Zugriff mehr auf das Mikrofon. Sprachaufnahmen und Anrufe in diesen Apps funktionieren danach nicht mehr."
+        "beschreibung": "Apps aus dem Microsoft Store dürfen dein Mikrofon nicht mehr benutzen. Anrufe und Sprachaufnahmen in diesen Apps gehen dann nicht mehr."
       },
       "en": {
         "name": "Block microphone access for apps",
-        "beschreibung": "Store apps lose access to the microphone. Voice recording and calls inside those apps stop working."
+        "beschreibung": "Apps from the Microsoft Store can no longer use your microphone. Calls and voice recordings in those apps stop working."
       },
       "details": {
         "de": [
@@ -552,11 +552,11 @@
       "admin": true,
       "de": {
         "name": "Kontakte und Kalender sperren",
-        "beschreibung": "Store-Apps können deine Kontakte und Termine nicht mehr lesen. Die Mail- und Kalender-App verliert damit ihre Grundlage."
+        "beschreibung": "Apps aus dem Microsoft Store dürfen deine Kontakte und Termine nicht mehr lesen. Die Mail- und Kalender-App von Windows funktioniert dann nicht mehr richtig."
       },
       "en": {
         "name": "Block contacts and calendar",
-        "beschreibung": "Store apps can no longer read your contacts and appointments. The Mail and Calendar app loses what it runs on."
+        "beschreibung": "Apps from the Microsoft Store can no longer read your contacts and appointments. The Windows Mail and Calendar app then stops working properly."
       },
       "details": {
         "de": [
@@ -578,11 +578,11 @@
       "admin": true,
       "de": {
         "name": "Windows Recall abschalten",
-        "beschreibung": "Windows legt keine durchsuchbare Aufzeichnung deiner Bildschirminhalte an. Betrifft nur Copilot\u002B-PCs — auf anderen Geräten ist der Schalter vorsorglich gesetzt und ohne Wirkung."
+        "beschreibung": "Windows macht keine laufenden Bildschirmfotos, um sie später durchsuchbar zu machen. Das gibt es nur auf Copilot\u002B-PCs – auf anderen PCs ändert der Schalter nichts."
       },
       "en": {
         "name": "Switch off Windows Recall",
-        "beschreibung": "Windows stops keeping a searchable record of what was on your screen. Only applies to Copilot\u002B PCs — elsewhere the switch is set as a precaution and does nothing."
+        "beschreibung": "Windows stops taking regular screenshots to make them searchable later. This only exists on Copilot\u002B PCs – on other PCs the switch changes nothing."
       },
       "details": {
         "de": [
@@ -602,11 +602,11 @@
       "admin": true,
       "de": {
         "name": "Zwischenablage-Verlauf abschalten",
-        "beschreibung": "Windows merkt sich nichts mehr von dem, was du kopierst, und überträgt es nicht auf deine anderen Geräte. Windows\u002BV zeigt danach keinen Verlauf mehr."
+        "beschreibung": "Windows merkt sich nicht mehr alles, was du kopierst, und schickt es nicht an deine anderen Geräte. Windows\u002BV zeigt dann keinen Verlauf mehr."
       },
       "en": {
         "name": "Switch off clipboard history",
-        "beschreibung": "Windows no longer remembers what you copy and stops syncing it to your other devices. Windows\u002BV shows no history afterwards."
+        "beschreibung": "Windows no longer remembers everything you copy and stops sending it to your other devices. Windows\u002BV then shows no history."
       },
       "details": {
         "de": [
@@ -628,11 +628,11 @@
       "admin": false,
       "de": {
         "name": "Werbung auf dem Sperrbildschirm abschalten",
-        "beschreibung": "Der Sperrbildschirm zeigt keine angepriesenen Inhalte und Tipps mehr."
+        "beschreibung": "Auf dem Sperrbildschirm erscheinen keine Werbung und keine Tipps mehr."
       },
       "en": {
         "name": "Remove adverts from the lock screen",
-        "beschreibung": "The lock screen stops showing promoted content and tips."
+        "beschreibung": "No more ads or tips on the lock screen."
       },
       "details": {
         "de": [
@@ -656,7 +656,7 @@
       "admin": false,
       "de": {
         "name": "Vorschläge in den Einstellungen abschalten",
-        "beschreibung": "Die Einstellungen-App wirbt nicht mehr für Funktionen und Abonnements."
+        "beschreibung": "Die Einstellungen-App macht keine Werbung mehr für Funktionen und Abos."
       },
       "en": {
         "name": "Switch off suggestions in Settings",
@@ -684,11 +684,11 @@
       "admin": true,
       "de": {
         "name": "Keine Dateien automatisch an Microsoft senden",
-        "beschreibung": "Der Virenschutz schickt verdächtige Dateien nicht mehr von selbst zur Analyse ein. Der Schutz selbst bleibt vollständig eingeschaltet, erkennt neue Bedrohungen aber etwas später."
+        "beschreibung": "Der Virenschutz schickt verdächtige Dateien nicht mehr von selbst an Microsoft. Er schützt dich weiter, erkennt ganz neue Viren aber etwas später."
       },
       "en": {
         "name": "Stop sending files to Microsoft automatically",
-        "beschreibung": "Your antivirus no longer submits suspicious files for analysis on its own. The protection itself stays fully on, but picks up brand-new threats slightly later."
+        "beschreibung": "Your antivirus stops sending suspicious files to Microsoft on its own. It still protects you, but spots brand-new viruses a little later."
       },
       "details": {
         "de": [
@@ -708,11 +708,11 @@
       "admin": false,
       "de": {
         "name": "Personalisierte Werbung abschalten",
-        "beschreibung": "Deine Diagnosedaten werden nicht mehr für zugeschnittene Tipps und Werbung ausgewertet."
+        "beschreibung": "Microsoft nutzt deine Diagnosedaten nicht mehr für Werbung und Tipps, die auf dich zugeschnitten sind."
       },
       "en": {
         "name": "Switch off personalised advertising",
-        "beschreibung": "Your diagnostic data is no longer used for tailored tips and adverts."
+        "beschreibung": "Microsoft no longer uses your diagnostic data for ads and tips tailored to you."
       },
       "details": {
         "de": [
@@ -732,11 +732,11 @@
       "admin": false,
       "de": {
         "name": "Werbung im Startmenü abschalten",
-        "beschreibung": "Entfernt vorgeschlagene und gesponserte Apps aus dem Startmenü."
+        "beschreibung": "Im Startmenü erscheinen keine vorgeschlagenen und bezahlten Apps mehr."
       },
       "en": {
         "name": "Remove adverts from the Start menu",
-        "beschreibung": "Takes suggested and sponsored apps out of the Start menu."
+        "beschreibung": "No more suggested and sponsored apps in the Start menu."
       },
       "details": {
         "de": [
@@ -760,11 +760,11 @@
       "admin": true,
       "de": {
         "name": "Feedback-Abfragen abschalten",
-        "beschreibung": "Windows fragt dich nicht mehr nach deiner Meinung zum Betriebssystem."
+        "beschreibung": "Windows fragt dich nicht mehr, wie zufrieden du damit bist."
       },
       "en": {
         "name": "Switch off feedback prompts",
-        "beschreibung": "Windows stops asking you what you think of the operating system."
+        "beschreibung": "Windows stops asking you how happy you are with it."
       },
       "details": {
         "de": [
@@ -786,11 +786,11 @@
       "admin": false,
       "de": {
         "name": "Eingabe- und Freihandpersonalisierung abschalten",
-        "beschreibung": "Windows wertet nicht mehr aus, was du tippst und schreibst, um Vorschläge zu verbessern."
+        "beschreibung": "Windows wertet nicht mehr aus, was du tippst und mit dem Stift schreibst."
       },
       "en": {
         "name": "Switch off typing and inking personalisation",
-        "beschreibung": "Windows no longer analyses what you type and write in order to improve suggestions."
+        "beschreibung": "Windows stops analysing what you type and write with a pen."
       },
       "details": {
         "de": [
@@ -814,11 +814,11 @@
       "admin": false,
       "de": {
         "name": "Online-Spracherkennung abschalten",
-        "beschreibung": "Sprachaufnahmen werden nicht mehr zur Erkennung an Microsoft übertragen."
+        "beschreibung": "Was du ins Mikrofon sprichst, wird nicht mehr zur Erkennung an Microsoft geschickt."
       },
       "en": {
         "name": "Switch off online speech recognition",
-        "beschreibung": "Voice recordings are no longer sent to Microsoft for recognition."
+        "beschreibung": "What you say into the microphone is no longer sent to Microsoft for recognition."
       },
       "details": {
         "de": [
@@ -838,11 +838,11 @@
       "admin": false,
       "de": {
         "name": "App-Start-Verfolgung abschalten",
-        "beschreibung": "Windows merkt sich nicht mehr, welche Programme du wie oft startest, um die Suche zu sortieren."
+        "beschreibung": "Windows zählt nicht mehr, welche Programme du wie oft startest."
       },
       "en": {
         "name": "Switch off app launch tracking",
-        "beschreibung": "Windows stops counting how often you start which program in order to sort search results."
+        "beschreibung": "Windows stops counting which programs you start and how often."
       },
       "details": {
         "de": [
@@ -862,11 +862,11 @@
       "admin": true,
       "de": {
         "name": "Fehlerberichterstattung abschalten",
-        "beschreibung": "Absturzberichte werden nicht mehr automatisch an Microsoft geschickt."
+        "beschreibung": "Wenn ein Programm abstürzt, geht kein Bericht mehr an Microsoft."
       },
       "en": {
         "name": "Switch off error reporting",
-        "beschreibung": "Crash reports are no longer sent to Microsoft automatically."
+        "beschreibung": "When a program crashes, no report goes to Microsoft any more."
       },
       "details": {
         "de": [
@@ -888,11 +888,11 @@
       "admin": false,
       "de": {
         "name": "Tipps und Tricks zu Windows abschalten",
-        "beschreibung": "Windows blendet beim Arbeiten Tipps, Tricks und Vorschläge ein. Sie kommen aus dem Netz und werden nicht mehr angezeigt."
+        "beschreibung": "Windows blendet beim Arbeiten keine Tipps und Vorschläge mehr ein."
       },
       "en": {
         "name": "Turn off Windows tips and tricks",
-        "beschreibung": "Windows shows tips, tricks and suggestions while you work. They come from the internet and are no longer shown."
+        "beschreibung": "Windows stops showing tips and suggestions while you work."
       },
       "details": {
         "de": [
@@ -912,11 +912,11 @@
       "admin": true,
       "de": {
         "name": "Diagnosedaten weiter einschränken",
-        "beschreibung": "Ergänzt die Telemetrie-Richtlinie: kein Gerätename in der Übertragung, keine nachgeladenen Einstellungen von Microsoft, weniger gesammelte Protokolle."
+        "beschreibung": "Noch weniger Diagnosedaten: Windows schickt deinen PC-Namen nicht mehr mit, lädt keine Einstellungen von Microsoft nach und sammelt weniger Protokolle."
       },
       "en": {
         "name": "Restrict diagnostic data further",
-        "beschreibung": "Extends the telemetry policy: no device name in the data sent, no settings downloaded from Microsoft, fewer logs collected."
+        "beschreibung": "Even less diagnostic data: Windows stops sending your PC\u0027s name, downloads no settings from Microsoft and collects fewer logs."
       },
       "details": {
         "de": [
@@ -940,11 +940,11 @@
       "admin": true,
       "de": {
         "name": "Diagnosedaten auch im zweiten Richtlinienzweig begrenzen",
-        "beschreibung": "Windows liest die Telemetriestufe aus zwei Stellen. Dieser Tweak setzt die zweite, die der Haupttweak nicht abdeckt."
+        "beschreibung": "Windows liest die Menge der Diagnosedaten an zwei Stellen. Dieser Tweak stellt auch die zweite auf das Minimum."
       },
       "en": {
         "name": "Limit diagnostic data in the second policy branch too",
-        "beschreibung": "Windows reads the telemetry level from two places. This tweak sets the second one, which the main tweak does not cover."
+        "beschreibung": "Windows reads the amount of diagnostic data from two places. This tweak sets the second one to the minimum too."
       },
       "details": {
         "de": [
@@ -966,12 +966,12 @@
       "admin": true,
       "de": {
         "name": "Web- und Cloud-Suche per Richtlinie sperren",
-        "beschreibung": "Ergänzt das Ausblenden der Websuche im Startmenü: Diese Richtlinien sperren Websuche, Cloud-Suche und die Standortnutzung der Suche für den ganzen Rechner, sodass keine Suchbegriffe mehr an Bing gehen.",
+        "beschreibung": "Was du in die Windows-Suche tippst, geht nicht mehr an Bing. Gilt für den ganzen PC.",
         "hinweis": "Die Suche findet danach nur noch, was auf diesem Rechner liegt."
       },
       "en": {
         "name": "Block web and cloud search by policy",
-        "beschreibung": "Complements hiding web search in the Start menu: these policies block web search, cloud search and the search\u0027s use of location for the whole PC, so no search terms go to Bing.",
+        "beschreibung": "What you type into Windows Search no longer goes to Bing. Applies to the whole PC.",
         "hinweis": "Search then only finds what is on this PC."
       },
       "details": {
@@ -1002,11 +1002,11 @@
       "admin": true,
       "de": {
         "name": "Copilot per Richtlinie abschalten",
-        "beschreibung": "Schaltet Windows Copilot für Rechner und Konto ab. Der bestehende Tweak blendet nur den Knopf aus, dieser nimmt die Funktion selbst weg."
+        "beschreibung": "Schaltet Copilot ganz ab, nicht nur den Knopf."
       },
       "en": {
         "name": "Turn off Copilot by policy",
-        "beschreibung": "Turns off Windows Copilot for the PC and your account. The existing tweak only hides the button; this one removes the feature itself."
+        "beschreibung": "Turns Copilot off completely, not just the button."
       },
       "details": {
         "de": [
@@ -1028,12 +1028,12 @@
       "admin": true,
       "de": {
         "name": "Standort per Richtlinie sperren",
-        "beschreibung": "Sperrt den Standortdienst per Richtlinie, sodass ihn auch einzelne Anwendungen nicht wieder einschalten können.",
+        "beschreibung": "Sperrt den Standort fest, sodass ihn auch keine App wieder einschalten kann.",
         "hinweis": "Karten, Wetter und „Mein Gerät suchen“ funktionieren danach nicht mehr, auf Laptops auch die automatische Zeitzone."
       },
       "en": {
         "name": "Lock location by policy",
-        "beschreibung": "Locks the location service by policy so that individual apps cannot turn it back on.",
+        "beschreibung": "Locks location off for good, so no app can turn it back on.",
         "hinweis": "Maps, weather and Find my device stop working, and on laptops so does the automatic time zone."
       },
       "details": {
@@ -1058,12 +1058,12 @@
       "admin": true,
       "de": {
         "name": "Auswertung von Tippen und Handschrift sperren",
-        "beschreibung": "Windows wertet Tastatureingaben und Handschrift aus, um Vorschläge zu verbessern. Das wird per Richtlinie für Rechner und Konto unterbunden.",
+        "beschreibung": "Windows wertet nicht mehr aus, was du tippst und mit dem Stift schreibst. Das gilt fest für den ganzen PC.",
         "hinweis": "Wortvorschläge und Handschrifterkennung lernen danach nicht mehr dazu. Beide funktionieren weiter."
       },
       "en": {
         "name": "Block analysis of typing and handwriting",
-        "beschreibung": "Windows analyses keyboard input and handwriting to improve suggestions. This is blocked by policy for the PC and your account.",
+        "beschreibung": "Windows stops analysing what you type and write with a pen. This is locked in for the whole PC.",
         "hinweis": "Word suggestions and handwriting recognition stop learning. Both keep working."
       },
       "details": {
@@ -1094,12 +1094,12 @@
       "admin": true,
       "de": {
         "name": "Programminventar und Kompatibilitätsdaten abschalten",
-        "beschreibung": "Der Kompatibilitätsdienst führt ein Verzeichnis deiner installierten Programme und meldet es an Microsoft. Beides wird abgeschaltet.",
+        "beschreibung": "Windows führt keine Liste deiner installierten Programme mehr und schickt sie nicht an Microsoft.",
         "hinweis": "Der Programmkompatibilitäts-Assistent meldet sich bei Problemen mit alten Programmen nicht mehr von selbst."
       },
       "en": {
         "name": "Turn off program inventory and compatibility data",
-        "beschreibung": "The compatibility service keeps a list of your installed programs and reports it to Microsoft. Both are turned off.",
+        "beschreibung": "Windows stops keeping a list of your installed programs and stops sending it to Microsoft.",
         "hinweis": "The Program Compatibility Assistant no longer steps in by itself when old programs have problems."
       },
       "details": {
@@ -1124,12 +1124,12 @@
       "admin": false,
       "de": {
         "name": "Windows-Blickpunkt abschalten",
-        "beschreibung": "Sperrbildschirm, Info-Center und Einstellungen zeigen keine vorgeschlagenen Inhalte und keine Werbung mehr.",
+        "beschreibung": "Sperrbildschirm, Info-Center und Einstellungen zeigen keine Werbung und keine Vorschläge mehr.",
         "hinweis": "Der Sperrbildschirm zeigt danach dein eigenes Bild statt wechselnder Fotos."
       },
       "en": {
         "name": "Turn off Windows Spotlight",
-        "beschreibung": "The lock screen, action center and Settings no longer show suggested content or ads.",
+        "beschreibung": "The lock screen, action center and Settings show no more ads or suggestions.",
         "hinweis": "The lock screen shows your own picture instead of changing photos."
       },
       "details": {
@@ -1158,11 +1158,11 @@
       "admin": true,
       "de": {
         "name": "Vorschläge und Drittanbieter-Inhalte abschalten",
-        "beschreibung": "Windows blendet keine vorgeschlagenen Apps, Tipps und Inhalte anderer Anbieter mehr ein."
+        "beschreibung": "Windows zeigt keine vorgeschlagenen Apps und keine Inhalte anderer Firmen mehr."
       },
       "en": {
         "name": "Switch off suggestions and third-party content",
-        "beschreibung": "Windows stops showing suggested apps, tips and content from other companies."
+        "beschreibung": "Windows stops showing suggested apps and content from other companies."
       },
       "details": {
         "de": [
@@ -1186,11 +1186,11 @@
       "admin": false,
       "de": {
         "name": "Vorinstallierte Apps nicht wiederherstellen",
-        "beschreibung": "Vom Hersteller mitgelieferte und von Windows vorinstallierte Apps kommen nach einem Update nicht zurück."
+        "beschreibung": "Vorinstallierte Apps, die du gelöscht hast, kommen nach einem Windows-Update nicht zurück."
       },
       "en": {
         "name": "Do not restore pre-installed apps",
-        "beschreibung": "Apps your manufacturer bundled and ones Windows pre-installs no longer come back after an update."
+        "beschreibung": "Pre-installed apps you removed do not come back after a Windows update."
       },
       "details": {
         "de": [
@@ -1214,11 +1214,11 @@
       "admin": false,
       "de": {
         "name": "OneDrive aus der Explorer-Seitenleiste",
-        "beschreibung": "Der OneDrive-Eintrag verschwindet aus der linken Spalte des Explorers. OneDrive selbst bleibt installiert und synchronisiert weiter."
+        "beschreibung": "OneDrive verschwindet aus der linken Leiste im Explorer. OneDrive selbst bleibt und funktioniert weiter."
       },
       "en": {
         "name": "Remove OneDrive from the Explorer sidebar",
-        "beschreibung": "The OneDrive entry disappears from the left column of File Explorer. OneDrive itself stays installed and keeps syncing."
+        "beschreibung": "OneDrive disappears from the left bar in File Explorer. OneDrive itself stays and keeps working."
       },
       "details": {
         "de": [
@@ -1238,11 +1238,11 @@
       "admin": true,
       "de": {
         "name": "Edge nicht im Hintergrund laufen lassen",
-        "beschreibung": "Microsoft Edge beendet sich beim Schließen wirklich, statt im Hintergrund weiterzulaufen. Der Start dauert dafür etwas länger."
+        "beschreibung": "Edge läuft nach dem Schließen nicht mehr unsichtbar weiter. Dafür startet er etwas langsamer."
       },
       "en": {
         "name": "Stop Edge running in the background",
-        "beschreibung": "Microsoft Edge really quits when you close it instead of staying resident. Starting it takes a little longer in exchange."
+        "beschreibung": "Edge no longer keeps running invisibly after you close it. In return it starts a little slower."
       },
       "details": {
         "de": [
@@ -1264,12 +1264,12 @@
       "admin": true,
       "de": {
         "name": "Edge: Einkaufshilfe, Seitenleiste und Datenübertragung aus",
-        "beschreibung": "Richtlinien für Microsoft Edge: keine Suchvorschläge aus dem Netz, keine Einkaufshilfe, keine Seitenleiste, kein Feedback und keine Personalisierungsdaten. Dazu sendet Edge „Do Not Track“.",
+        "beschreibung": "Edge ohne Einkaufshilfe, Seitenleiste und Datensammeln: keine Suchvorschläge aus dem Netz, kein Feedback, keine Personalisierung.",
         "hinweis": "Die Adresszeile vervollständigt Suchbegriffe danach nicht mehr, und Edge zeigt „Von deiner Organisation verwaltet“ an."
       },
       "en": {
         "name": "Edge: turn off shopping, sidebar and data sharing",
-        "beschreibung": "Policies for Microsoft Edge: no online search suggestions, no shopping assistant, no sidebar, no feedback and no personalisation data. Edge also sends Do Not Track.",
+        "beschreibung": "Edge without the shopping assistant, sidebar and data collection: no online search suggestions, no feedback, no personalisation.",
         "hinweis": "The address bar no longer completes search terms, and Edge shows “Managed by your organization”."
       },
       "details": {
@@ -1300,11 +1300,11 @@
       "admin": true,
       "de": {
         "name": "TCP/IP-Protokollsitzung abschalten",
-        "beschreibung": "Eine Ablaufprotokollierung, die Windows bei jedem Start mitlaufen lässt. Gedacht für die Fehlersuche, im Alltag ungenutzt."
+        "beschreibung": "Windows schreibt bei jedem Start ein Netzwerk-Protokoll für die Fehlersuche mit. Im Alltag braucht das niemand."
       },
       "en": {
         "name": "Turn off the TCP/IP trace session",
-        "beschreibung": "A trace log that Windows runs at every start. Meant for troubleshooting and unused in daily life."
+        "beschreibung": "At every start, Windows writes a network log for troubleshooting. Nobody needs it in daily use."
       },
       "details": {
         "de": [
@@ -1324,12 +1324,12 @@
       "admin": false,
       "de": {
         "name": "Benachrichtigung bei vollem Laufwerk abschalten",
-        "beschreibung": "Die Meldung, die aufspringt, wenn ein Laufwerk fast voll ist, auch mitten im Spiel.",
+        "beschreibung": "Keine Meldung mehr, wenn ein Laufwerk fast voll ist – auch nicht mitten im Spiel.",
         "hinweis": "Den freien Speicher musst du danach selbst im Blick behalten."
       },
       "en": {
         "name": "Turn off the low disk space notification",
-        "beschreibung": "The notification that pops up when a drive is almost full, even in the middle of a game.",
+        "beschreibung": "No more message when a drive is almost full – not even in the middle of a game.",
         "hinweis": "You have to keep an eye on free space yourself."
       },
       "details": {
@@ -1350,11 +1350,11 @@
       "admin": true,
       "de": {
         "name": "Hinweise des Fenstermanagers ausblenden",
-        "beschreibung": "Zwei Anzeigen des Desktop-Fenstermanagers: Hinweisblasen und das Symbol für Rechner mit zwei Grafikkarten."
+        "beschreibung": "Windows blendet keine Hinweisblasen und kein Symbol für PCs mit zwei Grafikkarten mehr ein."
       },
       "en": {
         "name": "Hide window manager notices",
-        "beschreibung": "Two notices from the desktop window manager: balloon tips and the tray icon for PCs with two graphics cards."
+        "beschreibung": "Windows stops showing balloon tips and the icon for PCs with two graphics cards."
       },
       "details": {
         "de": [
@@ -1376,11 +1376,11 @@
       "admin": false,
       "de": {
         "name": "Restliche Eingabehilfen-Abfragen abschalten",
-        "beschreibung": "Entfernt die Tastenkombinationen und Rückfragen für Umschalt-, Anschlag- und Kontrastfilter."
+        "beschreibung": "Keine Rückfragen mehr, wenn du aus Versehen ein Tastenkürzel für Eingabehilfen erwischst – etwa beim langen Halten der Umschalttaste."
       },
       "en": {
         "name": "Switch off the remaining accessibility prompts",
-        "beschreibung": "Removes the shortcuts and confirmation dialogs for toggle keys, filter keys and high contrast."
+        "beschreibung": "No more prompts when you accidentally hit a shortcut for accessibility features – such as holding Shift for a long time."
       },
       "details": {
         "de": [
@@ -1404,11 +1404,11 @@
       "admin": false,
       "de": {
         "name": "Fensteranimationen abschalten",
-        "beschreibung": "Fenster werden ohne Minimier-/Maximier-Animation sofort dargestellt."
+        "beschreibung": "Fenster gehen sofort auf und zu, ohne Animation."
       },
       "en": {
         "name": "Switch off window animations",
-        "beschreibung": "Windows appear instantly instead of animating when minimising and maximising."
+        "beschreibung": "Windows open and close instantly, without animation."
       },
       "details": {
         "de": [
@@ -1428,11 +1428,11 @@
       "admin": false,
       "de": {
         "name": "Tastatur-Wiederholrate erhöhen",
-        "beschreibung": "Setzt die Verzögerung bis zur Zeichenwiederholung auf das Minimum."
+        "beschreibung": "Hältst du eine Taste gedrückt, fängt sie schneller an, sich zu wiederholen."
       },
       "en": {
         "name": "Raise the keyboard repeat rate",
-        "beschreibung": "Sets the delay before a held key starts repeating to the minimum."
+        "beschreibung": "When you hold a key, it starts repeating sooner."
       },
       "details": {
         "de": [
@@ -1454,11 +1454,11 @@
       "admin": false,
       "de": {
         "name": "Menü-Verzögerung entfernen",
-        "beschreibung": "Untermenüs klappen ohne die standardmäßige Wartezeit von 400 ms auf."
+        "beschreibung": "Untermenüs gehen sofort auf statt nach einer kurzen Pause."
       },
       "en": {
         "name": "Remove the menu delay",
-        "beschreibung": "Submenus open without the default 400 ms wait."
+        "beschreibung": "Submenus open straight away instead of after a short pause."
       },
       "details": {
         "de": [
@@ -1478,11 +1478,11 @@
       "admin": false,
       "de": {
         "name": "Mausbeschleunigung aus",
-        "beschreibung": "Deaktiviert die Zeigerbeschleunigung, damit die Mausbewegung 1:1 übertragen wird."
+        "beschreibung": "Deine Maus bewegt sich immer gleich weit, egal wie schnell du sie bewegst. Wichtig zum Zielen in Shootern."
       },
       "en": {
         "name": "Switch off mouse acceleration",
-        "beschreibung": "Disables pointer acceleration so mouse movement is passed through 1:1."
+        "beschreibung": "Your mouse always moves the same distance, however fast you move it. Important for aiming in shooters."
       },
       "details": {
         "de": [
@@ -1506,11 +1506,11 @@
       "admin": false,
       "de": {
         "name": "Sticky-Keys-Abfrage abschalten",
-        "beschreibung": "Verhindert das Nachfragefenster nach fünfmaligem Drücken der Umschalttaste."
+        "beschreibung": "Kein Fenster mehr, wenn du fünfmal die Umschalttaste drückst – auch nicht mitten im Spiel."
       },
       "en": {
         "name": "Switch off the Sticky Keys prompt",
-        "beschreibung": "Stops the dialog that appears after pressing Shift five times."
+        "beschreibung": "No more window when you press Shift five times – not even in the middle of a game."
       },
       "details": {
         "de": [
@@ -1530,11 +1530,11 @@
       "admin": true,
       "de": {
         "name": "Modernen Standby abschalten",
-        "beschreibung": "Deaktiviert den S0-Modern-Standby, damit der PC den klassischen Energiesparzustand nutzt."
+        "beschreibung": "Der PC nutzt beim Energiesparen wieder den klassischen Schlafmodus statt eines halbwachen Zustands."
       },
       "en": {
         "name": "Switch off Modern Standby",
-        "beschreibung": "Disables S0 Modern Standby so the PC uses the classic sleep state instead (needs a restart)."
+        "beschreibung": "When sleeping, the PC uses the classic sleep mode again instead of a half-awake state."
       },
       "details": {
         "de": [
@@ -1554,11 +1554,11 @@
       "admin": true,
       "de": {
         "name": "Energiesparautomatik abschalten",
-        "beschreibung": "Der PC wechselt nicht mehr automatisch in den Energiesparmodus. Auf einem Notebook geht der Akku dadurch deutlich schneller leer."
+        "beschreibung": "Der PC geht nicht mehr von selbst in den Energiesparmodus. Auf einem Laptop ist der Akku dadurch deutlich schneller leer."
       },
       "en": {
         "name": "Switch off automatic sleep",
-        "beschreibung": "The PC no longer drops into sleep mode on its own."
+        "beschreibung": "The PC no longer goes to sleep on its own. On a laptop the battery runs out much faster."
       },
       "details": {
         "de": [
@@ -1578,11 +1578,11 @@
       "admin": true,
       "de": {
         "name": "Hintergrund-Apps abschalten",
-        "beschreibung": "Store-Apps dürfen nicht mehr unsichtbar im Hintergrund weiterlaufen. Damit kommen von Mail, Kalender und ähnlichen Apps auch keine Benachrichtigungen mehr."
+        "beschreibung": "Store-Apps laufen nicht mehr unsichtbar im Hintergrund. Dadurch kommen von Mail, Kalender und ähnlichen Apps auch keine Benachrichtigungen mehr."
       },
       "en": {
         "name": "Switch off background apps",
-        "beschreibung": "Store apps are no longer allowed to keep running invisibly in the background."
+        "beschreibung": "Store apps no longer run invisibly in the background. Mail, Calendar and similar apps then send no notifications either."
       },
       "details": {
         "de": [
@@ -1602,11 +1602,11 @@
       "admin": true,
       "de": {
         "name": "Lange Dateipfade erlauben",
-        "beschreibung": "Programme dürfen Pfade über 260 Zeichen verwenden. Hilft bei tief verschachtelten Ordnern, etwa in Projektverzeichnissen."
+        "beschreibung": "Programme dürfen sehr lange Ordnerpfade benutzen. Hilft, wenn Ordner tief ineinander stecken."
       },
       "en": {
         "name": "Allow long file paths",
-        "beschreibung": "Programs may use paths longer than 260 characters. Helps with deeply nested folders, such as project directories."
+        "beschreibung": "Programs may use very long folder paths. Helps when folders are nested deeply."
       },
       "details": {
         "de": [
@@ -1626,11 +1626,11 @@
       "admin": true,
       "de": {
         "name": "Kleines statt vollständiges Absturzabbild",
-        "beschreibung": "Bei einem Bluescreen schreibt Windows nur noch ein kleines Abbild statt eines mehrere Gigabyte großen."
+        "beschreibung": "Bei einem Bluescreen speichert Windows nur noch eine kleine Datei statt einer mehrere Gigabyte großen."
       },
       "en": {
         "name": "Small instead of full crash dump",
-        "beschreibung": "On a blue screen Windows writes only a small dump instead of one several gigabytes in size."
+        "beschreibung": "After a blue screen, Windows only saves a small file instead of one several gigabytes in size."
       },
       "details": {
         "de": [
@@ -1650,11 +1650,11 @@
       "admin": false,
       "de": {
         "name": "Kürzer auf hängende Programme warten",
-        "beschreibung": "Windows wartet weniger lang, bevor es ein nicht mehr reagierendes Programm als hängend meldet und beim Herunterfahren beendet."
+        "beschreibung": "Windows wartet kürzer, bevor es ein hängendes Programm meldet oder beim Herunterfahren schließt."
       },
       "en": {
         "name": "Wait less for stuck programs",
-        "beschreibung": "Windows waits less before treating an unresponsive program as hung and closing it at shutdown."
+        "beschreibung": "Windows waits less before reporting a stuck program or closing it at shutdown."
       },
       "details": {
         "de": [
@@ -1676,11 +1676,11 @@
       "admin": false,
       "de": {
         "name": "Benachrichtigungen abschalten",
-        "beschreibung": "Keine eingeblendeten Meldungen mehr in der rechten unteren Ecke. Betrifft auch Erinnerungen und Nachrichten von Apps, die du vielleicht erwartest."
+        "beschreibung": "Keine Meldungen mehr unten rechts. Auch Erinnerungen und Nachrichten von Apps, auf die du vielleicht wartest, bleiben weg."
       },
       "en": {
         "name": "Switch off notifications",
-        "beschreibung": "No more pop-up messages in the bottom right corner. This also covers reminders and app messages you might be waiting for."
+        "beschreibung": "No more pop-ups in the bottom right. Reminders and app messages you might be waiting for stay away too."
       },
       "details": {
         "de": [
@@ -1700,11 +1700,11 @@
       "admin": true,
       "de": {
         "name": "Nachfrage der Benutzerkontensteuerung abschalten",
-        "beschreibung": "Programme mit Administratorrechten starten ohne Rückfrage. Das ist bequem, entfernt aber die letzte Nachfrage, bevor ein Programm tief ins System eingreifen darf — auch ein unerwünschtes."
+        "beschreibung": "Programme mit Adminrechten starten ohne Nachfrage. Bequem, aber damit fällt die letzte Sperre, bevor ein Programm – auch ein schädliches – tief ins System darf."
       },
       "en": {
         "name": "Switch off the User Account Control prompt",
-        "beschreibung": "Programs start with administrator rights without asking. Convenient, but it removes the last prompt before a program may reach deep into the system — including one you did not want."
+        "beschreibung": "Programs with admin rights start without asking. Convenient, but it removes the last barrier before a program – even a harmful one – gets deep into the system."
       },
       "details": {
         "de": [
@@ -1724,11 +1724,11 @@
       "admin": false,
       "de": {
         "name": "Startverzögerung für Autostart-Programme aufheben",
-        "beschreibung": "Windows wartet nach dem Anmelden nicht mehr rund 10 Sekunden, bevor Autostart-Programme starten."
+        "beschreibung": "Autostart-Programme starten direkt nach dem Anmelden statt erst nach rund 10 Sekunden."
       },
       "en": {
         "name": "Remove the startup delay for autostart programs",
-        "beschreibung": "Windows no longer waits about 10 seconds after signing in before starting autostart programs."
+        "beschreibung": "Autostart programs start right after you sign in instead of after about 10 seconds."
       },
       "details": {
         "de": [
@@ -1748,11 +1748,11 @@
       "admin": true,
       "de": {
         "name": "Schnellstart abschalten",
-        "beschreibung": "Windows fährt beim Herunterfahren wirklich herunter, statt einen Teilzustand zu speichern. Behebt Treiber- und Netzwerkprobleme nach dem Start, verlängert aber den Startvorgang spürbar."
+        "beschreibung": "Beim Herunterfahren schaltet Windows wirklich ganz aus. Das behebt Treiber- und Netzwerkfehler nach dem Einschalten, dafür dauert das Hochfahren etwas länger."
       },
       "en": {
         "name": "Switch off Fast Startup",
-        "beschreibung": "Windows really shuts down instead of saving a partial state. Fixes driver and network problems after booting."
+        "beschreibung": "When shutting down, Windows really turns off completely. That fixes driver and network glitches after switching on, but booting takes a little longer."
       },
       "details": {
         "de": [
@@ -1772,11 +1772,11 @@
       "admin": true,
       "de": {
         "name": "Ausführliche Statusmeldungen beim Starten",
-        "beschreibung": "Windows zeigt beim Hoch- und Herunterfahren an, worauf es gerade wartet, statt nur einen Punktekreis."
+        "beschreibung": "Beim Hoch- und Herunterfahren zeigt Windows, worauf es gerade wartet, statt nur Punkte im Kreis."
       },
       "en": {
         "name": "Show detailed status messages while booting",
-        "beschreibung": "Windows tells you what it is waiting for while starting and shutting down, instead of just spinning dots."
+        "beschreibung": "While starting and shutting down, Windows shows what it is waiting for instead of just spinning dots."
       },
       "details": {
         "de": [
@@ -1796,12 +1796,12 @@
       "admin": true,
       "de": {
         "name": "Automatische Wartung abschalten",
-        "beschreibung": "Windows startet Defragmentierung, Indizierung und Diagnosen, sobald es den Rechner für unbenutzt hält. Bei laufendem Spiel liegt es damit öfter falsch, und dann stockt es.",
+        "beschreibung": "Windows startet keine Wartungsarbeiten mehr, wenn es denkt, du bist weg. Mitten im Spiel liegt es damit oft falsch – dann ruckelt es.",
         "hinweis": "Windows pflegt sich danach nicht mehr von selbst: keine Laufwerksoptimierung, keine Aufräumarbeiten am Suchindex. Auf einer SSD fällt das kaum ins Gewicht. Windows Update läuft weiter."
       },
       "en": {
         "name": "Turn off automatic maintenance",
-        "beschreibung": "Windows starts defragmentation, indexing and diagnostics as soon as it thinks the PC is idle. With a game running it often guesses wrong, and then things stutter.",
+        "beschreibung": "Windows stops starting maintenance work when it thinks you are away. In the middle of a game it often guesses wrong – and then things stutter.",
         "hinweis": "Windows stops looking after itself: no drive optimisation, no search index cleanup. Hardly matters on an SSD. Windows Update keeps running."
       },
       "details": {
@@ -1822,11 +1822,11 @@
       "admin": false,
       "de": {
         "name": "Spielmodus einschalten",
-        "beschreibung": "Windows hält Hintergrundarbeiten wie die Installation von Updates zurück, solange ein Spiel läuft."
+        "beschreibung": "Solange du spielst, hält Windows Hintergrundarbeiten wie Update-Installationen zurück."
       },
       "en": {
         "name": "Turn on Game Mode",
-        "beschreibung": "Windows holds back background work such as installing updates while a game is running."
+        "beschreibung": "While you play, Windows holds back background work such as installing updates."
       },
       "details": {
         "de": [
@@ -1848,12 +1848,12 @@
       "admin": true,
       "de": {
         "name": "Stromverbrauchsmessung je App abschalten",
-        "beschreibung": "Windows führt dauerhaft Buch darüber, wie viel Strom jede Anwendung verbraucht. Diese Aufzeichnung wird abgeschaltet.",
+        "beschreibung": "Windows misst nicht mehr dauerhaft, wie viel Strom jede App verbraucht.",
         "hinweis": "Die Akkunutzung je App in den Einstellungen bleibt danach leer."
       },
       "en": {
         "name": "Turn off per-app energy estimation",
-        "beschreibung": "Windows keeps a constant record of how much power each application uses. This recording is turned off.",
+        "beschreibung": "Windows stops constantly measuring how much power each app uses.",
         "hinweis": "The per-app battery usage page in Settings stays empty."
       },
       "details": {
@@ -1880,12 +1880,12 @@
       "admin": false,
       "de": {
         "name": "Hängende Programme beim Abmelden beenden",
-        "beschreibung": "Programme, die beim Abmelden oder Herunterfahren nicht reagieren, werden automatisch beendet, statt auf eine Rückfrage zu warten.",
+        "beschreibung": "Hängende Programme werden beim Abmelden und Herunterfahren automatisch geschlossen, statt auf dich zu warten.",
         "hinweis": "Ein Programm, das gerade speichert und dafür länger braucht, kann dabei beendet werden, bevor es fertig ist."
       },
       "en": {
         "name": "End hung programs when signing out",
-        "beschreibung": "Programs that do not respond when signing out or shutting down are ended automatically instead of waiting for you to confirm.",
+        "beschreibung": "Stuck programs are closed automatically when signing out or shutting down instead of waiting for you.",
         "hinweis": "A program that is still saving and needs longer may be ended before it finishes."
       },
       "details": {
@@ -1930,11 +1930,11 @@
       "admin": false,
       "de": {
         "name": "Tastenkürzel für die Maustasten abschalten",
-        "beschreibung": "Alt\u002BUmschalt\u002BNumLock schaltet sonst die Maussteuerung über den Ziffernblock ein, samt Rückfrage mitten im Spiel."
+        "beschreibung": "Alt\u002BUmschalt\u002BNumLock schaltet nicht mehr aus Versehen die Maussteuerung per Ziffernblock ein – samt Rückfrage mitten im Spiel."
       },
       "en": {
         "name": "Turn off the Mouse Keys shortcut",
-        "beschreibung": "Alt\u002BShift\u002BNumLock otherwise turns on mouse control through the numeric keypad, complete with a prompt in the middle of a game."
+        "beschreibung": "Alt\u002BShift\u002BNumLock no longer accidentally turns on mouse control via the number pad – complete with a prompt mid-game."
       },
       "details": {
         "de": [
@@ -1954,12 +1954,12 @@
       "admin": true,
       "de": {
         "name": "Eingehenden Remotedesktop sperren",
-        "beschreibung": "Windows nimmt keine Remotedesktop-Verbindungen auf diesen Rechner mehr an.",
+        "beschreibung": "Niemand kann sich mehr per Remotedesktop auf diesen PC schalten.",
         "hinweis": "Du kannst dich danach nicht mehr aus der Ferne auf diesen Rechner verbinden. Von hier auf andere Rechner geht es weiter."
       },
       "en": {
         "name": "Block incoming Remote Desktop",
-        "beschreibung": "Windows no longer accepts Remote Desktop connections to this PC.",
+        "beschreibung": "Nobody can connect to this PC via Remote Desktop any more.",
         "hinweis": "You can no longer connect to this PC remotely. Connecting from here to other PCs still works."
       },
       "details": {
@@ -1980,12 +1980,12 @@
       "admin": true,
       "de": {
         "name": "Wartezeit für Dienste beim Herunterfahren verkürzen",
-        "beschreibung": "Beim Herunterfahren wartet Windows bis zu fünf Sekunden auf jeden Dienst. Der Wert kürzt das auf zwei.",
+        "beschreibung": "Beim Herunterfahren wartet Windows nur noch zwei statt fünf Sekunden auf jeden Dienst. Der PC ist schneller aus.",
         "hinweis": "Ein Dienst, der beim Beenden noch Daten schreibt, kann dabei abgebrochen werden."
       },
       "en": {
         "name": "Shorten the service wait at shutdown",
-        "beschreibung": "At shutdown Windows waits up to five seconds for each service. This cuts it to two.",
+        "beschreibung": "At shutdown, Windows waits only two instead of five seconds for each service. The PC turns off faster.",
         "hinweis": "A service still writing data while stopping may be cut off."
       },
       "details": {
@@ -2006,12 +2006,12 @@
       "admin": true,
       "de": {
         "name": "Dienste wieder in gemeinsame Prozesse legen",
-        "beschreibung": "Seit Windows 10 läuft bei viel Arbeitsspeicher jeder Dienst in einem eigenen Prozess, schnell über sechzig Stück. Der Tweak hebt die Schwelle über deinen Arbeitsspeicher, damit Windows sie wieder gruppiert.",
+        "beschreibung": "Windows fasst seine Hintergrunddienste wieder zu wenigen Prozessen zusammen, statt über sechzig einzelne laufen zu lassen.",
         "hinweis": "Stürzt ein Dienst ab, reißt er die anderen seiner Gruppe mit. Im Task-Manager ist danach nicht mehr einzeln abzulesen, welcher Dienst wie viel Speicher braucht."
       },
       "en": {
         "name": "Group services into shared processes again",
-        "beschreibung": "Since Windows 10, with plenty of memory every service runs in its own process, easily more than sixty of them. The tweak raises the threshold above your installed memory so Windows groups them again.",
+        "beschreibung": "Windows groups its background services into a few processes again instead of running more than sixty separate ones.",
         "hinweis": "If one service crashes, it takes the others in its group down with it. Task Manager can no longer show how much memory each service uses."
       },
       "details": {
@@ -2032,12 +2032,12 @@
       "admin": true,
       "de": {
         "name": "Energieplan „Höchstleistung“ aktivieren",
-        "beschreibung": "Schaltet auf den Windows-Energieplan Höchstleistung um. Die Rücknahme stellt den Plan wieder her, der vorher aktiv war.",
+        "beschreibung": "Schaltet auf den Energieplan „Höchstleistung“. Rückgängig machen stellt deinen alten Plan wieder ein.",
         "hinweis": "Die Energie-Tweaks von Tyler gelten immer für den gerade aktiven Plan und stehen nach dem Wechsel für den neuen Plan wieder am Anfang. Auf Laptops steigt der Verbrauch deutlich."
       },
       "en": {
         "name": "Activate the High performance power plan",
-        "beschreibung": "Switches to the Windows High performance power plan. Undoing it restores the plan that was active before.",
+        "beschreibung": "Switches to the “High performance” power plan. Undoing it brings back your old plan.",
         "hinweis": "Tyler\u0027s power tweaks always apply to the active plan and start from scratch for the new plan after switching. On laptops, power draw rises noticeably."
       },
       "details": {
@@ -2058,12 +2058,12 @@
       "admin": true,
       "de": {
         "name": "Festplatten nicht mehr abschalten",
-        "beschreibung": "Laufwerke schalten sich nach Untätigkeit nicht mehr ab und antworten nach einer Pause ohne Anlaufzeit.",
+        "beschreibung": "Laufwerke schalten sich in Pausen nicht mehr ab und antworten danach sofort.",
         "hinweis": "Auf Laptops und bei Festplatten mit Motor etwas mehr Verbrauch."
       },
       "en": {
         "name": "Stop turning off hard disks",
-        "beschreibung": "Drives no longer spin down when idle and respond without start-up delay after a pause.",
+        "beschreibung": "Drives no longer switch off during pauses and respond straight away afterwards.",
         "hinweis": "Slightly more power use on laptops and with spinning hard drives."
       },
       "details": {
@@ -2084,12 +2084,12 @@
       "admin": true,
       "de": {
         "name": "Reaktivierungszeitgeber abschalten",
-        "beschreibung": "Geplante Aufgaben dürfen den Rechner nicht mehr aus dem Energiesparmodus aufwecken, etwa für die nächtliche Wartung.",
+        "beschreibung": "Geplante Aufgaben wecken den PC nicht mehr aus dem Energiesparmodus, etwa nachts.",
         "hinweis": "Aufgaben, die nachts laufen sollen, warten danach, bis du den Rechner selbst weckst."
       },
       "en": {
         "name": "Turn off wake timers",
-        "beschreibung": "Scheduled tasks can no longer wake the PC from sleep, for example for nightly maintenance.",
+        "beschreibung": "Scheduled tasks no longer wake the PC from sleep, for example at night.",
         "hinweis": "Tasks meant to run at night wait until you wake the PC yourself."
       },
       "details": {
@@ -2110,11 +2110,11 @@
       "admin": true,
       "de": {
         "name": "Prozessdrosselung abschalten",
-        "beschreibung": "Deaktiviert das Power Throttling, mit dem Windows Hintergrundprozesse ausbremst."
+        "beschreibung": "Windows bremst Programme im Hintergrund nicht mehr aus, um Strom zu sparen."
       },
       "en": {
         "name": "Switch off process throttling",
-        "beschreibung": "Disables Power Throttling, which Windows uses to slow down background processes."
+        "beschreibung": "Windows stops slowing down background programs to save power."
       },
       "details": {
         "de": [
@@ -2134,11 +2134,11 @@
       "admin": true,
       "de": {
         "name": "Prozessor-Mindestleistung auf 100 Prozent",
-        "beschreibung": "Die CPU taktet nicht mehr herunter. Deutlich höherer Stromverbrauch und mehr Abwärme."
+        "beschreibung": "Der Prozessor läuft immer mit vollem Takt. Das kostet deutlich mehr Strom und macht wärmer."
       },
       "en": {
         "name": "Processor minimum state at 100 percent",
-        "beschreibung": "The CPU no longer clocks down. Noticeably higher power draw and more heat."
+        "beschreibung": "The processor always runs at full speed. That costs noticeably more power and adds heat."
       },
       "details": {
         "de": [
@@ -2158,11 +2158,11 @@
       "admin": true,
       "de": {
         "name": "Kernparken abschalten",
-        "beschreibung": "Windows legt keine CPU-Kerne mehr schlafen, sondern hält alle bereit. Etwas höherer Verbrauch im Leerlauf."
+        "beschreibung": "Windows legt keine Prozessorkerne mehr schlafen, alle bleiben bereit. Im Leerlauf etwas mehr Stromverbrauch."
       },
       "en": {
         "name": "Switch off core parking",
-        "beschreibung": "Windows stops putting CPU cores to sleep and keeps them all ready. Slightly higher idle power draw."
+        "beschreibung": "Windows stops putting processor cores to sleep; all of them stay ready. Slightly higher power use when idle."
       },
       "details": {
         "de": [
@@ -2182,11 +2182,11 @@
       "admin": true,
       "de": {
         "name": "Feine Zeitgeber für Programme erlauben",
-        "beschreibung": "Programme dürfen die Zeitgeberauflösung wieder systemweit anheben. Windows 10 hat das ab Version 2004 auf das jeweilige Programm beschränkt, was in manchen Spielen ruckelt."
+        "beschreibung": "Spiele dürfen den Zeittakt von Windows wieder für den ganzen PC feiner stellen. Seit 2020 gilt das nur noch für das Spiel selbst – manche Spiele ruckeln dadurch."
       },
       "en": {
         "name": "Allow programs to raise timer resolution",
-        "beschreibung": "Programs may raise the timer resolution system-wide again. Windows 10 limited this to the requesting program from version 2004 on, which stutters in some games."
+        "beschreibung": "Games may set Windows\u0027 timer finer for the whole PC again. Since 2020 this only applies to the game itself – which makes some games stutter."
       },
       "details": {
         "de": [
@@ -2206,11 +2206,11 @@
       "admin": true,
       "de": {
         "name": "Zeitgeber auf alle Kerne verteilen",
-        "beschreibung": "Windows verteilt die Zeitgeber-Unterbrechungen über alle Prozessorkerne statt sie auf einem zu bündeln."
+        "beschreibung": "Windows verteilt seine Takt-Signale auf alle Prozessorkerne, statt einen Kern damit zu belasten."
       },
       "en": {
         "name": "Spread timers across all cores",
-        "beschreibung": "Windows spreads timer interrupts over all processor cores instead of bunching them on one."
+        "beschreibung": "Windows spreads its timer signals over all processor cores instead of loading one core with them."
       },
       "details": {
         "de": [
@@ -2230,11 +2230,11 @@
       "admin": true,
       "de": {
         "name": "Turbo-Verhalten aggressiv",
-        "beschreibung": "Die CPU geht früher und länger in den Turbotakt. Mehr Abwärme und Lüftergeräusch."
+        "beschreibung": "Der Prozessor schaltet früher und länger in den Turbo. Dafür wird er wärmer und lauter."
       },
       "en": {
         "name": "Aggressive turbo behaviour",
-        "beschreibung": "The CPU boosts earlier and holds turbo clocks longer. More heat and more fan noise."
+        "beschreibung": "The processor goes into turbo earlier and stays there longer. In return it gets warmer and louder."
       },
       "details": {
         "de": [
@@ -2254,11 +2254,11 @@
       "admin": true,
       "de": {
         "name": "Fortnite auf hohe Prozesspriorität",
-        "beschreibung": "Startet FortniteClient-Win64-Shipping.exe künftig mit hoher Priorität. Ohne installiertes Fortnite wirkungslos."
+        "beschreibung": "Windows gibt Fortnite künftig Vorrang vor anderen Programmen. Ohne Fortnite passiert nichts."
       },
       "en": {
         "name": "Fortnite at high process priority",
-        "beschreibung": "Starts FortniteClient-Win64-Shipping.exe at high priority from now on. Does nothing without Fortnite installed."
+        "beschreibung": "Windows gives Fortnite priority over other programs from now on. Without Fortnite nothing happens."
       },
       "details": {
         "de": [
@@ -2282,11 +2282,11 @@
       "admin": true,
       "de": {
         "name": "Core-Parking-Regler sichtbar machen",
-        "beschreibung": "Blendet in den erweiterten Energieoptionen einen Regler ein, den Windows sonst versteckt. Verstellt selbst nichts."
+        "beschreibung": "Zeigt in den Energieoptionen einen versteckten Regler an. Ändert selbst nichts."
       },
       "en": {
         "name": "Show the core parking slider",
-        "beschreibung": "Reveals a slider in the advanced power options that Windows normally hides. Changes nothing by itself."
+        "beschreibung": "Shows a hidden slider in the power options. Changes nothing by itself."
       },
       "details": {
         "de": [
@@ -2306,11 +2306,11 @@
       "admin": true,
       "de": {
         "name": "Unterbrechungen nur auf wache Kerne leiten",
-        "beschreibung": "Windows verteilt Geräteunterbrechungen über die Prozessorkerne. Diese Einstellung schließt geparkte Kerne aus, damit keine Unterbrechung auf einem Kern landet, der erst aufwachen muss."
+        "beschreibung": "Geräte-Signale landen nur noch auf wachen Prozessorkernen, nicht auf schlafenden, die erst aufwachen müssen."
       },
       "en": {
         "name": "Route interrupts to awake cores only",
-        "beschreibung": "Windows spreads device interrupts across processor cores. This setting leaves out parked cores so no interrupt lands on a core that first has to wake up."
+        "beschreibung": "Device signals only go to awake processor cores, not to sleeping ones that first have to wake up."
       },
       "details": {
         "de": [
@@ -2330,11 +2330,11 @@
       "admin": true,
       "de": {
         "name": "Game DVR deaktivieren",
-        "beschreibung": "Schaltet die Hintergrundaufnahme der Xbox Game Bar ab, die im Spiel Leistung kostet. Danach lassen sich keine Spielclips mehr aufnehmen."
+        "beschreibung": "Schaltet die Hintergrundaufnahme der Xbox Game Bar ab, die beim Spielen Leistung kostet. Danach kannst du damit keine Clips mehr aufnehmen."
       },
       "en": {
         "name": "Disable Game DVR",
-        "beschreibung": "Switches off the Xbox Game Bar background recording, which costs performance in games."
+        "beschreibung": "Turns off the Xbox Game Bar background recording, which costs performance while you play. Afterwards you can no longer record clips with it."
       },
       "details": {
         "de": [
@@ -2358,11 +2358,11 @@
       "admin": true,
       "de": {
         "name": "Energiesparmodus der Grafikausgabe aus",
-        "beschreibung": "Der Bildschirm wird nicht mehr automatisch abgeschaltet, die Grafikausgabe bleibt aktiv."
+        "beschreibung": "Der Bildschirm schaltet sich nicht mehr von selbst ab."
       },
       "en": {
         "name": "Switch off display power saving",
-        "beschreibung": "The screen is no longer switched off automatically and the graphics output stays active."
+        "beschreibung": "The screen no longer switches off by itself."
       },
       "details": {
         "de": [
@@ -2382,11 +2382,11 @@
       "admin": false,
       "de": {
         "name": "Xbox Game Bar vollständig abschalten",
-        "beschreibung": "Die Spielleiste öffnet sich nicht mehr mit Windows\u002BG und meldet sich beim Spielstart nicht mehr zu Wort."
+        "beschreibung": "Die Game Bar geht nicht mehr mit Windows\u002BG auf und meldet sich beim Spielstart nicht mehr."
       },
       "en": {
         "name": "Switch off the Xbox Game Bar completely",
-        "beschreibung": "The Game Bar no longer opens with Windows\u002BG and stops announcing itself when a game starts."
+        "beschreibung": "The Game Bar no longer opens with Windows\u002BG and stops popping up when a game starts."
       },
       "details": {
         "de": [
@@ -2408,11 +2408,11 @@
       "admin": false,
       "de": {
         "name": "Optimierungen für Spiele im Fenster",
-        "beschreibung": "Windows 11 reicht Spiele im Fenstermodus direkt an die Grafikkarte durch. Das senkt die Verzögerung und erlaubt variable Bildraten auch ohne Vollbild."
+        "beschreibung": "Spiele im Fenster laufen direkt über die Grafikkarte. Das senkt die Verzögerung und erlaubt G-Sync und FreeSync auch ohne Vollbild."
       },
       "en": {
         "name": "Optimisations for windowed games",
-        "beschreibung": "Windows 11 hands windowed games straight to the graphics card. That lowers latency and allows variable refresh rates outside full screen."
+        "beschreibung": "Windowed games run directly through the graphics card. That lowers delay and allows G-Sync and FreeSync without full screen too."
       },
       "details": {
         "de": [
@@ -2432,7 +2432,7 @@
       "admin": true,
       "de": {
         "name": "Multiplane Overlay abschalten",
-        "beschreibung": "Hilft gegen Flackern und Ruckeln in Spielen im Fenstermodus, das manche Grafiktreiber verursachen. Ohne dieses Problem bringt der Tweak nichts und kostet etwas Leistung."
+        "beschreibung": "Hilft gegen Flackern und Ruckeln in Spielen im Fenster, das manche Grafiktreiber auslösen. Ohne dieses Problem bringt es nichts und kostet etwas Leistung."
       },
       "en": {
         "name": "Switch off Multiplane Overlay",
@@ -2456,11 +2456,11 @@
       "admin": true,
       "de": {
         "name": "Hardwarebeschleunigte GPU-Planung einschalten",
-        "beschreibung": "Die Grafikkarte verwaltet ihren eigenen Speicher, statt dass Windows das übernimmt. Braucht einen aktuellen Treiber."
+        "beschreibung": "Die Grafikkarte verwaltet ihren Speicher selbst statt über Windows. Braucht einen aktuellen Grafiktreiber."
       },
       "en": {
         "name": "Turn on hardware-accelerated GPU scheduling",
-        "beschreibung": "The graphics card manages its own memory instead of Windows doing it. Needs a restart and a current driver."
+        "beschreibung": "The graphics card manages its own memory instead of going through Windows. Needs a current graphics driver."
       },
       "details": {
         "de": [
@@ -2480,11 +2480,11 @@
       "admin": false,
       "de": {
         "name": "Vollbildoptimierungen abschalten",
-        "beschreibung": "Spiele laufen im echten Vollbild statt im randlosen Fenster, das Windows sonst unterschiebt."
+        "beschreibung": "Spiele laufen im echten Vollbild statt in einem randlosen Fenster, das Windows sonst stillschweigend daraus macht."
       },
       "en": {
         "name": "Switch off fullscreen optimisations",
-        "beschreibung": "Games run in true fullscreen instead of the borderless window Windows otherwise substitutes."
+        "beschreibung": "Games run in true full screen instead of the borderless window Windows otherwise quietly turns it into."
       },
       "details": {
         "de": [
@@ -2510,11 +2510,11 @@
       "admin": true,
       "de": {
         "name": "Wartezeit bis zum Grafik-Reset erhöhen",
-        "beschreibung": "Windows setzt den Grafiktreiber erst nach 10 statt 2 Sekunden zurück. Kann kurze Aussetzer überbrücken, verlängert aber echte Hänger."
+        "beschreibung": "Hängt die Grafikkarte kurz, wartet Windows 10 statt 2 Sekunden, bevor es den Treiber zurücksetzt. Hilft bei kurzen Aussetzern, echte Hänger dauern dafür länger."
       },
       "en": {
         "name": "Raise the graphics reset timeout",
-        "beschreibung": "Windows resets the graphics driver after 10 instead of 2 seconds. Can ride out short stutters but prolongs real freezes."
+        "beschreibung": "If the graphics card hangs briefly, Windows waits 10 instead of 2 seconds before resetting the driver. Helps with short hiccups, but real freezes last longer."
       },
       "details": {
         "de": [
@@ -2534,12 +2534,12 @@
       "admin": false,
       "de": {
         "name": "Rückwirkende Aufnahme der Game Bar aus",
-        "beschreibung": "Windows schneidet beim Spielen sonst laufend die letzten Sekunden mit, damit man sie nachträglich speichern kann. Das kostet dauerhaft etwas Leistung.",
+        "beschreibung": "Windows nimmt beim Spielen nicht mehr ständig die letzten Sekunden auf. Das spart dauerhaft etwas Leistung.",
         "hinweis": "Win\u002BAlt\u002BG kann danach keine Szene mehr nachträglich speichern. Aufnahmen, die du selbst startest, funktionieren weiter."
       },
       "en": {
         "name": "Turn off Game Bar background recording",
-        "beschreibung": "Windows otherwise keeps recording the last few seconds while you play so they can be saved afterwards. That costs a little performance all the time.",
+        "beschreibung": "Windows stops constantly recording the last few seconds while you play. That saves a little performance all the time.",
         "hinweis": "Win\u002BAlt\u002BG can no longer save a moment after the fact. Recordings you start yourself keep working."
       },
       "details": {
@@ -2560,12 +2560,12 @@
       "admin": true,
       "de": {
         "name": "AMD: ULPS abschalten",
-        "beschreibung": "Ultra Low Power State legt eine AMD-Karte im Leerlauf in einen sehr tiefen Schlaf. Das Aufwachen kostet Zeit und war mit zwei Karten im System eine bekannte Absturzursache.",
+        "beschreibung": "Deine AMD-Karte fällt im Leerlauf nicht mehr in einen sehr tiefen Schlaf. Das Aufwachen daraus kostet Zeit und machte mit zwei Karten oft Probleme.",
         "hinweis": "Höherer Verbrauch im Leerlauf."
       },
       "en": {
         "name": "AMD: turn off ULPS",
-        "beschreibung": "Ultra Low Power State puts an AMD card into a very deep sleep when idle. Waking from it takes time, and with two cards in one system it was a known cause of crashes.",
+        "beschreibung": "Your AMD card no longer drops into a very deep sleep when idle. Waking from it takes time and often caused problems with two cards.",
         "hinweis": "Higher power draw when idle."
       },
       "details": {
@@ -2588,12 +2588,12 @@
       "admin": true,
       "de": {
         "name": "AMD: PCIe-Energiesparen abschalten",
-        "beschreibung": "ASPM legt die PCIe-Verbindung der AMD-Karte im Leerlauf schlafen. Abgeschaltet entfällt die Aufwachzeit.",
+        "beschreibung": "Die Verbindung zur AMD-Karte schläft im Leerlauf nicht mehr ein. Dadurch entfällt die Aufwachzeit.",
         "hinweis": "Etwas höherer Verbrauch im Leerlauf."
       },
       "en": {
         "name": "AMD: turn off PCIe power saving",
-        "beschreibung": "ASPM puts the PCIe link of the AMD card to sleep when idle. Turned off, there is no wake-up delay.",
+        "beschreibung": "The link to your AMD card no longer falls asleep when idle. That removes the wake-up delay.",
         "hinweis": "Slightly higher idle power draw."
       },
       "details": {
@@ -2614,12 +2614,12 @@
       "admin": true,
       "de": {
         "name": "AMD: Anti-Lag im Treiber einschalten",
-        "beschreibung": "Setzt den Anti-Lag-Schalter direkt im Treiber. Anti-Lag verkürzt die Zeit zwischen Eingabe und Bild, weil die CPU nicht zu weit vorausarbeitet.",
+        "beschreibung": "Schaltet AMD Anti-Lag direkt im Treiber ein. Das verkürzt die Zeit zwischen Mausklick und Bild.",
         "hinweis": "Überschreibt die Einstellung aus der Adrenalin-Software. Die Oberfläche zeigt danach womöglich nicht an, was tatsächlich gilt."
       },
       "en": {
         "name": "AMD: turn on Anti-Lag in the driver",
-        "beschreibung": "Sets the Anti-Lag switch directly in the driver. Anti-Lag shortens the time between input and frame by keeping the CPU from working too far ahead.",
+        "beschreibung": "Turns on AMD Anti-Lag directly in the driver. That shortens the time between mouse click and picture.",
         "hinweis": "Overrides the setting in the Adrenalin software, which may then show something other than what actually applies."
       },
       "details": {
@@ -2640,11 +2640,11 @@
       "admin": true,
       "de": {
         "name": "Automatisches Stromsparen der Netzwerkkarte aus",
-        "beschreibung": "Windows darf die Netzwerkkarte nicht mehr zum Energiesparen abschalten."
+        "beschreibung": "Windows schaltet deine Netzwerkkarte nicht mehr zum Stromsparen ab."
       },
       "en": {
         "name": "Switch off adapter power management",
-        "beschreibung": "Windows may no longer switch off the network adapter to save power."
+        "beschreibung": "Windows no longer switches off your network card to save power."
       },
       "details": {
         "de": [
@@ -2664,11 +2664,11 @@
       "admin": true,
       "de": {
         "name": "Feines Stromsparen des Adapters abschalten",
-        "beschreibung": "Deaktiviert Green Ethernet und Energy Efficient Ethernet, die im Betrieb kurze Aussetzer verursachen können."
+        "beschreibung": "Schaltet das Stromsparen der Netzwerkkarte im Betrieb ab, das kurze Aussetzer verursachen kann."
       },
       "en": {
         "name": "Switch off fine-grained adapter power saving",
-        "beschreibung": "Disables Green Ethernet and Energy Efficient Ethernet, which can cause short dropouts during use."
+        "beschreibung": "Turns off the network card\u0027s power saving during use, which can cause short dropouts."
       },
       "details": {
         "de": [
@@ -2692,11 +2692,11 @@
       "admin": true,
       "de": {
         "name": "Energieverwaltung der Netzwerkkarte abschalten",
-        "beschreibung": "Verhindert, dass der Adapter im Leerlauf in einen Schlafzustand versetzt wird."
+        "beschreibung": "Die Netzwerkkarte schläft in Pausen nicht mehr ein."
       },
       "en": {
         "name": "Switch off adapter sleep states",
-        "beschreibung": "Stops the adapter from being put to sleep while idle."
+        "beschreibung": "The network card no longer falls asleep during pauses."
       },
       "details": {
         "de": [
@@ -2720,11 +2720,11 @@
       "admin": true,
       "de": {
         "name": "Energieverwaltung des TCP-Stapels aus",
-        "beschreibung": "Schaltet die Energiesparfunktionen der TCP-Offload-Einheit des Adapters ab."
+        "beschreibung": "Schaltet das Stromsparen in dem Teil der Netzwerkkarte ab, der Datenpakete selbst verarbeitet."
       },
       "en": {
         "name": "Switch off TCP stack power saving",
-        "beschreibung": "Disables the power saving features of the adapter\u0027s TCP offload engine."
+        "beschreibung": "Turns off power saving in the part of the network card that processes data packets itself."
       },
       "details": {
         "de": [
@@ -2748,11 +2748,11 @@
       "admin": true,
       "de": {
         "name": "Aufwecken beim Verbindungsabbruch abschalten",
-        "beschreibung": "Der PC wacht nicht mehr auf, wenn das Netzwerkkabel ein- oder ausgesteckt wird."
+        "beschreibung": "Der PC wacht nicht mehr auf, wenn du das Netzwerkkabel ein- oder aussteckst."
       },
       "en": {
         "name": "Switch off wake on link change",
-        "beschreibung": "The PC no longer wakes up when the network cable is plugged in or pulled out."
+        "beschreibung": "The PC no longer wakes up when you plug in or pull out the network cable."
       },
       "details": {
         "de": [
@@ -2776,11 +2776,11 @@
       "admin": true,
       "de": {
         "name": "DNS auf Cloudflare umstellen",
-        "beschreibung": "Namen werden über 1.1.1.1 aufgelöst statt über den Server deines Anbieters. Achtung: Ein Pi-hole, ein Firmennetz oder eine eigene Namensauflösung im Heimnetz funktionieren danach nicht mehr."
+        "beschreibung": "Webseiten-Namen werden über Cloudflare (1.1.1.1) aufgelöst statt über deinen Anbieter. Achtung: Ein Pi-hole, ein Firmennetz oder eigene Namen im Heimnetz funktionieren danach nicht mehr."
       },
       "en": {
         "name": "Switch DNS to Cloudflare",
-        "beschreibung": "Names resolve through 1.1.1.1 instead of your provider\u0027s server. Careful: a Pi-hole, a company network or your own name resolution at home stop working."
+        "beschreibung": "Website names are looked up via Cloudflare (1.1.1.1) instead of your provider. Careful: a Pi-hole, a company network or your own names at home stop working."
       },
       "details": {
         "de": [
@@ -2800,11 +2800,11 @@
       "admin": true,
       "de": {
         "name": "LLMNR abschalten",
-        "beschreibung": "Windows fragt nicht mehr per Rundruf im lokalen Netz nach Namen, die der DNS-Server nicht kennt. Spart Wartezeit und schließt einen bekannten Weg zum Abgreifen von Anmeldedaten."
+        "beschreibung": "Windows ruft nicht mehr ins ganze Heimnetz, wenn es einen Namen nicht findet. Spart Wartezeit und schließt eine bekannte Sicherheitslücke."
       },
       "en": {
         "name": "Switch off LLMNR",
-        "beschreibung": "Windows stops broadcasting on the local network for names its DNS server does not know. Saves waiting time and closes a known route for harvesting credentials."
+        "beschreibung": "Windows stops calling out to the whole home network when it cannot find a name. Saves waiting time and closes a known security hole."
       },
       "details": {
         "de": [
@@ -2824,11 +2824,11 @@
       "admin": true,
       "de": {
         "name": "IPv6 abschalten",
-        "beschreibung": "Deaktiviert IPv6 vollständig. In reinen IPv4-Netzen spart das Wartezeit beim Verbindungsaufbau — Microsoft rät aber davon ab, und Dienste wie Teams oder die Spielersuche mancher Titel brauchen IPv6."
+        "beschreibung": "Schaltet IPv6 ganz ab. Kann in reinen IPv4-Netzen den Verbindungsaufbau beschleunigen – Microsoft rät aber davon ab, und manche Spiele und Teams brauchen IPv6."
       },
       "en": {
         "name": "Switch off IPv6",
-        "beschreibung": "Disables IPv6 entirely. On IPv4-only networks that saves time when connecting — but Microsoft advises against it, and services like Teams or some games\u0027 matchmaking need IPv6."
+        "beschreibung": "Turns IPv6 off completely. Can speed up connecting on IPv4-only networks – but Microsoft advises against it, and some games and Teams need IPv6."
       },
       "details": {
         "de": [
@@ -2848,12 +2848,12 @@
       "admin": true,
       "de": {
         "name": "IPv4- und IPv6-Abfragen nacheinander stellen",
-        "beschreibung": "Der DNS-Client fragt A- und AAAA-Einträge sonst gleichzeitig ab. Danach fragt er nacheinander.",
+        "beschreibung": "Windows fragt die beiden Adressarten (IPv4 und IPv6) nacheinander statt gleichzeitig ab.",
         "hinweis": "Mit gut funktionierendem IPv6 kann die Namensauflösung dadurch langsamer werden statt schneller."
       },
       "en": {
         "name": "Query IPv4 and IPv6 one after the other",
-        "beschreibung": "The DNS client otherwise asks for A and AAAA records at the same time. Afterwards it asks one after the other.",
+        "beschreibung": "Windows asks for the two address types (IPv4 and IPv6) one after the other instead of at once.",
         "hinweis": "With well-working IPv6, name resolution may get slower rather than faster."
       },
       "details": {
@@ -2874,12 +2874,12 @@
       "admin": true,
       "de": {
         "name": "Fehlschläge nicht zwischenspeichern, DNS verschlüsseln",
-        "beschreibung": "Eine gescheiterte Namensauflösung wird nicht mehr zwischengespeichert, beim nächsten Versuch fragt Windows neu. Dazu nutzt Windows DNS über HTTPS, wo der Server es anbietet.",
+        "beschreibung": "Klappt das Auflösen eines Namens nicht, fragt Windows beim nächsten Mal neu, statt sich den Fehler zu merken. Dazu werden Namensanfragen verschlüsselt, wo es geht.",
         "hinweis": "Verschlüsseltes DNS greift nur mit Servern, die Windows als DoH-fähig kennt, etwa Cloudflare oder Google."
       },
       "en": {
         "name": "Don\u0027t cache failures, encrypt DNS",
-        "beschreibung": "A failed name lookup is no longer cached; the next attempt asks again. Windows also uses DNS over HTTPS where the server offers it.",
+        "beschreibung": "If looking up a name fails, Windows asks again next time instead of remembering the failure. Name lookups are also encrypted where possible.",
         "hinweis": "Encrypted DNS only applies with servers Windows knows support DoH, such as Cloudflare or Google."
       },
       "details": {
@@ -2902,12 +2902,12 @@
       "admin": true,
       "de": {
         "name": "LMHOSTS-Auflösung abschalten",
-        "beschreibung": "Rechnernamen über die LMHOSTS-Datei stammen aus der Zeit vor DNS. Im Heimnetz mit Router werden sie nicht gebraucht.",
+        "beschreibung": "Schaltet eine uralte Art ab, Rechnernamen zu finden. Ein Heimnetz mit Router braucht sie nicht.",
         "hinweis": "In Netzen mit alten Windows-Freigaben kann der Zugriff über den Rechnernamen ausfallen. Über die IP-Adresse geht es weiter."
       },
       "en": {
         "name": "Turn off LMHOSTS lookup",
-        "beschreibung": "Computer names through the LMHOSTS file date from before DNS. A home network with a router does not need them.",
+        "beschreibung": "Turns off an ancient way of finding computer names. A home network with a router does not need it.",
         "hinweis": "In networks with old Windows shares, access by computer name may fail. Access by IP address still works."
       },
       "details": {
@@ -2928,12 +2928,12 @@
       "admin": true,
       "de": {
         "name": "SMB1 auf diesem Rechner abschalten",
-        "beschreibung": "Das erste SMB-Protokoll gilt seit Jahren als unsicher und überholt. Neue Windows-Installationen haben es ohnehin aus.",
+        "beschreibung": "Schaltet ein uraltes, unsicheres Protokoll für Dateifreigaben ab. Neue Windows-Installationen haben es ohnehin aus.",
         "hinweis": "Sehr alte NAS- und Druckserver erreichen die Freigaben dieses Rechners danach nicht mehr."
       },
       "en": {
         "name": "Turn off SMB1 on this PC",
-        "beschreibung": "The first SMB protocol has been considered insecure and outdated for years. New Windows installations have it off anyway.",
+        "beschreibung": "Turns off an ancient, insecure protocol for file sharing. New Windows installations have it off anyway.",
         "hinweis": "Very old NAS and print servers can no longer reach this PC\u0027s shares."
       },
       "details": {
@@ -2954,11 +2954,11 @@
       "admin": true,
       "de": {
         "name": "ICMP-Umleitungen ignorieren",
-        "beschreibung": "Windows ändert seine Routen sonst auf Zuruf fremder Pakete. Im Heimnetz gibt es dafür keinen Anlass, und es schließt eine alte Angriffsmöglichkeit."
+        "beschreibung": "Fremde Datenpakete dürfen den Weg deiner Verbindungen nicht mehr umlenken. Schließt eine alte Angriffsmöglichkeit."
       },
       "en": {
         "name": "Ignore ICMP redirects",
-        "beschreibung": "Windows otherwise changes its routes when other packets tell it to. A home network has no reason for that, and it closes an old attack route."
+        "beschreibung": "Outside data packets can no longer redirect the route of your connections. Closes an old route for attacks."
       },
       "details": {
         "de": [
@@ -2978,12 +2978,12 @@
       "admin": true,
       "de": {
         "name": "DNS-Abfragen auf den eingestellten Server beschränken",
-        "beschreibung": "Windows fragt Namen sonst gleichzeitig über mehrere Adapter und Wege ab. Danach nur noch über den eingetragenen DNS-Server.",
+        "beschreibung": "Windows fragt Namen nur noch über deinen eingestellten DNS-Server ab, nicht mehr über mehrere Wege gleichzeitig.",
         "hinweis": "Geräte im Heimnetz ohne DNS-Eintrag, etwa manche Drucker und NAS, sind danach nicht mehr über ihren Namen erreichbar."
       },
       "en": {
         "name": "Limit DNS queries to the configured server",
-        "beschreibung": "Windows otherwise asks for names over several adapters and routes at once. Afterwards only over the configured DNS server.",
+        "beschreibung": "Windows only asks your configured DNS server for names, no longer several routes at once.",
         "hinweis": "Devices on your home network without a DNS entry, such as some printers and NAS boxes, can no longer be reached by name."
       },
       "details": {
@@ -3008,11 +3008,11 @@
       "admin": true,
       "de": {
         "name": "Sofort-Stromsparen des Adapters abschalten",
-        "beschreibung": "Zwei Treiberschalter, mit denen die Netzwerkkarte Teile von sich im Betrieb herunterregelt."
+        "beschreibung": "Die Netzwerkkarte schaltet im Betrieb keine Teile von sich mehr herunter."
       },
       "en": {
         "name": "Turn off the adapter\u0027s instant power saving",
-        "beschreibung": "Two driver switches the network card uses to power down parts of itself while running."
+        "beschreibung": "The network card no longer powers down parts of itself while running."
       },
       "details": {
         "de": [
@@ -3034,12 +3034,12 @@
       "admin": true,
       "de": {
         "name": "Empfangslast auf mehrere Kerne verteilen",
-        "beschreibung": "Ohne RSS landet die gesamte Netzwerklast auf einem Prozessorkern. Mit RSS verteilt der Adapter sie über mehrere.",
+        "beschreibung": "Die Netzwerkkarte verteilt ihre Arbeit auf mehrere Prozessorkerne, statt alles auf einen zu legen.",
         "hinweis": "Wirkt nur, wenn der Adapter RSS beherrscht. Sonst bleiben die Werte ohne Folge."
       },
       "en": {
         "name": "Spread receive load across cores",
-        "beschreibung": "Without RSS, all network load lands on a single processor core. With RSS the adapter spreads it across several.",
+        "beschreibung": "The network card spreads its work across several processor cores instead of putting it all on one.",
         "hinweis": "Only works if the adapter supports RSS; otherwise the values have no effect."
       },
       "details": {
@@ -3062,12 +3062,12 @@
       "admin": true,
       "de": {
         "name": "Nachfrage bei neuen Netzwerken abschalten",
-        "beschreibung": "Windows fragt beim ersten Verbinden, ob der Rechner im Netzwerk sichtbar sein soll. Die Frage entfällt.",
+        "beschreibung": "Windows fragt beim ersten Verbinden nicht mehr, ob dein PC im Netzwerk sichtbar sein soll.",
         "hinweis": "Neue Netzwerke gelten danach ohne Rückfrage als öffentlich. Das ist die vorsichtigere Einstellung."
       },
       "en": {
         "name": "Turn off the new network prompt",
-        "beschreibung": "Windows asks when you first connect whether the PC should be visible on the network. The question goes away.",
+        "beschreibung": "Windows no longer asks on first connect whether your PC should be visible on the network.",
         "hinweis": "New networks are treated as public without asking, which is the safer setting."
       },
       "details": {
@@ -3088,11 +3088,11 @@
       "admin": false,
       "de": {
         "name": "Dateiendungen anzeigen",
-        "beschreibung": "Der Explorer zeigt .exe, .pdf und alle anderen Endungen wieder an – hilft, getarnte Dateien zu erkennen."
+        "beschreibung": "Der Explorer zeigt wieder Dateiendungen wie .exe oder .pdf. So erkennst du getarnte Dateien."
       },
       "en": {
         "name": "Show file extensions",
-        "beschreibung": "Explorer shows .exe, .pdf and every other extension again – which helps spot disguised files."
+        "beschreibung": "File Explorer shows file endings like .exe or .pdf again. That way you spot disguised files."
       },
       "details": {
         "de": [
@@ -3112,11 +3112,11 @@
       "admin": false,
       "de": {
         "name": "Versteckte Dateien anzeigen",
-        "beschreibung": "Auch versteckte Ordner und Dateien werden im Explorer angezeigt."
+        "beschreibung": "Der Explorer zeigt auch versteckte Ordner und Dateien."
       },
       "en": {
         "name": "Show hidden files",
-        "beschreibung": "Hidden folders and files are shown in Explorer as well."
+        "beschreibung": "File Explorer also shows hidden folders and files."
       },
       "details": {
         "de": [
@@ -3136,11 +3136,11 @@
       "admin": false,
       "de": {
         "name": "Klassisches Rechtsklickmenü (Windows 11)",
-        "beschreibung": "Bringt das vollständige Kontextmenü zurück, ohne den Umweg über «Weitere Optionen anzeigen». Der Explorer startet dabei neu."
+        "beschreibung": "Ein Rechtsklick zeigt wieder gleich das ganze Menü, ohne „Weitere Optionen anzeigen“. Der Explorer lädt dafür einmal kurz neu."
       },
       "en": {
         "name": "Classic right-click menu (Windows 11)",
-        "beschreibung": "Brings back the full context menu without the detour through “Show more options”. Explorer restarts while applying."
+        "beschreibung": "Right-clicking shows the full menu straight away again, without “Show more options”. File Explorer reloads briefly for this."
       },
       "details": {
         "de": [
@@ -3188,11 +3188,11 @@
       "admin": false,
       "de": {
         "name": "Widgets-Knopf ausblenden",
-        "beschreibung": "Entfernt das Wetter- und Nachrichten-Feld aus der Taskleiste."
+        "beschreibung": "Das Wetter- und Nachrichtenfeld verschwindet aus der Taskleiste."
       },
       "en": {
         "name": "Hide the Widgets button",
-        "beschreibung": "Removes the weather and news panel from the taskbar."
+        "beschreibung": "The weather and news panel disappears from the taskbar."
       },
       "details": {
         "de": [
@@ -3212,11 +3212,11 @@
       "admin": false,
       "de": {
         "name": "Copilot-Knopf ausblenden",
-        "beschreibung": "Entfernt den Copilot-Knopf aus der Taskleiste."
+        "beschreibung": "Der Copilot-Knopf verschwindet aus der Taskleiste."
       },
       "en": {
         "name": "Hide the Copilot button",
-        "beschreibung": "Removes the Copilot button from the taskbar."
+        "beschreibung": "The Copilot button disappears from the taskbar."
       },
       "details": {
         "de": [
@@ -3236,11 +3236,11 @@
       "admin": false,
       "de": {
         "name": "Taskansicht-Knopf ausblenden",
-        "beschreibung": "Entfernt den Knopf für virtuelle Desktops aus der Taskleiste. Die Tastenkombination funktioniert weiter."
+        "beschreibung": "Der Knopf für virtuelle Desktops verschwindet aus der Taskleiste. Windows\u002BTab geht weiter."
       },
       "en": {
         "name": "Hide the Task View button",
-        "beschreibung": "Removes the virtual desktops button from the taskbar. The keyboard shortcut keeps working."
+        "beschreibung": "The virtual desktops button disappears from the taskbar. Windows\u002BTab still works."
       },
       "details": {
         "de": [
@@ -3284,11 +3284,11 @@
       "admin": false,
       "de": {
         "name": "Zuletzt verwendete Dateien ausblenden",
-        "beschreibung": "Der Schnellzugriff zeigt keine kürzlich geöffneten Dateien und Ordner mehr an."
+        "beschreibung": "Der Explorer zeigt nicht mehr, welche Dateien und Ordner du zuletzt geöffnet hast."
       },
       "en": {
         "name": "Hide recently used files",
-        "beschreibung": "Quick access no longer shows recently opened files and folders."
+        "beschreibung": "File Explorer no longer shows which files and folders you opened last."
       },
       "details": {
         "de": [
@@ -3310,11 +3310,11 @@
       "admin": false,
       "de": {
         "name": "Transparenzeffekte abschalten",
-        "beschreibung": "Startmenü und Taskleiste werden deckend gezeichnet – spart etwas Grafikleistung."
+        "beschreibung": "Startmenü und Taskleiste sind nicht mehr durchsichtig. Spart etwas Grafikleistung."
       },
       "en": {
         "name": "Switch off transparency effects",
-        "beschreibung": "Start menu and taskbar are drawn opaque – saves a little graphics work."
+        "beschreibung": "The Start menu and taskbar are no longer see-through. Saves a little graphics work."
       },
       "details": {
         "de": [
@@ -3334,11 +3334,11 @@
       "admin": false,
       "de": {
         "name": "Explorer mit «Dieser PC» öffnen",
-        "beschreibung": "Ein neues Explorer-Fenster startet bei den Laufwerken statt beim Schnellzugriff."
+        "beschreibung": "Der Explorer öffnet bei deinen Laufwerken statt beim Schnellzugriff."
       },
       "en": {
         "name": "Open Explorer at “This PC”",
-        "beschreibung": "A new Explorer window starts at your drives instead of Quick access."
+        "beschreibung": "File Explorer opens at your drives instead of Quick access."
       },
       "details": {
         "de": [
@@ -3358,11 +3358,11 @@
       "admin": false,
       "de": {
         "name": "Andockvorschläge abschalten",
-        "beschreibung": "Nach dem Andocken eines Fensters schlägt Windows nicht mehr vor, was daneben soll."
+        "beschreibung": "Ziehst du ein Fenster an den Rand, schlägt Windows nicht mehr vor, was daneben soll."
       },
       "en": {
         "name": "Switch off snap suggestions",
-        "beschreibung": "After snapping a window, Windows no longer suggests what should go next to it."
+        "beschreibung": "When you drag a window to the edge, Windows no longer suggests what should go next to it."
       },
       "details": {
         "de": [
@@ -3406,11 +3406,11 @@
       "admin": true,
       "de": {
         "name": "Nachrichten und Interessen abschalten",
-        "beschreibung": "Schaltet den Nachrichten-Feed systemweit ab."
+        "beschreibung": "Windows zeigt keine Nachrichten-Schlagzeilen mehr an."
       },
       "en": {
         "name": "Switch off news and interests",
-        "beschreibung": "Disables the news feed system-wide."
+        "beschreibung": "Windows stops showing news headlines."
       },
       "details": {
         "de": [
@@ -3430,11 +3430,11 @@
       "admin": false,
       "de": {
         "name": "Werbung im Explorer abschalten",
-        "beschreibung": "Der Explorer blendet keine Hinweise auf OneDrive und andere Microsoft-Dienste mehr über der Dateiliste ein."
+        "beschreibung": "Der Explorer macht keine Werbung mehr für OneDrive und andere Microsoft-Dienste."
       },
       "en": {
         "name": "Remove adverts from File Explorer",
-        "beschreibung": "File Explorer stops showing notices about OneDrive and other Microsoft services above the file list."
+        "beschreibung": "File Explorer stops advertising OneDrive and other Microsoft services."
       },
       "details": {
         "de": [
@@ -3454,11 +3454,11 @@
       "admin": false,
       "de": {
         "name": "Kompakte Ansicht einschalten",
-        "beschreibung": "Der Explorer rückt Dateien und Ordner enger zusammen, wie in Windows 10. Auf einen Bildschirm passt dadurch deutlich mehr."
+        "beschreibung": "Der Explorer rückt Dateien enger zusammen, wie in Windows 10. So passt mehr auf den Bildschirm."
       },
       "en": {
         "name": "Turn on compact view",
-        "beschreibung": "File Explorer packs files and folders closer together, as in Windows 10. Considerably more fits on screen."
+        "beschreibung": "File Explorer puts files closer together, as in Windows 10. More fits on the screen."
       },
       "details": {
         "de": [
@@ -3478,11 +3478,11 @@
       "admin": false,
       "de": {
         "name": "Vollständigen Pfad in der Titelleiste zeigen",
-        "beschreibung": "Die Titelleiste des Explorers zeigt den ganzen Pfad statt nur den Ordnernamen."
+        "beschreibung": "Der Explorer zeigt oben den ganzen Ordnerpfad statt nur den Ordnernamen."
       },
       "en": {
         "name": "Show the full path in the title bar",
-        "beschreibung": "File Explorer\u0027s title bar shows the whole path instead of just the folder name."
+        "beschreibung": "File Explorer shows the whole folder path at the top instead of just the folder name."
       },
       "details": {
         "de": [
@@ -3526,11 +3526,11 @@
       "admin": false,
       "de": {
         "name": "«Task beenden» im Taskleistenmenü",
-        "beschreibung": "Ein Rechtsklick auf ein Programm in der Taskleiste bietet «Task beenden» an. Damit lässt sich ein hängendes Programm ohne Umweg über den Task-Manager schließen."
+        "beschreibung": "Rechtsklick auf ein Programm in der Taskleiste bietet „Task beenden“. So schließt du hängende Programme ohne Task-Manager."
       },
       "en": {
         "name": "Add “End task” to the taskbar menu",
-        "beschreibung": "Right-clicking a program on the taskbar offers “End task”, so a stuck program can be closed without opening Task Manager."
+        "beschreibung": "Right-clicking a program on the taskbar offers “End task”. That way you close stuck programs without Task Manager."
       },
       "details": {
         "de": [
@@ -3574,11 +3574,11 @@
       "admin": false,
       "de": {
         "name": "Suchhighlights abschalten",
-        "beschreibung": "Das Suchfeld zeigt keine wechselnden Themenbilder und Anlässe mehr an."
+        "beschreibung": "Das Suchfeld zeigt keine wechselnden Bilder und Feiertage mehr."
       },
       "en": {
         "name": "Switch off search highlights",
-        "beschreibung": "The search box stops showing rotating themed images and occasions."
+        "beschreibung": "The search box stops showing changing pictures and holidays."
       },
       "details": {
         "de": [
@@ -3670,11 +3670,11 @@
       "admin": true,
       "de": {
         "name": "Kein «- Verknüpfung» an neuen Verknüpfungen",
-        "beschreibung": "Neu angelegte Verknüpfungen heißen wie das Original, ohne den Zusatz. Bestehende Verknüpfungen behalten ihren Namen."
+        "beschreibung": "Neue Verknüpfungen bekommen kein „- Verknüpfung“ mehr angehängt. Bestehende bleiben, wie sie sind."
       },
       "en": {
         "name": "No “- Shortcut” on new shortcuts",
-        "beschreibung": "Newly created shortcuts are named like the original, without the suffix. Existing shortcuts keep their names."
+        "beschreibung": "New shortcuts no longer get “- Shortcut” added. Existing ones stay as they are."
       },
       "details": {
         "de": [
@@ -3694,11 +3694,11 @@
       "admin": false,
       "de": {
         "name": "Suche nach verschobenen Verknüpfungszielen abschalten",
-        "beschreibung": "Zeigt eine Verknüpfung ins Leere, durchsucht Windows sonst Laufwerke und Netzwerk nach dem Ziel. Dazu fällt die Warnung bei knappem Speicherplatz weg."
+        "beschreibung": "Zeigt eine Verknüpfung ins Leere, durchsucht Windows nicht mehr alle Laufwerke nach dem Ziel. Dazu fällt die Warnung bei wenig Speicherplatz weg."
       },
       "en": {
         "name": "Stop searching for moved shortcut targets",
-        "beschreibung": "When a shortcut points nowhere, Windows otherwise searches drives and the network for the target. The low disk space warning is also removed."
+        "beschreibung": "When a shortcut points nowhere, Windows stops searching every drive for the target. The low disk space warning goes away too."
       },
       "details": {
         "de": [
@@ -3724,12 +3724,12 @@
       "admin": false,
       "de": {
         "name": "Tastenkürzel zum Minimieren aller Fenster abschalten",
-        "beschreibung": "Win\u002BM, Win\u002BPos1 und das Schütteln einer Titelleiste minimieren sonst alle Fenster. Im Vollbild eines Spiels ist das ein Versehen mit Folgen.",
+        "beschreibung": "Win\u002BM, Win\u002BPos1 und Fenster-Schütteln minimieren nicht mehr alle Fenster. Im Spiel passiert das sonst leicht aus Versehen.",
         "hinweis": "Diese Kürzel tun danach nichts mehr. Win\u002BD für den Desktop bleibt."
       },
       "en": {
         "name": "Turn off the minimise-all shortcuts",
-        "beschreibung": "Win\u002BM, Win\u002BHome and shaking a title bar otherwise minimise every window. In a full-screen game that is an accident with consequences.",
+        "beschreibung": "Win\u002BM, Win\u002BHome and shaking a window no longer minimise every window. In a game that otherwise happens easily by accident.",
         "hinweis": "These shortcuts stop doing anything. Win\u002BD for the desktop still works."
       },
       "details": {
@@ -3750,11 +3750,11 @@
       "admin": false,
       "de": {
         "name": "Weiches Scrollen abschalten",
-        "beschreibung": "Listen springen beim Scrollen direkt an die Zielstelle, statt dorthin zu gleiten."
+        "beschreibung": "Listen springen beim Scrollen sofort an die Stelle, statt dorthin zu gleiten."
       },
       "en": {
         "name": "Turn off smooth scrolling",
-        "beschreibung": "Lists jump straight to the target position when scrolling instead of gliding there."
+        "beschreibung": "Lists jump straight to the spot when scrolling instead of gliding there."
       },
       "details": {
         "de": [
@@ -3774,11 +3774,11 @@
       "admin": false,
       "de": {
         "name": "Aero Peek abschalten",
-        "beschreibung": "Fährt die Maus in die rechte untere Ecke der Taskleiste, werden sonst alle Fenster kurz durchsichtig."
+        "beschreibung": "Die Maus in der Ecke unten rechts macht nicht mehr alle Fenster kurz durchsichtig."
       },
       "en": {
         "name": "Turn off Aero Peek",
-        "beschreibung": "Moving the mouse to the bottom right corner of the taskbar otherwise makes every window briefly transparent."
+        "beschreibung": "The mouse in the bottom right corner no longer makes every window briefly see-through."
       },
       "details": {
         "de": [
@@ -3800,11 +3800,11 @@
       "admin": false,
       "de": {
         "name": "Taskleisten-Animationen und durchsichtige Auswahl aus",
-        "beschreibung": "Symbole in der Taskleiste erscheinen ohne Animation, und das Auswahlrechteck im Explorer ist einfarbig statt durchscheinend."
+        "beschreibung": "Taskleisten-Symbole erscheinen ohne Animation, und das Auswahlkästchen im Explorer ist einfarbig."
       },
       "en": {
         "name": "Turn off taskbar animations and translucent selection",
-        "beschreibung": "Taskbar icons appear without animation, and the selection rectangle in Explorer is solid instead of translucent."
+        "beschreibung": "Taskbar icons appear without animation, and the selection box in File Explorer is a solid colour."
       },
       "details": {
         "de": [
@@ -3826,11 +3826,11 @@
       "admin": false,
       "de": {
         "name": "Alt\u002BTab nur mit Fenstern, ohne Edge-Tabs",
-        "beschreibung": "Windows 11 mischt geöffnete Edge-Tabs in den Alt\u002BTab-Umschalter. Danach zeigt er nur noch Fenster."
+        "beschreibung": "Alt\u002BTab zeigt nur noch Fenster, keine Edge-Tabs mehr."
       },
       "en": {
         "name": "Alt\u002BTab with windows only, no Edge tabs",
-        "beschreibung": "Windows 11 mixes open Edge tabs into the Alt\u002BTab switcher. Afterwards it shows windows only."
+        "beschreibung": "Alt\u002BTab only shows windows, no more Edge tabs."
       },
       "details": {
         "de": [
@@ -3850,11 +3850,11 @@
       "admin": false,
       "de": {
         "name": "Klassischen Alt\u002BTab-Umschalter verwenden",
-        "beschreibung": "Statt großer Vorschaubilder zeigt Alt\u002BTab wieder eine schlichte Reihe von Symbolen wie in älteren Windows-Fassungen. Er erscheint sofort und ohne Animation."
+        "beschreibung": "Alt\u002BTab zeigt wieder eine schlichte Reihe Symbole statt großer Vorschaubilder – sofort und ohne Animation."
       },
       "en": {
         "name": "Use the classic Alt\u002BTab switcher",
-        "beschreibung": "Instead of large previews, Alt\u002BTab shows a plain row of icons again, as in older Windows versions. It appears instantly without animation."
+        "beschreibung": "Alt\u002BTab shows a plain row of icons again instead of large previews – instantly and without animation."
       },
       "details": {
         "de": [
@@ -3874,11 +3874,11 @@
       "admin": false,
       "de": {
         "name": "Keine Store-Suche bei unbekannten Dateien",
-        "beschreibung": "Beim Öffnen einer unbekannten Dateiart schlägt Windows sonst Apps aus dem Store vor. Stattdessen erscheint gleich die Auswahl der installierten Programme."
+        "beschreibung": "Bei unbekannten Dateien schlägt Windows keine Store-Apps mehr vor, sondern zeigt gleich deine Programme."
       },
       "en": {
         "name": "No Store search for unknown files",
-        "beschreibung": "When opening an unknown file type, Windows otherwise suggests apps from the Store. Instead, the list of installed programs appears straight away."
+        "beschreibung": "For unknown files, Windows no longer suggests Store apps but shows your programs straight away."
       },
       "details": {
         "de": [
@@ -3898,11 +3898,11 @@
       "admin": true,
       "de": {
         "name": "Neustart nach Update nur nach Rückfrage",
-        "beschreibung": "Windows startet nicht mehr von selbst neu, solange du angemeldet bist. Updates werden weiter installiert."
+        "beschreibung": "Nach Updates fährt Windows nicht mehr von selbst herunter und wieder hoch, solange du angemeldet bist. Updates werden weiter installiert."
       },
       "en": {
         "name": "Restart after updates only when asked",
-        "beschreibung": "Windows no longer restarts on its own while you are signed in. Updates still install."
+        "beschreibung": "Windows no longer restarts by itself after updates while you are signed in. Updates still install."
       },
       "details": {
         "de": [
@@ -3922,11 +3922,11 @@
       "admin": true,
       "de": {
         "name": "Update-Weitergabe an fremde PCs abschalten",
-        "beschreibung": "Dein PC verteilt heruntergeladene Updates nicht mehr an andere Rechner im Internet."
+        "beschreibung": "Dein PC verteilt keine Updates mehr an fremde Rechner im Internet. Das spart Upload."
       },
       "en": {
         "name": "Stop sharing updates with other PCs",
-        "beschreibung": "Your PC no longer distributes downloaded updates to other machines on the internet."
+        "beschreibung": "Your PC no longer hands out updates to strangers\u0027 PCs on the internet. That saves upload."
       },
       "details": {
         "de": [
@@ -3946,11 +3946,11 @@
       "admin": true,
       "de": {
         "name": "Treiber nicht über Windows Update beziehen",
-        "beschreibung": "Windows Update liefert keine Gerätetreiber mehr mit. Du installierst Treiber dann selbst – sinnvoll bei Grafikkarten, riskant bei Neuinstallationen."
+        "beschreibung": "Windows Update installiert keine Treiber mehr. Gut für Grafikkarten, wenn du Treiber selbst holst – riskant bei einem frisch installierten Windows."
       },
       "en": {
         "name": "Do not get drivers from Windows Update",
-        "beschreibung": "Windows Update stops shipping device drivers. You install drivers yourself – useful for graphics cards, risky on fresh installs."
+        "beschreibung": "Windows Update no longer installs drivers. Good for graphics cards if you get drivers yourself – risky on a freshly installed Windows."
       },
       "details": {
         "de": [
@@ -3970,11 +3970,11 @@
       "admin": true,
       "de": {
         "name": "Automatische App-Updates aus dem Store abschalten",
-        "beschreibung": "Store-Apps aktualisieren sich nicht mehr von selbst. Du musst Updates dann im Store anstoßen."
+        "beschreibung": "Store-Apps aktualisieren sich nicht mehr von selbst. Updates startest du dann im Store."
       },
       "en": {
         "name": "Switch off automatic Store app updates",
-        "beschreibung": "Store apps no longer update themselves. You have to start updates from the Store."
+        "beschreibung": "Store apps no longer update themselves. You start updates in the Store instead."
       },
       "details": {
         "de": [
@@ -3994,11 +3994,11 @@
       "admin": true,
       "de": {
         "name": "Funktionsupdates aufschieben",
-        "beschreibung": "Große Windows-Versionssprünge werden bis zu ein Jahr zurückgestellt. Sicherheitsupdates kommen weiterhin ganz normal."
+        "beschreibung": "Große Windows-Upgrades kommen bis zu ein Jahr später. Sicherheitsupdates kommen weiter ganz normal."
       },
       "en": {
         "name": "Defer feature updates",
-        "beschreibung": "Large Windows version jumps are held back for up to a year. Security updates keep arriving as normal."
+        "beschreibung": "Big Windows upgrades arrive up to a year later. Security updates keep coming as normal."
       },
       "details": {
         "de": [
@@ -4020,12 +4020,12 @@
       "admin": true,
       "de": {
         "name": "Keine Treibersuche im Internet bei neuer Hardware",
-        "beschreibung": "Windows sucht bei neuer Hardware zuerst online nach Treibern. Danach nimmt es nur, was auf dem Rechner schon vorhanden ist.",
+        "beschreibung": "Bei neuer Hardware sucht Windows nicht mehr im Internet nach Treibern, sondern nimmt nur, was schon da ist.",
         "hinweis": "Neue Hardware ohne mitgelieferten Treiber bleibt danach ohne Treiber, bis du selbst einen installierst."
       },
       "en": {
         "name": "No online driver search for new hardware",
-        "beschreibung": "Windows first looks online for drivers when new hardware appears. Afterwards it only uses what is already on the PC.",
+        "beschreibung": "For new hardware, Windows no longer searches the internet for drivers but only uses what is already there.",
         "hinweis": "New hardware without a bundled driver stays without one until you install it yourself."
       },
       "details": {
@@ -4046,11 +4046,11 @@
       "admin": true,
       "de": {
         "name": "Ruhezustand abschalten",
-        "beschreibung": "Löscht hiberfil.sys und gibt mehrere Gigabyte frei. Der Schnellstart von Windows entfällt damit ebenfalls."
+        "beschreibung": "Schaltet den Ruhezustand ab und gibt dadurch mehrere Gigabyte frei. Der Windows-Schnellstart fällt damit auch weg."
       },
       "en": {
         "name": "Switch off hibernation",
-        "beschreibung": "Deletes hiberfil.sys and frees several gigabytes. Windows Fast Startup goes away with it."
+        "beschreibung": "Turns off hibernation and frees several gigabytes. Windows Fast Startup goes away with it."
       },
       "details": {
         "de": [
@@ -4076,11 +4076,11 @@
       "admin": false,
       "de": {
         "name": "Speicheroptimierung einschalten",
-        "beschreibung": "Windows räumt den temporären Speicher und den Papierkorb regelmäßig selbst auf."
+        "beschreibung": "Windows räumt Temp-Dateien und den Papierkorb regelmäßig selbst auf."
       },
       "en": {
         "name": "Turn on Storage Sense",
-        "beschreibung": "Windows clears temporary files and the recycle bin regularly on its own."
+        "beschreibung": "Windows regularly cleans up temp files and the recycle bin by itself."
       },
       "details": {
         "de": [
@@ -4102,11 +4102,11 @@
       "admin": true,
       "de": {
         "name": "Reservierten Speicher freigeben",
-        "beschreibung": "Gibt die rund 7 GB frei, die Windows für Updates zurückhält. Große Updates brauchen danach freien Platz auf der Platte."
+        "beschreibung": "Gibt rund 7 GB frei, die Windows für Updates zurückhält. Große Updates brauchen dann freien Platz."
       },
       "en": {
         "name": "Release reserved storage",
-        "beschreibung": "Frees the roughly 7 GB Windows holds back for updates. Large updates then need free disk space."
+        "beschreibung": "Frees about 7 GB that Windows holds back for updates. Big updates then need free space."
       },
       "details": {
         "de": [
@@ -4126,12 +4126,12 @@
       "admin": true,
       "de": {
         "name": "Kurze Dateinamen abschalten",
-        "beschreibung": "NTFS legt zu jedem Dateinamen zusätzlich einen im alten DOS-Format an. Das kostet bei jeder neuen Datei etwas Zeit.",
+        "beschreibung": "Windows legt zu jeder neuen Datei keinen zweiten, kurzen Namen im alten DOS-Format mehr an. Spart bei jeder neuen Datei etwas Zeit.",
         "hinweis": "Sehr alte Programme, die nur mit acht Zeichen plus Endung umgehen, finden neue Dateien womöglich nicht. Vorhandene Kurznamen bleiben."
       },
       "en": {
         "name": "Turn off short file names",
-        "beschreibung": "NTFS creates an extra name in the old DOS format for every file. That costs a little time with each new file.",
+        "beschreibung": "Windows no longer creates a second, short name in the old DOS format for every new file. Saves a little time with each new file.",
         "hinweis": "Very old programs that only handle eight characters plus extension may not find new files. Existing short names remain."
       },
       "details": {
@@ -4152,11 +4152,11 @@
       "admin": true,
       "de": {
         "name": "NTFS mehr Arbeitsspeicher zugestehen",
-        "beschreibung": "Der Dateisystemtreiber darf größere Zwischenspeicher für Verzeichnisdaten anlegen. Hilft bei vielen kleinen Dateien."
+        "beschreibung": "Windows darf mehr Arbeitsspeicher für Ordner-Infos benutzen. Hilft bei sehr vielen kleinen Dateien."
       },
       "en": {
         "name": "Allow NTFS more memory",
-        "beschreibung": "The file system driver may keep larger caches for directory data. Helps with many small files."
+        "beschreibung": "Windows may use more memory for folder information. Helps with lots of small files."
       },
       "details": {
         "de": [
@@ -4176,12 +4176,12 @@
       "admin": true,
       "de": {
         "name": "Energiesparen der SATA-Verbindung abschalten",
-        "beschreibung": "Die Verbindung zu SATA-Laufwerken geht sonst in Pausen in einen Sparzustand. Abgeschaltet antwortet das Laufwerk ohne Aufwachzeit.",
+        "beschreibung": "Die Verbindung zu SATA-Laufwerken schläft in Pausen nicht mehr ein. Das Laufwerk antwortet sofort.",
         "hinweis": "Etwas höherer Verbrauch, auf Laptops spürbar."
       },
       "en": {
         "name": "Turn off SATA link power saving",
-        "beschreibung": "The link to SATA drives otherwise enters a power saving state during pauses. Turned off, the drive responds without wake-up delay.",
+        "beschreibung": "The link to SATA drives no longer falls asleep during pauses. The drive responds straight away.",
         "hinweis": "Slightly higher power draw, noticeable on laptops."
       },
       "details": {
@@ -4202,11 +4202,11 @@
       "admin": true,
       "de": {
         "name": "Programm zur Verbesserung der Benutzerfreundlichkeit abschalten",
-        "beschreibung": "Deaktiviert die geplanten Aufgaben, die Nutzungsdaten für das CEIP-Programm sammeln und senden."
+        "beschreibung": "Schaltet geplante Aufgaben ab, die Nutzungsdaten sammeln und an Microsoft schicken."
       },
       "en": {
         "name": "Switch off the Customer Experience Improvement Program",
-        "beschreibung": "Disables the scheduled tasks that collect and send usage data for the CEIP programme."
+        "beschreibung": "Turns off scheduled tasks that collect usage data and send it to Microsoft."
       },
       "details": {
         "de": [
@@ -4232,11 +4232,11 @@
       "admin": true,
       "de": {
         "name": "Kompatibilitätsprüfung abschalten",
-        "beschreibung": "Deaktiviert den Compatibility Appraiser, der im Hintergrund deine installierte Software inventarisiert."
+        "beschreibung": "Windows durchsucht im Hintergrund nicht mehr deine installierten Programme."
       },
       "en": {
         "name": "Switch off the compatibility appraiser",
-        "beschreibung": "Disables the Compatibility Appraiser, which inventories your installed software in the background."
+        "beschreibung": "Windows stops scanning your installed programs in the background."
       },
       "details": {
         "de": [
@@ -4260,11 +4260,11 @@
       "admin": true,
       "de": {
         "name": "Feedback- und Fehlerbericht-Aufgaben abschalten",
-        "beschreibung": "Deaktiviert die geplanten Aufgaben für Feedback-Abfragen und das Versenden von Fehlerberichten."
+        "beschreibung": "Schaltet geplante Aufgaben für Feedback-Fragen und Fehlerberichte ab."
       },
       "en": {
         "name": "Switch off feedback and error report tasks",
-        "beschreibung": "Disables the scheduled tasks for feedback prompts and sending error reports."
+        "beschreibung": "Turns off scheduled tasks for feedback questions and error reports."
       },
       "details": {
         "de": [
@@ -4288,12 +4288,12 @@
       "admin": true,
       "de": {
         "name": "Selektives Energiesparen für USB abschalten",
-        "beschreibung": "Windows legt USB-Geräte wie Maus und Tastatur nach kurzer Ruhe schlafen. Danach bleiben sie wach und reagieren auch nach einer Pause sofort.",
+        "beschreibung": "Maus, Tastatur und andere USB-Geräte schlafen nicht mehr ein und reagieren auch nach einer Pause sofort.",
         "hinweis": "Auf Laptops etwas kürzere Akkulaufzeit."
       },
       "en": {
         "name": "Turn off USB selective suspend",
-        "beschreibung": "Windows puts USB devices such as mouse and keyboard to sleep after a short rest. Afterwards they stay awake and respond immediately even after a pause.",
+        "beschreibung": "Mouse, keyboard and other USB devices no longer fall asleep and respond straight away even after a pause.",
         "hinweis": "Slightly shorter battery life on laptops."
       },
       "details": {
@@ -4320,11 +4320,11 @@
       "admin": true,
       "de": {
         "name": "USB-Hubs am Stromsparen hindern",
-        "beschreibung": "Schaltet das selektive Energiesparen auch in den beiden Treibern für USB-Hubs ab."
+        "beschreibung": "Dasselbe für USB-Hubs: Auch sie schlafen nicht mehr ein."
       },
       "en": {
         "name": "Keep USB hubs from power saving",
-        "beschreibung": "Also turns off selective suspend in the two USB hub drivers."
+        "beschreibung": "The same for USB hubs: they no longer fall asleep either."
       },
       "details": {
         "de": [
@@ -4346,12 +4346,12 @@
       "admin": true,
       "de": {
         "name": "USB-Controller nach dem Aufwachen neu starten",
-        "beschreibung": "Erzwingt einen sauberen Neustart des USB-Controllers, wenn der Rechner aus dem Energiesparmodus kommt. Hilft gegen Geräte, die danach nicht mehr reagieren.",
+        "beschreibung": "Nach dem Energiesparmodus wird der USB-Anschluss frisch gestartet. Hilft, wenn Geräte danach nicht mehr reagieren.",
         "hinweis": "Das Aufwachen dauert dadurch etwas länger."
       },
       "en": {
         "name": "Reset USB controllers after waking",
-        "beschreibung": "Forces a clean restart of the USB controller when the PC comes out of sleep. Helps with devices that stop responding afterwards.",
+        "beschreibung": "After sleep, the USB controller is started fresh. Helps when devices stop responding afterwards.",
         "hinweis": "Waking up takes a little longer."
       },
       "details": {
@@ -4372,12 +4372,12 @@
       "admin": true,
       "de": {
         "name": "MSI-Modus für die Grafikkarte",
-        "beschreibung": "Die Grafikkarte meldet Unterbrechungen auf dem neueren Weg über Nachrichten statt über eine geteilte Leitung. Viele Karten tun das schon ab Werk.",
+        "beschreibung": "Die Grafikkarte meldet sich auf dem neueren Weg beim Prozessor. Viele Karten machen das schon ab Werk.",
         "hinweis": "Auf manchen Kombinationen aus Mainboard und Karte startet Windows danach mit schwarzem Bild. Leg vorher einen Wiederherstellungspunkt an; im abgesicherten Modus lässt sich der Tweak zurücknehmen."
       },
       "en": {
         "name": "MSI mode for the graphics card",
-        "beschreibung": "The graphics card signals interrupts the newer way, through messages instead of a shared line. Many cards do this out of the box.",
+        "beschreibung": "The graphics card talks to the processor the newer way. Many cards already do this out of the box.",
         "hinweis": "On some board and card combinations Windows then starts with a black screen. Create a restore point first; the tweak can be undone in safe mode."
       },
       "details": {
@@ -4398,12 +4398,12 @@
       "admin": true,
       "de": {
         "name": "MSI-Modus für die Netzwerkkarte",
-        "beschreibung": "Stellt die Unterbrechungen der Netzwerkkarte auf dasselbe Verfahren um wie bei der Grafikkarte. Viele PCIe-Karten nutzen es schon.",
+        "beschreibung": "Dasselbe für die Netzwerkkarte. Viele Karten machen das schon.",
         "hinweis": "Bei manchen Karten, vor allem älteren mit Herstellertreiber, ist das Netzwerk nach dem Neustart weg. Leg vorher einen Wiederherstellungspunkt an und nimm den Tweak einzeln."
       },
       "en": {
         "name": "MSI mode for the network card",
-        "beschreibung": "Switches the network card\u0027s interrupts to the same method as the graphics card. Many PCIe cards use it already.",
+        "beschreibung": "The same for the network card. Many cards already do it.",
         "hinweis": "With some cards, especially older ones with vendor drivers, the network is gone after the restart. Create a restore point first and apply this tweak on its own."
       },
       "details": {
@@ -4424,12 +4424,12 @@
       "admin": true,
       "de": {
         "name": "Eingabegeräte nicht schlafen legen",
-        "beschreibung": "Schaltet an allen Eingabegeräten die Leerlauf- und Sparzustände in den Geräteparametern ab. Die erste Eingabe nach einer Pause kommt ohne Aufwachzeit an.",
+        "beschreibung": "Maus, Tastatur und Controller schlafen nicht mehr ein. Die erste Eingabe nach einer Pause kommt sofort an.",
         "hinweis": "Auf Laptops etwas kürzere Akkulaufzeit."
       },
       "en": {
         "name": "Keep input devices from sleeping",
-        "beschreibung": "Turns off the idle and power saving states in the device parameters of every input device. The first input after a pause arrives without wake-up delay.",
+        "beschreibung": "Mouse, keyboard and controller no longer fall asleep. The first input after a pause arrives straight away.",
         "hinweis": "Slightly shorter battery life on laptops."
       },
       "details": {
@@ -4466,12 +4466,12 @@
       "admin": true,
       "de": {
         "name": "USB-Controller und -Hubs nicht schlafen legen",
-        "beschreibung": "Dasselbe für USB-Controller und Hubs. Betrifft alles, was daran hängt, also auch Audio-Schnittstellen und Geräte an einem Hub.",
+        "beschreibung": "Dasselbe für die USB-Anschlüsse selbst. Gilt für alles, was daran hängt, auch Headsets und Geräte an einem Hub.",
         "hinweis": "Auf Laptops etwas kürzere Akkulaufzeit."
       },
       "en": {
         "name": "Keep USB controllers and hubs from sleeping",
-        "beschreibung": "The same for USB controllers and hubs. Affects everything attached, including audio interfaces and devices on a hub.",
+        "beschreibung": "The same for the USB ports themselves. Applies to everything attached, including headsets and devices on a hub.",
         "hinweis": "Slightly shorter battery life on laptops."
       },
       "details": {
@@ -4508,12 +4508,12 @@
       "admin": true,
       "de": {
         "name": "Selektives USB-Energiesparen im Energieplan aus",
-        "beschreibung": "Die Einstellung im Energieplan, mit der Windows USB-Geräte schlafen legen darf. Ergänzt die entsprechenden Treiberwerte.",
+        "beschreibung": "Auch im Energieplan wird das Einschlafen von USB-Geräten abgeschaltet. Ergänzt die Treiber-Einstellungen.",
         "hinweis": "Auf Laptops etwas kürzere Akkulaufzeit."
       },
       "en": {
         "name": "Turn off USB selective suspend in the power plan",
-        "beschreibung": "The power plan setting that allows Windows to put USB devices to sleep. Complements the matching driver values.",
+        "beschreibung": "USB devices falling asleep is also turned off in the power plan. Complements the driver settings.",
         "hinweis": "Slightly shorter battery life on laptops."
       },
       "details": {
@@ -4534,11 +4534,11 @@
       "admin": true,
       "de": {
         "name": "USB-3-Verbindungsenergieverwaltung aus",
-        "beschreibung": "USB-3-Verbindungen gehen in Pausen sonst in einen Sparzustand. Abgeschaltet bleiben sie aktiv."
+        "beschreibung": "USB-3-Verbindungen schlafen in Pausen nicht mehr ein."
       },
       "en": {
         "name": "Turn off USB 3 link power management",
-        "beschreibung": "USB 3 links otherwise enter a power saving state during pauses. Turned off, they stay active."
+        "beschreibung": "USB 3 links no longer fall asleep during pauses."
       },
       "details": {
         "de": [
@@ -4558,12 +4558,12 @@
       "admin": true,
       "de": {
         "name": "Microsoft GS Wavetable Synth abschalten",
-        "beschreibung": "Der eingebaute Klangerzeuger für MIDI-Dateien. Spiele und Musikwiedergabe benutzen ihn nicht.",
+        "beschreibung": "Schaltet den eingebauten Klangerzeuger für MIDI-Dateien ab. Spiele und Musik brauchen ihn nicht.",
         "hinweis": "MIDI-Dateien bleiben danach stumm. Wer mit Keyboard oder Musiksoftware arbeitet, lässt ihn an."
       },
       "en": {
         "name": "Turn off Microsoft GS Wavetable Synth",
-        "beschreibung": "The built-in sound generator for MIDI files. Games and music playback do not use it.",
+        "beschreibung": "Turns off the built-in sound generator for MIDI files. Games and music do not need it.",
         "hinweis": "MIDI files stay silent. If you work with a keyboard or music software, leave it on."
       },
       "details": {
@@ -4584,12 +4584,12 @@
       "admin": true,
       "de": {
         "name": "Geräteumleitung für Remotedesktop abschalten",
-        "beschreibung": "Über diesen Bus reicht Windows Drucker, Laufwerke und Zwischenablage in eine Remotedesktop-Sitzung durch.",
+        "beschreibung": "Schaltet das Durchreichen von Druckern, Laufwerken und Zwischenablage in Remotedesktop-Sitzungen ab.",
         "hinweis": "Verbindest du dich per Remotedesktop auf diesen Rechner, fehlen dort deine lokalen Geräte. Die Verbindung selbst bleibt möglich."
       },
       "en": {
         "name": "Turn off Remote Desktop device redirection",
-        "beschreibung": "Through this bus Windows passes printers, drives and the clipboard into a Remote Desktop session.",
+        "beschreibung": "Turns off passing printers, drives and the clipboard into Remote Desktop sessions.",
         "hinweis": "When you connect to this PC via Remote Desktop, your local devices are missing there. The connection itself still works."
       },
       "details": {
@@ -4610,12 +4610,12 @@
       "admin": true,
       "de": {
         "name": "Virtuelle Datenträger abschalten",
-        "beschreibung": "Sorgt dafür, dass sich ISO- und VHD-Dateien per Doppelklick als Laufwerk öffnen.",
+        "beschreibung": "Schaltet das Öffnen von ISO- und VHD-Dateien als Laufwerk ab.",
         "hinweis": "ISO- und VHD-Dateien lassen sich danach nicht mehr einbinden, auch keine Spiel- oder Windows-Abbilder."
       },
       "en": {
         "name": "Turn off virtual disks",
-        "beschreibung": "Makes ISO and VHD files open as a drive when double-clicked.",
+        "beschreibung": "Turns off opening ISO and VHD files as a drive.",
         "hinweis": "ISO and VHD files can no longer be mounted, including game and Windows images."
       },
       "details": {
@@ -4636,12 +4636,12 @@
       "admin": true,
       "de": {
         "name": "Virtuelle Netzwerkadapter abschalten",
-        "beschreibung": "Über diesen Enumerator legt Windows Netzwerkadapter ohne eigene Hardware an.",
+        "beschreibung": "Windows kann keine Netzwerkadapter ohne echte Hardware mehr anlegen, wie sie VPNs nutzen.",
         "hinweis": "VPN-Programme und WSL können danach keine Adapter mehr anlegen."
       },
       "en": {
         "name": "Turn off virtual network adapters",
-        "beschreibung": "Windows uses this enumerator to create network adapters without hardware of their own.",
+        "beschreibung": "Windows can no longer create network adapters without real hardware, like the ones VPNs use.",
         "hinweis": "VPN software and WSL can no longer create adapters."
       },
       "details": {
@@ -4662,12 +4662,12 @@
       "admin": true,
       "de": {
         "name": "Gerätekopplung abschalten",
-        "beschreibung": "Zuständig für das Koppeln drahtloser Geräte: Bluetooth-Zubehör, Miracast und die Verbindung zum Handy.",
+        "beschreibung": "Schaltet das Koppeln drahtloser Geräte ab: Bluetooth-Zubehör, Miracast und die Verbindung zum Handy.",
         "hinweis": "Neue Funkgeräte lassen sich danach nicht mehr koppeln, Miracast und die Handy-Verknüpfung fallen aus. Auch bereits gekoppelte Geräte können betroffen sein."
       },
       "en": {
         "name": "Turn off device association",
-        "beschreibung": "Handles pairing wireless devices: Bluetooth accessories, Miracast and the link to your phone.",
+        "beschreibung": "Turns off pairing wireless devices: Bluetooth accessories, Miracast and the link to your phone.",
         "hinweis": "New wireless devices can no longer be paired, and Miracast and Phone Link stop working. Devices already paired may be affected too."
       },
       "details": {
@@ -4688,12 +4688,12 @@
       "admin": true,
       "de": {
         "name": "Ungenutzte WAN-Miniports abschalten",
-        "beschreibung": "Windows legt für jedes Einwahl- und VPN-Protokoll einen Adapter an. Abgeschaltet werden PPTP, L2TP, SSTP, IKEv2, PPPoE und der Mitschnitt-Miniport; IPv4 und IPv6 bleiben. Der Nutzen ist ein aufgeräumter Gerätebaum.",
+        "beschreibung": "Schaltet ungenutzte Adapter für alte Einwahl- und VPN-Arten ab. Das räumt den Geräte-Manager auf; Internet über den Router bleibt.",
         "hinweis": "VPN über PPTP, L2TP, SSTP oder IKEv2 geht danach nicht mehr. Wer die DSL-Einwahl (PPPoE) von Windows statt vom Router erledigen lässt, verliert den Internetzugang."
       },
       "en": {
         "name": "Turn off unused WAN miniports",
-        "beschreibung": "Windows creates an adapter for every dial-up and VPN protocol. PPTP, L2TP, SSTP, IKEv2, PPPoE and the capture miniport are turned off; IPv4 and IPv6 stay. The benefit is a tidier device tree.",
+        "beschreibung": "Turns off unused adapters for old dial-up and VPN types. That tidies up Device Manager; internet through your router stays.",
         "hinweis": "VPN over PPTP, L2TP, SSTP or IKEv2 stops working. If Windows rather than your router handles the DSL dial-in (PPPoE), you lose internet access."
       },
       "details": {
@@ -4724,12 +4724,12 @@
       "admin": true,
       "de": {
         "name": "NVIDIA: Write Combining abschalten",
-        "beschreibung": "Ändert, wie der NVIDIA-Treiber Schreibzugriffe auf den Grafikspeicher bündelt. Ein undokumentierter Treiberschalter.",
+        "beschreibung": "Ein versteckter Schalter im NVIDIA-Treiber. Er ändert, wie Daten in den Grafikspeicher geschrieben werden.",
         "hinweis": "Kann die Leistung ebenso verschlechtern wie verbessern und auf manchen Systemen Bildfehler oder Abstürze auslösen. Nur mit Messung vorher und nachher."
       },
       "en": {
         "name": "NVIDIA: turn off write combining",
-        "beschreibung": "Changes how the NVIDIA driver batches writes to graphics memory. An undocumented driver switch.",
+        "beschreibung": "A hidden switch in the NVIDIA driver. It changes how data is written to graphics memory.",
         "hinweis": "Can make performance worse as easily as better, and on some systems causes image errors or crashes. Only with a measurement before and after."
       },
       "details": {
@@ -4750,12 +4750,12 @@
       "admin": true,
       "de": {
         "name": "NVIDIA: PowerMizer auf feste Höchstleistung",
-        "beschreibung": "Fünf Treiberwerte, die die Karte auf ihrem höchsten Leistungszustand halten, statt ihn je nach Last zu wechseln.",
+        "beschreibung": "Deine NVIDIA-Karte bleibt immer im höchsten Leistungszustand, statt je nach Last herunterzuschalten.",
         "hinweis": "Die Karte bleibt auch auf dem Desktop auf hohem Takt: deutlich mehr Verbrauch, mehr Wärme, lautere Lüfter."
       },
       "en": {
         "name": "NVIDIA: lock PowerMizer to maximum performance",
-        "beschreibung": "Five driver values that hold the card in its highest performance state instead of switching with the load.",
+        "beschreibung": "Your NVIDIA card always stays in its highest performance state instead of stepping down with the load.",
         "hinweis": "The card stays at high clocks even on the desktop: much higher power draw, more heat, louder fans."
       },
       "details": {
@@ -4784,12 +4784,12 @@
       "admin": true,
       "de": {
         "name": "NVIDIA: Latenz- und Taktschalter",
-        "beschreibung": "Neun Treiberwerte rund um Latenz, Taktabschaltung und Leistungszustände der Karte.",
+        "beschreibung": "Neun versteckte Treiber-Schalter rund um Verzögerung und Taktabsenkung der NVIDIA-Karte.",
         "hinweis": "Treiberinterna ohne öffentliche Dokumentation. Nach einem Treiberwechsel können sie etwas anderes bewirken. Leg vorher einen Wiederherstellungspunkt an."
       },
       "en": {
         "name": "NVIDIA: latency and clock switches",
-        "beschreibung": "Nine driver values covering latency, clock gating and performance states of the card.",
+        "beschreibung": "Nine hidden driver switches around delay and clock lowering of the NVIDIA card.",
         "hinweis": "Driver internals without public documentation; after a driver update they may do something else. Create a restore point first."
       },
       "details": {
@@ -4826,12 +4826,12 @@
       "admin": true,
       "de": {
         "name": "NVIDIA: Power Gating und ASPM abschalten",
-        "beschreibung": "Zwölf Treiberwerte, die die Abschaltmechanismen der Karte und ihrer PCIe-Anbindung außer Kraft setzen.",
+        "beschreibung": "Zwölf Treiber-Schalter, die das Stromsparen der NVIDIA-Karte und ihrer Verbindung abschalten.",
         "hinweis": "Auf einzelnen Karten für schwarze Bildschirme bekannt, teils erst nach dem nächsten Neustart. Leg vorher einen Wiederherstellungspunkt an und wisse, wie du in den abgesicherten Modus kommst."
       },
       "en": {
         "name": "NVIDIA: turn off power gating and ASPM",
-        "beschreibung": "Twelve driver values that disable the power-down mechanisms of the card and its PCIe link.",
+        "beschreibung": "Twelve driver switches that turn off power saving of the NVIDIA card and its link.",
         "hinweis": "Known to cause black screens on some cards, sometimes only after the next restart. Create a restore point first and know how to reach safe mode."
       },
       "details": {
@@ -4874,12 +4874,12 @@
       "admin": true,
       "de": {
         "name": "AMD: Clock Gating abschalten",
-        "beschreibung": "Der Treiber nimmt ungenutzten Teilen der Karte sonst den Takt weg. Ohne Clock Gating laufen sie durch.",
+        "beschreibung": "Ungenutzte Teile der AMD-Karte laufen weiter, statt abgeschaltet zu werden.",
         "hinweis": "Deutlich mehr Verbrauch und Wärme. Am Temperaturlimit kann der Takt dadurch insgesamt sinken statt steigen."
       },
       "en": {
         "name": "AMD: turn off clock gating",
-        "beschreibung": "The driver otherwise stops the clock for unused parts of the card. Without clock gating they keep running.",
+        "beschreibung": "Unused parts of the AMD card keep running instead of being switched off.",
         "hinweis": "Much more power and heat. At the temperature limit, clocks may end up lower rather than higher."
       },
       "details": {
@@ -4902,12 +4902,12 @@
       "admin": true,
       "de": {
         "name": "AMD: Dynamische Leistungszustände abschalten",
-        "beschreibung": "Die Karte wechselt ihre Leistungszustände nicht mehr selbstständig nach Last.",
+        "beschreibung": "Die AMD-Karte wechselt ihre Leistungsstufen nicht mehr selbst je nach Last.",
         "hinweis": "Wie beim Clock Gating: mehr Verbrauch und Wärme, am Temperaturlimit womöglich weniger Takt."
       },
       "en": {
         "name": "AMD: turn off dynamic performance states",
-        "beschreibung": "The card no longer switches its performance states on its own depending on load.",
+        "beschreibung": "The AMD card no longer changes its performance levels by itself depending on load.",
         "hinweis": "As with clock gating: more power and heat, and possibly lower clocks at the temperature limit."
       },
       "details": {
@@ -4928,12 +4928,12 @@
       "admin": true,
       "de": {
         "name": "AMD: Energiesparstufen der Karte abschalten",
-        "beschreibung": "Neun Treiberwerte, die verhindern, dass Teile der AMD-Karte im Betrieb in Sparstufen wechseln, und die Schwellen für Takt- und Speicherwechsel absenken.",
+        "beschreibung": "Neun Treiber-Schalter, die das Stromsparen von Teilen der AMD-Karte abschalten und sie schneller hochtakten lassen.",
         "hinweis": "Undokumentierte Werte. Mögliche Folgen: viel höherer Verbrauch im Leerlauf, mehr Wärme, in Einzelfällen Bildfehler oder ein Treiberabsturz beim Wechsel der Auflösung. Ein Treiberupdate kann sie überschreiben."
       },
       "en": {
         "name": "AMD: turn off the card\u0027s power saving stages",
-        "beschreibung": "Nine driver values that stop parts of the AMD card from entering power saving stages and lower the thresholds for clock and memory changes.",
+        "beschreibung": "Nine driver switches that turn off power saving for parts of the AMD card and let it clock up faster.",
         "hinweis": "Undocumented values. Possible results: much higher idle power, more heat, occasionally image errors or a driver crash when changing resolution. A driver update may overwrite them."
       },
       "details": {
@@ -4970,12 +4970,12 @@
       "admin": true,
       "de": {
         "name": "GPU-Preemption abschalten",
-        "beschreibung": "Preemption erlaubt Windows, eine laufende Aufgabe der Grafikkarte zu unterbrechen. Ohne sie läuft jede Aufgabe bis zum Ende durch.",
+        "beschreibung": "Windows darf eine laufende Aufgabe der Grafikkarte nicht mehr unterbrechen – jede läuft bis zum Ende durch.",
         "hinweis": "Kann zu Bildaussetzern und schlimmstenfalls zu einem Neustart des Grafiktreibers mitten im Spiel führen. Leg vorher einen Wiederherstellungspunkt an."
       },
       "en": {
         "name": "Turn off GPU preemption",
-        "beschreibung": "Preemption lets Windows interrupt a running graphics task. Without it, every task runs to completion.",
+        "beschreibung": "Windows may no longer interrupt a running graphics task – each one runs to the end.",
         "hinweis": "Can cause dropped frames and, at worst, a graphics driver reset mid-game. Create a restore point first."
       },
       "details": {
@@ -4998,12 +4998,12 @@
       "admin": true,
       "de": {
         "name": "Threaded DPCs abschalten",
-        "beschreibung": "DPCs sind kurze Routinen, mit denen Treiber auf Hardware reagieren. Windows kann sie in einem eigenen Thread statt sofort ausführen.",
+        "beschreibung": "Treiber reagieren auf Hardware wieder sofort, statt das in einem eigenen Ablauf nachzuholen.",
         "hinweis": "Ändert, wie Treiberunterbrechungen abgearbeitet werden. Auf manchen Systemen entstehen dadurch mehr Ruckler statt weniger."
       },
       "en": {
         "name": "Turn off threaded DPCs",
-        "beschreibung": "DPCs are short routines drivers use to react to hardware. Windows can run them in a separate thread instead of immediately.",
+        "beschreibung": "Drivers react to hardware straight away again instead of catching up in a separate thread.",
         "hinweis": "Changes how driver interrupts are processed. On some systems this causes more stutter, not less."
       },
       "details": {
@@ -5024,12 +5024,12 @@
       "admin": true,
       "de": {
         "name": "Veraltete TLS- und SSL-Fassungen abschalten",
-        "beschreibung": "SSL 2.0, SSL 3.0, TLS 1.0 und TLS 1.1 werden abgeschaltet, TLS 1.2 ausdrücklich eingeschaltet. Eine Sicherheitseinstellung, kein Leistungstweak.",
+        "beschreibung": "Schaltet alte, unsichere Verschlüsselungen für Internetverbindungen ab. Eine Sicherheitseinstellung, kein Leistungstweak.",
         "hinweis": "Alte Programme, die nur TLS 1.0 sprechen, bauen danach keine Verbindung mehr auf: alte Installer, manche Bank- und Geräteprogramme."
       },
       "en": {
         "name": "Turn off outdated TLS and SSL versions",
-        "beschreibung": "Turns off SSL 2.0, SSL 3.0, TLS 1.0 and TLS 1.1 and explicitly turns on TLS 1.2. A security setting, not a performance tweak.",
+        "beschreibung": "Turns off old, insecure encryption for internet connections. A security setting, not a performance tweak.",
         "hinweis": "Old programs that only speak TLS 1.0 can no longer connect: old installers, some banking and device software."
       },
       "details": {
@@ -5060,12 +5060,12 @@
       "admin": true,
       "de": {
         "name": "Leerlaufzustände des Prozessors abschalten",
-        "beschreibung": "Der Prozessor legt ungenutzte Kerne sonst schlafen. Abgeschaltet bleiben alle Kerne wach, das Aufwachen entfällt. Gilt nur am Netzteil, im Akkubetrieb bleibt alles, wie es ist.",
+        "beschreibung": "Alle Prozessorkerne bleiben wach, keiner muss erst aufwachen. Gilt nur am Netzteil – im Akkubetrieb bleibt alles, wie es ist.",
         "hinweis": "Alle Kerne laufen dauerhaft aktiv: deutlich mehr Verbrauch und Wärme, lautere Lüfter. Mit knapper Kühlung kann der Takt am Ende niedriger liegen als vorher."
       },
       "en": {
         "name": "Turn off processor idle states",
-        "beschreibung": "The processor otherwise puts unused cores to sleep. Turned off, all cores stay awake and there is no wake-up delay. Only on mains power; on battery nothing changes.",
+        "beschreibung": "All processor cores stay awake, none has to wake up first. Only on mains power – on battery nothing changes.",
         "hinweis": "All cores stay active: much more power and heat, louder fans. With limited cooling, clocks may end up lower than before."
       },
       "details": {
@@ -5086,11 +5086,11 @@
       "admin": true,
       "de": {
         "name": "Windows-Suche abschalten",
-        "beschreibung": "Beendet die Hintergrund-Indizierung. Die Dateisuche funktioniert weiter, wird aber langsamer."
+        "beschreibung": "Windows baut im Hintergrund keinen Suchindex mehr. Die Dateisuche geht weiter, ist aber langsamer."
       },
       "en": {
         "name": "Switch off Windows Search",
-        "beschreibung": "Stops background indexing. File search keeps working but becomes slower."
+        "beschreibung": "Windows stops building a search index in the background. File search still works but is slower."
       },
       "details": {
         "de": [
@@ -5110,11 +5110,11 @@
       "admin": true,
       "de": {
         "name": "Diagnoserichtliniendienst abschalten",
-        "beschreibung": "Deaktiviert die automatische Problembehandlung von Windows. Danach stehen auch die Assistenten für Netzwerk-, Audio- und Druckerprobleme nicht mehr zur Verfügung."
+        "beschreibung": "Schaltet die automatische Problemlösung von Windows ab. Danach gibt es auch die Helfer für Netzwerk-, Ton- und Druckerprobleme nicht mehr."
       },
       "en": {
         "name": "Switch off the Diagnostic Policy Service",
-        "beschreibung": "Disables the automatic troubleshooting built into Windows."
+        "beschreibung": "Turns off Windows\u0027 automatic troubleshooting. The helpers for network, sound and printer problems are gone afterwards too."
       },
       "details": {
         "de": [
@@ -5134,11 +5134,11 @@
       "admin": true,
       "de": {
         "name": "Hyper-V-Hilfsdienste abschalten",
-        "beschreibung": "Deaktiviert die Gastdienste von Hyper-V (Heartbeat, Sicherung, Herunterfahren, Datenaustausch). Nur sinnvoll ohne WSL, Docker und Windows-Sandbox."
+        "beschreibung": "Schaltet Dienste für virtuelle Maschinen ab. Nur sinnvoll, wenn du kein WSL, Docker und keine Windows-Sandbox benutzt."
       },
       "en": {
         "name": "Switch off the Hyper-V helper services",
-        "beschreibung": "Disables the Hyper-V guest services (heartbeat, backup, shutdown, data exchange)."
+        "beschreibung": "Turns off services for virtual machines. Only sensible if you use no WSL, Docker or Windows Sandbox."
       },
       "details": {
         "de": [
@@ -5164,11 +5164,11 @@
       "admin": true,
       "de": {
         "name": "Weitere Hyper-V-Dienste abschalten",
-        "beschreibung": "Deaktiviert die restlichen Hyper-V-Dienste (Gastschnittstelle, KVP, Remotedesktop, Zeitsynchronisation). Nur sinnvoll ohne WSL, Docker und Windows-Sandbox."
+        "beschreibung": "Schaltet die restlichen Dienste für virtuelle Maschinen ab. Nur sinnvoll ohne WSL, Docker und Windows-Sandbox."
       },
       "en": {
         "name": "Switch off the remaining Hyper-V services",
-        "beschreibung": "Disables the rest of the Hyper-V services (guest interface, KVP, remote desktop, time sync)."
+        "beschreibung": "Turns off the remaining services for virtual machines. Only sensible without WSL, Docker and Windows Sandbox."
       },
       "details": {
         "de": [
@@ -5196,11 +5196,11 @@
       "admin": true,
       "de": {
         "name": "Enumeratordienst für tragbare Geräte abschalten",
-        "beschreibung": "Deaktiviert die automatische Erkennung von MP3-Playern, Kameras und ähnlichen Geräten. Danach wird ein angestecktes Handy nicht mehr im Explorer angezeigt."
+        "beschreibung": "Windows erkennt Handys, Kameras und MP3-Player nicht mehr von selbst. Ein angestecktes Handy taucht dann nicht mehr im Explorer auf."
       },
       "en": {
         "name": "Switch off the portable device enumerator",
-        "beschreibung": "Disables automatic detection of MP3 players, cameras and similar devices."
+        "beschreibung": "Windows no longer detects phones, cameras and MP3 players by itself. A plugged-in phone no longer shows up in File Explorer."
       },
       "details": {
         "de": [
@@ -5220,11 +5220,11 @@
       "admin": true,
       "de": {
         "name": "Xbox-Dienste abschalten",
-        "beschreibung": "Deaktiviert die Xbox-Hintergrunddienste (Anmeldung, Spielstände, Netzwerk). Danach funktionieren Game Pass, Cloud-Spielstände und die Xbox-App nicht mehr."
+        "beschreibung": "Schaltet die Xbox-Dienste im Hintergrund ab. Danach gehen Game Pass, Cloud-Spielstände und die Xbox-App nicht mehr."
       },
       "en": {
         "name": "Switch off the Xbox services",
-        "beschreibung": "Disables the Xbox background services (sign-in, saved games, networking)."
+        "beschreibung": "Turns off the Xbox background services. Game Pass, cloud saves and the Xbox app stop working afterwards."
       },
       "details": {
         "de": [
@@ -5250,11 +5250,11 @@
       "admin": true,
       "de": {
         "name": "Telefoniedienst abschalten",
-        "beschreibung": "Deaktiviert die Telefonie-API, die nur für Modem- und VoIP-Altsoftware gebraucht wird."
+        "beschreibung": "Schaltet einen Telefon-Dienst ab, den nur uralte Modem- und Internettelefonie-Programme brauchen."
       },
       "en": {
         "name": "Switch off the telephony service",
-        "beschreibung": "Disables the telephony API, which only legacy modem and VoIP software needs."
+        "beschreibung": "Turns off a phone service that only ancient modem and internet calling programs need."
       },
       "details": {
         "de": [
@@ -5274,11 +5274,11 @@
       "admin": true,
       "de": {
         "name": "SysMain (Superfetch) abschalten",
-        "beschreibung": "Windows lädt Programme nicht mehr vorsorglich in den Arbeitsspeicher. Auf SSDs bringt das kaum noch etwas und spart Hintergrundlast."
+        "beschreibung": "Windows lädt Programme nicht mehr vorsorglich in den Arbeitsspeicher. Mit einer SSD bringt das kaum etwas und spart Arbeit im Hintergrund."
       },
       "en": {
         "name": "Switch off SysMain (Superfetch)",
-        "beschreibung": "Windows stops pre-loading programs into memory. On SSDs this barely helps and it saves background load."
+        "beschreibung": "Windows stops pre-loading programs into memory. With an SSD that barely helps, and turning it off saves background work."
       },
       "details": {
         "de": [
@@ -5298,11 +5298,11 @@
       "admin": true,
       "de": {
         "name": "Faxdienst abschalten",
-        "beschreibung": "Deaktiviert den Windows-Faxdienst, den heute praktisch niemand mehr braucht."
+        "beschreibung": "Schaltet den Faxdienst ab, den heute fast niemand mehr braucht."
       },
       "en": {
         "name": "Switch off the fax service",
-        "beschreibung": "Disables the Windows fax service, which practically nobody needs any more."
+        "beschreibung": "Turns off the fax service, which hardly anyone needs today."
       },
       "details": {
         "de": [
@@ -5322,11 +5322,11 @@
       "admin": true,
       "de": {
         "name": "Remote-Registrierung abschalten",
-        "beschreibung": "Verhindert, dass die Registry über das Netzwerk verändert werden kann."
+        "beschreibung": "Niemand kann die Windows-Einstellungen dieses PCs mehr über das Netzwerk ändern."
       },
       "en": {
         "name": "Switch off Remote Registry",
-        "beschreibung": "Stops the registry from being changed over the network."
+        "beschreibung": "Nobody can change this PC\u0027s Windows settings over the network any more."
       },
       "details": {
         "de": [
@@ -5346,11 +5346,11 @@
       "admin": true,
       "de": {
         "name": "Vorführmodus abschalten",
-        "beschreibung": "Deaktiviert den Demo-Modus für Ausstellungsgeräte im Handel."
+        "beschreibung": "Schaltet den Vorführmodus für Ausstellungs-PCs im Laden ab."
       },
       "en": {
         "name": "Switch off retail demo mode",
-        "beschreibung": "Disables the demo mode meant for display devices in shops."
+        "beschreibung": "Turns off the demo mode for display PCs in shops."
       },
       "details": {
         "de": [
@@ -5370,11 +5370,11 @@
       "admin": true,
       "de": {
         "name": "Karten-Download abschalten",
-        "beschreibung": "Offline-Karten werden nicht mehr im Hintergrund heruntergeladen und aktualisiert."
+        "beschreibung": "Windows lädt keine Offline-Karten mehr im Hintergrund herunter."
       },
       "en": {
         "name": "Switch off map downloads",
-        "beschreibung": "Offline maps are no longer downloaded and updated in the background."
+        "beschreibung": "Windows stops downloading offline maps in the background."
       },
       "details": {
         "de": [
@@ -5394,11 +5394,11 @@
       "admin": true,
       "de": {
         "name": "Druckwarteschlange abschalten",
-        "beschreibung": "Nur sinnvoll, wenn kein Drucker angeschlossen ist – danach lässt sich nichts mehr drucken."
+        "beschreibung": "Nur sinnvoll ohne Drucker – danach kannst du nichts mehr drucken."
       },
       "en": {
         "name": "Switch off the print spooler",
-        "beschreibung": "Only sensible without a printer attached – afterwards nothing can be printed."
+        "beschreibung": "Only sensible without a printer – afterwards you can no longer print anything."
       },
       "details": {
         "de": [
@@ -5418,11 +5418,11 @@
       "admin": true,
       "de": {
         "name": "Biometriedienst abschalten",
-        "beschreibung": "Nur sinnvoll ohne Fingerabdruck- oder Gesichtserkennung – danach funktioniert Windows Hello nicht mehr."
+        "beschreibung": "Nur sinnvoll ohne Fingerabdruck oder Gesichtserkennung – danach geht Windows Hello nicht mehr."
       },
       "en": {
         "name": "Switch off the biometric service",
-        "beschreibung": "Only sensible without a fingerprint reader or face recognition – Windows Hello stops working."
+        "beschreibung": "Only sensible without fingerprint or face recognition – Windows Hello stops working afterwards."
       },
       "details": {
         "de": [
@@ -5442,11 +5442,11 @@
       "admin": true,
       "de": {
         "name": "Bildschirmtastatur-Dienst abschalten",
-        "beschreibung": "Nur sinnvoll an Geräten ohne Touchscreen und Stift."
+        "beschreibung": "Nur sinnvoll an PCs ohne Touchscreen und Stift."
       },
       "en": {
         "name": "Switch off the touch keyboard service",
-        "beschreibung": "Only sensible on devices without a touchscreen or pen."
+        "beschreibung": "Only sensible on PCs without a touchscreen or pen."
       },
       "details": {
         "de": [
@@ -5466,12 +5466,12 @@
       "admin": true,
       "de": {
         "name": "Aufnahmedienst der Game Bar abschalten",
-        "beschreibung": "Der Dienst hinter den Spielaufnahmen und Übertragungen der Game Bar. Wer nicht über Windows aufnimmt, braucht ihn nicht.",
+        "beschreibung": "Der Dienst hinter Aufnahmen und Streams der Game Bar. Wer nicht mit Windows aufnimmt, braucht ihn nicht.",
         "hinweis": "Aufnahmen und Screenshots über die Game Bar funktionieren danach nicht mehr."
       },
       "en": {
         "name": "Turn off the Game Bar capture service",
-        "beschreibung": "The service behind Game Bar recordings and broadcasts. If you do not record through Windows, you do not need it.",
+        "beschreibung": "The service behind Game Bar recordings and streams. If you do not record with Windows, you do not need it.",
         "hinweis": "Recording and screenshots through the Game Bar stop working."
       },
       "details": {
@@ -5492,12 +5492,12 @@
       "admin": true,
       "de": {
         "name": "GPU-Energietreiber abschalten",
-        "beschreibung": "Ein Treiberdienst, der nur mitschreibt, wie viel Strom die Grafikkarte verbraucht, damit der Task-Manager es anzeigen kann.",
+        "beschreibung": "Ein Dienst, der nur misst, wie viel Strom die Grafikkarte braucht, damit der Task-Manager es anzeigen kann.",
         "hinweis": "Der Task-Manager zeigt danach keinen Stromverbrauch der Grafikkarte mehr an."
       },
       "en": {
         "name": "Turn off the GPU energy driver",
-        "beschreibung": "A driver service that only records how much power the graphics card uses so Task Manager can show it.",
+        "beschreibung": "A service that only measures how much power the graphics card uses so Task Manager can show it.",
         "hinweis": "Task Manager no longer shows the graphics card\u0027s power usage."
       },
       "details": {
@@ -5518,12 +5518,12 @@
       "admin": true,
       "de": {
         "name": "Standortdienst abschalten",
-        "beschreibung": "Ermittelt deinen Standort und stellt ihn Apps zur Verfügung.",
+        "beschreibung": "Der Dienst, der deinen Standort ermittelt und an Apps weitergibt.",
         "hinweis": "Wetter, Karten und die automatische Zeitzone funktionieren danach nur eingeschränkt."
       },
       "en": {
         "name": "Turn off the location service",
-        "beschreibung": "Determines your location and makes it available to apps.",
+        "beschreibung": "The service that works out your location and passes it to apps.",
         "hinweis": "Weather, maps and the automatic time zone only work in a limited way."
       },
       "details": {
@@ -5544,12 +5544,12 @@
       "admin": true,
       "de": {
         "name": "Jugendschutzdienst abschalten",
-        "beschreibung": "Setzt die Familieneinstellungen von Microsoft durch, also Zeitlimits und Inhaltsfilter.",
+        "beschreibung": "Der Dienst für Microsofts Jugendschutz, also Zeitlimits und Inhaltsfilter.",
         "hinweis": "Für Konten, für die Familieneinstellungen eingerichtet sind, gelten sie danach nicht mehr."
       },
       "en": {
         "name": "Turn off the parental controls service",
-        "beschreibung": "Enforces Microsoft Family settings such as time limits and content filters.",
+        "beschreibung": "The service for Microsoft\u0027s parental controls, such as time limits and content filters.",
         "hinweis": "Family settings stop applying to the accounts they were set up for."
       },
       "details": {
@@ -5570,12 +5570,12 @@
       "admin": true,
       "de": {
         "name": "Zahlungs- und NFC-Dienst abschalten",
-        "beschreibung": "Verwaltet kontaktloses Bezahlen und den NFC-Sicherheitschip. Ohne NFC-Leser hat er nichts zu tun.",
+        "beschreibung": "Der Dienst für kontaktloses Bezahlen. Ohne NFC-Leser hat er nichts zu tun.",
         "hinweis": "Hat dein Gerät einen NFC-Leser, funktioniert Bezahlen darüber nicht mehr."
       },
       "en": {
         "name": "Turn off the payments and NFC service",
-        "beschreibung": "Manages contactless payments and the NFC secure element. Without an NFC reader it has nothing to do.",
+        "beschreibung": "The service for contactless payments. Without an NFC reader it has nothing to do.",
         "hinweis": "If your device has an NFC reader, paying with it stops working."
       },
       "details": {
@@ -5596,11 +5596,11 @@
       "admin": true,
       "de": {
         "name": "WAP-Push-Dienst abschalten",
-        "beschreibung": "Gehört zur Geräteverwaltung über Mobilfunk und leitet deren Nachrichten weiter. Auf einem Spielerechner ohne Aufgabe."
+        "beschreibung": "Ein Dienst für die Fernverwaltung von Geräten über Mobilfunk. Auf einem Gaming-PC hat er nichts zu tun."
       },
       "en": {
         "name": "Turn off the WAP push service",
-        "beschreibung": "Part of device management over mobile networks, forwarding its messages. Has no job on a gaming PC."
+        "beschreibung": "A service for managing devices remotely over mobile networks. On a gaming PC it has nothing to do."
       },
       "details": {
         "de": [
@@ -5620,12 +5620,12 @@
       "admin": true,
       "de": {
         "name": "Bluetooth-Unterstützung abschalten",
-        "beschreibung": "Hält Bluetooth-Geräte bereit und nimmt neue an.",
+        "beschreibung": "Der Dienst, der Bluetooth-Geräte verbindet und bereithält.",
         "hinweis": "Bluetooth-Kopfhörer, -Controller und -Mäuse funktionieren danach nicht mehr."
       },
       "en": {
         "name": "Turn off Bluetooth support",
-        "beschreibung": "Keeps Bluetooth devices ready and accepts new ones.",
+        "beschreibung": "The service that connects Bluetooth devices and keeps them ready.",
         "hinweis": "Bluetooth headphones, controllers and mice stop working."
       },
       "details": {
@@ -5646,12 +5646,12 @@
       "admin": true,
       "de": {
         "name": "Push-Benachrichtigungsdienst auf manuell",
-        "beschreibung": "Nimmt Benachrichtigungen für Windows-Apps entgegen. Er startet danach nicht mehr von selbst mit Windows.",
+        "beschreibung": "Der Dienst für Benachrichtigungen von Windows-Apps startet nicht mehr automatisch mit Windows.",
         "hinweis": "Benachrichtigungen von Windows-Apps kommen danach womöglich nicht mehr an. Spiele und normale Programme sind nicht betroffen."
       },
       "en": {
         "name": "Set the push notification service to manual",
-        "beschreibung": "Receives notifications for Windows apps. It no longer starts with Windows by itself.",
+        "beschreibung": "The service for Windows app notifications no longer starts automatically with Windows.",
         "hinweis": "Notifications from Windows apps may no longer arrive. Games and ordinary programs are not affected."
       },
       "details": {
@@ -5672,11 +5672,11 @@
       "admin": true,
       "de": {
         "name": "Ferninstallation aus dem Store abschalten",
-        "beschreibung": "Erlaubt es, Apps über die Store-Webseite auf diesen Rechner zu schicken."
+        "beschreibung": "Der Dienst, mit dem man Apps über die Store-Webseite auf diesen PC schicken kann."
       },
       "en": {
         "name": "Turn off remote installs from the Store",
-        "beschreibung": "Allows apps to be sent to this PC from the Store website."
+        "beschreibung": "The service that lets you send apps to this PC from the Store website."
       },
       "details": {
         "de": [
@@ -5696,11 +5696,11 @@
       "admin": true,
       "de": {
         "name": "ActiveX-Installer abschalten",
-        "beschreibung": "Installiert ActiveX-Steuerelemente für den Internet Explorer nach. Kein heutiger Browser benutzt das."
+        "beschreibung": "Ein Installer für den alten Internet Explorer. Kein heutiger Browser braucht ihn."
       },
       "en": {
         "name": "Turn off the ActiveX installer",
-        "beschreibung": "Installs ActiveX controls for Internet Explorer. No current browser uses that."
+        "beschreibung": "An installer for the old Internet Explorer. No current browser needs it."
       },
       "details": {
         "de": [
@@ -5720,12 +5720,12 @@
       "admin": true,
       "de": {
         "name": "Sensordienst abschalten",
-        "beschreibung": "Verwaltet Lage-, Licht- und Bewegungssensoren.",
+        "beschreibung": "Der Dienst für Lage-, Licht- und Bewegungssensoren, wie sie Laptops und Tablets haben.",
         "hinweis": "Auf Laptops und Tablets fallen automatische Helligkeit und Bildschirmdrehung aus."
       },
       "en": {
         "name": "Turn off the sensor service",
-        "beschreibung": "Manages orientation, light and motion sensors.",
+        "beschreibung": "The service for orientation, light and motion sensors, as found in laptops and tablets.",
         "hinweis": "On laptops and tablets, automatic brightness and screen rotation stop working."
       },
       "details": {
@@ -5746,11 +5746,11 @@
       "admin": true,
       "de": {
         "name": "Wallet-Dienst abschalten",
-        "beschreibung": "Verwaltet Zahlungsdaten für Windows-Apps."
+        "beschreibung": "Der Dienst, der Zahlungsdaten für Windows-Apps verwaltet."
       },
       "en": {
         "name": "Turn off the Wallet service",
-        "beschreibung": "Manages payment data for Windows apps."
+        "beschreibung": "The service that manages payment data for Windows apps."
       },
       "details": {
         "de": [
@@ -5770,12 +5770,12 @@
       "admin": true,
       "de": {
         "name": "Internetverbindungsfreigabe abschalten",
-        "beschreibung": "Teilt die Internetverbindung dieses Rechners mit anderen Geräten.",
+        "beschreibung": "Der Dienst, der die Internetverbindung dieses PCs mit anderen Geräten teilt.",
         "hinweis": "Mobiler Hotspot und Verbindungsfreigabe funktionieren danach nicht mehr."
       },
       "en": {
         "name": "Turn off Internet Connection Sharing",
-        "beschreibung": "Shares this PC\u0027s internet connection with other devices.",
+        "beschreibung": "The service that shares this PC\u0027s internet connection with other devices.",
         "hinweis": "Mobile hotspot and connection sharing stop working."
       },
       "details": {
@@ -5796,12 +5796,12 @@
       "admin": true,
       "de": {
         "name": "Netzwerkübersicht abschalten",
-        "beschreibung": "Zeichnet die Karte der Geräte im Heimnetz, die Windows in der Netzwerkübersicht zeigt.",
+        "beschreibung": "Der Dienst, der die Karte der Geräte in deinem Heimnetz zeichnet.",
         "hinweis": "Die Netzwerkübersicht bleibt leer. Freigaben über Name oder IP gehen weiter."
       },
       "en": {
         "name": "Turn off the network map",
-        "beschreibung": "Draws the map of devices on your home network that Windows shows in the network overview.",
+        "beschreibung": "The service that draws the map of devices on your home network.",
         "hinweis": "The network map stays empty. Shares by name or IP still work."
       },
       "details": {
@@ -5822,12 +5822,12 @@
       "admin": true,
       "de": {
         "name": "Chipkartendienst abschalten",
-        "beschreibung": "Wird für Chipkartenleser gebraucht, etwa für den Personalausweis oder die Anmeldung im Firmennetz.",
+        "beschreibung": "Der Dienst für Chipkartenleser, etwa für den Personalausweis oder die Anmeldung in der Firma.",
         "hinweis": "Chipkarten funktionieren danach nicht mehr."
       },
       "en": {
         "name": "Turn off the smart card service",
-        "beschreibung": "Needed for smart card readers, for example for ID cards or signing in to a company network.",
+        "beschreibung": "The service for smart card readers, for example for ID cards or signing in at work.",
         "hinweis": "Smart cards stop working."
       },
       "details": {
@@ -5848,12 +5848,12 @@
       "admin": true,
       "de": {
         "name": "Offlinedateien abschalten",
-        "beschreibung": "Hält Kopien von Netzlaufwerken vor, damit sie auch ohne Verbindung da sind.",
+        "beschreibung": "Der Dienst, der Kopien von Netzlaufwerken auf dem PC bereithält, damit sie auch ohne Verbindung da sind.",
         "hinweis": "Als offline verfügbar markierte Netzwerkordner sind ohne Verbindung nicht mehr erreichbar."
       },
       "en": {
         "name": "Turn off Offline Files",
-        "beschreibung": "Keeps copies of network drives so they are there without a connection.",
+        "beschreibung": "The service that keeps copies of network drives on the PC so they are there without a connection.",
         "hinweis": "Network folders marked as available offline cannot be reached without a connection."
       },
       "details": {
@@ -5874,12 +5874,12 @@
       "admin": true,
       "de": {
         "name": "Mobilfunk-Telefondienst abschalten",
-        "beschreibung": "Verwaltet Telefonfunktionen für Geräte mit SIM-Karte.",
+        "beschreibung": "Der Dienst für Telefonfunktionen an Geräten mit SIM-Karte.",
         "hinweis": "Auf Geräten mit SIM-Karte fällt die Mobilfunkverbindung aus."
       },
       "en": {
         "name": "Turn off the mobile phone service",
-        "beschreibung": "Manages phone functions for devices with a SIM card.",
+        "beschreibung": "The service for phone functions on devices with a SIM card.",
         "hinweis": "On devices with a SIM card, the mobile connection stops working."
       },
       "details": {
@@ -5900,12 +5900,12 @@
       "admin": true,
       "de": {
         "name": "QoS für Audio und Video abschalten",
-        "beschreibung": "Bevorzugt Audio- und Videoströme im Heimnetz.",
+        "beschreibung": "Der Dienst, der Audio und Video im Heimnetz bevorzugt.",
         "hinweis": "Streaming im eigenen Netz kann bei gleichzeitigem Download stocken."
       },
       "en": {
         "name": "Turn off QoS for audio and video",
-        "beschreibung": "Prioritises audio and video streams on your home network.",
+        "beschreibung": "The service that gives audio and video priority on your home network.",
         "hinweis": "Streaming on your own network may stutter during a simultaneous download."
       },
       "details": {
@@ -5926,12 +5926,12 @@
       "admin": true,
       "de": {
         "name": "Sensordaten-Dienst abschalten",
-        "beschreibung": "Reicht Messwerte von Lage-, Licht- und Bewegungssensoren an Apps weiter.",
+        "beschreibung": "Der Dienst, der Messwerte von Sensoren an Apps weitergibt.",
         "hinweis": "Auf Geräten mit Sensoren entfallen automatische Bildschirmdrehung und Helligkeitsanpassung."
       },
       "en": {
         "name": "Turn off the sensor data service",
-        "beschreibung": "Passes readings from orientation, light and motion sensors on to apps.",
+        "beschreibung": "The service that passes sensor readings on to apps.",
         "hinweis": "On devices with sensors, automatic rotation and brightness adjustment stop working."
       },
       "details": {
@@ -5952,12 +5952,12 @@
       "admin": true,
       "de": {
         "name": "Sensorüberwachung abschalten",
-        "beschreibung": "Überwacht Sensoren und passt Bildschirm und Helligkeit danach an.",
+        "beschreibung": "Der Dienst, der Sensoren überwacht und danach Bildschirm und Helligkeit anpasst.",
         "hinweis": "Betrifft Geräte mit Lage- und Lichtsensor."
       },
       "en": {
         "name": "Turn off sensor monitoring",
-        "beschreibung": "Monitors sensors and adjusts display and brightness accordingly.",
+        "beschreibung": "The service that watches sensors and adjusts the screen and brightness.",
         "hinweis": "Affects devices with orientation and light sensors."
       },
       "details": {
@@ -5978,12 +5978,12 @@
       "admin": true,
       "de": {
         "name": "Automatische Wiedergabe abschalten",
-        "beschreibung": "Erkennt eingesteckte Datenträger und fragt, was damit geschehen soll.",
+        "beschreibung": "Der Dienst, der beim Einstecken eines USB-Sticks fragt, was passieren soll.",
         "hinweis": "Beim Einstecken eines USB-Sticks erscheint kein Auswahlfenster mehr. Der Stick ist trotzdem da."
       },
       "en": {
         "name": "Turn off AutoPlay",
-        "beschreibung": "Detects inserted media and asks what to do with it.",
+        "beschreibung": "The service that asks what should happen when you plug in a USB stick.",
         "hinweis": "No selection window appears when you plug in a USB stick. The stick is still there."
       },
       "details": {
@@ -6004,12 +6004,12 @@
       "admin": true,
       "de": {
         "name": "UPnP-Geräteerkennung abschalten",
-        "beschreibung": "Findet Geräte im Heimnetz, die sich über UPnP melden, etwa Medienserver.",
+        "beschreibung": "Der Dienst, der Geräte im Heimnetz findet, die sich per UPnP melden, etwa Medienserver.",
         "hinweis": "Spiele, die ihre Portfreigabe am Router über UPnP einrichten, fallen auf eine langsamere Verbindungsart zurück."
       },
       "en": {
         "name": "Turn off UPnP device discovery",
-        "beschreibung": "Finds devices on your home network that announce themselves via UPnP, such as media servers.",
+        "beschreibung": "The service that finds devices on your home network that announce themselves via UPnP, such as media servers.",
         "hinweis": "Games that set up their router port forwarding via UPnP fall back to a slower connection type."
       },
       "details": {
@@ -6030,12 +6030,12 @@
       "admin": true,
       "de": {
         "name": "UPnP-Gerätehost abschalten",
-        "beschreibung": "Macht diesen Rechner für andere UPnP-Geräte sichtbar.",
+        "beschreibung": "Der Dienst, der diesen PC für andere UPnP-Geräte sichtbar macht.",
         "hinweis": "Die Medienfreigabe an Fernseher und Konsolen entfällt."
       },
       "en": {
         "name": "Turn off the UPnP device host",
-        "beschreibung": "Makes this PC visible to other UPnP devices.",
+        "beschreibung": "The service that makes this PC visible to other UPnP devices.",
         "hinweis": "Media sharing to TVs and consoles stops working."
       },
       "details": {
@@ -6056,11 +6056,11 @@
       "admin": true,
       "de": {
         "name": "Startdienst für Bilderfassung abschalten",
-        "beschreibung": "Startet Programme, wenn am Scanner oder an der Kamera ein Knopf gedrückt wird."
+        "beschreibung": "Der Dienst, der Programme startet, wenn du am Scanner oder an der Kamera einen Knopf drückst."
       },
       "en": {
         "name": "Turn off the image capture launcher",
-        "beschreibung": "Starts programs when a button is pressed on a scanner or camera."
+        "beschreibung": "The service that starts programs when you press a button on a scanner or camera."
       },
       "details": {
         "de": [
@@ -6080,12 +6080,12 @@
       "admin": true,
       "de": {
         "name": "Benutzerdatenzugriff abschalten",
-        "beschreibung": "Regelt den Zugriff von Apps auf Kontakte, Kalender und Nachrichten.",
+        "beschreibung": "Der Dienst, der Apps Zugriff auf Kontakte, Kalender und Nachrichten gibt.",
         "hinweis": "Die mitgelieferten Apps für Mail, Kalender und Kontakte arbeiten danach nicht mehr richtig."
       },
       "en": {
         "name": "Turn off user data access",
-        "beschreibung": "Controls app access to contacts, calendar and messages.",
+        "beschreibung": "The service that gives apps access to contacts, calendar and messages.",
         "hinweis": "The built-in Mail, Calendar and People apps no longer work properly."
       },
       "details": {
@@ -6106,12 +6106,12 @@
       "admin": true,
       "de": {
         "name": "Kamera-Frameserver abschalten",
-        "beschreibung": "Der Weg, über den mehrere Programme gleichzeitig auf die Webcam zugreifen.",
+        "beschreibung": "Der Dienst, über den mehrere Programme gleichzeitig deine Webcam benutzen können.",
         "hinweis": "Die Webcam steht danach in vielen Programmen nicht mehr zur Verfügung, darunter Teams und Discord."
       },
       "en": {
         "name": "Turn off the camera frame server",
-        "beschreibung": "The path through which several programs access the webcam at once.",
+        "beschreibung": "The service that lets several programs use your webcam at once.",
         "hinweis": "The webcam is no longer available in many programs, including Teams and Discord."
       },
       "details": {
@@ -6132,12 +6132,12 @@
       "admin": true,
       "de": {
         "name": "Windows-Bilderfassung abschalten",
-        "beschreibung": "Erkennt Scanner und Kameras und stellt sie Programmen bereit.",
+        "beschreibung": "Der Dienst, der Scanner und Kameras erkennt und für Programme bereitstellt.",
         "hinweis": "Scanner und manche Kameras werden nicht mehr erkannt."
       },
       "en": {
         "name": "Turn off Windows Image Acquisition",
-        "beschreibung": "Detects scanners and cameras and makes them available to programs.",
+        "beschreibung": "The service that detects scanners and cameras and makes them available to programs.",
         "hinweis": "Scanners and some cameras are no longer recognised."
       },
       "details": {
@@ -6158,12 +6158,12 @@
       "admin": true,
       "de": {
         "name": "Mobilen Hotspot abschalten",
-        "beschreibung": "Teilt die Verbindung dieses Rechners über WLAN.",
+        "beschreibung": "Der Dienst für den mobilen Hotspot, der die Verbindung dieses PCs per WLAN teilt.",
         "hinweis": "Der mobile Hotspot lässt sich nicht mehr einschalten."
       },
       "en": {
         "name": "Turn off the mobile hotspot",
-        "beschreibung": "Shares this PC\u0027s connection over Wi-Fi.",
+        "beschreibung": "The service for the mobile hotspot, which shares this PC\u0027s connection over Wi-Fi.",
         "hinweis": "The mobile hotspot can no longer be turned on."
       },
       "details": {
@@ -6184,12 +6184,12 @@
       "admin": true,
       "de": {
         "name": "Arbeitsordner abschalten",
-        "beschreibung": "Gleicht Ordner mit einem Firmenserver ab.",
+        "beschreibung": "Der Dienst, der Ordner mit einem Firmenserver abgleicht.",
         "hinweis": "Wer die Arbeitsordner seiner Firma nutzt, bekommt danach keine Dateien mehr abgeglichen."
       },
       "en": {
         "name": "Turn off Work Folders",
-        "beschreibung": "Syncs folders with a company server.",
+        "beschreibung": "The service that syncs folders with a company server.",
         "hinweis": "If you use your company\u0027s Work Folders, files no longer sync."
       },
       "details": {
@@ -6210,12 +6210,12 @@
       "admin": true,
       "de": {
         "name": "Arbeitsstationsdienst auf manuell",
-        "beschreibung": "Der Dienst hinter Netzlaufwerken und Windows-Freigaben. Er startet danach nicht mehr mit Windows.",
+        "beschreibung": "Der Dienst für Netzlaufwerke und Windows-Freigaben startet nicht mehr automatisch mit Windows.",
         "hinweis": "Netzlaufwerke, NAS und Freigaben anderer Rechner sind danach womöglich nicht erreichbar. Das fällt oft erst Tage später auf, wenn man eine Datei sucht."
       },
       "en": {
         "name": "Set the Workstation service to manual",
-        "beschreibung": "The service behind network drives and Windows shares. It no longer starts with Windows.",
+        "beschreibung": "The service for network drives and Windows shares no longer starts automatically with Windows.",
         "hinweis": "Network drives, NAS boxes and other PCs\u0027 shares may no longer be reachable. This often only shows days later, when you look for a file."
       },
       "details": {
@@ -6236,12 +6236,12 @@
       "admin": true,
       "de": {
         "name": "Bluetooth-Audiogateway abschalten",
-        "beschreibung": "Vermittelt zwischen Windows und dem Mikrofon eines Bluetooth-Headsets.",
+        "beschreibung": "Der Dienst, der das Mikrofon eines Bluetooth-Headsets mit Windows verbindet.",
         "hinweis": "Musik läuft weiter, das Mikrofon eines Bluetooth-Headsets nicht mehr."
       },
       "en": {
         "name": "Turn off the Bluetooth audio gateway",
-        "beschreibung": "Connects Windows with the microphone of a Bluetooth headset.",
+        "beschreibung": "The service that connects a Bluetooth headset\u0027s microphone to Windows.",
         "hinweis": "Music keeps playing, but a Bluetooth headset\u0027s microphone stops working."
       },
       "details": {
@@ -6262,12 +6262,12 @@
       "admin": true,
       "de": {
         "name": "Druckerbenachrichtigungen abschalten",
-        "beschreibung": "Zeigt Meldungen des Druckers an, etwa bei Papiermangel.",
+        "beschreibung": "Der Dienst für Druckermeldungen, etwa wenn das Papier leer ist.",
         "hinweis": "Gedruckt wird weiter, nur die Rückmeldungen fehlen."
       },
       "en": {
         "name": "Turn off printer notifications",
-        "beschreibung": "Shows messages from the printer, for example when paper runs out.",
+        "beschreibung": "The service for printer messages, for example when paper runs out.",
         "hinweis": "Printing still works; only the messages are missing."
       },
       "details": {
@@ -6288,11 +6288,11 @@
       "admin": true,
       "de": {
         "name": "PowerShell Direct für Hyper-V abschalten",
-        "beschreibung": "Erlaubt dem Wirtsystem, PowerShell-Befehle direkt in einer virtuellen Maschine auszuführen. Nur innerhalb einer VM von Bedeutung."
+        "beschreibung": "Ein Dienst für virtuelle Maschinen. Auf einem normalen PC hat er nichts zu tun."
       },
       "en": {
         "name": "Turn off PowerShell Direct for Hyper-V",
-        "beschreibung": "Lets the host run PowerShell commands directly inside a virtual machine. Only matters inside a VM."
+        "beschreibung": "A service for virtual machines. On a normal PC it has nothing to do."
       },
       "details": {
         "de": [
@@ -6312,12 +6312,12 @@
       "admin": true,
       "de": {
         "name": "Chipkartenleser-Erkennung abschalten",
-        "beschreibung": "Meldet Windows, welche Chipkartenleser angeschlossen sind.",
+        "beschreibung": "Der Dienst, der Windows meldet, welche Chipkartenleser angeschlossen sind.",
         "hinweis": "Eine eingesteckte Chipkarte wird danach nicht mehr erkannt."
       },
       "en": {
         "name": "Turn off smart card reader detection",
-        "beschreibung": "Tells Windows which smart card readers are connected.",
+        "beschreibung": "The service that tells Windows which smart card readers are connected.",
         "hinweis": "An inserted smart card is no longer recognised."
       },
       "details": {
@@ -6338,12 +6338,12 @@
       "admin": true,
       "de": {
         "name": "Windows-Insider-Dienst abschalten",
-        "beschreibung": "Verwaltet die Teilnahme am Insider-Programm.",
+        "beschreibung": "Der Dienst für das Windows-Insider-Programm mit Vorabversionen.",
         "hinweis": "Wer teilnimmt, bekommt keine Vorabversionen mehr."
       },
       "en": {
         "name": "Turn off the Windows Insider service",
-        "beschreibung": "Manages participation in the Insider programme.",
+        "beschreibung": "The service for the Windows Insider programme with preview builds.",
         "hinweis": "If you take part, you no longer receive preview builds."
       },
       "details": {
