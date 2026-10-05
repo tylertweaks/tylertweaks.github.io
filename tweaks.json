@@ -1,7 +1,7 @@
 {
-  "version": "3.0.0",
-  "erzeugt": "2026-10-03",
-  "anzahl": 228,
+  "version": "4.0.0",
+  "erzeugt": "2026-10-05",
+  "anzahl": 230,
   "bereiche": [
     {
       "key": "cat.privacy",
@@ -43,7 +43,7 @@
       "de": "Netzwerk",
       "en": "Network",
       "icon": "IconGlobe",
-      "anzahl": 17
+      "anzahl": 19
     },
     {
       "key": "cat.explorer",
@@ -3053,6 +3053,62 @@
         ]
       },
       "schlagworte": []
+    },
+    {
+      "id": "net-interrupt-moderation-off",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Interrupt Moderation abschalten",
+        "beschreibung": "Die Netzwerkkarte meldet jedes Datenpaket sofort, statt erst ein paar zu sammeln. Das spart ein kleines Stück Verzögerung im Spiel.",
+        "hinweis": "Der Prozessor bekommt bei großen Downloads mehr zu tun. Auf schwachen PCs kann das den Download etwas bremsen."
+      },
+      "en": {
+        "name": "Turn off interrupt moderation",
+        "beschreibung": "The network card reports every data packet straight away instead of collecting a few first. That saves a small amount of delay in games.",
+        "hinweis": "The processor has more to do during large downloads. On slow PCs that can slow the download down a little."
+      },
+      "details": {
+        "de": [
+          "Netzwerkkarten, die das anbieten\\*InterruptModeration = 0   (zurück: Standard des Treibers)"
+        ],
+        "en": [
+          "Network adapters that offer it\\*InterruptModeration = 0   (back: driver default)"
+        ]
+      },
+      "schlagworte": [
+        "*InterruptModeration"
+      ]
+    },
+    {
+      "id": "net-flow-control-off",
+      "bereich": "cat.network",
+      "risiko": "Caution",
+      "neustart": true,
+      "admin": true,
+      "de": {
+        "name": "Flow Control abschalten",
+        "beschreibung": "Die Netzwerkkarte hält nicht mehr kurz an, wenn der Router um eine Pause bittet. So gibt es keine kleinen Aussetzer, wenn das Netz gerade voll ist.",
+        "hinweis": "Ist dein Heimnetz stark ausgelastet, geht statt einer kurzen Pause eher ein Paket verloren. Spiele merken das meist nicht."
+      },
+      "en": {
+        "name": "Turn off flow control",
+        "beschreibung": "The network card no longer pauses when the router asks it to. That avoids small dropouts while the network is busy.",
+        "hinweis": "If your home network is very busy, a packet is more likely to get lost instead of a short pause. Games rarely notice."
+      },
+      "details": {
+        "de": [
+          "Netzwerkkarten, die das anbieten\\*FlowControl = 0   (zurück: Standard des Treibers)"
+        ],
+        "en": [
+          "Network adapters that offer it\\*FlowControl = 0   (back: driver default)"
+        ]
+      },
+      "schlagworte": [
+        "*FlowControl"
+      ]
     },
     {
       "id": "net-new-network-prompt-off",

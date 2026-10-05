@@ -164,8 +164,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '3.0.0',
-    datum: '03.10.2026',
+    version: '4.0.0',
+    datum: '05.10.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -182,9 +182,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-3.0.0.exe',
+    datei: 'downloads/TylerTweaksSetup-4.0.0.exe',
     groesse: '47,2 MB',
-    sha256: 'b254c57630cfc1fd0cce3df6c4f7937aa8f2b760f6c9b110dc24a434c02d1a36'
+    sha256: '23bdfc7e9c845b51e5e977feb0642423e0ac7aeaa208aab0d6f2b308f8d74296'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -196,6 +196,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '4.0.0', datum: '05.10.2026', text: 'Neue Übersicht mit Score und Live-Werten ohne Scrollen; GPU-Auslastung und GPU-Temperatur messen jetzt zuverlässig, dazu RAM, VRAM, Strom und Lüfter; neu: Netzwerkkarten-Tuner.' },
     { version: '3.0.0', datum: '03.10.2026', text: 'PC-Check für Bildschirm-Hz und Grafiktreiber, nur noch wirksame Tweaks mit Wirkungs-Balken und Score, Anti-Cheat-Schutz, Updates von selbst und alle Erklärungen in einfacher Sprache.' },
     { version: '2.9.0', datum: '30.09.2026', text: 'Der Game Booster schließt jetzt wirklich alles, was nicht auf deiner Whitelist steht – auch Apps im Infobereich und alle Hilfsprozesse. Windows, Anti-Cheat und Grafiktreiber bleiben geschützt, und was eine Whitelist-App gestartet hat, bleibt offen. Tyler prüft beim Start selbst, ob es eine neue Version gibt, und bringt dich mit „Jetzt herunterladen“ direkt zum Download. Die Seite „Alle Tweaks“ ist entfallen, der Bereich Tweaks öffnet jetzt mit den Presets.' },
     { version: '2.8.1', datum: '27.09.2026', text: 'Neuer PC oder neue Festplatte? Die Bindung deiner Lizenz löst du jetzt selbst im Kundenkonto, und Tyler sagt dir beim Start, wo das geht. Dazu eine zuverlässigere Lizenzprüfung.' },
