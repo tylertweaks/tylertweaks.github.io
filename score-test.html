@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Dieselbe Sicherheitsrichtlinie wie auf tweaks.html. Der Test braucht
+     keine fremde Quelle: Fragen und Auswertung stehen in score-test.js, und
+     die Antworten verlassen den Browser nie. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co">
+<link rel="canonical" href="https://tylertweaks.github.io/score-test.html">
+<title>PC-Score-Test — Wie viel steckt noch in deinem PC? | Tyler Tweaks</title>
+<meta name="description" content="12 Fragen, zwei Minuten: Der PC-Score-Test zeigt, wo dein Windows Leistung liegen lässt und womit du anfangen solltest. Ohne Anmeldung, nichts wird gesendet.">
+<meta name="theme-color" content="#05070c">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Tyler Tweaks">
+<meta property="og:title" content="PC-Score-Test: Wie viel steckt noch in deinem PC?">
+<meta property="og:description" content="12 Fragen, zwei Minuten, ohne Anmeldung. Danach weißt du, wo dein Windows Leistung liegen lässt.">
+<meta property="og:url" content="https://tylertweaks.github.io/score-test.html">
+<meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=4.0.0">
+<link rel="stylesheet" href="score-test.css?v=4.0.0">
+</head>
+<body>
+
+<a href="#inhalt" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="favicon.svg" alt="" width="36" height="36">
+      <span>Tyler <strong>Tweaks</strong></span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="score-test.html" aria-current="page">Score-Test</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#support">Support</a>
+      <a href="admin.html" id="nav-admin" hidden>Admin</a>
+      <span id="nav-auth-mobil"></span>
+      <a href="index.html#preise" class="nav-cta">Jetzt kaufen</a>
+    </nav>
+
+    <div class="nav-actions">
+      <span id="nav-auth" class="nav-auth"></span>
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt">
+
+<!-- ============ SCORE-TEST ============
+     Drei Teile in einer Karte: Start, Frage, Ergebnis. score-test.js schaltet
+     zwischen ihnen um und baut die Antwortknöpfe. Ohne Skript bleibt nur der
+     Hinweis im <noscript> stehen. -->
+<section class="score-seite">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap score-wrap">
+
+    <div class="score-kopf">
+      <span class="eyebrow">PC-Score-Test</span>
+      <h1>Wie viel steckt noch in deinem PC?</h1>
+      <p class="sub">
+        12 kurze Fragen, etwa zwei Minuten. Danach siehst du, wo dein Windows Leistung
+        liegen lässt und womit du anfangen solltest.
+      </p>
+    </div>
+
+    <div class="score-karte" id="score-karte">
+
+      <!-- ---- Start ---- -->
+      <div class="score-start" id="score-start">
+        <div class="score-start-ring" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <circle class="score-ring-spur" cx="60" cy="60" r="52"/>
+            <circle class="score-ring-deko" cx="60" cy="60" r="52"/>
+          </svg>
+          <span>?</span>
+        </div>
+
+        <ul class="score-fakten">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span><strong>Zwei Minuten</strong> für 12 Fragen</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <span><strong>Ohne Anmeldung</strong>, nichts wird gesendet</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg>
+            <span><strong>Drei Baustellen</strong>, mit denen du anfangen solltest</span>
+          </li>
+        </ul>
+
+        <button type="button" class="btn btn-primary btn-lg score-los" id="score-los">
+          <span>Test starten</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </button>
+
+        <noscript>
+          <p class="score-noscript">Der Test braucht JavaScript. Ohne läuft er leider nicht.</p>
+        </noscript>
+      </div>
+
+      <!-- ---- Frage ---- -->
+      <div class="score-frage" id="score-frage" hidden>
+        <div class="score-fortschritt">
+          <span id="score-zaehler">Frage 1 von 12</span>
+          <span id="score-prozent">0 %</span>
+        </div>
+        <div class="score-balken" id="score-balken" role="progressbar"
+             aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="score-balken-fuell"></span>
+        </div>
+
+        <h2 id="score-frage-titel" tabindex="-1"></h2>
+        <p class="score-hilfe" id="score-frage-hilfe" hidden></p>
+
+        <div class="score-antworten" id="score-antworten"></div>
+
+        <div class="score-fuss">
+          <button type="button" class="score-zurueck" id="score-zurueck" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+            Zurück
+          </button>
+          <span class="score-tasten-hinweis" aria-hidden="true">Tasten 1 bis 4 wählen aus</span>
+        </div>
+      </div>
+
+      <!-- ---- Ergebnis ---- -->
+      <div class="score-ergebnis" id="score-ergebnis" hidden>
+        <h2 class="sr-only" id="score-ergebnis-titel" tabindex="-1">Dein Ergebnis</h2>
+
+        <div class="score-ring" id="score-ring" role="img" aria-label="Potenzial">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <linearGradient id="score-verlauf" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2ec5ff"/>
+                <stop offset="1" stop-color="#1d4ed8"/>
+              </linearGradient>
+            </defs>
+            <circle class="score-ring-spur" cx="60" cy="60" r="52"/>
+            <circle class="score-ring-wert" id="score-ring-wert" cx="60" cy="60" r="52"/>
+          </svg>
+          <div class="score-ring-mitte" aria-hidden="true">
+            <span class="score-zahl" id="score-zahl">0</span>
+            <span class="score-einheit">Potenzial</span>
+          </div>
+        </div>
+
+        <p class="score-stufe" id="score-stufe"></p>
+        <p class="score-stufe-text" id="score-stufe-text"></p>
+
+        <p class="score-zwischen" id="score-baustellen-kopf">Damit würde ich bei dir anfangen</p>
+        <ol class="score-baustellen" id="score-baustellen"></ol>
+
+        <div class="score-empfehlung" id="score-empfehlung">
+          <div>
+            <span class="score-empfehlung-marke">Passt zu dir</span>
+            <h3 id="score-paket-name"></h3>
+            <p id="score-paket-text"></p>
+          </div>
+          <a class="btn btn-primary" id="score-paket-link" href="index.html#preise">
+            <span>Paket ansehen</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="score-nachher">
+          <button type="button" class="btn btn-outline" id="score-nochmal">Noch einmal testen</button>
+          <a class="btn btn-outline" href="tweaks.html">Alle Optimierungen ansehen</a>
+        </div>
+
+        <p class="score-hinweis">
+          Der Wert ist eine Einschätzung aus deinen Antworten, keine Messung an deinem PC.
+          Wie viel eine Optimierung bringt, hängt von deiner Hardware ab.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="index.html" class="logo">
+        <img src="favicon.svg" alt="" width="36" height="36">
+        <span>Tyler <strong>Tweaks</strong></span>
+      </a>
+      <p class="muted">PC-Optimierung für Gaming und Alltag.<br>Windows 10 und 11, Backup inklusive.</p>
+    </div>
+
+    <div>
+      <h4>Angebot</h4>
+      <ul>
+        <li><a href="index.html#tarif-opt">PC-Optimierung</a></li>
+        <li><a href="index.html#tarif-bundle">Bundle</a></li>
+        <li><a href="index.html#tarif-app">Tweak App</a></li>
+        <li><a href="tweaks.html">Alle Optimierungen</a></li>
+        <li><a href="score-test.html">PC-Score-Test</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Konto</h4>
+      <ul>
+        <li><a href="konto.html">Kundenbereich</a></li>
+        <li><a href="anmelden.html">Anmelden</a></li>
+        <li><a href="registrieren.html">Registrieren</a></li>
+        <li><a href="passwort-vergessen.html">Passwort vergessen</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="index.html#support">Hilfe &amp; Kontakt</a></li>
+        <li><a href="index.html#faq">Häufige Fragen</a></li>
+        <li><a href="index.html#vertrauen">Sicherheit &amp; Backup</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="widerruf.html">Rücktrittsbelehrung</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="disclaimer">
+      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben —
+      die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
+      Verantwortung. Vor Änderungen wird automatisch ein Backup erstellt.
+      Windows ist eine Marke der Microsoft Corporation — Tyler Tweaks steht mit Microsoft in keiner Verbindung.
+    </p>
+    <p class="rechtslinks">
+      <a href="impressum.html">Impressum</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="agb.html">AGB</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="widerruf.html">Rücktritt</a>
+    </p>
+    <p class="copy">© <span id="year">2026</span> Tyler Tweaks</p>
+  </div>
+</footer>
+
+<script src="js/supabase-js-2.45.4.js"></script>
+<script src="konfig.js?v=4.0.0"></script>
+<script src="tt-backend.js?v=4.0.0"></script>
+<script src="warenkorb.js?v=4.0.0"></script>
+<script src="score-test.js?v=4.0.0"></script>
+</body>
+</html>

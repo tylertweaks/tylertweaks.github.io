@@ -193,6 +193,7 @@ das Geheimnis, mit dem die Datenbank das Script aufruft.
 |---|---|
 | `index.html` | Startseite: Name groß oben, Wegweiser, die drei Pakete untereinander, Kaufablauf, Sicherheit, FAQ, Support |
 | `tweaks.html` | Alle Optimierungen im Einzelnen — durchsuchbar, filterbar, ohne Anmeldung |
+| `score-test.html` | PC-Score-Test: 12 Fragen, danach ein Wert von 0 bis 100, die drei größten Baustellen und das passende Paket. Läuft nur im Browser, sendet nichts |
 | `registrieren.html` | Konto anlegen |
 | `anmelden.html` | Login |
 | `passwort-vergessen.html` | Link zum Zurücksetzen anfordern |
@@ -213,9 +214,11 @@ das Geheimnis, mit dem die Datenbank das Script aufruft.
 | `tweaks.json` | **Erzeugt, nicht von Hand gepflegt.** Der Tweak-Katalog aus der App. |
 | `tweaks.js` | Lädt den Katalog, baut eine Zeile, setzt alle Zahlen ins HTML, treibt die Vorführung auf der Startseite |
 | `katalog.js` | Nur `tweaks.html`: Suche, Filter, Sprungmarken |
+| `score-test.js` | Nur `score-test.html`: Fragen, Punkte je Bereich, Auswertung. Neue Fragen oder andere Texte stehen alle oben in dieser Datei |
 | `style.css` | Design-System der gesamten Seite |
 | `tweak-zeile.css` | Aufbau einer Katalogzeile auf `tweaks.html` |
 | `katalog.css` | Nur `tweaks.html`: Kopf, Filterleiste, Liste |
+| `score-test.css` | Nur `score-test.html` |
 | `mockup.css` | Gezeichnete Illustrationen im Kaufablauf |
 | `bilder/app-*.png` | Bildschirmfotos der App. Seit 2.9.0 nicht eingebunden — die Startseite stellt die App nicht mehr vor, sie verkauft sie nur noch |
 | `robots.txt` | Hält Kundenbereich, Kasse und Verwaltung aus den Suchergebnissen |

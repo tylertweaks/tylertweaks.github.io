@@ -4570,3 +4570,159 @@ body { counter-reset: abschnitt; }
 }
 .app-demo-punkte button[aria-current="true"] { width: 34px; background: var(--accent); }
 .app-demo-punkte button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ==========================================================================
+   27. Nachtblau (4.1)
+
+   Legt sich wie die Abschnitte 23 bis 26 über alles darüber; Rückbau ist das
+   Löschen dieses Blocks. Die Website folgt damit dem Nachtblau der App 4.1
+   (Themes/Colors.xaml im App-Projekt):
+
+   1. Hauptknöpfe in tiefem Blau mit weißer Schrift, Glanzkante oben und
+      blauem Schein — statt des hellen Cyan-Verlaufs mit schwarzer Schrift.
+      Weiß auf #2563EB hat 5,2:1, auf #1D4ED8 6,7:1. Beim Überfahren wird nur
+      der Schein stärker, nicht die Fläche heller, sonst fiele der Kontrast
+      unter 4,5:1. Gold bleibt die Farbe für „Empfehlung“ und behält seinen
+      Knopf.
+   2. Die aktive Stelle im Menü als nachtblaue Fläche wie in der Seitenleiste
+      der App, dazu eine Bildlaufleiste in Blau.
+   3. Die Naht zwischen den Abschnitten leuchtet in der Mitte.
+   4. Das Band zum PC-Score-Test unter dem Namen (score-test.html).
+   ========================================================================== */
+
+:root {
+  --nacht:      #1d4ed8;
+  --nacht-hell: #2563eb;
+  --nacht-rgb:  29, 78, 216;
+}
+
+html { scrollbar-color: #24345a var(--bg); }
+
+/* ---------- Hauptknöpfe ---------- */
+.btn-primary {
+  background: linear-gradient(180deg, var(--nacht-hell) 0%, var(--nacht) 100%);
+  color: #fff;
+  border-color: rgba(147, 197, 253, .28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .26),
+    0 8px 26px rgba(var(--nacht-rgb), .45),
+    0 0 36px rgba(var(--nacht-rgb), .22);
+}
+.btn-primary:hover {
+  border-color: rgba(147, 197, 253, .5);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .32),
+    0 12px 34px rgba(var(--nacht-rgb), .6),
+    0 0 54px rgba(37, 99, 235, .4);
+}
+.btn-primary::after {
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .22) 50%, transparent 70%);
+}
+
+.ton-gold .btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #05050a;
+  border-color: transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 8px 28px rgba(var(--accent-rgb), .30);
+}
+.ton-gold .btn-primary:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 14px 38px rgba(var(--accent-rgb), .42);
+}
+
+/* ---------- Menü ---------- */
+.nav-links a:hover { background: rgba(var(--nacht-rgb), .18); }
+.nav-links a.is-active,
+.nav-links a[aria-current="page"] {
+  color: #fff;
+  background: rgba(var(--nacht-rgb), .42);
+  box-shadow: inset 0 0 0 1px rgba(96, 165, 250, .25);
+}
+
+/* ---------- Leuchtende Naht zwischen den Abschnitten ----------
+   Die Naht aus Abschnitt 3 (.section + .section::after), nur in der Mitte
+   heller und mit Schein. */
+.section + .section::after {
+  background: linear-gradient(90deg, transparent 8%, rgba(96, 165, 250, .6), transparent 92%);
+  box-shadow: 0 0 16px rgba(var(--nacht-rgb), .8);
+}
+
+/* ---------- Band zum PC-Score-Test ---------- */
+.score-band { position: relative; padding: 12px 0 28px; }
+
+.score-band-karte {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 26px 30px;
+  overflow: hidden;
+  border: 1px solid rgba(96, 165, 250, .28);
+  border-radius: 18px;
+  background:
+    radial-gradient(520px 220px at 0% 50%, rgba(var(--nacht-rgb), .32), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, .025), transparent),
+    var(--surface);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .07),
+    0 20px 60px rgba(0, 0, 0, .45),
+    0 0 80px rgba(var(--nacht-rgb), .14);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.score-band-karte:hover {
+  border-color: rgba(96, 165, 250, .55);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .09),
+    0 26px 70px rgba(0, 0, 0, .5),
+    0 0 100px rgba(var(--nacht-rgb), .26);
+}
+
+.score-band-ring {
+  position: relative;
+  flex-shrink: 0;
+  width: 92px;
+  height: 92px;
+}
+.score-band-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.score-band-ring > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-head);
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+.score-band-spur { fill: none; stroke: var(--surface-3); stroke-width: 9; }
+.score-band-wert {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 230 327;
+  filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), .7));
+}
+@media (prefers-reduced-motion: no-preference) {
+  .score-band-karte:hover .score-band-wert { stroke-dasharray: 300 327; }
+  .score-band-wert { transition: stroke-dasharray .6s ease; }
+}
+
+.score-band-text { display: grid; gap: 4px; min-width: 0; }
+.score-band-text .eyebrow { margin-bottom: 4px; }
+.score-band-titel {
+  font-family: var(--font-head);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+  color: var(--text);
+}
+.score-band-sub { color: var(--muted); font-size: .95rem; line-height: 1.55; }
+.score-band-knopf { flex-shrink: 0; margin-left: auto; }
+
+@media (max-width: 760px) {
+  .score-band-karte { flex-direction: column; align-items: flex-start; gap: 18px; padding: 22px 20px; }
+  .score-band-ring { width: 72px; height: 72px; }
+  .score-band-ring > span { font-size: 1.7rem; }
+  .score-band-knopf { margin-left: 0; width: 100%; }
+}
