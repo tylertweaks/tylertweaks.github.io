@@ -100,7 +100,8 @@ Schalter auf `false` setzen. Danach gilt wieder, was unten steht.
 
 ## App noch nicht erschienen
 
-**Seit 01.10.2026 steht `appErscheint: 'nächste Woche'` in `konfig.js`.**
+**Seit 15.10.2026 (Tyler 4.1.0) ist die App kaufbar**, `appErscheint` in
+`konfig.js` ist leer. Vom 01.10. bis dahin stand dort `'nächste Woche'`.
 Solange dort ein Text steht:
 
 - Oben auf jeder Seite steht „Die Tweak App erscheint nächste Woche“

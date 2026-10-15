@@ -78,9 +78,10 @@ window.TT_KONFIG = {
      Bundle zeigen "Erscheint <Text>".
 
      Der Text muss in diese Sätze passen: 'nächste Woche', 'am 8. Oktober' …
-     Seit 01.10.2026 gesetzt. Ist die App da: appErscheint: ''
+     Von 01.10. bis 15.10.2026 stand hier 'nächste Woche'. Seit Tyler 4.1.0
+     ist die App da und der Text leer.
      ----------------------------------------------------------------------- */
-  appErscheint: 'nächste Woche',
+  appErscheint: '',
 
   // 'sandbox' zum Testen mit PayPal-Testkonten, 'live' für echtes Geld.
   // Muss zu PAYPAL_ENV in den Supabase-Secrets passen.
