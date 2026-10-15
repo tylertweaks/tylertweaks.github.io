@@ -164,8 +164,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '4.0.0',
-    datum: '05.10.2026',
+    version: '4.1.0',
+    datum: '15.10.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -182,9 +182,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-4.0.0.exe',
-    groesse: '47,2 MB',
-    sha256: '23bdfc7e9c845b51e5e977feb0642423e0ac7aeaa208aab0d6f2b308f8d74296'
+    datei: 'downloads/TylerTweaksSetup-4.1.0.exe',
+    groesse: '51,3 MB',
+    sha256: 'c5d2470cf99f3c12b634a03064389a346a4ceb3ac610edc8b4f3452419265475'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -196,6 +196,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '4.1.0', datum: '15.10.2026', text: 'Neues Design in Nachtblau mit schärferem Logo, Suche über alle Tweaks mit Strg+F, Autostart zeigt jetzt auch geplante Aufgaben und Store-Apps, der PC-Check sitzt unter Treiber & Tools, und das Deinstallieren nimmt deine Änderungen wieder zuverlässig zurück.' },
     { version: '4.0.0', datum: '05.10.2026', text: 'Neue Übersicht mit Score und Live-Werten ohne Scrollen; GPU-Auslastung und GPU-Temperatur messen jetzt zuverlässig, dazu RAM, VRAM, Strom und Lüfter; neu: Netzwerkkarten-Tuner.' },
     { version: '3.0.0', datum: '03.10.2026', text: 'PC-Check für Bildschirm-Hz und Grafiktreiber, nur noch wirksame Tweaks mit Wirkungs-Balken und Score, Anti-Cheat-Schutz, Updates von selbst und alle Erklärungen in einfacher Sprache.' },
     { version: '2.9.0', datum: '30.09.2026', text: 'Der Game Booster schließt jetzt wirklich alles, was nicht auf deiner Whitelist steht – auch Apps im Infobereich und alle Hilfsprozesse. Windows, Anti-Cheat und Grafiktreiber bleiben geschützt, und was eine Whitelist-App gestartet hat, bleibt offen. Tyler prüft beim Start selbst, ob es eine neue Version gibt, und bringt dich mit „Jetzt herunterladen“ direkt zum Download. Die Seite „Alle Tweaks“ ist entfallen, der Bereich Tweaks öffnet jetzt mit den Presets.' },

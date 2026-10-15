@@ -1,6 +1,6 @@
 {
-  "version": "4.0.0",
-  "erzeugt": "2026-10-05",
+  "version": "4.1.0",
+  "erzeugt": "2026-10-15",
   "anzahl": 230,
   "bereiche": [
     {
@@ -112,7 +112,6 @@
         "cpu-power-throttling",
         "cpu-min-state",
         "cpu-core-parking",
-        "cpu-fortnite-priority",
         "gpu-gamedvr-off",
         "gpu-display-idle",
         "gpu-fullscreen-optimizations",
@@ -196,8 +195,6 @@
         "svc-wpdbusenum",
         "svc-tapi",
         "svc-xbox",
-        "svc-hyperv-core",
-        "svc-hyperv-extra",
         "exp-taskbar-hover",
         "exp-startup-sound",
         "exp-smooth-scroll-off",
@@ -244,11 +241,11 @@
       "icon": "IconShieldCheck",
       "de": {
         "name": "Nur das Sichere",
-        "beschreibung": "Alle Tweaks ohne Vorsicht-Hinweis. Der unaufgeregte Einstieg, wenn du unsicher bist."
+        "beschreibung": "Alles, was als sicher gilt – auch die Optik-Tweaks für Explorer und Taskleiste. Also „Alle optimieren“ plus Optik."
       },
       "en": {
         "name": "Safe picks only",
-        "beschreibung": "Every tweak without a caution label. The calm way in when you are unsure."
+        "beschreibung": "Everything rated safe – including the cosmetic tweaks for Explorer and the taskbar. So “Optimise every category” plus cosmetics."
       },
       "alleSicheren": true,
       "tweakIds": [
@@ -374,7 +371,7 @@
       "id": "privacy-telemetry",
       "bereich": "cat.privacy",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": true,
       "de": {
         "name": "Telemetrie minimieren",
@@ -503,12 +500,14 @@
       "neustart": false,
       "admin": true,
       "de": {
-        "name": "Kamera für Apps sperren",
-        "beschreibung": "Apps aus dem Microsoft Store dürfen deine Kamera nicht mehr benutzen. Videoanrufe in diesen Apps gehen dann nicht mehr."
+        "name": "Kamera für alle Apps sperren",
+        "beschreibung": "Kein Programm darf deine Kamera mehr benutzen – keine Store-App, aber auch nicht Discord, Teams oder Spiele. Videoanrufe gehen dann nirgends mehr.",
+        "hinweis": "Gilt für den ganzen PC. Wer die Webcam für Discord, Teams oder Streams nutzt, lässt diesen Tweak aus."
       },
       "en": {
-        "name": "Block camera access for apps",
-        "beschreibung": "Apps from the Microsoft Store can no longer use your camera. Video calls in those apps stop working."
+        "name": "Block the camera for all apps",
+        "beschreibung": "No program may use your camera any more – no Store app, but not Discord, Teams or games either. Video calls stop working everywhere.",
+        "hinweis": "Applies to the whole PC. If you use your webcam for Discord, Teams or streams, leave this tweak off."
       },
       "details": {
         "de": [
@@ -527,12 +526,14 @@
       "neustart": false,
       "admin": true,
       "de": {
-        "name": "Mikrofon für Apps sperren",
-        "beschreibung": "Apps aus dem Microsoft Store dürfen dein Mikrofon nicht mehr benutzen. Anrufe und Sprachaufnahmen in diesen Apps gehen dann nicht mehr."
+        "name": "Mikrofon für alle Apps sperren",
+        "beschreibung": "Kein Programm darf dein Mikrofon mehr benutzen – keine Store-App, aber auch nicht Discord, Teams oder Spiele. Sprachchat und Anrufe gehen dann nirgends mehr.",
+        "hinweis": "Gilt für den ganzen PC: Auch im Discord- und Spiele-Sprachchat hört dich danach niemand mehr."
       },
       "en": {
-        "name": "Block microphone access for apps",
-        "beschreibung": "Apps from the Microsoft Store can no longer use your microphone. Calls and voice recordings in those apps stop working."
+        "name": "Block the microphone for all apps",
+        "beschreibung": "No program may use your microphone any more – no Store app, but not Discord, Teams or games either. Voice chat and calls stop working everywhere.",
+        "hinweis": "Applies to the whole PC: nobody hears you in Discord or in-game voice chat any more either."
       },
       "details": {
         "de": [
@@ -998,7 +999,7 @@
       "id": "privacy-copilot-policy",
       "bereich": "cat.privacy",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": true,
       "de": {
         "name": "Copilot per Richtlinie abschalten",
@@ -1384,14 +1385,14 @@
       },
       "details": {
         "de": [
-          "HKCU\\Control Panel\\Accessibility\\ToggleKeys\\Flags = 58   (zurück: 62)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\Flags = 122   (zurück: 126)",
-          "HKCU\\Control Panel\\Accessibility\\HighContrast\\Flags = 122   (zurück: 126)"
+          "HKCU\\Control Panel\\Accessibility\\ToggleKeys\\Flags: Bit 0x4 (Tastenkürzel) aus, die übrigen Bits bleiben   (zurück: Bit 0x4 wieder an)",
+          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\Flags: Bit 0x4 (Tastenkürzel) aus, die übrigen Bits bleiben   (zurück: Bit 0x4 wieder an)",
+          "HKCU\\Control Panel\\Accessibility\\HighContrast\\Flags: Bit 0x4 (Tastenkürzel) aus, die übrigen Bits bleiben   (zurück: Bit 0x4 wieder an)"
         ],
         "en": [
-          "HKCU\\Control Panel\\Accessibility\\ToggleKeys\\Flags = 58   (back: 62)",
-          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\Flags = 122   (back: 126)",
-          "HKCU\\Control Panel\\Accessibility\\HighContrast\\Flags = 122   (back: 126)"
+          "HKCU\\Control Panel\\Accessibility\\ToggleKeys\\Flags: bit 0x4 (shortcut) off, all other bits unchanged   (back: bit 0x4 on again)",
+          "HKCU\\Control Panel\\Accessibility\\Keyboard Response\\Flags: bit 0x4 (shortcut) off, all other bits unchanged   (back: bit 0x4 on again)",
+          "HKCU\\Control Panel\\Accessibility\\HighContrast\\Flags: bit 0x4 (shortcut) off, all other bits unchanged   (back: bit 0x4 on again)"
         ]
       },
       "schlagworte": []
@@ -1514,10 +1515,10 @@
       },
       "details": {
         "de": [
-          "HKCU\\Control Panel\\Accessibility\\StickyKeys\\Flags = 506   (zurück: 510)"
+          "HKCU\\Control Panel\\Accessibility\\StickyKeys\\Flags: Bit 0x4 (Tastenkürzel) aus, die übrigen Bits bleiben   (zurück: Bit 0x4 wieder an)"
         ],
         "en": [
-          "HKCU\\Control Panel\\Accessibility\\StickyKeys\\Flags = 506   (back: 510)"
+          "HKCU\\Control Panel\\Accessibility\\StickyKeys\\Flags: bit 0x4 (shortcut) off, all other bits unchanged   (back: bit 0x4 on again)"
         ]
       },
       "schlagworte": []
@@ -1622,7 +1623,7 @@
       "id": "sys-crash-dump",
       "bereich": "cat.system",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": true,
       "de": {
         "name": "Kleines statt vollständiges Absturzabbild",
@@ -1696,7 +1697,7 @@
       "id": "sys-uac-level",
       "bereich": "cat.system",
       "risiko": "Advanced",
-      "neustart": true,
+      "neustart": false,
       "admin": true,
       "de": {
         "name": "Nachfrage der Benutzerkontensteuerung abschalten",
@@ -1938,10 +1939,10 @@
       },
       "details": {
         "de": [
-          "HKCU\\Control Panel\\Accessibility\\MouseKeys\\Flags = 0   (zurück: 62)"
+          "HKCU\\Control Panel\\Accessibility\\MouseKeys\\Flags: Bit 0x4 (Tastenkürzel) aus, die übrigen Bits bleiben   (zurück: Bit 0x4 wieder an)"
         ],
         "en": [
-          "HKCU\\Control Panel\\Accessibility\\MouseKeys\\Flags = 0   (back: 62)"
+          "HKCU\\Control Panel\\Accessibility\\MouseKeys\\Flags: bit 0x4 (shortcut) off, all other bits unchanged   (back: bit 0x4 on again)"
         ]
       },
       "schlagworte": []
@@ -2033,12 +2034,12 @@
       "de": {
         "name": "Energieplan „Höchstleistung“ aktivieren",
         "beschreibung": "Schaltet auf den Energieplan „Höchstleistung“. Rückgängig machen stellt deinen alten Plan wieder ein.",
-        "hinweis": "Die Energie-Tweaks von Tyler gelten immer für den gerade aktiven Plan und stehen nach dem Wechsel für den neuen Plan wieder am Anfang. Auf Laptops steigt der Verbrauch deutlich."
+        "hinweis": "Die Energie-Tweaks von Tyler gelten immer für den gerade aktiven Plan und stehen nach dem Wechsel für den neuen Plan wieder am Anfang. Auf Laptops steigt der Verbrauch deutlich. Bei Ryzen-Prozessoren mit 3D-Cache und zwei Chiplets (7900X3D, 7950X3D, 9900X3D, 9950X3D) schaltet das die Kernzuteilung für Spiele von AMD aus – dort lieber weglassen."
       },
       "en": {
         "name": "Activate the High performance power plan",
         "beschreibung": "Switches to the “High performance” power plan. Undoing it brings back your old plan.",
-        "hinweis": "Tyler\u0027s power tweaks always apply to the active plan and start from scratch for the new plan after switching. On laptops, power draw rises noticeably."
+        "hinweis": "Tyler\u0027s power tweaks always apply to the active plan and start from scratch for the new plan after switching. On laptops, power draw rises noticeably. On Ryzen processors with 3D V-Cache and two chiplets (7900X3D, 7950X3D, 9900X3D, 9950X3D) this switches off AMD\u0027s core assignment for games – better leave it off there."
       },
       "details": {
         "de": [
@@ -2106,7 +2107,7 @@
       "id": "cpu-power-throttling",
       "bereich": "cat.cpu",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": true,
       "de": {
         "name": "Prozessdrosselung abschalten",
@@ -2134,11 +2135,13 @@
       "admin": true,
       "de": {
         "name": "Prozessor-Mindestleistung auf 100 Prozent",
-        "beschreibung": "Der Prozessor läuft immer mit vollem Takt. Das kostet deutlich mehr Strom und macht wärmer."
+        "beschreibung": "Der Prozessor läuft immer mit vollem Takt. Das kostet deutlich mehr Strom und macht wärmer.",
+        "hinweis": "Bei Ryzen-Prozessoren mit 3D-Cache und zwei Chiplets (7900X3D, 7950X3D, 9900X3D, 9950X3D) schaltet das die Kernzuteilung für Spiele von AMD aus – dort lieber weglassen."
       },
       "en": {
         "name": "Processor minimum state at 100 percent",
-        "beschreibung": "The processor always runs at full speed. That costs noticeably more power and adds heat."
+        "beschreibung": "The processor always runs at full speed. That costs noticeably more power and adds heat.",
+        "hinweis": "On Ryzen processors with 3D V-Cache and two chiplets (7900X3D, 7950X3D, 9900X3D, 9950X3D) this switches off AMD\u0027s core assignment for games – better leave it off there."
       },
       "details": {
         "de": [
@@ -2158,11 +2161,13 @@
       "admin": true,
       "de": {
         "name": "Kernparken abschalten",
-        "beschreibung": "Windows legt keine Prozessorkerne mehr schlafen, alle bleiben bereit. Im Leerlauf etwas mehr Stromverbrauch."
+        "beschreibung": "Windows legt keine Prozessorkerne mehr schlafen, alle bleiben bereit. Im Leerlauf etwas mehr Stromverbrauch.",
+        "hinweis": "Bei Ryzen-Prozessoren mit 3D-Cache und zwei Chiplets (7900X3D, 7950X3D, 9900X3D, 9950X3D) schaltet das die Kernzuteilung für Spiele von AMD aus – dort lieber weglassen."
       },
       "en": {
         "name": "Switch off core parking",
-        "beschreibung": "Windows stops putting processor cores to sleep; all of them stay ready. Slightly higher power use when idle."
+        "beschreibung": "Windows stops putting processor cores to sleep; all of them stay ready. Slightly higher power use when idle.",
+        "hinweis": "On Ryzen processors with 3D V-Cache and two chiplets (7900X3D, 7950X3D, 9900X3D, 9950X3D) this switches off AMD\u0027s core assignment for games – better leave it off there."
       },
       "details": {
         "de": [
@@ -2381,12 +2386,12 @@
       "neustart": false,
       "admin": false,
       "de": {
-        "name": "Xbox Game Bar vollständig abschalten",
-        "beschreibung": "Die Game Bar geht nicht mehr mit Windows\u002BG auf und meldet sich beim Spielstart nicht mehr."
+        "name": "Game Bar nicht mehr aufpoppen lassen",
+        "beschreibung": "Die Game Bar geht nicht mehr über den Xbox-Knopf am Controller auf und meldet sich beim Spielstart nicht mehr. Mit Windows\u002BG lässt sie sich weiter öffnen."
       },
       "en": {
-        "name": "Switch off the Xbox Game Bar completely",
-        "beschreibung": "The Game Bar no longer opens with Windows\u002BG and stops popping up when a game starts."
+        "name": "Stop the Game Bar from popping up",
+        "beschreibung": "The Game Bar no longer opens via the Xbox button on your controller and stops showing a hint when a game starts. Windows\u002BG still opens it."
       },
       "details": {
         "de": [
@@ -2416,10 +2421,10 @@
       },
       "details": {
         "de": [
-          "HKCU\\Software\\Microsoft\\DirectX\\UserGpuPreferences\\DirectXUserGlobalSettings = SwapEffectUpgradeEnable=1;   (zurück: )"
+          "HKCU\\Software\\Microsoft\\DirectX\\UserGpuPreferences\\DirectXUserGlobalSettings: SwapEffectUpgradeEnable=1   (zurück: gelöscht)"
         ],
         "en": [
-          "HKCU\\Software\\Microsoft\\DirectX\\UserGpuPreferences\\DirectXUserGlobalSettings = SwapEffectUpgradeEnable=1;   (back: )"
+          "HKCU\\Software\\Microsoft\\DirectX\\UserGpuPreferences\\DirectXUserGlobalSettings: SwapEffectUpgradeEnable=1   (back: deleted)"
         ]
       },
       "schlagworte": []
@@ -3324,10 +3329,10 @@
       },
       "details": {
         "de": [
-          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\\SearchboxTaskbarMode = 0   (zurück: 1)"
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\\SearchboxTaskbarMode = 1   (zurück: 2)"
         ],
         "en": [
-          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\\SearchboxTaskbarMode = 0   (back: 1)"
+          "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\\SearchboxTaskbarMode = 1   (back: 2)"
         ]
       },
       "schlagworte": []
@@ -3434,7 +3439,7 @@
       "id": "exp-web-search",
       "bereich": "cat.explorer",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": false,
       "de": {
         "name": "Websuche im Startmenü abschalten",
@@ -3458,7 +3463,7 @@
       "id": "exp-news",
       "bereich": "cat.explorer",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": true,
       "de": {
         "name": "Nachrichten und Interessen abschalten",
@@ -3650,7 +3655,7 @@
       "id": "exp-taskbar-hover",
       "bereich": "cat.explorer",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": false,
       "de": {
         "name": "Vorschau ohne Verzögerung",
@@ -3776,7 +3781,7 @@
       "id": "exp-minimize-shortcuts-off",
       "bereich": "cat.explorer",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": false,
       "de": {
         "name": "Tastenkürzel zum Minimieren aller Fenster abschalten",
@@ -3902,7 +3907,7 @@
       "id": "exp-alttab-classic",
       "bereich": "cat.explorer",
       "risiko": "Safe",
-      "neustart": false,
+      "neustart": true,
       "admin": false,
       "de": {
         "name": "Klassischen Alt\u002BTab-Umschalter verwenden",

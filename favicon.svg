@@ -2,9 +2,10 @@
 <!--
   Tyler Tweaks — das Logo.
 
-  Das T aus der App (TweakApp/Assets/app.ico und logo.png), als Vektor
-  nachgezeichnet: Das Original ist nur 36 px groß und wird vergrößert unscharf.
-  Die blaue Kachel entspricht dem App-Symbol in der Taskleiste.
+  Dasselbe Glas-T wie in der App. Seit 4.1 ist dort TweakApp/Themes/Logo.xaml
+  die Quelle (Vektor, Farben am alten 36-px-Original nachgemessen); app.ico und
+  logo.png werden daraus erzeugt. Beide Dateien beschreiben dieselbe Zeichnung
+  im selben 64er-Raster — wer eine ändert, ändert die andere mit.
 
   Eine Datei für alles: Browser-Tab, Navigation, Fußbereich und die große Marke
   auf der Startseite binden genau diese Datei ein. Wer das Logo ändert, ändert
@@ -12,30 +13,44 @@
 -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="kachel" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#061033"/>
-      <stop offset="1" stop-color="#1F5FE0"/>
+    <linearGradient id="kachel" x1="0" y1="0" x2=".6" y2="1">
+      <stop offset="0" stop-color="#010928"/>
+      <stop offset=".55" stop-color="#0A2A9E"/>
+      <stop offset="1" stop-color="#0050E7"/>
+    </linearGradient>
+    <linearGradient id="licht" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4FA3FF" stop-opacity=".4"/>
+      <stop offset=".5" stop-color="#000" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="kante" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#9BE4FF"/>
-      <stop offset="1" stop-color="#3D8BFF"/>
+      <stop offset="0" stop-color="#B5EEFF"/>
+      <stop offset="1" stop-color="#4FA3FF"/>
     </linearGradient>
     <linearGradient id="glas" x1="0" y1="0" x2=".6" y2="1">
-      <stop offset="0" stop-color="#2F7BFF"/>
+      <stop offset="0" stop-color="#1C8AFC"/>
       <stop offset=".5" stop-color="#0B1A48"/>
       <stop offset="1" stop-color="#1F5FE0"/>
     </linearGradient>
+    <clipPath id="ecken"><rect width="64" height="64" rx="12"/></clipPath>
+    <path id="t" d="M10 14 C22 11 40 8.5 55 7.5 C55.5 12 54 17 50.5 21 C46 20 41 21 38.5 24
+             C37.5 33 37 42 37.5 51 C38 54 39.5 56 41 57.5 L25 57.5 C26.5 56 27.5 54 27.5 51
+             C27.5 42 27 33 25.5 24.5 C20 24 14.5 27 12 33 C8.5 30 6 24 6.5 19 C7 16.5 8 15 10 14 Z"/>
   </defs>
 
-  <rect width="64" height="64" rx="12" fill="url(#kachel)"/>
+  <g clip-path="url(#ecken)">
+    <rect width="64" height="64" rx="12" fill="url(#kachel)"/>
+    <!-- Lichtkante oben links auf der Kachel -->
+    <rect x=".6" y=".6" width="62.8" height="62.8" rx="11.4" fill="none" stroke="url(#licht)" stroke-width="1.2"/>
 
-  <!-- Das T: Querbalken mit nach unten gebogenen Armen, Stamm mit Fuß. -->
-  <path d="M10 14 C22 11 40 8.5 55 7.5 C55.5 12 54 17 50.5 21 C46 20 41 21 38.5 24
-           C37.5 33 37 42 37.5 51 C38 54 39.5 56 41 57.5 L25 57.5 C26.5 56 27.5 54 27.5 51
-           C27.5 42 27 33 25.5 24.5 C20 24 14.5 27 12 33 C8.5 30 6 24 6.5 19 C7 16.5 8 15 10 14 Z"
-        fill="url(#glas)" stroke="url(#kante)" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- Schein um das T, wie das Leuchten der Kanten im Original -->
+    <use href="#t" fill="none" stroke="#3DB8FF" stroke-opacity=".33" stroke-width="4.5" stroke-linejoin="round"/>
 
-  <!-- Glanz auf dem Querbalken und Grat im Stamm, wie beim Glas-T der App. -->
-  <path d="M9.5 16.5 C18 13.2 30 11.4 44 10.2 C32 12.6 20 14.8 11.2 19.5 Z" fill="#CFF1FF" opacity=".45"/>
-  <path d="M29.2 27 C31 36 33 44 35 50" stroke="#8FE0FF" stroke-width=".9" stroke-linecap="round" opacity=".55" fill="none"/>
+    <!-- Das T: Querbalken mit nach unten gebogenen Armen, Stamm mit Fuß. -->
+    <use href="#t" fill="url(#glas)" stroke="url(#kante)" stroke-width="1.8" stroke-linejoin="round"/>
+
+    <!-- Glanz auf dem Querbalken und zwei sich kreuzende Grate im Stamm. -->
+    <path d="M9.5 16.5 C18 13.2 30 11.4 44 10.2 C32 12.6 20 14.8 11.2 19.5 Z" fill="#CFF1FF" opacity=".45"/>
+    <path d="M29.2 27 C31 36 33 44 35 50" stroke="#8FE0FF" stroke-width=".9" stroke-linecap="round" opacity=".55" fill="none"/>
+    <path d="M35 27.5 C33.5 35 31.5 43 29.5 50" stroke="#8FE0FF" stroke-width=".8" stroke-linecap="round" opacity=".33" fill="none"/>
+  </g>
 </svg>
