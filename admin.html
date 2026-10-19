@@ -109,6 +109,7 @@
           <button type="button" data-ziel="kunden"><span>Kunden</span></button>
           <button type="button" data-ziel="zahlungen"><span>Zahlungen</span></button>
           <button type="button" data-ziel="produkte"><span>Produkte</span></button>
+          <button type="button" data-ziel="rabatte"><span>Rabattcodes</span></button>
         </nav>
 
         <div class="konto-inhalt">
@@ -231,6 +232,65 @@
               übernimmt es sofort.
             </p>
             <div class="tabelle-rahmen"><table class="admin-tabelle" id="t-produkte"></table></div>
+          </section>
+
+          <!-- ============ RABATTCODES ============
+               Anlegen, ändern, aus- und anschalten, löschen. Die Arbeit machen
+               admin_coupon_* in der Datenbank (backend/17-rabattcodes-verwalten.sql
+               im App-Repository); sie prüfen selbst, ob du Admin bist. -->
+          <section class="konto-bereich" id="abereich-rabatte" hidden>
+            <h2 class="bereich-titel">Rabattcodes</h2>
+            <p class="bereich-sub">
+              Ein Code wirkt sofort im Warenkorb und an der Kasse. Gibt es den Code
+              schon, überschreibt „Speichern“ Prozent, Anzeigename, Ablauf und Grenze.
+            </p>
+
+            <section class="panel">
+              <div class="form-msg" id="rabatt-meldung" role="alert"></div>
+
+              <div class="hinweis-kasten" id="rabatt-nicht-bereit" hidden>
+                <p><strong>Noch nicht eingerichtet.</strong> Führ zuerst
+                   <code>17-rabattcodes-verwalten.sql</code> im Supabase-SQL-Editor aus.</p>
+              </div>
+
+              <form id="form-rabatt" novalidate>
+                <div class="field">
+                  <label for="r-code">Code</label>
+                  <input type="text" id="r-code" class="eingabe-text" required
+                         maxlength="30" autocomplete="off" spellcheck="false"
+                         placeholder="z. B. LBX7">
+                  <p class="hint">2 bis 30 Zeichen: Buchstaben, Ziffern, - und _. Groß oder klein ist egal.</p>
+                </div>
+
+                <div class="field">
+                  <label for="r-prozent">Rabatt in Prozent</label>
+                  <input type="number" id="r-prozent" class="eingabe-text" required
+                         min="1" max="90" step="1" placeholder="15">
+                </div>
+
+                <div class="field">
+                  <label for="r-anzeige">Anzeigename (freiwillig)</label>
+                  <input type="text" id="r-anzeige" class="eingabe-text" maxlength="40"
+                         placeholder="So sieht der Kunde den Code, z. B. Lbx7">
+                </div>
+
+                <div class="field">
+                  <label for="r-bis">Gültig bis (freiwillig)</label>
+                  <input type="date" id="r-bis" class="eingabe-text">
+                  <p class="hint">Leer = ohne Ablauf. Der Code gilt bis zum Ende dieses Tages.</p>
+                </div>
+
+                <div class="field">
+                  <label for="r-max">Höchstens so oft nutzbar (freiwillig)</label>
+                  <input type="number" id="r-max" class="eingabe-text" min="1" step="1" placeholder="unbegrenzt">
+                  <p class="hint">Gezählt werden bezahlte Bestellungen.</p>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Code speichern</button>
+              </form>
+            </section>
+
+            <div class="tabelle-rahmen" style="margin-top:20px"><table class="admin-tabelle" id="t-rabatte"></table></div>
           </section>
 
         </div>

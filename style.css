@@ -4726,3 +4726,98 @@ html { scrollbar-color: #24345a var(--bg); }
   .score-band-ring > span { font-size: 1.7rem; }
   .score-band-knopf { margin-left: 0; width: 100%; }
 }
+
+/* ==========================================================================
+   28. Vertrauen und Handy (Oktober 2026)
+
+   Legt sich wie die Abschnitte 23 bis 27 über alles darüber; Rückbau ist das
+   Löschen dieses Blocks. Dazu gehören index.html (Hero-Zeile, Vertrauens-
+   leiste, „Alles auf einen Blick“, Kundenstimmen, Handy-Leiste), script.js
+   (Abschnitte 8 und 9) und die Infoseiten ablauf.html und sicherheit.html
+   mit info.css.
+   ========================================================================== */
+
+/* ---------- Eine Zeile unter dem Namen ----------
+   Ohne Leistungsversprechen: Das Versprechen ist die Sorgfalt. */
+.hero .hero-zeile {
+  max-width: 620px;
+  margin: -.2em auto 26px;
+  color: var(--text-2);
+  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+/* ---------- Vertrauensleiste mit Links ---------- */
+.trustbar span a {
+  color: var(--text-2);
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--accent-rgb), .45);
+  text-underline-offset: 3px;
+}
+.trustbar span a:hover { color: var(--text); }
+
+/* ---------- „Du sparst …“ beim Bundle ---------- */
+.weg-spar {
+  margin: -4px 0 14px;
+  color: var(--ok);
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.plan-alt a {
+  color: var(--text-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Kundenstimmen ---------- */
+.stimmen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.stimme {
+  margin: 0;
+  padding: 22px 22px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+.stimme blockquote { margin: 0 0 12px; color: var(--text); font-size: 1rem; line-height: 1.55; }
+.stimme figcaption {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  letter-spacing: .06em;
+}
+
+/* ---------- Handy-Leiste ----------
+   Nur auf schmalen Bildschirmen; script.js schaltet hidden um. */
+.mobil-leiste { display: none; }
+
+@media (max-width: 760px) {
+  .mobil-leiste {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    display: block;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(5, 7, 12, .88);
+    border-top: 1px solid rgba(96, 165, 250, .25);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, .45);
+  }
+  .mobil-leiste .btn { min-height: 48px; }
+
+  /* Damit die Leiste die Fußzeile nicht verdeckt. */
+  body { padding-bottom: 72px; }
+
+  /* Am Handy soll Name, Zeile und Knopf ohne Scrollen zu sehen sein. */
+  .hero .hero-marke img { width: 84px; height: 84px; }
+  .hero .hero-zeile { margin-bottom: 20px; }
+}

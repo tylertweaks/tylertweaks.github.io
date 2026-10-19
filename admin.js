@@ -21,7 +21,8 @@
   TT.navAufbauen();
 
   var daten = {
-    bestellungen: [], lizenzen: [], kunden: [], zahlungen: [], produkte: []
+    bestellungen: [], lizenzen: [], kunden: [], zahlungen: [], produkte: [],
+    rabatte: [], rabattNutzung: {}
   };
   var kundeNach = {};
 
@@ -84,6 +85,8 @@
     daten.zahlungen    = e[3].data || [];
     daten.produkte     = e[4].data || [];
 
+    await ladeRabatte();
+
     kundeNach = {};
     daten.kunden.forEach(function (k) { kundeNach[k.id] = k; });
 
@@ -98,7 +101,7 @@
   /* ====================================================================
      Bereiche
      ==================================================================== */
-  var BEREICHE = ['vergeben', 'bestellungen', 'lizenzen', 'kunden', 'zahlungen', 'produkte'];
+  var BEREICHE = ['vergeben', 'bestellungen', 'lizenzen', 'kunden', 'zahlungen', 'produkte', 'rabatte'];
 
   document.getElementById('admin-nav').addEventListener('click', function (e) {
     var knopf = e.target.closest('button[data-ziel]');
@@ -135,7 +138,176 @@
     kundenZeichnen();
     zahlungenZeichnen();
     produkteZeichnen();
+    rabatteZeichnen();
   }
+
+  /* ====================================================================
+     Rabattcodes
+
+     Lesen darf die Verwaltung die Tabelle coupons direkt (Policy
+     "rabattcodes: nur admin" aus 08). Schreiben geht nur über die
+     Funktionen admin_coupon_* aus 17-rabattcodes-verwalten.sql — die prüfen
+     selbst, ob der Aufrufer Admin ist. Diese Seite ist nur das Formular.
+     ==================================================================== */
+  var RABATT_FEHLER = {
+    not_admin: 'Dein Konto hat keine Adminrechte.',
+    invalid_code: 'Der Code darf nur Buchstaben, Ziffern, - und _ enthalten (2 bis 30 Zeichen).',
+    invalid_percent: 'Der Rabatt muss zwischen 1 und 90 Prozent liegen.',
+    invalid_limit: 'Die Höchstzahl muss mindestens 1 sein — oder leer bleiben.'
+  };
+
+  function rabattFehler(erg, wo) {
+    console.error(wo + ':', erg.error);
+    var text = String(erg.error.message || '');
+    var fehlt = erg.error.code === 'PGRST202' || /could not find the function/i.test(text);
+    if (fehlt) {
+      document.getElementById('rabatt-nicht-bereit').hidden = false;
+      return 'Diese Funktion ist noch nicht eingerichtet — siehe Hinweis oben.';
+    }
+    for (var schluessel in RABATT_FEHLER) {
+      if (text.indexOf(schluessel) >= 0) return RABATT_FEHLER[schluessel];
+    }
+    return 'Das hat nicht geklappt. Sieh in der Konsole nach dem Grund.';
+  }
+
+  async function ladeRabatte() {
+    var e = await Promise.all([
+      db.from('coupons')
+        .select('code, anzeige, prozent, aktiv, gueltig_bis, max_nutzungen, created_at')
+        .order('created_at', { ascending: false }),
+      db.rpc('admin_coupon_nutzung')
+    ]);
+
+    daten.rabatte = e[0].data || [];
+    daten.rabattNutzung = {};
+    (e[1].data || []).forEach(function (z) { daten.rabattNutzung[z.code] = Number(z.genutzt) || 0; });
+
+    // Ohne Migration 17 fehlt nur die Nutzungszahl — die Liste geht trotzdem.
+    if (e[1].error) console.warn('Rabatt-Nutzung:', e[1].error);
+  }
+
+  function rabatteZeichnen() {
+    var jetzt = Date.now();
+
+    var zeilen = daten.rabatte.map(function (r) {
+      var abgelaufen = r.gueltig_bis && new Date(r.gueltig_bis).getTime() < jetzt;
+      var genutzt = daten.rabattNutzung[r.code] || 0;
+      var voll = r.max_nutzungen && genutzt >= r.max_nutzungen;
+
+      var status = !r.aktiv ? { klasse: 'aus', text: 'ausgeschaltet' }
+        : abgelaufen ? { klasse: 'aus', text: 'abgelaufen' }
+        : voll ? { klasse: 'aus', text: 'aufgebraucht' }
+        : { klasse: 'an', text: 'aktiv' };
+
+      return '<tr>' +
+        '<td><strong>' + TT.escape(r.code) + '</strong>' +
+          (r.anzeige && r.anzeige !== r.code ? '<br><span class="zeile-klein">' + TT.escape(r.anzeige) + '</span>' : '') +
+        '</td>' +
+        '<td>' + TT.escape(r.prozent) + ' %</td>' +
+        '<td>' + statusPunkt(status) + '</td>' +
+        '<td>' + (r.gueltig_bis ? TT.escape(TT.datumZeit(r.gueltig_bis)) : '<span class="muted">ohne Ablauf</span>') + '</td>' +
+        '<td>' + genutzt + (r.max_nutzungen ? ' / ' + TT.escape(r.max_nutzungen) : '') + '</td>' +
+        '<td class="aktionen">' +
+          '<button type="button" class="mini" data-rabatt-aktiv="' + (r.aktiv ? '0' : '1') + '" data-code="' + TT.escape(r.code) + '">' +
+            (r.aktiv ? 'Ausschalten' : 'Einschalten') + '</button> ' +
+          '<button type="button" class="mini" data-rabatt-bearbeiten data-code="' + TT.escape(r.code) + '">Bearbeiten</button> ' +
+          '<button type="button" class="mini loeschen-rabatt" data-code="' + TT.escape(r.code) + '">Löschen</button>' +
+        '</td>' +
+      '</tr>';
+    });
+
+    tabelle('t-rabatte', ['Code', 'Rabatt', 'Status', 'Gültig bis', 'Genutzt', ''], zeilen,
+      'Noch kein Rabattcode angelegt.');
+  }
+
+  var formRabatt = document.getElementById('form-rabatt');
+  if (formRabatt) {
+    formRabatt.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      TT.melden('rabatt-meldung', '');
+
+      var code = document.getElementById('r-code').value.trim().toUpperCase();
+      var prozent = Number(document.getElementById('r-prozent').value);
+      var anzeige = document.getElementById('r-anzeige').value.trim();
+      var bis = document.getElementById('r-bis').value;   // JJJJ-MM-TT oder leer
+      var maxRoh = document.getElementById('r-max').value.trim();
+
+      if (!/^[A-Z0-9_-]{2,30}$/.test(code)) return TT.melden('rabatt-meldung', RABATT_FEHLER.invalid_code);
+      if (!(prozent >= 1 && prozent <= 90) || Math.round(prozent) !== prozent) {
+        return TT.melden('rabatt-meldung', RABATT_FEHLER.invalid_percent);
+      }
+      var max = maxRoh === '' ? null : Number(maxRoh);
+      if (max !== null && !(max >= 1 && Math.round(max) === max)) {
+        return TT.melden('rabatt-meldung', RABATT_FEHLER.invalid_limit);
+      }
+
+      // "Gültig bis" meint den ganzen Tag: bis 23:59:59 in der Zeitzone des Browsers.
+      var gueltigBis = bis ? new Date(bis + 'T23:59:59').toISOString() : null;
+
+      var knopf = formRabatt.querySelector('button[type="submit"]');
+      knopf.disabled = true;
+      var erg = await db.rpc('admin_coupon_speichern', {
+        p_code: code,
+        p_prozent: prozent,
+        p_anzeige: anzeige || null,
+        p_gueltig_bis: gueltigBis,
+        p_max_nutzungen: max
+      });
+      knopf.disabled = false;
+
+      if (erg.error) return TT.melden('rabatt-meldung', rabattFehler(erg, 'Rabattcode speichern'));
+
+      formRabatt.reset();
+      await ladeRabatte();
+      rabatteZeichnen();
+      TT.melden('rabatt-meldung', 'Code ' + code + ' mit ' + prozent + ' % gespeichert. Er wirkt ab sofort.', 'ok');
+    });
+  }
+
+  document.addEventListener('click', async function (e) {
+    var knopf = e.target.closest('button[data-rabatt-aktiv], button[data-rabatt-bearbeiten], button.loeschen-rabatt');
+    if (!knopf) return;
+    var code = knopf.dataset.code;
+    TT.melden('rabatt-meldung', '');
+
+    // Bearbeiten: nur das Formular mit den Werten füllen, gespeichert wird dort.
+    if (knopf.hasAttribute('data-rabatt-bearbeiten')) {
+      var r = daten.rabatte.filter(function (x) { return x.code === code; })[0];
+      if (!r) return;
+      document.getElementById('r-code').value = r.code;
+      document.getElementById('r-prozent').value = r.prozent;
+      document.getElementById('r-anzeige').value = r.anzeige && r.anzeige !== r.code ? r.anzeige : '';
+      // sv-SE schreibt JJJJ-MM-TT, genau das Format eines Datumsfelds.
+      document.getElementById('r-bis').value = r.gueltig_bis
+        ? new Date(r.gueltig_bis).toLocaleDateString('sv-SE') : '';
+      document.getElementById('r-max').value = r.max_nutzungen || '';
+      document.getElementById('r-prozent').focus();
+      formRabatt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    var erg, fertig;
+    if (knopf.classList.contains('loeschen-rabatt')) {
+      if (!confirm('Code ' + code + ' wirklich löschen?\n\n' +
+                   'Er greift danach bei neuen Bestellungen nicht mehr. ' +
+                   'Alte Bestellungen mit diesem Code bleiben, wie sie sind.')) return;
+      knopf.disabled = true;
+      erg = await db.rpc('admin_coupon_loeschen', { p_code: code });
+      fertig = 'Code ' + code + ' gelöscht.';
+    } else {
+      var an = knopf.dataset.rabattAktiv === '1';
+      knopf.disabled = true;
+      erg = await db.rpc('admin_coupon_aktiv', { p_code: code, p_aktiv: an });
+      fertig = 'Code ' + code + (an ? ' ist wieder eingeschaltet.' : ' ist ausgeschaltet und greift nicht mehr.');
+    }
+    knopf.disabled = false;
+
+    if (erg.error) return TT.melden('rabatt-meldung', rabattFehler(erg, 'Rabattcode ändern'));
+
+    await ladeRabatte();
+    rabatteZeichnen();
+    TT.melden('rabatt-meldung', fertig, 'ok');
+  });
 
   /* Fälle, die sonst niemand bemerkt, bis der Kunde schreibt. Der Discord-
      Alarm der Edge Functions meldet sie im Moment, in dem sie entstehen —

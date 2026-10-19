@@ -538,14 +538,24 @@
       optimierung: 'Zahlung über PayPal · Termin per Discord',
       bundle:      'Zahlung über PayPal · Schlüssel per E-Mail, Termin per Discord'
     };
+    // Der Link dahinter führt zur passenden Infoseite (ablauf.html, sicherheit.html).
+    var links = {
+      optimierung: ['ablauf.html', 'So läuft die Sitzung ab'],
+      bundle:      ['ablauf.html', 'So läuft die Sitzung ab']
+    };
 
     document.querySelectorAll('[data-korb-slug]').forEach(function (knopf) {
       var karte = knopf.closest('.plan');
       var alt = karte && karte.querySelector('.plan-alt');
       // Karten, deren App noch nicht erschienen ist, hat appSperreZeigen beschriftet.
       if (alt && !(window.TT && TT.appFehlt(knopf.dataset.korbSlug))) {
-        alt.textContent = zeilen[knopf.dataset.korbSlug] ||
-          'Zahlung über PayPal · Schlüssel per E-Mail';
+        var slug = knopf.dataset.korbSlug;
+        var link = links[slug] || ['sicherheit.html', 'Sicherheit der App'];
+        alt.textContent = (zeilen[slug] || 'Zahlung über PayPal · Schlüssel per E-Mail') + ' · ';
+        var a = document.createElement('a');
+        a.href = link[0];
+        a.textContent = link[1];
+        alt.appendChild(a);
       }
     });
 
@@ -772,6 +782,76 @@
 
     zeige(0);
     neuStarten();
+  })();
+
+  /* ====================================================================
+     8. Vertrauen: Gewerbe und Kundenstimmen
+
+     Beides steht in konfig.js und bleibt unsichtbar, bis es wirklich etwas
+     zu zeigen gibt: das Gewerbe erst mit GISA-Zahl im Impressum, Stimmen erst
+     mit echten Rückmeldungen. Gebaut wird mit textContent — die Texte kommen
+     zwar aus konfig.js, landen aber nie als HTML in der Seite.
+     ==================================================================== */
+  (function vertrauen() {
+    var k = (window.TT && TT.konfig) || window.TT_KONFIG || {};
+
+    var gewerbe = document.getElementById('trust-gewerbe');
+    if (gewerbe) gewerbe.hidden = !k.gewerbeAngemeldet;
+
+    var stimmen = Array.isArray(k.kundenstimmen) ? k.kundenstimmen.filter(function (s) {
+      return s && s.text && s.name;
+    }) : [];
+    var bereich = document.getElementById('kundenstimmen');
+    var grid = document.getElementById('stimmen-grid');
+    if (!bereich || !grid || !stimmen.length) return;
+
+    stimmen.forEach(function (s) {
+      var karte = document.createElement('figure');
+      karte.className = 'stimme';
+      var zitat = document.createElement('blockquote');
+      zitat.textContent = '„' + s.text + '“';
+      var wer = document.createElement('figcaption');
+      wer.textContent = s.name + (s.paket ? ' · ' + s.paket : '');
+      karte.appendChild(zitat);
+      karte.appendChild(wer);
+      grid.appendChild(karte);
+    });
+    bereich.hidden = false;
+  })();
+
+  /* ====================================================================
+     9. Handy-Leiste
+
+     Am Handy steht unten ein Knopf "Pakete ansehen" — aber erst, wenn der
+     Name oben aus dem Bild ist, und nicht, solange die Pakete selbst zu sehen
+     sind. Ob die Leiste überhaupt erscheint (nur schmale Bildschirme),
+     regelt style.css; hier wird nur hidden umgeschaltet.
+     ==================================================================== */
+  (function handyLeiste() {
+    var leiste = document.getElementById('mobil-leiste');
+    var hero = document.querySelector('.hero');
+    var ziele = [document.getElementById('wegweiser'), document.getElementById('preise')]
+      .filter(Boolean);
+    if (!leiste || !hero || !('IntersectionObserver' in window)) return;
+
+    var heroSichtbar = true;
+    var zielSichtbar = {};
+
+    function setzen() {
+      var beiPaketen = Object.keys(zielSichtbar).some(function (id) { return zielSichtbar[id]; });
+      leiste.hidden = heroSichtbar || beiPaketen;
+    }
+
+    new IntersectionObserver(function (e) {
+      heroSichtbar = e[0].isIntersecting;
+      setzen();
+    }, { threshold: 0 }).observe(hero);
+
+    var beobachter = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) { zielSichtbar[e.target.id] = e.isIntersecting; });
+      setzen();
+    }, { threshold: 0.15 });
+    ziele.forEach(function (z) { beobachter.observe(z); });
   })();
 
 })();

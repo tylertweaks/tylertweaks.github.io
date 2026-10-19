@@ -178,7 +178,7 @@
       <a href="#top">Startseite</a>
       <a href="#preise">Preise</a>
       <a href="score-test.html">Score-Test</a>
-      <a href="#ablauf">Ablauf</a>
+      <a href="sicherheit.html">Sicherheit</a>
       <a href="#faq">FAQ</a>
       <a href="#support">Support</a>
       <a href="admin.html" id="nav-admin" hidden>Admin</a>
@@ -217,6 +217,10 @@
 
     <h1 class="hero-name">Tyler Tweaks</h1>
 
+    <!-- Bewusst ohne Leistungsversprechen: Was eine Optimierung bringt, hängt
+         von Hardware und Ausgangszustand ab. Das Versprechen ist die Sorgfalt. -->
+    <p class="hero-zeile">Windows sauber für Gaming eingestellt — mit Backup und jederzeit rückgängig.</p>
+
     <div class="hero-cta">
       <a href="#preise" class="btn btn-primary btn-lg" data-scroll-to="tarif-opt">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
@@ -228,18 +232,25 @@
       </a>
     </div>
 
+    <!-- Vertrauensleiste. Was hier steht, muss stimmen: Nachbesserung steht so
+         in agb.html § 6, Backup und Rücknahme in sicherheit.html. "Angemeldetes
+         Gewerbe" erscheint erst mit KONFIG.gewerbeAngemeldet (script.js). -->
     <ul class="trustbar">
       <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 20h20"/></svg>
-        <div><strong>Windows 10 &amp; 11</strong><span>64-Bit, AMD und Intel</span></div>
-      </li>
-      <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
-        <div><strong>Backup inklusive</strong><span>vor jeder einzelnen Änderung</span></div>
+        <div><strong>Backup inklusive</strong><span><a href="sicherheit.html">jede Änderung umkehrbar</a></span></div>
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
-        <div><strong>Jede Änderung umkehrbar</strong><span>einzeln oder komplett</span></div>
+        <div><strong>Nachbesserung inklusive</strong><span><a href="ablauf.html">14 Tage bei der Optimierung</a></span></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div><strong>Fragen vor dem Kauf?</strong><span><a href="#support">direkt auf Discord</a></span></div>
+      </li>
+      <li id="trust-gewerbe" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <div><strong>Angemeldetes Gewerbe</strong><span><a href="impressum.html">Impressum</a></span></div>
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
@@ -292,9 +303,9 @@
   <div class="wrap">
 
     <div class="section-head center">
-      <span class="eyebrow">Wegweiser</span>
-      <h2>Welcher Weg passt zu dir?</h2>
-      <p class="sub">Drei Möglichkeiten — je nachdem, wie viel du selbst machen willst.</p>
+      <span class="eyebrow">Pakete</span>
+      <h2>Alles auf einen Blick</h2>
+      <p class="sub">Drei Möglichkeiten — je nachdem, wie viel du selbst machen willst. Einmal zahlen, kein Abo.</p>
     </div>
 
     <div class="weg-grid">
@@ -309,11 +320,12 @@
       </a>
 
       <a class="weg-karte weg-top ton-gold" href="#preise" data-scroll-to="tarif-bundle">
-        <span class="marke-gold">Empfehlung</span>
+        <span class="marke-gold">Bester Wert</span>
         <span class="weg-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
         </span>
         <p class="weg-frage">Ich stelle deinen PC einmal persönlich ein — und danach hast du die App, um selbst dranzubleiben.</p>
+        <p class="weg-spar">Du sparst <span data-preis-ersparnis-betrag>14,99 €</span> gegenüber einzeln</p>
         <span class="weg-fuss">Bundle · <span data-preis-betrag="bundle">74,99 €</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
         </span>
@@ -407,7 +419,7 @@
               <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="11" y1="15" x2="17" y2="15"/></svg></span>
               <div>
                 <h4>Autostart &amp; Speicher</h4>
-                <p>Startprogramme und geplante Aufgaben ausmisten — schnellerer Start, weniger Ruckler.</p>
+                <p>Startprogramme und geplante Aufgaben ausmisten — weniger läuft unnötig im Hintergrund mit.</p>
               </div>
             </li>
           </ul>
@@ -429,7 +441,7 @@
             <a class="btn btn-primary btn-block" href="kaufen.html?produkt=optimierung" data-preis="optimierung">
               Für 29,99 € kaufen
             </a>
-            <p class="plan-alt">Zahlung über PayPal · Termin nach Absprache</p>
+            <p class="plan-alt">Zahlung über PayPal · Termin nach Absprache · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
           </div>
         </div>
 
@@ -517,7 +529,7 @@
               <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
                 Für 74,99 € kaufen
               </a>
-              <p class="plan-alt">Zahlung über PayPal · Lizenz sofort, Termin direkt danach</p>
+              <p class="plan-alt">Zahlung über PayPal · Termin über Discord · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
             </div>
           </div>
         </div>
@@ -606,7 +618,7 @@
             <a class="btn btn-primary btn-block" id="app-kaufen" href="kaufen.html?produkt=app-lifetime">
               Für 59,99 € kaufen
             </a>
-            <p class="plan-alt">Zahlung über PayPal · Lizenz sofort im Kundenbereich</p>
+            <p class="plan-alt">Zahlung über PayPal · <a href="sicherheit.html">Sicherheit der App</a></p>
           </div>
         </div>
       </article>
@@ -744,6 +756,21 @@
       </table>
     </div>
     <p class="vergleich-hinweis">Auf dem Handy lässt sich die Tabelle seitlich wischen.</p>
+  </div>
+</section>
+
+<!-- ============ KUNDENSTIMMEN ============
+     Bleibt unsichtbar, bis in konfig.js unter kundenstimmen echte Stimmen
+     stehen — mit Erlaubnis der Kunden. Keine erfundenen Bewertungen, auch
+     nicht als Platzhalter. script.js baut die Karten auf. -->
+<section id="kundenstimmen" class="section section-alt reveal" hidden>
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Kundenstimmen</span>
+      <h2>Das sagen Kunden</h2>
+      <p class="sub">Echte Rückmeldungen, mit Erlaubnis veröffentlicht.</p>
+    </div>
+    <div class="stimmen-grid" id="stimmen-grid"></div>
   </div>
 </section>
 
@@ -897,7 +924,11 @@
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
+<!-- ============ FAQ ============
+     Höchstens zehn Fragen, die Sorgen zuerst. Ausführliches steht auf
+     ablauf.html (Remote-Sitzung) und sicherheit.html (App). Keine Leistungs-
+     oder FPS-Versprechen. #faq-nach-kauf schreibt script.js im paypal.me-
+     Betrieb um — die id bitte stehen lassen. -->
 <section id="faq" class="section reveal">
   <div class="wrap wrap-narrow">
 
@@ -916,133 +947,73 @@
       </details>
 
       <details>
-        <summary>Was macht die Tweak App genau?</summary>
+        <summary>Warum warnt Windows beim Installieren?</summary>
         <div class="faq-body">
-          <!-- Anzahl und Bereichsliste kommen aus tweaks.json. Hier stand bis
-               2.7.0 "über 80" und eine Aufzählung von neun Bereichen — beides
-               war seit 2.6.0 überholt, und niemand hat es gemerkt. -->
-          <p>Sie fasst <span data-tweak-anzahl></span> dokumentierte Windows-Einstellungen in einer Oberfläche zusammen: <span data-bereich-liste></span>. Jede lässt sich einzeln an- und abschalten, und zu jeder steht dabei, was sie bewirkt.</p>
-          <p>Dazu kommen fünf fertige Presets, eigene Profile, ein Autostart- und App-Manager, der Game Booster und eine Live-Übersicht über CPU, GPU und Arbeitsspeicher.</p>
-          <p><a href="tweaks.html">Die vollständige Liste kannst du hier durchsehen</a> — ohne Anmeldung, mit den Registry-Werten, die jede Einstellung schreibt.</p>
+          <p>Windows warnt bei jedem Programm, das kein gekauftes Herausgeber-Zertifikat hat — egal, was es tut. Tyler ist noch nicht signiert. Klick im blauen Fenster auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“.</p>
+          <p>Was die App tut und was nie, steht auf der Seite <a href="sicherheit.html">Sicherheit der App</a>.</p>
         </div>
       </details>
 
       <details>
-        <summary>Unterstützt ihr Windows 10 und Windows 11?</summary>
+        <summary>Was siehst du bei der Remote-Sitzung von meinem PC?</summary>
         <div class="faq-body">
-          <p>Ja, beide — jeweils in der 64-Bit-Version. Ältere Windows-Versionen werden nicht unterstützt.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Funktioniert die App mit NVIDIA und AMD?</summary>
-        <div class="faq-body">
-          <p>Ja. Die App ändert Windows-Einstellungen, keine Treiber-internen Werte — sie ist deshalb unabhängig davon, welche Grafikkarte oder CPU verbaut ist. AMD, Intel, NVIDIA: alles gleichermaßen.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Funktioniert sie auf Laptops?</summary>
-        <div class="faq-body">
-          <p>Grundsätzlich ja, aber mit Einschränkungen. Manche Hersteller sperren Energieeinstellungen oder überschreiben sie mit eigener Software. Tweaks, die auf deinem Gerät nicht anwendbar sind, meldet die App ehrlich als nicht unterstützt, statt sie stillschweigend zu überspringen.</p>
-          <p>Bei Notebooks im Akkubetrieb sind Leistungs-Tweaks außerdem oft kontraproduktiv, weil sie die Laufzeit kosten.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Muss ich Administrator sein?</summary>
-        <div class="faq-body">
-          <p>Ja. Die App ändert Einstellungen in der Registry und an Windows-Diensten — das geht nur mit erhöhten Rechten. Beim Start erscheint deshalb die Windows-Abfrage der Benutzerkontensteuerung.</p>
-          <p>Dabei steht aktuell <em>„Unbekannter Herausgeber“</em> und Windows SmartScreen warnt beim ersten Start, weil das Setup noch nicht mit einem Zertifikat signiert ist. Das ist bekannt und ändert sich, sobald ein Code-Signing-Zertifikat vorliegt.</p>
+          <p>Nur, was für die Optimierung nötig ist. Du gibst die Verbindung selbst frei, siehst jeden Schritt und kannst jederzeit etwas ablehnen. Passwörter, Zahlungsdaten und private Dateien fasse ich nicht an, und nach der Sitzung bleibt kein Zugang bestehen.</p>
+          <p>Der ganze Ablauf: <a href="ablauf.html">So läuft die Optimierung ab</a>.</p>
         </div>
       </details>
 
       <details>
         <summary>Kann ich Änderungen zurücksetzen?</summary>
         <div class="faq-body">
-          <p>Ja, auf drei Ebenen. Die App merkt sich zu jedem Tweak den vorherigen Wert und macht ihn im Verlauf einzeln rückgängig. Zusätzlich sichert sie die betroffenen Registry-Zweige und legt auf Wunsch einen Windows-Wiederherstellungspunkt an.</p>
-          <p><strong>Eine Ausnahme:</strong> Entfernte Store-Apps lassen sich über die App nicht zurückholen — die musst du bei Bedarf aus dem Microsoft Store neu installieren. Die App weist vorher darauf hin.</p>
+          <p>Ja, auf drei Ebenen. Die App merkt sich zu jedem Tweak den vorherigen Wert und macht ihn im Verlauf einzeln rückgängig. Zusätzlich sichert sie die betroffenen Registry-Zweige und legt auf Wunsch einen Windows-Wiederherstellungspunkt an. Beim Deinstallieren nimmt sie ihre Änderungen zurück.</p>
+          <p><strong>Eine Ausnahme:</strong> Entfernte Store-Apps installierst du bei Bedarf aus dem Microsoft Store neu. Die App weist vorher darauf hin.</p>
         </div>
       </details>
 
       <details>
-        <summary>Ist das sicher für meinen PC?</summary>
+        <summary>Was bringt die Optimierung?</summary>
         <div class="faq-body">
-          <p>Es werden ausschließlich dokumentierte Windows-Einstellungen geändert — kein Übertakten, keine Spannungsänderungen, kein Eingriff in die Hardware. Deine Garantie bleibt davon unberührt.</p>
-          <p>Vor wichtigen Änderungen wird gesichert, und eine Schutzliste verhindert, dass beim Aufräumen etwas entfernt wird, das Windows braucht.</p>
+          <p>Das hängt von deiner Hardware und vom Ausgangszustand ab. Ein System mit vielen Hintergrundprogrammen und alten Einstellungen hat mehr aufzuräumen als ein frisch eingerichtetes.</p>
+          <p>Ich gebe deshalb bewusst keine Leistungsversprechen. Was ich verspreche, ist Sorgfalt: Backup vor jeder Änderung, ein Protokoll am Ende und Nachbesserung innerhalb von 14 Tagen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie läuft die PC-Optimierung ab?</summary>
+        <div class="faq-body">
+          <p>Nach dem Kauf schreibst du mir auf Discord mit deiner Bestellnummer, wir machen einen Termin aus und verbinden uns per AnyDesk. Ich gehe dein System durch und erkläre dabei jeden Schritt. Das dauert je nach Zustand meist 45 bis 90 Minuten.</p>
+          <p>Schritt für Schritt: <a href="ablauf.html">So läuft die Optimierung ab</a>.</p>
         </div>
       </details>
 
       <details>
         <summary>Was passiert nach dem Kauf?</summary>
         <div class="faq-body">
-          <p id="faq-nach-kauf">Sobald PayPal die Zahlung bestätigt hat, legt das System die Bestellung an, erzeugt deinen Lizenzschlüssel und ordnet ihn deinem Konto zu. Beides erscheint sofort im <a href="konto.html">Kundenbereich</a> — du musst nichts anfordern und auf nichts warten.</p>
+          <p id="faq-nach-kauf">Sobald PayPal die Zahlung bestätigt hat, legt das System die Bestellung an, erzeugt deinen Lizenzschlüssel und ordnet ihn deinem Konto zu. Beides erscheint im <a href="konto.html">Kundenbereich</a>.</p>
           <p>Hast du die <strong>PC-Optimierung</strong> oder das <strong>Bundle</strong> gekauft, schreibst du mir danach auf Discord <strong class="discord-name">tyler061312</strong>, und wir machen einen Termin aus.</p>
         </div>
       </details>
 
       <details>
-        <summary>Wo finde ich meine Lizenz?</summary>
+        <summary>Was macht die Tweak App genau?</summary>
         <div class="faq-body">
-          <p>Dauerhaft in deinem <a href="konto.html">Kundenbereich</a> unter „Meine Lizenzen“, mit einem Knopf zum Kopieren. Du kannst den Schlüssel also nicht verlieren.</p>
-          <p>Passwort vergessen? Über <a href="passwort-vergessen.html">„Passwort vergessen“</a> setzt du es per E-Mail zurück.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Wie funktioniert der Download?</summary>
-        <div class="faq-body">
-          <p>Im Kundenbereich unter „Downloads“. Der Knopf wird freigeschaltet, sobald eine gültige Lizenz auf deinem Konto liegt. Du lädst das Setup herunter, führst es aus und gibst beim ersten Start der App deinen Schlüssel ein.</p>
-          <p>Zu jeder Version steht dort die SHA-256-Prüfsumme, mit der du die Datei überprüfen kannst.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Wie bekomme ich Updates?</summary>
-        <div class="faq-body">
-          <p>Die App prüft beim Start selbst, ob eine neue Version vorliegt, und zeigt dir dann oben einen Hinweis. „Jetzt herunterladen“ öffnet deinen <a href="konto.html">Kundenbereich</a>; dort lädst du die neue Fassung und installierst sie über die vorhandene — deine Einstellungen und deine Lizenz bleiben erhalten. Nachsehen kannst du auch jederzeit unter Einstellungen → Über.</p>
-          <p>Neue Versionen kosten nichts extra.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Welche Laufzeiten gibt es?</summary>
-        <div class="faq-body">
-          <p>24 Stunden, 2 Tage, 1 Woche, 1 Monat, 1 Jahr — oder Lifetime, das läuft nie ab.</p>
-          <p>Kurze Laufzeiten sind zum Ausprobieren gedacht. Nach Ablauf startet die App nicht mehr. Deine Windows-Einstellungen bleiben dabei natürlich so, wie du sie gesetzt hast.</p>
+          <!-- Anzahl und Bereichsliste kommen aus tweaks.json. -->
+          <p>Sie fasst <span data-tweak-anzahl></span> dokumentierte Windows-Einstellungen in einer Oberfläche zusammen: <span data-bereich-liste></span>. Jede lässt sich einzeln an- und abschalten, und zu jeder steht dabei, was sie bewirkt.</p>
+          <p>Dazu kommen fertige Presets, eigene Profile, Aufräumen mit Autostart-Verwaltung, der Game Booster und eine Live-Übersicht. Updates kommen über die App selbst und kosten nichts extra. <a href="tweaks.html">Die vollständige Liste kannst du hier durchsehen</a> — ohne Anmeldung.</p>
         </div>
       </details>
 
       <details>
         <summary>Kann ich meine Lizenz auf mehreren PCs verwenden?</summary>
         <div class="faq-body">
-          <p>Nein. Eine Lizenz gilt für einen PC. Beim ersten Start wird der Schlüssel fest an diesen Rechner gebunden, danach lässt er sich auf keinem anderen aktivieren.</p>
-          <p>Wechselst du den PC oder tauschst Hardware, löst du die Bindung selbst: im <a href="konto.html">Kundenbereich</a> unter „Meine Lizenzen“ mit „PC-Bindung lösen“, einmal in 30 Tagen. Eilt es früher, schreib mir kurz auf Discord. Der Umzug kostet nichts.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Wie funktioniert die Premium-PC-Optimierung?</summary>
-        <div class="faq-body">
-          <p>Nach dem Kauf meldest du dich auf Discord, wir machen einen Termin aus und verbinden uns per Remote-Sitzung. Ich gehe dein System durch und erkläre dabei jeden Schritt. Das dauert je nach Zustand meist 45 bis 90 Minuten.</p>
-          <p>Am Ende bekommst du ein Protokoll aller Änderungen und das Backup — damit kannst du später auch selbst etwas zurücknehmen.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Wie viele FPS bekomme ich mehr?</summary>
-        <div class="faq-body">
-          <p>Das hängt von deiner Hardware und deinem Ausgangszustand ab. Ein System mit vielen Hintergrundprogrammen gewinnt deutlich, ein bereits sauberes kaum.</p>
-          <p>Ich nenne bewusst keine Zahl. Wer dir „+100 FPS garantiert“ verspricht, kennt weder deinen PC noch deine Spiele.</p>
+          <p>Eine Lizenz gilt für einen PC. Wechselst du den PC oder tauschst Hardware, löst du die Bindung selbst im <a href="konto.html">Kundenbereich</a> unter „Meine Lizenzen“, einmal in 30 Tagen. Eilt es früher, schreib mir kurz auf Discord. Der Umzug kostet nichts.</p>
         </div>
       </details>
 
       <details>
         <summary>Brauche ich für den Kauf ein Konto?</summary>
         <div class="faq-body">
-          <p>Ja, ein kostenloses Konto mit E-Mail-Adresse und Passwort. Dadurch liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle — und du kommst auch dann wieder heran, wenn du den PC neu aufsetzt.</p>
-          <p>Das Konto brauchst du schon für den Warenkorb: Ohne Anmeldung lässt sich kein Paket hineinlegen. Wer nicht angemeldet ist, kommt beim Klick auf den Kaufknopf zuerst zur Anmeldung — das gewählte Paket liegt danach im Warenkorb.</p>
-          <p>Nach der Registrierung bekommst du eine Bestätigungsmail. Erst nach dem Klick auf den Link darin kannst du kaufen.</p>
+          <p>Ja, ein kostenloses Konto mit E-Mail-Adresse und Passwort. Dort liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle — auch wenn du den PC neu aufsetzt. Nach der Registrierung bestätigst du einmal deine E-Mail-Adresse, dann kannst du kaufen.</p>
         </div>
       </details>
     </div>
@@ -1090,7 +1061,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
         <h3>Du hast die PC-Optimierung gekauft?</h3>
-        <p>So geht es weiter:</p>
+        <p>So geht es weiter (<a href="ablauf.html">ganzer Ablauf</a>):</p>
         <ol class="speclist" style="padding-left:0;list-style:none">
           <li><span class="k">1. Melden</span><span class="v">auf Discord, mit Bestellnummer</span></li>
           <li><span class="k">2. Termin</span><span class="v">wir finden einen Zeitpunkt</span></li>
@@ -1129,7 +1100,7 @@
   <div class="wrap">
     <div class="cta-karte">
       <span class="eyebrow">Loslegen</span>
-      <h2>Bereit für einen schnelleren PC?</h2>
+      <h2>Bereit, deinen PC sauber einzurichten?</h2>
       <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst <span data-preis-ersparnis-betrag>14,99 €</span>.</p>
       <div class="cta-row">
         <!-- Text in EINEM span, sonst setzt .btn (Flex mit gap) Lücken um den Preis. -->
@@ -1139,6 +1110,14 @@
     </div>
   </div>
 </section>
+
+<!-- ============ HANDY-LEISTE ============
+     Nur am Handy (style.css, Abschnitt 28): Erscheint, sobald der Name oben
+     aus dem Bild ist, und verschwindet wieder bei den Paketen selbst
+     (script.js, "Handy-Leiste"). -->
+<div class="mobil-leiste" id="mobil-leiste" hidden>
+  <a class="btn btn-primary btn-block" href="#wegweiser"><span>Pakete ansehen</span></a>
+</div>
 
 </main>
 
@@ -1185,7 +1164,8 @@
              (dasselbe steht in sameAs der strukturierten Daten oben). -->
         <li><a href="https://www.tiktok.com/@tyler.tweaks" target="_blank" rel="me noopener">TikTok @tyler.tweaks</a></li>
         <li><a href="#faq">Häufige Fragen</a></li>
-        <li><a href="#vertrauen">Sicherheit &amp; Backup</a></li>
+        <li><a href="ablauf.html">So läuft die Optimierung ab</a></li>
+        <li><a href="sicherheit.html">Sicherheit der App</a></li>
       </ul>
     </div>
 

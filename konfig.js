@@ -83,6 +83,25 @@ window.TT_KONFIG = {
      ----------------------------------------------------------------------- */
   appErscheint: '',
 
+  /* ---- Angemeldetes Gewerbe ----------------------------------------------
+     true zeigt auf der Startseite in der Vertrauensleiste "Angemeldetes
+     Gewerbe" mit Link zum Impressum. Erst einschalten, wenn das Gewerbe
+     angemeldet ist und die GISA-Zahl im Impressum steht.
+     ----------------------------------------------------------------------- */
+  gewerbeAngemeldet: false,
+
+  /* ---- Kundenstimmen -----------------------------------------------------
+     Solange die Liste leer ist, bleibt der Bereich "Das sagen Kunden" auf
+     der Startseite unsichtbar. Nur echte Stimmen, mit Erlaubnis der Kunden,
+     z. B. aus dem Discord. Keine erfundenen — das wäre unehrlich und in der
+     EU als irreführende Werbung verboten.
+
+     Ein Eintrag:
+       { text: 'Hat alles erklärt, lief sauber.', name: 'Max', paket: 'PC-Optimierung' }
+     name ist der Vorname oder Discord-Name, wie der Kunde es erlaubt hat.
+     ----------------------------------------------------------------------- */
+  kundenstimmen: [],
+
   // 'sandbox' zum Testen mit PayPal-Testkonten, 'live' für echtes Geld.
   // Muss zu PAYPAL_ENV in den Supabase-Secrets passen.
   paypalUmgebung: 'sandbox',

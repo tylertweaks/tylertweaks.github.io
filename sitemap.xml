@@ -28,6 +28,21 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Infoseiten: Ablauf der Remote-Sitzung und Sicherheit der App. -->
+  <url>
+    <loc>https://tylertweaks.github.io/ablauf.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://tylertweaks.github.io/sicherheit.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Der PC-Score-Test: 12 Fragen, Ergebnis mit Empfehlung. -->
   <url>
     <loc>https://tylertweaks.github.io/score-test.html</loc>

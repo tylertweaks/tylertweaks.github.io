@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Tyler Tweaks — Infoseiten (ablauf.html, sicherheit.html)
+
+   Nur was diese Seiten brauchen. Farben, Schriften und Radien kommen aus den
+   Tokens in style.css (Abschnitte 1, 24 und 27).
+   ========================================================================== */
+
+.info-seite {
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 100px;
+}
+.info-wrap { position: relative; z-index: 1; max-width: 920px; }
+
+.info-kopf { max-width: 680px; margin: 0 auto 44px; text-align: center; }
+.info-kopf h1 {
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  margin-bottom: .35em;
+}
+.info-kopf .sub { color: var(--text-2); }
+
+/* ---------- Nummerierte Schritte ---------- */
+.info-schritte {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+  counter-reset: schritt;
+}
+.info-schritte li {
+  position: relative;
+  padding: 20px 22px 20px 74px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(29, 78, 216, .07), transparent 60%),
+    var(--surface);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+  counter-increment: schritt;
+}
+.info-schritte li::before {
+  content: counter(schritt, decimal-leading-zero);
+  content: counter(schritt, decimal-leading-zero) / "";
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #2563eb, #1d4ed8);
+  box-shadow: 0 0 18px rgba(29, 78, 216, .5);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 700;
+}
+.info-schritte h2 { margin-bottom: .25em; font-size: 1.15rem; }
+.info-schritte p { color: var(--text-2); font-size: .97rem; line-height: 1.6; }
+
+/* ---------- Karten ---------- */
+.info-zwei {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.info-karte {
+  padding: 24px 24px 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+.info-karte h2 { font-size: 1.2rem; margin-bottom: .6em; }
+.info-karte p { color: var(--text-2); }
+.info-karte p + p { margin-top: .7em; }
+.info-karte .muted { color: var(--muted); font-size: .9rem; }
+.info-breit { margin-bottom: 14px; }
+
+.info-liste { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.info-liste li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--text-2);
+  font-size: .96rem;
+  line-height: 1.55;
+}
+.info-liste li::before {
+  position: absolute;
+  left: 0;
+  top: .12em;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: .7rem;
+  font-weight: 700;
+}
+.info-liste.ja li::before   { content: '✓'; background: var(--ok-soft); color: var(--ok); }
+.info-liste.nein li::before { content: '✕'; background: rgba(255, 107, 107, .12); color: #ff8a8a; }
+.info-liste.schritte { counter-reset: s; margin: 14px 0; }
+.info-liste.schritte li { counter-increment: s; }
+.info-liste.schritte li::before {
+  content: counter(s);
+  background: rgba(var(--accent-rgb), .14);
+  color: var(--accent);
+}
+
+.info-schluss {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+@media (max-width: 720px) {
+  .info-seite { padding: 116px 0 72px; }
+  .info-zwei { grid-template-columns: 1fr; }
+  .info-schritte li { padding: 18px 16px 18px 64px; }
+  .info-schritte li::before { left: 14px; top: 18px; width: 34px; height: 34px; }
+  .info-karte { padding: 20px 18px; }
+  .info-schluss .btn { width: 100%; }
+}
