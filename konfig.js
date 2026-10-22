@@ -119,13 +119,15 @@ window.TT_KONFIG = {
      pflegt, ist nach ein paar Wochen falsch.
      ----------------------------------------------------------------------- */
   reichweite: [
-    { plattform: 'discord', name: 'Tyler Tweaks', zahl: '' },
-    { plattform: 'tiktok',  name: '@tyler.tweaks', zahl: '', url: 'https://www.tiktok.com/@tyler.tweaks' }
+    { plattform: 'discord', name: 'Tyler Tweaks', zahl: 36 },
+    { plattform: 'tiktok',  name: '@tyler.tweaks', zahl: 92, url: 'https://www.tiktok.com/@tyler.tweaks' }
   ],
 
   /* Datum der Zahlen oben, z. B. 'Oktober 2026'. Erscheint als kleine Zeile
-     unter den Karten, aber nur, wenn mindestens eine Zahl eingetragen ist. */
-  reichweiteStand: '',
+     unter den Karten, aber nur, wenn mindestens eine Zahl eingetragen ist.
+     Die Zahlen oben sind vom 22.10.2026: Discord laut öffentlicher Einladung,
+     TikTok laut Profilseite. */
+  reichweiteStand: '22.10.2026',
 
   // 'sandbox' zum Testen mit PayPal-Testkonten, 'live' für echtes Geld.
   // Muss zu PAYPAL_ENV in den Supabase-Secrets passen.
