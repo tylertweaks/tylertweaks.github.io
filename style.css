@@ -4917,3 +4917,182 @@ html { scrollbar-color: #24345a var(--bg); }
   .reichweite-text strong { font-size: 1.15rem; }
   .reichweite-pfeil { top: 8px; right: 12px; }
 }
+
+/* ==========================================================================
+   30. Stufen der Tweak App (Oktober 2026)
+
+   Vorbild realdarkzy.de: Text links, App-Vorschau rechts, darunter über die
+   ganze Breite die Stufen Kostenlos, 1 Monat und Lifetime als Karten
+   nebeneinander und eine Zeile mit der gewählten Stufe und dem Kaufknopf.
+   Die Karten baut script.js (Abschnitt 5) aus konfig.js (gratis,
+   laufzeiten). Ersetzt die kleinen Laufzeit-Knöpfe in der Kasse rechts.
+   ========================================================================== */
+.produkt-app {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+}
+.produkt-app .app-demo { margin: 0; }
+
+.stufen {
+  grid-column: 1 / -1;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+}
+.stufen-kopf {
+  margin: 0 0 24px;
+  text-align: center;
+  font-family: var(--font-head);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.stufen-grid {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: 16px;
+}
+
+.stufe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px 24px 24px;
+  background: rgba(5, 7, 12, .45);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+button.stufe:hover { border-color: var(--line-strong); }
+.stufe:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.stufe.an {
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .14), rgba(5, 7, 12, .5) 70%);
+  border-color: rgba(var(--accent-rgb), .6);
+  box-shadow: 0 18px 50px rgba(var(--accent-rgb), .16);
+}
+
+.stufe-name {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.stufe.an .stufe-name { color: var(--accent); }
+.stufe-preis {
+  margin-top: 10px;
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+.stufe-einheit {
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.stufe-punkte {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.stufe-punkt {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-2);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+.stufe-punkt::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--ok);
+  font-weight: 700;
+}
+
+.stufe-marke {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), .14);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .45);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* Gratis-Stufe, solange es sie nur angekündigt gibt: nicht wählbar. */
+.stufe-bald {
+  cursor: default;
+  border-style: dashed;
+  opacity: .78;
+}
+.stufe-bald .stufe-marke {
+  background: rgba(255, 255, 255, .06);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  color: var(--muted);
+}
+.stufe-bald .stufe-punkt::before { color: var(--muted); }
+
+/* Die Zeile darunter: gewählte Stufe, Betrag, Kaufknopf. */
+.stufen-kasse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  margin-top: 20px;
+  padding: 20px 24px;
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .10), rgba(5, 7, 12, .55));
+  border: 1px solid rgba(var(--accent-rgb), .35);
+  border-radius: 12px;
+}
+.stufen-wahl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin: 0;
+}
+.stufen-wahl strong { font-size: 1.05rem; }
+.stufen-betrag {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.stufen-einheit {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.stufen-kasse .plan-buy { flex: 0 1 320px; margin: 0; }
+.stufen-kasse .plan-alt { margin-bottom: 0; }
+
+@media (max-width: 760px) {
+  .stufen-grid { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); }
+  .stufen-kasse { flex-direction: column; align-items: stretch; padding: 18px; }
+  .stufen-kasse .plan-buy { flex-basis: auto; }
+}

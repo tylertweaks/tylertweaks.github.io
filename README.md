@@ -12,14 +12,19 @@ Live: https://tylertweaks.github.io/
 
 | Paket | Preis |
 |---|---|
-| Tweak App — 24 Stunden | 7,99 € |
-| Tweak App — 2 Tage | 9,99 € |
-| Tweak App — 1 Woche | 12,99 € |
+| Tweak App — Kostenlos | angekündigt, noch nicht verfügbar |
 | Tweak App — 1 Monat | 16,99 € |
-| Tweak App — 1 Jahr | 29,99 € |
 | Tweak App — Lifetime | 59,99 € |
 | PC-Optimierung | 29,99 € |
 | Bundle (App Lifetime + Optimierung) | 74,99 € |
+
+Seit 22.10.2026 zeigt die Seite nur noch diese drei Stufen, als Karten
+nebeneinander unter der App (Vorbild realdarkzy.de). 24 Stunden, 2 Tage,
+1 Woche und 1 Jahr stehen weiter in `products`, sind aber aus
+`konfig.js` → `laufzeiten` genommen und werden nicht mehr angeboten. Die
+Karte „Kostenlos“ kommt aus `konfig.js` → `gratis` und zeigt „Kommt mit der
+nächsten App-Version“ ohne Kaufknopf, weil die App bisher nur mit
+Lizenzschlüssel startet. Mit `gratis: null` verschwindet sie.
 
 Verbindlich sind immer die Preise in der Supabase-Tabelle `products` — die
 Edge Function rechnet ausschließlich damit. Die Zahlen in `konfig.js` sorgen nur

@@ -170,14 +170,34 @@ window.TT_KONFIG = {
      leer zu bleiben. Weichen sie ab, korrigiert die Seite sich beim Laden
      selbst aus der Datenbank.
      ----------------------------------------------------------------------- */
+  /* Seit 22.10.2026 nur noch zwei Laufzeiten auf der Seite, als Karten
+     nebeneinander (Vorbild realdarkzy.de). Die übrigen (24 Std., 2 Tage,
+     1 Woche, 1 Jahr) stehen weiter in der Datenbank, werden hier aber nicht
+     mehr angeboten. Wer eine wieder zeigen will, trägt sie hier ein.
+
+     einheit   kleine Zeile unter dem Preis
+     punkte    die Zeilen auf der Karte
+     empfohlen bekommt das Etikett "Empfohlen" */
   laufzeiten: [
-    { slug: 'app-24h',      kurz: '24 Std.',  lang: '24 Stunden', preis: '7.99'  },
-    { slug: 'app-2d',       kurz: '2 Tage',   lang: '2 Tage',     preis: '9.99'  },
-    { slug: 'app-1w',       kurz: '1 Woche',  lang: '1 Woche',    preis: '12.99' },
-    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',    preis: '16.99' },
-    { slug: 'app-1y',       kurz: '1 Jahr',   lang: '1 Jahr',     preis: '29.99' },
-    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime',   preis: '59.99' }
+    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',  preis: '16.99',
+      einheit: '30 Tage · einmalig',
+      punkte: ['Alle Tweaks und Werkzeuge', 'Läuft nach 30 Tagen aus', 'Kein Abo, verlängert sich nicht'] },
+    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime', preis: '59.99',
+      einheit: 'einmalig', empfohlen: true,
+      punkte: ['Alle Tweaks und Werkzeuge', 'Alle künftigen Updates', 'Einmal zahlen, für immer'] }
   ],
+
+  /* ---- Gratis-Stufe der App ----------------------------------------------
+     Die App startet bisher nur mit Lizenzschlüssel; eine Gratis-Version gibt
+     es noch nicht. Solange hier bald steht, zeigt die Seite links neben den
+     Laufzeiten eine Karte "Kostenlos" mit "Kommt <bald>" und ohne Kaufknopf.
+
+     Ist die Gratis-Version da: Karte und Download gehören dann richtig
+     eingebaut. Soll die Karte verschwinden: gratis: null */
+  gratis: {
+    bald: 'mit der nächsten App-Version',
+    punkte: ['Ein Teil der Tweaks zum Ausprobieren', 'Ohne Lizenzschlüssel']
+  },
 
   /* ---- Die beiden festen Pakete ------------------------------------------
      Standen früher fest im HTML und zusätzlich als Zahl in script.js. Damit

@@ -342,6 +342,12 @@
     var preisEl = document.getElementById('app-preis');
     if (preisEl) preisEl.textContent = preisFormat(eintrag.preis);
 
+    // Die Zeile über dem Kaufknopf: welche Stufe gerade gewählt ist.
+    var nameEl = document.getElementById('app-stufe-name');
+    if (nameEl) nameEl.textContent = eintrag.lang;
+    var einheitEl = document.getElementById('app-stufe-einheit');
+    if (einheitEl) einheitEl.textContent = eintrag.einheit || 'einmalig';
+
     korbKnopf(document.getElementById('app-kaufen'), {
       slug: slug,
       name: 'Tweak App',
@@ -369,10 +375,35 @@
     var behaelter = document.getElementById('laufzeit-knoepfe');
     if (!behaelter || !laufzeiten.length) return;
 
-    behaelter.innerHTML = laufzeiten.map(function (l) {
-      return '<button type="button" data-slug="' + l.slug + '" aria-pressed="false">' +
-        '<span class="lz-name">' + l.kurz + '</span>' +
-        '<span class="lz-preis">' + preisFormat(l.preis) + ' €</span>' +
+    /* Seit 22.10.2026 Karten statt kleiner Knöpfe (Vorbild realdarkzy.de):
+       links die Gratis-Stufe aus KONFIG.gratis, solange es sie nur als
+       Ankündigung gibt ohne Knopf, daneben je Laufzeit eine wählbare Karte. */
+    var esc = (window.TT && TT.escape) || function (s) { return String(s); };
+
+    function punkte(liste) {
+      return (liste || []).map(function (p) {
+        return '<span class="stufe-punkt">' + esc(p) + '</span>';
+      }).join('');
+    }
+
+    var gratis = KONFIG.gratis && KONFIG.gratis.bald ? KONFIG.gratis : null;
+    var gratisKarte = gratis
+      ? '<div class="stufe stufe-bald">' +
+          '<span class="stufe-marke">Bald</span>' +
+          '<span class="stufe-name">Kostenlos</span>' +
+          '<span class="stufe-preis">0 €</span>' +
+          '<span class="stufe-einheit">Kommt ' + esc(gratis.bald) + '</span>' +
+          '<span class="stufe-punkte">' + punkte(gratis.punkte) + '</span>' +
+        '</div>'
+      : '';
+
+    behaelter.innerHTML = gratisKarte + laufzeiten.map(function (l) {
+      return '<button type="button" class="stufe" data-slug="' + esc(l.slug) + '" aria-pressed="false">' +
+        (l.empfohlen ? '<span class="stufe-marke">Empfohlen</span>' : '') +
+        '<span class="stufe-name">' + esc(l.kurz) + '</span>' +
+        '<span class="stufe-preis">' + preisFormat(l.preis) + ' €</span>' +
+        '<span class="stufe-einheit">' + esc(l.einheit || 'einmalig') + '</span>' +
+        '<span class="stufe-punkte">' + punkte(l.punkte) + '</span>' +
         '</button>';
     }).join('');
 

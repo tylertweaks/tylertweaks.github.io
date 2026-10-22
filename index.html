@@ -547,7 +547,7 @@
            zeigt dieses Paket: Funktionsliste und darunter die App-Vorschau.
            Solange appErscheint in konfig.js steht, ist die App gesperrt
            (script.js) und #app-hinweis sagt, wann sie kommt. -->
-      <article class="plan produkt ton-cyan" id="tarif-app">
+      <article class="plan produkt produkt-app ton-cyan" id="tarif-app">
         <div class="produkt-info">
           <div class="produkt-marken">
             <span class="plan-kind">Software</span>
@@ -573,8 +573,9 @@
             <li>Neue Versionen kostenlos</li>
             <li class="off">Keine persönliche Optimierung</li>
           </ul>
+        </div>
 
-          <!-- App-Vorschau: echte Aufnahmen aus Tyler 4.1 auf einem echten PC
+        <!-- App-Vorschau: echte Aufnahmen aus Tyler 4.1 auf einem echten PC
                (15.10.2026, Fenster 1400 × 900), die von selbst weiterblättern —
                script.js, „App-Vorschau“. Ohne JavaScript bleibt das erste Bild
                stehen. Neue Bilder ohne persönliche Pfade aufnehmen: Der
@@ -607,25 +608,30 @@
             <figcaption class="app-demo-text">Übersicht: Score, Live-Werte und deine Absicherung auf einen Blick</figcaption>
             <div class="app-demo-punkte" aria-label="Bild wählen"></div>
           </figure>
-        </div>
 
-        <div class="produkt-kasse">
-          <fieldset class="laufzeit-wahl" id="laufzeit-wahl">
-            <legend>Laufzeit wählen</legend>
-            <div class="laufzeit-knoepfe" id="laufzeit-knoepfe">
-              <!-- wird aus konfig.js aufgebaut und aus der Datenbank bestätigt -->
-            </div>
-          </fieldset>
-
-          <div class="price">
-            <span class="amount" id="app-preis">59,99</span><span class="cur">€</span><span class="once">einmalig</span>
+        <!-- Stufen über die ganze Breite, Vorbild realdarkzy.de: Kostenlos,
+             1 Monat, Lifetime als Karten nebeneinander, darunter eine Zeile
+             mit der gewählten Stufe und dem Kaufknopf. Die Karten baut
+             script.js (Abschnitt 5) aus konfig.js (gratis, laufzeiten). Die
+             ids laufzeit-knoepfe, app-preis und app-kaufen braucht script.js. -->
+        <div class="stufen" id="laufzeit-wahl">
+          <p class="stufen-kopf" id="stufen-titel">Kostenlos, 1 Monat oder Lifetime?</p>
+          <div class="stufen-grid" id="laufzeit-knoepfe" role="group" aria-labelledby="stufen-titel">
+            <!-- wird aus konfig.js aufgebaut und aus der Datenbank bestätigt -->
           </div>
 
-          <div class="plan-buy">
-            <a class="btn btn-primary btn-block" id="app-kaufen" href="kaufen.html?produkt=app-lifetime">
-              Für 59,99 € kaufen
-            </a>
-            <p class="plan-alt">Zahlung über PayPal · <a href="sicherheit.html">Sicherheit der App</a></p>
+          <div class="stufen-kasse">
+            <p class="stufen-wahl">
+              <strong>Tweak App <span id="app-stufe-name">Lifetime</span></strong>
+              <span class="stufen-betrag"><span id="app-preis">59,99</span> €</span>
+              <span class="stufen-einheit" id="app-stufe-einheit">einmalig</span>
+            </p>
+            <div class="plan-buy">
+              <a class="btn btn-primary btn-block" id="app-kaufen" href="kaufen.html?produkt=app-lifetime">
+                Für 59,99 € kaufen
+              </a>
+              <p class="plan-alt">Zahlung über PayPal · <a href="sicherheit.html">Sicherheit der App</a></p>
+            </div>
           </div>
         </div>
       </article>
