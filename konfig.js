@@ -187,16 +187,19 @@ window.TT_KONFIG = {
       punkte: ['Alle Tweaks und Werkzeuge', 'Alle künftigen Updates', 'Einmal zahlen, für immer'] }
   ],
 
-  /* ---- Gratis-Stufe der App ----------------------------------------------
-     Die App startet bisher nur mit Lizenzschlüssel; eine Gratis-Version gibt
-     es noch nicht. Solange hier bald steht, zeigt die Seite links neben den
-     Laufzeiten eine Karte "Kostenlos" mit "Kommt <bald>" und ohne Kaufknopf.
+  /* ---- Gratis-Version der App ----------------------------------------------
+     Seit Tyler 4.2 startet die App ohne Lizenzschlüssel als Gratis-Version
+     (40 Tweaks: Datenschutz, Debloat, Aufgaben). Wer alle will, gibt in der
+     App einen Schlüssel ein.
 
-     Ist die Gratis-Version da: Karte und Download gehören dann richtig
-     eingebaut. Soll die Karte verschwinden: gratis: null */
+     Die Karte "Kostenlos" links neben den Laufzeiten wird von selbst zum
+     Download-Knopf (app.datei unten), sobald app.version mindestens abVersion
+     ist — also sobald release-fertigstellen.ps1 die 4.2 hier eingetragen hat.
+     Vorher steht dort "Kommt mit Tyler 4.2", denn die 4.1 braucht noch einen
+     Schlüssel. Soll die Karte verschwinden: gratis: null */
   gratis: {
-    bald: 'mit der nächsten App-Version',
-    punkte: ['Ein Teil der Tweaks zum Ausprobieren', 'Ohne Lizenzschlüssel']
+    abVersion: '4.2.0',
+    punkte: ['40 Tweaks: Datenschutz, Debloat, Aufgaben', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks erweitern']
   },
 
   /* ---- Die beiden festen Pakete ------------------------------------------

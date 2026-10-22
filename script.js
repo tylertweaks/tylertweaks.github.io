@@ -371,6 +371,17 @@
 
   var zuhoererGesetzt = false;
 
+  /* Ist version mindestens ab? Beide als "4.2.0"; fehlt eines, nein. */
+  function versionAb(version, ab) {
+    if (!version || !ab) return false;
+    var a = String(version).split('.').map(Number);
+    var b = String(ab).split('.').map(Number);
+    for (var i = 0; i < 3; i++) {
+      if ((a[i] || 0) !== (b[i] || 0)) return (a[i] || 0) > (b[i] || 0);
+    }
+    return true;
+  }
+
   function laufzeitenZeichnen() {
     var behaelter = document.getElementById('laufzeit-knoepfe');
     if (!behaelter || !laufzeiten.length) return;
@@ -386,16 +397,22 @@
       }).join('');
     }
 
-    var gratis = KONFIG.gratis && KONFIG.gratis.bald ? KONFIG.gratis : null;
-    var gratisKarte = gratis
-      ? '<div class="stufe stufe-bald">' +
-          '<span class="stufe-marke">Bald</span>' +
+    var gratis = KONFIG.gratis || null;
+    var gratisKarte = '';
+    if (gratis) {
+      var datei = KONFIG.app && KONFIG.app.datei;
+      var da = !!datei && versionAb(KONFIG.app.version, gratis.abVersion);
+      gratisKarte = '<div class="stufe' + (da ? ' stufe-gratis' : ' stufe-bald') + '">' +
+          (da ? '' : '<span class="stufe-marke">Bald</span>') +
           '<span class="stufe-name">Kostenlos</span>' +
           '<span class="stufe-preis">0 €</span>' +
-          '<span class="stufe-einheit">Kommt ' + esc(gratis.bald) + '</span>' +
+          '<span class="stufe-einheit">' + (da
+            ? 'Ohne Anmeldung'
+            : 'Kommt mit Tyler ' + esc(String(gratis.abVersion || '').replace(/\.0$/, ''))) + '</span>' +
           '<span class="stufe-punkte">' + punkte(gratis.punkte) + '</span>' +
-        '</div>'
-      : '';
+          (da ? '<a class="btn btn-outline btn-block stufe-download" href="' + esc(datei) + '" download>Gratis herunterladen</a>' : '') +
+        '</div>';
+    }
 
     behaelter.innerHTML = gratisKarte + laufzeiten.map(function (l) {
       return '<button type="button" class="stufe" data-slug="' + esc(l.slug) + '" aria-pressed="false">' +

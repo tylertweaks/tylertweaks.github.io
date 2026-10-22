@@ -12,19 +12,28 @@ Live: https://tylertweaks.github.io/
 
 | Paket | Preis |
 |---|---|
-| Tweak App — Kostenlos | angekündigt, noch nicht verfügbar |
-| Tweak App — 1 Monat | 16,99 € |
-| Tweak App — Lifetime | 59,99 € |
+| Tweak App — Gratis-Version (40 Tweaks, ohne Schlüssel) | 0 € |
+| Tweak App — 1 Monat (alle Tweaks, kein Abo) | 16,99 € |
+| Tweak App — Lifetime (alle Tweaks) | 59,99 € |
 | PC-Optimierung | 29,99 € |
 | Bundle (App Lifetime + Optimierung) | 74,99 € |
 
-Seit 22.10.2026 zeigt die Seite nur noch diese drei Stufen, als Karten
-nebeneinander unter der App (Vorbild realdarkzy.de). 24 Stunden, 2 Tage,
-1 Woche und 1 Jahr stehen weiter in `products`, sind aber aus
-`konfig.js` → `laufzeiten` genommen und werden nicht mehr angeboten. Die
-Karte „Kostenlos“ kommt aus `konfig.js` → `gratis` und zeigt „Kommt mit der
-nächsten App-Version“ ohne Kaufknopf, weil die App bisher nur mit
-Lizenzschlüssel startet. Mit `gratis: null` verschwindet sie.
+Seit Tyler 4.2 startet die App ohne Schlüssel als Gratis-Version
+(Datenschutz, Debloat, Aufgaben). Der Schlüssel wird in der App unten links
+eingegeben und schaltet alle Tweaks frei; läuft er ab, bleibt die
+Gratis-Version.
+
+Die Seite zeigt die drei Stufen als Karten nebeneinander unter der App
+(Vorbild realdarkzy.de). Die Karte „Kostenlos“ kommt aus `konfig.js` →
+`gratis` und wird **von selbst** zum Download-Knopf auf `app.datei`, sobald
+`app.version` mindestens `gratis.abVersion` (4.2.0) ist — das trägt
+`release-fertigstellen.ps1` beim Veröffentlichen ein. Bis dahin steht dort
+„Kommt mit Tyler 4.2“, denn die 4.1 braucht noch einen Schlüssel.
+
+24 Stunden, 2 Tage, 1 Woche und 1 Jahr sind abgeschaltet: aus `konfig.js` →
+`laufzeiten` genommen und in der Datenbank `active = false`
+(`backend/18-gratis-und-laufzeiten.sql` im App-Repository). Schon verkaufte
+Lizenzen dieser Laufzeiten gelten weiter.
 
 Verbindlich sind immer die Preise in der Supabase-Tabelle `products` — die
 Edge Function rechnet ausschließlich damit. Die Zahlen in `konfig.js` sorgen nur
