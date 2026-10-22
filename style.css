@@ -4821,3 +4821,99 @@ html { scrollbar-color: #24345a var(--bg); }
   .hero .hero-marke img { width: 84px; height: 84px; }
   .hero .hero-zeile { margin-bottom: 20px; }
 }
+
+/* ==========================================================================
+   29. Reichweite (Oktober 2026)
+
+   Vorbild realdarkzy.de: unter Name und Knöpfen eine Reihe Karten mit den
+   Plattformen. Hier mit eigenen Farben und eigenen Symbolen; die Karten
+   baut script.js (Abschnitt 8b) aus konfig.js. Rückbau ist das Löschen dieses
+   Blocks, des Blocks in index.html (#reichweite) und von Abschnitt 8b.
+   ========================================================================== */
+.reichweite {
+  list-style: none;
+  padding: 0;
+  margin: 34px auto 0;
+  max-width: 940px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+.reichweite li { display: flex; }
+
+.reichweite-karte {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 38px 16px 18px;
+  text-align: left;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05);
+  transition: border-color .2s, transform .2s;
+}
+.reichweite-karte:hover {
+  border-color: rgba(var(--accent-rgb), .55);
+  transform: translateY(-2px);
+}
+.reichweite-karte:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.reichweite-ico {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.reichweite-ico svg { width: 20px; height: 20px; }
+
+.reichweite-text { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.reichweite-text strong {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  overflow-wrap: anywhere;
+}
+.reichweite-text span { color: var(--muted); font-size: .8rem; line-height: 1.4; }
+
+.reichweite-pfeil {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  color: var(--muted);
+  font-size: .85rem;
+  transition: color .2s;
+}
+.reichweite-karte:hover .reichweite-pfeil { color: var(--accent); }
+
+.reichweite-stand {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* Die Vertrauensleiste rückt näher heran, wenn die Karten darüber stehen. */
+.hero .reichweite:not([hidden]) ~ .trustbar { margin-top: 18px; }
+
+/* Am Handy zwei Spalten mit dem Symbol über dem Text, sonst füllen fünf Karten
+   den halben ersten Bildschirm. Bei ungerader Zahl nimmt die letzte die ganze
+   Breite. */
+@media (max-width: 560px) {
+  .reichweite { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 26px; }
+  .reichweite li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .reichweite-karte { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
+  .reichweite-text strong { font-size: 1.15rem; }
+  .reichweite-pfeil { top: 8px; right: 12px; }
+}

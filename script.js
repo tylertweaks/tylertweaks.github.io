@@ -820,6 +820,101 @@
   })();
 
   /* ====================================================================
+     8b. Reichweite
+
+     Karten unter dem Namen, gebaut aus KONFIG.reichweite. Ohne Eintrag bleibt
+     die Leiste unsichtbar. Erlaubt sind nur die Plattformen in der Tabelle;
+     konfig.js liefert Namen, Zahl und Adresse, nie Markup. Die Symbole sind
+     feste Zeichenketten in diesem Skript und die einzige Stelle mit innerHTML.
+     ==================================================================== */
+  (function reichweite() {
+    var liste = document.getElementById('reichweite');
+    var stand = document.getElementById('reichweite-stand');
+    var eintraege = Array.isArray(KONFIG.reichweite) ? KONFIG.reichweite : [];
+    if (!liste || !eintraege.length) return;
+
+    function symbol(inhalt) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inhalt + '</svg>';
+    }
+
+    var PLATTFORMEN = {
+      discord: {
+        name: 'Discord', einheit: 'Mitglieder', aktion: 'Beitreten',
+        symbol: symbol('<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>')
+      },
+      tiktok: {
+        name: 'TikTok', einheit: 'Follower', aktion: 'Folgen',
+        symbol: symbol('<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>')
+      },
+      youtube: {
+        name: 'YouTube', einheit: 'Abonnenten', aktion: 'Abonnieren',
+        symbol: symbol('<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><path d="m9.75 15.02 5.75-3.27-5.75-3.27z"/>')
+      },
+      twitch: {
+        name: 'Twitch', einheit: 'Follower', aktion: 'Folgen',
+        symbol: symbol('<path d="M21 2H3v16h5v4l4-4h5l4-4V2z"/><path d="M11 11V7"/><path d="M16 11V7"/>')
+      },
+      x: {
+        name: 'X', einheit: 'Follower', aktion: 'Folgen',
+        symbol: symbol('<path d="M18 6 6 18"/><path d="m6 6 12 12"/>')
+      }
+    };
+
+    var mitZahl = false;
+
+    eintraege.forEach(function (e) {
+      var p = e && PLATTFORMEN.hasOwnProperty(e.plattform) ? PLATTFORMEN[e.plattform] : null;
+      if (!p) return;
+
+      var url = e.url || (e.plattform === 'discord' ? KONFIG.discordEinladung : '');
+      if (!/^https:\/\//.test(url || '')) return;
+
+      var zahl = typeof e.zahl === 'number' ? e.zahl.toLocaleString('de-DE') : String(e.zahl || '');
+      if (zahl) mitZahl = true;
+
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.className = 'reichweite-karte';
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+
+      var ico = document.createElement('span');
+      ico.className = 'reichweite-ico';
+      ico.innerHTML = p.symbol;
+
+      var text = document.createElement('span');
+      text.className = 'reichweite-text';
+      var gross = document.createElement('strong');
+      gross.textContent = zahl || e.name || p.name;
+      var klein = document.createElement('span');
+      klein.textContent = zahl ? p.einheit + ' · ' + p.name : p.name + ' · ' + p.aktion;
+      text.appendChild(gross);
+      text.appendChild(klein);
+
+      var pfeil = document.createElement('span');
+      pfeil.className = 'reichweite-pfeil';
+      pfeil.setAttribute('aria-hidden', 'true');
+      pfeil.textContent = '↗';
+
+      a.appendChild(ico);
+      a.appendChild(text);
+      a.appendChild(pfeil);
+      li.appendChild(a);
+      liste.appendChild(li);
+    });
+
+    if (!liste.children.length) return;
+    liste.hidden = false;
+
+    if (stand && mitZahl && KONFIG.reichweiteStand) {
+      stand.textContent = 'Stand ' + KONFIG.reichweiteStand;
+      stand.hidden = false;
+    }
+  })();
+
+  /* ====================================================================
      9. Handy-Leiste
 
      Am Handy steht unten ein Knopf "Pakete ansehen" — aber erst, wenn der

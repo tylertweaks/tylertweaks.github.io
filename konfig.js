@@ -102,6 +102,31 @@ window.TT_KONFIG = {
      ----------------------------------------------------------------------- */
   kundenstimmen: [],
 
+  /* ---- Reichweite: Karten unter dem Namen --------------------------------
+     Eine Karte je Eintrag, in dieser Reihenfolge. Ohne Eintrag bleibt die
+     Leiste unsichtbar (script.js, Abschnitt 8b).
+
+       plattform  discord | tiktok | youtube | twitch | x
+       name       Anzeigename oder Handle, z. B. '@tyler.tweaks'
+       url        Adresse des Profils, muss mit https:// beginnen. Bei discord
+                  entfällt sie: Dann gilt discordEinladung von oben.
+       zahl       Echte Zahl, z. B. 1250 oder '1.250'. Leer lassen, solange sie
+                  noch nichts hergibt: Dann zeigt die Karte statt der Zahl den
+                  Namen und "Folgen" bzw. "Beitreten".
+
+     Nur zählen, was die Plattform selbst anzeigt, und bei jeder Änderung
+     reichweiteStand nachziehen — eine eingefrorene Zahl, die niemand mehr
+     pflegt, ist nach ein paar Wochen falsch.
+     ----------------------------------------------------------------------- */
+  reichweite: [
+    { plattform: 'discord', name: 'Tyler Tweaks', zahl: '' },
+    { plattform: 'tiktok',  name: '@tyler.tweaks', zahl: '', url: 'https://www.tiktok.com/@tyler.tweaks' }
+  ],
+
+  /* Datum der Zahlen oben, z. B. 'Oktober 2026'. Erscheint als kleine Zeile
+     unter den Karten, aber nur, wenn mindestens eine Zahl eingetragen ist. */
+  reichweiteStand: '',
+
   // 'sandbox' zum Testen mit PayPal-Testkonten, 'live' für echtes Geld.
   // Muss zu PAYPAL_ENV in den Supabase-Secrets passen.
   paypalUmgebung: 'sandbox',

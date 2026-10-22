@@ -84,6 +84,24 @@ Beim Kauf über paypal.me (siehe unten) rechnet ebenfalls der Server: Die Edge
 Function `paypal-privat-bestellung` legt die Bestellung mit Preis und Rabatt
 aus der Datenbank an, und genau dieser Betrag steht im paypal.me-Link.
 
+## Reichweite unter dem Namen
+
+Auf der Startseite stehen unter den Knöpfen Karten für Discord, TikTok und
+weitere Plattformen (Vorbild: realdarkzy.de, aber mit eigenen Farben und
+Symbolen). Sie kommen aus `konfig.js` unter `reichweite`; `script.js`
+(Abschnitt 8b) baut sie. Ohne Eintrag bleibt die Leiste unsichtbar.
+
+- Ohne `zahl` zeigt die Karte den Namen und „Beitreten“ bzw. „Folgen“. Mit
+  `zahl` steht die Zahl groß da, darunter „Mitglieder · Discord“.
+- **Nur echte Zahlen**, so, wie die Plattform sie anzeigt. Bei jeder Änderung
+  `reichweiteStand` (z. B. `'Oktober 2026'`) mitpflegen: Es erscheint als
+  „Stand …“ unter den Karten, sobald mindestens eine Zahl gesetzt ist.
+- Möglich sind `discord`, `tiktok`, `youtube`, `twitch` und `x`. Adressen
+  müssen mit `https://` beginnen, sonst wird die Karte übersprungen. Discord
+  nimmt ohne `url` die `discordEinladung`.
+- Die Zahlen stehen absichtlich nicht live: Die Seite fragt keinen Dritten an
+  (siehe „Keine fremden Server“).
+
 ## Verkauf pausiert
 
 **Seit 26.09.2026 ist der Verkauf abgeschaltet** (`verkaufPausiert: true` in
