@@ -194,12 +194,11 @@ window.TT_KONFIG = {
 
      Die Karte "Kostenlos" links neben den Laufzeiten wird von selbst zum
      Download-Knopf (app.datei unten), sobald app.version mindestens abVersion
-     ist — also sobald release-fertigstellen.ps1 die 4.2 hier eingetragen hat.
-     Vorher steht dort "Kommt mit Tyler 4.2", denn die 4.1 braucht noch einen
-     Schlüssel. Soll die Karte verschwinden: gratis: null */
+     ist. Seit 23.10.2026 heißt die App wieder Version 2.0.0 (auf Tylers Wunsch,
+     kleiner als die vorige 4.2.0), deshalb steht abVersion auf 2.0.0. Soll die Karte verschwinden: gratis: null */
   gratis: {
-    abVersion: '4.2.0',
-    punkte: ['40 Tweaks: Datenschutz, Debloat, Aufgaben', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks erweitern']
+    abVersion: '2.0.0',
+    punkte: ['40 Tweaks: Datenschutz, Debloat, Aufgaben', 'Game Booster inklusive', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks erweitern']
   },
 
   /* ---- Die beiden festen Pakete ------------------------------------------
@@ -234,8 +233,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '4.2.0',
-    datum: '22.10.2026',
+    version: '2.0.0',
+    datum: '23.10.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -252,9 +251,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-4.2.0.exe',
+    datei: 'downloads/TylerTweaksSetup-2.0.0.exe',
     groesse: '51,3 MB',
-    sha256: 'c39aef68187a99a6204b39a55ad3b432d1dc06bc56eeb01817f138ba0ea6e3ae'
+    sha256: '11aeecb68934695c01b6eb0bbc71579d62e334941018fd253643c57a5af7aad8'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -266,6 +265,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '2.0.0', datum: '23.10.2026', text: 'Neu als Version 2.0: Gratis-Version mit 40 Tweaks und Game Booster, gesperrte Bereiche mit Schloss, das Preset Tyler Owner, alle installierten Programme unter Aufräumen deinstallieren, eckige Knöpfe und eine Übersicht je Kategorie, wie viele Tweaks aktiv, zurückgesetzt und offen sind.' },
     { version: '4.2.0', datum: '22.10.2026', text: 'Tyler gibt es jetzt gratis: Ohne Schlüssel sind Datenschutz, Debloat und Aufgaben frei. Mit einem Schlüssel, den du unten links eingibst, schaltest du alle Tweaks frei, und läuft er ab, bleibt Tyler als Gratis-Version offen.' },
     { version: '4.1.0', datum: '15.10.2026', text: 'Neues Design in Nachtblau mit schärferem Logo, Suche über alle Tweaks mit Strg+F, Autostart zeigt jetzt auch geplante Aufgaben und Store-Apps, der PC-Check sitzt unter Treiber & Tools, und das Deinstallieren nimmt deine Änderungen wieder zuverlässig zurück.' },
     { version: '4.0.0', datum: '05.10.2026', text: 'Neue Übersicht mit Score und Live-Werten ohne Scrollen; GPU-Auslastung und GPU-Temperatur messen jetzt zuverlässig, dazu RAM, VRAM, Strom und Lüfter; neu: Netzwerkkarten-Tuner.' },
