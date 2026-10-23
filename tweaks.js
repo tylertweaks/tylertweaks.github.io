@@ -58,15 +58,17 @@ window.TTKatalog = (function () {
      ------------------------------------------------------------------ */
   var BESCHREIBUNG = {
     'cat.services': 'Dienste, die du nicht brauchst — etwa Fax, Xbox, Hyper-V und Sensoren — abschalten oder auf manuell stellen.',
+    'cat.general': 'Energieplan, Eingabeverzögerung, Animationen, Dateisystem und Ruhezustand, dazu wann Windows Update neu startet.',
     'cat.system': 'Energieplan, Eingabeverzögerung, Animationen und wie lange Windows auf hängende Programme wartet.',
+    'cat.overlays': 'Game Bar und Aufnahmen von Windows, die beim Spielen im Hintergrund mitlaufen, abschalten.',
     'cat.explorer': 'Taskleiste, Startmenü, Rechtsklickmenü und Explorer so, wie du sie willst — ohne Werbung und Websuche.',
     'cat.privacy': 'Telemetrie, Werbe-ID, Recall, Copilot und Standort: was Windows über dich sammelt und weitergibt.',
     'cat.advanced': 'Undokumentierte Werte für NVIDIA- und AMD-Treiber, Scheduler und Zeitgeber. Mit Risiko, jeder einzeln zurücknehmbar.',
     'cat.network': 'Stromsparen der Netzwerkkarte, Nagle, Netzwerkdrosselung, DNS und die Puffer des TCP-Stapels.',
     'cat.drivers': 'USB- und Eingabegeräte wach halten, MSI-Modus für Grafik- und Netzwerkkarte, ungenutzte virtuelle Geräte aus.',
-    'cat.gpu': 'Game DVR und Game Bar, Vollbildoptimierungen, GPU-Planung, Shader-Cache und Energiesparen des Treibers.',
+    'cat.gpu': 'Vollbildoptimierungen, GPU-Planung, Shader-Cache, Panel Self Refresh und Energiesparen des Treibers.',
     'cat.cpu': 'Kernparken, Prozessdrosselung, Spiele-Priorität im MMCSS und die Zeitgeber des Prozessors.',
-    'cat.debloat': 'Keine nachinstallierten App-Vorschläge, Edge und Teams nicht im Hintergrund, OneDrive aus der Seitenleiste.',
+    'cat.debloat': 'Keine nachinstallierten App-Vorschläge, Edge nicht im Hintergrund, OneDrive aus der Seitenleiste und keine Telemetrie-Aufgaben.',
     'cat.storage': 'Ruhezustand, Prefetch, reservierter Speicher und die Einstellungen des NTFS-Dateisystems.',
     'cat.update': 'Neustart nur nach Rückfrage, keine Treiber über Windows Update, Funktionsupdates aufschieben.',
     'cat.tasks': 'Geplante Aufgaben für Telemetrie, Kompatibilitätsprüfung und Fehlerberichte.'
@@ -76,7 +78,9 @@ window.TTKatalog = (function () {
      createElementNS — auch hier geht nichts durch innerHTML. */
   var SYMBOL = {
     'cat.services': ['M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z', 'M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z'],
+    'cat.general': ['M4 21v-7', 'M4 10V3', 'M12 21v-9', 'M12 8V3', 'M20 21v-5', 'M20 12V3', 'M1 14h6', 'M9 8h6', 'M17 16h6'],
     'cat.system': ['M4 21v-7', 'M4 10V3', 'M12 21v-9', 'M12 8V3', 'M20 21v-5', 'M20 12V3', 'M1 14h6', 'M9 8h6', 'M17 16h6'],
+    'cat.overlays': ['M6 11h4', 'M8 9v4', 'M15 12h.01', 'M18 10h.01', 'M17.32 5H6.68a4 4 0 0 0-3.98 3.59L2 15.2A3 3 0 0 0 5 18.5c1 0 1.8-.5 2.3-1.3L8.5 15h7l1.2 2.2c.5.8 1.3 1.3 2.3 1.3a3 3 0 0 0 3-3.3l-.7-6.6A4 4 0 0 0 17.32 5z'],
     'cat.explorer': ['M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'],
     'cat.privacy': ['M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', 'M9.5 12h5v4h-5z', 'M10.5 12v-1.5a1.5 1.5 0 0 1 3 0V12'],
     'cat.advanced': ['M9 3h6', 'M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3', 'M7 15h10'],

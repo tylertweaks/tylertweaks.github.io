@@ -19,7 +19,7 @@ Live: https://tylertweaks.github.io/
 | Bundle (App Lifetime + Optimierung) | 74,99 € |
 
 Seit Tyler 4.2 startet die App ohne Schlüssel als Gratis-Version
-(Datenschutz, Debloat, Aufgaben). Der Schlüssel wird in der App unten links
+(40 Tweaks aus Privatsphäre und Debloat). Der Schlüssel wird in der App unten links
 eingegeben und schaltet alle Tweaks frei; läuft er ab, bleibt die
 Gratis-Version.
 
