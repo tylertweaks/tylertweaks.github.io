@@ -234,8 +234,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '4.1.0',
-    datum: '15.10.2026',
+    version: '4.2.0',
+    datum: '22.10.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -252,9 +252,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-4.1.0.exe',
+    datei: 'downloads/TylerTweaksSetup-4.2.0.exe',
     groesse: '51,3 MB',
-    sha256: 'c5d2470cf99f3c12b634a03064389a346a4ceb3ac610edc8b4f3452419265475'
+    sha256: 'c39aef68187a99a6204b39a55ad3b432d1dc06bc56eeb01817f138ba0ea6e3ae'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -266,6 +266,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '4.2.0', datum: '22.10.2026', text: 'Tyler gibt es jetzt gratis: Ohne Schlüssel sind Datenschutz, Debloat und Aufgaben frei. Mit einem Schlüssel, den du unten links eingibst, schaltest du alle Tweaks frei, und läuft er ab, bleibt Tyler als Gratis-Version offen.' },
     { version: '4.1.0', datum: '15.10.2026', text: 'Neues Design in Nachtblau mit schärferem Logo, Suche über alle Tweaks mit Strg+F, Autostart zeigt jetzt auch geplante Aufgaben und Store-Apps, der PC-Check sitzt unter Treiber & Tools, und das Deinstallieren nimmt deine Änderungen wieder zuverlässig zurück.' },
     { version: '4.0.0', datum: '05.10.2026', text: 'Neue Übersicht mit Score und Live-Werten ohne Scrollen; GPU-Auslastung und GPU-Temperatur messen jetzt zuverlässig, dazu RAM, VRAM, Strom und Lüfter; neu: Netzwerkkarten-Tuner.' },
     { version: '3.0.0', datum: '03.10.2026', text: 'PC-Check für Bildschirm-Hz und Grafiktreiber, nur noch wirksame Tweaks mit Wirkungs-Balken und Score, Anti-Cheat-Schutz, Updates von selbst und alle Erklärungen in einfacher Sprache.' },
