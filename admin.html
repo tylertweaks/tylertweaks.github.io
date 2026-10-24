@@ -224,13 +224,27 @@
             <div class="tabelle-rahmen"><table class="admin-tabelle" id="t-zahlungen"></table></div>
           </section>
 
+          <!-- ============ PRODUKTE ============
+               Preis, Hinweis unter dem Preis und Sichtbarkeit je Produkt. Die
+               Arbeit macht admin_produkt_speichern in der Datenbank
+               (backend/19-preise-verwalten.sql im App-Repository); sie prüft
+               selbst, ob du Admin bist. -->
           <section class="konto-bereich" id="abereich-produkte" hidden>
             <h2 class="bereich-titel">Produkte</h2>
             <p class="bereich-sub">
-              Preise und Laufzeiten stehen in der Datenbank. Zum Ändern in Supabase
-              unter <strong>Table Editor → products</strong> bearbeiten — die Website
-              übernimmt es sofort.
+              Preis eintippen, „Speichern“ — die Website, der Warenkorb und die Kasse
+              nehmen ihn sofort. Der Hinweis steht klein unter dem Preis, z. B.
+              „Einführungspreis bis 30.11.“; leer lassen, wenn keiner da sein soll.
+              Bestellungen, die es schon gibt, behalten ihren Preis.
             </p>
+
+            <div class="form-msg" id="produkt-meldung" role="alert"></div>
+
+            <div class="hinweis-kasten" id="produkt-nicht-bereit" hidden>
+              <p><strong>Noch nicht eingerichtet.</strong> Führ zuerst
+                 <code>19-preise-verwalten.sql</code> im Supabase-SQL-Editor aus.</p>
+            </div>
+
             <div class="tabelle-rahmen"><table class="admin-tabelle" id="t-produkte"></table></div>
           </section>
 

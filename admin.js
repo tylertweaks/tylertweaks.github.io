@@ -74,9 +74,7 @@
         .select('id, order_id, paypal_order_id, paypal_capture_id, event_type, status, amount, currency, payer_email, created_at')
         .order('created_at', { ascending: false }).limit(300),
 
-      db.from('products')
-        .select('slug, name, subtitle, price, currency, license_type, is_download, is_service, active, sort_order')
-        .order('sort_order', { ascending: true })
+      ladeProdukte()
     ]);
 
     daten.bestellungen = e[0].data || [];
@@ -873,29 +871,126 @@
       zeilen, 'Noch keine Zahlungen protokolliert.');
   }
 
-  /* ---- Produkte -------------------------------------------------------- */
+  /* ---- Produkte --------------------------------------------------------
+
+     Preis, Hinweis und Sichtbarkeit ändert admin_produkt_speichern aus
+     19-preise-verwalten.sql. Lesen geht direkt (Policy "produkte: admin
+     sieht alles" aus 02). Fehlt die Migration noch, gibt es die Spalte
+     preis_hinweis nicht — dann lädt die Liste ohne sie, und der Hinweis
+     oben sagt, was zu tun ist. */
+  var PRODUKT_FEHLER = {
+    not_admin: 'Dein Konto hat keine Adminrechte.',
+    invalid_price: 'Der Preis muss über 0 und höchstens 999,99 € sein, auf den Cent genau.',
+    invalid_hint: 'Der Hinweis darf höchstens 60 Zeichen haben.',
+    unknown_product: 'Dieses Produkt gibt es in der Datenbank nicht mehr. Lade die Seite neu.'
+  };
+
+  async function ladeProdukte() {
+    var spalten = 'slug, name, subtitle, price, currency, license_type, is_download, is_service, active, sort_order';
+    var erg = await db.from('products').select(spalten + ', preis_hinweis').order('sort_order', { ascending: true });
+    if (!erg.error) return erg;
+
+    console.warn('Produkte mit Hinweis laden:', erg.error);
+    document.getElementById('produkt-nicht-bereit').hidden = false;
+    return db.from('products').select(spalten).order('sort_order', { ascending: true });
+  }
+
+  function produktFehler(erg) {
+    console.error('Produkt speichern:', erg.error);
+    var text = String(erg.error.message || '');
+    if (erg.error.code === 'PGRST202' || /could not find the function/i.test(text)) {
+      document.getElementById('produkt-nicht-bereit').hidden = false;
+      return 'Diese Funktion ist noch nicht eingerichtet — siehe Hinweis oben.';
+    }
+    for (var schluessel in PRODUKT_FEHLER) {
+      if (text.indexOf(schluessel) >= 0) return PRODUKT_FEHLER[schluessel];
+    }
+    return 'Das hat nicht geklappt. Sieh in der Konsole nach dem Grund.';
+  }
+
+  /** "39,99" oder "39.99" als Zahl; null, wenn es keine ist. */
+  function preisLesen(text) {
+    var zahl = Number(String(text || '').trim().replace(/\s|€/g, '').replace(',', '.'));
+    return isFinite(zahl) && String(text || '').trim() !== '' ? zahl : null;
+  }
+
   function produkteZeichnen() {
     var zeilen = daten.produkte.map(function (p) {
       var verkauft = daten.bestellungen.filter(function (b) {
         return b.product_slug === p.slug && b.payment_status === 'paid';
       }).length;
+      var slug = TT.escape(p.slug);
+      var preis = Number(p.price).toFixed(2).replace('.', ',');
 
       return '<tr' + (p.active ? '' : ' class="inaktiv"') + '>' +
         '<td><strong>' + TT.escape(p.name) + '</strong><br>' +
-          '<span class="zeile-klein mono">' + TT.escape(p.slug) + '</span></td>' +
-        '<td>' + TT.escape(TT.geld(p.price, p.currency)) + '</td>' +
+          '<span class="zeile-klein mono">' + slug + '</span></td>' +
+        '<td><input type="text" inputmode="decimal" class="tabelle-eingabe preis-eingabe" data-preis-slug="' + slug + '"' +
+          ' value="' + TT.escape(preis) + '" aria-label="Preis für ' + TT.escape(p.name) + ' in Euro"> €</td>' +
+        '<td><input type="text" class="tabelle-eingabe hinweis-eingabe" maxlength="60" data-hinweis-slug="' + slug + '"' +
+          ' value="' + TT.escape(p.preis_hinweis || '') + '" placeholder="kein Hinweis"' +
+          ' aria-label="Hinweis unter dem Preis für ' + TT.escape(p.name) + '"></td>' +
         '<td>' + (p.license_type
             ? TT.escape(TT.laufzeit(p.license_type))
             : '<span class="muted">keine Lizenz</span>') + '</td>' +
-        '<td>' + (p.is_download ? 'ja' : '—') + '</td>' +
-        '<td>' + (p.is_service ? 'ja' : '—') + '</td>' +
         '<td>' + (p.active ? 'aktiv' : '<span class="muted">versteckt</span>') + '</td>' +
         '<td>' + verkauft + '</td>' +
+        '<td class="aktionen">' +
+          '<button type="button" class="mini" data-produkt-speichern data-slug="' + slug + '">Speichern</button> ' +
+          '<button type="button" class="mini" data-produkt-sichtbar="' + (p.active ? '0' : '1') + '" data-slug="' + slug + '">' +
+            (p.active ? 'Verstecken' : 'Anzeigen') + '</button>' +
+        '</td>' +
       '</tr>';
     });
 
     tabelle('t-produkte',
-      ['Produkt', 'Preis', 'Laufzeit', 'Download', 'Service', 'Sichtbar', 'Verkauft'],
+      ['Produkt', 'Preis', 'Hinweis unter dem Preis', 'Laufzeit', 'Sichtbar', 'Verkauft', ''],
       zeilen, 'Keine Produkte hinterlegt.');
   }
+
+  document.addEventListener('click', async function (e) {
+    var knopf = e.target.closest('button[data-produkt-speichern], button[data-produkt-sichtbar]');
+    if (!knopf) return;
+    TT.melden('produkt-meldung', '');
+
+    var slug = knopf.dataset.slug;
+    var p = daten.produkte.filter(function (x) { return x.slug === slug; })[0];
+    if (!p) return;
+
+    var preisFeld = document.querySelector('input[data-preis-slug="' + CSS.escape(slug) + '"]');
+    var hinweisFeld = document.querySelector('input[data-hinweis-slug="' + CSS.escape(slug) + '"]');
+    var preis = preisLesen(preisFeld && preisFeld.value);
+    var hinweis = hinweisFeld ? hinweisFeld.value.trim() : (p.preis_hinweis || '');
+
+    // Ganze Cent: 39.99 * 100 ist in Javascript 3998.9999…, deshalb mit Spielraum.
+    if (preis === null || !(preis > 0 && preis <= 999.99) || Math.abs(Math.round(preis * 100) - preis * 100) > 1e-6) {
+      if (preisFeld) preisFeld.focus();
+      return TT.melden('produkt-meldung', PRODUKT_FEHLER.invalid_price);
+    }
+    preis = Math.round(preis * 100) / 100;
+
+    var aktiv = knopf.hasAttribute('data-produkt-sichtbar') ? knopf.dataset.produktSichtbar === '1' : null;
+    if (aktiv === false && !confirm(p.name + ' verstecken?\n\nDie Website bietet es dann nicht mehr an, ' +
+                                    'und die Kasse nimmt es nicht mehr an. Alte Bestellungen bleiben.')) return;
+
+    knopf.disabled = true;
+    var erg = await db.rpc('admin_produkt_speichern', {
+      p_slug: slug,
+      p_preis: preis,
+      p_hinweis: hinweis || null,
+      p_aktiv: aktiv
+    });
+    knopf.disabled = false;
+
+    if (erg.error) return TT.melden('produkt-meldung', produktFehler(erg));
+
+    var neu = await ladeProdukte();
+    if (!neu.error) daten.produkte = neu.data || [];
+    produkteZeichnen();
+    TT.melden('produkt-meldung',
+      aktiv === false ? p.name + ' ist versteckt.'
+        : aktiv === true ? p.name + ' wird wieder angeboten.'
+        : p.name + ': ' + TT.geld(preis, p.currency) + (hinweis ? ' mit Hinweis „' + hinweis + '“' : '') +
+          ' gespeichert. Gilt ab sofort.', 'ok');
+  });
 })();

@@ -420,6 +420,7 @@
         '<span class="stufe-name">' + esc(l.kurz) + '</span>' +
         '<span class="stufe-preis">' + preisFormat(l.preis) + ' €</span>' +
         '<span class="stufe-einheit">' + esc(l.einheit || 'einmalig') + '</span>' +
+        (l.hinweis ? '<span class="stufe-hinweis">' + esc(l.hinweis) + '</span>' : '') +
         '<span class="stufe-punkte">' + punkte(l.punkte) + '</span>' +
         '</button>';
     }).join('');
@@ -460,6 +461,31 @@
         untertitel: '',
         preis: preis
       });
+    });
+
+    paketHinweiseZeichnen();
+  }
+
+  /* Die Zeile unter dem Preis der beiden festen Karten, z. B.
+     "Einführungspreis bis 30.11." — leer heißt: keine Zeile. */
+  function paketHinweiseZeichnen() {
+    document.querySelectorAll('[data-preis]').forEach(function (el) {
+      var paket = pakete.filter(function (p) { return p.slug === el.dataset.preis; })[0];
+      var karte = el.closest('.plan');
+      var preisZeile = karte && karte.querySelector('.price');
+      if (!paket || !preisZeile) return;
+
+      var hinweis = karte.querySelector('.preis-hinweis');
+      if (!paket.hinweis) {
+        if (hinweis) hinweis.remove();
+        return;
+      }
+      if (!hinweis) {
+        hinweis = document.createElement('p');
+        hinweis.className = 'preis-hinweis';
+        preisZeile.insertAdjacentElement('afterend', hinweis);
+      }
+      hinweis.textContent = paket.hinweis;
     });
   }
 
@@ -762,6 +788,19 @@
     pakete.forEach(function (p) {
       if (ausDb[p.slug] != null) p.preis = ausDb[p.slug];
     });
+
+    /* Der Hinweis unter dem Preis (preis_hinweis, 19-preise-verwalten.sql),
+       im Admin-Bereich gepflegt. Eigene Abfrage: Fehlt die Spalte noch,
+       bleibt es beim Hinweis aus konfig.js, und der Shop läuft trotzdem. */
+    var hinweise = await TT.db.from('products').select('slug, preis_hinweis');
+    if (!hinweise.error && hinweise.data) {
+      var hinweisAusDb = {};
+      hinweise.data.forEach(function (z) { hinweisAusDb[z.slug] = z.preis_hinweis || ''; });
+      laufzeiten.forEach(function (l) { if (l.slug in hinweisAusDb) l.hinweis = hinweisAusDb[l.slug]; });
+      pakete.forEach(function (p) { if (p.slug in hinweisAusDb) p.hinweis = hinweisAusDb[p.slug]; });
+      laufzeitenZeichnen();
+      paketHinweiseZeichnen();
+    }
 
     abgeleitetePreiseZeichnen();
   })();

@@ -2282,6 +2282,20 @@ strong { color: var(--text); font-weight: 600; }
   transition: color .16s ease, border-color .16s ease;
 }
 .admin-tabelle .mini:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Eingaben direkt in der Tabelle (Preise unter "Produkte") */
+.admin-tabelle .tabelle-eingabe {
+  padding: 6px 9px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-xs);
+  color: var(--text);
+  font: inherit;
+  font-size: .86rem;
+}
+.admin-tabelle .tabelle-eingabe:focus { outline: none; border-color: var(--accent); }
+.admin-tabelle .preis-eingabe { width: 84px; text-align: right; font-variant-numeric: tabular-nums; }
+.admin-tabelle .hinweis-eingabe { width: 100%; min-width: 190px; }
 .admin-tabelle .mini:disabled { opacity: .5; cursor: wait; }
 
 .merker {
@@ -5002,6 +5016,23 @@ button.stufe:hover { border-color: var(--line-strong); }
   letter-spacing: .14em;
   text-transform: uppercase;
 }
+/* Eine Zeile unter dem Preis, z. B. "Einführungspreis bis 30.11." —
+   kommt aus products.preis_hinweis und wird im Admin-Bereich gepflegt. */
+.stufe-hinweis,
+.preis-hinweis {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 9px;
+  border: 1px solid rgba(var(--accent-rgb), .45);
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), .1);
+  color: var(--accent);
+  font-size: .74rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.preis-hinweis { margin: 0 0 12px; }
+
 .stufe-punkte {
   display: grid;
   gap: 8px;

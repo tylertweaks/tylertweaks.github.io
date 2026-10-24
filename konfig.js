@@ -169,6 +169,10 @@ window.TT_KONFIG = {
      sorgen nur dafür, dass die Preisliste sofort etwas anzeigt, statt kurz
      leer zu bleiben. Weichen sie ab, korrigiert die Seite sich beim Laden
      selbst aus der Datenbank.
+
+     Seit 24.10.2026 änderst du Preis und Hinweis im Admin-Bereich unter
+     "Produkte" (backend/19-preise-verwalten.sql). Die Zahlen hier dann am
+     besten nachziehen, damit beim Laden nicht kurz der alte Preis aufblitzt.
      ----------------------------------------------------------------------- */
   /* Seit 22.10.2026 nur noch zwei Laufzeiten auf der Seite, als Karten
      nebeneinander (Vorbild realdarkzy.de). Die übrigen (24 Std., 2 Tage,
@@ -176,14 +180,16 @@ window.TT_KONFIG = {
      mehr angeboten. Wer eine wieder zeigen will, trägt sie hier ein.
 
      einheit   kleine Zeile unter dem Preis
+     hinweis   Etikett unter dem Preis, z. B. "Einführungspreis bis 30.11."
+               (Sofortanzeige; verbindlich ist products.preis_hinweis)
      punkte    die Zeilen auf der Karte
      empfohlen bekommt das Etikett "Empfohlen" */
   laufzeiten: [
-    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',  preis: '16.99',
+    { slug: 'app-1m',       kurz: '1 Monat',  lang: '1 Monat',  preis: '9.99',
       einheit: '30 Tage · einmalig',
       punkte: ['Alle Tweaks und Werkzeuge', 'Läuft nach 30 Tagen aus', 'Kein Abo, verlängert sich nicht'] },
-    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime', preis: '59.99',
-      einheit: 'einmalig', empfohlen: true,
+    { slug: 'app-lifetime', kurz: 'Lifetime', lang: 'Lifetime', preis: '39.99',
+      einheit: 'einmalig', empfohlen: true, hinweis: 'Einführungspreis bis 30.11.',
       punkte: ['Alle Tweaks und Werkzeuge', 'Alle künftigen Updates', 'Einmal zahlen, für immer'] }
   ],
 
@@ -217,7 +223,7 @@ window.TT_KONFIG = {
      ----------------------------------------------------------------------- */
   pakete: [
     { slug: 'optimierung', name: 'PC-Optimierung', untertitel: 'Einmalig',            preis: '29.99' },
-    { slug: 'bundle',      name: 'Bundle',         untertitel: 'Lifetime + Service',  preis: '74.99' }
+    { slug: 'bundle',      name: 'Bundle',         untertitel: 'Lifetime + Service',  preis: '59.99' }
   ],
 
   /* ---- Aktuelle App-Version ---------------------------------------------
