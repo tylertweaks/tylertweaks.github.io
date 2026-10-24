@@ -561,14 +561,14 @@
   async function shopPruefen() {
     var ergebnis = { laeuft: false, produkte: null };
 
-    if (!String(KONFIG.paypalClientId || '').trim()) return ergebnis;
-
-    var istLive = String(KONFIG.paypalUmgebung || '').toLowerCase() === 'live';
-    var testWill = new URLSearchParams(window.location.search).has('shoptest');
-    if (!istLive && !testWill) return ergebnis;
-
     if (!TT.db) return ergebnis;
 
+    /* Die Produkte kommen IMMER aus der Datenbank, auch wenn die Kasse über
+       paypal.me läuft: Preise ändert der Admin-Bereich dort (19-preise-
+       verwalten.sql), und die Bestellung rechnet ebenfalls mit ihnen. Bis
+       24.10.2026 stand diese Abfrage hinter der PayPal-Prüfung unten — im
+       paypal.me-Betrieb zeigten Startseite und Warenkorb dann die festen
+       Preise aus konfig.js, und eine Änderung im Admin-Bereich kam dort nie an. */
     var erg = await TT.db.from('products')
       .select('slug, name, subtitle, price, currency, active')
       .eq('active', true);
@@ -579,9 +579,16 @@
       console.warn('Shop nicht bereit, Rückfall auf paypal.me:', erg.error);
       return ergebnis;
     }
+    ergebnis.produkte = erg.data;
+
+    // Ob die automatische Kasse (PayPal-Knöpfe) läuft, ist eine eigene Frage.
+    if (!String(KONFIG.paypalClientId || '').trim()) return ergebnis;
+
+    var istLive = String(KONFIG.paypalUmgebung || '').toLowerCase() === 'live';
+    var testWill = new URLSearchParams(window.location.search).has('shoptest');
+    if (!istLive && !testWill) return ergebnis;
 
     ergebnis.laeuft = true;
-    ergebnis.produkte = erg.data;
     return ergebnis;
   }
 

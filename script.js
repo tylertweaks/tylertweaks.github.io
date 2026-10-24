@@ -736,7 +736,12 @@
     if (!window.TT || !TT.korb) return aufUebergangUmstellen();
 
     var stand = await TT.korb.shopPruefen();
-    if (!stand.laeuft) return aufUebergangUmstellen();
+
+    /* Kasse über paypal.me: nur die Zeilen unter den Knöpfen anders. Die
+       Preise kommen trotzdem aus der Datenbank — sonst kämen Änderungen aus
+       dem Admin-Bereich auf der Startseite nie an. */
+    if (!stand.laeuft) aufUebergangUmstellen();
+    if (!stand.produkte) return;
 
     var ausDb = {};
     stand.produkte.forEach(function (p) { ausDb[p.slug] = p.price; });
