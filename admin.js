@@ -915,7 +915,12 @@
   }
 
   function produkteZeichnen() {
-    var zeilen = daten.produkte.map(function (p) {
+    // Was die Website anbietet, oben; die versteckten alten Laufzeiten darunter.
+    var sortiert = daten.produkte.slice().sort(function (a, b) {
+      return (b.active ? 1 : 0) - (a.active ? 1 : 0) || (a.sort_order || 0) - (b.sort_order || 0);
+    });
+
+    var zeilen = sortiert.map(function (p) {
       var verkauft = daten.bestellungen.filter(function (b) {
         return b.product_slug === p.slug && b.payment_status === 'paid';
       }).length;
@@ -930,23 +935,45 @@
         '<td><input type="text" class="tabelle-eingabe hinweis-eingabe" maxlength="60" data-hinweis-slug="' + slug + '"' +
           ' value="' + TT.escape(p.preis_hinweis || '') + '" placeholder="kein Hinweis"' +
           ' aria-label="Hinweis unter dem Preis für ' + TT.escape(p.name) + '"></td>' +
-        '<td>' + (p.license_type
-            ? TT.escape(TT.laufzeit(p.license_type))
-            : '<span class="muted">keine Lizenz</span>') + '</td>' +
-        '<td>' + (p.active ? 'aktiv' : '<span class="muted">versteckt</span>') + '</td>' +
-        '<td>' + verkauft + '</td>' +
+        // Gleich neben den Feldern: Rechts außen lag der Knopf in der breiten
+        // Tabelle außerhalb des Bildes, und niemand fand ihn.
         '<td class="aktionen">' +
           '<button type="button" class="mini" data-produkt-speichern data-slug="' + slug + '">Speichern</button> ' +
           '<button type="button" class="mini" data-produkt-sichtbar="' + (p.active ? '0' : '1') + '" data-slug="' + slug + '">' +
             (p.active ? 'Verstecken' : 'Anzeigen') + '</button>' +
         '</td>' +
+        '<td>' + (p.active ? 'aktiv' : '<span class="muted">versteckt</span>') + '</td>' +
+        '<td>' + verkauft + '</td>' +
+        '<td>' + (p.license_type
+            ? TT.escape(TT.laufzeit(p.license_type))
+            : '<span class="muted">keine Lizenz</span>') + '</td>' +
       '</tr>';
     });
 
     tabelle('t-produkte',
-      ['Produkt', 'Preis', 'Hinweis unter dem Preis', 'Laufzeit', 'Sichtbar', 'Verkauft', ''],
+      ['Produkt', 'Preis', 'Hinweis unter dem Preis', '', 'Sichtbar', 'Verkauft', 'Laufzeit'],
       zeilen, 'Keine Produkte hinterlegt.');
   }
+
+  /* Enter in einem der beiden Felder speichert die Zeile, und der Knopf
+     leuchtet auf, sobald sich etwas geändert hat — sonst tippt man einen
+     Preis ein und hält ihn für gespeichert. */
+  document.addEventListener('keydown', function (e) {
+    var feld = e.target.closest && e.target.closest('input[data-preis-slug], input[data-hinweis-slug]');
+    if (!feld || e.key !== 'Enter') return;
+    e.preventDefault();
+    var slug = feld.dataset.preisSlug || feld.dataset.hinweisSlug;
+    var knopf = document.querySelector('button[data-produkt-speichern][data-slug="' + CSS.escape(slug) + '"]');
+    if (knopf) knopf.click();
+  });
+
+  document.addEventListener('input', function (e) {
+    var feld = e.target.closest && e.target.closest('input[data-preis-slug], input[data-hinweis-slug]');
+    if (!feld) return;
+    var slug = feld.dataset.preisSlug || feld.dataset.hinweisSlug;
+    var knopf = document.querySelector('button[data-produkt-speichern][data-slug="' + CSS.escape(slug) + '"]');
+    if (knopf) knopf.classList.add('geaendert');
+  });
 
   document.addEventListener('click', async function (e) {
     var knopf = e.target.closest('button[data-produkt-speichern], button[data-produkt-sichtbar]');

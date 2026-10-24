@@ -2295,7 +2295,13 @@ strong { color: var(--text); font-weight: 600; }
 }
 .admin-tabelle .tabelle-eingabe:focus { outline: none; border-color: var(--accent); }
 .admin-tabelle .preis-eingabe { width: 84px; text-align: right; font-variant-numeric: tabular-nums; }
-.admin-tabelle .hinweis-eingabe { width: 100%; min-width: 190px; }
+/* Ungespeicherte Änderung in der Zeile: Speichern leuchtet auf. */
+.admin-tabelle .mini.geaendert {
+  color: var(--text);
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), .22);
+}
+.admin-tabelle .hinweis-eingabe { width: 100%; min-width: 160px; }
 .admin-tabelle .mini:disabled { opacity: .5; cursor: wait; }
 
 .merker {
