@@ -11,6 +11,13 @@
                      Die bucht bei PayPal ab, prüft den Betrag gegen die
                      Bestellung und erzeugt erst dann den Lizenzschlüssel.
 
+   Mit Stripe genauso, nur über die Bezahlseite von Stripe:
+
+     Knopf        -> "stripe-checkout" legt Bestellung und Stripe-Sitzung an,
+                     der Browser geht zur Bezahlseite von Stripe.
+     Rückkehr     -> kaufen.html?produkt=…&stripe_session=…, "stripe-status"
+                     fragt bei Stripe nach und erzeugt den Lizenzschlüssel.
+
    Selbst wenn jemand diese Datei komplett austauscht, kann er dadurch weder
    den Preis ändern noch eine Lizenz ohne Zahlung bekommen.
 
@@ -110,7 +117,12 @@
        geprüft, BEVOR zur Anmeldung umgeleitet wird — sonst schickt die Seite
        jemanden erst zum Anmelden und sagt ihm danach, dass er hier gar nichts
        zu bezahlen hat. */
-    if (!TT.korb.hat(slug)) return zeige(elNichtImKorb);
+    /* Zurück von der Bezahlseite von Stripe. Nicht am Warenkorb messen:
+       Nach der Bestätigung ist das Paket dort schon herausgenommen, und ein
+       Neuladen der Seite soll die Bestellung trotzdem noch einmal zeigen. */
+    var stripeSitzung = new URLSearchParams(window.location.search).get('stripe_session') || '';
+
+    if (!stripeSitzung && !TT.korb.hat(slug)) return zeige(elNichtImKorb);
 
     var sitzung = await TT.schuetzen();
     if (!sitzung) return; // leitet selbst zur Anmeldung um
@@ -137,13 +149,20 @@
     if (!erg.data) return zeige(elUnbekannt);
 
     produkt = erg.data;
-    kaufAufbauen(sitzung);
+    kaufAufbauen(sitzung, !!stripeSitzung);
+
+    if (stripeSitzung) {
+      stripeRueckkehr(stripeSitzung);
+    } else if (new URLSearchParams(window.location.search).has('stripe_abbruch')) {
+      TT.melden('meldung',
+        'Du hast die Zahlung abgebrochen. Es wurde nichts abgebucht.', 'warn');
+    }
   })();
 
   /* ====================================================================
      Zusammenfassung anzeigen
      ==================================================================== */
-  function kaufAufbauen(sitzung) {
+  function kaufAufbauen(sitzung, rueckkehr) {
     /* Der Rabattcode kommt aus dem Warenkorb — dort wird er eingegeben. Hier
        wird nur gerechnet, was er bedeutet; verbindlich rechnet der Server. */
     rabatt = TT.korb.codeInfo();
@@ -185,14 +204,129 @@
     var dienst = document.getElementById('zustimmung-dienst');
     if (dienst) dienst.hidden = !produkt.is_service;
 
-    /* Läuft PayPal noch im Testbetrieb, muss das hier stehen. Sonst wartet
-       jemand auf eine Lizenz für eine Zahlung, die nie stattgefunden hat. */
-    var istLive = String(KONFIG.paypalUmgebung || '').toLowerCase() === 'live';
+    /* Läuft ein Zahlweg noch im Testbetrieb, muss das hier stehen. Sonst
+       wartet jemand auf eine Lizenz für eine Zahlung, die nie stattgefunden
+       hat. */
+    var wege = TT.korb.zahlwege();
     var hinweis = document.getElementById('testmodus');
-    if (hinweis && !istLive) hinweis.hidden = false;
+    if (hinweis && wege.test) hinweis.hidden = false;
 
     zeige(elKauf);
-    paypalLaden();
+
+    // Zurück von Stripe: Hier wird nicht noch einmal bezahlt, nur geprüft.
+    if (rueckkehr) {
+      document.getElementById('paypal-laden').hidden = true;
+      return;
+    }
+    zahlwegeLaden(wege);
+  }
+
+  /* ====================================================================
+     Zahlwege
+     ==================================================================== */
+  async function zahlwegeLaden(wege) {
+    // Pausiert — außer für Admins (Testmodus, siehe TT.verkaufOffen).
+    if (KONFIG.verkaufPausiert && !(TT.verkaufOffen && await TT.verkaufOffen())) {
+      return paypalNichtVerfuegbar('Der Verkauf ist gerade pausiert und startet in Kürze.');
+    }
+
+    // Die App ist noch nicht erschienen (appErscheint in konfig.js).
+    if (TT.appFehlt(produkt.slug)) {
+      return paypalNichtVerfuegbar('Die Tweak App erscheint ' + TT.appErscheint() +
+        ' — bis dahin kann sie noch nicht gekauft werden, auch nicht im Bundle.');
+    }
+
+    if (!wege.paypal && !wege.stripe) {
+      return paypalNichtVerfuegbar(
+        'Die Bezahlung ist auf dieser Seite noch nicht freigeschaltet.');
+    }
+
+    if (wege.stripe) stripeAufbauen();
+
+    if (wege.paypal) paypalLaden();
+    else document.getElementById('paypal-laden').hidden = true;
+  }
+
+  /**
+   * Gleiche Gegenprobe für beide Zahlwege: Weicht der Betrag vom Server von
+   * der Anzeige ab, wird nicht bezahlt. Gibt true zurück, wenn alles passt.
+   */
+  function betragStimmt(daten) {
+    var serverPreis = Number(daten && daten.product && daten.product.price);
+    if (isFinite(serverPreis) && Math.abs(serverPreis - endpreis) > 0.005) {
+      console.error('Betrag weicht ab — angezeigt:', endpreis, 'vom Server:', serverPreis);
+      TT.melden('meldung',
+        'Der Betrag stimmt nicht mit der Anzeige überein — es wurde nichts ' +
+        'abgebucht. Lade die Seite bitte neu. Bleibt es dabei, schreib mir ' +
+        'kurz auf Discord.', 'error');
+      return false;
+    }
+    return true;
+  }
+
+  /* ---- Stripe: Knopf zur Bezahlseite --------------------------------- */
+  function stripeAufbauen() {
+    var bereich = document.getElementById('stripe-bereich');
+    var knopf = document.getElementById('stripe-knopf');
+    var haken = document.getElementById('zustimmung');
+    if (!bereich || !knopf) return;
+
+    bereich.hidden = false;
+    var beschriftung = knopf.textContent;
+
+    knopf.addEventListener('click', async function () {
+      if (haken && !haken.checked) {
+        return TT.melden('meldung',
+          'Bitte bestätige zuerst AGB und Rücktrittsbelehrung.', 'warn');
+      }
+
+      TT.melden('meldung', '');
+      knopf.disabled = true;
+      knopf.textContent = 'Weiter zu Stripe …';
+
+      var antwort = await TT.funktion('stripe-checkout', {
+        product_slug: produkt.slug,
+        coupon_code: rabatt ? rabatt.code : ''
+      });
+
+      if (!antwort.ok || !antwort.daten || !antwort.daten.checkout_url ||
+          !betragStimmt(antwort.daten)) {
+        if (!antwort.ok || !antwort.daten || !antwort.daten.checkout_url) {
+          TT.melden('meldung', antwort.fehler || TT.fehlerText('server_error'), 'error');
+        }
+        knopf.disabled = false;
+        knopf.textContent = beschriftung;
+        return;
+      }
+
+      window.location.assign(antwort.daten.checkout_url);
+    });
+  }
+
+  /* ---- Stripe: Rückkehr von der Bezahlseite -------------------------- */
+  async function stripeRueckkehr(sitzungId) {
+    TT.melden('meldung', 'Zahlung wird geprüft …', 'ok');
+
+    /* Stripe leitet meist erst zurück, wenn die Zahlung durch ist. Für den
+       seltenen Fall, dass die Bestätigung einen Moment hinterherhinkt, wird
+       ein paar Mal nachgefragt. */
+    var antwort = null;
+    for (var versuch = 0; versuch < 5; versuch++) {
+      antwort = await TT.funktion('stripe-status', { session_id: sitzungId });
+      if (antwort.ok) return fertigZeigen(antwort.daten);
+      if (antwort.code !== 'payment_not_completed' && antwort.code !== 'network_error') break;
+      await new Promise(function (r) { setTimeout(r, 2000); });
+    }
+
+    if (antwort.code === 'payment_pending') {
+      return TT.melden('meldung',
+        'Deine Zahlung ist unterwegs. Sobald Stripe sie bestätigt, erscheint ' +
+        'die Lizenz automatisch in deinem Kundenbereich und du bekommst eine ' +
+        'E-Mail. Bei einer Lastschrift kann das ein paar Tage dauern.', 'warn');
+    }
+
+    TT.melden('meldung', antwort.fehler,
+      antwort.code === 'fulfillment_failed' ? 'warn' : 'error');
   }
 
   /* ====================================================================
@@ -208,30 +342,25 @@
     if (kasten) kasten.hidden = false;
   }
 
-  async function paypalLaden() {
+  function paypalLaden() {
     var clientId = String(KONFIG.paypalClientId || '').trim();
-
-    // Pausiert — außer für Admins (Testmodus, siehe TT.verkaufOffen).
-    if (KONFIG.verkaufPausiert && !(TT.verkaufOffen && await TT.verkaufOffen())) {
-      return paypalNichtVerfuegbar('Der Verkauf ist gerade pausiert und startet in Kürze.');
-    }
-
-    // Die App ist noch nicht erschienen (appErscheint in konfig.js).
-    if (TT.appFehlt(produkt.slug)) {
-      return paypalNichtVerfuegbar('Die Tweak App erscheint ' + TT.appErscheint() +
-        ' — bis dahin kann sie noch nicht gekauft werden, auch nicht im Bundle.');
-    }
 
     if (!clientId) {
       return paypalNichtVerfuegbar(
         'Die Bezahlung über PayPal ist auf dieser Seite noch nicht freigeschaltet.');
     }
 
+    /* Neben PayPal selbst: Kredit- und Debitkarte ohne PayPal-Konto, SEPA-
+       Lastschrift und die üblichen Bankzahlungen in Europa. PayPal blendet
+       davon nur ein, was im Land des Käufers und für dieses Händlerkonto
+       geht, also etwa EPS nur in Österreich. Ratenkauf bleibt aus. */
     var skript = document.createElement('script');
     skript.src = 'https://www.paypal.com/sdk/js' +
       '?client-id=' + encodeURIComponent(clientId) +
       '&currency=' + encodeURIComponent(produkt.currency || KONFIG.waehrung || 'EUR') +
-      '&intent=capture&locale=de_DE&components=buttons&disable-funding=paylater';
+      '&intent=capture&locale=de_DE&components=buttons' +
+      '&enable-funding=card,sepa,eps,ideal,bancontact,blik,p24,mybank' +
+      '&disable-funding=paylater';
     skript.async = true;
 
     skript.onerror = function () {
