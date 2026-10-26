@@ -317,7 +317,7 @@
          stillschweigend passieren — sonst wundert sich jemand über den Betrag
          im Warenkorb. */
       if (erg.ersetzt) {
-        korbHinweis(knopf, '✓ Im Warenkorb — die andere Laufzeit wurde ersetzt');
+        korbHinweis(knopf, '✓ Im Warenkorb. Die andere Laufzeit wurde ersetzt.');
       }
     });
   });
@@ -643,7 +643,7 @@
     var faq = document.getElementById('faq-nach-kauf');
     if (faq) {
       faq.innerHTML = 'Du bestellst im Warenkorb und bekommst eine Bestellnummer. Dann ' +
-        'zahlst du über PayPal und gibst die Nummer als Mitteilung an — mehr musst du ' +
+        'zahlst du über PayPal und gibst die Nummer als Mitteilung an. Mehr musst du ' +
         'nicht tun. Sobald die Zahlung da ist, meist innerhalb weniger Stunden, kommen ' +
         'Lizenzschlüssel und Rechnung per E-Mail, und beides liegt ab dann dauerhaft in ' +
         'deinem <a href="konto.html">Kundenbereich</a>.';
@@ -678,11 +678,11 @@
       '2-text':  'Im Warenkorb bestellst du und bekommst eine Bestellnummer. Deine ' +
                  'Zahlungsdaten sehe ich nie.',
       '3-titel': 'Über PayPal bezahlen',
-      '3-text':  'Als „Waren und Dienstleistungen“ — nur dann gilt der Käuferschutz — und mit ' +
+      '3-text':  'Als „Waren und Dienstleistungen“, nur dann gilt der Käuferschutz, und mit ' +
                  'der Bestellnummer als Mitteilung. Daran erkenne ich deine Zahlung.',
       '4-titel': 'Schlüssel & Rechnung per E-Mail',
       '4-text':  'Lizenzschlüssel und Rechnung kommen per E-Mail und liegen mit dem Download ' +
-                 'in deinem Kundenbereich. Beim ersten Start der App gibst du den Schlüssel ein — fertig.'
+                 'in deinem Kundenbereich. Beim ersten Start der App gibst du den Schlüssel ein. Fertig.'
     };
 
     Object.keys(schritte).forEach(function (k) {

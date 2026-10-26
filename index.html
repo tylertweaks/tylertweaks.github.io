@@ -23,7 +23,7 @@
      -------------------------------------------------------------------- -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.paypal.com https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co https://*.paypal.com; frame-src https://*.paypal.com https://*.paypalobjects.com">
 <link rel="canonical" href="https://tylertweaks.github.io/">
-<title>Tyler Tweaks — Tweak App &amp; PC-Optimierung für Gaming</title>
+<title>Tyler Tweaks | Tweak App &amp; PC-Optimierung für Gaming</title>
 <!-- Beschreibung bewusst unter 160 Zeichen, damit Google sie nicht abschneidet,
      und bewusst ohne Preise: die stehen in der Datenbank und ändern sich,
      eine Suchergebnis-Zeile lässt sich aber nicht mitändern. -->
@@ -45,13 +45,13 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="Tyler Tweaks">
-<meta property="og:title" content="Tyler Tweaks — Tweak App &amp; PC-Optimierung">
+<meta property="og:title" content="Tyler Tweaks | Tweak App &amp; PC-Optimierung">
 <meta property="og:description" content="Windows sauber optimieren: per App selbst oder persönlich per Remote-Sitzung. Backup inklusive, alles rückgängig zu machen.">
 <meta property="og:url" content="https://tylertweaks.github.io/">
 <meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tyler Tweaks — Windows- und Gaming-Optimierung">
+<meta property="og:image:alt" content="Tyler Tweaks, Windows- und Gaming-Optimierung">
 <meta name="twitter:card" content="summary_large_image">
 
 <!--
@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-preise3">
-<link rel="stylesheet" href="mockup.css?v=2.2.0-preise3">
+<link rel="stylesheet" href="style.css?v=2.2.0-schlicht">
+<link rel="stylesheet" href="mockup.css?v=2.2.0-schlicht">
 </head>
 <body>
 
@@ -212,14 +212,11 @@
       <img src="favicon.svg" alt="" width="118" height="118">
     </div>
 
-    <!-- Nicht länger machen: So passt die Zeile bei 375 px Handybreite. -->
-    <span class="pill"><span class="dot" aria-hidden="true"></span> PC-Optimierung · Windows 10 &amp; 11</span>
-
     <h1 class="hero-name">Tyler Tweaks</h1>
 
     <!-- Bewusst ohne Leistungsversprechen: Was eine Optimierung bringt, hängt
          von Hardware und Ausgangszustand ab. Das Versprechen ist die Sorgfalt. -->
-    <p class="hero-zeile">Windows sauber für Gaming eingestellt — mit Backup und jederzeit rückgängig.</p>
+    <p class="hero-zeile">Ich stelle Windows für Gaming ein. Mit Backup, und alles lässt sich wieder rückgängig machen.</p>
 
     <div class="hero-cta">
       <a href="#preise" class="btn btn-primary btn-lg" data-scroll-to="tarif-opt">
@@ -285,7 +282,6 @@
         <span>?</span>
       </span>
       <span class="score-band-text">
-        <span class="eyebrow">PC-Score-Test</span>
         <span class="score-band-titel" id="score-band-titel">Wie viel Leistung lässt dein PC liegen?</span>
         <span class="score-band-sub">12 Fragen, zwei Minuten, ohne Anmeldung. Danach weißt du, wo du anfangen solltest und welches Paket zu dir passt.</span>
       </span>
@@ -294,61 +290,6 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
       </span>
     </a>
-  </div>
-</section>
-
-<!-- ============ WEGWEISER ============
-     Wer zum ersten Mal hier ist, kennt die drei Pakete noch nicht beim Namen.
-     Deshalb hier die Frage andersherum: Was willst du selbst machen? Jede
-     Karte springt zum passenden Paket (data-scroll-to, script.js) und lässt
-     es kurz aufleuchten.
-
-     Reihenfolge wie die Pakete darunter: Optimierung, Bundle, App. Die Farben
-     sind die der Pakete: Stahlblau für die Optimierung, Gold für die
-     Empfehlung, Cyan für die App. -->
-<section id="wegweiser" class="section reveal">
-  <div class="wrap">
-
-    <div class="section-head center">
-      <span class="eyebrow">Pakete</span>
-      <h2>Alles auf einen Blick</h2>
-      <p class="sub">Drei Möglichkeiten — je nachdem, wie viel du selbst machen willst. Einmal zahlen, kein Abo.</p>
-    </div>
-
-    <div class="weg-grid">
-      <a class="weg-karte ton-stahl" href="#preise" data-scroll-to="tarif-opt">
-        <span class="weg-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-        </span>
-        <p class="weg-frage">Du willst, dass ich es einmal richtig für dich mache — per Remote-Sitzung, du musst selbst nichts tun.</p>
-        <span class="weg-fuss">PC-Optimierung · <span data-preis-betrag="optimierung">29,99 €</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
-        </span>
-      </a>
-
-      <a class="weg-karte weg-top ton-gold" href="#preise" data-scroll-to="tarif-bundle">
-        <span class="marke-gold">Bester Wert</span>
-        <span class="weg-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
-        </span>
-        <p class="weg-frage">Ich stelle deinen PC einmal persönlich ein — und danach hast du die App, um selbst dranzubleiben.</p>
-        <p class="weg-spar">Du sparst <span data-preis-ersparnis-betrag>9,99 €</span> gegenüber einzeln</p>
-        <span class="weg-fuss">Bundle · <span data-preis-betrag="bundle">59,99 €</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
-        </span>
-      </a>
-
-      <a class="weg-karte ton-cyan" href="#preise" data-scroll-to="tarif-app">
-        <span class="weg-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </span>
-        <p class="weg-frage">Du stellst lieber selbst ein, willst jeden Schalter verstehen und jederzeit nachjustieren können.</p>
-        <span class="weg-fuss">Tweak App · ab <span data-preis-ab>7,99 €</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
-        </span>
-      </a>
-    </div>
-
   </div>
 </section>
 
@@ -365,9 +306,8 @@
   <div class="wrap">
 
     <div class="section-head center">
-      <span class="eyebrow">Pakete</span>
-      <h2>Drei Wege, ein Ziel</h2>
-      <p class="sub">Einmalzahlung, kein Abo – nichts verlängert sich automatisch. Keine Folgekosten, keine versteckten Posten.</p>
+      <h2>Preise</h2>
+      <p class="sub">Du zahlst einmal. Kein Abo, nichts verlängert sich von selbst.</p>
     </div>
 
     <div class="produkte">
@@ -375,14 +315,11 @@
       <!-- ===== PC-Optimierung ===== -->
       <article class="plan produkt ton-stahl" id="tarif-opt">
         <div class="produkt-info">
-          <div class="produkt-marken">
-            <span class="plan-kind">Dienstleistung · Remote-Sitzung</span>
-          </div>
           <h3>PC-Optimierung</h3>
           <p class="plan-desc">
             Per Remote-Sitzung gehe ich dein System durch und stelle alles passend zu deiner
-            Hardware ein. Jeder Schritt wird erklärt und dokumentiert — du weißt am Ende genau,
-            was geändert wurde.
+            Hardware ein. Jeder Schritt wird erklärt und aufgeschrieben, damit du am Ende genau
+            weißt, was geändert wurde.
           </p>
 
           <p class="produkt-zwischen">Was ich einstelle</p>
@@ -391,7 +328,7 @@
               <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1 3-1 3 1 3-1 3 1 3-1v12l-3 1-3-1-3 1-3-1-3 1-3-1z"/></svg></span>
               <div>
                 <h4>Windows aufräumen</h4>
-                <p>Überflüssige Dienste, Telemetrie und vorinstallierte Apps raus — weniger Last im Hintergrund.</p>
+                <p>Überflüssige Dienste, Telemetrie und vorinstallierte Apps raus. So läuft weniger im Hintergrund.</p>
               </div>
             </li>
             <li>
@@ -405,28 +342,28 @@
               <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
               <div>
                 <h4>Netzwerk &amp; Latenz</h4>
-                <p>Nagle, Drosselung, DNS und Adapter richtig gesetzt — für stabilere Ping-Werte.</p>
+                <p>Nagle, Drosselung, DNS und Adapter richtig eingestellt, für einen stabileren Ping.</p>
               </div>
             </li>
             <li>
               <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="5"/><line x1="12" y1="6" x2="12" y2="10"/></svg></span>
               <div>
                 <h4>Maus &amp; Eingabe</h4>
-                <p>Beschleunigung raus, Polling-Rate und USB-Energieverwaltung — dein Aim macht, was du willst.</p>
+                <p>Beschleunigung raus, Polling-Rate und USB-Energieverwaltung, damit dein Aim macht, was du willst.</p>
               </div>
             </li>
             <li>
               <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></span>
               <div>
                 <h4>Energieplan &amp; CPU</h4>
-                <p>Energieprofil, Core Parking, C-States und Timer — damit die CPU nicht mitten im Fight heruntertaktet.</p>
+                <p>Energieprofil, Core Parking, C-States und Timer, damit die CPU nicht mitten im Fight runtertaktet.</p>
               </div>
             </li>
             <li>
               <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="11" y1="15" x2="17" y2="15"/></svg></span>
               <div>
                 <h4>Autostart &amp; Speicher</h4>
-                <p>Startprogramme und geplante Aufgaben ausmisten — weniger läuft unnötig im Hintergrund mit.</p>
+                <p>Startprogramme und geplante Aufgaben ausmisten, damit weniger unnötig mitläuft.</p>
               </div>
             </li>
           </ul>
@@ -503,14 +440,10 @@
         </div>
 
         <div class="produkt-info">
-          <div class="produkt-marken">
-            <span class="plan-kind">Software + Service</span>
-            <span class="marke-gold">Empfehlung</span>
-          </div>
           <h3>Bundle</h3>
           <p class="plan-desc">
-            Ich stelle deinen PC einmal persönlich ein — und danach hast du die App, um selbst
-            dranzubleiben, auch wenn ein Windows-Update etwas zurücksetzt.
+            Ich stelle deinen PC einmal persönlich ein, und danach hast du die App. Damit
+            bleibst du selbst dran, auch wenn ein Windows-Update etwas zurücksetzt.
           </p>
 
           <ul class="features features-2">
@@ -549,15 +482,12 @@
            (script.js) und #app-hinweis sagt, wann sie kommt. -->
       <article class="plan produkt produkt-app ton-cyan" id="tarif-app">
         <div class="produkt-info">
-          <div class="produkt-marken">
-            <span class="plan-kind">Software</span>
-          </div>
           <h3>Tweak App</h3>
-          <p class="plan-desc">Das Werkzeug, mit dem du selbst tweakst — so oft du willst.</p>
+          <p class="plan-desc">Damit tweakst du selbst, so oft du willst.</p>
 
           <div class="hinweis-kasten warn" id="app-hinweis" hidden>
             <p><strong>Die Tweak App erscheint <span data-app-erscheint>nächste Woche</span>.</strong>
-               Bis dahin kannst du sie und das Bundle noch nicht kaufen — die Preise
+               Bis dahin kannst du sie und das Bundle noch nicht kaufen, die Preise
                stehen aber schon fest. Die PC-Optimierung kannst du schon jetzt buchen.</p>
           </div>
 
@@ -644,9 +574,9 @@
          style="margin:28px auto 0">
       <p><strong>Kurzer Hinweis zum Kauf:</strong> Die Freischaltung passiert
          gerade noch von Hand. Du bestellst im Warenkorb, bekommst eine
-         Bestellnummer und zahlst über PayPal — bitte als
-         „Waren und Dienstleistungen“, nur dann gilt der Käuferschutz — mit der
-         Nummer als Mitteilung. Sobald die Zahlung da ist, kommen
+         Bestellnummer und zahlst über PayPal mit der Nummer als
+         Mitteilung. Bitte als „Waren und Dienstleistungen“ zahlen, nur dann gilt
+         der Käuferschutz. Sobald die Zahlung da ist, kommen
          Lizenzschlüssel und Rechnung per E-Mail, meist innerhalb weniger
          Stunden. Fragen? Discord <strong class="discord-name">tyler061312</strong>
          oder <a class="kontakt-email" href="mailto:tylertweaks@gmail.com">tylertweaks@gmail.com</a>.</p>
@@ -672,103 +602,12 @@
     <p class="note" id="preise-note">
       Alle Preise sind Endpreise in Euro. Keine Umsatzsteuer, da Kleinunternehmer
       (§ 6 Abs 1 Z 27 UStG).
-      Zum Einkaufen brauchst du ein kostenloses <a href="registrieren.html">Konto</a> —
-      dein Lizenzschlüssel wird nach der bestätigten Zahlung automatisch erzeugt und
+      Zum Einkaufen brauchst du ein kostenloses <a href="registrieren.html">Konto</a>.
+      Dein Lizenzschlüssel wird nach der bestätigten Zahlung automatisch erzeugt und
       liegt sofort in deinem <a href="konto.html">Kundenbereich</a>. Du musst nichts
       anfordern.
     </p>
 
-    <!-- ---- Vergleich der drei Pakete ----
-         Nichts Neues, nur nebeneinander: Jede Zeile steht so schon in einem der
-         drei Blöcke darüber. Wer einen Block ändert, ändert bitte auch hier.
-         Spalten in derselben Reihenfolge wie die Blöcke. Die Preise im Kopf
-         setzt script.js aus konfig.js und der Datenbank. -->
-    <div class="vergleich-kopf">
-      <h3>Was steckt in welchem Paket?</h3>
-      <p>Alle drei auf einen Blick.</p>
-    </div>
-
-    <div class="vergleich-rahmen" role="region" aria-label="Paketvergleich" tabindex="0">
-      <table class="vergleich">
-        <thead>
-          <tr>
-            <th scope="col">Leistung</th>
-            <th scope="col">PC-Optimierung<span class="vg-preis" data-preis-betrag="optimierung">29,99 €</span></th>
-            <th scope="col" class="vg-top"><span class="marke-gold">Beste Wahl</span><br>Bundle<span class="vg-preis" data-preis-betrag="bundle">59,99 €</span></th>
-            <th scope="col">Tweak App<span class="vg-preis">ab <span data-preis-ab>7,99 €</span></span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Persönliche Optimierung per Remote-Sitzung</th>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Backup vor jeder Änderung</th>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Protokoll aller Änderungen</th>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Kostenlose Nachbesserung innerhalb von 14 Tagen</th>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Lizenz für die Tweak App, 1 PC</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-text">Lifetime</span></td>
-            <td><span class="vg-text">Laufzeit nach Wahl</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><span data-tweak-anzahl></span> Tweaks, jeder einzeln schaltbar</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Score, Wirkungs-Balken &amp; Anti-Cheat-Schutz</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Neue App-Versionen kostenlos</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Persönliche Einweisung in die App</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Eigenes Profil für dein System</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-          <tr>
-            <th scope="row">Bevorzugter Support</th>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-            <td class="vg-top"><span class="vg-ja" role="img" aria-label="enthalten"></span></td>
-            <td><span class="vg-nein" role="img" aria-label="nicht enthalten"></span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="vergleich-hinweis">Auf dem Handy lässt sich die Tabelle seitlich wischen.</p>
   </div>
 </section>
 
@@ -779,9 +618,8 @@
 <section id="kundenstimmen" class="section section-alt reveal" hidden>
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">Kundenstimmen</span>
-      <h2>Das sagen Kunden</h2>
-      <p class="sub">Echte Rückmeldungen, mit Erlaubnis veröffentlicht.</p>
+      <h2>Was Kunden sagen</h2>
+      <p class="sub">Mit ihrer Erlaubnis hier.</p>
     </div>
     <div class="stimmen-grid" id="stimmen-grid"></div>
   </div>
@@ -792,61 +630,31 @@
   <div class="wrap">
 
     <div class="section-head">
-      <span class="eyebrow">Kaufablauf</span>
-      <h2>So läuft der Kauf ab</h2>
-      <p class="sub">Vier Schritte, keine Überraschungen. Vom Klick bis zum Download vergehen in der Regel wenige Minuten.</p>
+      <h2>So kaufst du</h2>
+      <p class="sub">Dauert meistens nur ein paar Minuten.</p>
     </div>
 
     <div class="flow">
 
       <div class="flow-step">
-        <div class="flow-art" aria-hidden="true">
-          <span class="art-pick"><i></i><i></i><i></i></span>
-        </div>
         <span class="flow-num">1</span>
         <h3 data-schritt="1-titel">Konto erstellen</h3>
-        <p data-schritt="1-text">Registrieren, E-Mail bestätigen, fertig. Dauert eine Minute und kostet nichts — dort landen später Lizenz und Download.</p>
+        <p data-schritt="1-text">Registrieren, E-Mail bestätigen, fertig. Dauert eine Minute und kostet nichts. Dort landen später Lizenz und Download.</p>
       </div>
 
       <div class="flow-step">
-        <div class="flow-art" aria-hidden="true">
-          <span class="art-pay">
-            <span class="row">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-              <b>SICHER BEZAHLEN</b>
-            </span>
-            <span class="amt" data-preis-betrag="bundle">59,99 €</span>
-            <span class="go"></span>
-          </span>
-        </div>
         <span class="flow-num">2</span>
         <h3>Paket wählen &amp; bezahlen</h3>
-        <p data-schritt="2-text">Laufzeit aussuchen, in den Warenkorb legen und dort über PayPal zahlen — mit Rabattcode, falls du einen hast. Deine Zahlungsdaten sehe ich nie, es gilt der PayPal-Käuferschutz.</p>
+        <p data-schritt="2-text">Laufzeit aussuchen, in den Warenkorb legen und dort über PayPal zahlen, mit Rabattcode, falls du einen hast. Deine Zahlungsdaten sehe ich nie, es gilt der PayPal-Käuferschutz.</p>
       </div>
 
       <div class="flow-step">
-        <div class="flow-art" aria-hidden="true">
-          <span class="art-ok">
-            <span class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <span class="ln a"></span>
-            <span class="ln b"></span>
-          </span>
-        </div>
         <span class="flow-num">3</span>
         <h3 data-schritt="3-titel">Schlüssel erscheint automatisch</h3>
         <p data-schritt="3-text">Sobald PayPal die Zahlung bestätigt, erzeugt das System deinen Lizenzschlüssel und legt ihn in dein Konto. Ohne Nachfragen, ohne Warten.</p>
       </div>
 
       <div class="flow-step">
-        <div class="flow-art" aria-hidden="true">
-          <span class="art-key">
-            <span class="code">TT-4K7M-92XB-QR30</span>
-            <span class="dl">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11m0 0 4-4m-4 4-4-4"/><path d="M4 19h16"/></svg>
-              Download
-            </span>
-          </span>
-        </div>
         <span class="flow-num">4</span>
         <h3 data-schritt="4-titel">Herunterladen &amp; freischalten</h3>
         <p data-schritt="4-text">Im Kundenbereich lädst du die App herunter, kopierst deinen Schlüssel und gibst ihn beim ersten Start ein. Fertig.</p>
@@ -855,7 +663,7 @@
     </div>
 
     <p class="note">
-      Bei der PC-Optimierung entfällt der Download — stattdessen machen wir direkt einen Termin
+      Bei der PC-Optimierung entfällt der Download. Stattdessen machen wir direkt einen Termin
       für die Remote-Sitzung aus.
     </p>
 
@@ -875,9 +683,8 @@
   <div class="wrap">
 
     <div class="section-head">
-      <span class="eyebrow">Sicherheit</span>
-      <h2>Sicher. Kontrolliert. Reversibel.</h2>
-      <p class="sub">Lieber vorher ehrlich als hinterher enttäuscht. Hier steht, was unterstützt wird und was ich bewusst nicht anfasse.</p>
+      <h2>Was ich mache und was nicht</h2>
+      <p class="sub">Damit du vorher weißt, worauf du dich einlässt.</p>
     </div>
 
     <div class="trust-grid">
@@ -907,10 +714,10 @@
         <h3>Das passiert <em>nicht</em></h3>
         <ul class="nolist">
           <li>Kein Übertakten, keine Spannungs- oder BIOS-Änderungen</li>
-          <li>Keine Eingriffe in Hardware — deine Garantie bleibt unberührt</li>
+          <li>Keine Eingriffe in Hardware, deine Garantie bleibt unberührt</li>
           <li>Keine Cracks, Loader oder Programme aus fragwürdigen Quellen</li>
           <li>Keine Deaktivierung von Windows Update oder Defender ohne Rückfrage</li>
-          <li>Keine versprochenen FPS-Zahlen — das hängt von deiner Hardware ab</li>
+          <li>Keine versprochenen FPS-Zahlen, das hängt von deiner Hardware ab</li>
         </ul>
       </article>
 
@@ -924,7 +731,7 @@
           innerhalb von 14 Tagen kostenlos nach, wenn etwas nicht läuft wie besprochen.
         </p>
         <p>
-          Vor jeder Änderung wird gesichert — im Zweifel kommst du jederzeit auf den
+          Vor jeder Änderung wird gesichert. Im Zweifel kommst du jederzeit auf den
           vorherigen Stand zurück.
         </p>
         <p class="muted" style="font-size:.86rem">
@@ -946,8 +753,7 @@
   <div class="wrap wrap-narrow">
 
     <div class="section-head center">
-      <span class="eyebrow">FAQ</span>
-      <h2>Häufige Fragen</h2>
+      <h2>Fragen</h2>
       <p class="sub" style="margin-inline:auto">Steht deine Frage nicht dabei, schreib mir einfach auf Discord.</p>
     </div>
 
@@ -955,14 +761,14 @@
       <details open>
         <summary>Was ist Tyler Tweaks?</summary>
         <div class="faq-body">
-          <p>Zwei Dinge: eine Windows-Software für Gaming-PCs — die <strong>Tweak App</strong> — und eine persönliche Optimierung, bei der ich deinen PC per Remote-Sitzung selbst einstelle. Du kannst beides einzeln oder zusammen im Bundle bekommen.</p>
+          <p>Zwei Dinge: eine Windows-Software für Gaming-PCs, die <strong>Tweak App</strong>, und eine persönliche Optimierung, bei der ich deinen PC per Remote-Sitzung selbst einstelle. Du kannst beides einzeln oder zusammen im Bundle bekommen.</p>
         </div>
       </details>
 
       <details>
         <summary>Warum warnt Windows beim Installieren?</summary>
         <div class="faq-body">
-          <p>Windows warnt bei jedem Programm, das kein gekauftes Herausgeber-Zertifikat hat — egal, was es tut. Tyler ist noch nicht signiert. Klick im blauen Fenster auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“.</p>
+          <p>Windows warnt bei jedem Programm, das kein gekauftes Herausgeber-Zertifikat hat, egal was es tut. Tyler ist noch nicht signiert. Klick im blauen Fenster auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“.</p>
           <p>Was die App tut und was nie, steht auf der Seite <a href="sicherheit.html">Sicherheit der App</a>.</p>
         </div>
       </details>
@@ -1012,7 +818,7 @@
         <div class="faq-body">
           <!-- Anzahl und Bereichsliste kommen aus tweaks.json. -->
           <p>Sie fasst <span data-tweak-anzahl></span> dokumentierte Windows-Einstellungen in einer Oberfläche zusammen: <span data-bereich-liste></span>. Jede lässt sich einzeln an- und abschalten, und zu jeder steht dabei, was sie bewirkt.</p>
-          <p>Dazu kommen fertige Presets, eigene Profile, Aufräumen mit Autostart-Verwaltung, der Game Booster und eine Live-Übersicht. Updates kommen über die App selbst und kosten nichts extra. <a href="tweaks.html">Die vollständige Liste kannst du hier durchsehen</a> — ohne Anmeldung.</p>
+          <p>Dazu kommen fertige Presets, eigene Profile, Aufräumen mit Autostart-Verwaltung, der Game Booster und eine Live-Übersicht. Updates kommen über die App selbst und kosten nichts extra. <a href="tweaks.html">Die vollständige Liste kannst du hier durchsehen</a>, ohne Anmeldung.</p>
         </div>
       </details>
 
@@ -1026,7 +832,7 @@
       <details>
         <summary>Brauche ich für den Kauf ein Konto?</summary>
         <div class="faq-body">
-          <p>Ja, ein kostenloses Konto mit E-Mail-Adresse und Passwort. Dort liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle — auch wenn du den PC neu aufsetzt. Nach der Registrierung bestätigst du einmal deine E-Mail-Adresse, dann kannst du kaufen.</p>
+          <p>Ja, ein kostenloses Konto mit E-Mail-Adresse und Passwort. Dort liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle, auch wenn du den PC neu aufsetzt. Nach der Registrierung bestätigst du einmal deine E-Mail-Adresse, dann kannst du kaufen.</p>
         </div>
       </details>
     </div>
@@ -1038,12 +844,8 @@
   <div class="wrap">
 
     <div class="section-head">
-      <span class="eyebrow">Support</span>
-      <h2>Wenn du Hilfe brauchst</h2>
-      <p class="sub">
-        Hinter Tyler Tweaks steht kein Callcenter, sondern eine Person. Dafür antworte ich
-        selbst — und weiß, wovon ich rede.
-      </p>
+      <h2>Hilfe</h2>
+      <p class="sub">Ich beantworte jede Nachricht selbst, meistens noch am selben Tag.</p>
     </div>
 
     <div class="trust-grid">
@@ -1052,7 +854,7 @@
         <div class="icon icon-ok">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
-        <h3>Discord — der schnellste Weg</h3>
+        <h3>Discord</h3>
         <p>
           Schreib mir direkt auf Discord. Dort erreichst du mich am zuverlässigsten, und wir
           können bei Bedarf sofort auf Sprache oder Bildschirmfreigabe wechseln.
@@ -1066,23 +868,6 @@
         </a>
         <p class="muted" style="font-size:.85rem">
           Antwort meist innerhalb weniger Stunden, spätestens am nächsten Tag.
-        </p>
-      </article>
-
-      <article class="trust-card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <h3>Du hast die PC-Optimierung gekauft?</h3>
-        <p>So geht es weiter (<a href="ablauf.html">ganzer Ablauf</a>):</p>
-        <ol class="speclist" style="padding-left:0;list-style:none">
-          <li><span class="k">1. Melden</span><span class="v">auf Discord, mit Bestellnummer</span></li>
-          <li><span class="k">2. Termin</span><span class="v">wir finden einen Zeitpunkt</span></li>
-          <li><span class="k">3. Sitzung</span><span class="v">Remote, 45–90 Minuten</span></li>
-          <li><span class="k">4. Protokoll</span><span class="v">alle Änderungen &amp; Backup</span></li>
-        </ol>
-        <p class="muted" style="font-size:.85rem;margin-top:14px">
-          Deine Bestellnummer steht im <a href="konto.html">Kundenbereich</a> unter „Bestellungen“.
         </p>
       </article>
 
@@ -1108,28 +893,12 @@
   </div>
 </section>
 
-<!-- ============ ABSCHLUSS-CTA ============ -->
-<section class="cta reveal">
-  <div class="wrap">
-    <div class="cta-karte">
-      <span class="eyebrow">Loslegen</span>
-      <h2>Bereit, deinen PC sauber einzurichten?</h2>
-      <p class="sub">Mit dem Bundle bekommst du die App und die persönliche Optimierung — und sparst <span data-preis-ersparnis-betrag>9,99 €</span>.</p>
-      <div class="cta-row">
-        <!-- Text in EINEM span, sonst setzt .btn (Flex mit gap) Lücken um den Preis. -->
-        <a class="btn btn-primary btn-lg" href="#preise" data-scroll-to="tarif-bundle"><span>Bundle für <span data-preis-betrag="bundle">59,99 €</span> ansehen</span></a>
-        <a class="btn btn-outline btn-lg" href="#faq">Erst noch Fragen klären</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ HANDY-LEISTE ============
      Nur am Handy (style.css, Abschnitt 28): Erscheint, sobald der Name oben
      aus dem Bild ist, und verschwindet wieder bei den Paketen selbst
      (script.js, "Handy-Leiste"). -->
 <div class="mobil-leiste" id="mobil-leiste" hidden>
-  <a class="btn btn-primary btn-block" href="#wegweiser"><span>Pakete ansehen</span></a>
+  <a class="btn btn-primary btn-block" href="#preise"><span>Preise ansehen</span></a>
 </div>
 
 </main>
@@ -1195,10 +964,10 @@
 
   <div class="wrap">
     <p class="disclaimer">
-      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben —
-      die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
+      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben.
+      Die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
       Verantwortung. Vor Änderungen wird automatisch ein Backup erstellt.
-      Windows ist eine Marke der Microsoft Corporation, PayPal eine Marke der PayPal Inc. —
+      Windows ist eine Marke der Microsoft Corporation, PayPal eine Marke der PayPal Inc.
       Tyler Tweaks steht mit keinem der beiden Unternehmen in Verbindung.
     </p>
     <p class="rechtslinks">
@@ -1215,10 +984,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-preise3"></script>
-<script src="tt-backend.js?v=2.2.0-preise3"></script>
-<script src="warenkorb.js?v=2.2.0-preise3"></script>
-<script src="tweaks.js?v=2.2.0-preise3"></script>
-<script src="script.js?v=2.2.0-preise3"></script>
+<script src="konfig.js?v=2.2.0-schlicht"></script>
+<script src="tt-backend.js?v=2.2.0-schlicht"></script>
+<script src="warenkorb.js?v=2.2.0-schlicht"></script>
+<script src="tweaks.js?v=2.2.0-schlicht"></script>
+<script src="script.js?v=2.2.0-schlicht"></script>
 </body>
 </html>

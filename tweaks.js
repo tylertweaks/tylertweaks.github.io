@@ -57,11 +57,11 @@ window.TTKatalog = (function () {
      Satz; die Kachel steht trotzdem da, mit Name und Anzahl.
      ------------------------------------------------------------------ */
   var BESCHREIBUNG = {
-    'cat.services': 'Dienste, die du nicht brauchst — etwa Fax, Xbox, Hyper-V und Sensoren — abschalten oder auf manuell stellen.',
+    'cat.services': 'Dienste, die du nicht brauchst, etwa Fax, Xbox, Hyper-V und Sensoren, abschalten oder auf manuell stellen.',
     'cat.general': 'Energieplan, Eingabeverzögerung, Animationen, Dateisystem und Ruhezustand, dazu wann Windows Update neu startet.',
     'cat.system': 'Energieplan, Eingabeverzögerung, Animationen und wie lange Windows auf hängende Programme wartet.',
     'cat.overlays': 'Game Bar und Aufnahmen von Windows, die beim Spielen im Hintergrund mitlaufen, abschalten.',
-    'cat.explorer': 'Taskleiste, Startmenü, Rechtsklickmenü und Explorer so, wie du sie willst — ohne Werbung und Websuche.',
+    'cat.explorer': 'Taskleiste, Startmenü, Rechtsklickmenü und Explorer so, wie du sie willst. Ohne Werbung und Websuche.',
     'cat.privacy': 'Telemetrie, Werbe-ID, Recall, Copilot und Standort: was Windows über dich sammelt und weitergibt.',
     'cat.advanced': 'Undokumentierte Werte für NVIDIA- und AMD-Treiber, Scheduler und Zeitgeber. Mit Risiko, jeder einzeln zurücknehmbar.',
     'cat.network': 'Stromsparen der Netzwerkkarte, Nagle, Netzwerkdrosselung, DNS und die Puffer des TCP-Stapels.',
@@ -232,7 +232,7 @@ window.TTKatalog = (function () {
       // unterwegs sind.
       var schalter = el('span', 'tw-schalter');
       schalter.setAttribute('role', 'img');
-      schalter.setAttribute('aria-label', 'Schalter — in dieser Vorschau ohne Wirkung');
+      schalter.setAttribute('aria-label', 'Schalter, in dieser Vorschau ohne Wirkung');
       kopf.appendChild(schalter);
     }
 

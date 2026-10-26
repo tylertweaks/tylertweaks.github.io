@@ -5138,3 +5138,44 @@ button.stufe:hover { border-color: var(--line-strong); }
    Laufzeit, sondern mit eigenem Download-Knopf unten in der Karte. */
 .stufe-gratis { cursor: default; }
 .stufe-download { margin-top: 18px; }
+
+/* ==========================================================================
+   Schlichter (26.10.2026)
+
+   Rückmeldung eines Besuchers: Die Seite sah "zu sehr nach KI" aus. Was
+   dafür sorgte, wird hier zurückgenommen, statt es überall einzeln zu
+   suchen: der wandernde Leuchtnebel hinter dem Namen, die schwebende,
+   leuchtende Logo-Kachel, der Farbverlauf mit Schein im Namen und die
+   Überschriften, die sich beim Scrollen von Grau zu Weiß füllen. Die
+   Kennzeilen mit "01, 02 …" über den Überschriften sind im HTML entfernt.
+   ========================================================================== */
+.hero-glow { display: none; }
+
+.hero-marke {
+  width: 88px; height: 88px;
+  margin-bottom: 26px;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
+  animation: none;
+}
+.hero-marke::before { display: none; }
+
+.hero .hero-name {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--text);
+  filter: none;
+  font-size: clamp(2.8rem, 11vw, 6rem);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .section-head h2,
+    .cta h2 {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      color: var(--text);
+      animation: none;
+    }
+  }
+}
