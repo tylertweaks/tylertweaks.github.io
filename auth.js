@@ -146,51 +146,48 @@
          Anmeldeformular, das er nicht angefordert hat. */
       TT.melden('meldung',
         'Zum Einkaufen brauchst du ein Konto, dort landen später deine Lizenz ' +
-        'und der Download. Melde dich mit Google oder per E-Mail an, dann liegt ' +
-        'dein Paket im Warenkorb.', 'ok');
+        'und der Download. Melde dich an, wer neu ist, hat sofort ein Konto. ' +
+        'Danach liegt dein Paket im Warenkorb.', 'ok');
     }
 
-    /* Seit 26.10.2026: Google oder ein Login-Link per E-Mail, kein eigenes
-       Registrieren mehr. Der Link legt bei einer neuen Adresse das Konto an
-       (shouldCreateUser), bei einer bekannten meldet er nur an. Mit Passwort
-       geht es für alte Konten weiter, über "Mit Passwort anmelden".
+    /* Seit 27.10.2026: ein Formular für alle, kein eigenes Registrieren.
+       Erst wird angemeldet. Kennt Supabase die Kombination nicht, wird mit
+       denselben Daten ein Konto angelegt. Ist die Adresse schon vergeben,
+       war nur das Passwort falsch.
 
-       Zurück kommt man auf diese Seite mit ?weiter=…: Sie liest die Sitzung
-       aus der Adresse (detectSessionInUrl in tt-backend.js) und leitet dann
-       wie gewohnt weiter. */
+       Das klappt nur, solange in Supabase "Confirm email" aus ist. Einen
+       eigenen Mail-Versand gibt es noch nicht, Bestätigungsmails kämen bei
+       Kunden nie an. */
     var zurueck = basis + '/anmelden.html?weiter=' + encodeURIComponent(zielPruefen(weiter));
-    var mitPasswort = false;
-    var hinweisLink = document.getElementById('anmelde-hinweis');
-    var umschalter = document.getElementById('passwort-umschalten');
-    var LINK_TEXT = 'Login-Link senden';
-
+    var MIN_LAENGE = 8;
     var pfeil = loginKnopf.querySelector('svg');
 
-    function knopfText(text) {
-      // Der Pfeil im Knopf bleibt nur beim Login-Link.
+    function knopfSperren(aktiv, text) {
+      loginKnopf.disabled = aktiv;
       loginKnopf.textContent = text + ' ';
-      if (pfeil && text === LINK_TEXT) loginKnopf.appendChild(pfeil);
+      if (!aktiv && pfeil) loginKnopf.appendChild(pfeil);
     }
 
-    if (umschalter) {
-      umschalter.addEventListener('click', function () {
-        mitPasswort = !mitPasswort;
-        document.getElementById('passwort-feld').hidden = !mitPasswort;
-        if (hinweisLink) hinweisLink.hidden = mitPasswort;
-        umschalter.textContent = mitPasswort ? 'Lieber mit Login-Link' : 'Mit Passwort anmelden';
-        knopfText(mitPasswort ? 'Anmelden' : LINK_TEXT);
-        TT.melden('meldung', '');
-        (mitPasswort ? document.getElementById('passwort') : document.getElementById('email')).focus();
-      });
+    function falscheDaten(fehler) {
+      var text = String(fehler.message || '').toLowerCase();
+      return fehler.code === 'invalid_credentials' || text.indexOf('invalid login') >= 0;
     }
 
-    var andere = document.getElementById('andere-adresse');
-    if (andere) {
-      andere.addEventListener('click', function () {
-        document.getElementById('link-gesendet').hidden = true;
-        loginForm.closest('.anmelde-karte').classList.remove('gesendet');
-        loginForm.hidden = false;
-        document.getElementById('email').focus();
+    function schonVergeben(fehler) {
+      var text = String(fehler.message || '').toLowerCase();
+      return fehler.code === 'user_already_exists' || fehler.code === 'email_exists' ||
+             text.indexOf('already registered') >= 0;
+    }
+
+    var auge = document.getElementById('passwort-auge');
+    if (auge) {
+      auge.addEventListener('click', function () {
+        var feld = document.getElementById('passwort');
+        var zeigen = feld.type === 'password';
+        feld.type = zeigen ? 'text' : 'password';
+        auge.setAttribute('aria-pressed', String(zeigen));
+        auge.setAttribute('aria-label', zeigen ? 'Passwort verbergen' : 'Passwort anzeigen');
+        feld.focus();
       });
     }
 
@@ -230,62 +227,63 @@
       TT.melden('meldung', '');
 
       var email = document.getElementById('email').value.trim();
+      var passwort = document.getElementById('passwort').value;
       if (!email || email.indexOf('@') < 1) {
         return TT.melden('meldung', 'Bitte gib deine E-Mail-Adresse an.');
       }
-
-      if (!mitPasswort) {
-        loginKnopf.disabled = true;
-        knopfText('Wird gesendet …');
-
-        var link = await db.auth.signInWithOtp({
-          email: email,
-          options: { shouldCreateUser: true, emailRedirectTo: zurueck }
-        });
-
-        loginKnopf.disabled = false;
-        knopfText(LINK_TEXT);
-
-        if (link.error) return TT.melden('meldung', TT.fehlerText(link.error));
-
-        loginForm.hidden = true;
-        // Google und "Mit Passwort" sind jetzt nur im Weg.
-        loginForm.closest('.anmelde-karte').classList.add('gesendet');
-        document.getElementById('gesendet-an').textContent = email;
-        document.getElementById('link-gesendet').hidden = false;
-        return;
-      }
-
-      var passwort = document.getElementById('passwort').value;
       if (!passwort) {
-        return TT.melden('meldung', 'Bitte gib dein Passwort ein.');
+        return TT.melden('meldung', 'Bitte gib ein Passwort ein.');
       }
 
-      sperren(loginKnopf, true, 'Anmelden …', 'Anmelden');
-
+      knopfSperren(true, 'Anmelden …');
       var erg = await db.auth.signInWithPassword({ email: email, password: passwort });
+      if (!erg.error) return window.location.replace(zielPruefen(weiter));
 
-      if (erg.error) {
-        sperren(loginKnopf, false, '', 'Anmelden');
-
-        var code = erg.error.code || '';
-        var text = String(erg.error.message || '').toLowerCase();
-
-        if (code === 'email_not_confirmed' || text.indexOf('not confirmed') >= 0) {
-          TT.melden('meldung',
-            'Deine E-Mail-Adresse wurde noch nicht bestätigt. Sieh in deinem ' +
-            'Postfach nach, auch im Spam-Ordner.');
-          var nochmal = document.getElementById('mail-nochmal');
-          if (nochmal) {
-            nochmal.hidden = false;
-            nochmal.dataset.email = email;
-          }
-          return;
+      if (!falscheDaten(erg.error)) {
+        knopfSperren(false, 'Anmelden');
+        if (erg.error.code === 'email_not_confirmed') {
+          return TT.melden('meldung',
+            'Dein Konto ist noch nicht freigeschaltet. Schreib mir kurz auf ' +
+            'Discord, dann erledige ich das.');
         }
         return TT.melden('meldung', TT.fehlerText(erg.error));
       }
 
-      window.location.replace(zielPruefen(weiter));
+      // Unbekannte Kombination: Entweder neu hier oder das Passwort ist falsch.
+      if (passwort.length < MIN_LAENGE) {
+        knopfSperren(false, 'Anmelden');
+        return TT.melden('meldung',
+          'E-Mail oder Passwort stimmt nicht. Neu hier? Dann nimm ein Passwort ' +
+          'mit mindestens ' + MIN_LAENGE + ' Zeichen.');
+      }
+
+      knopfSperren(true, 'Konto wird angelegt …');
+      var neu = await db.auth.signUp({ email: email, password: passwort });
+      var nutzer = neu.data && neu.data.user;
+      var vergeben = neu.error ? schonVergeben(neu.error)
+        // Mit "Confirm email" an verrät Supabase eine vergebene Adresse nur so.
+        : !!(nutzer && Array.isArray(nutzer.identities) && nutzer.identities.length === 0);
+
+      if (vergeben) {
+        knopfSperren(false, 'Anmelden');
+        return TT.melden('meldung',
+          'Das Passwort stimmt nicht. Vergessen? Schreib mir auf Discord, dann ' +
+          'setze ich es zurück.');
+      }
+      if (neu.error) {
+        knopfSperren(false, 'Anmelden');
+        return TT.melden('meldung', TT.fehlerText(neu.error));
+      }
+      if (!neu.data.session) {
+        // Nur wenn in Supabase "Confirm email" wieder an ist.
+        knopfSperren(false, 'Anmelden');
+        return TT.melden('meldung',
+          'Dein Konto ist angelegt, muss aber noch freigeschaltet werden. ' +
+          'Schreib mir kurz auf Discord.', 'ok');
+      }
+
+      var ziel = zielPruefen(weiter);
+      window.location.replace(ziel === 'konto.html' ? 'konto.html?willkommen=1' : ziel);
     });
 
     // Bestätigungsmail erneut anfordern

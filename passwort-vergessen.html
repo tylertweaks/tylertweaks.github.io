@@ -35,7 +35,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-anmeldung">
+<link rel="stylesheet" href="style.css?v=2.2.0-passwort">
 </head>
 <body>
 
@@ -71,41 +71,18 @@
   <div class="wrap">
     <div class="login-card">
 
+      <!-- Seit 27.10.2026 ohne Formular: Es gibt noch keinen eigenen
+           Mail-Versand, der Link zum Zurücksetzen käme bei Kunden nicht an.
+           Das alte Formular (id="form-passwort-vergessen", bedient von
+           auth.js) kann zurück, sobald SMTP in Supabase eingerichtet ist. -->
       <h1>Passwort vergessen</h1>
       <p class="sub">
-        Gib deine E-Mail-Adresse ein. Wir schicken dir einen Link, mit dem du ein
-        neues Passwort setzen kannst.
+        Kein Problem. Schreib mir auf Discord, mit welcher E-Mail-Adresse du
+        angemeldet bist, dann setze ich dein Passwort zurück.
       </p>
 
-      <div class="form-msg" id="meldung" role="alert"></div>
-
-      <form id="form-passwort-vergessen" novalidate>
-        <div class="field">
-          <label for="email">E-Mail-Adresse</label>
-          <input type="email" id="email" name="email" class="eingabe-text"
-                 autocomplete="email" placeholder="max@example.com"
-                 spellcheck="false" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Link anfordern</button>
-      </form>
-
-      <div id="nach-anforderung" hidden>
-        <div class="erfolg-kasten">
-          <div class="erfolg-symbol" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/>
-            </svg>
-          </div>
-          <h2>Mail ist unterwegs</h2>
-          <p>
-            Falls für <strong id="gesendet-an">diese Adresse</strong> ein Konto besteht,
-            liegt der Link gleich im Postfach. Er ist eine Stunde gültig.
-          </p>
-          <p class="muted">Sieh auch im Spam-Ordner nach.</p>
-          <a href="anmelden.html" class="btn btn-outline btn-block">Zurück zur Anmeldung</a>
-        </div>
-      </div>
+      <a href="https://discord.gg/guxGg2wHAW" class="btn btn-primary btn-block"
+         data-discord-einladung target="_blank" rel="noopener">Auf Discord schreiben</a>
 
       <p class="login-foot">
         Doch wieder eingefallen? <a href="anmelden.html">Zur Anmeldung</a>
@@ -130,9 +107,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-anmeldung"></script>
-<script src="tt-backend.js?v=2.2.0-anmeldung"></script>
-<script src="warenkorb.js?v=2.2.0-anmeldung"></script>
-<script src="auth.js?v=2.2.0-anmeldung"></script>
+<script src="konfig.js?v=2.2.0-passwort"></script>
+<script src="tt-backend.js?v=2.2.0-passwort"></script>
+<script src="warenkorb.js?v=2.2.0-passwort"></script>
+<script src="auth.js?v=2.2.0-passwort"></script>
 </body>
 </html>

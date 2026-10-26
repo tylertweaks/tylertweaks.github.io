@@ -676,7 +676,7 @@
     if (note) {
       note.innerHTML = 'Alle Preise sind Endpreise in Euro. Keine Umsatzsteuer, da ' +
         'Kleinunternehmer (§ 6 Abs 1 Z 27 UStG). ' +
-        'Zum Einkaufen meldest du dich kostenlos <a href="anmelden.html">mit Google oder per E-Mail</a> an. ' +
+        'Zum Einkaufen meldest du dich kostenlos <a href="anmelden.html">mit E-Mail und Passwort</a> an. ' +
         'Es gelten die <a href="agb.html">AGB</a> und die ' +
         '<a href="widerruf.html">Rücktrittsbelehrung</a>.';
     }

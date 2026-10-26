@@ -36,7 +36,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-anmeldung">
+<link rel="stylesheet" href="style.css?v=2.2.0-passwort">
 </head>
 <body>
 
@@ -70,9 +70,10 @@
 
 <main id="inhalt" class="account account-zentriert">
   <div class="wrap">
-    <!-- Seit 26.10.2026 ohne eigenes Registrieren: Google oder ein
-         Login-Link per E-Mail. Wer neu ist, bekommt mit dem ersten Link sein
-         Konto. Passwort geht für alte Konten weiter, als kleiner Link unten.
+    <!-- Seit 27.10.2026 ein Formular für alle: E-Mail und Passwort. Gibt es
+         zu der Adresse noch kein Konto, legt auth.js es sofort an. Das geht
+         nur, solange in Supabase "Confirm email" aus ist, denn einen eigenen
+         Mail-Versand gibt es noch nicht.
          Der Google-Knopf erscheint erst, wenn Google in Supabase eingeschaltet
          ist (auth.js fragt /auth/v1/settings). -->
     <div class="anmelde-kopf">
@@ -103,36 +104,29 @@
           </div>
         </div>
 
-        <!-- Nur für Konten mit Passwort, aufgeklappt über "Mit Passwort anmelden". -->
-        <div class="field" id="passwort-feld" hidden>
+        <div class="field">
           <label for="passwort">Passwort</label>
-          <input type="password" id="passwort" name="passwort" class="eingabe-text"
-                 autocomplete="current-password">
-          <p class="hint"><a href="passwort-vergessen.html">Passwort vergessen?</a></p>
+          <div class="eingabe-mit-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            <input type="password" id="passwort" name="passwort" class="eingabe-text"
+                   autocomplete="current-password" placeholder="Mindestens 8 Zeichen" required>
+            <button type="button" class="passwort-auge" id="passwort-auge"
+                    aria-label="Passwort anzeigen" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block" id="anmelde-knopf">
-          Login-Link senden
+          Anmelden
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
         </button>
-        <p class="anmelde-hinweis" id="anmelde-hinweis">Du bekommst einen Link per E-Mail, kein Passwort nötig. Neu hier? Dann entsteht dein Konto mit dem ersten Link.</p>
+        <p class="anmelde-hinweis">Neu hier? Denk dir einfach ein Passwort aus, dann entsteht dein Konto sofort.</p>
       </form>
 
-      <!-- Nach dem Absenden des Login-Links -->
-      <div id="link-gesendet" hidden>
-        <div class="erfolg-kasten">
-          <div class="erfolg-symbol" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          </div>
-          <h2>Schau in dein Postfach</h2>
-          <p>Der Link ist unterwegs an <strong id="gesendet-an">deine Adresse</strong>. Klick drauf, dann bist du angemeldet.</p>
-          <p class="muted">Nichts da? Sieh im Spam-Ordner nach, die Mail kann ein bis zwei Minuten brauchen.</p>
-          <button type="button" class="btn btn-outline btn-block" id="andere-adresse">Andere Adresse eingeben</button>
-        </div>
-      </div>
-
       <p class="login-foot">
-        <button type="button" class="link-knopf" id="passwort-umschalten">Mit Passwort anmelden</button>
+        Passwort vergessen?
+        <a href="https://discord.gg/guxGg2wHAW" data-discord-einladung target="_blank" rel="noopener">Schreib mir auf Discord</a>
       </p>
     </div>
   </div>
@@ -154,9 +148,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-anmeldung"></script>
-<script src="tt-backend.js?v=2.2.0-anmeldung"></script>
-<script src="warenkorb.js?v=2.2.0-anmeldung"></script>
-<script src="auth.js?v=2.2.0-anmeldung"></script>
+<script src="konfig.js?v=2.2.0-passwort"></script>
+<script src="tt-backend.js?v=2.2.0-passwort"></script>
+<script src="warenkorb.js?v=2.2.0-passwort"></script>
+<script src="auth.js?v=2.2.0-passwort"></script>
 </body>
 </html>

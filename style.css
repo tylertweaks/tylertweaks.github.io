@@ -5289,3 +5289,28 @@ button.stufe:hover { border-color: var(--line-strong); }
 .anmelde-karte.gesendet .google-knopf,
 .anmelde-karte.gesendet .anmelde-trenner,
 .anmelde-karte.gesendet .login-foot { display: none; }
+
+/* Passwort anzeigen (Anmelden, 27.10.2026) */
+.eingabe-mit-symbol .passwort-auge {
+  position: absolute;
+  right: 6px; top: 50%;
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.eingabe-mit-symbol .passwort-auge svg {
+  position: static;
+  transform: none;
+  pointer-events: none;
+}
+.eingabe-mit-symbol .passwort-auge:hover,
+.eingabe-mit-symbol .passwort-auge[aria-pressed="true"] { color: var(--accent); }
+.eingabe-mit-symbol .passwort-auge:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.eingabe-mit-symbol input:has(+ .passwort-auge) { padding-right: 48px; }
