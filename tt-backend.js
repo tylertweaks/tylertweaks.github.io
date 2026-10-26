@@ -272,8 +272,8 @@ window.TT = (function () {
 
   function navHtml(angemeldet, name) {
     if (!angemeldet) {
-      return '<a href="anmelden.html" class="btn btn-ghost btn-sm">Anmelden</a>' +
-             '<a href="registrieren.html" class="btn btn-primary btn-sm">Registrieren</a>';
+      // Seit 26.10.2026 ohne eigenes Registrieren: Das Konto entsteht beim ersten Anmelden.
+      return '<a href="anmelden.html" class="btn btn-primary btn-sm">Anmelden</a>';
     }
 
     /* Angemeldet: Dashboard als Hauptziel, daneben der eigene Name als Weg zum
@@ -313,7 +313,7 @@ window.TT = (function () {
         ? '<a href="konto.html">Dashboard</a>' +
           '<a href="konto.html#kontodaten">Profil</a>' +
           '<a href="#" data-tt-abmelden>Abmelden</a>'
-        : '<a href="anmelden.html">Anmelden</a><a href="registrieren.html">Registrieren</a>';
+        : '<a href="anmelden.html">Anmelden</a>';
     }
 
     /* Ein Zuhörer am Dokument statt an jedem einzelnen Knopf: die Navigation

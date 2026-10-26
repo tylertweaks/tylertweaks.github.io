@@ -52,6 +52,20 @@
     });
   })();
 
+  /* Der Hauptknopf oben lädt die Gratis-Version, sobald es sie gibt
+     (26.10.2026). Ohne Datei bleibt er ein Sprung zur App weiter unten.
+     Ohne data-scroll-to fängt der Zuhörer oben den Klick nicht mehr ab. */
+  (function heroGratis() {
+    var knopf = document.getElementById('hero-gratis');
+    var app = KONFIG.app || {};
+    var gratis = KONFIG.gratis || null;
+    if (!knopf || !gratis || !app.datei || !versionAb(app.version, gratis.abVersion)) return;
+
+    knopf.href = app.datei;
+    knopf.setAttribute('download', '');
+    knopf.removeAttribute('data-scroll-to');
+  })();
+
   /* ====================================================================
      3. Sektionen beim Hereinscrollen einblenden
      ==================================================================== */
@@ -662,7 +676,7 @@
     if (note) {
       note.innerHTML = 'Alle Preise sind Endpreise in Euro. Keine Umsatzsteuer, da ' +
         'Kleinunternehmer (§ 6 Abs 1 Z 27 UStG). ' +
-        'Zum Einkaufen brauchst du ein kostenloses <a href="registrieren.html">Konto</a>. ' +
+        'Zum Einkaufen meldest du dich kostenlos <a href="anmelden.html">mit Google oder per E-Mail</a> an. ' +
         'Es gelten die <a href="agb.html">AGB</a> und die ' +
         '<a href="widerruf.html">Rücktrittsbelehrung</a>.';
     }

@@ -145,21 +145,120 @@
          hineinlegen wollte. Ohne diesen Satz stünde er vor einem
          Anmeldeformular, das er nicht angefordert hat. */
       TT.melden('meldung',
-        'Zum Einkaufen brauchst du ein kostenloses Konto — dort landen später ' +
-        'deine Lizenz und der Download. Melde dich an, dann liegt dein Paket ' +
-        'im Warenkorb.', 'ok');
+        'Zum Einkaufen brauchst du ein Konto, dort landen später deine Lizenz ' +
+        'und der Download. Melde dich mit Google oder per E-Mail an, dann liegt ' +
+        'dein Paket im Warenkorb.', 'ok');
     }
+
+    /* Seit 26.10.2026: Google oder ein Login-Link per E-Mail, kein eigenes
+       Registrieren mehr. Der Link legt bei einer neuen Adresse das Konto an
+       (shouldCreateUser), bei einer bekannten meldet er nur an. Mit Passwort
+       geht es für alte Konten weiter, über "Mit Passwort anmelden".
+
+       Zurück kommt man auf diese Seite mit ?weiter=…: Sie liest die Sitzung
+       aus der Adresse (detectSessionInUrl in tt-backend.js) und leitet dann
+       wie gewohnt weiter. */
+    var zurueck = basis + '/anmelden.html?weiter=' + encodeURIComponent(zielPruefen(weiter));
+    var mitPasswort = false;
+    var hinweisLink = document.getElementById('anmelde-hinweis');
+    var umschalter = document.getElementById('passwort-umschalten');
+    var LINK_TEXT = 'Login-Link senden';
+
+    var pfeil = loginKnopf.querySelector('svg');
+
+    function knopfText(text) {
+      // Der Pfeil im Knopf bleibt nur beim Login-Link.
+      loginKnopf.textContent = text + ' ';
+      if (pfeil && text === LINK_TEXT) loginKnopf.appendChild(pfeil);
+    }
+
+    if (umschalter) {
+      umschalter.addEventListener('click', function () {
+        mitPasswort = !mitPasswort;
+        document.getElementById('passwort-feld').hidden = !mitPasswort;
+        if (hinweisLink) hinweisLink.hidden = mitPasswort;
+        umschalter.textContent = mitPasswort ? 'Lieber mit Login-Link' : 'Mit Passwort anmelden';
+        knopfText(mitPasswort ? 'Anmelden' : LINK_TEXT);
+        TT.melden('meldung', '');
+        (mitPasswort ? document.getElementById('passwort') : document.getElementById('email')).focus();
+      });
+    }
+
+    var andere = document.getElementById('andere-adresse');
+    if (andere) {
+      andere.addEventListener('click', function () {
+        document.getElementById('link-gesendet').hidden = true;
+        loginForm.closest('.anmelde-karte').classList.remove('gesendet');
+        loginForm.hidden = false;
+        document.getElementById('email').focus();
+      });
+    }
+
+    /* Google: Der Knopf erscheint nur, wenn Google in Supabase eingeschaltet
+       ist. Sonst führte er auf eine Fehlerseite von Supabase. */
+    (async function googleAnbieten() {
+      var knopf = document.getElementById('google-knopf');
+      if (!knopf || TT.startFehler || !KONFIG.supabaseUrl) return;
+      try {
+        var antwort = await fetch(KONFIG.supabaseUrl.replace(/\/+$/, '') + '/auth/v1/settings',
+          { headers: { apikey: KONFIG.supabaseAnonKey } });
+        var stand = await antwort.json();
+        if (!stand || !stand.external || !stand.external.google) return;
+      } catch (fehler) {
+        return;
+      }
+
+      knopf.hidden = false;
+      var trenner = document.getElementById('anmelde-trenner');
+      if (trenner) trenner.hidden = false;
+
+      knopf.addEventListener('click', async function () {
+        if (zeigeStartfehler('meldung')) return;
+        knopf.disabled = true;
+        var erg = await db.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: zurueck } });
+        if (erg.error) {
+          knopf.disabled = false;
+          TT.melden('meldung', TT.fehlerText(erg.error));
+        }
+        // Ohne Fehler leitet supabase-js selbst zu Google weiter.
+      });
+    })();
 
     loginForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       if (zeigeStartfehler('meldung')) return;
       TT.melden('meldung', '');
 
-      var email    = document.getElementById('email').value.trim();
-      var passwort = document.getElementById('passwort').value;
+      var email = document.getElementById('email').value.trim();
+      if (!email || email.indexOf('@') < 1) {
+        return TT.melden('meldung', 'Bitte gib deine E-Mail-Adresse an.');
+      }
 
-      if (!email || !passwort) {
-        return TT.melden('meldung', 'Bitte E-Mail-Adresse und Passwort eingeben.');
+      if (!mitPasswort) {
+        loginKnopf.disabled = true;
+        knopfText('Wird gesendet …');
+
+        var link = await db.auth.signInWithOtp({
+          email: email,
+          options: { shouldCreateUser: true, emailRedirectTo: zurueck }
+        });
+
+        loginKnopf.disabled = false;
+        knopfText(LINK_TEXT);
+
+        if (link.error) return TT.melden('meldung', TT.fehlerText(link.error));
+
+        loginForm.hidden = true;
+        // Google und "Mit Passwort" sind jetzt nur im Weg.
+        loginForm.closest('.anmelde-karte').classList.add('gesendet');
+        document.getElementById('gesendet-an').textContent = email;
+        document.getElementById('link-gesendet').hidden = false;
+        return;
+      }
+
+      var passwort = document.getElementById('passwort').value;
+      if (!passwort) {
+        return TT.melden('meldung', 'Bitte gib dein Passwort ein.');
       }
 
       sperren(loginKnopf, true, 'Anmelden …', 'Anmelden');
@@ -175,7 +274,7 @@
         if (code === 'email_not_confirmed' || text.indexOf('not confirmed') >= 0) {
           TT.melden('meldung',
             'Deine E-Mail-Adresse wurde noch nicht bestätigt. Sieh in deinem ' +
-            'Postfach nach — auch im Spam-Ordner.');
+            'Postfach nach, auch im Spam-Ordner.');
           var nochmal = document.getElementById('mail-nochmal');
           if (nochmal) {
             nochmal.hidden = false;

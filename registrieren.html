@@ -23,7 +23,7 @@
      -------------------------------------------------------------------- -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.paypal.com https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co https://*.paypal.com; frame-src https://*.paypal.com https://*.paypalobjects.com">
 <link rel="canonical" href="https://tylertweaks.github.io/registrieren.html">
-<title>Konto erstellen — Tyler Tweaks</title>
+<title>Konto erstellen | Tyler Tweaks</title>
 <meta name="description" content="Erstelle dein Tyler-Tweaks-Konto. Nach dem Kauf erscheinen Lizenz und Download automatisch in deinem Kundenbereich.">
 <meta name="theme-color" content="#05070c">
 <!-- Symbol fuer Tab und Lesezeichen -->
@@ -32,11 +32,12 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=anmelden.html">
 
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-schlicht">
+<link rel="stylesheet" href="style.css?v=2.2.0-anmeldung">
 </head>
 <body>
 
@@ -68,74 +69,16 @@
   </div>
 </header>
 
-<main id="inhalt" class="account account-zentriert ton-cyan">
+<main id="inhalt" class="account account-zentriert">
   <div class="wrap">
+    <!-- Seit 26.10.2026 gibt es kein eigenes Registrieren mehr: Das Konto
+         entsteht beim ersten Anmelden mit Google oder per Login-Link. Diese
+         Seite bleibt nur, damit alte Links ankommen, und leitet weiter
+         (meta refresh oben, ohne Skript wegen der CSP). -->
     <div class="login-card">
-
       <h1>Konto erstellen</h1>
-      <p class="sub">
-        Mit einem Konto laufen Kauf, Lizenz und Download an einer Stelle zusammen.
-        Nach der Zahlung erscheint dein Lizenzschlüssel automatisch hier — du musst
-        nichts anfordern.
-      </p>
-
-      <div class="form-msg" id="meldung" role="alert"></div>
-
-      <form id="form-registrieren" novalidate>
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" class="eingabe-text"
-                 autocomplete="name" placeholder="Max Mustermann" required>
-        </div>
-
-        <div class="field">
-          <label for="email">E-Mail-Adresse</label>
-          <input type="email" id="email" name="email" class="eingabe-text"
-                 autocomplete="email" placeholder="max@example.com"
-                 spellcheck="false" required>
-          <p class="hint">An diese Adresse geht die Bestätigung. Sie ist später dein Login-Name.</p>
-        </div>
-
-        <div class="field">
-          <label for="passwort">Passwort</label>
-          <input type="password" id="passwort" name="passwort" class="eingabe-text"
-                 autocomplete="new-password" minlength="8" required>
-          <p class="hint">Mindestens 8 Zeichen.</p>
-        </div>
-
-        <div class="field">
-          <label for="passwort2">Passwort bestätigen</label>
-          <input type="password" id="passwort2" name="passwort2" class="eingabe-text"
-                 autocomplete="new-password" minlength="8" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Konto erstellen</button>
-      </form>
-
-      <!-- Nach erfolgreicher Registrierung -->
-      <div id="nach-registrierung" hidden>
-        <div class="erfolg-kasten">
-          <div class="erfolg-symbol" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/>
-            </svg>
-          </div>
-          <h2>Fast geschafft</h2>
-          <p>
-            Wir haben eine Bestätigungsmail an <strong id="gesendet-an">deine Adresse</strong>
-            geschickt. Klick auf den Link darin, dann ist dein Konto freigeschaltet.
-          </p>
-          <p class="muted">
-            Nichts angekommen? Sieh im Spam-Ordner nach. Die Mail kann ein bis zwei
-            Minuten brauchen.
-          </p>
-          <a href="anmelden.html" class="btn btn-outline btn-block">Zur Anmeldung</a>
-        </div>
-      </div>
-
-      <p class="login-foot">
-        Du hast schon ein Konto? <a href="anmelden.html">Hier anmelden</a>
-      </p>
+      <p class="sub">Ein eigenes Registrieren braucht es nicht mehr. Melde dich einfach an, mit Google oder einem Login-Link per E-Mail. Beim ersten Mal entsteht dabei dein Konto.</p>
+      <a href="anmelden.html" class="btn btn-primary btn-block">Zur Anmeldung</a>
     </div>
   </div>
 </main>
@@ -156,9 +99,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-schlicht"></script>
-<script src="tt-backend.js?v=2.2.0-schlicht"></script>
-<script src="warenkorb.js?v=2.2.0-schlicht"></script>
-<script src="auth.js?v=2.2.0-schlicht"></script>
+<script src="konfig.js?v=2.2.0-anmeldung"></script>
+<script src="tt-backend.js?v=2.2.0-anmeldung"></script>
+<script src="warenkorb.js?v=2.2.0-anmeldung"></script>
+<script src="auth.js?v=2.2.0-anmeldung"></script>
 </body>
 </html>

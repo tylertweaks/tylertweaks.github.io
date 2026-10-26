@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-schlicht">
-<link rel="stylesheet" href="mockup.css?v=2.2.0-schlicht">
+<link rel="stylesheet" href="style.css?v=2.2.0-anmeldung">
+<link rel="stylesheet" href="mockup.css?v=2.2.0-anmeldung">
 </head>
 <body>
 
@@ -219,13 +219,15 @@
     <p class="hero-zeile">Ich stelle Windows für Gaming ein. Mit Backup, und alles lässt sich wieder rückgängig machen.</p>
 
     <div class="hero-cta">
-      <a href="#preise" class="btn btn-primary btn-lg" data-scroll-to="tarif-opt">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        PC optimieren lassen
+      <!-- Der erste Knopf ist der Gratis-Download (26.10.2026): Wer die App
+           erst ausprobiert, kauft eher den Schlüssel. script.js setzt die
+           Datei aus konfig.js (app.datei) ein; ohne Skript führt er zur App. -->
+      <a href="#tarif-app" class="btn btn-primary btn-lg" id="hero-gratis" data-scroll-to="tarif-app">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg>
+        Gratis herunterladen
       </a>
       <a href="#preise" class="btn btn-outline btn-lg">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
-        Alle Pakete
+        Preise ansehen
       </a>
     </div>
 
@@ -602,7 +604,7 @@
     <p class="note" id="preise-note">
       Alle Preise sind Endpreise in Euro. Keine Umsatzsteuer, da Kleinunternehmer
       (§ 6 Abs 1 Z 27 UStG).
-      Zum Einkaufen brauchst du ein kostenloses <a href="registrieren.html">Konto</a>.
+      Zum Einkaufen meldest du dich kostenlos <a href="anmelden.html">mit Google oder per E-Mail</a> an.
       Dein Lizenzschlüssel wird nach der bestätigten Zahlung automatisch erzeugt und
       liegt sofort in deinem <a href="konto.html">Kundenbereich</a>. Du musst nichts
       anfordern.
@@ -638,8 +640,8 @@
 
       <div class="flow-step">
         <span class="flow-num">1</span>
-        <h3 data-schritt="1-titel">Konto erstellen</h3>
-        <p data-schritt="1-text">Registrieren, E-Mail bestätigen, fertig. Dauert eine Minute und kostet nichts. Dort landen später Lizenz und Download.</p>
+        <h3 data-schritt="1-titel">Anmelden</h3>
+        <p data-schritt="1-text">Mit Google oder einem Login-Link per E-Mail, ohne Passwort. Kostet nichts, dort landen später Lizenz und Download.</p>
       </div>
 
       <div class="flow-step">
@@ -668,9 +670,9 @@
     </p>
 
     <div style="text-align:center;margin-top:28px">
-      <a href="registrieren.html" class="btn btn-outline">
+      <a href="anmelden.html" class="btn btn-outline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Kostenloses Konto erstellen
+        Anmelden
       </a>
     </div>
   </div>
@@ -832,7 +834,7 @@
       <details>
         <summary>Brauche ich für den Kauf ein Konto?</summary>
         <div class="faq-body">
-          <p>Ja, ein kostenloses Konto mit E-Mail-Adresse und Passwort. Dort liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle, auch wenn du den PC neu aufsetzt. Nach der Registrierung bestätigst du einmal deine E-Mail-Adresse, dann kannst du kaufen.</p>
+          <p>Ja, aber das geht schnell: Du meldest dich mit Google oder einem Login-Link per E-Mail an, ein Passwort brauchst du nicht. Beim ersten Mal entsteht dabei dein Konto. Dort liegen Bestellung, Lizenzschlüssel und Download dauerhaft an einer Stelle, auch wenn du den PC neu aufsetzt.</p>
         </div>
       </details>
     </div>
@@ -931,7 +933,6 @@
       <ul>
         <li><a href="konto.html">Kundenbereich</a></li>
         <li><a href="anmelden.html">Anmelden</a></li>
-        <li><a href="registrieren.html">Registrieren</a></li>
         <li><a href="passwort-vergessen.html">Passwort vergessen</a></li>
       </ul>
     </div>
@@ -984,10 +985,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-schlicht"></script>
-<script src="tt-backend.js?v=2.2.0-schlicht"></script>
-<script src="warenkorb.js?v=2.2.0-schlicht"></script>
-<script src="tweaks.js?v=2.2.0-schlicht"></script>
-<script src="script.js?v=2.2.0-schlicht"></script>
+<script src="konfig.js?v=2.2.0-anmeldung"></script>
+<script src="tt-backend.js?v=2.2.0-anmeldung"></script>
+<script src="warenkorb.js?v=2.2.0-anmeldung"></script>
+<script src="tweaks.js?v=2.2.0-anmeldung"></script>
+<script src="script.js?v=2.2.0-anmeldung"></script>
 </body>
 </html>
