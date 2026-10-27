@@ -146,21 +146,45 @@
          Anmeldeformular, das er nicht angefordert hat. */
       TT.melden('meldung',
         'Zum Einkaufen brauchst du ein Konto, dort landen später deine Lizenz ' +
-        'und der Download. Melde dich an, wer neu ist, hat sofort ein Konto. ' +
-        'Danach liegt dein Paket im Warenkorb.', 'ok');
+        'und der Download. Melde dich an oder leg dir mit E-Mail und Passwort ' +
+        'ein Konto an. Danach liegt dein Paket im Warenkorb.', 'ok');
     }
 
     /* Seit 27.10.2026: ein Formular für alle, kein eigenes Registrieren.
        Erst wird angemeldet. Kennt Supabase die Kombination nicht, wird mit
-       denselben Daten ein Konto angelegt. Ist die Adresse schon vergeben,
-       war nur das Passwort falsch.
+       denselben Daten ein Konto angelegt, und es kommt eine Mail zum
+       Bestätigen. Ist die Adresse schon vergeben, war nur das Passwort
+       falsch.
 
-       Das klappt nur, solange in Supabase "Confirm email" aus ist. Einen
-       eigenen Mail-Versand gibt es noch nicht, Bestätigungsmails kämen bei
-       Kunden nie an. */
+       Die Mails verschickt nicht Supabase, sondern das Rechnungs-Script über
+       den Send-Email-Hook (backend/21-konto-mails.sql im App-Repository). */
     var zurueck = basis + '/anmelden.html?weiter=' + encodeURIComponent(zielPruefen(weiter));
+    var nachBestaetigung = basis + '/' +
+      (zielPruefen(weiter) === 'konto.html' ? 'konto.html?willkommen=1' : zielPruefen(weiter));
     var MIN_LAENGE = 8;
     var pfeil = loginKnopf.querySelector('svg');
+    var offeneAdresse = '';
+    var karte = loginForm.closest('.anmelde-karte');
+
+    function bestaetigenZeigen(email) {
+      offeneAdresse = email;
+      loginForm.hidden = true;
+      // Google und "Passwort vergessen" sind jetzt nur im Weg.
+      if (karte) karte.classList.add('gesendet');
+      document.getElementById('gesendet-an').textContent = email;
+      document.getElementById('bitte-bestaetigen').hidden = false;
+    }
+
+    var andere = document.getElementById('andere-adresse');
+    if (andere) {
+      andere.addEventListener('click', function () {
+        document.getElementById('bitte-bestaetigen').hidden = true;
+        if (karte) karte.classList.remove('gesendet');
+        loginForm.hidden = false;
+        TT.melden('meldung', '');
+        document.getElementById('email').focus();
+      });
+    }
 
     function knopfSperren(aktiv, text) {
       loginKnopf.disabled = aktiv;
@@ -242,9 +266,10 @@
       if (!falscheDaten(erg.error)) {
         knopfSperren(false, 'Anmelden');
         if (erg.error.code === 'email_not_confirmed') {
+          bestaetigenZeigen(email);
           return TT.melden('meldung',
-            'Dein Konto ist noch nicht freigeschaltet. Schreib mir kurz auf ' +
-            'Discord, dann erledige ich das.');
+            'Dein Konto ist noch nicht bestätigt. Klick auf den Link in der Mail ' +
+            'oder lass sie dir unten noch einmal schicken.');
         }
         return TT.melden('meldung', TT.fehlerText(erg.error));
       }
@@ -258,28 +283,28 @@
       }
 
       knopfSperren(true, 'Konto wird angelegt …');
-      var neu = await db.auth.signUp({ email: email, password: passwort });
+      var neu = await db.auth.signUp({
+        email: email,
+        password: passwort,
+        options: { emailRedirectTo: nachBestaetigung }
+      });
       var nutzer = neu.data && neu.data.user;
       var vergeben = neu.error ? schonVergeben(neu.error)
         // Mit "Confirm email" an verrät Supabase eine vergebene Adresse nur so.
         : !!(nutzer && Array.isArray(nutzer.identities) && nutzer.identities.length === 0);
 
+      knopfSperren(false, 'Anmelden');
       if (vergeben) {
-        knopfSperren(false, 'Anmelden');
         return TT.melden('meldung',
-          'Das Passwort stimmt nicht. Vergessen? Schreib mir auf Discord, dann ' +
-          'setze ich es zurück.');
+          'Das Passwort stimmt nicht. Vergessen? Dann klick unten auf ' +
+          '"Passwort vergessen?".');
       }
       if (neu.error) {
-        knopfSperren(false, 'Anmelden');
         return TT.melden('meldung', TT.fehlerText(neu.error));
       }
       if (!neu.data.session) {
-        // Nur wenn in Supabase "Confirm email" wieder an ist.
-        knopfSperren(false, 'Anmelden');
-        return TT.melden('meldung',
-          'Dein Konto ist angelegt, muss aber noch freigeschaltet werden. ' +
-          'Schreib mir kurz auf Discord.', 'ok');
+        // Der Normalfall: In Supabase ist "Confirm email" an.
+        return bestaetigenZeigen(email);
       }
 
       var ziel = zielPruefen(weiter);
@@ -290,8 +315,7 @@
     var nochmalKnopf = document.getElementById('mail-nochmal-knopf');
     if (nochmalKnopf) {
       nochmalKnopf.addEventListener('click', async function () {
-        var kasten = document.getElementById('mail-nochmal');
-        var email = (kasten && kasten.dataset.email) || '';
+        var email = offeneAdresse;
         if (!email) return;
 
         nochmalKnopf.disabled = true;
@@ -300,11 +324,11 @@
         var erg = await db.auth.resend({
           type: 'signup',
           email: email,
-          options: { emailRedirectTo: basis + '/konto.html?willkommen=1' }
+          options: { emailRedirectTo: nachBestaetigung }
         });
 
         nochmalKnopf.disabled = false;
-        nochmalKnopf.textContent = 'Bestätigungsmail erneut senden';
+        nochmalKnopf.textContent = 'Mail noch einmal senden';
 
         TT.melden('meldung',
           erg.error ? TT.fehlerText(erg.error)

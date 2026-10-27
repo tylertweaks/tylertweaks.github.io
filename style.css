@@ -5314,3 +5314,4 @@ button.stufe:hover { border-color: var(--line-strong); }
 .eingabe-mit-symbol .passwort-auge[aria-pressed="true"] { color: var(--accent); }
 .eingabe-mit-symbol .passwort-auge:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .eingabe-mit-symbol input:has(+ .passwort-auge) { padding-right: 48px; }
+.erfolg-kasten .link-knopf { margin-top: 14px; font-size: .9rem; }

@@ -36,7 +36,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-passwort">
+<link rel="stylesheet" href="style.css?v=2.2.0-bestaetigen">
 </head>
 <body>
 
@@ -121,12 +121,25 @@
           Anmelden
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
         </button>
-        <p class="anmelde-hinweis">Neu hier? Denk dir einfach ein Passwort aus, dann entsteht dein Konto sofort.</p>
+        <p class="anmelde-hinweis">Neu hier? Denk dir ein Passwort aus. Danach bestätigst du nur noch kurz deine E-Mail-Adresse.</p>
       </form>
 
+      <!-- Neues Konto angelegt oder noch nicht bestätigt -->
+      <div id="bitte-bestaetigen" hidden>
+        <div class="erfolg-kasten">
+          <div class="erfolg-symbol" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          </div>
+          <h2>Schau in dein Postfach</h2>
+          <p>Wir haben dir eine Mail an <strong id="gesendet-an">deine Adresse</strong> geschickt. Klick auf den Knopf darin, dann ist dein Konto fertig.</p>
+          <p class="muted">Nichts da? Sieh im Spam-Ordner nach, die Mail kann ein, zwei Minuten brauchen.</p>
+          <button type="button" class="btn btn-primary btn-block" id="mail-nochmal-knopf">Mail noch einmal senden</button>
+          <button type="button" class="link-knopf" id="andere-adresse">Andere Adresse eingeben</button>
+        </div>
+      </div>
+
       <p class="login-foot">
-        Passwort vergessen?
-        <a href="https://discord.gg/guxGg2wHAW" data-discord-einladung target="_blank" rel="noopener">Schreib mir auf Discord</a>
+        <a href="passwort-vergessen.html">Passwort vergessen?</a>
       </p>
     </div>
   </div>
@@ -148,9 +161,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-passwort"></script>
-<script src="tt-backend.js?v=2.2.0-passwort"></script>
-<script src="warenkorb.js?v=2.2.0-passwort"></script>
-<script src="auth.js?v=2.2.0-passwort"></script>
+<script src="konfig.js?v=2.2.0-bestaetigen"></script>
+<script src="tt-backend.js?v=2.2.0-bestaetigen"></script>
+<script src="warenkorb.js?v=2.2.0-bestaetigen"></script>
+<script src="auth.js?v=2.2.0-bestaetigen"></script>
 </body>
 </html>
