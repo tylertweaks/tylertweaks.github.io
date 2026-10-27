@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-app">
-<link rel="stylesheet" href="mockup.css?v=2.2.0-app">
+<link rel="stylesheet" href="style.css?v=2.2.0-app2">
+<link rel="stylesheet" href="mockup.css?v=2.2.0-app2">
 </head>
 <body>
 
@@ -317,12 +317,21 @@
       <!-- ===== PC-Optimierung ===== -->
       <article class="plan produkt ton-stahl" id="tarif-opt">
         <div class="produkt-info">
-          <h3>PC-Optimierung</h3>
+          <!-- Die erste h3 liefert den Namen für den Warenkorb (script.js), sie
+               bleibt deshalb "PC-Optimierung" und ist nur klein gesetzt. -->
+          <h3 class="app-label">PC-Optimierung</h3>
+          <p class="app-titel">Von Hand eingestellt. <em>Mit Protokoll.</em></p>
           <p class="plan-desc">
             Per Remote-Sitzung gehe ich dein System durch und stelle alles passend zu deiner
             Hardware ein. Jeder Schritt wird erklärt und aufgeschrieben, damit du am Ende genau
             weißt, was geändert wurde.
           </p>
+
+          <ul class="app-vorteile">
+            <li>Passend zu deiner Hardware eingestellt, nichts von der Stange</li>
+            <li>Du siehst jeden Schritt und bekommst ihn erklärt</li>
+            <li>Am Ende liegt die Liste aller Änderungen bei dir</li>
+          </ul>
 
           <p class="produkt-zwischen">Was ich einstelle</p>
           <ul class="produkt-punkte">
@@ -433,6 +442,11 @@
            Dekoration und bekommt deshalb kein h3: script.js nimmt die erste
            h3 im Block als Namen für den Warenkorb. -->
       <article class="plan plan-featured produkt produkt-bundle ton-gold" id="tarif-bundle">
+        <!-- Seit 27.10.2026 steht das Bundle ganz oben und fällt auf: Das
+             Angebot, das wir verkaufen wollen. "Bester Wert" stimmt, solange
+             der Bundle-Preis unter der Summe der Einzelpreise liegt (script.js
+             rechnet das aus und zeigt die Ersparnis). -->
+        <span class="bundle-badge">Bester Wert</span>
         <div class="bundle-bild" aria-hidden="true">
           <div class="bb-teile">
             <span class="bb-teil"><strong>PC-Optimierung</strong><small>Remote-Sitzung</small></span>
@@ -442,7 +456,8 @@
         </div>
 
         <div class="produkt-info">
-          <h3>Bundle</h3>
+          <h3 class="app-label">Bundle</h3>
+          <p class="app-titel">Optimierung plus App. <em>Zusammen günstiger.</em></p>
           <p class="plan-desc">
             Ich stelle deinen PC einmal persönlich ein, und danach hast du die App. Damit
             bleibst du selbst dran, auch wenn ein Windows-Update etwas zurücksetzt.
@@ -992,11 +1007,11 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-app"></script>
-<script src="zaehlung.js?v=2.2.0-app"></script>
-<script src="tt-backend.js?v=2.2.0-app"></script>
-<script src="warenkorb.js?v=2.2.0-app"></script>
-<script src="tweaks.js?v=2.2.0-app"></script>
-<script src="script.js?v=2.2.0-app"></script>
+<script src="konfig.js?v=2.2.0-app2"></script>
+<script src="zaehlung.js?v=2.2.0-app2"></script>
+<script src="tt-backend.js?v=2.2.0-app2"></script>
+<script src="warenkorb.js?v=2.2.0-app2"></script>
+<script src="tweaks.js?v=2.2.0-app2"></script>
+<script src="script.js?v=2.2.0-app2"></script>
 </body>
 </html>

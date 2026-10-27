@@ -5378,7 +5378,7 @@ button.stufe:hover { border-color: var(--line-strong); }
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.produkt-app .app-titel {
+.produkt .app-titel {
   margin: 0 0 .4em;
   font-size: clamp(2.3rem, 4.8vw, 3.6rem);
   line-height: 1.04;
@@ -5429,28 +5429,135 @@ button.stufe:hover { border-color: var(--line-strong); }
   background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), .55), transparent 70%);
   filter: blur(26px);
 }
+/* Fester Winkel, dazu zwei Bewegungen wie bei realdarkzy.de:
+   1. Das Fenster schwebt sanft auf und ab, aber nur, solange es im Bild
+      ist (script.js setzt dann .sichtbar). Das geht über die eigene
+      Eigenschaft "translate", damit es sich nicht mit der Neigung beißt.
+   2. Am PC neigt es sich leicht zur Maus. --kx und --ky setzt script.js
+      (-1 bis 1); ohne Maus oder bei "weniger Bewegung" bleibt es beim Winkel. */
 .produkt-app .app-demo-bilder {
   border-radius: 14px;
-  transform: perspective(1400px) rotateY(-15deg) rotateX(5deg);
+  transform:
+    perspective(1400px)
+    rotateY(calc(-15deg + var(--kx, 0) * 5deg))
+    rotateX(calc(5deg + var(--ky, 0) * -4deg));
   transform-origin: 32% 50%;
   box-shadow:
     0 42px 80px rgba(0, 0, 0, .55),
     0 0 0 1px rgba(var(--accent-rgb), .32),
     0 0 64px rgba(var(--accent-rgb), .16);
-  transition: transform .5s ease;
+  transition: transform .25s ease-out;
+  will-change: transform;
 }
-.produkt-app .app-demo:hover .app-demo-bilder {
-  transform: perspective(1400px) rotateY(-4deg) rotateX(1deg);
+.produkt-app .app-demo.sichtbar .app-demo-bilder { animation: app-schweben 6.5s ease-in-out infinite; }
+.produkt-app .app-demo.sichtbar::before { animation: app-schein 6.5s ease-in-out infinite; }
+@keyframes app-schweben {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 var(--schwebe, -12px); }
+}
+/* Der Schein darunter wird kleiner und blasser, wenn das Fenster steigt,
+   wie ein Schatten. */
+@keyframes app-schein {
+  0%, 100% { transform: scaleX(1);   opacity: .95; }
+  50%      { transform: scaleX(.88); opacity: .6; }
 }
 .produkt-app .app-demo-text { margin-top: 16px; }
 
 @media (max-width: 960px) {
   .produkt-app { grid-template-columns: minmax(0, 1fr); padding: 40px 28px 32px; gap: 30px; }
   .produkt-app .app-demo-bilder { transform: none; }
+  .produkt-app .app-demo { --schwebe: -8px; }
 }
 @media (max-width: 600px) {
   .produkt-app { padding: 30px 18px 24px; border-radius: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .produkt-app .app-demo-bilder { transition: none; }
+  .produkt-app .app-demo-bilder,
+  .produkt-app .app-demo::before { animation: none !important; transition: none; }
+}
+
+/* Gleiche Überschrift und Häkchen für PC-Optimierung und Bundle. Die h3 bleibt
+   die Überschrift im HTML (script.js nimmt sie als Namen für den Warenkorb) und
+   ist nur klein gesetzt; die große Zeile ist ein p.app-titel. */
+.produkt h3.app-label {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.produkt .app-titel { font-family: var(--font-head); font-weight: 700; }
+.produkt .app-titel { font-size: clamp(2.1rem, 4.2vw, 3.2rem); }
+.produkt .app-vorteile + .produkt-zwischen { margin-top: 30px; }
+
+#tarif-opt {
+  padding: 52px 48px 44px;
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse 60% 52% at 86% 6%, rgba(var(--accent-rgb), .15), transparent 72%),
+    var(--surface);
+}
+@media (max-width: 960px) { #tarif-opt { padding: 34px 26px; } }
+@media (max-width: 600px) { #tarif-opt { padding: 26px 18px; border-radius: 22px; } }
+
+/* ---------- Bundle: das Angebot, das auffallen soll ----------
+   Ganz oben in den Paketen, mit goldenem Rand und Schein, "Bester Wert",
+   größerem Preis und einem größeren Kaufknopf. Gold steht auf der Seite nur
+   dafür. Zurück an die alte Stelle: die Zeile mit order löschen. */
+.produkte .produkt-bundle { order: -1; }
+.produkt-bundle {
+  position: relative;
+  padding: 60px 52px 48px;
+  border-radius: 28px;
+  border-color: rgba(var(--accent-rgb), .65);
+  background:
+    radial-gradient(ellipse 62% 70% at 92% 0%, rgba(var(--accent-rgb), .22), transparent 70%),
+    radial-gradient(ellipse 52% 60% at 0% 100%, rgba(var(--accent-rgb), .09), transparent 72%),
+    var(--surface);
+  box-shadow:
+    0 0 0 1px rgba(var(--accent-rgb), .5),
+    0 34px 100px rgba(var(--accent-rgb), .17);
+}
+.bundle-badge {
+  position: absolute;
+  top: 22px; right: 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1f1400;
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 28px rgba(var(--accent-rgb), .38);
+}
+.bundle-badge::before {
+  content: '';
+  width: 14px; height: 14px;
+  background: currentColor;
+  clip-path: polygon(50% 0, 62% 36%, 100% 38%, 70% 60%, 80% 100%, 50% 76%, 20% 100%, 30% 60%, 0 38%, 38% 36%);
+}
+.produkt-bundle .price .amount { font-size: clamp(3.4rem, 6vw, 4.6rem); }
+.produkt-bundle .price .old { font-size: 1.1rem; }
+.produkt-bundle .save {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(var(--ok-rgb), .14);
+  box-shadow: inset 0 0 0 1px rgba(var(--ok-rgb), .45);
+  font-size: .95rem;
+}
+.produkt-bundle .btn-primary { min-height: 64px; font-size: 1.14rem; }
+@media (max-width: 960px) {
+  .produkt-bundle { padding: 64px 26px 34px; }
+  .bundle-badge { top: 18px; right: 20px; }
+}
+@media (max-width: 600px) {
+  .produkt-bundle { padding: 60px 18px 26px; border-radius: 22px; }
 }

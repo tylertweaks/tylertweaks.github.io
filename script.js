@@ -831,6 +831,45 @@
      und „weniger Bewegung“ nicht eingestellt ist. Sonst wechselt nur, wer
      auf einen der Punkte darunter klickt.
      ==================================================================== */
+  /* App-Fenster: schwebt, solange es im Bild ist, und neigt sich am PC leicht
+     zur Maus. Beides läuft über CSS (Abschnitt 31 in style.css), hier werden
+     nur .sichtbar und die zwei Zahlen --kx und --ky gesetzt. Bei "weniger
+     Bewegung" bleibt das Fenster ruhig im festen Winkel. */
+  (function appFenster() {
+    var demo = document.getElementById('app-demo');
+    if (!demo) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (eintraege) {
+        demo.classList.toggle('sichtbar', eintraege[0].isIntersecting);
+      }, { threshold: 0.15 }).observe(demo);
+    } else {
+      demo.classList.add('sichtbar');
+    }
+
+    var maus = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 961px)');
+    var rahmen = demo.closest('.produkt-app') || demo;
+    var wartet = false;
+
+    rahmen.addEventListener('mousemove', function (e) {
+      if (!maus || !maus.matches || wartet) return;
+      wartet = true;
+      window.requestAnimationFrame(function () {
+        wartet = false;
+        var r = demo.getBoundingClientRect();
+        var x = (e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2);
+        var y = (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2);
+        demo.style.setProperty('--kx', Math.max(-1, Math.min(1, x)).toFixed(3));
+        demo.style.setProperty('--ky', Math.max(-1, Math.min(1, y)).toFixed(3));
+      });
+    });
+    rahmen.addEventListener('mouseleave', function () {
+      demo.style.setProperty('--kx', '0');
+      demo.style.setProperty('--ky', '0');
+    });
+  })();
+
   (function () {
     var demo = document.getElementById('app-demo');
     if (!demo) return;
