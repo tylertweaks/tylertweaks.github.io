@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-zaehlung2">
-<link rel="stylesheet" href="mockup.css?v=2.2.0-zaehlung2">
+<link rel="stylesheet" href="style.css?v=2.2.0-app">
+<link rel="stylesheet" href="mockup.css?v=2.2.0-app">
 </head>
 <body>
 
@@ -483,9 +483,14 @@
            Solange appErscheint in konfig.js steht, ist die App gesperrt
            (script.js) und #app-hinweis sagt, wann sie kommt. -->
       <article class="plan produkt produkt-app ton-cyan" id="tarif-app">
+        <!-- Aufbau seit 27.10.2026 nach dem Vorbild realdarkzy.de: große
+             Überschrift, vier Häkchen, daneben das schräg gestellte App-Fenster.
+             Texte und Aufnahmen sind eigene. Die Zahl in der Überschrift setzt
+             tweaks.js aus tweaks.json (die 294 ist nur der Platzhalter). -->
         <div class="produkt-info">
-          <h3>Tweak App</h3>
-          <p class="plan-desc">Damit tweakst du selbst, so oft du willst.</p>
+          <p class="app-label">Tweak App</p>
+          <h3 class="app-titel"><span data-tweak-anzahl>294</span> Tweaks. <em>Jeder zurücknehmbar.</em></h3>
+          <p class="plan-desc">Damit tweakst du selbst, so oft du willst. Starten kannst du gratis, ohne Anmeldung.</p>
 
           <div class="hinweis-kasten warn" id="app-hinweis" hidden>
             <p><strong>Die Tweak App erscheint <span data-app-erscheint>nächste Woche</span>.</strong>
@@ -493,12 +498,14 @@
                stehen aber schon fest. Die PC-Optimierung kannst du schon jetzt buchen.</p>
           </div>
 
-          <ul class="features features-2">
-            <!-- Zahl aus tweaks.json, siehe tweaks.js. -->
-            <li><span data-tweak-anzahl></span> Tweaks mit Wirkungs-Balken</li>
-            <li>PC-Score 0–100 mit „Was fehlt bis 100?“</li>
+          <ul class="app-vorteile">
+            <li>Jeder Tweak mit Erklärung und Wirkungs-Balken</li>
+            <li>Wiederherstellungspunkt und Einzel-Undo: Alles geht zurück</li>
             <li>Lässt Tweaks aus, die Anti-Cheat stören könnten (Vanguard, EAC, BattlEye, FACEIT)</li>
-            <li>Wiederherstellungspunkt &amp; Einzel-Undo</li>
+            <li>PC-Score von 0 bis 100 mit „Was fehlt bis 100?“</li>
+          </ul>
+
+          <ul class="features app-mehr">
             <li>Erkennt zurückgesetzte Tweaks · Auto-Update</li>
             <li id="app-lizenz-zeile">Lebenslange Lizenz für 1 PC</li>
             <li>Deine Einstellungen bleiben auch nach Ablauf aktiv</li>
@@ -985,11 +992,11 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-zaehlung2"></script>
-<script src="zaehlung.js?v=2.2.0-zaehlung2"></script>
-<script src="tt-backend.js?v=2.2.0-zaehlung2"></script>
-<script src="warenkorb.js?v=2.2.0-zaehlung2"></script>
-<script src="tweaks.js?v=2.2.0-zaehlung2"></script>
-<script src="script.js?v=2.2.0-zaehlung2"></script>
+<script src="konfig.js?v=2.2.0-app"></script>
+<script src="zaehlung.js?v=2.2.0-app"></script>
+<script src="tt-backend.js?v=2.2.0-app"></script>
+<script src="warenkorb.js?v=2.2.0-app"></script>
+<script src="tweaks.js?v=2.2.0-app"></script>
+<script src="script.js?v=2.2.0-app"></script>
 </body>
 </html>

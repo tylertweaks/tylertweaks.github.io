@@ -5345,3 +5345,112 @@ button.stufe:hover { border-color: var(--line-strong); }
   overflow: hidden;
 }
 .besucher-balken > span { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+
+/* ==========================================================================
+   31. App-Bereich nach dem Vorbild von realdarkzy.de (27.10.2026)
+
+   Statt einer Karte mit kleinem Bild: ein großes Feld mit dicker Überschrift,
+   vier Häkchen und dem App-Fenster schräg gestellt, mit Leuchten darunter.
+   Die Stufen und der Kaufknopf bleiben unverändert darunter. Das Leuchten
+   steht fest. Der wandernde Nebel von früher bleibt aus (Abschnitt
+   "Schlichter"), weil er die Seite nach KI aussehen ließ.
+   ========================================================================== */
+.produkt-app {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr);
+  gap: 36px 52px;
+  padding: 56px 52px 44px;
+  border-radius: 28px;
+  background:
+    radial-gradient(ellipse 62% 56% at 80% 30%, rgba(var(--accent-rgb), .17), transparent 72%),
+    radial-gradient(ellipse 55% 45% at 6% 96%, rgba(var(--accent-rgb), .07), transparent 72%),
+    var(--surface);
+}
+
+.app-label {
+  margin: 0 0 16px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.produkt-app .app-titel {
+  margin: 0 0 .4em;
+  font-size: clamp(2.3rem, 4.8vw, 3.6rem);
+  line-height: 1.04;
+  letter-spacing: -.04em;
+}
+.app-titel em { display: block; font-style: normal; color: var(--accent); }
+.produkt-app .plan-desc { margin-bottom: 22px; }
+
+.app-vorteile { list-style: none; margin: 0 0 18px; padding: 0; }
+.app-vorteile li {
+  position: relative;
+  padding: 7px 0 7px 40px;
+  color: var(--text);
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+.app-vorteile li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 25px; height: 25px;
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), .16);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .38);
+}
+.app-vorteile li::after {
+  content: '';
+  position: absolute;
+  left: 8px; top: 16px;
+  width: 9px; height: 5px;
+  border-left: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg);
+}
+
+.app-mehr { margin: 4px 0 0; }
+.app-mehr li { font-size: .88rem; padding-top: 6px; padding-bottom: 6px; }
+.app-mehr li::before { top: 14px; }
+
+/* Das App-Fenster, schräg gestellt, mit Leuchten darunter */
+.produkt-app .app-demo { position: relative; margin: 0; }
+.produkt-app .app-demo::before {
+  content: '';
+  position: absolute;
+  left: 6%; right: 6%; bottom: 46px;
+  height: 70px;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), .55), transparent 70%);
+  filter: blur(26px);
+}
+.produkt-app .app-demo-bilder {
+  border-radius: 14px;
+  transform: perspective(1400px) rotateY(-15deg) rotateX(5deg);
+  transform-origin: 32% 50%;
+  box-shadow:
+    0 42px 80px rgba(0, 0, 0, .55),
+    0 0 0 1px rgba(var(--accent-rgb), .32),
+    0 0 64px rgba(var(--accent-rgb), .16);
+  transition: transform .5s ease;
+}
+.produkt-app .app-demo:hover .app-demo-bilder {
+  transform: perspective(1400px) rotateY(-4deg) rotateX(1deg);
+}
+.produkt-app .app-demo-text { margin-top: 16px; }
+
+@media (max-width: 960px) {
+  .produkt-app { grid-template-columns: minmax(0, 1fr); padding: 40px 28px 32px; gap: 30px; }
+  .produkt-app .app-demo-bilder { transform: none; }
+}
+@media (max-width: 600px) {
+  .produkt-app { padding: 30px 18px 24px; border-radius: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .produkt-app .app-demo-bilder { transition: none; }
+}

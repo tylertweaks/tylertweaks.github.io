@@ -118,10 +118,12 @@ window.TT_KONFIG = {
      reichweiteStand nachziehen — eine eingefrorene Zahl, die niemand mehr
      pflegt, ist nach ein paar Wochen falsch.
      ----------------------------------------------------------------------- */
-  reichweite: [
-    { plattform: 'discord', name: 'Tyler Tweaks', zahl: 36 },
-    { plattform: 'tiktok',  name: '@tyler.tweaks', zahl: 92, url: 'https://www.tiktok.com/@tyler.tweaks' }
-  ],
+  // Seit 27.10.2026 leer: Zwei kleine Zahlen unter dem Namen wirkten eher
+  // klein als vertrauenswürdig. Wieder eintragen, wenn sie größer sind, zum
+  // Beispiel:
+  //   { plattform: 'discord', name: 'Tyler Tweaks', zahl: 36 },
+  //   { plattform: 'tiktok',  name: '@tyler.tweaks', zahl: 92, url: 'https://www.tiktok.com/@tyler.tweaks' }
+  reichweite: [],
 
   /* Datum der Zahlen oben, z. B. 'Oktober 2026'. Erscheint als kleine Zeile
      unter den Karten, aber nur, wenn mindestens eine Zahl eingetragen ist.
