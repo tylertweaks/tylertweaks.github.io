@@ -35,7 +35,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-bestaetigen">
+<link rel="stylesheet" href="style.css?v=2.2.0-zaehlung">
 </head>
 <body>
 
@@ -99,8 +99,9 @@
 
     <h2>2. Kurzfassung</h2>
     <p>
-      Wenn du dich nur umsiehst, wird nichts von dir gespeichert, was über die
-      üblichen Server-Protokolle des Hosters hinausgeht. Erst wenn du ein Konto
+      Wenn du dich nur umsiehst, wird nichts von dir gespeichert, was dich
+      erkennbar macht. Der Hoster führt die üblichen Server-Protokolle, und ich
+      zähle anonym, wie oft Seiten aufgerufen werden (Abschnitt 4). Erst wenn du ein Konto
       anlegst, entstehen Daten: dein Name, deine E-Mail-Adresse und später deine
       Bestellungen und Lizenzschlüssel. Dein Passwort sehe ich nie — es wird
       verschlüsselt gespeichert und ist auch für mich nicht lesbar.
@@ -125,7 +126,41 @@
       Standardvertragsklauseln der EU-Kommission.
     </p>
 
-    <h2>4. Schriftarten und Programmbibliotheken</h2>
+    <h2>4. Besucherzählung ohne Cookies</h2>
+    <p>
+      Ich zähle, wie oft Seiten aufgerufen werden und wie oft Download, Kaufen
+      und der Score-Test angeklickt werden. So sehe ich, was ankommt und was
+      nicht.
+    </p>
+    <p>
+      Dabei wird <strong>nichts auf deinem Gerät gespeichert</strong>: kein
+      Cookie, keine Kennung, kein Fingerabdruck. An die Datenbank gehen nur drei
+      Angaben aus festen Listen: das Ereignis (zum Beispiel „Seite aufgerufen“),
+      die Seite (zum Beispiel „Startseite“) und grob, woher du kamst (zum
+      Beispiel „TikTok“, „Google“ oder „direkt“). Daraus wird eine Tageszahl
+      hochgezählt. Deine IP-Adresse, dein Browser, dein Gerät und die Uhrzeit
+      werden dabei nicht gespeichert, und eine Adresse mit Suchanfrage wird nicht
+      übertragen. Wiedererkennen lässt sich daraus niemand.
+    </p>
+    <p>
+      Sendet dein Browser „Do Not Track“ oder „Global Privacy Control“, zähle ich
+      nicht mit.
+    </p>
+    <p>
+      Die Zahlen liegen in meiner Datenbank bei <strong>Supabase</strong> (siehe
+      Abschnitt 6). Beim Senden sieht Supabase technisch deine IP-Adresse, wie
+      jeder Server, den dein Browser anspricht. Ich übernehme sie nicht in die
+      Zählung.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO — mein
+      berechtigtes Interesse, die Website zu verbessern. Die Tageszahlen
+      enthalten keine personenbezogenen Daten.<br>
+      <strong>Speicherdauer:</strong> Die anonymen Tageszahlen bleiben
+      gespeichert.
+    </p>
+
+    <h2>5. Schriftarten und Programmbibliotheken</h2>
     <p>
       Alles, was diese Seite zum Anzeigen und Funktionieren braucht, wird
       <strong>von diesem Server selbst ausgeliefert</strong>: die Schriftarten
@@ -133,17 +168,19 @@
       Programmbibliothek für Anmeldung und Kundenbereich.
     </p>
     <p>
-      Es besteht damit <strong>keine Verbindung zu Google Fonts, zu einem
-      Auslieferungsnetz (CDN) oder zu einem sonstigen Dritten</strong>. Beim
-      bloßen Aufruf der Seite verlässt deine IP-Adresse also niemanden außer
-      den Hoster.
+      Es besteht damit <strong>keine Verbindung zu Google Fonts oder zu einem
+      Auslieferungsnetz (CDN)</strong>. Die Startseite und der Warenkorb laden
+      allerdings die aktuellen Preise aus meiner Datenbank bei Supabase (siehe
+      Abschnitt 6), und die Besucherzählung (Abschnitt 4) meldet dorthin. Auf
+      diesen Seiten sieht deshalb auch Supabase deine IP-Adresse, nicht nur der
+      Hoster.
     </p>
     <p>
       Die Schriften stehen unter der SIL Open Font License 1.1, die Bibliothek
       unter der MIT-Lizenz.
     </p>
 
-    <h2>5. Kundenkonto und Bestellungen</h2>
+    <h2>6. Kundenkonto und Bestellungen</h2>
     <p>
       Für Kauf und Lizenzverwaltung brauchst du ein Konto. Die technische
       Grundlage dafür ist <strong>Supabase</strong> (Supabase, Inc., 970 Toa
@@ -177,7 +214,7 @@
       (§ 132 BAO, § 212 UGB).
     </p>
 
-    <h2>6. E-Mail-Versand</h2>
+    <h2>7. E-Mail-Versand</h2>
     <p>
       Bestätigungs- und Passwort-Mails verschicke ich über mein Postfach bei
       <strong>Google (Gmail)</strong> (Google Ireland Limited, Gordon House,
@@ -208,7 +245,7 @@
       <strong>Speicherdauer:</strong> sieben Jahre (§ 132 BAO).
     </p>
 
-    <h2>7. Zahlungsabwicklung (PayPal)</h2>
+    <h2>8. Zahlungsabwicklung (PayPal)</h2>
     <p>
       Zahlungen laufen über <strong>PayPal</strong> (PayPal (Europe) S.à r.l. et
       Cie, S.C.A., 22–24 Boulevard Royal, 2449 Luxemburg).
@@ -227,7 +264,7 @@
       <a href="https://www.paypal.com/de/webapps/mpp/ua/privacy-full" target="_blank" rel="noopener noreferrer">paypal.com</a>
     </p>
 
-    <h2>8. Bereitstellung der Setup-Datei</h2>
+    <h2>9. Bereitstellung der Setup-Datei</h2>
     <p>
       Die Installationsdatei der Tweak App liegt zusammen mit dieser Website auf
       <strong>GitHub Pages</strong> (siehe Abschnitt 3) und wird von
@@ -240,7 +277,7 @@
       <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO.
     </p>
 
-    <h2>9. Speicherung im Browser</h2>
+    <h2>10. Speicherung im Browser</h2>
     <p>
       Diese Website setzt <strong>keine Werbe- oder Analyse-Cookies</strong>. Es
       gibt deshalb auch kein Cookie-Banner.
@@ -253,7 +290,7 @@
       TKG 2021 und braucht keine Einwilligung.
     </p>
 
-    <h2>10. Die Tweak App auf deinem Rechner</h2>
+    <h2>11. Die Tweak App auf deinem Rechner</h2>
     <p>
       Beim ersten Start fragt die Windows-App nach deinem Lizenzschlüssel. Zur
       Prüfung werden an den Lizenzserver übertragen:
@@ -283,7 +320,7 @@
       auf deinem Rechner. Sie werden nirgendwohin übertragen.
     </p>
 
-    <h2>11. Weitergabe an Dritte</h2>
+    <h2>12. Weitergabe an Dritte</h2>
     <p>
       Deine Daten werden nicht verkauft und nicht zu Werbezwecken weitergegeben.
       Eine Übermittlung findet nur an die oben genannten Dienstleister statt,
@@ -291,7 +328,7 @@
       gesetzlich dazu verpflichtet bin.
     </p>
 
-    <h2>12. Deine Rechte</h2>
+    <h2>13. Deine Rechte</h2>
     <p>Du hast jederzeit das Recht auf:</p>
     <ul>
       <li><strong>Auskunft</strong> über die zu dir gespeicherten Daten (Art. 15 DSGVO)</li>
@@ -320,7 +357,7 @@
       wenden.
     </p>
 
-    <h2>13. Löschung deines Kontos</h2>
+    <h2>14. Löschung deines Kontos</h2>
     <p>
       Schreib mir eine kurze E-Mail, dann lösche ich dein Konto mitsamt Name,
       E-Mail-Adresse und Lizenzschlüsseln. Bereits abgeschlossene Bestellungen
@@ -332,7 +369,7 @@
       nicht mehr freischalten.
     </p>
 
-    <h2>14. Sicherheit</h2>
+    <h2>15. Sicherheit</h2>
     <p>
       Die Übertragung erfolgt durchgehend verschlüsselt (HTTPS). Passwörter
       werden ausschließlich als Hash gespeichert. Der Zugriff auf Bestellungen
@@ -372,9 +409,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-bestaetigen"></script>
-<script src="tt-backend.js?v=2.2.0-bestaetigen"></script>
-<script src="warenkorb.js?v=2.2.0-bestaetigen"></script>
-<script src="rechtstext.js?v=2.2.0-bestaetigen"></script>
+<script src="konfig.js?v=2.2.0-zaehlung"></script>
+<script src="tt-backend.js?v=2.2.0-zaehlung"></script>
+<script src="warenkorb.js?v=2.2.0-zaehlung"></script>
+<script src="rechtstext.js?v=2.2.0-zaehlung"></script>
 </body>
 </html>

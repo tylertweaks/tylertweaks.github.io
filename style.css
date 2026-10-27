@@ -5315,3 +5315,33 @@ button.stufe:hover { border-color: var(--line-strong); }
 .eingabe-mit-symbol .passwort-auge:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .eingabe-mit-symbol input:has(+ .passwort-auge) { padding-right: 48px; }
 .erfolg-kasten .link-knopf { margin-top: 14px; font-size: .9rem; }
+
+/* ---------- Admin: Besucher (27.10.2026) ---------- */
+.zeitraum-wahl { display: flex; gap: 8px; margin: 4px 0 18px; }
+.zeitraum-wahl .mini {
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-xs);
+  color: var(--muted);
+  font: inherit;
+  font-size: .84rem;
+  cursor: pointer;
+  transition: color .16s ease, border-color .16s ease;
+}
+.zeitraum-wahl .mini:hover { color: var(--accent); border-color: var(--accent); }
+.zeitraum-wahl .mini.an {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.besucher-zwischentitel { margin: 28px 0 10px; font-size: 1.05rem; }
+.besucher-balken {
+  display: inline-block;
+  width: 120px; height: 8px;
+  vertical-align: middle;
+  background: var(--bg-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.besucher-balken > span { display: block; height: 100%; background: var(--accent); border-radius: 99px; }

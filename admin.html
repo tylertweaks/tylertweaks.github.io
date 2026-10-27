@@ -35,7 +35,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-bestaetigen">
+<link rel="stylesheet" href="style.css?v=2.2.0-zaehlung">
 </head>
 <body>
 
@@ -110,6 +110,7 @@
           <button type="button" data-ziel="zahlungen"><span>Zahlungen</span></button>
           <button type="button" data-ziel="produkte"><span>Produkte</span></button>
           <button type="button" data-ziel="rabatte"><span>Rabattcodes</span></button>
+          <button type="button" data-ziel="besucher"><span>Besucher</span></button>
         </nav>
 
         <div class="konto-inhalt">
@@ -307,6 +308,55 @@
             <div class="tabelle-rahmen" style="margin-top:20px"><table class="admin-tabelle" id="t-rabatte"></table></div>
           </section>
 
+          <!-- ============ BESUCHER ============
+               Zahlen der Besucherzählung ohne Cookies (zaehlung.js). Die
+               Auswertung macht admin_besucher in der Datenbank
+               (backend/22-besucherzaehlung.sql im App-Repository); sie prüft
+               selbst, ob du Admin bist. -->
+          <section class="konto-bereich" id="abereich-besucher" hidden>
+            <h2 class="bereich-titel">Besucher</h2>
+            <p class="bereich-sub">
+              Gezählt wird ohne Cookies und ohne Kennung: nur, wie oft Seiten
+              aufgerufen und Download, Kaufen und Score-Test angeklickt werden.
+              Die Werte sind ungefähr, denn wer neu lädt oder wiederkommt, zählt
+              erneut. „Besuche“ sind Einstiege von außerhalb der Seite.
+            </p>
+            <p class="bereich-sub">
+              Deine eigenen Besuche zählst du heraus, indem du auf jedem deiner
+              Geräte einmal <code>?zaehlung=aus</code> an die Adresse hängst, zum
+              Beispiel <code>tylertweaks.github.io/?zaehlung=aus</code>. Für Links
+              in deinen Profilen hilft <code>?quelle=tiktok</code> (oder
+              <code>discord</code>, <code>youtube</code>, <code>instagram</code>,
+              <code>reddit</code>): Dann steht dort die richtige Herkunft, auch wenn
+              die App den Verweis verschluckt.
+            </p>
+
+            <div class="form-msg" id="besucher-meldung" role="alert"></div>
+
+            <div class="hinweis-kasten" id="besucher-nicht-bereit" hidden>
+              <p><strong>Noch nicht eingerichtet.</strong> Führ zuerst
+                 <code>22-besucherzaehlung.sql</code> im Supabase-SQL-Editor aus.</p>
+            </div>
+
+            <div class="zeitraum-wahl" id="besucher-zeitraum" role="group" aria-label="Zeitraum">
+              <button type="button" class="mini" data-tage="7">7 Tage</button>
+              <button type="button" class="mini an" data-tage="30">30 Tage</button>
+              <button type="button" class="mini" data-tage="90">90 Tage</button>
+            </div>
+
+            <div class="kennzahlen" id="besucher-kennzahlen"></div>
+            <p class="bereich-sub" id="besucher-quote"></p>
+
+            <h3 class="besucher-zwischentitel">Pro Tag</h3>
+            <div class="tabelle-rahmen"><table class="admin-tabelle" id="t-besucher-tage"></table></div>
+
+            <h3 class="besucher-zwischentitel">Woher die Besucher kommen</h3>
+            <div class="tabelle-rahmen"><table class="admin-tabelle" id="t-besucher-quellen"></table></div>
+
+            <h3 class="besucher-zwischentitel">Welche Seiten gelesen werden</h3>
+            <div class="tabelle-rahmen"><table class="admin-tabelle" id="t-besucher-seiten"></table></div>
+          </section>
+
         </div>
       </div>
     </div>
@@ -329,9 +379,9 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-bestaetigen"></script>
-<script src="tt-backend.js?v=2.2.0-bestaetigen"></script>
-<script src="warenkorb.js?v=2.2.0-bestaetigen"></script>
-<script src="admin.js?v=2.2.0-bestaetigen"></script>
+<script src="konfig.js?v=2.2.0-zaehlung"></script>
+<script src="tt-backend.js?v=2.2.0-zaehlung"></script>
+<script src="warenkorb.js?v=2.2.0-zaehlung"></script>
+<script src="admin.js?v=2.2.0-zaehlung"></script>
 </body>
 </html>

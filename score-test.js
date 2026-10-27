@@ -263,6 +263,8 @@
 
   function ergebnisZeigen(wert, stufe, baustellen, paket) {
     zeige(ergebnis);
+    // Zählt nur die Tatsache, nicht das Ergebnis (zaehlung.js, ohne Cookies).
+    if (window.TTZaehlung) window.TTZaehlung.ereignis('test_fertig');
 
     var stufeEl = document.getElementById('score-stufe');
     stufeEl.textContent = stufe.name;

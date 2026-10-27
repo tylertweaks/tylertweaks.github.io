@@ -99,7 +99,7 @@
   /* ====================================================================
      Bereiche
      ==================================================================== */
-  var BEREICHE = ['vergeben', 'bestellungen', 'lizenzen', 'kunden', 'zahlungen', 'produkte', 'rabatte'];
+  var BEREICHE = ['vergeben', 'bestellungen', 'lizenzen', 'kunden', 'zahlungen', 'produkte', 'rabatte', 'besucher'];
 
   document.getElementById('admin-nav').addEventListener('click', function (e) {
     var knopf = e.target.closest('button[data-ziel]');
@@ -112,6 +112,9 @@
     document.querySelectorAll('#admin-nav button').forEach(function (k) {
       k.classList.toggle('an', k === knopf);
     });
+
+    // Die Zahlen werden erst beim Öffnen geholt, nicht bei jedem Start der Seite.
+    if (knopf.dataset.ziel === 'besucher') besucherLaden();
   });
 
   document.getElementById('neu-laden').addEventListener('click', async function () {
@@ -119,6 +122,7 @@
     this.textContent = 'Lädt …';
     await ladeAlles();
     allesZeichnen();
+    if (!document.getElementById('abereich-besucher').hidden) await besucherLaden();
     this.disabled = false;
     this.textContent = 'Neu laden';
     TT.melden('meldung', '');
@@ -1019,5 +1023,160 @@
         : aktiv === true ? p.name + ' wird wieder angeboten.'
         : p.name + ': ' + TT.geld(preis, p.currency) + (hinweis ? ' mit Hinweis „' + hinweis + '“' : '') +
           ' gespeichert. Gilt ab sofort.', 'ok');
+  });
+
+  /* ====================================================================
+     Besucher
+
+     Die Zahlen liefert admin_besucher aus 22-besucherzaehlung.sql im
+     App-Repository. Gezählt wird ohne Kennung, die Werte sind also ungefähr:
+     "Besuche" sind Aufrufe, die von außerhalb der Seite kamen (grob die
+     Einstiege), "Seitenaufrufe" zählt jede geöffnete Seite.
+     ==================================================================== */
+  var besucher = { tage: 30, daten: null };
+
+  var QUELLEN_NAMEN = {
+    direkt: 'Direkt oder unbekannt', tiktok: 'TikTok', discord: 'Discord', youtube: 'YouTube',
+    instagram: 'Instagram', reddit: 'Reddit', google: 'Google',
+    suche: 'Andere Suchmaschinen', andere: 'Andere Seiten'
+  };
+  var SEITEN_NAMEN = {
+    start: 'Startseite', tweaks: 'Liste der Tweaks', ablauf: 'Ablauf der Optimierung',
+    sicherheit: 'Sicherheit', 'score-test': 'PC-Score-Test', kaufen: 'Kasse',
+    warenkorb: 'Warenkorb', anmelden: 'Anmelden'
+  };
+
+  function zahl(n) { return Number(n || 0).toLocaleString('de-AT'); }
+
+  function anteilBalken(anteil) {
+    var prozent = Math.round(anteil * 100);
+    return '<span class="besucher-balken"><span style="width:' + prozent + '%"></span></span> ' +
+      '<span class="zeile-klein">' + prozent + ' %</span>';
+  }
+
+  /** Alle Tage von "von" bis heute (österreichische Zeit), auch die ohne Zahlen. */
+  function besucherTageListe(von) {
+    var heute = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Vienna' });
+    var t = String(von).split('-').map(Number);
+    var start = Date.UTC(t[0], t[1] - 1, t[2]);
+    var liste = [];
+    for (var i = 0; i < 400; i++) {
+      var tag = new Date(start + i * 86400000).toISOString().slice(0, 10);
+      liste.push(tag);
+      if (tag >= heute) break;
+    }
+    return liste;
+  }
+
+  function besucherSummen(zeilen, tageListe) {
+    var neu = function () { return { besuche: 0, aufrufe: 0, downloads: 0, kauf: 0, testFertig: 0 }; };
+    var proTag = {};
+    var gesamt = neu();
+    tageListe.forEach(function (t) { proTag[t] = neu(); });
+
+    zeilen.forEach(function (r) {
+      var tag = proTag[String(r.tag)];
+      if (!tag) return;
+      var n = Number(r.anzahl) || 0;
+      var felder = [];
+      if (r.ereignis === 'aufruf') { felder.push('aufrufe'); if (!r.intern) felder.push('besuche'); }
+      else if (r.ereignis === 'download')    felder.push('downloads');
+      else if (r.ereignis === 'kauf_klick')  felder.push('kauf');
+      else if (r.ereignis === 'test_fertig') felder.push('testFertig');
+      felder.forEach(function (f) { tag[f] += n; gesamt[f] += n; });
+    });
+    return { proTag: proTag, gesamt: gesamt };
+  }
+
+  async function besucherLaden() {
+    TT.melden('besucher-meldung', '');
+    var erg = await db.rpc('admin_besucher', { p_tage: besucher.tage });
+
+    if (erg.error) {
+      console.error('Besucher laden:', erg.error);
+      var text = String(erg.error.message || '');
+      if (erg.error.code === 'PGRST202' || /could not find the function/i.test(text)) {
+        document.getElementById('besucher-nicht-bereit').hidden = false;
+        return;
+      }
+      return TT.melden('besucher-meldung', text.indexOf('not_admin') >= 0
+        ? 'Dein Konto hat keine Adminrechte.'
+        : 'Die Zahlen konnten nicht geladen werden. Sieh in der Konsole nach dem Grund.');
+    }
+
+    document.getElementById('besucher-nicht-bereit').hidden = true;
+    besucher.daten = erg.data || { von: '', tage: [], seiten: [], quellen: [] };
+    besucherZeichnen();
+  }
+
+  function besucherZeichnen() {
+    var d = besucher.daten;
+    if (!d) return;
+
+    var tageListe = d.von ? besucherTageListe(d.von) : [];
+    var s = besucherSummen(d.tage || [], tageListe);
+    var g = s.gesamt;
+
+    var karten = [
+      { wert: zahl(g.besuche),     label: 'Besuche' },
+      { wert: zahl(g.aufrufe),     label: 'Seitenaufrufe' },
+      { wert: zahl(g.downloads),   label: 'Download-Klicks' },
+      { wert: zahl(g.kauf),        label: 'Klicks auf Kaufen' },
+      { wert: zahl(g.testFertig),  label: 'Score-Tests fertig' }
+    ];
+    document.getElementById('besucher-kennzahlen').innerHTML = karten.map(function (k) {
+      return '<div class="kennzahl"><span class="wert">' + TT.escape(k.wert) +
+        '</span><span class="label">' + TT.escape(k.label) + '</span></div>';
+    }).join('');
+
+    var quote = document.getElementById('besucher-quote');
+    if (!g.aufrufe) {
+      quote.textContent = 'In diesem Zeitraum ist noch nichts gezählt. Ruf deine Seite einmal auf einem ' +
+        'Gerät auf, auf dem du die Zählung nicht ausgeschaltet hast.';
+    } else if (g.besuche) {
+      quote.textContent = 'Auf 100 Besuche kommen ungefähr ' + Math.round(g.downloads / g.besuche * 100) +
+        ' Klicks auf Download und ' + Math.round(g.kauf / g.besuche * 100) + ' Klicks auf Kaufen.';
+    } else {
+      quote.textContent = '';
+    }
+
+    var tageZeilen = tageListe.slice().reverse().map(function (tag) {
+      var t = s.proTag[tag];
+      var datum = new Date(tag + 'T00:00:00Z').toLocaleDateString('de-AT',
+        { weekday: 'short', day: '2-digit', month: '2-digit', timeZone: 'UTC' });
+      var leer = !t.aufrufe && !t.downloads && !t.kauf && !t.testFertig;
+      return '<tr' + (leer ? ' class="inaktiv"' : '') + '>' +
+        '<td>' + TT.escape(datum) + '</td>' +
+        '<td>' + zahl(t.besuche) + '</td><td>' + zahl(t.aufrufe) + '</td>' +
+        '<td>' + zahl(t.downloads) + '</td><td>' + zahl(t.kauf) + '</td><td>' + zahl(t.testFertig) + '</td>' +
+      '</tr>';
+    });
+    tabelle('t-besucher-tage',
+      ['Tag', 'Besuche', 'Seitenaufrufe', 'Download-Klicks', 'Klicks auf Kaufen', 'Score-Tests fertig'],
+      tageZeilen, 'Keine Tage im Zeitraum.');
+
+    var summe = function (liste) {
+      return liste.reduce(function (x, e) { return x + (Number(e.anzahl) || 0); }, 0);
+    };
+    var zeilenAus = function (liste, feld, namen) {
+      var gesamt = summe(liste);
+      return liste.map(function (e) {
+        return '<tr><td>' + TT.escape(namen[e[feld]] || e[feld]) + '</td><td>' + zahl(e.anzahl) + '</td>' +
+          '<td>' + anteilBalken(gesamt ? e.anzahl / gesamt : 0) + '</td></tr>';
+      });
+    };
+
+    tabelle('t-besucher-quellen', ['Herkunft', 'Besuche', 'Anteil'],
+      zeilenAus(d.quellen || [], 'quelle', QUELLEN_NAMEN), 'Noch keine Besuche von außen gezählt.');
+    tabelle('t-besucher-seiten', ['Seite', 'Aufrufe', 'Anteil'],
+      zeilenAus(d.seiten || [], 'seite', SEITEN_NAMEN), 'Noch keine Aufrufe gezählt.');
+  }
+
+  document.getElementById('besucher-zeitraum').addEventListener('click', function (e) {
+    var knopf = e.target.closest('button[data-tage]');
+    if (!knopf) return;
+    besucher.tage = Number(knopf.dataset.tage);
+    this.querySelectorAll('button').forEach(function (k) { k.classList.toggle('an', k === knopf); });
+    besucherLaden();
   });
 })();
