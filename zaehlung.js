@@ -109,7 +109,10 @@
     var ziel = a.getAttribute('href') || '';
     var art = null;
     if (a.hasAttribute('download') || /\.exe([?#]|$)/i.test(ziel)) art = 'download';
-    else if (/^kaufen\.html/i.test(ziel))                          art = 'kauf_klick';
+    // Die Kauf-Knöpfe der Startseite legen ein Paket in den Warenkorb
+    // (data-preis, oder die App-Karte mit id app-kaufen). Das Warenkorb-Symbol
+    // im Kopf zählt nicht: Es ist kein Kaufwunsch.
+    else if (a.hasAttribute('data-preis') || a.id === 'app-kaufen' || /^kaufen\.html/i.test(ziel)) art = 'kauf_klick';
     else if (/^score-test\.html/i.test(ziel))                      art = 'test_klick';
 
     if (art) senden(art, 'intern');
