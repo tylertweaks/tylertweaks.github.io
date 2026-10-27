@@ -5418,62 +5418,17 @@ button.stufe:hover { border-color: var(--line-strong); }
 .app-mehr li { font-size: .88rem; padding-top: 6px; padding-bottom: 6px; }
 .app-mehr li::before { top: 14px; }
 
-/* Das App-Fenster, schräg gestellt, mit Leuchten darunter */
-.produkt-app .app-demo { position: relative; margin: 0; }
-.produkt-app .app-demo::before {
-  content: '';
-  position: absolute;
-  left: 6%; right: 6%; bottom: 46px;
-  height: 70px;
-  z-index: -1;
-  background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), .55), transparent 70%);
-  filter: blur(26px);
-}
-/* Fester Winkel, dazu zwei Bewegungen wie bei realdarkzy.de:
-   1. Das Fenster schwebt sanft auf und ab, aber nur, solange es im Bild
-      ist (script.js setzt dann .sichtbar). Das geht über die eigene
-      Eigenschaft "translate", damit es sich nicht mit der Neigung beißt.
-   2. Am PC neigt es sich leicht zur Maus. --kx und --ky setzt script.js
-      (-1 bis 1); ohne Maus oder bei "weniger Bewegung" bleibt es beim Winkel. */
-.produkt-app .app-demo-bilder {
-  border-radius: 14px;
-  transform:
-    perspective(1400px)
-    rotateY(calc(-15deg + var(--kx, 0) * 5deg))
-    rotateX(calc(5deg + var(--ky, 0) * -4deg));
-  transform-origin: 32% 50%;
-  box-shadow:
-    0 42px 80px rgba(0, 0, 0, .55),
-    0 0 0 1px rgba(var(--accent-rgb), .32),
-    0 0 64px rgba(var(--accent-rgb), .16);
-  transition: transform .25s ease-out;
-  will-change: transform;
-}
-.produkt-app .app-demo.sichtbar .app-demo-bilder { animation: app-schweben 6.5s ease-in-out infinite; }
-.produkt-app .app-demo.sichtbar::before { animation: app-schein 6.5s ease-in-out infinite; }
-@keyframes app-schweben {
-  0%, 100% { translate: 0 0; }
-  50%      { translate: 0 var(--schwebe, -12px); }
-}
-/* Der Schein darunter wird kleiner und blasser, wenn das Fenster steigt,
-   wie ein Schatten. */
-@keyframes app-schein {
-  0%, 100% { transform: scaleX(1);   opacity: .95; }
-  50%      { transform: scaleX(.88); opacity: .6; }
-}
+/* Das App-Bild steht gerade und ruhig wie die anderen Bilder der Seite. Die
+   Schräge, das Schweben und der Schein darunter sind seit 27.10.2026 wieder
+   draußen. */
+.produkt-app .app-demo { margin: 0; }
 .produkt-app .app-demo-text { margin-top: 16px; }
 
 @media (max-width: 960px) {
   .produkt-app { grid-template-columns: minmax(0, 1fr); padding: 40px 28px 32px; gap: 30px; }
-  .produkt-app .app-demo-bilder { transform: none; }
-  .produkt-app .app-demo { --schwebe: -8px; }
 }
 @media (max-width: 600px) {
   .produkt-app { padding: 30px 18px 24px; border-radius: 22px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .produkt-app .app-demo-bilder,
-  .produkt-app .app-demo::before { animation: none !important; transition: none; }
 }
 
 /* Gleiche Überschrift und Häkchen für PC-Optimierung und Bundle. Die h3 bleibt
