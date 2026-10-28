@@ -23,7 +23,7 @@
      -------------------------------------------------------------------- -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.paypal.com https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co https://*.paypal.com; frame-src https://*.paypal.com https://*.paypalobjects.com">
 <link rel="canonical" href="https://tylertweaks.github.io/">
-<title>Tyler Tweaks | Tweak App &amp; PC-Optimierung für Gaming</title>
+<title>Tyler Tweaks: Windows-Tweaks für Gaming &amp; PC-Optimierung</title>
 <!-- Beschreibung bewusst unter 160 Zeichen, damit Google sie nicht abschneidet,
      und bewusst ohne Preise: die stehen in der Datenbank und ändern sich,
      eine Suchergebnis-Zeile lässt sich aber nicht mitändern. -->
@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-app3">
-<link rel="stylesheet" href="mockup.css?v=2.2.0-app3">
+<link rel="stylesheet" href="style.css?v=2.2.0-ratgeber">
+<link rel="stylesheet" href="mockup.css?v=2.2.0-ratgeber">
 </head>
 <body>
 
@@ -179,6 +179,7 @@
       <a href="#preise">Preise</a>
       <a href="score-test.html">Score-Test</a>
       <a href="sicherheit.html">Sicherheit</a>
+      <a href="ratgeber.html">Ratgeber</a>
       <a href="#faq">FAQ</a>
       <a href="#support">Support</a>
       <a href="admin.html" id="nav-admin" hidden>Admin</a>
@@ -773,6 +774,36 @@
      ablauf.html (Remote-Sitzung) und sicherheit.html (App). Keine Leistungs-
      oder FPS-Versprechen. #faq-nach-kauf schreibt script.js im paypal.me-
      Betrieb um — die id bitte stehen lassen. -->
+<!-- ============ RATGEBER ============
+     Seit 28.10.2026: Anleitungen zu dem, wonach gesucht wird. Sie bringen
+     Besucher über Google und verlinken von hier aus zurück zur App. -->
+<section id="ratgeber" class="section reveal">
+  <div class="wrap">
+    <div class="section-head center">
+      <h2>Anleitungen</h2>
+      <p class="sub">Schritt für Schritt, ohne Zusatzprogramm. Jeder Schritt lässt sich zurücknehmen.</p>
+    </div>
+
+    <div class="grid-3">
+      <a class="card ratgeber-karte" href="windows-11-gaming-einstellen.html">
+        <h3>Windows 11 fürs Gaming einstellen</h3>
+        <p>Neun Einstellungen, die sich lohnen, und was sie wirklich bringen.</p>
+        <span class="mehr">Anleitung lesen</span>
+      </a>
+      <a class="card ratgeber-karte" href="input-lag-senken.html">
+        <h3>Input Lag senken</h3>
+        <p>Warum sich ein Spiel träge anfühlt und was an Maus, Monitor und Windows hilft.</p>
+        <span class="mehr">Anleitung lesen</span>
+      </a>
+      <a class="card ratgeber-karte" href="windows-11-entruempeln.html">
+        <h3>Windows 11 entrümpeln</h3>
+        <p>Autostart, Apps, Werbung und Daten aufräumen, ohne etwas Wichtiges zu zerstören.</p>
+        <span class="mehr">Anleitung lesen</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="faq" class="section reveal">
   <div class="wrap wrap-narrow">
 
@@ -945,6 +976,7 @@
         <li><a href="#tarif-bundle">Bundle</a></li>
         <li><a href="#tarif-app">Tweak App</a></li>
         <li><a href="tweaks.html">Alle Optimierungen</a></li>
+        <li><a href="ratgeber.html">Ratgeber &amp; Anleitungen</a></li>
         <li><a href="score-test.html">PC-Score-Test</a></li>
         <li><a href="#ablauf">Kaufablauf</a></li>
       </ul>
@@ -1007,11 +1039,11 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-app3"></script>
-<script src="zaehlung.js?v=2.2.0-app3"></script>
-<script src="tt-backend.js?v=2.2.0-app3"></script>
-<script src="warenkorb.js?v=2.2.0-app3"></script>
-<script src="tweaks.js?v=2.2.0-app3"></script>
-<script src="script.js?v=2.2.0-app3"></script>
+<script src="konfig.js?v=2.2.0-ratgeber"></script>
+<script src="zaehlung.js?v=2.2.0-ratgeber"></script>
+<script src="tt-backend.js?v=2.2.0-ratgeber"></script>
+<script src="warenkorb.js?v=2.2.0-ratgeber"></script>
+<script src="tweaks.js?v=2.2.0-ratgeber"></script>
+<script src="script.js?v=2.2.0-ratgeber"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 
   <url>
     <loc>https://tylertweaks.github.io/</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -79,4 +79,29 @@
     <priority>0.2</priority>
   </url>
 
+  <!-- Ratgeber (seit 28.10.2026): Anleitungen zu dem, wonach gesucht wird. -->
+  <url>
+    <loc>https://tylertweaks.github.io/ratgeber.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tylertweaks.github.io/windows-11-gaming-einstellen.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tylertweaks.github.io/input-lag-senken.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tylertweaks.github.io/windows-11-entruempeln.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

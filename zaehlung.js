@@ -29,7 +29,8 @@
   var K = window.TT_KONFIG || {};
   if (!K.supabaseUrl || !K.supabaseAnonKey) return;
 
-  var SEITEN = ['start', 'tweaks', 'ablauf', 'sicherheit', 'score-test', 'kaufen', 'warenkorb', 'anmelden'];
+  var SEITEN = ['start', 'tweaks', 'ablauf', 'sicherheit', 'score-test', 'kaufen', 'warenkorb', 'anmelden',
+                  'ratgeber', 'windows-11-gaming-einstellen', 'input-lag-senken', 'windows-11-entruempeln'];
   var QUELLEN = ['direkt', 'tiktok', 'discord', 'youtube', 'instagram', 'reddit', 'google', 'suche', 'andere'];
   var SCHALTER = 'tt-zaehlung-aus';
 

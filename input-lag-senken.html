@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Dieselbe Sicherheitsrichtlinie wie auf den Rechtsseiten. Die Seite lädt
+     nur eigene Dateien; rechtstext.js baut Menü und Anmeldestatus auf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co">
+<link rel="canonical" href="https://tylertweaks.github.io/input-lag-senken.html">
+<title>Input Lag senken: Maus, Monitor, Windows | Tyler Tweaks</title>
+<meta name="description" content="Warum sich Spiele träge anfühlen und was hilft: Bildwiederholrate, Zeigerbeschleunigung, V-Sync, FPS-Limit und Spielmodus. Für Windows 11 und 10.">
+<meta name="theme-color" content="#05070c">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Tyler Tweaks">
+<meta property="og:title" content="Input Lag senken unter Windows">
+<meta property="og:description" content="Was an Monitor, Maus, Spiel und Windows gegen Input Lag hilft.">
+<meta property="og:url" content="https://tylertweaks.github.io/input-lag-senken.html">
+<meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=2.2.0-ratgeber">
+<link rel="stylesheet" href="info.css?v=2.2.0-ratgeber">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Input Lag senken unter Windows",
+      "description": "Warum sich Spiele träge anfühlen und was hilft: Bildwiederholrate, Zeigerbeschleunigung, V-Sync, FPS-Limit und Spielmodus. Für Windows 11 und 10.",
+      "inLanguage": "de",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": { "@type": "Organization", "name": "Tyler Tweaks", "url": "https://tylertweaks.github.io/" },
+      "publisher": { "@type": "Organization", "name": "Tyler Tweaks", "url": "https://tylertweaks.github.io/", "logo": { "@type": "ImageObject", "url": "https://tylertweaks.github.io/icon-192.png" } },
+      "mainEntityOfPage": "https://tylertweaks.github.io/input-lag-senken.html",
+      "image": "https://tylertweaks.github.io/bilder/vorschau.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://tylertweaks.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Ratgeber", "item": "https://tylertweaks.github.io/ratgeber.html" },
+        { "@type": "ListItem", "position": 3, "name": "Input Lag senken unter Windows" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#inhalt" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="favicon.svg" alt="" width="36" height="36">
+      <span>Tyler <strong>Tweaks</strong></span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="score-test.html">Score-Test</a>
+      <a href="ablauf.html">Ablauf</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="ratgeber.html" aria-current="page">Ratgeber</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="admin.html" id="nav-admin" hidden>Admin</a>
+      <span id="nav-auth-mobil"></span>
+      <a href="index.html#preise" class="nav-cta">Jetzt kaufen</a>
+    </nav>
+
+    <div class="nav-actions">
+      <span id="nav-auth" class="nav-auth"></span>
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt" class="info-seite">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap info-wrap">
+
+    <header class="info-kopf">
+      <span class="eyebrow">Ratgeber</span>
+      <h1>Input Lag senken unter Windows</h1>
+      <p class="sub">
+        Warum sich dein Spiel träge anfühlt, obwohl die FPS stimmen, und was du an Maus, Monitor, Spiel und
+        Windows selbst dagegen tun kannst.
+      </p>
+    </header>
+
+    <section class="info-karte info-breit">
+      <h2>Was Input Lag ist, und was nicht</h2>
+      <p>
+        <strong>Input Lag</strong> ist die Zeit zwischen deinem Klick oder deiner Mausbewegung und dem Moment, in dem du
+        die Reaktion auf dem Bild siehst. Er entsteht an deinem eigenen PC: in der Maus, in Windows, im Spiel und im
+        Monitor.
+      </p>
+      <p>
+        Der <strong>Ping</strong> ist etwas anderes. Er misst, wie lange Daten zum Spieleserver und zurück brauchen. Beides
+        kann dein Spielgefühl verderben, aber die Mittel dagegen sind verschieden. Diese Anleitung geht um den Lag an
+        deinem eigenen PC.
+      </p>
+      <p class="muted">
+        Stand Oktober 2026, für Windows 11 und 10. Ändere nicht alles auf einmal, sondern eine Sache nach der anderen,
+        damit du merkst, was wirklich hilft.
+      </p>
+      <nav aria-label="Inhalt">
+        <ol class="info-liste schritte">
+          <li><a href="#monitor">Monitor: Bildwiederholrate und Modus</a></li>
+          <li><a href="#maus">Maus: Beschleunigung und Abtastrate</a></li>
+          <li><a href="#spiel">Im Spiel: Vollbild, V-Sync und FPS-Limit</a></li>
+          <li><a href="#windows">Windows: Spielmodus und Hintergrund</a></li>
+          <li><a href="#netz">Netzwerk: Was der Ping damit zu tun hat</a></li>
+          <li><a href="#unbelegt">Was du dir sparen kannst</a></li>
+        </ol>
+      </nav>
+    </section>
+
+    <section class="info-karte info-breit" id="monitor">
+      <h2>1. Monitor: Bildwiederholrate und Modus</h2>
+      <p>
+        Bei 60 Hz bekommst du alle 16,7 Millisekunden ein neues Bild, bei 144 Hz alle 6,9. Läuft dein 144-Hz-Monitor
+        nur mit 60 Hz, verschenkst du den größten Teil davon.
+      </p>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → System → Anzeige → Erweiterte Anzeige</strong> öffnen und bei <strong>„Bildwiederholfrequenz auswählen“</strong> den höchsten Wert wählen.</li>
+        <li>Im Menü des Monitors einen <strong>Spiel- oder Gaming-Modus</strong> einschalten, wenn er einen hat, und Bildverbesserungen wie „Schärfen“ oder „Dynamischer Kontrast“ ausschalten. Sie brauchen Rechenzeit.</li>
+        <li>Die Reaktionszeit-Einstellung („Overdrive“) lieber auf mittlere Stufe stellen. Die höchste erzeugt oft Schlieren.</li>
+        <li>Nimm für hohe Raten ein <strong>DisplayPort-Kabel</strong> oder ein HDMI-Kabel, das die Rate unterstützt.</li>
+      </ol>
+      <p class="muted">Am Fernseher heißt der Schalter oft „Spielmodus“ oder „Game Mode“. Er schaltet die Bildnachbearbeitung ab und senkt den Lag deutlich.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="maus">
+      <h2>2. Maus: Beschleunigung und Abtastrate</h2>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → Bluetooth &amp; Geräte → Maus → Zusätzliche Mauseinstellungen → Zeigeroptionen</strong> öffnen.</li>
+        <li>Das Häkchen bei <strong>„Zeigerbeschleunigung verbessern“</strong> entfernen. Dann ergibt dieselbe Handbewegung immer dieselbe Strecke.</li>
+        <li>Die Zeigergeschwindigkeit auf der <strong>mittleren Stufe (6 von 11)</strong> lassen. Das ist die einzige Stufe, bei der die Bewegung 1:1 übernommen wird. Die Empfindlichkeit stellst du lieber im Spiel oder über die DPI deiner Maus ein.</li>
+        <li>In der Software deiner Maus die <strong>Abtastrate</strong> (Polling Rate) auf 1000 Hz stellen. Höhere Werte wie 4000 oder 8000 Hz belasten den Prozessor stärker und helfen nur bei sehr schnellen Monitoren und starker Hardware.</li>
+      </ol>
+    </section>
+
+    <section class="info-karte info-breit" id="spiel">
+      <h2>3. Im Spiel: Vollbild, V-Sync und FPS-Limit</h2>
+      <ol class="info-liste schritte">
+        <li>Spiele im <strong>Vollbild</strong> und nicht im Fenster. Gibt es „Exklusives Vollbild“, probiere es aus.</li>
+        <li><strong>V-Sync</strong> macht das Bild ruhiger, fügt aber meist Lag hinzu. Schalte es aus, wenn dich Bildrisse nicht stören.</li>
+        <li>Hast du einen <strong>G-Sync- oder FreeSync-Monitor</strong>, begrenze die FPS auf einen Wert <strong>knapp unter</strong> der Bildwiederholrate, zum Beispiel 141 bei 144 Hz. So bleibt der Lag niedrig und das Bild ruhig.</li>
+        <li>Bietet das Spiel <strong>NVIDIA Reflex</strong> oder <strong>AMD Anti-Lag</strong> an, schalte es ein. Beide sind dafür gemacht, die Wartezeit zwischen Prozessor und Grafikkarte zu verkürzen.</li>
+      </ol>
+      <p class="muted">Gleichmäßige FPS fühlen sich besser an als schwankende mit höherem Durchschnitt.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="windows">
+      <h2>4. Windows: Spielmodus und Hintergrund</h2>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → Spielen → Spielmodus</strong> (je nach Version „Spielemodus“) auf „Ein“ stellen.</li>
+        <li>Schließe vor dem Spielen Browser, Launcher und alles, was im Hintergrund Daten lädt.</li>
+        <li>Wähle in den Energieoptionen den Plan <strong>„Höchstleistung“</strong>. Wie das geht, steht in der Anleitung <a href="windows-11-gaming-einstellen.html#energie">Windows 11 fürs Gaming einstellen</a>.</li>
+        <li>Prüfe im Task-Manager (Strg + Umschalt + Esc), ob etwas dauerhaft viel Prozessor oder Festplatte braucht.</li>
+      </ol>
+    </section>
+
+    <section class="info-karte info-breit" id="netz">
+      <h2>5. Netzwerk: Was der Ping damit zu tun hat</h2>
+      <p>
+        Fühlt sich das Spiel nur online träge an, im Training oder offline aber nicht, liegt es eher am Netzwerk. Dann hilft:
+      </p>
+      <ul class="info-liste ja">
+        <li>Ein <strong>LAN-Kabel</strong> statt WLAN</li>
+        <li>Downloads, Streams und Updates auf anderen Geräten pausieren</li>
+        <li>Den Router neu starten und, wenn möglich, einen Spieleserver in deiner Nähe wählen</li>
+      </ul>
+    </section>
+
+    <section class="info-karte info-breit" id="unbelegt">
+      <h2>Was du dir sparen kannst</h2>
+      <p>
+        In Videos und Foren findest du Registry-Tricks, die den Input Lag um einzelne Millisekunden senken sollen. Viele davon
+        sind nicht belegt oder bringen auf heutigen Windows-Versionen nichts. Verlass dich lieber auf die Dinge oben, die
+        du messen oder spüren kannst, und führe keine Skripte aus, die du nicht verstehst.
+      </p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Lieber mit Schaltern und Rückgängig?</h2>
+      <p>
+        Die Tweak App zeigt dir zu jeder Einstellung, was sie tut, sichert den alten Wert und lässt dich jeden Schritt
+        einzeln zurücknehmen. Die kostenlose Version enthält alle System-Tweaks.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="index.html#tarif-app">Kostenlos ausprobieren</a>
+        <a class="btn btn-outline" href="sicherheit.html">Ist die App sicher?</a>
+      </p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Weiterlesen</h2>
+      <ul class="info-liste">
+        <li><a href="windows-11-gaming-einstellen.html">Windows 11 fürs Gaming einstellen: neun Einstellungen</a></li>
+        <li><a href="windows-11-entruempeln.html">Windows 11 entrümpeln: Was du sicher abschalten kannst</a></li>
+        <li><a href="ratgeber.html">Alle Anleitungen</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="index.html" class="logo">
+        <img src="favicon.svg" alt="" width="36" height="36">
+        <span>Tyler <strong>Tweaks</strong></span>
+      </a>
+      <p class="muted">PC-Optimierung für Gaming und Alltag.<br>Windows 10 und 11, Backup inklusive.</p>
+    </div>
+
+    <div>
+      <h4>Angebot</h4>
+      <ul>
+        <li><a href="index.html#tarif-opt">PC-Optimierung</a></li>
+        <li><a href="index.html#tarif-bundle">Bundle</a></li>
+        <li><a href="index.html#tarif-app">Tweak App</a></li>
+        <li><a href="tweaks.html">Alle Optimierungen</a></li>
+        <li><a href="ratgeber.html">Ratgeber &amp; Anleitungen</a></li>
+        <li><a href="score-test.html">PC-Score-Test</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Vertrauen</h4>
+      <ul>
+        <li><a href="ablauf.html">So läuft die Optimierung ab</a></li>
+        <li><a href="sicherheit.html">Sicherheit der App</a></li>
+        <li><a href="index.html#faq">Häufige Fragen</a></li>
+        <li><a href="index.html#support">Hilfe &amp; Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Konto</h4>
+      <ul>
+        <li><a href="konto.html">Kundenbereich</a></li>
+        <li><a href="anmelden.html">Anmelden</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="widerruf.html">Rücktrittsbelehrung</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="disclaimer">
+      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben —
+      die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
+      Verantwortung. Vor Änderungen wird automatisch ein Backup erstellt.
+      Windows ist eine Marke der Microsoft Corporation, AnyDesk eine Marke der AnyDesk Software GmbH —
+      Tyler Tweaks steht mit keinem der beiden Unternehmen in Verbindung.
+    </p>
+    <p class="rechtslinks">
+      <a href="impressum.html">Impressum</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="agb.html">AGB</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="widerruf.html">Rücktritt</a>
+    </p>
+    <p class="copy">© <span id="year">2026</span> Tyler Tweaks</p>
+  </div>
+</footer>
+
+<script src="js/supabase-js-2.45.4.js"></script>
+<script src="konfig.js?v=2.2.0-ratgeber"></script>
+<script src="zaehlung.js?v=2.2.0-ratgeber"></script>
+<script src="tt-backend.js?v=2.2.0-ratgeber"></script>
+<script src="warenkorb.js?v=2.2.0-ratgeber"></script>
+<script src="rechtstext.js?v=2.2.0-ratgeber"></script>
+</body>
+</html>

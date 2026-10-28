@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Dieselbe Sicherheitsrichtlinie wie auf den Rechtsseiten. Die Seite lädt
+     nur eigene Dateien; rechtstext.js baut Menü und Anmeldestatus auf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co">
+<link rel="canonical" href="https://tylertweaks.github.io/windows-11-entruempeln.html">
+<title>Windows 11 entrümpeln: sicher abschalten | Tyler Tweaks</title>
+<meta name="description" content="Autostart, vorinstallierte Apps, Werbung und Diagnosedaten unter Windows 11 aufräumen und was du besser nicht anfasst. Schritt für Schritt.">
+<meta name="theme-color" content="#05070c">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Tyler Tweaks">
+<meta property="og:title" content="Windows 11 entrümpeln">
+<meta property="og:description" content="Was du bei Autostart, Apps, Werbung und Datensammlung sicher abschalten kannst.">
+<meta property="og:url" content="https://tylertweaks.github.io/windows-11-entruempeln.html">
+<meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=2.2.0-ratgeber">
+<link rel="stylesheet" href="info.css?v=2.2.0-ratgeber">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Windows 11 entrümpeln: Was du sicher abschalten kannst",
+      "description": "Autostart, vorinstallierte Apps, Werbung und Diagnosedaten unter Windows 11 aufräumen und was du besser nicht anfasst. Schritt für Schritt.",
+      "inLanguage": "de",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": { "@type": "Organization", "name": "Tyler Tweaks", "url": "https://tylertweaks.github.io/" },
+      "publisher": { "@type": "Organization", "name": "Tyler Tweaks", "url": "https://tylertweaks.github.io/", "logo": { "@type": "ImageObject", "url": "https://tylertweaks.github.io/icon-192.png" } },
+      "mainEntityOfPage": "https://tylertweaks.github.io/windows-11-entruempeln.html",
+      "image": "https://tylertweaks.github.io/bilder/vorschau.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://tylertweaks.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Ratgeber", "item": "https://tylertweaks.github.io/ratgeber.html" },
+        { "@type": "ListItem", "position": 3, "name": "Windows 11 entrümpeln: Was du sicher abschalten kannst" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#inhalt" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="favicon.svg" alt="" width="36" height="36">
+      <span>Tyler <strong>Tweaks</strong></span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="score-test.html">Score-Test</a>
+      <a href="ablauf.html">Ablauf</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="ratgeber.html" aria-current="page">Ratgeber</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="admin.html" id="nav-admin" hidden>Admin</a>
+      <span id="nav-auth-mobil"></span>
+      <a href="index.html#preise" class="nav-cta">Jetzt kaufen</a>
+    </nav>
+
+    <div class="nav-actions">
+      <span id="nav-auth" class="nav-auth"></span>
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt" class="info-seite">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap info-wrap">
+
+    <header class="info-kopf">
+      <span class="eyebrow">Ratgeber</span>
+      <h1>Windows 11 entrümpeln</h1>
+      <p class="sub">
+        Was du bei Autostart, vorinstallierten Apps, Werbung und Datensammlung sicher abschalten kannst, und was du
+        besser in Ruhe lässt.
+      </p>
+    </header>
+
+    <section class="info-karte info-breit">
+      <h2>Warum entrümpeln?</h2>
+      <p>
+        Auf frisch installierten oder gekauften PCs läuft einiges mit, das du nie wolltest: Programme im Autostart,
+        vorinstallierte Spiele und Apps, Werbevorschläge und Datensammlung. Das kostet Arbeitsspeicher, Prozessorzeit und
+        manchmal Nerven. Du kannst das ohne Zusatzprogramm aufräumen, mit Einstellungen, die Windows selbst anbietet.
+      </p>
+      <p class="muted">
+        Stand Oktober 2026, für Windows 11 und 10. Bezeichnungen können je nach Version leicht abweichen. Alles auf
+        eigene Verantwortung. Lege vorher einen Wiederherstellungspunkt an (siehe
+        <a href="windows-11-gaming-einstellen.html#absichern">Erst absichern</a>).
+      </p>
+      <nav aria-label="Inhalt">
+        <ol class="info-liste schritte">
+          <li><a href="#autostart">Autostart aufräumen</a></li>
+          <li><a href="#apps">Vorinstallierte Apps entfernen</a></li>
+          <li><a href="#werbung">Werbung und Vorschläge abschalten</a></li>
+          <li><a href="#daten">Diagnosedaten einschränken</a></li>
+          <li><a href="#finger">Was du besser nicht anfasst</a></li>
+          <li><a href="#zurueck">Wie du es rückgängig machst</a></li>
+        </ol>
+      </nav>
+    </section>
+
+    <section class="info-karte info-breit" id="autostart">
+      <h2>1. Autostart aufräumen</h2>
+      <ol class="info-liste schritte">
+        <li>Mit <strong>Strg + Umschalt + Esc</strong> den Task-Manager öffnen.</li>
+        <li>Zum Reiter <strong>„Autostart-Apps“</strong> wechseln (Windows 10: „Autostart“) und nach <strong>„Startauswirkung“</strong> sortieren.</li>
+        <li>Per Rechtsklick auf <strong>„Deaktivieren“</strong>, was du nicht gleich nach dem Hochfahren brauchst: Launcher, Chat-Programme, Updater von Programmen, die du selten öffnest.</li>
+      </ol>
+      <p class="muted">Treiber, Sicherheitsprogramm und die Software deiner Maus oder Tastatur lässt du an.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="apps">
+      <h2>2. Vorinstallierte Apps entfernen</h2>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → Apps → Installierte Apps</strong> öffnen.</li>
+        <li>Bei Apps, die du erkennst und nicht brauchst (zum Beispiel Solitaire Collection, Clipchamp, Nachrichten, Wetter), auf die drei Punkte klicken und <strong>„Deinstallieren“</strong> wählen.</li>
+      </ol>
+      <p class="muted">Entferne nur, was du kennst. Bei allem anderen, besonders bei Einträgen mit „Microsoft“, „Windows“ oder „Xbox“ im Namen, lass die Finger weg, wenn du nicht sicher bist. Später lässt sich fast alles aus dem Microsoft Store wieder installieren.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="werbung">
+      <h2>3. Werbung und Vorschläge abschalten</h2>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → Datenschutz &amp; Sicherheit → Allgemein</strong> öffnen und die <strong>Werbe-ID</strong> („Apps dürfen mir Werbung anhand meiner Werbe-ID anzeigen“) ausschalten.</li>
+        <li><strong>Einstellungen → System → Benachrichtigungen → Zusätzliche Einstellungen</strong> öffnen und die Häkchen bei den <strong>Tipps, Vorschlägen und Willkommensmeldungen</strong> entfernen.</li>
+        <li>Unter <strong>Einstellungen → Personalisierung → Start</strong> kannst du die Empfehlungen im Startmenü (Tipps, Verknüpfungen, neue Apps) abschalten.</li>
+      </ol>
+    </section>
+
+    <section class="info-karte info-breit" id="daten">
+      <h2>4. Diagnosedaten einschränken</h2>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → Datenschutz &amp; Sicherheit → Diagnose &amp; Feedback</strong> öffnen.</li>
+        <li>Die Option <strong>„Optionale Diagnosedaten senden“</strong> ausschalten.</li>
+        <li>Darunter kannst du die Anpassung von Erfahrungen und die Feedbackhäufigkeit abschalten.</li>
+      </ol>
+      <p class="muted">Ganz abschalten lässt sich die Datensammlung bei Home und Pro nicht. Die erforderlichen Daten sendet Windows weiter. Nur die Enterprise- und Education-Versionen erlauben mehr.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="finger">
+      <h2>5. Was du besser nicht anfasst</h2>
+      <ul class="info-liste nein">
+        <li><strong>Windows Update dauerhaft abschalten.</strong> Du verpasst Sicherheitsupdates. Verschiebe sie lieber zeitlich.</li>
+        <li><strong>Den Virenschutz von Windows ausschalten,</strong> ohne dass ein anderer läuft.</li>
+        <li><strong>Dienste wahllos deaktivieren.</strong> Manche hängen voneinander ab. Wenn du einen Dienst nicht kennst, bleibt er an.</li>
+        <li><strong>Skripte aus Videos und Foren ausführen,</strong> deren Inhalt du nicht verstehst. Ein falscher Registry-Eintrag kann Windows unbrauchbar machen.</li>
+      </ul>
+    </section>
+
+    <section class="info-karte info-breit" id="zurueck">
+      <h2>Wie du es rückgängig machst</h2>
+      <ul class="info-liste ja">
+        <li>Autostart: Rechtsklick und „Aktivieren“</li>
+        <li>Apps: im Microsoft Store erneut installieren</li>
+        <li>Einstellungen: dieselben Schalter wieder einschalten</li>
+        <li>Alles auf einmal: über den Wiederherstellungspunkt, den du am Anfang angelegt hast (Startmenü → „Wiederherstellungspunkt erstellen“ → „Systemwiederherstellung“)</li>
+      </ul>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Lieber mit Schaltern und Rückgängig?</h2>
+      <p>
+        Die Tweak App von Tyler Tweaks macht solche Änderungen mit Schaltern. Jeder Schritt ist erklärt, der alte Wert wird
+        gesichert, und du kannst jeden Tweak einzeln zurücknehmen. In der kostenlosen Version sind alle System-Tweaks dabei,
+        darunter Debloat und Privatsphäre.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="index.html#tarif-app">Kostenlos ausprobieren</a>
+        <a class="btn btn-outline" href="sicherheit.html">Ist die App sicher?</a>
+      </p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Weiterlesen</h2>
+      <ul class="info-liste">
+        <li><a href="windows-11-gaming-einstellen.html">Windows 11 fürs Gaming einstellen: neun Einstellungen</a></li>
+        <li><a href="input-lag-senken.html">Input Lag senken: Maus, Monitor und Spiel</a></li>
+        <li><a href="ratgeber.html">Alle Anleitungen</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="index.html" class="logo">
+        <img src="favicon.svg" alt="" width="36" height="36">
+        <span>Tyler <strong>Tweaks</strong></span>
+      </a>
+      <p class="muted">PC-Optimierung für Gaming und Alltag.<br>Windows 10 und 11, Backup inklusive.</p>
+    </div>
+
+    <div>
+      <h4>Angebot</h4>
+      <ul>
+        <li><a href="index.html#tarif-opt">PC-Optimierung</a></li>
+        <li><a href="index.html#tarif-bundle">Bundle</a></li>
+        <li><a href="index.html#tarif-app">Tweak App</a></li>
+        <li><a href="tweaks.html">Alle Optimierungen</a></li>
+        <li><a href="ratgeber.html">Ratgeber &amp; Anleitungen</a></li>
+        <li><a href="score-test.html">PC-Score-Test</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Vertrauen</h4>
+      <ul>
+        <li><a href="ablauf.html">So läuft die Optimierung ab</a></li>
+        <li><a href="sicherheit.html">Sicherheit der App</a></li>
+        <li><a href="index.html#faq">Häufige Fragen</a></li>
+        <li><a href="index.html#support">Hilfe &amp; Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Konto</h4>
+      <ul>
+        <li><a href="konto.html">Kundenbereich</a></li>
+        <li><a href="anmelden.html">Anmelden</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="widerruf.html">Rücktrittsbelehrung</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="disclaimer">
+      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben —
+      die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
+      Verantwortung. Vor Änderungen wird automatisch ein Backup erstellt.
+      Windows ist eine Marke der Microsoft Corporation, AnyDesk eine Marke der AnyDesk Software GmbH —
+      Tyler Tweaks steht mit keinem der beiden Unternehmen in Verbindung.
+    </p>
+    <p class="rechtslinks">
+      <a href="impressum.html">Impressum</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="agb.html">AGB</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="widerruf.html">Rücktritt</a>
+    </p>
+    <p class="copy">© <span id="year">2026</span> Tyler Tweaks</p>
+  </div>
+</footer>
+
+<script src="js/supabase-js-2.45.4.js"></script>
+<script src="konfig.js?v=2.2.0-ratgeber"></script>
+<script src="zaehlung.js?v=2.2.0-ratgeber"></script>
+<script src="tt-backend.js?v=2.2.0-ratgeber"></script>
+<script src="warenkorb.js?v=2.2.0-ratgeber"></script>
+<script src="rechtstext.js?v=2.2.0-ratgeber"></script>
+</body>
+</html>

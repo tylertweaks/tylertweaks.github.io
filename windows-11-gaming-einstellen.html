@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Dieselbe Sicherheitsrichtlinie wie auf den Rechtsseiten. Die Seite lädt
+     nur eigene Dateien; rechtstext.js baut Menü und Anmeldestatus auf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co">
+<link rel="canonical" href="https://tylertweaks.github.io/windows-11-gaming-einstellen.html">
+<title>Windows 11 fürs Gaming einstellen: 9 Tipps | Tyler Tweaks</title>
+<meta name="description" content="Neun Windows-Einstellungen für Gaming: Spielmodus, Bildwiederholrate, Energiesparplan, Autostart und mehr. Schritt für Schritt für Windows 11 und 10.">
+<meta name="theme-color" content="#05070c">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Tyler Tweaks">
+<meta property="og:title" content="Windows 11 fürs Gaming einstellen">
+<meta property="og:description" content="Neun Einstellungen, die du ohne Zusatzprogramm selbst machen kannst.">
+<meta property="og:url" content="https://tylertweaks.github.io/windows-11-gaming-einstellen.html">
+<meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=2.2.0-ratgeber">
+<link rel="stylesheet" href="info.css?v=2.2.0-ratgeber">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Windows 11 fürs Gaming einstellen",
+      "description": "Neun Windows-Einstellungen für Gaming: Spielmodus, Bildwiederholrate, Energiesparplan, Autostart und mehr. Schritt für Schritt für Windows 11 und 10.",
+      "inLanguage": "de",
+      "datePublished": "2026-10-28",
+      "dateModified": "2026-10-28",
+      "author": { "@type": "Organization", "name": "Tyler Tweaks", "url": "https://tylertweaks.github.io/" },
+      "publisher": { "@type": "Organization", "name": "Tyler Tweaks", "url": "https://tylertweaks.github.io/", "logo": { "@type": "ImageObject", "url": "https://tylertweaks.github.io/icon-192.png" } },
+      "mainEntityOfPage": "https://tylertweaks.github.io/windows-11-gaming-einstellen.html",
+      "image": "https://tylertweaks.github.io/bilder/vorschau.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://tylertweaks.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Ratgeber", "item": "https://tylertweaks.github.io/ratgeber.html" },
+        { "@type": "ListItem", "position": 3, "name": "Windows 11 fürs Gaming einstellen" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#inhalt" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="favicon.svg" alt="" width="36" height="36">
+      <span>Tyler <strong>Tweaks</strong></span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="score-test.html">Score-Test</a>
+      <a href="ablauf.html">Ablauf</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="ratgeber.html" aria-current="page">Ratgeber</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="admin.html" id="nav-admin" hidden>Admin</a>
+      <span id="nav-auth-mobil"></span>
+      <a href="index.html#preise" class="nav-cta">Jetzt kaufen</a>
+    </nav>
+
+    <div class="nav-actions">
+      <span id="nav-auth" class="nav-auth"></span>
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt" class="info-seite">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap info-wrap">
+
+    <header class="info-kopf">
+      <span class="eyebrow">Ratgeber</span>
+      <h1>Windows 11 fürs Gaming einstellen</h1>
+      <p class="sub">
+        Neun Einstellungen, die du ohne Zusatzprogramm selbst machen kannst, und was jede einzelne
+        bringt. Für Windows 11 und 10.
+      </p>
+    </header>
+
+    <section class="info-karte info-breit">
+      <h2>Worum es geht</h2>
+      <p>
+        Windows läuft auf jedem PC gleich vorkonfiguriert, auch auf deinem Gaming-Rechner. Ein paar
+        Voreinstellungen kosten dort unnötig Leistung oder bremsen deinen Monitor aus. Die Schritte
+        unten ändern nur Einstellungen, die Windows selbst anbietet. Du brauchst rund 20 Minuten und
+        kannst jeden Schritt wieder zurücknehmen.
+      </p>
+      <p class="muted">
+        Stand Oktober 2026. Die Namen in den Menüs können je nach Windows-Version leicht abweichen.
+        Alles auf eigene Verantwortung.
+      </p>
+      <nav aria-label="Inhalt">
+        <ol class="info-liste schritte">
+          <li><a href="#absichern">Erst absichern</a></li>
+          <li><a href="#spielmodus">Spielmodus prüfen</a></li>
+          <li><a href="#bildrate">Bildwiederholrate einstellen</a></li>
+          <li><a href="#energie">Energiesparplan wählen</a></li>
+          <li><a href="#autostart">Autostart ausmisten</a></li>
+          <li><a href="#aufnahme">Hintergrundaufnahme ausschalten</a></li>
+          <li><a href="#treiber">Grafiktreiber aktuell halten</a></li>
+          <li><a href="#speicher">Temporäre Dateien löschen</a></li>
+          <li><a href="#maus">Zeigerbeschleunigung abschalten</a></li>
+          <li><a href="#gpu">Zum Testen: GPU-Planung</a></li>
+        </ol>
+      </nav>
+    </section>
+
+    <section class="info-karte info-breit" id="absichern">
+      <h2>1. Erst absichern: Wiederherstellungspunkt anlegen</h2>
+      <p>Bevor du etwas änderst, speicherst du den jetzigen Zustand. Das dauert eine Minute und gibt dir einen Weg zurück.</p>
+      <ol class="info-liste schritte">
+        <li>Im Startmenü <strong>„Wiederherstellungspunkt erstellen“</strong> eintippen und öffnen.</li>
+        <li>Steht beim Laufwerk <strong>C:</strong> der Schutz auf „Aus“, markierst du es, klickst auf <strong>„Konfigurieren“</strong>, wählst <strong>„Computerschutz aktivieren“</strong> und bestätigst.</li>
+        <li>Auf <strong>„Erstellen“</strong> klicken, einen Namen wie „vor Gaming-Einstellungen“ vergeben und bestätigen.</li>
+      </ol>
+    </section>
+
+    <section class="info-karte info-breit" id="spielmodus">
+      <h2>2. Spielmodus prüfen</h2>
+      <p>
+        Der Spielmodus sorgt dafür, dass Windows während eines Spiels keine Updates installiert und weniger im
+        Hintergrund erledigt. Bei den meisten PCs ist er schon an, aber es kostet nur Sekunden, das zu prüfen.
+      </p>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen</strong> öffnen (Windows-Taste + I) und auf <strong>„Spielen“</strong> gehen.</li>
+        <li>Auf <strong>„Spielmodus“</strong> klicken (je nach Version heißt der Eintrag „Spielemodus“) und den Schalter auf <strong>„Ein“</strong> stellen.</li>
+      </ol>
+    </section>
+
+    <section class="info-karte info-breit" id="bildrate">
+      <h2>3. Die Bildwiederholrate einstellen</h2>
+      <p>
+        Der häufigste Fehler: Ein 144-Hz-Monitor läuft nach der Installation oft nur mit 60 Hz. Dann zeigt er nur
+        jedes zweite Bild an, egal wie stark dein PC ist.
+      </p>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → System → Anzeige → Erweiterte Anzeige</strong> öffnen.</li>
+        <li>Bei <strong>„Bildwiederholfrequenz auswählen“</strong> den höchsten Wert wählen, den dein Monitor kann.</li>
+        <li>Prüfe zusätzlich in den Grafikeinstellungen deines Spiels, ob dort dieselbe Rate steht.</li>
+      </ol>
+      <p class="muted">Wird die höchste Rate nicht angeboten, liegt es oft am Kabel. DisplayPort oder ein HDMI-Kabel für hohe Raten helfen.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="energie">
+      <h2>4. Den Energiesparplan wählen</h2>
+      <p>
+        Im Plan „Ausbalanciert“ taktet der Prozessor oft herunter, wenn er gerade wenig zu tun hat. Beim Spielen
+        kann das zu kleinen Rucklern führen. Ein Leistungsplan hält ihn schneller bereit.
+      </p>
+      <ol class="info-liste schritte">
+        <li><strong>Systemsteuerung → Hardware und Sound → Energieoptionen</strong> öffnen.</li>
+        <li><strong>„Höchstleistung“</strong> auswählen. Fehlt er, klickst du auf „Zusätzliche Energiesparpläne anzeigen“.</li>
+        <li>Für den Plan <strong>„Ultimative Leistung“</strong> öffnest du die Eingabeaufforderung als Administrator und gibst ein: <code>powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</code>. Danach wählst du ihn in den Energieoptionen aus. Taucht er nicht auf, bleibt es bei „Höchstleistung“.</li>
+      </ol>
+      <p class="muted">Am Notebook steigen dadurch Verbrauch und Wärme. Im Akkubetrieb lohnt es sich meist nicht. Zurück geht es mit „Ausbalanciert“.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="autostart">
+      <h2>5. Den Autostart ausmisten</h2>
+      <p>
+        Jedes Programm, das mit Windows startet, braucht Arbeitsspeicher und Prozessorzeit, auch wenn du es gar
+        nicht benutzt. Das ist die Einstellung, die auf zugemüllten PCs am meisten bringt.
+      </p>
+      <ol class="info-liste schritte">
+        <li>Mit <strong>Strg + Umschalt + Esc</strong> den Task-Manager öffnen.</li>
+        <li>Zum Reiter <strong>„Autostart-Apps“</strong> wechseln (in Windows 10 „Autostart“) und nach <strong>„Startauswirkung“</strong> sortieren.</li>
+        <li>Bei Programmen, die du nicht gleich nach dem Hochfahren brauchst, per Rechtsklick auf <strong>„Deaktivieren“</strong> gehen. Das trifft meist Launcher, Chat-Programme und Updater.</li>
+      </ol>
+      <p class="muted">Lass Treiber, Sicherheitsprogramm und die Software deiner Maus oder Tastatur an. Rückgängig: Rechtsklick und „Aktivieren“.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="aufnahme">
+      <h2>6. Die Hintergrundaufnahme ausschalten</h2>
+      <p>
+        Die Xbox Game Bar kann im Hintergrund mitschneiden, damit du die letzten Minuten speichern kannst. Das kostet
+        Leistung. Wenn du die Funktion nicht nutzt, brauchst du sie nicht.
+      </p>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → Spielen → Aufnahmen</strong> öffnen (je nach Version „Erfassungen“).</li>
+        <li>Die Option zum <strong>Aufzeichnen im Hintergrund</strong> ausschalten.</li>
+      </ol>
+    </section>
+
+    <section class="info-karte info-breit" id="treiber">
+      <h2>7. Den Grafiktreiber aktuell halten</h2>
+      <p>
+        Neue Spiele laufen mit neuen Treibern oft besser. Lade den Treiber direkt bei <strong>NVIDIA</strong>,
+        <strong>AMD</strong> oder <strong>Intel</strong> herunter, nicht über Zusatzprogramme von Dritten. Hast du
+        nach einem Update Probleme, installierst du ihn sauber neu. Beim NVIDIA-Installer wählst du dafür
+        „Benutzerdefiniert“ und setzt das Häkchen bei der <strong>sauberen Installation</strong>.
+      </p>
+    </section>
+
+    <section class="info-karte info-breit" id="speicher">
+      <h2>8. Temporäre Dateien löschen</h2>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → System → Speicher</strong> öffnen.</li>
+        <li>Auf <strong>„Temporäre Dateien“</strong> klicken, die Punkte markieren, die du loswerden willst, und auf <strong>„Dateien entfernen“</strong> gehen.</li>
+      </ol>
+      <p class="muted">Lass auf dem Laufwerk, auf dem Windows liegt, genug Platz frei. Eine fast volle Festplatte wird spürbar langsamer.</p>
+    </section>
+
+    <section class="info-karte info-breit" id="maus">
+      <h2>9. Die Zeigerbeschleunigung abschalten</h2>
+      <p>
+        Mit eingeschalteter Beschleunigung hängt die Zeigerbewegung davon ab, wie schnell du die Maus bewegst, nicht nur
+        wie weit. Für präzises Zielen ist es besser, wenn dieselbe Handbewegung immer dieselbe Strecke ergibt.
+      </p>
+      <ol class="info-liste schritte">
+        <li><strong>Einstellungen → Bluetooth &amp; Geräte → Maus → Zusätzliche Mauseinstellungen</strong> öffnen.</li>
+        <li>Im Reiter <strong>„Zeigeroptionen“</strong> das Häkchen bei <strong>„Zeigerbeschleunigung verbessern“</strong> entfernen und mit „OK“ bestätigen.</li>
+      </ol>
+    </section>
+
+    <section class="info-karte info-breit" id="gpu">
+      <h2>Zum Testen: Hardwarebeschleunigte GPU-Planung</h2>
+      <p>
+        Unter <strong>Einstellungen → System → Anzeige → Grafik → Standardgrafikeinstellungen ändern</strong> findest du
+        die <strong>„Hardwarebeschleunigte GPU-Planung“</strong>. Bei manchen PCs verbessert sie die Bildzeiten, bei anderen
+        kostet sie Stabilität. Probiere es mit deinem Spiel aus und stell es zurück, wenn es schlechter wird. Nach der
+        Änderung ist ein Neustart nötig.
+      </p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Wie viel bringt das wirklich?</h2>
+      <p>
+        Das hängt von deinem PC ab. Auf einem aufgeräumten Rechner merkst du wenig, auf einem zugemüllten deutlich mehr.
+        Oft werden die Bilder gleichmäßiger (die sogenannten Frametimes), bevor die FPS-Zahl steigt. Wer dir eine feste
+        FPS-Zahl verspricht, kennt deinen PC nicht. Miss deshalb vorher und nachher mit demselben Spiel und derselben Szene,
+        zum Beispiel mit dem Overlay von MSI Afterburner oder mit CapFrameX, und ändere nicht alles auf einmal.
+      </p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Lieber mit Schaltern und Rückgängig?</h2>
+      <p>
+        Die Tweak App von Tyler Tweaks bündelt Einstellungen wie diese: Jeder Tweak ist erklärt, wird vorher gesichert und
+        lässt sich einzeln wieder zurücknehmen. Alle System-Tweaks sind in der kostenlosen Version enthalten.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="index.html#tarif-app">Kostenlos ausprobieren</a>
+        <a class="btn btn-outline" href="tweaks.html">Alle Tweaks ansehen</a>
+      </p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Weiterlesen</h2>
+      <ul class="info-liste">
+        <li><a href="input-lag-senken.html">Input Lag senken: Maus, Monitor und Spiel</a></li>
+        <li><a href="windows-11-entruempeln.html">Windows 11 entrümpeln: Was du sicher abschalten kannst</a></li>
+        <li><a href="score-test.html">Der PC-Score-Test: Wie viel Leistung lässt dein PC liegen?</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="index.html" class="logo">
+        <img src="favicon.svg" alt="" width="36" height="36">
+        <span>Tyler <strong>Tweaks</strong></span>
+      </a>
+      <p class="muted">PC-Optimierung für Gaming und Alltag.<br>Windows 10 und 11, Backup inklusive.</p>
+    </div>
+
+    <div>
+      <h4>Angebot</h4>
+      <ul>
+        <li><a href="index.html#tarif-opt">PC-Optimierung</a></li>
+        <li><a href="index.html#tarif-bundle">Bundle</a></li>
+        <li><a href="index.html#tarif-app">Tweak App</a></li>
+        <li><a href="tweaks.html">Alle Optimierungen</a></li>
+        <li><a href="ratgeber.html">Ratgeber &amp; Anleitungen</a></li>
+        <li><a href="score-test.html">PC-Score-Test</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Vertrauen</h4>
+      <ul>
+        <li><a href="ablauf.html">So läuft die Optimierung ab</a></li>
+        <li><a href="sicherheit.html">Sicherheit der App</a></li>
+        <li><a href="index.html#faq">Häufige Fragen</a></li>
+        <li><a href="index.html#support">Hilfe &amp; Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Konto</h4>
+      <ul>
+        <li><a href="konto.html">Kundenbereich</a></li>
+        <li><a href="anmelden.html">Anmelden</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="widerruf.html">Rücktrittsbelehrung</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="disclaimer">
+      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben —
+      die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
+      Verantwortung. Vor Änderungen wird automatisch ein Backup erstellt.
+      Windows ist eine Marke der Microsoft Corporation, AnyDesk eine Marke der AnyDesk Software GmbH —
+      Tyler Tweaks steht mit keinem der beiden Unternehmen in Verbindung.
+    </p>
+    <p class="rechtslinks">
+      <a href="impressum.html">Impressum</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="agb.html">AGB</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="widerruf.html">Rücktritt</a>
+    </p>
+    <p class="copy">© <span id="year">2026</span> Tyler Tweaks</p>
+  </div>
+</footer>
+
+<script src="js/supabase-js-2.45.4.js"></script>
+<script src="konfig.js?v=2.2.0-ratgeber"></script>
+<script src="zaehlung.js?v=2.2.0-ratgeber"></script>
+<script src="tt-backend.js?v=2.2.0-ratgeber"></script>
+<script src="warenkorb.js?v=2.2.0-ratgeber"></script>
+<script src="rechtstext.js?v=2.2.0-ratgeber"></script>
+</body>
+</html>

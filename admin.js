@@ -1043,7 +1043,9 @@
   var SEITEN_NAMEN = {
     start: 'Startseite', tweaks: 'Liste der Tweaks', ablauf: 'Ablauf der Optimierung',
     sicherheit: 'Sicherheit', 'score-test': 'PC-Score-Test', kaufen: 'Kasse',
-    warenkorb: 'Warenkorb', anmelden: 'Anmelden'
+    warenkorb: 'Warenkorb', anmelden: 'Anmelden',
+    ratgeber: 'Ratgeber (Übersicht)', 'windows-11-gaming-einstellen': 'Ratgeber: Windows 11 fürs Gaming',
+    'input-lag-senken': 'Ratgeber: Input Lag senken', 'windows-11-entruempeln': 'Ratgeber: Windows entrümpeln'
   };
 
   function zahl(n) { return Number(n || 0).toLocaleString('de-AT'); }

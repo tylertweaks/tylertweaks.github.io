@@ -5516,3 +5516,11 @@ button.stufe:hover { border-color: var(--line-strong); }
 @media (max-width: 600px) {
   .produkt-bundle { padding: 60px 18px 26px; border-radius: 22px; }
 }
+
+/* ---------- Anleitungen auf der Startseite (28.10.2026) ---------- */
+.ratgeber-karte { display: block; color: inherit; text-decoration: none; }
+.ratgeber-karte h3 { margin-bottom: .45em; font-size: 1.18rem; }
+.ratgeber-karte p { margin: 0 0 16px; color: var(--text-2); }
+.ratgeber-karte .mehr { color: var(--accent); font-size: .92rem; font-weight: 600; }
+.ratgeber-karte:hover .mehr { text-decoration: underline; text-underline-offset: 3px; }
+.ratgeber-karte:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
