@@ -127,6 +127,11 @@
   overflow-wrap: anywhere;
 }
 
+/* Link zur eigenen Erklärseite, falls es eine gibt. */
+.tw-mehr { margin: 10px 0 0; font-size: .82rem; }
+.tw-mehr a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.tw-mehr a:hover { color: var(--text); }
+
 @media (prefers-reduced-motion: reduce) {
   .tw,
   .tw-details > summary::before { transition: none; }

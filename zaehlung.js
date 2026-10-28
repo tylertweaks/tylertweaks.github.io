@@ -30,7 +30,7 @@
   if (!K.supabaseUrl || !K.supabaseAnonKey) return;
 
   var SEITEN = ['start', 'tweaks', 'ablauf', 'sicherheit', 'score-test', 'kaufen', 'warenkorb', 'anmelden',
-                  'ratgeber', 'windows-11-gaming-einstellen', 'input-lag-senken', 'windows-11-entruempeln'];
+                  'ratgeber', 'windows-11-gaming-einstellen', 'input-lag-senken', 'windows-11-entruempeln', 'tweak'];
   var QUELLEN = ['direkt', 'tiktok', 'discord', 'youtube', 'instagram', 'reddit', 'google', 'suche', 'andere'];
   var SCHALTER = 'tt-zaehlung-aus';
 
@@ -54,6 +54,9 @@
   /* ---- Welche Seite ------------------------------------------------------- */
   var name = window.location.pathname.replace(/^\/+|\.html$/g, '').replace(/\/$/, '');
   var seite = (name === '' || name === 'index') ? 'start' : name;
+  // Die Erklärseiten zu einzelnen Tweaks (tweak-….html) zählen als eine Gruppe,
+  // sonst müsste jede neue Seite in drei Listen nachgetragen werden.
+  if (/^tweak-[a-z0-9-]+$/.test(seite)) seite = 'tweak';
   if (SEITEN.indexOf(seite) < 0) return;
 
   /* ---- Woher ---------------------------------------------------------------

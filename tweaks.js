@@ -240,10 +240,45 @@ window.TTKatalog = (function () {
 
     if (!optionen.knapp) {
       artikel.appendChild(details(tweak, r));
+
+      var seite = ERKLAERT[tweak.id];
+      if (seite) {
+        var mehr = el('p', 'tw-mehr');
+        var link = el('a', null, 'Ausführlich erklärt');
+        link.href = seite + '.html';
+        mehr.appendChild(link);
+        artikel.appendChild(mehr);
+      }
     }
 
     return artikel;
   }
+
+  /**
+   * Tweaks, zu denen es eine eigene Erklärseite gibt (Katalog-ID → Dateiname
+   * ohne .html). Die Seiten selbst stehen in der Sitemap und unter
+   * ratgeber.html; hier hängt nur der Link an der Liste.
+   */
+  var ERKLAERT = {
+    'gpu-hags': 'tweak-hardwarebeschleunigte-gpu-planung',
+    'net-afd-buffers': 'tweak-winsock-fastsenddatagramthreshold',
+    'gpu-windowed-optimizations': 'tweak-fenstermodus-swapeffectupgradeenable',
+    'cpu-core-parking': 'tweak-kernparken-cpmincores',
+    'cpu-core-parking-visible': 'tweak-kernparken-cpmincores',
+    'net-nagle': 'tweak-nagle-algorithmus',
+    'gpu-gamedvr-off': 'tweak-game-dvr-und-game-bar',
+    'gpu-gamebar-history': 'tweak-game-dvr-und-game-bar',
+    'gpu-game-bar': 'tweak-game-dvr-und-game-bar',
+    'gpu-fullscreen-optimizations': 'tweak-vollbildoptimierungen',
+    'sys-mouse-accel': 'tweak-mausbeschleunigung',
+    'exp-classic-context': 'tweak-klassisches-rechtsklickmenue',
+    'privacy-recall': 'tweak-windows-recall',
+    'svc-sysmain': 'tweak-sysmain-superfetch',
+    'sto-hibernate-off': 'tweak-ruhezustand-schnellstart',
+    'privacy-telemetry': 'tweak-telemetrie',
+    'privacy-telemetry-legacy': 'tweak-telemetrie',
+    'net-throttling': 'tweak-netzwerkdrosselung'
+  };
 
   function details(tweak, r) {
     var block = el('details', 'tw-details');

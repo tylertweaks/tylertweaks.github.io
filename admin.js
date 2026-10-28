@@ -1045,7 +1045,8 @@
     sicherheit: 'Sicherheit', 'score-test': 'PC-Score-Test', kaufen: 'Kasse',
     warenkorb: 'Warenkorb', anmelden: 'Anmelden',
     ratgeber: 'Ratgeber (Übersicht)', 'windows-11-gaming-einstellen': 'Ratgeber: Windows 11 fürs Gaming',
-    'input-lag-senken': 'Ratgeber: Input Lag senken', 'windows-11-entruempeln': 'Ratgeber: Windows entrümpeln'
+    'input-lag-senken': 'Ratgeber: Input Lag senken', 'windows-11-entruempeln': 'Ratgeber: Windows entrümpeln',
+    tweak: 'Tweak-Seiten (alle)'
   };
 
   function zahl(n) { return Number(n || 0).toLocaleString('de-AT'); }

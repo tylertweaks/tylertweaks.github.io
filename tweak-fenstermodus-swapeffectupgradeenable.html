@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Dieselbe Sicherheitsrichtlinie wie auf den Rechtsseiten. Die Seite lädt
+     nur eigene Dateien; rechtstext.js baut Menü und Anmeldestatus auf. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co">
+<link rel="canonical" href="https://tylertweaks.github.io/tweak-fenstermodus-swapeffectupgradeenable.html">
+<title>Spiele im Fenster optimieren (SwapEffect) | Tyler Tweaks</title>
+<meta name="description" content="Was SwapEffectUpgradeEnable macht: Spiele im Fenster oder im randlosen Vollbild laufen schneller und erlauben G-Sync und FreeSync. So schaltest du es ein.">
+<meta name="theme-color" content="#05070c">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Tyler Tweaks">
+<meta property="og:title" content="Optimierungen für Spiele im Fenster (SwapEffectUpgradeEnable)">
+<meta property="og:description" content="Was SwapEffectUpgradeEnable macht: Spiele im Fenster oder im randlosen Vollbild laufen schneller und erlauben G-Sync und FreeSync. So schaltest du es ein.">
+<meta property="og:url" content="https://tylertweaks.github.io/tweak-fenstermodus-swapeffectupgradeenable.html">
+<meta property="og:image" content="https://tylertweaks.github.io/bilder/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=2.3.0-tweakseiten">
+<link rel="stylesheet" href="info.css?v=2.3.0-tweakseiten">
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@graph":  [
+                   {
+                       "@type":  "Article",
+                       "headline":  "Optimierungen für Spiele im Fenster (SwapEffectUpgradeEnable)",
+                       "description":  "Was SwapEffectUpgradeEnable macht: Spiele im Fenster oder im randlosen Vollbild laufen schneller und erlauben G-Sync und FreeSync. So schaltest du es ein.",
+                       "inLanguage":  "de",
+                       "datePublished":  "2026-10-28",
+                       "dateModified":  "2026-10-28",
+                       "author":  {
+                                      "@type":  "Organization",
+                                      "name":  "Tyler Tweaks",
+                                      "url":  "https://tylertweaks.github.io/"
+                                  },
+                       "publisher":  {
+                                         "@type":  "Organization",
+                                         "name":  "Tyler Tweaks",
+                                         "url":  "https://tylertweaks.github.io/",
+                                         "logo":  {
+                                                      "@type":  "ImageObject",
+                                                      "url":  "https://tylertweaks.github.io/icon-192.png"
+                                                  }
+                                     },
+                       "mainEntityOfPage":  "https://tylertweaks.github.io/tweak-fenstermodus-swapeffectupgradeenable.html",
+                       "image":  "https://tylertweaks.github.io/bilder/vorschau.png"
+                   },
+                   {
+                       "@type":  "BreadcrumbList",
+                       "itemListElement":  [
+                                               {
+                                                   "@type":  "ListItem",
+                                                   "position":  1,
+                                                   "name":  "Start",
+                                                   "item":  "https://tylertweaks.github.io/"
+                                               },
+                                               {
+                                                   "@type":  "ListItem",
+                                                   "position":  2,
+                                                   "name":  "Ratgeber",
+                                                   "item":  "https://tylertweaks.github.io/ratgeber.html"
+                                               },
+                                               {
+                                                   "@type":  "ListItem",
+                                                   "position":  3,
+                                                   "name":  "Optimierungen für Spiele im Fenster (SwapEffectUpgradeEnable)"
+                                               }
+                                           ]
+                   }
+               ]
+}
+</script>
+</head>
+<body>
+
+<a href="#inhalt" class="skip-link">Zum Inhalt springen</a>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="favicon.svg" alt="" width="36" height="36">
+      <span>Tyler <strong>Tweaks</strong></span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="score-test.html">Score-Test</a>
+      <a href="ablauf.html">Ablauf</a>
+      <a href="sicherheit.html">Sicherheit</a>
+      <a href="ratgeber.html" aria-current="page">Ratgeber</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="admin.html" id="nav-admin" hidden>Admin</a>
+      <span id="nav-auth-mobil"></span>
+      <a href="index.html#preise" class="nav-cta">Jetzt kaufen</a>
+    </nav>
+
+    <div class="nav-actions">
+      <span id="nav-auth" class="nav-auth"></span>
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inhalt" class="info-seite">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap info-wrap">
+
+    <header class="info-kopf">
+      <span class="eyebrow">Tweak erklärt</span>
+      <h1>Optimierungen für Spiele im Fenster (SwapEffectUpgradeEnable)</h1>
+      <p class="sub">Mit dieser Einstellung zeigt Windows Spiele im Fenster oder im randlosen Vollbild über denselben schnellen Weg an wie im echten Vollbild. Das kann die Verzögerung senken und macht G-Sync und FreeSync auch im Fenster möglich. Sie betrifft Spiele, die DirectX 10 oder 11 nutzen.</p>
+    </header>
+
+    <section class="info-karte info-breit">
+      <h2>Auf einen Blick</h2>
+      <ul class="info-liste">
+        <li><strong>Optimierungen für Spiele im Fenster</strong>: Unkritisch, Teil der Tweak App mit Lizenz, GPU, Kein Neustart nötig, Braucht keine Administratorrechte</li>
+      </ul>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Was dieser Tweak macht</h2>
+      <p>Ältere DirectX-Spiele im Fenstermodus nutzen ein Anzeigeverfahren, bei dem Windows die Bilder kopiert (BitBlt). Mit der Einstellung wandelt Windows das in das modernere „Flip“-Verfahren um. Bei DirectX 12 und Vulkan ändert sich nichts, sie nutzen es schon.</p>
+      <p>Windows 11 hat dafür seit Version 22H2 einen Schalter in den Grafikeinstellungen. Der Wert <code>SwapEffectUpgradeEnable=1</code> in der Registry bewirkt dasselbe. Selten gibt es Darstellungsfehler. Dann schaltest du es wieder aus.</p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Diese Werte ändert er</h2>
+      <p class="muted">So steht es im Katalog der Tweak App, mit dem Wert, auf den zurückgesetzt wird.</p>
+      <ul class="info-liste">
+        <li><code>HKCU\Software\Microsoft\DirectX\UserGpuPreferences\DirectXUserGlobalSettings: SwapEffectUpgradeEnable=1</code><br><span class="muted">Zurück: gelöscht</span></li>
+      </ul>
+    </section>
+
+    <div class="info-zwei">
+      <section class="info-karte">
+        <h2>Wann es sich lohnt</h2>
+        <ul class="info-liste ja">
+          <li>Du spielst im Fenster oder im randlosen Vollbild</li>
+          <li>Du willst G-Sync oder FreeSync auch außerhalb des Vollbilds nutzen</li>
+          <li>Dein Spiel nutzt DirectX 10 oder 11</li>
+        </ul>
+      </section>
+
+      <section class="info-karte">
+        <h2>Wann besser nicht</h2>
+        <ul class="info-liste nein">
+          <li>Du spielst nur im echten Vollbild</li>
+          <li>Dein Spiel nutzt DirectX 12 oder Vulkan</li>
+          <li>Das Spiel zeigt nach dem Einschalten Darstellungsfehler</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="info-karte info-breit">
+      <h2>So machst du es von Hand</h2>
+      <p>Lege vorher einen Wiederherstellungspunkt an, wie in der Anleitung <a href="windows-11-gaming-einstellen.html#absichern">Windows 11 fürs Gaming einstellen</a> beschrieben.</p>
+      <ol class="info-liste schritte">
+        <li>Öffne <strong>Einstellungen → System → Anzeige → Grafik → Standardgrafikeinstellungen ändern</strong> und schalte die Optimierung für Spiele im Fenster ein (der Name kann je nach Version leicht abweichen).</li>
+        <li>Per Registry: Unter <code>HKCU\Software\Microsoft\DirectX\UserGpuPreferences</code> den Zeichenfolgenwert <code>DirectXUserGlobalSettings</code> anlegen und mit dem Inhalt <code>SwapEffectUpgradeEnable=1;</code> füllen.</li>
+      </ol>
+      <p class="muted">Änderungen an Windows geschehen auf eigene Verantwortung. Die Angaben gelten für Windows 10 und 11, Stand Oktober 2026, und können sich mit Updates ändern.</p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>So nimmst du es zurück</h2>
+      <p>Schalte die Option wieder aus oder lösche den Eintrag <code>SwapEffectUpgradeEnable=1;</code> aus dem Wert. In der Tweak App klickst du den Schalter aus.</p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Als Schalter mit Rückgängig</h2>
+      <p>
+        Die Tweak App von Tyler Tweaks setzt diesen Tweak mit einem Schalter. Sie sichert den alten Wert und lässt dich die
+        Änderung einzeln wieder zurücknehmen. Dieser Tweak gehört zur Tweak App mit Lizenz.
+      </p>
+      <p>
+        <a class="btn btn-primary" href="index.html#tarif-app">Tweak App ansehen</a>
+        <a class="btn btn-outline" href="tweaks.html#gpu-windowed-optimizations">Diesen Tweak in der Liste</a>
+      </p>
+    </section>
+
+    <section class="info-karte info-breit">
+      <h2>Weiterlesen</h2>
+      <ul class="info-liste">
+        <li><a href="tweak-vollbildoptimierungen.html">Vollbildoptimierungen abschalten</a></li>
+        <li><a href="tweak-hardwarebeschleunigte-gpu-planung.html">Hardwarebeschleunigte GPU-Planung (HwSchMode)</a></li>
+        <li><a href="input-lag-senken.html">Input Lag senken: Maus, Monitor und Spiel</a></li>
+        <li><a href="ratgeber.html">Alle Anleitungen und Tweak-Erklärungen</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a href="index.html" class="logo">
+        <img src="favicon.svg" alt="" width="36" height="36">
+        <span>Tyler <strong>Tweaks</strong></span>
+      </a>
+      <p class="muted">PC-Optimierung für Gaming und Alltag.<br>Windows 10 und 11, Backup inklusive.</p>
+    </div>
+
+    <div>
+      <h4>Angebot</h4>
+      <ul>
+        <li><a href="index.html#tarif-opt">PC-Optimierung</a></li>
+        <li><a href="index.html#tarif-bundle">Bundle</a></li>
+        <li><a href="index.html#tarif-app">Tweak App</a></li>
+        <li><a href="tweaks.html">Alle Optimierungen</a></li>
+        <li><a href="ratgeber.html">Ratgeber &amp; Anleitungen</a></li>
+        <li><a href="score-test.html">PC-Score-Test</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Vertrauen</h4>
+      <ul>
+        <li><a href="ablauf.html">So läuft die Optimierung ab</a></li>
+        <li><a href="sicherheit.html">Sicherheit der App</a></li>
+        <li><a href="index.html#faq">Häufige Fragen</a></li>
+        <li><a href="index.html#support">Hilfe &amp; Kontakt</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Konto</h4>
+      <ul>
+        <li><a href="konto.html">Kundenbereich</a></li>
+        <li><a href="anmelden.html">Anmelden</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+        <li><a href="widerruf.html">Rücktrittsbelehrung</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="disclaimer">
+      Hinweis: Es wird keine Garantie auf bestimmte FPS-Werte oder Leistungssteigerungen gegeben —
+      die Ergebnisse hängen von deiner Hardware ab. Die Nutzung der Tweak App erfolgt auf eigene
+      Verantwortung. Vor Änderungen wird automatisch ein Backup erstellt.
+      Windows ist eine Marke der Microsoft Corporation, AnyDesk eine Marke der AnyDesk Software GmbH —
+      Tyler Tweaks steht mit keinem der beiden Unternehmen in Verbindung.
+    </p>
+    <p class="rechtslinks">
+      <a href="impressum.html">Impressum</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="agb.html">AGB</a>
+      <span aria-hidden="true">&#183;</span>
+      <a href="widerruf.html">Rücktritt</a>
+    </p>
+    <p class="copy">© <span id="year">2026</span> Tyler Tweaks</p>
+  </div>
+</footer>
+
+<script src="js/supabase-js-2.45.4.js"></script>
+<script src="konfig.js?v=2.3.0-tweakseiten"></script>
+<script src="zaehlung.js?v=2.3.0-tweakseiten"></script>
+<script src="tt-backend.js?v=2.3.0-tweakseiten"></script>
+<script src="warenkorb.js?v=2.3.0-tweakseiten"></script>
+<script src="rechtstext.js?v=2.3.0-tweakseiten"></script>
+</body>
+</html>

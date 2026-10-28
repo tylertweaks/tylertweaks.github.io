@@ -30,8 +30,8 @@
 
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.2.0-ratgeber">
-<link rel="stylesheet" href="info.css?v=2.2.0-ratgeber">
+<link rel="stylesheet" href="style.css?v=2.3.0-tweakseiten">
+<link rel="stylesheet" href="info.css?v=2.3.0-tweakseiten">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -156,7 +156,7 @@
       <ol class="info-liste schritte">
         <li><strong>Einstellungen → Bluetooth &amp; Geräte → Maus → Zusätzliche Mauseinstellungen → Zeigeroptionen</strong> öffnen.</li>
         <li>Das Häkchen bei <strong>„Zeigerbeschleunigung verbessern“</strong> entfernen. Dann ergibt dieselbe Handbewegung immer dieselbe Strecke.</li>
-        <li>Die Zeigergeschwindigkeit auf der <strong>mittleren Stufe (6 von 11)</strong> lassen. Das ist die einzige Stufe, bei der die Bewegung 1:1 übernommen wird. Die Empfindlichkeit stellst du lieber im Spiel oder über die DPI deiner Maus ein.</li>
+        <li>Die Zeigergeschwindigkeit auf der <strong>mittleren Stufe (6 von 11)</strong> lassen. Das ist die einzige Stufe, bei der die Bewegung 1:1 übernommen wird. Die Empfindlichkeit stellst du lieber im Spiel oder über die DPI deiner Maus ein. Genaueres steht auf der Seite <a href="tweak-mausbeschleunigung.html">Mausbeschleunigung abschalten</a>.</li>
         <li>In der Software deiner Maus die <strong>Abtastrate</strong> (Polling Rate) auf 1000 Hz stellen. Höhere Werte wie 4000 oder 8000 Hz belasten den Prozessor stärker und helfen nur bei sehr schnellen Monitoren und starker Hardware.</li>
       </ol>
     </section>
@@ -169,7 +169,7 @@
         <li>Hast du einen <strong>G-Sync- oder FreeSync-Monitor</strong>, begrenze die FPS auf einen Wert <strong>knapp unter</strong> der Bildwiederholrate, zum Beispiel 141 bei 144 Hz. So bleibt der Lag niedrig und das Bild ruhig.</li>
         <li>Bietet das Spiel <strong>NVIDIA Reflex</strong> oder <strong>AMD Anti-Lag</strong> an, schalte es ein. Beide sind dafür gemacht, die Wartezeit zwischen Prozessor und Grafikkarte zu verkürzen.</li>
       </ol>
-      <p class="muted">Gleichmäßige FPS fühlen sich besser an als schwankende mit höherem Durchschnitt.</p>
+      <p class="muted">Gleichmäßige FPS fühlen sich besser an als schwankende mit höherem Durchschnitt. Zu Vollbild und Fenster: <a href="tweak-vollbildoptimierungen.html">Vollbildoptimierungen abschalten</a> und <a href="tweak-fenstermodus-swapeffectupgradeenable.html">Optimierungen für Spiele im Fenster</a>.</p>
     </section>
 
     <section class="info-karte info-breit" id="windows">
@@ -191,6 +191,7 @@
         <li>Ein <strong>LAN-Kabel</strong> statt WLAN</li>
         <li>Downloads, Streams und Updates auf anderen Geräten pausieren</li>
         <li>Den Router neu starten und, wenn möglich, einen Spieleserver in deiner Nähe wählen</li>
+        <li>Feinheiten für Fortgeschrittene, die bei UDP-Spielen aber wenig bringen: <a href="tweak-nagle-algorithmus.html">Nagle-Algorithmus</a> und <a href="tweak-netzwerkdrosselung.html">Netzwerkdrosselung</a></li>
       </ul>
     </section>
 
@@ -207,7 +208,7 @@
       <h2>Lieber mit Schaltern und Rückgängig?</h2>
       <p>
         Die Tweak App zeigt dir zu jeder Einstellung, was sie tut, sichert den alten Wert und lässt dich jeden Schritt
-        einzeln zurücknehmen. Die kostenlose Version enthält alle System-Tweaks.
+        einzeln zurücknehmen. Die kostenlose Version enthält die Tweaks unter System, Debloat und Privatsphäre. CPU, GPU und Netzwerk gehören zur Lizenz.
       </p>
       <p>
         <a class="btn btn-primary" href="index.html#tarif-app">Kostenlos ausprobieren</a>
@@ -302,10 +303,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.2.0-ratgeber"></script>
-<script src="zaehlung.js?v=2.2.0-ratgeber"></script>
-<script src="tt-backend.js?v=2.2.0-ratgeber"></script>
-<script src="warenkorb.js?v=2.2.0-ratgeber"></script>
-<script src="rechtstext.js?v=2.2.0-ratgeber"></script>
+<script src="konfig.js?v=2.3.0-tweakseiten"></script>
+<script src="zaehlung.js?v=2.3.0-tweakseiten"></script>
+<script src="tt-backend.js?v=2.3.0-tweakseiten"></script>
+<script src="warenkorb.js?v=2.3.0-tweakseiten"></script>
+<script src="rechtstext.js?v=2.3.0-tweakseiten"></script>
 </body>
 </html>
