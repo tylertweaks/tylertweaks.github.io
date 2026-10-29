@@ -5593,3 +5593,45 @@ button.stufe:hover { border-color: var(--line-strong); }
   margin: 24px 0 0;
 }
 .info-schnell .muted { margin: 0; font-size: .86rem; }
+
+/* ---------- Bundle größer (29.10.2026) ----------
+   Das Bundle ist das Paket, das gekauft werden soll, und war neben den
+   Nachbarn zu unauffällig. Größere Schrift, mehr Luft, ein größerer Preis und
+   ein größerer Knopf; auf breiten Schirmen ragt es weiter über die Nachbarn. */
+.produkt-bundle { padding: 72px 64px 60px; gap: 44px 56px; }
+.produkt-bundle .app-label { font-size: .9rem; margin-bottom: 20px; }
+@media (min-width: 961px) { .produkt-bundle { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
+.produkt-bundle .app-titel { font-size: clamp(2.4rem, 4.4vw, 3.4rem); line-height: 1.06; }
+.produkt-bundle .plan-desc { max-width: 52ch; margin-bottom: 30px; font-size: 1.2rem; line-height: 1.65; }
+.bundle-liste li { padding: 14px 0 14px 38px; font-size: 1.14rem; }
+.bundle-liste li::before { left: 8px; top: 24px; width: 12px; height: 7px; border-width: 2.4px; }
+.bundle-badge { top: -21px; left: 64px; padding: 11px 24px 11px 18px; font-size: .98rem; }
+.bundle-badge::before { width: 17px; height: 17px; }
+
+.produkt-bundle .produkt-kasse { padding: 48px 40px 40px; }
+.bundle-teile { gap: 10px 12px; margin-bottom: 30px; }
+.bundle-teile span { padding: 8px 14px; font-size: .94rem; }
+.produkt-bundle .price .amount { font-size: clamp(4.2rem, 6.6vw, 6rem); }
+.produkt-bundle .price .old { font-size: 1.5rem; }
+.produkt-bundle .price .cur { font-size: 2.2rem; }
+.produkt-bundle .save { margin-top: 18px; padding: 10px 22px; font-size: 1.14rem; }
+.produkt-bundle .plan-buy { margin-top: 34px; }
+.produkt-bundle .btn-primary { min-height: 76px; font-size: 1.2rem; }
+.produkt-bundle .plan-alt { margin-top: 16px; font-size: .92rem; }
+
+@media (min-width: 1280px) { .produkt-bundle { margin-inline: -36px; } }
+@media (min-width: 1500px) { .produkt-bundle { margin-inline: -56px; } }
+@media (max-width: 960px) {
+  .produkt-bundle { padding: 60px 30px 36px; }
+  .bundle-badge { left: 30px; top: -19px; }
+  .produkt-bundle .produkt-kasse { padding: 34px 26px 28px; }
+  .produkt-bundle .app-titel { font-size: clamp(2.1rem, 8vw, 3.4rem); }
+}
+@media (max-width: 600px) {
+  .produkt-bundle { padding: 52px 20px 26px; }
+  .bundle-badge { left: 20px; font-size: .9rem; }
+  .bundle-liste li { font-size: 1.06rem; }
+  .produkt-bundle .produkt-kasse { padding: 28px 20px 22px; }
+  .produkt-bundle .price .amount { font-size: clamp(3.8rem, 18vw, 4.8rem); }
+  .produkt-bundle .btn-primary { min-height: 72px; font-size: 1.24rem; }
+}
