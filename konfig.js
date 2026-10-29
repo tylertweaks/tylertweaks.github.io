@@ -197,7 +197,8 @@ window.TT_KONFIG = {
 
   /* ---- Gratis-Version der App ----------------------------------------------
      Seit Tyler 4.2 startet die App ohne Lizenzschlüssel als Gratis-Version
-     (alle Tweaks unter System, Game Booster mit 2 geschützten Apps). Wer alle will, gibt in der
+     (seit 2.3: Debloat, je 25 Tweaks unter Allgemein und Dienste, Autostart,
+     Aufräumen, Game Booster mit 2 geschützten Apps). Wer alle will, gibt in der
      App einen Schlüssel ein.
 
      Die Karte "Kostenlos" links neben den Laufzeiten wird von selbst zum
@@ -206,7 +207,7 @@ window.TT_KONFIG = {
      kleiner als die vorige 4.2.0), deshalb steht abVersion auf 2.0.0. Soll die Karte verschwinden: gratis: null */
   gratis: {
     abVersion: '2.0.0',
-    punkte: ['Alle System-Tweaks: Allgemein, Explorer, Dienste, Debloat, Privatsphäre', 'Game Booster mit 2 geschützten Apps', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks erweitern']
+    punkte: ['Debloat komplett und je 25 Tweaks unter Allgemein und Dienste', 'Autostart, Aufräumen und Game Booster mit 2 geschützten Apps', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks und die Ein-Klick-Optimierungen erweitern']
   },
 
   /* ---- Die beiden festen Pakete ------------------------------------------
