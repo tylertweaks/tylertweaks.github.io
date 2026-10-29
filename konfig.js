@@ -197,8 +197,7 @@ window.TT_KONFIG = {
 
   /* ---- Gratis-Version der App ----------------------------------------------
      Seit Tyler 4.2 startet die App ohne Lizenzschlüssel als Gratis-Version
-     (seit 2.3: Debloat, je 25 Tweaks unter Allgemein und Dienste, Autostart,
-     Aufräumen, Game Booster mit 2 geschützten Apps). Wer alle will, gibt in der
+     (alle Tweaks unter System, Game Booster mit 2 geschützten Apps). Wer alle will, gibt in der
      App einen Schlüssel ein.
 
      Die Karte "Kostenlos" links neben den Laufzeiten wird von selbst zum
@@ -207,7 +206,7 @@ window.TT_KONFIG = {
      kleiner als die vorige 4.2.0), deshalb steht abVersion auf 2.0.0. Soll die Karte verschwinden: gratis: null */
   gratis: {
     abVersion: '2.0.0',
-    punkte: ['Debloat komplett und je 25 Tweaks unter Allgemein und Dienste', 'Autostart, Aufräumen und Game Booster mit 2 geschützten Apps', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks und die Ein-Klick-Optimierungen erweitern']
+    punkte: ['Alle System-Tweaks: Allgemein, Explorer, Dienste, Debloat, Privatsphäre', 'Game Booster mit 2 geschützten Apps', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks erweitern']
   },
 
   /* ---- Die beiden festen Pakete ------------------------------------------
@@ -242,8 +241,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.3.0',
-    datum: '29.10.2026',
+    version: '2.2.0',
+    datum: '24.10.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -260,9 +259,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.3.0.exe',
+    datei: 'downloads/TylerTweaksSetup-2.2.0.exe',
     groesse: '51,3 MB',
-    sha256: '03dff530a11988b0c72f51a7e320d872795f3ca000878cbc0f2655b237a521ff'
+    sha256: '13b4d2878cf78f5f6015366358c42425427934e13d568e05dfeb756ba87e269e'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -274,7 +273,6 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
-    { version: '2.3.0', datum: '29.10.2026', text: 'Netzwerk Auto-Tune, eigener Energieplan Tyler Tweak App und die besten NVIDIA-Einstellungen mit einem Klick. Die Gratis-Version hat jetzt Debloat und je 25 Tweaks unter Allgemein und Dienste.' },
     { version: '2.2.0', datum: '24.10.2026', text: 'Die Gratis-Version hat jetzt alle Tweaks unter System: Allgemein, Explorer, Dienste, Autostart, Debloat und Privatsphäre. CPU, GPU, Netzwerk und der Rest bleiben mit Schloss. Der Game Booster geht auch gratis, mit bis zu zwei geschützten Apps.' },
     { version: '2.1.0', datum: '24.10.2026', text: 'Neuer Aufbau wie bei anderen Tweak-Tools: System mit Allgemein, Explorer, Dienste, Autostart, Debloat und Privatsphäre, dazu Overlays. 294 Tweaks statt 231. Unter Werkzeuge neu: Reparatur, die Einstellungen anderer Tweak-Programme auf den Windows-Standard zurücksetzt.' },
     { version: '2.0.0', datum: '23.10.2026', text: 'Neu als Version 2.0: Gratis-Version mit 40 Tweaks und Game Booster, gesperrte Bereiche mit Schloss, das Preset Tyler Owner, alle installierten Programme unter Aufräumen deinstallieren, eckige Knöpfe und eine Übersicht je Kategorie, wie viele Tweaks aktiv, zurückgesetzt und offen sind.' },

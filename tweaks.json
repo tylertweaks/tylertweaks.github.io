@@ -1,8 +1,8 @@
 {
-  "version": "2.3.0",
-  "erzeugt": "2026-10-29",
+  "version": "2.2.0",
+  "erzeugt": "2026-10-24",
   "anzahl": 294,
-  "gratisAnzahl": 62,
+  "gratisAnzahl": 189,
   "bereiche": [
     {
       "key": "cat.general",
@@ -929,7 +929,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Dienste wieder in gemeinsame Prozesse legen",
         "beschreibung": "Windows fasst seine Hintergrunddienste wieder zu wenigen Prozessen zusammen, statt über sechzig einzelne laufen zu lassen.",
@@ -956,7 +956,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Energieplan „Höchstleistung“ aktivieren",
         "beschreibung": "Schaltet auf den Energieplan „Höchstleistung“. Rückgängig machen stellt deinen alten Plan wieder ein.",
@@ -983,7 +983,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Festplatten nicht mehr abschalten",
         "beschreibung": "Laufwerke schalten sich in Pausen nicht mehr ab und antworten danach sofort.",
@@ -1010,7 +1010,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Reaktivierungszeitgeber abschalten",
         "beschreibung": "Geplante Aufgaben wecken den PC nicht mehr aus dem Energiesparmodus, etwa nachts.",
@@ -1037,7 +1037,7 @@
       "risiko": "Advanced",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Ruhezustand abschalten",
         "beschreibung": "Schaltet den Ruhezustand ab und gibt dadurch mehrere Gigabyte frei. Der Windows-Schnellstart fällt damit auch weg."
@@ -1068,7 +1068,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Speicheroptimierung einschalten",
         "beschreibung": "Windows räumt Temp-Dateien und den Papierkorb regelmäßig selbst auf."
@@ -1095,7 +1095,7 @@
       "risiko": "Advanced",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Reservierten Speicher freigeben",
         "beschreibung": "Gibt rund 7 GB frei, die Windows für Updates zurückhält. Große Updates brauchen dann freien Platz."
@@ -1120,7 +1120,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Kurze Dateinamen abschalten",
         "beschreibung": "Windows legt zu jeder neuen Datei keinen zweiten, kurzen Namen im alten DOS-Format mehr an. Spart bei jeder neuen Datei etwas Zeit.",
@@ -1147,7 +1147,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "NTFS mehr Arbeitsspeicher zugestehen",
         "beschreibung": "Windows darf mehr Arbeitsspeicher für Ordner-Infos benutzen. Hilft bei sehr vielen kleinen Dateien."
@@ -1172,7 +1172,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Energiesparen der SATA-Verbindung abschalten",
         "beschreibung": "Die Verbindung zu SATA-Laufwerken schläft in Pausen nicht mehr ein. Das Laufwerk antwortet sofort.",
@@ -1199,7 +1199,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Neustart nach Update nur nach Rückfrage",
         "beschreibung": "Nach Updates fährt Windows nicht mehr von selbst herunter und wieder hoch, solange du angemeldet bist. Updates werden weiter installiert."
@@ -1224,7 +1224,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Update-Weitergabe an fremde PCs abschalten",
         "beschreibung": "Dein PC verteilt keine Updates mehr an fremde Rechner im Internet. Das spart Upload."
@@ -1249,7 +1249,7 @@
       "risiko": "Advanced",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Treiber nicht über Windows Update beziehen",
         "beschreibung": "Windows Update installiert keine Treiber mehr. Gut für Grafikkarten, wenn du Treiber selbst holst – riskant bei einem frisch installierten Windows."
@@ -1274,7 +1274,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Automatische App-Updates aus dem Store abschalten",
         "beschreibung": "Store-Apps aktualisieren sich nicht mehr von selbst. Updates startest du dann im Store."
@@ -1299,7 +1299,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Funktionsupdates aufschieben",
         "beschreibung": "Große Windows-Upgrades kommen bis zu ein Jahr später. Sicherheitsupdates kommen weiter ganz normal."
@@ -1326,7 +1326,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Keine Treibersuche im Internet bei neuer Hardware",
         "beschreibung": "Bei neuer Hardware sucht Windows nicht mehr im Internet nach Treibern, sondern nimmt nur, was schon da ist.",
@@ -1353,7 +1353,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Eingabepuffer für Maus und Tastatur verkleinern",
         "beschreibung": "Kürzere Warteschlange für Maus- und Tastatureingaben."
@@ -1380,7 +1380,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Visuelle Effekte auf beste Leistung",
         "beschreibung": "Stellt die Darstellungsoptionen von Windows auf «Für optimale Leistung anpassen»."
@@ -1405,7 +1405,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Windows-Energiesparmodus abschalten",
         "beschreibung": "Vier Schalter des Energiesparmodus, mit denen Windows von sich aus die Leistung drosselt und Hintergrundarbeit einschränkt, um Strom zu sparen.",
@@ -1438,7 +1438,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Latenztoleranzen der Energieverwaltung auf Minimum",
         "beschreibung": "Neun Werte, die festlegen, wie viel Verzögerung beim Aufwachen aus Energiesparzuständen hinnehmbar ist.",
@@ -1481,7 +1481,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Wartezeiten der Anschlagverzögerung auf null",
         "beschreibung": "Die Eingabehilfe „Anschlagverzögerung“ hält Tastendrücke zurück, bevor sie weitergegeben werden. Die Wartezeiten werden auf null gesetzt.",
@@ -1514,7 +1514,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "NTFS-Zugriffszeit nicht mehr mitschreiben",
         "beschreibung": "Windows aktualisiert bei jedem Lesezugriff nicht mehr den Zeitstempel der Datei. Spart Schreibvorgänge auf SSDs."
@@ -1539,7 +1539,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Prefetch abschalten",
         "beschreibung": "Windows legt keine Vorladedaten mehr an. Auf SSDs praktisch wirkungslos, auf Festplatten macht es den Start langsamer."
@@ -1564,7 +1564,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Vordergrundsperre abschalten",
         "beschreibung": "Windows hindert Programme sonst 200 Sekunden lang daran, sich vor das Fenster zu schieben, in dem du gerade arbeitest, und lässt nur ihr Taskleistensymbol blinken. Abgeschaltet kommt ein Fenster, das nach vorne will, sofort nach vorne.",
@@ -1593,7 +1593,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Wartezeit für Eingabe-Hooks verkürzen",
         "beschreibung": "Programme, die Tastatur und Maus mitlesen, etwa Makro-Tools und Overlays, bekommen pro Eingabe höchstens eine Sekunde. Hängt eines davon, überspringt Windows es danach.",
@@ -1620,7 +1620,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "L2-Cache-Größe eintragen",
         "beschreibung": "Trägt 256 KB als Größe des Level-2-Caches von Hand in die Speicherverwaltung ein.",
@@ -1647,7 +1647,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Leerlaufabschaltung der Bildausgabe aus",
         "beschreibung": "Ein Wert neben dem Energieplan, mit dem Windows die Bildausgabe nach einer Ruhezeit abschalten kann.",
@@ -1674,14 +1674,14 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
-        "name": "Sparfunktionen im aktiven Energieplan abschalten",
+        "name": "Tyler-Leistungsplan",
         "beschreibung": "Stellt im aktiven Energieplan die Sparfunktionen ab, die Tyler nicht schon einzeln anbietet: Drosselstufen, den Sparzustand geparkter Kerne, die Leerlauf-Schwellen, den Abwesenheitsmodus und den tiefen Standby. Mindestleistung, Kernparken, Festplatte und USB gibt es als eigene Tweaks.",
         "hinweis": "Der Prozessor bleibt öfter wach. Auf Laptops sinkt die Akkulaufzeit spürbar."
       },
       "en": {
-        "name": "Turn off power plan savings",
+        "name": "Tyler power plan",
         "beschreibung": "Turns off the power saving features of the active power plan that Tyler does not already offer one by one: throttle states, the saving state of parked cores, the idle thresholds, away mode and deep standby. Minimum performance, core parking, disk and USB are tweaks of their own.",
         "hinweis": "The processor stays awake more often. On laptops, battery life drops noticeably."
       },
@@ -1715,7 +1715,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Dateiendungen anzeigen",
         "beschreibung": "Der Explorer zeigt wieder Dateiendungen wie .exe oder .pdf. So erkennst du getarnte Dateien."
@@ -1740,7 +1740,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Versteckte Dateien anzeigen",
         "beschreibung": "Der Explorer zeigt auch versteckte Ordner und Dateien."
@@ -1765,7 +1765,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Klassisches Rechtsklickmenü (Windows 11)",
         "beschreibung": "Ein Rechtsklick zeigt wieder gleich das ganze Menü, ohne „Weitere Optionen anzeigen“. Der Explorer lädt dafür einmal kurz neu."
@@ -1794,7 +1794,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Taskleiste links ausrichten",
         "beschreibung": "Startknopf und Symbole sitzen wieder links statt in der Mitte."
@@ -1819,7 +1819,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Widgets-Knopf ausblenden",
         "beschreibung": "Das Wetter- und Nachrichtenfeld verschwindet aus der Taskleiste."
@@ -1844,7 +1844,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Copilot-Knopf ausblenden",
         "beschreibung": "Der Copilot-Knopf verschwindet aus der Taskleiste."
@@ -1869,7 +1869,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Taskansicht-Knopf ausblenden",
         "beschreibung": "Der Knopf für virtuelle Desktops verschwindet aus der Taskleiste. Windows\u002BTab geht weiter."
@@ -1894,7 +1894,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Suchfeld in der Taskleiste verkleinern",
         "beschreibung": "Aus dem breiten Suchfeld wird wieder ein einzelnes Symbol."
@@ -1919,7 +1919,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Zuletzt verwendete Dateien ausblenden",
         "beschreibung": "Der Explorer zeigt nicht mehr, welche Dateien und Ordner du zuletzt geöffnet hast."
@@ -1946,7 +1946,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Transparenzeffekte abschalten",
         "beschreibung": "Startmenü und Taskleiste sind nicht mehr durchsichtig. Spart etwas Grafikleistung."
@@ -1971,7 +1971,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Explorer mit «Dieser PC» öffnen",
         "beschreibung": "Der Explorer öffnet bei deinen Laufwerken statt beim Schnellzugriff."
@@ -1996,7 +1996,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Andockvorschläge abschalten",
         "beschreibung": "Ziehst du ein Fenster an den Rand, schlägt Windows nicht mehr vor, was daneben soll."
@@ -2021,7 +2021,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Websuche im Startmenü abschalten",
         "beschreibung": "Die Suche im Startmenü durchsucht nur noch deinen PC, nicht mehr das Internet."
@@ -2046,7 +2046,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Nachrichten und Interessen abschalten",
         "beschreibung": "Windows zeigt keine Nachrichten-Schlagzeilen mehr an."
@@ -2071,7 +2071,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Werbung im Explorer abschalten",
         "beschreibung": "Der Explorer macht keine Werbung mehr für OneDrive und andere Microsoft-Dienste."
@@ -2096,7 +2096,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Kompakte Ansicht einschalten",
         "beschreibung": "Der Explorer rückt Dateien enger zusammen, wie in Windows 10. So passt mehr auf den Bildschirm."
@@ -2121,7 +2121,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Vollständigen Pfad in der Titelleiste zeigen",
         "beschreibung": "Der Explorer zeigt oben den ganzen Ordnerpfad statt nur den Ordnernamen."
@@ -2146,7 +2146,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Laufwerksbuchstaben voranstellen",
         "beschreibung": "Aus «Windows (C:)» wird «(C:) Windows». Laufwerke lassen sich damit schneller am Buchstaben erkennen."
@@ -2171,7 +2171,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "«Task beenden» im Taskleistenmenü",
         "beschreibung": "Rechtsklick auf ein Programm in der Taskleiste bietet „Task beenden“. So schließt du hängende Programme ohne Task-Manager."
@@ -2196,7 +2196,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Nachfrage vor dem Löschen einschalten",
         "beschreibung": "Windows fragt wieder nach, bevor eine Datei in den Papierkorb wandert."
@@ -2221,7 +2221,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Suchhighlights abschalten",
         "beschreibung": "Das Suchfeld zeigt keine wechselnden Bilder und Feiertage mehr."
@@ -2246,7 +2246,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Vorschau ohne Verzögerung",
         "beschreibung": "Die Vorschaubilder in der Taskleiste erscheinen sofort statt nach einer kurzen Wartezeit."
@@ -2271,7 +2271,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Windows-Startklang abschalten",
         "beschreibung": "Beim Hochfahren spielt Windows keine Melodie mehr ab."
@@ -2296,7 +2296,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Weichzeichner am Anmeldebildschirm aus",
         "beschreibung": "Das Hintergrundbild der Anmeldung wird scharf statt verschwommen angezeigt."
@@ -2321,7 +2321,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Kein «- Verknüpfung» an neuen Verknüpfungen",
         "beschreibung": "Neue Verknüpfungen bekommen kein „- Verknüpfung“ mehr angehängt. Bestehende bleiben, wie sie sind."
@@ -2346,7 +2346,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Suche nach verschobenen Verknüpfungszielen abschalten",
         "beschreibung": "Zeigt eine Verknüpfung ins Leere, durchsucht Windows nicht mehr alle Laufwerke nach dem Ziel. Dazu fällt die Warnung bei wenig Speicherplatz weg."
@@ -2377,7 +2377,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Tastenkürzel zum Minimieren aller Fenster abschalten",
         "beschreibung": "Win\u002BM, Win\u002BPos1 und Fenster-Schütteln minimieren nicht mehr alle Fenster. Im Spiel passiert das sonst leicht aus Versehen.",
@@ -2404,7 +2404,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Weiches Scrollen abschalten",
         "beschreibung": "Listen springen beim Scrollen sofort an die Stelle, statt dorthin zu gleiten."
@@ -2429,7 +2429,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Aero Peek abschalten",
         "beschreibung": "Die Maus in der Ecke unten rechts macht nicht mehr alle Fenster kurz durchsichtig."
@@ -2456,7 +2456,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Taskleisten-Animationen und durchsichtige Auswahl aus",
         "beschreibung": "Taskleisten-Symbole erscheinen ohne Animation, und das Auswahlkästchen im Explorer ist einfarbig."
@@ -2483,7 +2483,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Alt\u002BTab nur mit Fenstern, ohne Edge-Tabs",
         "beschreibung": "Alt\u002BTab zeigt nur noch Fenster, keine Edge-Tabs mehr."
@@ -2508,7 +2508,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Klassischen Alt\u002BTab-Umschalter verwenden",
         "beschreibung": "Alt\u002BTab zeigt wieder eine schlichte Reihe Symbole statt großer Vorschaubilder – sofort und ohne Animation."
@@ -2533,7 +2533,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Keine Store-Suche bei unbekannten Dateien",
         "beschreibung": "Bei unbekannten Dateien schlägt Windows keine Store-Apps mehr vor, sondern zeigt gleich deine Programme."
@@ -3217,7 +3217,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Sensordienst abschalten",
         "beschreibung": "Der Dienst für Lage-, Licht- und Bewegungssensoren, wie sie Laptops und Tablets haben.",
@@ -3244,7 +3244,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Wallet-Dienst abschalten",
         "beschreibung": "Der Dienst, der Zahlungsdaten für Windows-Apps verwaltet."
@@ -3269,7 +3269,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Internetverbindungsfreigabe abschalten",
         "beschreibung": "Der Dienst, der die Internetverbindung dieses PCs mit anderen Geräten teilt.",
@@ -3296,7 +3296,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Netzwerkübersicht abschalten",
         "beschreibung": "Der Dienst, der die Karte der Geräte in deinem Heimnetz zeichnet.",
@@ -3323,7 +3323,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Chipkartendienst abschalten",
         "beschreibung": "Der Dienst für Chipkartenleser, etwa für den Personalausweis oder die Anmeldung in der Firma.",
@@ -3350,7 +3350,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Offlinedateien abschalten",
         "beschreibung": "Der Dienst, der Kopien von Netzlaufwerken auf dem PC bereithält, damit sie auch ohne Verbindung da sind.",
@@ -3377,7 +3377,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Mobilfunk-Telefondienst abschalten",
         "beschreibung": "Der Dienst für Telefonfunktionen an Geräten mit SIM-Karte.",
@@ -3404,7 +3404,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "QoS für Audio und Video abschalten",
         "beschreibung": "Der Dienst, der Audio und Video im Heimnetz bevorzugt.",
@@ -3431,7 +3431,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Sensordaten-Dienst abschalten",
         "beschreibung": "Der Dienst, der Messwerte von Sensoren an Apps weitergibt.",
@@ -3458,7 +3458,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Sensorüberwachung abschalten",
         "beschreibung": "Der Dienst, der Sensoren überwacht und danach Bildschirm und Helligkeit anpasst.",
@@ -3485,7 +3485,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Automatische Wiedergabe abschalten",
         "beschreibung": "Der Dienst, der beim Einstecken eines USB-Sticks fragt, was passieren soll.",
@@ -3512,7 +3512,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "UPnP-Geräteerkennung abschalten",
         "beschreibung": "Der Dienst, der Geräte im Heimnetz findet, die sich per UPnP melden, etwa Medienserver.",
@@ -3539,7 +3539,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "UPnP-Gerätehost abschalten",
         "beschreibung": "Der Dienst, der diesen PC für andere UPnP-Geräte sichtbar macht.",
@@ -3566,7 +3566,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Startdienst für Bilderfassung abschalten",
         "beschreibung": "Der Dienst, der Programme startet, wenn du am Scanner oder an der Kamera einen Knopf drückst."
@@ -3591,7 +3591,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Benutzerdatenzugriff abschalten",
         "beschreibung": "Der Dienst, der Apps Zugriff auf Kontakte, Kalender und Nachrichten gibt.",
@@ -3618,7 +3618,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Kamera-Frameserver abschalten",
         "beschreibung": "Der Dienst, über den mehrere Programme gleichzeitig deine Webcam benutzen können.",
@@ -3645,7 +3645,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Windows-Bilderfassung abschalten",
         "beschreibung": "Der Dienst, der Scanner und Kameras erkennt und für Programme bereitstellt.",
@@ -3672,7 +3672,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Mobilen Hotspot abschalten",
         "beschreibung": "Der Dienst für den mobilen Hotspot, der die Verbindung dieses PCs per WLAN teilt.",
@@ -3699,7 +3699,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Arbeitsordner abschalten",
         "beschreibung": "Der Dienst, der Ordner mit einem Firmenserver abgleicht.",
@@ -3726,7 +3726,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Arbeitsstationsdienst auf manuell",
         "beschreibung": "Der Dienst für Netzlaufwerke und Windows-Freigaben startet nicht mehr automatisch mit Windows.",
@@ -3753,7 +3753,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Bluetooth-Audiogateway abschalten",
         "beschreibung": "Der Dienst, der das Mikrofon eines Bluetooth-Headsets mit Windows verbindet.",
@@ -3780,7 +3780,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Druckerbenachrichtigungen abschalten",
         "beschreibung": "Der Dienst für Druckermeldungen, etwa wenn das Papier leer ist.",
@@ -3807,7 +3807,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "PowerShell Direct für Hyper-V abschalten",
         "beschreibung": "Ein Dienst für virtuelle Maschinen. Auf einem normalen PC hat er nichts zu tun."
@@ -3832,7 +3832,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Chipkartenleser-Erkennung abschalten",
         "beschreibung": "Der Dienst, der Windows meldet, welche Chipkartenleser angeschlossen sind.",
@@ -3859,7 +3859,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Windows-Insider-Dienst abschalten",
         "beschreibung": "Der Dienst für das Windows-Insider-Programm mit Vorabversionen.",
@@ -3886,7 +3886,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Automatische Zeitzone abschalten",
         "beschreibung": "Der Dienst, der die Zeitzone nach deinem Standort umstellt.",
@@ -3913,7 +3913,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Application Virtualization abschalten",
         "beschreibung": "Der Client für virtualisierte Firmen-Programme (App-V). Zu Hause gibt es nichts, was ihn braucht."
@@ -3938,7 +3938,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Net.Tcp-Portfreigabe abschalten",
         "beschreibung": "Ein Dienst, über den sich .NET-Serverprogramme einen Netzwerkanschluss teilen."
@@ -3963,7 +3963,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Routing und RAS abschalten",
         "beschreibung": "Der Dienst, mit dem Windows als Router oder Einwahlserver arbeitet."
@@ -3988,7 +3988,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "User Experience Virtualization abschalten",
         "beschreibung": "Gleicht Einstellungen zwischen Firmenrechnern ab. Auf einem privaten PC hat er nichts zu tun."
@@ -4013,7 +4013,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "OpenSSH-Agent abschalten",
         "beschreibung": "Hält SSH-Schlüssel für Programme wie Git im Speicher.",
@@ -4040,7 +4040,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Host für Windows-KI-Komponenten abschalten",
         "beschreibung": "Der Dienst, über den die KI-Funktionen von Windows 11 ihre Modelle laden.",
@@ -4067,7 +4067,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Fehlerberichtsdienst abschalten",
         "beschreibung": "Der Dienst, der nach Abstürzen Berichte sammelt und an Microsoft schickt.",
@@ -4094,7 +4094,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Windows-Ereignissammlung abschalten",
         "beschreibung": "Sammelt Ereignisprotokolle anderer Rechner im Netzwerk ein, eine Funktion für Firmennetze."
@@ -4119,7 +4119,7 @@
       "risiko": "Caution",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Richtlinie beim Ziehen der Chipkarte abschalten",
         "beschreibung": "Sperrt in Firmen den Rechner, sobald jemand die Chipkarte zieht.",
@@ -4146,7 +4146,7 @@
       "risiko": "Advanced",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Hyper-V-Host-Computedienst abschalten",
         "beschreibung": "Der Dienst, auf dem Container und leichte virtuelle Maschinen laufen.",
@@ -4513,7 +4513,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Telemetrie minimieren",
         "beschreibung": "Windows schickt nur noch das Nötigste an Diagnosedaten an Microsoft. Der Dienst, der sie im Hintergrund sammelt, wird abgeschaltet."
@@ -4540,7 +4540,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Werbe-ID abschalten",
         "beschreibung": "Apps können dich nicht mehr über eine Werbe-Nummer wiedererkennen. Werbung in Apps ist dann weniger auf dich zugeschnitten."
@@ -4565,7 +4565,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Aktivitätsverlauf abschalten",
         "beschreibung": "Windows sammelt nicht mehr, welche Apps und Dateien du benutzt, und lädt nichts davon hoch."
@@ -4594,7 +4594,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Cortana abschalten",
         "beschreibung": "Die Sprachassistentin Cortana in der Windows-Suche wird abgeschaltet."
@@ -4619,7 +4619,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Standortverfolgung abschalten",
         "beschreibung": "Keine App darf mehr wissen, wo du gerade bist."
@@ -4644,7 +4644,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Kamera für alle Apps sperren",
         "beschreibung": "Kein Programm darf deine Kamera mehr benutzen – keine Store-App, aber auch nicht Discord, Teams oder Spiele. Videoanrufe gehen dann nirgends mehr.",
@@ -4671,7 +4671,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Mikrofon für alle Apps sperren",
         "beschreibung": "Kein Programm darf dein Mikrofon mehr benutzen – keine Store-App, aber auch nicht Discord, Teams oder Spiele. Sprachchat und Anrufe gehen dann nirgends mehr.",
@@ -4698,7 +4698,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Kontakte und Kalender sperren",
         "beschreibung": "Apps aus dem Microsoft Store dürfen deine Kontakte und Termine nicht mehr lesen. Die Mail- und Kalender-App von Windows funktioniert dann nicht mehr richtig."
@@ -4725,7 +4725,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Windows Recall abschalten",
         "beschreibung": "Windows macht keine laufenden Bildschirmfotos, um sie später durchsuchbar zu machen. Das gibt es nur auf Copilot\u002B-PCs – auf anderen PCs ändert der Schalter nichts."
@@ -4750,7 +4750,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Zwischenablage-Verlauf abschalten",
         "beschreibung": "Windows merkt sich nicht mehr alles, was du kopierst, und schickt es nicht an deine anderen Geräte. Windows\u002BV zeigt dann keinen Verlauf mehr."
@@ -4777,7 +4777,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Werbung auf dem Sperrbildschirm abschalten",
         "beschreibung": "Auf dem Sperrbildschirm erscheinen keine Werbung und keine Tipps mehr."
@@ -4806,7 +4806,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Vorschläge in den Einstellungen abschalten",
         "beschreibung": "Die Einstellungen-App macht keine Werbung mehr für Funktionen und Abos."
@@ -4835,7 +4835,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Keine Dateien automatisch an Microsoft senden",
         "beschreibung": "Der Virenschutz schickt verdächtige Dateien nicht mehr von selbst an Microsoft. Er schützt dich weiter, erkennt ganz neue Viren aber etwas später."
@@ -4860,7 +4860,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Personalisierte Werbung abschalten",
         "beschreibung": "Microsoft nutzt deine Diagnosedaten nicht mehr für Werbung und Tipps, die auf dich zugeschnitten sind."
@@ -4885,7 +4885,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Werbung im Startmenü abschalten",
         "beschreibung": "Im Startmenü erscheinen keine vorgeschlagenen und bezahlten Apps mehr."
@@ -4914,7 +4914,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Feedback-Abfragen abschalten",
         "beschreibung": "Windows fragt dich nicht mehr, wie zufrieden du damit bist."
@@ -4941,7 +4941,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Eingabe- und Freihandpersonalisierung abschalten",
         "beschreibung": "Windows wertet nicht mehr aus, was du tippst und mit dem Stift schreibst."
@@ -4970,7 +4970,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Online-Spracherkennung abschalten",
         "beschreibung": "Was du ins Mikrofon sprichst, wird nicht mehr zur Erkennung an Microsoft geschickt."
@@ -4995,7 +4995,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "App-Start-Verfolgung abschalten",
         "beschreibung": "Windows zählt nicht mehr, welche Programme du wie oft startest."
@@ -5020,7 +5020,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Fehlerberichterstattung abschalten",
         "beschreibung": "Wenn ein Programm abstürzt, geht kein Bericht mehr an Microsoft."
@@ -5047,7 +5047,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Tipps und Tricks zu Windows abschalten",
         "beschreibung": "Windows blendet beim Arbeiten keine Tipps und Vorschläge mehr ein."
@@ -5072,7 +5072,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Diagnosedaten weiter einschränken",
         "beschreibung": "Noch weniger Diagnosedaten: Windows schickt deinen PC-Namen nicht mehr mit, lädt keine Einstellungen von Microsoft nach und sammelt weniger Protokolle."
@@ -5101,7 +5101,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Diagnosedaten auch im zweiten Richtlinienzweig begrenzen",
         "beschreibung": "Windows liest die Menge der Diagnosedaten an zwei Stellen. Dieser Tweak stellt auch die zweite auf das Minimum."
@@ -5128,7 +5128,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Web- und Cloud-Suche per Richtlinie sperren",
         "beschreibung": "Was du in die Windows-Suche tippst, geht nicht mehr an Bing. Gilt für den ganzen PC.",
@@ -5165,7 +5165,7 @@
       "risiko": "Safe",
       "neustart": true,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Copilot per Richtlinie abschalten",
         "beschreibung": "Schaltet Copilot ganz ab, nicht nur den Knopf."
@@ -5192,7 +5192,7 @@
       "risiko": "Caution",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Standort per Richtlinie sperren",
         "beschreibung": "Sperrt den Standort fest, sodass ihn auch keine App wieder einschalten kann.",
@@ -5223,7 +5223,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Auswertung von Tippen und Handschrift sperren",
         "beschreibung": "Windows wertet nicht mehr aus, was du tippst und mit dem Stift schreibst. Das gilt fest für den ganzen PC.",
@@ -5260,7 +5260,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Programminventar und Kompatibilitätsdaten abschalten",
         "beschreibung": "Windows führt keine Liste deiner installierten Programme mehr und schickt sie nicht an Microsoft.",
@@ -5291,7 +5291,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": false,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Windows-Blickpunkt abschalten",
         "beschreibung": "Sperrbildschirm, Info-Center und Einstellungen zeigen keine Werbung und keine Vorschläge mehr.",
@@ -5326,7 +5326,7 @@
       "risiko": "Safe",
       "neustart": false,
       "admin": true,
-      "gratis": false,
+      "gratis": true,
       "de": {
         "name": "Zugeschnittene Erfahrungen abschalten",
         "beschreibung": "Der Schalter unter Datenschutz › Diagnose, mit dem Microsoft Tipps und Angebote auf deine Diagnosedaten zuschneidet. Ergänzt die Richtlinie aus „Personalisierte Werbung abschalten“."
