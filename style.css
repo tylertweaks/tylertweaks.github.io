@@ -4030,10 +4030,10 @@ h3 { letter-spacing: -.015em; }
    Cyan und Gold bleiben. Das Stahlblau ist seit 29.10.2026 ein dunkleres,
    kräftigeres Blau; Knöpfe in dieser Farbe haben weiße Schrift (siehe unten). */
 .ton-cyan {
-  --accent:       #2ec5ff;
-  --accent-rgb:   46, 197, 255;
-  --accent-2:     #7fd8ff;
-  --accent-2-rgb: 127, 216, 255;
+  --accent:       #1f9ed8;
+  --accent-rgb:   31, 158, 216;
+  --accent-2:     #46b6ea;
+  --accent-2-rgb: 70, 182, 234;
   --accent-soft:  rgba(var(--accent-rgb), .10);
 }
 .ton-stahl {
@@ -5694,3 +5694,8 @@ button.stufe:hover { border-color: var(--line-strong); }
    Hilfe-Bereich). Ein helles Blau mit dunkler Schrift wirkte blass. */
 .ton-stahl .btn-primary { background: #2f5fd6; color: #fff; }
 .ton-stahl .btn-primary:hover { background: #3d70e8; }
+
+/* Auch das Türkis der App ist dunkler: tiefes Blau-Türkis, weiße Schrift auf
+   dem Kaufknopf (App, Vertrauen, Impressum, Tweak-Liste). */
+.ton-cyan .btn-primary { background: #0e78ad; color: #fff; }
+.ton-cyan .btn-primary:hover { background: #1688c2; }
