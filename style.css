@@ -4027,8 +4027,8 @@ h3 { letter-spacing: -.015em; }
 }
 
 /* ---------- Abschnittstöne ----------
-   Cyan und Gold bleiben. Aus Magenta wird Stahlblau: hell genug für die
-   dunkle Schrift auf den Verlaufs-Knöpfen, aber klar vom Akzent getrennt. */
+   Cyan und Gold bleiben. Das Stahlblau ist seit 29.10.2026 ein dunkleres,
+   kräftigeres Blau; Knöpfe in dieser Farbe haben weiße Schrift (siehe unten). */
 .ton-cyan {
   --accent:       #2ec5ff;
   --accent-rgb:   46, 197, 255;
@@ -4037,10 +4037,10 @@ h3 { letter-spacing: -.015em; }
   --accent-soft:  rgba(var(--accent-rgb), .10);
 }
 .ton-stahl {
-  --accent:       #8fb4ff;
-  --accent-rgb:   143, 180, 255;
-  --accent-2:     #5b9bff;
-  --accent-2-rgb: 91, 155, 255;
+  --accent:       #4f80ee;
+  --accent-rgb:   79, 128, 238;
+  --accent-2:     #6f9bf5;
+  --accent-2-rgb: 111, 155, 245;
   --accent-soft:  rgba(var(--accent-rgb), .10);
 }
 
@@ -5689,3 +5689,8 @@ button.stufe:hover { border-color: var(--line-strong); }
   border-radius: 14px;
   background: rgba(255, 255, 255, .025);
 }
+
+/* Knöpfe im dunkleren Blau: tiefer Grund, weiße Schrift (PC-Optimierung und
+   Hilfe-Bereich). Ein helles Blau mit dunkler Schrift wirkte blass. */
+.ton-stahl .btn-primary { background: #2f5fd6; color: #fff; }
+.ton-stahl .btn-primary:hover { background: #3d70e8; }
