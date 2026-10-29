@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.5.0-startseite">
-<link rel="stylesheet" href="mockup.css?v=2.5.0-startseite">
+<link rel="stylesheet" href="style.css?v=2.5.1-bundle">
+<link rel="stylesheet" href="mockup.css?v=2.5.1-bundle">
 </head>
 <body>
 
@@ -419,10 +419,12 @@
            aufgebaut wie die beiden: Inhalt links, Kaufbox rechts. script.js
            nimmt die erste h3 im Block als Namen für den Warenkorb. -->
       <article class="plan plan-featured produkt produkt-bundle ton-gold" id="tarif-bundle">
+        <!-- Sitzt wie ein Etikett auf dem oberen Rand. "Bester Wert" stimmt,
+             solange der Bundle-Preis unter der Summe der Einzelpreise liegt
+             (script.js rechnet das aus und zeigt die Ersparnis). -->
+        <span class="bundle-badge">Bester Wert</span>
+
         <div class="produkt-info">
-          <!-- "Bester Wert" stimmt, solange der Bundle-Preis unter der Summe der
-               Einzelpreise liegt (script.js rechnet das aus und zeigt die Ersparnis). -->
-          <span class="bundle-badge">Bester Wert</span>
           <h3 class="app-label">Bundle</h3>
           <p class="app-titel">Optimierung plus App. <em>Zusammen günstiger.</em></p>
           <p class="plan-desc">
@@ -430,7 +432,7 @@
             bleibst du selbst dran, auch wenn ein Windows-Update etwas zurücksetzt.
           </p>
 
-          <ul class="features features-2">
+          <ul class="features bundle-liste">
             <li>Alles aus der PC-Optimierung</li>
             <li>Tweak App mit Lifetime-Lizenz für 1 PC</li>
             <li>Persönliche Einweisung in die App</li>
@@ -442,12 +444,15 @@
         </div>
 
         <div class="produkt-kasse">
+          <div class="bundle-teile" aria-label="Enthalten: PC-Optimierung und Tweak App Lifetime">
+            <span>PC-Optimierung</span><i aria-hidden="true">+</i><span>Tweak App Lifetime</span>
+          </div>
+
           <div class="price">
             <span class="old" data-preis-summe>69,98 €</span>
             <span class="amount">59,99</span><span class="cur">€</span><span class="once">einmalig</span>
           </div>
           <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
-          <p class="kasse-meta">Enthalten: PC-Optimierung und Tweak App Lifetime</p>
 
           <div class="plan-buy">
             <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
@@ -974,11 +979,11 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.5.0-startseite"></script>
-<script src="zaehlung.js?v=2.5.0-startseite"></script>
-<script src="tt-backend.js?v=2.5.0-startseite"></script>
-<script src="warenkorb.js?v=2.5.0-startseite"></script>
-<script src="tweaks.js?v=2.5.0-startseite"></script>
-<script src="script.js?v=2.5.0-startseite"></script>
+<script src="konfig.js?v=2.5.1-bundle"></script>
+<script src="zaehlung.js?v=2.5.1-bundle"></script>
+<script src="tt-backend.js?v=2.5.1-bundle"></script>
+<script src="warenkorb.js?v=2.5.1-bundle"></script>
+<script src="tweaks.js?v=2.5.1-bundle"></script>
+<script src="script.js?v=2.5.1-bundle"></script>
 </body>
 </html>
