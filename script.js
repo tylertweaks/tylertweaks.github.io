@@ -424,7 +424,12 @@
             ? 'Ohne Anmeldung'
             : 'Kommt mit Tyler ' + esc(String(gratis.abVersion || '').replace(/\.0$/, ''))) + '</span>' +
           '<span class="stufe-punkte">' + punkte(gratis.punkte) + '</span>' +
-          (da ? '<a class="btn btn-outline btn-block stufe-download" href="' + esc(datei) + '" download>Gratis herunterladen</a>' : '') +
+          (da ? '<a class="btn btn-outline btn-block stufe-download" href="' + esc(datei) + '" download>Gratis herunterladen</a>' +
+            /* Hier springen die meisten ab: Windows warnt beim ersten Start vor
+               Programmen ohne Herausgeber-Zertifikat. Wer das vorher weiß,
+               klickt weiter, statt die Installation abzubrechen. */
+            '<span class="stufe-warnung">Windows warnt beim ersten Start, weil die App noch nicht signiert ist. ' +
+            '<a href="sicherheit.html#windows-warnung">So gehst du vor</a></span>' : '') +
         '</div>';
     }
 
@@ -1018,6 +1023,27 @@
       stand.textContent = 'Stand ' + KONFIG.reichweiteStand;
       stand.hidden = false;
     }
+  })();
+
+  /* ====================================================================
+     8c. Preisblöcke: am Handy eingeklappt, am Rechner offen
+
+     "Was ich einstelle" und der Ablauf der Optimierung sind auf dem Handy je
+     einen halben Bildschirm bis zwei Bildschirme lang und schieben die
+     Kaufknöpfe weit nach unten. Auf breiten Schirmen ist Platz genug, dort
+     steht alles offen wie bisher. Ohne Javascript bleiben sie zu: Lesbar ist
+     der Inhalt trotzdem, er steht im Quelltext.
+     ==================================================================== */
+  (function preisBloecke() {
+    var breit = window.matchMedia && window.matchMedia('(min-width: 900px)');
+    var bloecke = document.querySelectorAll('#opt-mehr, #opt-ablauf');
+    if (!breit || !bloecke.length) return;
+
+    function anpassen() {
+      bloecke.forEach(function (b) { b.open = breit.matches; });
+    }
+    anpassen();
+    if (breit.addEventListener) breit.addEventListener('change', anpassen);
   })();
 
   /* ====================================================================

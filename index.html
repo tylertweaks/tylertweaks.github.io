@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.3.0-tweakseiten">
-<link rel="stylesheet" href="mockup.css?v=2.3.0-tweakseiten">
+<link rel="stylesheet" href="style.css?v=2.4.0-kaufweg">
+<link rel="stylesheet" href="mockup.css?v=2.4.0-kaufweg">
 </head>
 <body>
 
@@ -334,7 +334,10 @@
             <li>Am Ende liegt die Liste aller Änderungen bei dir</li>
           </ul>
 
-          <p class="produkt-zwischen">Was ich einstelle</p>
+          <!-- Auf dem Handy eingeklappt: Sonst braucht der Kaufknopf der App
+               drei Bildschirme mehr. Ab 900 px Breite öffnet script.js es. -->
+          <details class="produkt-mehr" id="opt-mehr">
+          <summary>Was ich einstelle <span>sechs Bereiche</span></summary>
           <ul class="produkt-punkte">
             <li>
               <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1 3-1 3 1 3-1 3 1 3-1v12l-3 1-3-1-3 1-3-1-3 1-3-1z"/></svg></span>
@@ -379,6 +382,7 @@
               </div>
             </li>
           </ul>
+          </details>
         </div>
 
         <div class="produkt-kasse">
@@ -404,7 +408,8 @@
         <!-- Derselbe Ablauf wie unter "Support" weiter unten, dort als Liste
              für alle, die schon gekauft haben. Hier für die, die noch überlegen. -->
         <div class="produkt-ablauf">
-          <p class="zeitstrahl-kopf" id="ablauf-optimierung">So läuft die Optimierung ab</p>
+          <details class="ablauf-mehr" id="opt-ablauf">
+          <summary class="zeitstrahl-kopf" id="ablauf-optimierung">So läuft die Optimierung ab</summary>
           <ol class="zeitstrahl" aria-labelledby="ablauf-optimierung">
             <li>
               <span class="zs-num" aria-hidden="true">1</span>
@@ -432,6 +437,7 @@
               <span class="zs-text">Liste aller Änderungen und das Backup</span>
             </li>
           </ol>
+          </details>
         </div>
       </article>
 
@@ -1039,11 +1045,11 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.3.0-tweakseiten"></script>
-<script src="zaehlung.js?v=2.3.0-tweakseiten"></script>
-<script src="tt-backend.js?v=2.3.0-tweakseiten"></script>
-<script src="warenkorb.js?v=2.3.0-tweakseiten"></script>
-<script src="tweaks.js?v=2.3.0-tweakseiten"></script>
-<script src="script.js?v=2.3.0-tweakseiten"></script>
+<script src="konfig.js?v=2.4.0-kaufweg"></script>
+<script src="zaehlung.js?v=2.4.0-kaufweg"></script>
+<script src="tt-backend.js?v=2.4.0-kaufweg"></script>
+<script src="warenkorb.js?v=2.4.0-kaufweg"></script>
+<script src="tweaks.js?v=2.4.0-kaufweg"></script>
+<script src="script.js?v=2.4.0-kaufweg"></script>
 </body>
 </html>

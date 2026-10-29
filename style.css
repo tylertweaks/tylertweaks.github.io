@@ -5524,3 +5524,115 @@ button.stufe:hover { border-color: var(--line-strong); }
 .ratgeber-karte .mehr { color: var(--accent); font-size: .92rem; font-weight: 600; }
 .ratgeber-karte:hover .mehr { text-decoration: underline; text-underline-offset: 3px; }
 .ratgeber-karte:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Kaufweg (29.10.2026) ----------
+   Preisblöcke, die am Handy eingeklappt sind (script.js, 8c), das Paket auf
+   der Anmeldeseite und der Hinweis zur Windows-Warnung am Gratis-Download. */
+.produkt-mehr > summary,
+.ablauf-mehr > summary { list-style: none; cursor: pointer; }
+.produkt-mehr > summary::-webkit-details-marker,
+.ablauf-mehr > summary::-webkit-details-marker { display: none; }
+
+.produkt-mehr > summary,
+.ablauf-mehr > summary.zeitstrahl-kopf {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(5, 7, 12, .45);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.produkt-mehr > summary { justify-content: space-between; margin: 0; }
+.produkt-mehr > summary span {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.ablauf-mehr > summary.zeitstrahl-kopf { justify-content: center; margin: 0; }
+.produkt-mehr > summary::after,
+.ablauf-mehr > summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 7px; height: 7px;
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform .18s ease;
+}
+.produkt-mehr[open] > summary::after,
+.ablauf-mehr[open] > summary::after { transform: rotate(-135deg); }
+.produkt-mehr[open] > summary { margin-bottom: 14px; }
+.ablauf-mehr[open] > summary.zeitstrahl-kopf { margin-bottom: 30px; }
+.produkt .app-vorteile + .produkt-mehr { margin-top: 30px; }
+.produkt-mehr > summary:focus-visible,
+.ablauf-mehr > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Breit steht alles offen: Dort sieht die Überschrift wieder aus wie früher,
+   ein bloßes Etikett ohne Rahmen und Pfeil. */
+@media (min-width: 900px) {
+  .produkt-mehr > summary,
+  .ablauf-mehr > summary.zeitstrahl-kopf {
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: default;
+  }
+  .produkt-mehr > summary { justify-content: flex-start; }
+  .produkt-mehr > summary span { display: none; }
+  .produkt-mehr > summary::after,
+  .ablauf-mehr > summary::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .produkt-mehr > summary::after,
+  .ablauf-mehr > summary::after { transition: none; }
+}
+
+.paket-hinweis {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 12px;
+  align-items: baseline;
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(var(--accent-rgb), .4);
+  border-radius: 12px;
+  background: rgba(var(--accent-rgb), .08);
+}
+.paket-hinweis[hidden] { display: none; }
+.ph-label {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.ph-name { font-size: 1.05rem; }
+.ph-preis { font-weight: 700; }
+.ph-text { grid-column: 1 / -1; margin: 6px 0 0; color: var(--text-2); font-size: .86rem; line-height: 1.5; }
+
+.stufe-warnung { display: block; margin-top: 10px; color: var(--muted); font-size: .8rem; line-height: 1.45; }
+.stufe-warnung a { color: var(--text-2); text-decoration: underline; text-underline-offset: 3px; }
+.stufe-warnung a:hover { color: var(--text); }
+
+/* Ein Knopf gleich unter der Überschrift der Ratgeber- und Tweak-Seiten */
+.info-schnell {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 16px;
+  margin: 24px 0 0;
+}
+.info-schnell .muted { margin: 0; font-size: .86rem; }

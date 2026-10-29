@@ -36,7 +36,7 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.3.0-tweakseiten">
+<link rel="stylesheet" href="style.css?v=2.4.0-kaufweg">
 </head>
 <body>
 
@@ -84,6 +84,15 @@
     </div>
 
     <div class="login-card anmelde-karte">
+
+      <!-- Kommt der Besucher vom Kaufknopf, steht hier sein Paket (auth.js).
+           So sieht er, dass die Anmeldung zum Kauf gehört und noch nichts kostet. -->
+      <div class="paket-hinweis" id="paket-hinweis" hidden>
+        <span class="ph-label">Dein Paket</span>
+        <strong class="ph-name" id="ph-name"></strong>
+        <span class="ph-preis" id="ph-preis"></span>
+        <p class="ph-text">Jetzt wird noch nichts bezahlt. Nach der Anmeldung liegt das Paket im Warenkorb.</p>
+      </div>
 
       <div class="form-msg" id="meldung" role="alert"></div>
 
@@ -162,10 +171,10 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.3.0-tweakseiten"></script>
-<script src="zaehlung.js?v=2.3.0-tweakseiten"></script>
-<script src="tt-backend.js?v=2.3.0-tweakseiten"></script>
-<script src="warenkorb.js?v=2.3.0-tweakseiten"></script>
-<script src="auth.js?v=2.3.0-tweakseiten"></script>
+<script src="konfig.js?v=2.4.0-kaufweg"></script>
+<script src="zaehlung.js?v=2.4.0-kaufweg"></script>
+<script src="tt-backend.js?v=2.4.0-kaufweg"></script>
+<script src="warenkorb.js?v=2.4.0-kaufweg"></script>
+<script src="auth.js?v=2.4.0-kaufweg"></script>
 </body>
 </html>

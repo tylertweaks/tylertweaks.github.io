@@ -150,6 +150,30 @@
         'ein Konto an. Danach liegt dein Paket im Warenkorb.', 'ok');
     }
 
+    /* Welches Paket wartet? Steht als ?paket=… im Ziel, das der Warenkorb
+       mitgibt. Name und Preis kommen aus der Datenbank, damit hier dieselbe
+       Zahl steht wie im Warenkorb; klappt die Abfrage nicht, bleibt der Kasten
+       einfach weg. */
+    (async function paketZeigen() {
+      var kasten = document.getElementById('paket-hinweis');
+      var treffer = /(?:^|[?&])paket=([a-z0-9-]+)/i.exec(weiter || '');
+      if (!kasten || !treffer || suche.get('grund') !== 'warenkorb' || !TT.db) return;
+
+      try {
+        var erg = await TT.db.from('products')
+          .select('name, price, currency')
+          .eq('slug', treffer[1].toLowerCase())
+          .eq('active', true)
+          .maybeSingle();
+        if (erg.error || !erg.data || !erg.data.name) return;
+
+        document.getElementById('ph-name').textContent = erg.data.name;
+        document.getElementById('ph-preis').textContent =
+          TT.geld(erg.data.price, erg.data.currency || 'EUR');
+        kasten.hidden = false;
+      } catch (e) { /* ohne Kasten geht es genauso weiter */ }
+    })();
+
     /* Seit 27.10.2026: ein Formular für alle, kein eigenes Registrieren.
        Erst wird angemeldet. Kennt Supabase die Kombination nicht, wird mit
        denselben Daten ein Konto angelegt, und es kommt eine Mail zum
