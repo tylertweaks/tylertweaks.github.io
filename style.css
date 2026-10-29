@@ -4437,93 +4437,13 @@ body { counter-reset: abschnitt; }
 
 /* ---------- Bundle ---------- */
 .produkt-bundle {
-  grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
   align-items: stretch;
 }
 .produkt-bundle .amount {
   background: linear-gradient(100deg, #fff 10%, #ffd98a);
   -webkit-background-clip: text;
   background-clip: text;
-}
-.produkt-kaufzeile {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px 32px;
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-.produkt-kaufzeile .plan-buy { flex: 1 1 260px; margin: 0; }
-
-/* Zeichnung links: zwei Teile, die zu einem werden. Die Teile haben eine
-   feste Höhe, damit die senkrechte Linie genau an ihren Mitten anfängt und
-   aufhört (66 / 2 = 33). */
-.bundle-bild {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 56px;
-  padding: 28px 16px;
-  background: rgba(5, 7, 12, .5);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-}
-.bb-teile { position: relative; display: grid; gap: 40px; }
-.bb-teil {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 66px;
-  padding: 0 18px;
-  background: var(--bg);
-  border: 1px solid rgba(143, 180, 255, .5);
-  border-radius: 9px;
-  white-space: nowrap;
-  box-shadow: 0 0 22px rgba(143, 180, 255, .12);
-}
-.bb-teil.bb-app { border-color: rgba(46, 197, 255, .5); box-shadow: 0 0 22px rgba(46, 197, 255, .12); }
-.bb-teil strong { font-family: var(--font-head); font-size: .98rem; }
-.bb-teil small {
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: .6rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-}
-.bb-teil::after,
-.bb-teile::after,
-.bb-ziel::before {
-  content: '';
-  position: absolute;
-  background: rgba(var(--gold-rgb), .6);
-}
-.bb-teil::after { left: 100%; top: 50%; width: 28px; height: 1px; }
-.bb-teile::after { right: -28px; top: 33px; bottom: 33px; width: 1px; }
-.bb-ziel::before { right: 100%; top: 50%; width: 28px; height: 1px; }
-.bb-ziel {
-  position: relative;
-  padding: 14px 22px;
-  background: linear-gradient(180deg, rgba(var(--gold-rgb), .18), rgba(var(--gold-rgb), .04));
-  border: 1px solid rgba(var(--gold-rgb), .75);
-  border-radius: 10px;
-  color: #ffd98a;
-  font-family: var(--font-head);
-  font-size: 1.1rem;
-  font-weight: 700;
-  box-shadow: 0 0 34px rgba(var(--gold-rgb), .25);
-}
-/* Knoten, wo die beiden Linien zusammenlaufen */
-.bb-ziel::after {
-  content: '';
-  position: absolute;
-  right: calc(100% + 24px);
-  top: calc(50% - 4px);
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 12px rgba(var(--gold-rgb), .9);
 }
 
 /* ---------- Schmale Schirme ---------- */
@@ -4538,8 +4458,6 @@ body { counter-reset: abschnitt; }
   .produkt-punkte { grid-template-columns: minmax(0, 1fr); }
   .features-2 { columns: 1; }
   .produkt-kasse { padding: 24px 18px 20px; }
-  /* Die Zeichnung ist reine Dekoration und passt hier nicht mehr in die Breite. */
-  .bundle-bild { display: none; }
 }
 
 /* ==========================================================================
@@ -5458,13 +5376,13 @@ button.stufe:hover { border-color: var(--line-strong); }
 @media (max-width: 600px) { #tarif-opt { padding: 26px 18px; border-radius: 22px; } }
 
 /* ---------- Bundle: das Angebot, das auffallen soll ----------
-   Ganz oben in den Paketen, mit goldenem Rand und Schein, "Bester Wert",
-   größerem Preis und einem größeren Kaufknopf. Gold steht auf der Seite nur
-   dafür. Zurück an die alte Stelle: die Zeile mit order löschen. */
-.produkte .produkt-bundle { order: -1; }
+   Steht seit 29.10.2026 in der Mitte zwischen PC-Optimierung und App, mit
+   goldenem Rand und Schein, "Bester Wert", größerem Preis und größerem
+   Kaufknopf. Aufgebaut wie die anderen Pakete: Inhalt links, Kaufbox rechts.
+   Gold steht auf der Seite nur dafür. */
 .produkt-bundle {
   position: relative;
-  padding: 60px 52px 48px;
+  padding: 48px 48px 44px;
   border-radius: 28px;
   border-color: rgba(var(--accent-rgb), .65);
   background:
@@ -5476,16 +5394,15 @@ button.stufe:hover { border-color: var(--line-strong); }
     0 34px 100px rgba(var(--accent-rgb), .17);
 }
 .bundle-badge {
-  position: absolute;
-  top: 22px; right: 26px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 18px 8px 14px;
+  margin-bottom: 18px;
+  padding: 7px 16px 7px 12px;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #1f1400;
-  font-size: .82rem;
+  font-size: .78rem;
   font-weight: 800;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -5497,24 +5414,30 @@ button.stufe:hover { border-color: var(--line-strong); }
   background: currentColor;
   clip-path: polygon(50% 0, 62% 36%, 100% 38%, 70% 60%, 80% 100%, 50% 76%, 20% 100%, 30% 60%, 0 38%, 38% 36%);
 }
-.produkt-bundle .price .amount { font-size: clamp(3.4rem, 6vw, 4.6rem); }
+.produkt-bundle .produkt-kasse {
+  justify-content: center;
+  border-color: rgba(var(--accent-rgb), .55);
+  background: linear-gradient(180deg, rgba(var(--accent-rgb), .18), rgba(5, 7, 12, .55) 75%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 24px 60px rgba(var(--accent-rgb), .2);
+}
+.produkt-bundle .price .amount { font-size: clamp(3.2rem, 5vw, 4.2rem); }
 .produkt-bundle .price .old { font-size: 1.1rem; }
 .produkt-bundle .save {
-  display: inline-block;
-  margin-top: 12px;
+  align-self: flex-start;
+  margin: 12px 0 0;
   padding: 7px 16px;
   border-radius: 999px;
   background: rgba(var(--ok-rgb), .14);
   box-shadow: inset 0 0 0 1px rgba(var(--ok-rgb), .45);
   font-size: .95rem;
 }
+.produkt-bundle .plan-buy { margin-top: 26px; }
 .produkt-bundle .btn-primary { min-height: 64px; font-size: 1.14rem; }
 @media (max-width: 960px) {
-  .produkt-bundle { padding: 64px 26px 34px; }
-  .bundle-badge { top: 18px; right: 20px; }
+  .produkt-bundle { padding: 34px 26px; }
 }
 @media (max-width: 600px) {
-  .produkt-bundle { padding: 60px 18px 26px; border-radius: 22px; }
+  .produkt-bundle { padding: 26px 18px; border-radius: 22px; }
 }
 
 /* ---------- Anleitungen auf der Startseite (28.10.2026) ---------- */

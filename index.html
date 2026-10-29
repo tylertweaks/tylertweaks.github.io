@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.4.0-kaufweg">
-<link rel="stylesheet" href="mockup.css?v=2.4.0-kaufweg">
+<link rel="stylesheet" href="style.css?v=2.5.0-startseite">
+<link rel="stylesheet" href="mockup.css?v=2.5.0-startseite">
 </head>
 <body>
 
@@ -177,9 +177,7 @@
     <nav class="nav-links" id="nav-links" aria-label="Hauptnavigation">
       <a href="#top">Startseite</a>
       <a href="#preise">Preise</a>
-      <a href="score-test.html">Score-Test</a>
       <a href="sicherheit.html">Sicherheit</a>
-      <a href="ratgeber.html">Ratgeber</a>
       <a href="#faq">FAQ</a>
       <a href="#support">Support</a>
       <a href="admin.html" id="nav-admin" hidden>Admin</a>
@@ -220,15 +218,15 @@
     <p class="hero-zeile">Ich stelle Windows für Gaming ein. Mit Backup, und alles lässt sich wieder rückgängig machen.</p>
 
     <div class="hero-cta">
-      <!-- Der erste Knopf ist der Gratis-Download (26.10.2026): Wer die App
-           erst ausprobiert, kauft eher den Schlüssel. script.js setzt die
-           Datei aus konfig.js (app.datei) ein; ohne Skript führt er zur App. -->
-      <a href="#tarif-app" class="btn btn-primary btn-lg" id="hero-gratis" data-scroll-to="tarif-app">
+      <!-- Seit 29.10.2026 links der blaue Knopf zu den Preisen, rechts der
+           Gratis-Download ohne Füllung. script.js setzt die Datei aus
+           konfig.js (app.datei) ein; ohne Skript führt er zur App. -->
+      <a href="#preise" class="btn btn-primary btn-lg">
+        Preise ansehen
+      </a>
+      <a href="#tarif-app" class="btn btn-outline btn-lg" id="hero-gratis" data-scroll-to="tarif-app">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg>
         Gratis herunterladen
-      </a>
-      <a href="#preise" class="btn btn-outline btn-lg">
-        Preise ansehen
       </a>
     </div>
 
@@ -265,34 +263,6 @@
       </li>
     </ul>
 
-  </div>
-</section>
-
-<!-- ============ SCORE-TEST ============
-     Ein Band direkt unter dem Namen, das zu score-test.html führt. Wer nicht
-     weiß, welches Paket er braucht, bekommt dort nach 12 Fragen eine
-     Empfehlung. Bewusst ohne .section-head: Die Kennzeilen darunter sind
-     nummeriert (Abschnitt 24 in style.css), und dieses Band soll die Zählung
-     nicht verschieben. -->
-<section class="score-band reveal" aria-labelledby="score-band-titel">
-  <div class="wrap">
-    <a class="score-band-karte" href="score-test.html">
-      <span class="score-band-ring" aria-hidden="true">
-        <svg viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="52" class="score-band-spur"/>
-          <circle cx="60" cy="60" r="52" class="score-band-wert"/>
-        </svg>
-        <span>?</span>
-      </span>
-      <span class="score-band-text">
-        <span class="score-band-titel" id="score-band-titel">Wie viel Leistung lässt dein PC liegen?</span>
-        <span class="score-band-sub">12 Fragen, zwei Minuten, ohne Anmeldung. Danach weißt du, wo du anfangen solltest und welches Paket zu dir passt.</span>
-      </span>
-      <span class="btn btn-primary score-band-knopf">
-        <span>Test starten</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-      </span>
-    </a>
   </div>
 </section>
 
@@ -442,27 +412,17 @@
       </article>
 
       <!-- ===== Bundle =====
-           Die Empfehlung, deshalb in Gold — Gold steht auf der ganzen Seite
-           nur dafür. Summe und Ersparnis rechnet script.js aus den beiden
-           Einzelpreisen aus; die Zahlen hier sind nur die erste Anzeige.
-           Links eine Zeichnung, woraus das Bundle besteht. Sie ist reine
-           Dekoration und bekommt deshalb kein h3: script.js nimmt die erste
-           h3 im Block als Namen für den Warenkorb. -->
+           Die Empfehlung, deshalb in Gold — Gold steht auf der Seite nur dafür.
+           Summe und Ersparnis rechnet script.js aus den beiden Einzelpreisen
+           aus; die Zahlen hier sind nur die erste Anzeige. Seit 29.10.2026
+           steht das Bundle in der Mitte zwischen PC-Optimierung und App und ist
+           aufgebaut wie die beiden: Inhalt links, Kaufbox rechts. script.js
+           nimmt die erste h3 im Block als Namen für den Warenkorb. -->
       <article class="plan plan-featured produkt produkt-bundle ton-gold" id="tarif-bundle">
-        <!-- Seit 27.10.2026 steht das Bundle ganz oben und fällt auf: Das
-             Angebot, das wir verkaufen wollen. "Bester Wert" stimmt, solange
-             der Bundle-Preis unter der Summe der Einzelpreise liegt (script.js
-             rechnet das aus und zeigt die Ersparnis). -->
-        <span class="bundle-badge">Bester Wert</span>
-        <div class="bundle-bild" aria-hidden="true">
-          <div class="bb-teile">
-            <span class="bb-teil"><strong>PC-Optimierung</strong><small>Remote-Sitzung</small></span>
-            <span class="bb-teil bb-app"><strong>Tweak App</strong><small>Lifetime-Lizenz</small></span>
-          </div>
-          <span class="bb-ziel">Bundle</span>
-        </div>
-
         <div class="produkt-info">
+          <!-- "Bester Wert" stimmt, solange der Bundle-Preis unter der Summe der
+               Einzelpreise liegt (script.js rechnet das aus und zeigt die Ersparnis). -->
+          <span class="bundle-badge">Bester Wert</span>
           <h3 class="app-label">Bundle</h3>
           <p class="app-titel">Optimierung plus App. <em>Zusammen günstiger.</em></p>
           <p class="plan-desc">
@@ -479,22 +439,21 @@
             <li>Neue Versionen kostenlos</li>
             <li>Nachbesserung innerhalb von 14 Tagen</li>
           </ul>
+        </div>
 
-          <div class="produkt-kaufzeile">
-            <div class="produkt-preis">
-              <div class="price">
-                <span class="old" data-preis-summe>69,98 €</span>
-                <span class="amount">59,99</span><span class="cur">€</span><span class="once">einmalig</span>
-              </div>
-              <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
-            </div>
+        <div class="produkt-kasse">
+          <div class="price">
+            <span class="old" data-preis-summe>69,98 €</span>
+            <span class="amount">59,99</span><span class="cur">€</span><span class="once">einmalig</span>
+          </div>
+          <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
+          <p class="kasse-meta">Enthalten: PC-Optimierung und Tweak App Lifetime</p>
 
-            <div class="plan-buy">
-              <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
-                Für 59,99 € kaufen
-              </a>
-              <p class="plan-alt">Zahlung über PayPal · Termin über Discord · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
-            </div>
+          <div class="plan-buy">
+            <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
+              Für 59,99 € kaufen
+            </a>
+            <p class="plan-alt">Zahlung über PayPal · Termin über Discord · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
           </div>
         </div>
       </article>
@@ -731,10 +690,10 @@
           <li><span class="k">Windows 8.1 und älter</span><span class="v"><span class="tag-no">Nein</span></span></li>
           <li><span class="k">Prozessor</span><span class="v">Intel &amp; AMD</span></li>
           <li><span class="k">Grafikkarte</span><span class="v">NVIDIA, AMD, Intel</span></li>
-          <li><span class="k">Notebooks</span><span class="v">Eingeschränkt</span></li>
+          <li><span class="k">Notebooks</span><span class="v"><span class="tag-no">Nein</span></span></li>
         </ul>
         <p class="muted" style="font-size:.85rem;margin-top:14px">
-          Bei Notebooks sperren manche Hersteller Energieeinstellungen. Frag im Zweifel vorher kurz nach.
+          Notebooks werden nicht unterstützt, weil viele Hersteller dort Energie- und Leistungseinstellungen sperren. Das gilt für die App und für die PC-Optimierung.
         </p>
       </article>
 
@@ -780,36 +739,6 @@
      ablauf.html (Remote-Sitzung) und sicherheit.html (App). Keine Leistungs-
      oder FPS-Versprechen. #faq-nach-kauf schreibt script.js im paypal.me-
      Betrieb um — die id bitte stehen lassen. -->
-<!-- ============ RATGEBER ============
-     Seit 28.10.2026: Anleitungen zu dem, wonach gesucht wird. Sie bringen
-     Besucher über Google und verlinken von hier aus zurück zur App. -->
-<section id="ratgeber" class="section reveal">
-  <div class="wrap">
-    <div class="section-head center">
-      <h2>Anleitungen</h2>
-      <p class="sub">Schritt für Schritt, ohne Zusatzprogramm. Jeder Schritt lässt sich zurücknehmen.</p>
-    </div>
-
-    <div class="grid-3">
-      <a class="card ratgeber-karte" href="windows-11-gaming-einstellen.html">
-        <h3>Windows 11 fürs Gaming einstellen</h3>
-        <p>Neun Einstellungen, die sich lohnen, und was sie wirklich bringen.</p>
-        <span class="mehr">Anleitung lesen</span>
-      </a>
-      <a class="card ratgeber-karte" href="input-lag-senken.html">
-        <h3>Input Lag senken</h3>
-        <p>Warum sich ein Spiel träge anfühlt und was an Maus, Monitor und Windows hilft.</p>
-        <span class="mehr">Anleitung lesen</span>
-      </a>
-      <a class="card ratgeber-karte" href="windows-11-entruempeln.html">
-        <h3>Windows 11 entrümpeln</h3>
-        <p>Autostart, Apps, Werbung und Daten aufräumen, ohne etwas Wichtiges zu zerstören.</p>
-        <span class="mehr">Anleitung lesen</span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <section id="faq" class="section reveal">
   <div class="wrap wrap-narrow">
 
@@ -1045,11 +974,11 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.4.0-kaufweg"></script>
-<script src="zaehlung.js?v=2.4.0-kaufweg"></script>
-<script src="tt-backend.js?v=2.4.0-kaufweg"></script>
-<script src="warenkorb.js?v=2.4.0-kaufweg"></script>
-<script src="tweaks.js?v=2.4.0-kaufweg"></script>
-<script src="script.js?v=2.4.0-kaufweg"></script>
+<script src="konfig.js?v=2.5.0-startseite"></script>
+<script src="zaehlung.js?v=2.5.0-startseite"></script>
+<script src="tt-backend.js?v=2.5.0-startseite"></script>
+<script src="warenkorb.js?v=2.5.0-startseite"></script>
+<script src="tweaks.js?v=2.5.0-startseite"></script>
+<script src="script.js?v=2.5.0-startseite"></script>
 </body>
 </html>
