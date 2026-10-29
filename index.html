@@ -159,8 +159,8 @@
 <!-- Schriften liegen im Projekt, nicht bei Google. Siehe fonts/LIESMICH.txt -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=2.5.2-bundle-gross">
-<link rel="stylesheet" href="mockup.css?v=2.5.2-bundle-gross">
+<link rel="stylesheet" href="style.css?v=2.5.3-bundle-sachlich">
+<link rel="stylesheet" href="mockup.css?v=2.5.3-bundle-sachlich">
 </head>
 <body>
 
@@ -412,20 +412,21 @@
       </article>
 
       <!-- ===== Bundle =====
-           Die Empfehlung, deshalb in Gold — Gold steht auf der Seite nur dafür.
-           Summe und Ersparnis rechnet script.js aus den beiden Einzelpreisen
-           aus; die Zahlen hier sind nur die erste Anzeige. Seit 29.10.2026
-           steht das Bundle in der Mitte zwischen PC-Optimierung und App und ist
-           aufgebaut wie die beiden: Inhalt links, Kaufbox rechts. script.js
-           nimmt die erste h3 im Block als Namen für den Warenkorb. -->
+           Die Empfehlung. Gold steht auf der Seite nur dafür, aber sparsam:
+           ein feiner Rand, ein Etikett, der Kaufknopf. Rechts steht die
+           Rechnung offen, Einzelpreise, Summe und Bundle-Preis, damit nichts
+           beworben, sondern nachgerechnet wird. Die Beträge setzt script.js
+           (data-preis-betrag, data-preis-laufzeit, data-preis-summe,
+           data-preis-ersparnis); die Zahlen hier sind nur die erste Anzeige.
+           script.js nimmt die erste h3 im Block als Namen für den Warenkorb. -->
       <article class="plan plan-featured produkt produkt-bundle ton-gold" id="tarif-bundle">
-        <!-- Sitzt wie ein Etikett auf dem oberen Rand. "Bester Wert" stimmt,
-             solange der Bundle-Preis unter der Summe der Einzelpreise liegt
-             (script.js rechnet das aus und zeigt die Ersparnis). -->
-        <span class="bundle-badge">Bester Wert</span>
-
         <div class="produkt-info">
-          <h3 class="app-label">Bundle</h3>
+          <div class="bundle-kopf">
+            <h3 class="app-label">Bundle</h3>
+            <!-- "Bester Wert" stimmt, solange der Bundle-Preis unter der Summe
+                 der Einzelpreise liegt (script.js zeigt die Ersparnis). -->
+            <span class="bundle-badge">Bester Wert</span>
+          </div>
           <p class="app-titel">Optimierung plus App. <em>Zusammen günstiger.</em></p>
           <p class="plan-desc">
             Ich stelle deinen PC einmal persönlich ein, und danach hast du die App. Damit
@@ -444,12 +445,14 @@
         </div>
 
         <div class="produkt-kasse">
-          <div class="bundle-teile" aria-label="Enthalten: PC-Optimierung und Tweak App Lifetime">
-            <span>PC-Optimierung</span><i aria-hidden="true">+</i><span>Tweak App</span>
-          </div>
+          <dl class="bundle-posten">
+            <div><dt>PC-Optimierung</dt><dd data-preis-betrag="optimierung">29,99 €</dd></div>
+            <div><dt>Tweak App, Lifetime</dt><dd data-preis-laufzeit="app-lifetime">39,99 €</dd></div>
+            <div class="summe"><dt>Einzeln zusammen</dt><dd data-preis-summe>69,98 €</dd></div>
+          </dl>
 
+          <p class="bundle-preis-label">Bundle-Preis</p>
           <div class="price">
-            <span class="old" data-preis-summe>69,98 €</span>
             <span class="amount">59,99</span><span class="cur">€</span><span class="once">einmalig</span>
           </div>
           <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
@@ -979,11 +982,11 @@
 </footer>
 
 <script src="js/supabase-js-2.45.4.js"></script>
-<script src="konfig.js?v=2.5.2-bundle-gross"></script>
-<script src="zaehlung.js?v=2.5.2-bundle-gross"></script>
-<script src="tt-backend.js?v=2.5.2-bundle-gross"></script>
-<script src="warenkorb.js?v=2.5.2-bundle-gross"></script>
-<script src="tweaks.js?v=2.5.2-bundle-gross"></script>
-<script src="script.js?v=2.5.2-bundle-gross"></script>
+<script src="konfig.js?v=2.5.3-bundle-sachlich"></script>
+<script src="zaehlung.js?v=2.5.3-bundle-sachlich"></script>
+<script src="tt-backend.js?v=2.5.3-bundle-sachlich"></script>
+<script src="warenkorb.js?v=2.5.3-bundle-sachlich"></script>
+<script src="tweaks.js?v=2.5.3-bundle-sachlich"></script>
+<script src="script.js?v=2.5.3-bundle-sachlich"></script>
 </body>
 </html>
