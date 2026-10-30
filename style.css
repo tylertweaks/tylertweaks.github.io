@@ -5699,3 +5699,35 @@ button.stufe:hover { border-color: var(--line-strong); }
    dem Kaufknopf (App, Vertrauen, Impressum, Tweak-Liste). */
 .ton-cyan .btn-primary { background: #0e78ad; color: #fff; }
 .ton-cyan .btn-primary:hover { background: #1688c2; }
+
+/* ============ Kauf-Anstoß nach der Zeitleiste und Hinweis nach dem
+   Gratis-Download, beide seit 30.10.2026. Beide dezent, kein Alarm-Ton. */
+.kauf-anstoss {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .025);
+}
+.kauf-anstoss-text { flex: 1 1 260px; }
+.kauf-anstoss-text h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.kauf-anstoss-text p { margin: 0; color: var(--muted); }
+@media (max-width: 640px) {
+  .kauf-anstoss .btn { width: 100%; }
+}
+
+.hero-gratis-nach {
+  margin: 14px auto 0;
+  max-width: 540px;
+  padding: 10px 14px;
+  border: 1px solid rgba(var(--accent-rgb), .35);
+  border-radius: 10px;
+  background: rgba(var(--accent-rgb), .06);
+  font-size: .92rem;
+  color: var(--text);
+}
+.hero-gratis-nach a { color: var(--accent); font-weight: 600; }

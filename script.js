@@ -54,7 +54,13 @@
 
   /* Der Hauptknopf oben lädt die Gratis-Version, sobald es sie gibt
      (26.10.2026). Ohne Datei bleibt er ein Sprung zur App weiter unten.
-     Ohne data-scroll-to fängt der Zuhörer oben den Klick nicht mehr ab. */
+     Ohne data-scroll-to fängt der Zuhörer oben den Klick nicht mehr ab.
+
+     Seit 30.10.2026: Wer die Gratis-Version lädt, sieht nach einer Sekunde
+     einen dezenten Hinweis mit Link zu den Paketen. Diese Besucher haben
+     schon Interesse gezeigt — ohne Hinweis vergessen sie, dass es die
+     Vollversion gibt. Kein Popup, kein Banner, nur eine Einblendung
+     direkt unter dem Knopf. */
   (function heroGratis() {
     var knopf = document.getElementById('hero-gratis');
     var app = KONFIG.app || {};
@@ -64,6 +70,18 @@
     knopf.href = app.datei;
     knopf.setAttribute('download', '');
     knopf.removeAttribute('data-scroll-to');
+
+    knopf.addEventListener('click', function () {
+      if (document.getElementById('hero-gratis-nach')) return;
+      var tipp = document.createElement('div');
+      tipp.id = 'hero-gratis-nach';
+      tipp.className = 'hero-gratis-nach';
+      tipp.innerHTML =
+        'Download läuft. Alle Tweaks und die Ein-Klick-Funktionen schaltest du mit einem Lizenzschlüssel frei — ' +
+        '<a href="#preise">Pakete ansehen</a>.';
+      var cta = knopf.parentNode;
+      if (cta && cta.parentNode) cta.parentNode.insertBefore(tipp, cta.nextSibling);
+    });
   })();
 
   /* ====================================================================

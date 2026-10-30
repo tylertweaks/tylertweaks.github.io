@@ -220,9 +220,11 @@
     <div class="hero-cta">
       <!-- Seit 29.10.2026 links der blaue Knopf zu den Preisen, rechts der
            Gratis-Download ohne Füllung. script.js setzt die Datei aus
-           konfig.js (app.datei) ein; ohne Skript führt er zur App. -->
+           konfig.js (app.datei) ein; ohne Skript führt er zur App.
+           Seit 30.10.2026 steht der Startpreis im blauen Knopf: Besucher
+           sehen die 29,99 € sofort, nicht erst nach dem Scrollen. -->
       <a href="#preise" class="btn btn-primary btn-lg">
-        Preise ansehen
+        Ab 29,99 € · Jetzt kaufen
       </a>
       <a href="#tarif-app" class="btn btn-outline btn-lg" id="hero-gratis" data-scroll-to="tarif-app">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg>
@@ -742,6 +744,22 @@
   </div>
 </section>
 
+<!-- ============ Zweiter Kauf-Anstoß ============
+     Seit 30.10.2026. Kommt NACH der langen "Was ich einstelle"-Zeitleiste und
+     VOR der FAQ, damit niemand zurück nach oben scrollen muss, der schon
+     überzeugt ist. Kein Rabatt und kein Zeitdruck, nur ein höflicher Hinweis. -->
+<section class="section reveal" style="padding-top:0">
+  <div class="wrap wrap-narrow">
+    <div class="kauf-anstoss">
+      <div class="kauf-anstoss-text">
+        <h3>Fertig gelesen?</h3>
+        <p>Alle drei Pakete stehen oben in der Preis-Sektion. Die Optimierung gibt es ab 29,99 €, das Bundle ab 59,99 €.</p>
+      </div>
+      <a href="#preise" class="btn btn-primary btn-lg">Zu den Paketen</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FAQ ============
      Höchstens zehn Fragen, die Sorgen zuerst. Ausführliches steht auf
      ablauf.html (Remote-Sitzung) und sicherheit.html (App). Keine Leistungs-
@@ -895,8 +913,10 @@
      Nur am Handy (style.css, Abschnitt 28): Erscheint, sobald der Name oben
      aus dem Bild ist, und verschwindet wieder bei den Paketen selbst
      (script.js, "Handy-Leiste"). -->
+<!-- Seit 30.10.2026 steht der Startpreis in der Leiste, damit der direkte
+     Weg zum Kauf gleich sichtbar ist, nicht erst nach dem Scrollen. -->
 <div class="mobil-leiste" id="mobil-leiste" hidden>
-  <a class="btn btn-primary btn-block" href="#preise"><span>Preise ansehen</span></a>
+  <a class="btn btn-primary btn-block" href="#preise"><span>Jetzt kaufen — ab 29,99 €</span></a>
 </div>
 
 </main>
