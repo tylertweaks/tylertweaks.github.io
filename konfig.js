@@ -241,8 +241,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.2.0',
-    datum: '24.10.2026',
+    version: '2.2.1',
+    datum: '01.11.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -259,9 +259,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.2.0.exe',
+    datei: 'downloads/TylerTweaksSetup-2.2.1.exe',
     groesse: '51,3 MB',
-    sha256: '13b4d2878cf78f5f6015366358c42425427934e13d568e05dfeb756ba87e269e'
+    sha256: '6b8fa46991ffd2e8e6327dd03fe89e68fcbf264ee3cbd62b052bcaa632ce3adf'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -273,6 +273,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '2.2.1', datum: '01.11.2026', text: 'Begleitdateien im Installationsordner sind jetzt versteckt — Kunden sehen nur noch Tyler.exe. Keine neuen Funktionen.' },
     { version: '2.2.0', datum: '24.10.2026', text: 'Die Gratis-Version hat jetzt alle Tweaks unter System: Allgemein, Explorer, Dienste, Autostart, Debloat und Privatsphäre. CPU, GPU, Netzwerk und der Rest bleiben mit Schloss. Der Game Booster geht auch gratis, mit bis zu zwei geschützten Apps.' },
     { version: '2.1.0', datum: '24.10.2026', text: 'Neuer Aufbau wie bei anderen Tweak-Tools: System mit Allgemein, Explorer, Dienste, Autostart, Debloat und Privatsphäre, dazu Overlays. 294 Tweaks statt 231. Unter Werkzeuge neu: Reparatur, die Einstellungen anderer Tweak-Programme auf den Windows-Standard zurücksetzt.' },
     { version: '2.0.0', datum: '23.10.2026', text: 'Neu als Version 2.0: Gratis-Version mit 40 Tweaks und Game Booster, gesperrte Bereiche mit Schloss, das Preset Tyler Owner, alle installierten Programme unter Aufräumen deinstallieren, eckige Knöpfe und eine Übersicht je Kategorie, wie viele Tweaks aktiv, zurückgesetzt und offen sind.' },
