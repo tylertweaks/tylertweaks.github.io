@@ -241,7 +241,7 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.2.2',
+    version: '2.2.3',
     datum: '01.11.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
@@ -259,9 +259,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.2.2.exe',
+    datei: 'downloads/TylerTweaksSetup-2.2.3.exe',
     groesse: '64,1 MB',
-    sha256: '5f379bbfb9af19a0d511e2349f52ed6ac9995946caf652a5d48bfc2342a3bb12'
+    sha256: '95218add0c4b3ddac8ac3531966ea9d1f38e6b3594c1de152401a09bfd2dde96'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -273,6 +273,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '2.2.3', datum: '01.11.2026', text: 'Beim Update von aelteren Versionen werden die alten Begleitdateien im Programme-Ordner jetzt mit entfernt — der Ordner enthaelt wirklich nur noch Tyler.exe. Keine neuen Funktionen.' },
     { version: '2.2.2', datum: '01.11.2026', text: 'Der Programme-Ordner enthaelt jetzt wirklich nur Tyler.exe. Die zugehoerigen Dateien liegen aus Sicherheitsgruenden in ProgramData. Keine neuen Funktionen.' },
     { version: '2.2.1', datum: '01.11.2026', text: 'Begleitdateien im Installationsordner sind jetzt versteckt — Kunden sehen nur noch Tyler.exe. Keine neuen Funktionen.' },
     { version: '2.2.0', datum: '24.10.2026', text: 'Die Gratis-Version hat jetzt alle Tweaks unter System: Allgemein, Explorer, Dienste, Autostart, Debloat und Privatsphäre. CPU, GPU, Netzwerk und der Rest bleiben mit Schloss. Der Game Booster geht auch gratis, mit bis zu zwei geschützten Apps.' },
