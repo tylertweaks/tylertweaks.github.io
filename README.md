@@ -12,14 +12,15 @@ Live: https://tylertweaks.github.io/
 
 | Paket | Preis |
 |---|---|
-| Tweak App — Gratis-Version (alle System-Tweaks, ohne Schlüssel) | 0 € |
+| Tweak App — Gratis-Version (50 Tweaks: 25 unter Allgemein, 10 unter Dienste, 15 unter Explorer, ohne Schlüssel) | 0 € |
 | Tweak App — 1 Monat (alle Tweaks, kein Abo) | 9,99 € |
 | Tweak App — Lifetime (alle Tweaks) | 39,99 € (Einführungspreis bis 30.11.2026) |
 | PC-Optimierung | 29,99 € |
 | Bundle (App Lifetime + Optimierung) | 59,99 € |
 
 Seit Tyler 4.2 startet die App ohne Schlüssel als Gratis-Version
-(alle Tweaks unter System, Game Booster mit 2 geschützten Apps). Der Schlüssel wird in der App unten links
+(seit 3.0: 50 Tweaks — 25 unter Allgemein, 10 unter Dienste, 15 unter Explorer —
+dazu Autostart und Game Booster mit 2 geschützten Apps). Der Schlüssel wird in der App unten links
 eingegeben und schaltet alle Tweaks frei; läuft er ab, bleibt die
 Gratis-Version.
 

@@ -197,8 +197,9 @@ window.TT_KONFIG = {
 
   /* ---- Gratis-Version der App ----------------------------------------------
      Seit Tyler 4.2 startet die App ohne Lizenzschlüssel als Gratis-Version
-     (alle Tweaks unter System, Game Booster mit 2 geschützten Apps). Wer alle will, gibt in der
-     App einen Schlüssel ein.
+     (seit 3.0: 50 Tweaks, nämlich 25 unter Allgemein, 10 unter Dienste und
+     15 unter Explorer, dazu Autostart und Game Booster mit 2 geschützten
+     Apps). Wer alle will, gibt in der App einen Schlüssel ein.
 
      Die Karte "Kostenlos" links neben den Laufzeiten wird von selbst zum
      Download-Knopf (app.datei unten), sobald app.version mindestens abVersion
@@ -206,7 +207,7 @@ window.TT_KONFIG = {
      kleiner als die vorige 4.2.0), deshalb steht abVersion auf 2.0.0. Soll die Karte verschwinden: gratis: null */
   gratis: {
     abVersion: '2.0.0',
-    punkte: ['Alle System-Tweaks: Allgemein, Explorer, Dienste, Debloat, Privatsphäre', 'Game Booster mit 2 geschützten Apps', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks erweitern']
+    punkte: ['50 Tweaks: 25 unter Allgemein, 10 unter Dienste, 15 unter Explorer', 'Autostart und Game Booster mit 2 geschützten Apps', 'Ohne Konto, ohne Schlüssel', 'Später in der App auf alle Tweaks erweitern']
   },
 
   /* ---- Die beiden festen Pakete ------------------------------------------
@@ -241,8 +242,8 @@ window.TT_KONFIG = {
      Kundenbereich fällt auf die Datei unter downloads/ zurück — siehe unten.
      ----------------------------------------------------------------------- */
   app: {
-    version: '2.2.3',
-    datum: '01.11.2026',
+    version: '3.0.0',
+    datum: '09.11.2026',
 
     /* ---- Setup-Datei ----------------------------------------------------
        Liegt im Repository unter downloads/ und wird von GitHub Pages
@@ -259,9 +260,9 @@ window.TT_KONFIG = {
        einen Link mit zwei Minuten Gültigkeit — und dieses Feld hier wird
        automatisch nicht mehr benutzt.
        --------------------------------------------------------------------- */
-    datei: 'downloads/TylerTweaksSetup-2.2.3.exe',
+    datei: 'downloads/TylerTweaksSetup-3.0.0.exe',
     groesse: '64,1 MB',
-    sha256: '95218add0c4b3ddac8ac3531966ea9d1f38e6b3594c1de152401a09bfd2dde96'
+    sha256: 'd3e7e09d3e9ed576c70ef584da52885036c88f64e662152352737921ed38fc06'
   },
 
   /* ---- Änderungen der letzten Versionen ----------------------------------
@@ -273,6 +274,7 @@ window.TT_KONFIG = {
      der Kommandozeile als -Changelog übergeben wurde. Umlaute gehen dabei
      leicht verloren — wer dort ae und ue liest, darf sie hier nachziehen. */
   changelog: [
+    { version: '3.0.0', datum: '09.11.2026', text: 'Die Gratis-Version hat jetzt 50 Tweaks: 25 unter Allgemein, 10 unter Dienste und 15 unter Explorer, alles andere braucht einen Schlüssel. Neu unter Netzwerk: Auto Tune mit Messung vorher und nachher. Dazu ein neues Aussehen in Blau mit neuer Übersicht, ein Game Booster, der Hintergrundprogramme schließt, und Updates nur noch auf Klick.' },
     { version: '2.2.3', datum: '01.11.2026', text: 'Beim Update von aelteren Versionen werden die alten Begleitdateien im Programme-Ordner jetzt mit entfernt — der Ordner enthaelt wirklich nur noch Tyler.exe. Keine neuen Funktionen.' },
     { version: '2.2.2', datum: '01.11.2026', text: 'Der Programme-Ordner enthaelt jetzt wirklich nur Tyler.exe. Die zugehoerigen Dateien liegen aus Sicherheitsgruenden in ProgramData. Keine neuen Funktionen.' },
     { version: '2.2.1', datum: '01.11.2026', text: 'Begleitdateien im Installationsordner sind jetzt versteckt — Kunden sehen nur noch Tyler.exe. Keine neuen Funktionen.' },
