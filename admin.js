@@ -107,9 +107,15 @@
       }
       faktorId = neu.data.id;
       var qr = neu.data.totp.qr_code || '';
-      // Supabase liefert das SVG je nach Version als data:-Adresse oder roh.
-      document.getElementById('zf-qr').src = qr.indexOf('data:') === 0
-        ? qr : 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(qr);
+      // Supabase liefert das SVG als data:-Adresse mit ROHEM SVG dahinter.
+      // Darin stehen Zeichen wie "#", die eine Adresse abschneiden — das Bild
+      // kam dann kaputt an und ließ sich nicht scannen. Deshalb das SVG
+      // herauslösen und sauber kodiert neu zusammensetzen.
+      var svg = qr.indexOf('data:') === 0 ? qr.slice(qr.indexOf(',') + 1) : qr;
+      if (svg.indexOf('<') === -1) {
+        try { svg = decodeURIComponent(svg); } catch (e) { /* bleibt wie es ist */ }
+      }
+      document.getElementById('zf-qr').src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
       document.getElementById('zf-geheim').textContent = neu.data.totp.secret;
       document.getElementById('zf-einrichten').hidden = false;
     }

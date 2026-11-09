@@ -102,7 +102,10 @@
             Google Authenticator oder Microsoft Authenticator). Danach fragt die
             Verwaltung bei jeder Anmeldung nach dem sechsstelligen Code aus der App.
           </p>
-          <p><img id="zf-qr" alt="QR-Code für die Authentifizierungs-App" width="200" height="200"></p>
+          <!-- Weißer Rand: Ein QR-Code braucht hellen Grund, sonst erkennt ihn die
+               Kamera auf der dunklen Seite nicht. -->
+          <p><img id="zf-qr" alt="QR-Code für die Authentifizierungs-App" width="240" height="240"
+                  style="background:#fff;padding:16px;border-radius:8px;display:block;margin:0 auto"></p>
           <p class="muted">Kein Scannen möglich? Diesen Schlüssel in der App eintippen:<br>
             <code id="zf-geheim" class="mono"></code></p>
         </div>
