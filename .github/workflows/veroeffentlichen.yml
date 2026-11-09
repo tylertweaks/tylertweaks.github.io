@@ -1,0 +1,104 @@
+# ===========================================================================
+# Website verkleinert veröffentlichen
+#
+# Was es tut: Bei jedem Push auf main wird eine Kopie der Seite gebaut, in der
+# alle Kommentare entfernt und HTML, CSS und JavaScript zusammengepresst sind.
+# Nur diese Kopie geht an GitHub Pages. Besucher sehen in den DevTools also
+# keine Erklärungen und Notizen mehr, nur noch zusammengepressten Code.
+# Das Repository selbst behält die lesbaren Dateien mit allen Kommentaren.
+#
+# Ehrlich dazu: Den Code, den der Browser bekommt, kann man nie ganz
+# verstecken. Solange dieses Repository öffentlich ist, liegt der lesbare
+# Code außerdem hier auf GitHub.
+#
+# Eingeschaltet wird das in GitHub unter
+#   Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+# Steht dort noch "Deploy from a branch", beendet sich dieser Ablauf sofort
+# ohne etwas zu tun, und die Seite wird wie bisher direkt aus main bedient.
+# Zurück: die Einstellung wieder auf "Deploy from a branch" (main, /) stellen.
+# ===========================================================================
+name: Website veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    outputs:
+      aktiv: ${{ steps.pruefen.outputs.aktiv }}
+    steps:
+      - name: Ist die Veröffentlichung über Actions eingeschaltet?
+        id: pruefen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          art=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>/dev/null || echo "")
+          echo "Pages-Quelle: ${art:-unbekannt}"
+          if [ "$art" = "workflow" ]; then echo "aktiv=ja" >> "$GITHUB_OUTPUT"; else echo "aktiv=nein" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/checkout@v4
+        if: steps.pruefen.outputs.aktiv == 'ja'
+
+      - uses: actions/setup-node@v4
+        if: steps.pruefen.outputs.aktiv == 'ja'
+        with:
+          node-version: '20'
+
+      - name: Verkleinerte Kopie bauen
+        if: steps.pruefen.outputs.aktiv == 'ja'
+        run: |
+          set -euo pipefail
+          npm install --global --no-audit --no-fund terser@5.31.6 html-minifier-terser@7.2.0 csso-cli@4.0.2
+
+          mkdir _site
+          # Alles außer Werkzeug- und Notizdateien. Die Google-Bestätigungsdatei
+          # muss wortgleich bleiben und wird deshalb nur kopiert.
+          tar --exclude='./.git' --exclude='./.github' --exclude='./.claude' \
+              --exclude='./_site' --exclude='./README.md' --exclude='./js/LIESMICH.txt' \
+              --exclude='./fonts/LIESMICH.txt' -cf - . | tar -xf - -C _site
+
+          find _site -name '*.html' ! -name 'google*.html' -print0 | while IFS= read -r -d '' f; do
+            html-minifier-terser --collapse-whitespace --conservative-collapse \
+              --remove-comments --minify-css true -o "$f" "$f"
+          done
+
+          # Die Supabase-Bibliothek ist schon verkleinert. Ohne --toplevel
+          # bleiben globale Namen (TT, TT_KONFIG …) erhalten, die die Dateien
+          # untereinander brauchen.
+          find _site -name '*.js' ! -path '_site/js/supabase-js-*' -print0 | while IFS= read -r -d '' f; do
+            terser "$f" --compress --mangle --comments false -o "$f"
+          done
+
+          find _site -name '*.css' -print0 | while IFS= read -r -d '' f; do
+            csso -i "$f" -o "$f"
+          done
+
+          echo "Fertig. Größe:"; du -sh _site
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.pruefen.outputs.aktiv == 'ja'
+        with:
+          path: _site
+
+  veroeffentlichen:
+    needs: bauen
+    if: needs.bauen.outputs.aktiv == 'ja'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

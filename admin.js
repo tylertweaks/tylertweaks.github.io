@@ -46,6 +46,8 @@
       return;
     }
 
+    if (!(await zweiterFaktor())) return;
+
     document.getElementById('a-email').textContent = sitzung.user.email;
 
     await ladeAlles();
@@ -55,6 +57,90 @@
 
     allesZeichnen();
   })();
+
+  /* ====================================================================
+     Zweiter Schritt (2FA mit Authentifizierungs-App)
+
+     Ein geklautes Passwort allein öffnet die Verwaltung nicht mehr. Nach der
+     Anmeldung verlangt diese Seite einen Code aus einer App (TOTP). Beim
+     ersten Mal richtet sie die App per QR-Code ein.
+
+     Die eigentliche Schranke ist die Datenbank: is_admin() gibt nur dann
+     true zurück, wenn die Sitzung mit zweitem Faktor bestätigt ist (aal2,
+     siehe backend/24-admin-2fa.sql im App-Repository). Wer diese
+     Datei umgeht, bekommt trotzdem keine Daten.
+
+     Handy verloren? Im Supabase-Dashboard (SQL Editor):
+       delete from auth.mfa_factors where user_id = '<deine user id>';
+     Danach richtet die Seite beim nächsten Besuch einen neuen Faktor ein.
+     ==================================================================== */
+  async function zweiterFaktor() {
+    var mfa = db.auth.mfa;
+    var stufe = await mfa.getAuthenticatorAssuranceLevel();
+    if (!stufe.error && stufe.data && stufe.data.currentLevel === 'aal2') return true;
+
+    var liste = await mfa.listFactors();
+    if (liste.error) {
+      document.getElementById('laden').textContent =
+        'Der zweite Schritt konnte nicht geladen werden: ' + liste.error.message;
+      return false;
+    }
+
+    var fertig = (liste.data.totp || []).filter(function (f) { return f.status === 'verified'; });
+    var faktorId;
+
+    if (fertig.length) {
+      faktorId = fertig[0].id;
+      document.getElementById('zf-abfrage').hidden = false;
+    } else {
+      // Halb eingerichtete Faktoren von einem abgebrochenen Versuch entfernen,
+      // sonst lehnt Supabase eine neue Einrichtung ab.
+      var alle = (liste.data.all || []).filter(function (f) { return f.status !== 'verified'; });
+      for (var i = 0; i < alle.length; i++) {
+        await mfa.unenroll({ factorId: alle[i].id });
+      }
+      var neu = await mfa.enroll({ factorType: 'totp', friendlyName: 'Tyler Verwaltung' });
+      if (neu.error) {
+        document.getElementById('laden').textContent =
+          'Der zweite Schritt konnte nicht eingerichtet werden: ' + neu.error.message;
+        return false;
+      }
+      faktorId = neu.data.id;
+      var qr = neu.data.totp.qr_code || '';
+      // Supabase liefert das SVG je nach Version als data:-Adresse oder roh.
+      document.getElementById('zf-qr').src = qr.indexOf('data:') === 0
+        ? qr : 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(qr);
+      document.getElementById('zf-geheim').textContent = neu.data.totp.secret;
+      document.getElementById('zf-einrichten').hidden = false;
+    }
+
+    document.getElementById('laden').hidden = true;
+    document.getElementById('zweiter-faktor').hidden = false;
+    var feld = document.getElementById('zf-code');
+    feld.focus();
+
+    return new Promise(function (fertigMelden) {
+      document.getElementById('zf-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var code = feld.value.replace(/\s+/g, '');
+        if (!/^\d{6}$/.test(code)) {
+          return TT.melden('zf-meldung', 'Der Code hat sechs Ziffern.');
+        }
+        var knopf = document.getElementById('zf-knopf');
+        knopf.disabled = true;
+        var erg = await mfa.challengeAndVerify({ factorId: faktorId, code: code });
+        knopf.disabled = false;
+        if (erg.error) {
+          feld.value = '';
+          feld.focus();
+          return TT.melden('zf-meldung', 'Der Code stimmt nicht oder ist abgelaufen. Nimm den aktuellen aus der App.');
+        }
+        document.getElementById('zweiter-faktor').hidden = true;
+        document.getElementById('laden').hidden = false;
+        fertigMelden(true);
+      });
+    });
+  }
 
   async function ladeAlles() {
     var e = await Promise.all([

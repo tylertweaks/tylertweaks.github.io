@@ -88,6 +88,41 @@
       </div>
     </div>
 
+    <!-- ===== Zweiter Schritt (2FA) =====
+         Die Verwaltung öffnet sich nur mit einem Code aus einer
+         Authentifizierungs-App. Die Datenbank verlangt das ebenfalls
+         (is_admin() prüft aal2), diese Seite ist nur das Formular davor. -->
+    <div id="zweiter-faktor" hidden>
+      <div class="login-card">
+        <h1>Zweiter Schritt</h1>
+
+        <div id="zf-einrichten" hidden>
+          <p class="sub">
+            Scanne den Code einmal mit einer Authentifizierungs-App (z. B.
+            Google Authenticator oder Microsoft Authenticator). Danach fragt die
+            Verwaltung bei jeder Anmeldung nach dem sechsstelligen Code aus der App.
+          </p>
+          <p><img id="zf-qr" alt="QR-Code für die Authentifizierungs-App" width="200" height="200"></p>
+          <p class="muted">Kein Scannen möglich? Diesen Schlüssel in der App eintippen:<br>
+            <code id="zf-geheim" class="mono"></code></p>
+        </div>
+
+        <p class="sub" id="zf-abfrage" hidden>
+          Gib den sechsstelligen Code aus deiner Authentifizierungs-App ein.
+        </p>
+
+        <form id="zf-form" novalidate>
+          <div class="field">
+            <label for="zf-code">Code aus der App</label>
+            <input type="text" id="zf-code" class="eingabe-text" inputmode="numeric"
+                   autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+          </div>
+          <div class="form-msg" id="zf-meldung" role="alert"></div>
+          <button type="submit" class="btn btn-primary btn-block" id="zf-knopf">Bestätigen</button>
+        </form>
+      </div>
+    </div>
+
     <!-- ===== Verwaltung ===== -->
     <div id="admin" hidden>
 
