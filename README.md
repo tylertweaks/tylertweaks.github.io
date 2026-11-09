@@ -345,6 +345,19 @@ kein Ersatz dafür, keine fremden Skripte einzubinden.
 Als Meta-Tag lässt sich außerdem `frame-ancestors` nicht setzen — das ginge nur
 über einen echten HTTP-Header, den GitHub Pages nicht anbietet.
 
+### Veröffentlichen: verkleinert über GitHub Actions
+
+Seit 09.11.2026 steht unter Settings → Pages die Quelle auf **GitHub Actions**.
+Bei jedem Push auf `main` baut `.github/workflows/veroeffentlichen.yml` eine
+Kopie ohne Kommentare, mit zusammengepresstem HTML, CSS und JavaScript, und
+nur diese geht live. Dieses Repository behält die lesbaren Dateien.
+
+- Wie bisher: committen und pushen, nach ein bis zwei Minuten ist es live.
+  `release-fertigstellen.ps1` braucht keine Änderung.
+- Bricht der Bau ab (z. B. weil eine Stichprobe fehlt), bleibt die Seite auf
+  dem vorigen Stand. Nachsehen unter Actions → „Website veröffentlichen“.
+- Notfall zurück: Settings → Pages → Source „Deploy from a branch“, `main`, `/`.
+
 ### Rahmenschutz gegen Clickjacking
 
 Weil `frame-ancestors` fehlt, könnte eine fremde Seite Konto, Kasse oder
