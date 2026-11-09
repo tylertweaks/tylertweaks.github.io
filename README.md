@@ -345,6 +345,16 @@ kein Ersatz dafür, keine fremden Skripte einzubinden.
 Als Meta-Tag lässt sich außerdem `frame-ancestors` nicht setzen — das ginge nur
 über einen echten HTTP-Header, den GitHub Pages nicht anbietet.
 
+### Rahmenschutz gegen Clickjacking
+
+Weil `frame-ancestors` fehlt, könnte eine fremde Seite Konto, Kasse oder
+Verwaltung unsichtbar in einen Rahmen legen und Klicks unterschieben. Dagegen
+sitzt auf `admin`, `konto`, `warenkorb`, `kaufen`, `anmelden`, `registrieren`,
+`passwort-neu` und `passwort-vergessen` der Rahmenschutz (`js/rahmenschutz.js`):
+Die Seite ist zunächst unsichtbar und wird erst sichtbar, wenn sie ganz oben im
+Fenster steht. In einem fremden Rahmen bleibt sie leer. Neue Seiten mit Konto
+oder Kasse bekommen denselben Block aus `konto.html` direkt hinter der CSP. Mit ausgeschaltetem JavaScript zeigt das `<noscript>` die Seite trotzdem.
+
 ## Lokal ansehen
 
 ```powershell

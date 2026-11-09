@@ -22,6 +22,12 @@
      Stellen aendern - sonst blockiert der Browser die Verbindung.
      -------------------------------------------------------------------- -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://*.paypal.com https://*.paypalobjects.com; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.paypal.com https://*.paypal.com https://*.paypalobjects.com; connect-src 'self' https://dfypxfkqastndvblfvvl.supabase.co wss://dfypxfkqastndvblfvvl.supabase.co https://*.paypal.com; frame-src https://*.paypal.com https://*.paypalobjects.com">
+<!-- Rahmenschutz gegen Clickjacking (Erklärung in js/rahmenschutz.js).
+     Die Seite bleibt unsichtbar, bis das Skript bestätigt, dass sie nicht in
+     einem fremden Rahmen steckt. -->
+<style>html{visibility:hidden}</style>
+<noscript><style>html{visibility:visible}</style></noscript>
+<script src="js/rahmenschutz.js?v=3.0.0"></script>
 <link rel="canonical" href="https://tylertweaks.github.io/anmelden.html">
 <title>Anmelden | Tyler Tweaks</title>
 <meta name="description" content="Melde dich in deinem Tyler-Tweaks-Kundenbereich an.">
