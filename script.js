@@ -71,6 +71,14 @@
     knopf.setAttribute('download', '');
     knopf.removeAttribute('data-scroll-to');
 
+    /* Seit 2026-11 gibt es weitere Gratis-Knöpfe (Wegweiser, Abschluss).
+       Sie laden dieselbe Datei; ohne Datei bleiben sie Sprünge zur App. */
+    document.querySelectorAll('[data-gratis-download]').forEach(function (a) {
+      a.href = app.datei;
+      a.setAttribute('download', '');
+      a.removeAttribute('data-scroll-to');
+    });
+
     knopf.addEventListener('click', function () {
       if (document.getElementById('hero-gratis-nach')) return;
       var tipp = document.createElement('div');
@@ -1044,25 +1052,13 @@
   })();
 
   /* ====================================================================
-     8c. Preisblöcke: am Handy eingeklappt, am Rechner offen
+     8c. Preisblöcke
 
-     "Was ich einstelle" und der Ablauf der Optimierung sind auf dem Handy je
-     einen halben Bildschirm bis zwei Bildschirme lang und schieben die
-     Kaufknöpfe weit nach unten. Auf breiten Schirmen ist Platz genug, dort
-     steht alles offen wie bisher. Ohne Javascript bleiben sie zu: Lesbar ist
-     der Inhalt trotzdem, er steht im Quelltext.
+     Bis 2026-11 öffnete sich "Was ich einstelle" und der Ablauf der
+     Optimierung am Rechner von selbst. Seit dem Neuaufbau bleiben alle
+     "Was ist drin?"-Blöcke überall zu, damit die Seite kurz bleibt; wer mehr
+     wissen will, klappt sie selbst auf. Dafür braucht es kein Skript mehr.
      ==================================================================== */
-  (function preisBloecke() {
-    var breit = window.matchMedia && window.matchMedia('(min-width: 900px)');
-    var bloecke = document.querySelectorAll('#opt-mehr, #opt-ablauf');
-    if (!breit || !bloecke.length) return;
-
-    function anpassen() {
-      bloecke.forEach(function (b) { b.open = breit.matches; });
-    }
-    anpassen();
-    if (breit.addEventListener) breit.addEventListener('change', anpassen);
-  })();
 
   /* ====================================================================
      9. Handy-Leiste

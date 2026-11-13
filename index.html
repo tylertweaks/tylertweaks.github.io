@@ -161,6 +161,7 @@
 <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css?v=3.0.0">
 <link rel="stylesheet" href="mockup.css?v=3.0.0">
+<link rel="stylesheet" href="premium.css?v=3.0.0">
 </head>
 <body>
 
@@ -198,290 +199,290 @@
 <main id="inhalt">
 <span id="top"></span>
 
-<!-- ============ HERO ============
-     Nur der Name, groß — wie ein Schild über der Werkstatt. Bis 2.9.0 standen
-     hier eine Werbe-Überschrift, ein Absatz dazu und die App als Bild; das ist
-     alles raus. Der Name als h1 ist nebenbei genau das, wonach bei Google
-     gesucht wird ("Tyler Tweaks"). -->
-<section class="hero">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="wrap hero-inner">
+<!-- ============ HERO (Neuaufbau 2026-11) ============
+     Aufbau nach dem Vorbild realdarkzy.de, eigene Texte und Grafiken:
+     Kennzeile, großes Logo, der Name groß und mittig, ein Satz, zwei Knöpfe.
+     Die zwei schrägen Karten links und rechts zeigen nur am Rechner, worum es
+     geht (Ausschnitte aus der App), und sind reine Dekoration.
 
-    <div class="hero-marke" aria-hidden="true">
-      <img src="favicon.svg" alt="" width="118" height="118">
+     script.js hängt hier an: .hero (Handy-Leiste), #hero-gratis (Gratis-
+     Download), #trust-paypal, #trust-gewerbe, #reichweite. Der Preis im Knopf
+     kommt aus data-preis-ab (günstigste Laufzeit), nie fest aus dem HTML. -->
+<section class="hero tt-hero">
+  <div class="wrap tt-hero-inner">
+
+    <p class="tt-kapsel">Windows 10 &amp; 11 · Tweak App &amp; PC-Optimierung</p>
+
+    <div class="tt-buehne">
+      <div class="tt-schwebe tt-schwebe-links" aria-hidden="true">
+        <p class="tt-schwebe-kopf">PC-Score</p>
+        <div class="tt-ring">
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="tt-ring-spur"/><circle cx="60" cy="60" r="50" class="tt-ring-wert"/></svg>
+          <span>95</span>
+        </div>
+        <p class="tt-schwebe-fuss">Was fehlt bis 100?</p>
+      </div>
+
+      <img class="tt-emblem" src="bilder/hero-emblem-560.webp"
+           srcset="bilder/hero-emblem-560.webp 560w, bilder/hero-emblem.webp 920w"
+           sizes="(max-width: 700px) 62vw, 360px"
+           alt="" width="460" height="560" loading="eager" fetchpriority="high">
+
+      <div class="tt-schwebe tt-schwebe-rechts" aria-hidden="true">
+        <p class="tt-schwebe-kopf">Tweaks</p>
+        <ul class="tt-mini-schalter">
+          <li>Mausbeschleunigung aus <i class="an"></i></li>
+          <li>Game DVR aus <i class="an"></i></li>
+          <li>Telemetrie minimieren <i></i></li>
+        </ul>
+        <p class="tt-schwebe-fuss tt-ok">Backup gesichert</p>
+      </div>
     </div>
 
-    <h1 class="hero-name">Tyler Tweaks</h1>
+    <h1 class="hero-name tt-name"><span>Tyler</span> <span class="tt-name-blau">Tweaks</span></h1>
 
     <!-- Bewusst ohne Leistungsversprechen: Was eine Optimierung bringt, hängt
          von Hardware und Ausgangszustand ab. Das Versprechen ist die Sorgfalt. -->
-    <p class="hero-zeile">Ich stelle Windows für Gaming ein. Mit Backup, und alles lässt sich wieder rückgängig machen.</p>
+    <p class="tt-satz">Windows fürs Gaming eingestellt. <em>Mit Backup, jederzeit rückgängig.</em></p>
 
-    <div class="hero-cta">
-      <!-- Seit 29.10.2026 links der blaue Knopf zu den Preisen, rechts der
-           Gratis-Download ohne Füllung. script.js setzt die Datei aus
-           konfig.js (app.datei) ein; ohne Skript führt er zur App.
-           Seit 30.10.2026 steht der Startpreis im blauen Knopf: Besucher
-           sehen die 29,99 € sofort, nicht erst nach dem Scrollen. -->
-      <a href="#preise" class="btn btn-primary btn-lg">
-        Ab 29,99 € · Jetzt kaufen
+    <div class="hero-cta tt-knoepfe">
+      <a href="#wegweiser" class="btn btn-primary btn-lg">
+        Jetzt kaufen · ab <span data-preis-ab>9,99 €</span>
       </a>
+      <!-- script.js setzt die Datei aus konfig.js (app.datei) ein; ohne
+           Skript führt der Knopf zur App weiter unten. -->
       <a href="#tarif-app" class="btn btn-outline btn-lg" id="hero-gratis" data-scroll-to="tarif-app">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M4 19h16"/></svg>
         Gratis herunterladen
       </a>
     </div>
 
-    <!-- Reichweite: eine Karte je Plattform (Discord, TikTok …), gebaut von
-         script.js (Abschnitt 8b) aus konfig.js (reichweite). Bleibt
-         unsichtbar, solange dort kein Eintrag steht. Zahlen nur echte, mit
-         Stand-Datum in reichweiteStand. -->
+    <!-- Was hier steht, muss stimmen: Nachbesserung steht so in agb.html § 6,
+         Backup und Rücknahme in sicherheit.html. "Angemeldetes Gewerbe"
+         erscheint erst mit KONFIG.gewerbeAngemeldet (script.js). Den Text in
+         #trust-paypal schreibt script.js im paypal.me-Betrieb um. -->
+    <ul class="tt-vertrauen">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>Backup vor jeder Änderung</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>14 Tage Nachbesserung</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>PayPal: <span id="trust-paypal">mit PayPal-Käuferschutz</span></li>
+      <li id="trust-gewerbe" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><a href="impressum.html">Angemeldetes Gewerbe</a></li>
+    </ul>
+
+    <!-- Reichweite: eine Karte je Plattform, gebaut von script.js (8b) aus
+         konfig.js (reichweite). Unsichtbar, solange dort nichts steht. Zahlen
+         nur echte, mit Stand-Datum in reichweiteStand. -->
     <ul class="reichweite" id="reichweite" aria-label="Tyler Tweaks im Netz" hidden></ul>
     <p class="reichweite-stand" id="reichweite-stand" hidden></p>
-
-    <!-- Vertrauensleiste. Was hier steht, muss stimmen: Nachbesserung steht so
-         in agb.html § 6, Backup und Rücknahme in sicherheit.html. "Angemeldetes
-         Gewerbe" erscheint erst mit KONFIG.gewerbeAngemeldet (script.js). -->
-    <ul class="trustbar">
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
-        <div><strong>Backup inklusive</strong><span><a href="sicherheit.html">jede Änderung umkehrbar</a></span></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
-        <div><strong>Nachbesserung inklusive</strong><span><a href="ablauf.html">14 Tage bei der Optimierung</a></span></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <div><strong>Fragen vor dem Kauf?</strong><span><a href="#support">direkt auf Discord</a></span></div>
-      </li>
-      <li id="trust-gewerbe" hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-        <div><strong>Angemeldetes Gewerbe</strong><span><a href="impressum.html">Impressum</a></span></div>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-        <div><strong>Zahlung per PayPal</strong><span id="trust-paypal">mit PayPal-Käuferschutz</span></div>
-      </li>
-    </ul>
 
   </div>
 </section>
 
+<!-- Das "Blatt": Alles unter dem Hero liegt auf einer Fläche mit runden
+     Ecken und blauer Lichtkante, die ein Stück über den Hero ragt. -->
+<div class="tt-blatt">
+
+<!-- ============ WEGWEISER ============
+     Drei Karten, damit man ohne Lesen sieht, welches Paket zu wem passt.
+     Die Preise setzt script.js (data-preis-betrag, data-preis-ab). Die id
+     "wegweiser" braucht die Handy-Leiste (script.js, Abschnitt 9). -->
+<section id="wegweiser" class="section tt-wegweiser reveal">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="tt-kennzeile">Drei Wege</p>
+      <h2>Selbst tweaken <em>oder machen lassen.</em></h2>
+      <p class="sub">Du entscheidest, wie viel du selbst machst.</p>
+    </div>
+
+    <div class="tt-wahl-gitter">
+      <article class="tt-wahl">
+        <p class="tt-kennzeile">PC-Optimierung</p>
+        <h3>Ich mache es für dich</h3>
+        <p>Ich stelle deinen PC per Remote-Sitzung ein. Du schaust zu.</p>
+        <p class="tt-wahl-preis"><strong data-preis-betrag="optimierung">29,99 €</strong> einmalig</p>
+        <a class="btn btn-outline btn-block" href="#tarif-opt" data-scroll-to="tarif-opt">Ansehen</a>
+      </article>
+
+      <article class="tt-wahl tt-wahl-top">
+        <span class="tt-marke">Bester Wert</span>
+        <p class="tt-kennzeile">Bundle</p>
+        <h3>Beides zusammen</h3>
+        <p>Erst stelle ich alles ein, danach tweakst du mit der App selbst weiter.</p>
+        <p class="tt-wahl-preis"><strong data-preis-betrag="bundle">59,99 €</strong> einmalig</p>
+        <a class="btn btn-primary btn-block" href="#tarif-bundle" data-scroll-to="tarif-bundle">Ansehen</a>
+      </article>
+
+      <article class="tt-wahl">
+        <p class="tt-kennzeile">Tweak App</p>
+        <h3>Du machst es selbst</h3>
+        <p>Jeder Tweak ein Schalter, jeder erklärt. Gratis starten, ohne Anmeldung.</p>
+        <p class="tt-wahl-preis"><strong>0 €</strong> Lizenz ab <span data-preis-ab>9,99 €</span></p>
+        <a class="btn btn-outline btn-block" href="#tarif-app" data-gratis-download>Gratis herunterladen</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PAKETE ============
-     Die drei Pakete stehen untereinander statt nebeneinander, jedes als
-     breiter Block: links, was drin ist, rechts Preis und Kaufknopf. Vorbild
-     war realdarkzy.de.
+     Je Paket ein eigener Abschnitt: links wenig Text und die Preiskarte,
+     rechts ein großes Bild der Sache.
 
      script.js hängt an diesen Blöcken: .plan, die ERSTE h3 darin (daraus
      wird der Name im Warenkorb), .price .amount, .plan-buy, .plan-alt,
      data-preis am Kaufknopf und die ids der App (app-preis, app-kaufen,
-     app-lizenz-zeile, laufzeit-knoepfe). Wer umbaut, lässt die stehen. -->
-<section id="preise" class="section section-alt reveal">
+     app-stufe-name, app-stufe-einheit, app-lizenz-zeile, laufzeit-knoepfe).
+     Wer umbaut, lässt die stehen. -->
+<section id="preise" class="section tt-pakete reveal">
   <div class="wrap">
 
     <div class="section-head center">
-      <h2>Preise</h2>
-      <p class="sub">Du zahlst einmal. Kein Abo, nichts verlängert sich von selbst.</p>
+      <p class="tt-kennzeile">Pakete</p>
+      <h2>Einmal zahlen. <em>Kein Abo.</em></h2>
+      <p class="sub">Nichts verlängert sich von selbst.</p>
     </div>
 
-    <div class="produkte">
+    <div class="produkte tt-welten">
 
       <!-- ===== PC-Optimierung ===== -->
-      <article class="plan produkt ton-stahl" id="tarif-opt">
-        <div class="produkt-info">
-          <!-- Die erste h3 liefert den Namen für den Warenkorb (script.js), sie
-               bleibt deshalb "PC-Optimierung" und ist nur klein gesetzt. -->
-          <h3 class="app-label">PC-Optimierung</h3>
-          <p class="app-titel">Von Hand eingestellt. <em>Mit Protokoll.</em></p>
-          <p class="plan-desc">
-            Per Remote-Sitzung gehe ich dein System durch und stelle alles passend zu deiner
-            Hardware ein. Jeder Schritt wird erklärt und aufgeschrieben, damit du am Ende genau
-            weißt, was geändert wurde.
-          </p>
-
-          <ul class="app-vorteile">
-            <li>Passend zu deiner Hardware eingestellt, nichts von der Stange</li>
-            <li>Du siehst jeden Schritt und bekommst ihn erklärt</li>
-            <li>Am Ende liegt die Liste aller Änderungen bei dir</li>
-          </ul>
-
-          <!-- Auf dem Handy eingeklappt: Sonst braucht der Kaufknopf der App
-               drei Bildschirme mehr. Ab 900 px Breite öffnet script.js es. -->
-          <details class="produkt-mehr" id="opt-mehr">
-          <summary>Was ich einstelle <span>sechs Bereiche</span></summary>
-          <ul class="produkt-punkte">
-            <li>
-              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1 3-1 3 1 3-1 3 1 3-1v12l-3 1-3-1-3 1-3-1-3 1-3-1z"/></svg></span>
-              <div>
-                <h4>Windows aufräumen</h4>
-                <p>Überflüssige Dienste, Telemetrie und vorinstallierte Apps raus. So läuft weniger im Hintergrund.</p>
-              </div>
-            </li>
-            <li>
-              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M8 1v3M16 1v3M8 20v3M16 20v3M1 8h3M1 16h3M20 8h3M20 16h3"/></svg></span>
-              <div>
-                <h4>GPU &amp; Treiber</h4>
-                <p>Saubere Treiberinstallation, richtige Profile, Shader-Cache und die Einstellungen, die wirklich etwas bringen.</p>
-              </div>
-            </li>
-            <li>
-              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
-              <div>
-                <h4>Netzwerk &amp; Latenz</h4>
-                <p>Nagle, Drosselung, DNS und Adapter richtig eingestellt, für einen stabileren Ping.</p>
-              </div>
-            </li>
-            <li>
-              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="5"/><line x1="12" y1="6" x2="12" y2="10"/></svg></span>
-              <div>
-                <h4>Maus &amp; Eingabe</h4>
-                <p>Beschleunigung raus, Polling-Rate und USB-Energieverwaltung, damit dein Aim macht, was du willst.</p>
-              </div>
-            </li>
-            <li>
-              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg></span>
-              <div>
-                <h4>Energieplan &amp; CPU</h4>
-                <p>Energieprofil, Core Parking, C-States und Timer, damit die CPU nicht mitten im Fight runtertaktet.</p>
-              </div>
-            </li>
-            <li>
-              <span class="pp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="3" y="10" width="18" height="11" rx="2"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="11" y1="15" x2="17" y2="15"/></svg></span>
-              <div>
-                <h4>Autostart &amp; Speicher</h4>
-                <p>Startprogramme und geplante Aufgaben ausmisten, damit weniger unnötig mitläuft.</p>
-              </div>
-            </li>
-          </ul>
-          </details>
-        </div>
-
-        <div class="produkt-kasse">
-          <div class="price"><span class="amount">29,99</span><span class="cur">€</span><span class="once">einmalig</span></div>
-          <p class="kasse-meta">Sitzung meist 45 bis 90 Minuten, Termin nach dem Kauf</p>
-
-          <ul class="features">
-            <li>Komplette Optimierung von Hand</li>
+      <article class="plan tt-welt" id="tarif-opt">
+        <div class="tt-welt-text">
+          <!-- Die erste h3 liefert den Namen für den Warenkorb. -->
+          <h3 class="tt-kennzeile">PC-Optimierung</h3>
+          <p class="tt-welt-titel">Von Hand eingestellt. <em>Mit Protokoll.</em></p>
+          <p class="tt-welt-satz">Ich gehe dein Windows per Remote-Sitzung durch, passend zu deiner Hardware. Du siehst jeden Schritt.</p>
+          <ul class="tt-haken">
+            <li>Passend zu deiner Hardware, nichts von der Stange</li>
             <li>Backup vor jeder Änderung</li>
-            <li>Protokoll aller Änderungen</li>
-            <li>Nachbesserung innerhalb von 14 Tagen</li>
-            <li class="off">Ohne App-Lizenz</li>
+            <li>Am Ende bekommst du das Protokoll</li>
           </ul>
 
-          <div class="plan-buy">
-            <a class="btn btn-primary btn-block" href="kaufen.html?produkt=optimierung" data-preis="optimierung">
-              Für 29,99 € kaufen
-            </a>
-            <p class="plan-alt">Zahlung über PayPal · Termin nach Absprache · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
+          <div class="tt-preiskarte">
+            <div class="price"><span class="amount">29,99</span><span class="cur">€</span><span class="once">einmalig</span></div>
+            <p class="tt-preis-meta">Meist 45 bis 90 Minuten · Termin nach dem Kauf · 14 Tage Nachbesserung</p>
+            <div class="plan-buy">
+              <a class="btn btn-primary btn-block" href="kaufen.html?produkt=optimierung" data-preis="optimierung">
+                In den Warenkorb
+              </a>
+              <p class="plan-alt">Zahlung über PayPal · Termin nach Absprache · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
+            </div>
           </div>
+
+          <details class="tt-mehr" id="opt-mehr">
+            <summary>Was ich einstelle</summary>
+            <ul class="tt-mehr-liste">
+              <li><strong>Windows aufräumen</strong> Überflüssige Dienste, Telemetrie und vorinstallierte Apps raus.</li>
+              <li><strong>GPU &amp; Treiber</strong> Saubere Treiberinstallation, richtige Profile, Shader-Cache.</li>
+              <li><strong>Netzwerk &amp; Latenz</strong> Nagle, Drosselung, DNS und Adapter richtig eingestellt.</li>
+              <li><strong>Maus &amp; Eingabe</strong> Beschleunigung raus, Polling-Rate und USB-Energieverwaltung.</li>
+              <li><strong>Energieplan &amp; CPU</strong> Energieprofil, Core Parking, C-States und Timer.</li>
+              <li><strong>Autostart &amp; Speicher</strong> Startprogramme und geplante Aufgaben ausmisten.</li>
+            </ul>
+          </details>
+          <details class="tt-mehr" id="opt-ablauf">
+            <summary>So läuft die Sitzung ab</summary>
+            <ol class="tt-mehr-liste tt-mehr-schritte">
+              <li><strong>Kaufen</strong> Im Warenkorb, bezahlt über PayPal.</li>
+              <li><strong>Melden</strong> Auf Discord, mit deiner Bestellnummer.</li>
+              <li><strong>Termin</strong> Wir finden einen Zeitpunkt, der dir passt.</li>
+              <li><strong>Remote-Sitzung</strong> Meist 45 bis 90 Minuten, jeder Schritt erklärt.</li>
+              <li><strong>Protokoll</strong> Liste aller Änderungen und das Backup.</li>
+            </ol>
+          </details>
         </div>
 
-        <!-- Derselbe Ablauf wie unter "Support" weiter unten, dort als Liste
-             für alle, die schon gekauft haben. Hier für die, die noch überlegen. -->
-        <div class="produkt-ablauf">
-          <details class="ablauf-mehr" id="opt-ablauf">
-          <summary class="zeitstrahl-kopf" id="ablauf-optimierung">So läuft die Optimierung ab</summary>
-          <ol class="zeitstrahl" aria-labelledby="ablauf-optimierung">
-            <li>
-              <span class="zs-num" aria-hidden="true">1</span>
-              <strong>Kaufen</strong>
-              <span class="zs-text">Im Warenkorb, bezahlt über PayPal</span>
-            </li>
-            <li>
-              <span class="zs-num" aria-hidden="true">2</span>
-              <strong>Melden</strong>
-              <span class="zs-text">Auf Discord, mit deiner Bestellnummer</span>
-            </li>
-            <li>
-              <span class="zs-num" aria-hidden="true">3</span>
-              <strong>Termin</strong>
-              <span class="zs-text">Wir finden einen Zeitpunkt, der dir passt</span>
-            </li>
-            <li>
-              <span class="zs-num" aria-hidden="true">4</span>
-              <strong>Remote-Sitzung</strong>
-              <span class="zs-text">Meist 45 bis 90 Minuten, jeder Schritt erklärt</span>
-            </li>
-            <li>
-              <span class="zs-num" aria-hidden="true">5</span>
-              <strong>Protokoll</strong>
-              <span class="zs-text">Liste aller Änderungen und das Backup</span>
-            </li>
-          </ol>
-          </details>
+        <!-- Gezeichnetes Beispiel einer Sitzung, keine echte Aufnahme. -->
+        <div class="tt-welt-bild" aria-hidden="true">
+          <div class="tt-fenster">
+            <div class="tt-fenster-kopf">
+              <span class="tt-punkte"><i></i><i></i><i></i></span>
+              <span>Remote-Sitzung</span>
+              <span class="tt-fenster-etikett">Beispiel</span>
+            </div>
+            <div class="tt-fenster-inhalt">
+              <ul class="tt-sitzung">
+                <li class="fertig">Wiederherstellungspunkt gesetzt</li>
+                <li class="fertig">Autostart aufgeräumt</li>
+                <li class="fertig">Hintergrunddienste angepasst</li>
+                <li class="fertig">Energieplan eingestellt</li>
+                <li class="fertig">Netzwerk eingestellt</li>
+                <li class="jetzt">Protokoll wird geschrieben</li>
+              </ul>
+              <div class="tt-protokoll">
+                <p>Protokoll</p>
+                <span></span><span></span><span class="kurz"></span><span></span><span class="kurz"></span>
+              </div>
+            </div>
+          </div>
+          <p class="tt-bild-chip"><i></i>Backup gesichert · alles rückgängig machbar</p>
         </div>
       </article>
 
       <!-- ===== Bundle =====
-           Die Empfehlung. Gold steht auf der Seite nur dafür, aber sparsam:
-           ein feiner Rand, ein Etikett, der Kaufknopf. Rechts steht die
-           Rechnung offen, Einzelpreise, Summe und Bundle-Preis, damit nichts
-           beworben, sondern nachgerechnet wird. Die Beträge setzt script.js
-           (data-preis-betrag, data-preis-laufzeit, data-preis-summe,
-           data-preis-ersparnis); die Zahlen hier sind nur die erste Anzeige.
-           script.js nimmt die erste h3 im Block als Namen für den Warenkorb. -->
-      <article class="plan plan-featured produkt produkt-bundle ton-gold" id="tarif-bundle">
-        <div class="produkt-info">
-          <div class="bundle-kopf">
-            <h3 class="app-label">Bundle</h3>
-            <!-- "Bester Wert" stimmt, solange der Bundle-Preis unter der Summe
-                 der Einzelpreise liegt (script.js zeigt die Ersparnis). -->
-            <span class="bundle-badge">Bester Wert</span>
-          </div>
-          <p class="app-titel">Optimierung plus App. <em>Zusammen günstiger.</em></p>
-          <p class="plan-desc">
-            Ich stelle deinen PC einmal persönlich ein, und danach hast du die App. Damit
-            bleibst du selbst dran, auch wenn ein Windows-Update etwas zurücksetzt.
-          </p>
-
-          <ul class="features bundle-liste">
-            <li>Alles aus der PC-Optimierung</li>
+           Die Empfehlung. Rechts steht die Rechnung offen (Einzelpreise, Summe),
+           damit nichts beworben, sondern nachgerechnet wird. Die Beträge setzt
+           script.js (data-preis-betrag, data-preis-laufzeit, data-preis-summe,
+           data-preis-ersparnis); die Zahlen hier sind nur die erste Anzeige. -->
+      <article class="plan tt-welt tt-welt-bundle" id="tarif-bundle">
+        <div class="tt-welt-text">
+          <h3 class="tt-kennzeile">Bundle <span class="tt-marke">Bester Wert</span></h3>
+          <p class="tt-welt-titel">Optimierung plus App. <em>Zusammen günstiger.</em></p>
+          <p class="tt-welt-satz">Ich stelle deinen PC einmal persönlich ein. Danach bleibst du mit der App selbst dran, auch nach Windows-Updates.</p>
+          <ul class="tt-haken">
+            <li>Komplette PC-Optimierung von Hand</li>
             <li>Tweak App mit Lifetime-Lizenz für 1 PC</li>
-            <li>Persönliche Einweisung in die App</li>
-            <li>Eigenes Profil für dein System</li>
-            <li>Bevorzugter Support</li>
-            <li>Neue Versionen kostenlos</li>
-            <li>Nachbesserung innerhalb von 14 Tagen</li>
+            <li>Persönliche Einweisung und bevorzugter Support</li>
           </ul>
+
+          <div class="tt-preiskarte">
+            <div class="price"><span class="amount">59,99</span><span class="cur">€</span><span class="once">einmalig</span></div>
+            <p class="save tt-preis-meta" data-preis-ersparnis>Du sparst 9,99 €</p>
+            <div class="plan-buy">
+              <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
+                In den Warenkorb
+              </a>
+              <p class="plan-alt">Zahlung über PayPal · Termin über Discord · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
+            </div>
+          </div>
+
+          <details class="tt-mehr">
+            <summary>Was ist drin?</summary>
+            <ul class="tt-mehr-liste">
+              <li>Alles aus der PC-Optimierung</li>
+              <li>Tweak App mit Lifetime-Lizenz für 1 PC</li>
+              <li>Persönliche Einweisung in die App</li>
+              <li>Eigenes Profil für dein System</li>
+              <li>Bevorzugter Support</li>
+              <li>Neue Versionen kostenlos</li>
+              <li>Nachbesserung innerhalb von 14 Tagen</li>
+            </ul>
+          </details>
         </div>
 
-        <div class="produkt-kasse">
-          <dl class="bundle-posten">
-            <div><dt>PC-Optimierung</dt><dd data-preis-betrag="optimierung">29,99 €</dd></div>
-            <div><dt>Tweak App, Lifetime</dt><dd data-preis-laufzeit="app-lifetime">39,99 €</dd></div>
-            <div class="summe"><dt>Einzeln zusammen</dt><dd data-preis-summe>69,98 €</dd></div>
-          </dl>
-
-          <p class="bundle-preis-label">Bundle-Preis</p>
-          <div class="price">
-            <span class="amount">59,99</span><span class="cur">€</span><span class="once">einmalig</span>
-          </div>
-          <p class="save" data-preis-ersparnis>Du sparst 9,99 €</p>
-
-          <div class="plan-buy">
-            <a class="btn btn-primary btn-block" href="kaufen.html?produkt=bundle" data-preis="bundle">
-              Für 59,99 € kaufen
-            </a>
-            <p class="plan-alt">Zahlung über PayPal · Termin über Discord · <a href="ablauf.html">So läuft die Sitzung ab</a></p>
+        <div class="tt-welt-bild">
+          <div class="tt-rechnung">
+            <div class="tt-teile" aria-hidden="true">
+              <span class="tt-teil"><strong>PC-Optimierung</strong><small>Remote-Sitzung</small></span>
+              <span class="tt-plus">+</span>
+              <span class="tt-teil"><strong>Tweak App</strong><small>Lifetime-Lizenz</small></span>
+            </div>
+            <dl class="bundle-posten">
+              <div><dt>PC-Optimierung</dt><dd data-preis-betrag="optimierung">29,99 €</dd></div>
+              <div><dt>Tweak App, Lifetime</dt><dd data-preis-laufzeit="app-lifetime">39,99 €</dd></div>
+              <div class="summe"><dt>Einzeln zusammen</dt><dd data-preis-summe>69,98 €</dd></div>
+              <div class="tt-bundle-zeile"><dt>Im Bundle</dt><dd data-preis-betrag="bundle">59,99 €</dd></div>
+            </dl>
           </div>
         </div>
       </article>
 
       <!-- ===== Tweak App =====
-           Oben auf der Seite steht seit 2.9.0 nur der Name; was die App kann,
-           zeigt dieses Paket: Funktionsliste und darunter die App-Vorschau.
            Solange appErscheint in konfig.js steht, ist die App gesperrt
-           (script.js) und #app-hinweis sagt, wann sie kommt. -->
-      <article class="plan produkt produkt-app ton-cyan" id="tarif-app">
-        <!-- Aufbau seit 27.10.2026 nach dem Vorbild realdarkzy.de: große
-             Überschrift, vier Häkchen, daneben das schräg gestellte App-Fenster.
-             Texte und Aufnahmen sind eigene. Die Zahl in der Überschrift setzt
-             tweaks.js aus tweaks.json (die 294 ist nur der Platzhalter). -->
-        <div class="produkt-info">
-          <p class="app-label">Tweak App</p>
-          <h3 class="app-titel"><span data-tweak-anzahl>294</span> Tweaks. <em>Jeder zurücknehmbar.</em></h3>
-          <p class="plan-desc">Damit tweakst du selbst, so oft du willst. Starten kannst du gratis, ohne Anmeldung.</p>
+           (script.js) und #app-hinweis sagt, wann sie kommt. Die Zahl in der
+           Überschrift setzt tweaks.js aus tweaks.json. -->
+      <article class="plan tt-welt tt-welt-app" id="tarif-app">
+        <div class="tt-welt-text">
+          <p class="tt-kennzeile">Tweak App</p>
+          <h3 class="tt-welt-titel"><span data-tweak-anzahl>294</span> Tweaks. <em>Jeder zurücknehmbar.</em></h3>
+          <p class="tt-welt-satz">Du tweakst selbst, so oft du willst. Starten kannst du gratis, ohne Anmeldung.</p>
 
           <div class="hinweis-kasten warn" id="app-hinweis" hidden>
             <p><strong>Die Tweak App erscheint <span data-app-erscheint>nächste Woche</span>.</strong>
@@ -489,63 +490,61 @@
                stehen aber schon fest. Die PC-Optimierung kannst du schon jetzt buchen.</p>
           </div>
 
-          <ul class="app-vorteile">
+          <ul class="tt-haken">
             <li>Jeder Tweak mit Erklärung und Wirkungs-Balken</li>
-            <li>Wiederherstellungspunkt und Einzel-Undo: Alles geht zurück</li>
-            <li>Lässt Tweaks aus, die Anti-Cheat stören könnten (Vanguard, EAC, BattlEye, FACEIT)</li>
+            <li>Wiederherstellungspunkt und Einzel-Undo</li>
+            <li>Lässt Tweaks aus, die Anti-Cheat stören könnten</li>
             <li>PC-Score von 0 bis 100 mit „Was fehlt bis 100?“</li>
-            <li>Ein Klick: Netzwerk Auto Tune und die besten NVIDIA-Einstellungen</li>
           </ul>
 
-          <ul class="features app-mehr">
-            <li>Erkennt zurückgesetzte Tweaks · Auto-Update</li>
-            <li id="app-lizenz-zeile">Lebenslange Lizenz für 1 PC</li>
-            <li>Deine Einstellungen bleiben auch nach Ablauf aktiv</li>
-            <li>Neue Versionen kostenlos</li>
-            <li class="off">Keine persönliche Optimierung</li>
-          </ul>
+          <details class="tt-mehr">
+            <summary>Was ist drin?</summary>
+            <ul class="tt-mehr-liste">
+              <li>Ein Klick: Netzwerk Auto Tune und die besten NVIDIA-Einstellungen</li>
+              <li>Berücksichtigt Vanguard, EAC, BattlEye und FACEIT</li>
+              <li>Erkennt zurückgesetzte Tweaks · Auto-Update</li>
+              <li id="app-lizenz-zeile">Lebenslange Lizenz für 1 PC</li>
+              <li>Deine Einstellungen bleiben auch nach Ablauf aktiv</li>
+              <li>Neue Versionen kostenlos</li>
+            </ul>
+          </details>
         </div>
 
-        <!-- App-Vorschau: echte Aufnahmen aus Tyler 4.1 auf einem echten PC
-               (15.10.2026, Fenster 1400 × 900), die von selbst weiterblättern —
-               script.js, „App-Vorschau“. Ohne JavaScript bleibt das erste Bild
-               stehen. Neue Bilder ohne persönliche Pfade aufnehmen: Der
-               Autostart-Reiter zeigt die Programme des eigenen PCs, deshalb ist
-               beim Aufräumen „Temp & Cache“ zu sehen. -->
+        <!-- Echte Aufnahmen aus der App, die von selbst weiterblättern
+             (script.js, "App-Vorschau"). Ohne JavaScript bleibt das erste Bild. -->
+        <div class="tt-welt-bild">
           <figure class="app-demo" id="app-demo">
             <div class="app-demo-bilder">
-              <img class="ist-aktiv" src="bilder/app-1-uebersicht.jpg" width="1400" height="900" loading="lazy"
+              <img class="ist-aktiv" src="bilder/app-1-uebersicht.webp" width="1400" height="900" loading="lazy" decoding="async"
                    alt="Übersicht der Tweak App: Score 95 von 100, 223 von 294 Tweaks aktiv, Live-Werte von CPU und Grafikkarte"
                    data-text="Übersicht: Score, Live-Werte und deine Absicherung auf einen Blick">
-              <img src="bilder/app-2-tweaks.jpg" width="1400" height="900" loading="lazy"
+              <img src="bilder/app-2-tweaks.webp" width="1400" height="900" loading="lazy" decoding="async"
                    alt="Tweaks unter System › Allgemein, links die Kategorien von System bis Overlays, jeder Tweak mit Schalter und Erklärung"
                    data-text="Jeder Tweak ein Schalter, sortiert von System über CPU und GPU bis Overlays">
-              <img src="bilder/app-3-presets.jpg" width="1400" height="900" loading="lazy"
+              <img src="bilder/app-3-presets.webp" width="1400" height="900" loading="lazy" decoding="async"
                    alt="Presets und Profile: das Preset Tyler Owner und eigene Profile"
                    data-text="Tyler Owner: die Einstellungen des Entwicklers mit einem Klick, dazu eigene Profile">
-              <img src="bilder/app-4-booster.jpg" width="1400" height="900" loading="lazy"
+              <img src="bilder/app-4-booster.webp" width="1400" height="900" loading="lazy" decoding="async"
                    alt="Game Booster mit geschützten Apps und Hinweisen zu laufenden Programmen"
                    data-text="Game Booster: schließt vor dem Spielen alles Unnötige">
-              <img src="bilder/app-5-aufraeumen.jpg" width="1400" height="900" loading="lazy"
+              <img src="bilder/app-5-aufraeumen.webp" width="1400" height="900" loading="lazy" decoding="async"
                    alt="Aufräumen: Temp-Dateien und Browser-Cache, auf Wunsch jede Woche automatisch"
                    data-text="Aufräumen: Programme deinstallieren, Temp-Dateien und Browser-Cache">
-              <img src="bilder/app-6-reparatur.jpg" width="1400" height="900" loading="lazy"
+              <img src="bilder/app-6-reparatur.webp" width="1400" height="900" loading="lazy" decoding="async"
                    alt="Reparatur unter Werkzeuge: prüft, was andere Optimierungsprogramme verstellt haben, und listet jede Prüfung auf"
                    data-text="Reparatur: setzt zurück, was andere Tweak-Programme verstellt haben">
-              <img src="bilder/app-7-bios.jpg" width="1400" height="900" loading="lazy"
+              <img src="bilder/app-7-bios.webp" width="1400" height="900" loading="lazy" decoding="async"
                    alt="BIOS-Tipps für das erkannte Mainboard mit Menüpfaden"
                    data-text="BIOS-Tipps: wo die Einstellungen in deinem Mainboard stehen">
             </div>
             <figcaption class="app-demo-text">Übersicht: Score, Live-Werte und deine Absicherung auf einen Blick</figcaption>
             <div class="app-demo-punkte" aria-label="Bild wählen"></div>
           </figure>
+        </div>
 
-        <!-- Stufen über die ganze Breite, Vorbild realdarkzy.de: Kostenlos,
-             1 Monat, Lifetime als Karten nebeneinander, darunter eine Zeile
-             mit der gewählten Stufe und dem Kaufknopf. Die Karten baut
-             script.js (Abschnitt 5) aus konfig.js (gratis, laufzeiten). Die
-             ids laufzeit-knoepfe, app-preis und app-kaufen braucht script.js. -->
-        <div class="stufen" id="laufzeit-wahl">
+        <!-- Stufen: Kostenlos, 1 Monat, Lifetime. Die Karten baut script.js
+             (Abschnitt 5) aus konfig.js (gratis, laufzeiten). -->
+        <div class="stufen tt-stufen" id="laufzeit-wahl">
           <p class="stufen-kopf" id="stufen-titel">Kostenlos, 1 Monat oder Lifetime?</p>
           <div class="stufen-grid" id="laufzeit-knoepfe" role="group" aria-labelledby="stufen-titel">
             <!-- wird aus konfig.js aufgebaut und aus der Datenbank bestätigt -->
@@ -612,13 +611,68 @@
   </div>
 </section>
 
+<!-- ============ WARUM TWEAKS ============
+     Was Windows ab Werk tut und was die Tweaks daran ändern. Jede Zeile ist
+     durch die verlinkte Erklärseite belegt. Bewusst ohne FPS-Zahlen und
+     ohne Aussage, was davon in der Gratis-Version steckt. -->
+<section id="warum" class="section tt-warum reveal">
+  <div class="wrap">
+    <div class="section-head center">
+      <p class="tt-kennzeile">Warum Tweaks?</p>
+      <h2>Windows ist nicht <em>fürs Gaming gebaut.</em></h2>
+      <p class="sub">Ab Werk ist Windows auf Büro, Stromsparen und Datensammeln eingestellt.</p>
+    </div>
+    <table class="tt-vergleich">
+      <thead>
+        <tr>
+          <th scope="col">Einstellung</th>
+          <th scope="col">Windows ab Werk</th>
+          <th scope="col">Mit Tyler Tweaks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><a href="tweak-mausbeschleunigung.html">Mausbeschleunigung</a></th>
+          <td data-label="Windows ab Werk">An. Schnelle Bewegungen laufen weiter als langsame.</td>
+          <td data-label="Mit Tyler Tweaks">Aus. Gleiche Handbewegung, gleiche Strecke.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="tweak-game-dvr-und-game-bar.html">Game DVR &amp; Game Bar</a></th>
+          <td data-label="Windows ab Werk">Kann beim Spielen im Hintergrund mitschneiden.</td>
+          <td data-label="Mit Tyler Tweaks">Aus, wenn du keine Clips aufnimmst.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="tweak-telemetrie.html">Telemetrie</a></th>
+          <td data-label="Windows ab Werk">Schickt Diagnosedaten an Microsoft.</td>
+          <td data-label="Mit Tyler Tweaks">Auf das Nötigste begrenzt.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="tweak-kernparken-cpmincores.html">Kernparken</a></th>
+          <td data-label="Windows ab Werk">Legt ungenutzte Prozessorkerne schlafen.</td>
+          <td data-label="Mit Tyler Tweaks">Alle Kerne bleiben wach.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="windows-11-entruempeln.html">Autostart</a></th>
+          <td data-label="Windows ab Werk">Startet Programme mit, die du nie geöffnet hast.</td>
+          <td data-label="Mit Tyler Tweaks">Du siehst alles und schaltest ab, was du nicht brauchst.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="tt-ehrlich">Was das bei dir bringt, hängt von Hardware und Ausgangszustand ab. Deshalb verspreche ich keine FPS-Zahlen.</p>
+    <div class="tt-mitte">
+      <a class="btn btn-outline" href="tweaks.html">Alle <span data-tweak-anzahl>294</span> Tweaks ansehen</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ KUNDENSTIMMEN ============
      Bleibt unsichtbar, bis in konfig.js unter kundenstimmen echte Stimmen
      stehen — mit Erlaubnis der Kunden. Keine erfundenen Bewertungen, auch
      nicht als Platzhalter. script.js baut die Karten auf. -->
-<section id="kundenstimmen" class="section section-alt reveal" hidden>
+<section id="kundenstimmen" class="section reveal" hidden>
   <div class="wrap">
     <div class="section-head center">
+      <p class="tt-kennzeile">Stimmen</p>
       <h2>Was Kunden sagen</h2>
       <p class="sub">Mit ihrer Erlaubnis hier.</p>
     </div>
@@ -626,70 +680,51 @@
   </div>
 </section>
 
-<!-- ============ KAUFABLAUF ============ -->
-<section id="ablauf" class="section reveal ton-gold">
+<!-- ============ KAUFABLAUF ============
+     Die Texte mit data-schritt schreibt script.js im paypal.me-Betrieb um. -->
+<section id="ablauf" class="section tt-ablauf reveal">
   <div class="wrap">
-
-    <div class="section-head">
-      <h2>So kaufst du</h2>
-      <p class="sub">Dauert meistens nur ein paar Minuten.</p>
+    <div class="section-head center">
+      <p class="tt-kennzeile">Ablauf</p>
+      <h2>So kaufst du. <em>In vier Schritten.</em></h2>
     </div>
 
     <div class="flow">
-
       <div class="flow-step">
         <span class="flow-num">1</span>
         <h3 data-schritt="1-titel">Anmelden</h3>
         <p data-schritt="1-text">Mit E-Mail und Passwort, neu bestätigst du nur kurz deine Adresse. Kostet nichts, dort landen später Lizenz und Download.</p>
       </div>
-
       <div class="flow-step">
         <span class="flow-num">2</span>
-        <h3>Paket wählen &amp; bezahlen</h3>
+        <h3>Bestellen</h3>
         <p data-schritt="2-text">Laufzeit aussuchen, in den Warenkorb legen und dort über PayPal zahlen, mit Rabattcode, falls du einen hast. Deine Zahlungsdaten sehe ich nie, es gilt der PayPal-Käuferschutz.</p>
       </div>
-
       <div class="flow-step">
         <span class="flow-num">3</span>
         <h3 data-schritt="3-titel">Schlüssel erscheint automatisch</h3>
         <p data-schritt="3-text">Sobald PayPal die Zahlung bestätigt, erzeugt das System deinen Lizenzschlüssel und legt ihn in dein Konto. Ohne Nachfragen, ohne Warten.</p>
       </div>
-
       <div class="flow-step">
         <span class="flow-num">4</span>
         <h3 data-schritt="4-titel">Herunterladen &amp; freischalten</h3>
         <p data-schritt="4-text">Im Kundenbereich lädst du die App herunter, kopierst deinen Schlüssel und gibst ihn beim ersten Start ein. Fertig.</p>
       </div>
-
     </div>
 
-    <p class="note">
-      Bei der PC-Optimierung entfällt der Download. Stattdessen machen wir direkt einen Termin
-      für die Remote-Sitzung aus.
-    </p>
-
-    <div style="text-align:center;margin-top:28px">
-      <a href="anmelden.html" class="btn btn-outline">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Anmelden
-      </a>
-    </div>
+    <p class="note">Bei der PC-Optimierung entfällt der Download. Stattdessen machen wir direkt einen Termin für die Remote-Sitzung aus.</p>
   </div>
 </section>
 
-<!-- ============ VERTRAUEN & SICHERHEIT ============
-     Seit 2.9.0 ohne die beiden Karten, die nur die App beschrieben haben
-     (Sicherung pro Tweak, Updates & Lizenz). Was bleibt, gilt für alle Pakete. -->
-<section id="vertrauen" class="section section-alt reveal ton-cyan">
+<!-- ============ VERTRAUEN ============ -->
+<section id="vertrauen" class="section tt-trust reveal">
   <div class="wrap">
-
-    <div class="section-head">
-      <h2>Was ich mache und was nicht</h2>
-      <p class="sub">Damit du vorher weißt, worauf du dich einlässt.</p>
+    <div class="section-head center">
+      <p class="tt-kennzeile">Ehrlich gesagt</p>
+      <h2>Was ich mache. <em>Und was nicht.</em></h2>
     </div>
 
     <div class="trust-grid">
-
       <article class="trust-card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 20h20"/></svg>
@@ -727,55 +762,26 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <h3>Wenn etwas nicht passt</h3>
-        <p>
-          Melde dich auf Discord (<strong>tyler061312</strong>). Bei der Optimierung bessere ich
-          innerhalb von 14 Tagen kostenlos nach, wenn etwas nicht läuft wie besprochen.
-        </p>
-        <p>
-          Vor jeder Änderung wird gesichert. Im Zweifel kommst du jederzeit auf den
-          vorherigen Stand zurück.
-        </p>
-        <p class="muted" style="font-size:.86rem">
-          Die Zahlung läuft über PayPal, damit du auch von dieser Seite abgesichert bist.
-        </p>
+        <p>Melde dich auf Discord (<strong>tyler061312</strong>). Bei der Optimierung bessere ich innerhalb von 14 Tagen kostenlos nach, wenn etwas nicht läuft wie besprochen.</p>
+        <p>Vor jeder Änderung wird gesichert. Im Zweifel kommst du jederzeit auf den vorherigen Stand zurück.</p>
       </article>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ Zweiter Kauf-Anstoß ============
-     Seit 30.10.2026. Kommt NACH der langen "Was ich einstelle"-Zeitleiste und
-     VOR der FAQ, damit niemand zurück nach oben scrollen muss, der schon
-     überzeugt ist. Kein Rabatt und kein Zeitdruck, nur ein höflicher Hinweis. -->
-<section class="section reveal" style="padding-top:0">
-  <div class="wrap wrap-narrow">
-    <div class="kauf-anstoss">
-      <div class="kauf-anstoss-text">
-        <h3>Fertig gelesen?</h3>
-        <p>Alle drei Pakete stehen oben in der Preis-Sektion. Die Optimierung gibt es ab 29,99 €, das Bundle ab 59,99 €.</p>
-      </div>
-      <a href="#preise" class="btn btn-primary btn-lg">Zu den Paketen</a>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============
-     Höchstens zehn Fragen, die Sorgen zuerst. Ausführliches steht auf
-     ablauf.html (Remote-Sitzung) und sicherheit.html (App). Keine Leistungs-
-     oder FPS-Versprechen. #faq-nach-kauf schreibt script.js im paypal.me-
-     Betrieb um — die id bitte stehen lassen. -->
-<section id="faq" class="section reveal">
+     Höchstens zehn Fragen, alle zugeklappt. #faq-nach-kauf schreibt
+     script.js im paypal.me-Betrieb um — die id bitte stehen lassen. -->
+<section id="faq" class="section tt-faq reveal">
   <div class="wrap wrap-narrow">
-
     <div class="section-head center">
-      <h2>Fragen</h2>
-      <p class="sub" style="margin-inline:auto">Steht deine Frage nicht dabei, schreib mir einfach auf Discord.</p>
+      <p class="tt-kennzeile">FAQ</p>
+      <h2>Bevor du <em>fragst.</em></h2>
+      <p class="sub">Steht deine Frage nicht dabei, schreib mir einfach auf Discord.</p>
     </div>
 
     <div class="faq">
-      <details open>
+      <details>
         <summary>Was ist Tyler Tweaks?</summary>
         <div class="faq-body">
           <p>Zwei Dinge: eine Windows-Software für Gaming-PCs, die <strong>Tweak App</strong>, und eine persönliche Optimierung, bei der ich deinen PC per Remote-Sitzung selbst einstelle. Du kannst beides einzeln oder zusammen im Bundle bekommen.</p>
@@ -815,14 +821,6 @@
       </details>
 
       <details>
-        <summary>Wie läuft die PC-Optimierung ab?</summary>
-        <div class="faq-body">
-          <p>Nach dem Kauf schreibst du mir auf Discord mit deiner Bestellnummer, wir machen einen Termin aus und verbinden uns per AnyDesk. Ich gehe dein System durch und erkläre dabei jeden Schritt. Das dauert je nach Zustand meist 45 bis 90 Minuten.</p>
-          <p>Schritt für Schritt: <a href="ablauf.html">So läuft die Optimierung ab</a>.</p>
-        </div>
-      </details>
-
-      <details>
         <summary>Was passiert nach dem Kauf?</summary>
         <div class="faq-body">
           <p id="faq-nach-kauf">Sobald PayPal die Zahlung bestätigt hat, legt das System die Bestellung an, erzeugt deinen Lizenzschlüssel und ordnet ihn deinem Konto zu. Beides erscheint im <a href="konto.html">Kundenbereich</a>.</p>
@@ -857,35 +855,26 @@
 </section>
 
 <!-- ============ SUPPORT ============ -->
-<section id="support" class="section section-alt reveal ton-stahl">
+<section id="support" class="section tt-hilfe reveal">
   <div class="wrap">
-
-    <div class="section-head">
-      <h2>Hilfe</h2>
-      <p class="sub">Ich beantworte jede Nachricht selbst, meistens noch am selben Tag.</p>
+    <div class="section-head center">
+      <p class="tt-kennzeile">Support</p>
+      <h2>Hilfe? <em>Ich antworte selbst.</em></h2>
+      <p class="sub">Meistens noch am selben Tag.</p>
     </div>
 
-    <div class="trust-grid">
-
+    <div class="trust-grid tt-hilfe-gitter">
       <article class="trust-card">
         <div class="icon icon-ok">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <h3>Discord</h3>
-        <p>
-          Schreib mir direkt auf Discord. Dort erreichst du mich am zuverlässigsten, und wir
-          können bei Bedarf sofort auf Sprache oder Bildschirmfreigabe wechseln.
-        </p>
-        <p class="keyline" style="margin-top:14px">
-          <strong class="discord-name">tyler061312</strong>
-        </p>
+        <p>Dort erreichst du mich am zuverlässigsten. Bei Bedarf wechseln wir sofort auf Sprache oder Bildschirmfreigabe.</p>
+        <p class="keyline" style="margin-top:14px"><strong class="discord-name">tyler061312</strong></p>
         <!-- Erscheint erst, wenn in konfig.js eine Einladung steht (tt-backend.js). -->
         <a class="btn btn-primary btn-block" data-discord-einladung hidden target="_blank" rel="noopener" style="margin-bottom:14px">
           Discord-Server beitreten
         </a>
-        <p class="muted" style="font-size:.85rem">
-          Antwort meist innerhalb weniger Stunden, spätestens am nächsten Tag.
-        </p>
       </article>
 
       <article class="trust-card">
@@ -905,19 +894,34 @@
           Die Postanschrift steht im <a href="impressum.html">Impressum</a>.
         </p>
       </article>
-
     </div>
   </div>
 </section>
 
+<!-- ============ ABSCHLUSS ============
+     Für alle, die bis hier gelesen haben: kein Zurückscrollen nötig. Kein
+     Rabatt, kein Zeitdruck. Die Preise setzt script.js. -->
+<section class="tt-abschluss reveal" aria-labelledby="abschluss-titel">
+  <div class="wrap">
+    <div class="tt-abschluss-karte">
+      <h2 id="abschluss-titel">Bereit? <em>Such dir dein Paket aus.</em></h2>
+      <p>PC-Optimierung <span data-preis-betrag="optimierung">29,99 €</span> · Bundle <span data-preis-betrag="bundle">59,99 €</span> · Tweak App gratis starten</p>
+      <div class="tt-knoepfe">
+        <a href="#wegweiser" class="btn btn-primary btn-lg" data-scroll-to="wegweiser">Zu den Paketen</a>
+        <a href="#tarif-app" class="btn btn-outline btn-lg" data-gratis-download>Gratis herunterladen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /tt-blatt -->
+
 <!-- ============ HANDY-LEISTE ============
      Nur am Handy (style.css, Abschnitt 28): Erscheint, sobald der Name oben
-     aus dem Bild ist, und verschwindet wieder bei den Paketen selbst
-     (script.js, "Handy-Leiste"). -->
-<!-- Seit 30.10.2026 steht der Startpreis in der Leiste, damit der direkte
-     Weg zum Kauf gleich sichtbar ist, nicht erst nach dem Scrollen. -->
+     aus dem Bild ist, und verschwindet bei Wegweiser und Paketen
+     (script.js, "Handy-Leiste"). Der Preis kommt aus data-preis-ab. -->
 <div class="mobil-leiste" id="mobil-leiste" hidden>
-  <a class="btn btn-primary btn-block" href="#preise"><span>Jetzt kaufen — ab 29,99 €</span></a>
+  <a class="btn btn-primary btn-block" href="#wegweiser"><span>Jetzt kaufen · ab <span data-preis-ab>9,99 €</span></span></a>
 </div>
 
 </main>
