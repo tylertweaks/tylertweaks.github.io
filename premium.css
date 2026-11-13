@@ -967,31 +967,3 @@
   .btn-primary::after { display: none; }
   .btn:hover, .tt-wahl:hover { transform: none !important; }
 }
-
-/* ---------- Blaues Licht unter der Maus (alle Seiten) ----------
-   js/mauslicht.js legt diesen Fleck an und schiebt ihn per transform mit
-   der Maus. Er liegt über allem, fängt aber keine Klicks ab ("screen" hellt
-   nur auf, dunkelt nie ab). Ohne Maus oder bei "Bewegung reduzieren" gibt
-   es ihn nicht. */
-.tt-mauslicht {
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 90;
-  width: 720px; height: 720px;
-  margin: -360px 0 0 -360px;
-  border-radius: 50%;
-  background: radial-gradient(closest-side,
-    rgba(59, 130, 246, .38),
-    rgba(56, 130, 246, .16) 40%,
-    rgba(56, 189, 248, .05) 70%,
-    rgba(59, 130, 246, 0) 100%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .35s ease;
-  will-change: transform;
-}
-.tt-mauslicht.an { opacity: 1; }
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .tt-mauslicht { display: none; }
-}
