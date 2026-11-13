@@ -247,7 +247,7 @@
   stroke: var(--tt-blau);
   stroke-linecap: round;
   stroke-dasharray: 314;
-  stroke-dashoffset: 16;
+  stroke-dashoffset: 66; /* 232 von 294 */
 }
 .tt-ring span {
   position: absolute;
@@ -255,7 +255,7 @@
   display: grid;
   place-items: center;
   font-family: var(--font-head);
-  font-size: 1.7rem;
+  font-size: 1.55rem;
   font-weight: 700;
   letter-spacing: -.03em;
 }
