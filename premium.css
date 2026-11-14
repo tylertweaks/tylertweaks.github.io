@@ -313,13 +313,14 @@
   filter: drop-shadow(0 12px 40px rgba(0, 0, 0, .55));
 }
 .tt-name span {
-  background: linear-gradient(180deg, #ffffff 15%, #d9e1f0 45%, #8e9ab5 62%, #e9eef8 80%, #b7c2d9);
+  background-color: transparent;
+  background-image: linear-gradient(180deg, #ffffff 15%, #d9e1f0 45%, #8e9ab5 62%, #e9eef8 80%, #b7c2d9);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .tt-name .tt-name-blau {
-  background: linear-gradient(180deg, #d6e7ff 10%, #7cb4ff 42%, #2563eb 66%, #93c5fd 84%, #3b82f6);
+  background-image: linear-gradient(180deg, #d6e7ff 10%, #7cb4ff 42%, #2563eb 66%, #93c5fd 84%, #3b82f6);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -568,7 +569,8 @@
   font-weight: 700;
   letter-spacing: -.045em;
   line-height: 1;
-  background: linear-gradient(100deg, #ffffff, #b9c6e0);
+  background-color: transparent;
+  background-image: linear-gradient(100deg, #ffffff, #b9c6e0);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
